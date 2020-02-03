@@ -1,5 +1,5 @@
-\documentclass[avery5371]{flashcards}
-
+\documentclass[avery5371, frame]{flashcards}
+% Option grid, frame
 \usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage{datetime}
@@ -73,7 +73,7 @@
  \geometry{
  % --- PAPER SIZE --- %
  a4paper,
- hmargin=1.8mm,
+ hmargin=0mm,
  top=0cm,
  bottom=0cm,
  }
@@ -82,51 +82,82 @@
 \cardfrontstyle[\small\slshape]{headings}
 \cardbackstyle[\small]{empty}
 % --- CARD SIZE --- %
-\def\pageheight{7.4cm}
-\def\pagewidth{9.5cm}
 \renewcommand{\cardpapermode}{portrait}
-\renewcommand{\cardrows}{4}
+\renewcommand{\cardrows}{3}
 \renewcommand{\cardcolumns}{2}
-\setlength{\cardheight}{\pageheight}
-\setlength{\cardwidth}{\pagewidth}
+\setlength{\cardheight}{8.3cm}
+\setlength{\cardwidth}{10.5cm}
 
-\setlength{\cardmargin}{2mm}
+\setlength{\cardmargin}{3mm}
 \setlength{\topoffset}{0mm}
 \setlength{\oddoffset}{0.1mm}
 \setlength{\evenoffset}{0.1mm}
+\newlength{\pageheight}
+\newlength{\pagewidth}
+\def\pageheight{297mm}
+\def\pagewidth{210mm}
  
 %%%% IMAGE DE FOND %%%%%
 \newcommand{\bgimage}[2]{
 \begin{tikzpicture}[remember picture, overlay]
-    \filigrane
+    \filigrane{#1}{#2}
+    % Graphics
+    %\node[inner sep=0pt] (russell) at (0.1,2.0){
+    %    \includegraphics[opacity=0.1, max size={\pagewidth}{\pageheight}, keepaspectratio]{.png}
+    %};
+    
 \end{tikzpicture}
 }
-\newcommand{\filigrane}{
+\newcommand{\filigrane}[2]{
     \checkoddpage
     \ifoddpage
         %\fill[opacity=0.1,pattern=custom fivepointed stars, starspread=3mm, starsize=0.75mm] (-0.49\paperwidth,-0.49\paperheight) rectangle (0.49\paperwidth,0.49\paperheight);
-        \fill[opacity=0.1,pattern=custom dots, dotsize=0.15mm, dotspread=0.8mm] (-0.495\paperwidth,-0.495\paperheight) rectangle (0.495\paperwidth,0.495\paperheight);
+        \fill[opacity=0.1,pattern=custom dots, dotsize=#1mm, dotspread=#2mm] (-0.495\paperwidth,-0.495\paperheight) rectangle (0.495\paperwidth,0.495\paperheight);
     \else
-        \fill[opacity=0.1,pattern=custom dots, dotsize=0.15mm, dotspread=0.8mm] (-0.495\paperwidth,-0.495\paperheight) rectangle (0.495\paperwidth,0.495\paperheight);
+        %\fill[opacity=0.1,pattern=custom dots, dotsize=#1mm, dotspread=#2mm] (-0.495\paperwidth,-0.495\paperheight) rectangle (0.495\paperwidth,0.495\paperheight);
     \fi
 }
 \SetBgScale{1.0}% Select scale factor of logo
 \SetBgAngle{0.0}% Select roation of logo
 \SetBgOpacity{0.5}% Select opacity
-\SetBgContents{\bgimage{1}{background_mathematiques}}% Set tikz picture
+\SetBgContents{\bgimage{0.15}{0.8}}% Set tikz picture
 %\SetBgPosition{current page.north west}% Select location
+% Cadre Rajouté à l'impression
 
+%%%% COMMANDES CUSTOMS %%%%%
+\newcommand{\cardfrontfooter}[1]{
+    \cardfrontfoot{
+        \begin{center}
+            \rule{8cm}{0.1mm}\\
+            \begin{minipage}[l]{0.6\linewidth}
+                \textit{#1}
+            \end{minipage}%
+            \hfill
+            \begin{minipage}[r]{0.3\linewidth}
+                %\strut\vspace*{-\baselineskip}\newline
+                \includegraphics[max size={0.9\textwidth}{0.5\textheight}, center, keepaspectratio]{unisciel-3x.png}
+            \end{minipage}
+        \end{center}
+    }
+}
+
+\newcommand{\cardfrontheader}[3]{
+    \begin{center}
+        #1 -- #2\\
+        #3\\
+        \rule{8cm}{0.1mm}
+    \end{center}
+}
 \begin{document}
 
-\TileWallPaper{10cm}{7cm}{background/background_biologie.png}
-%\wpXoffset and \wpYoffset
-\setlength{\wpXoffset}{1mm}
-\setlength{\wpYoffset}{-7mm}
+
 %%%%%%%%%%%%%%% TEMPLATE STANDARD %%%%%%%%%%%%%%%%
-% --- background_MATIERE --- %
-\SetBgContents{\bgimage{1}{background_biologie}}% Set tikz picture 
-\cardfrontfoot{\begin{center}\rule{8cm}{0.1mm}\\ \textit{Niveau de complexité}\end{center}}
-\begin{flashcard}[\begin{center}Matière -- L0\\ Thème\\\rule{8cm}{0.1mm}\end{center}]{
+% --- FONT SIZE --- %
+
+\cardfrontstyle[\small\slshape]{headings}
+\cardbackstyle[\small]{empty}
+\cardfrontfooter{Niveau de complexité}
+\begin{flashcard}[\cardfrontheader{Matière}{L0}{Thème}]{
 %%%%%%%%%%%%%%% ÉNONCÉ %%%%%%%%%%%%%%%%
 \justify
 \'Enoncé
@@ -149,12 +180,11 @@
 
 
 %%%%%%%%%%%%%%% TEMPLATE IMAGE ENONCE + QR CODE REPONSE %%%%%%%%%%%%%%%%
-% --- background_MATIERE --- %
-\SetBgContents{\bgimage{1}{background_biologie}}% Set tikz picture 
-\cardfrontfoot{\begin{center}\rule{8cm}{0.1mm}\\ \textit{Niveau de complexité}\end{center}}
-\begin{flashcard}[\begin{center}Matière -- L0\\ Thème\\\rule{8cm}{0.1mm}\end{center}]{
+\cardfrontfooter{Niveau de complexité}
+\begin{flashcard}[\cardfrontheader{Matière}{L0}{Thème}]{
 %%%%%%%%%%%%%%% ÉNONCÉ %%%%%%%%%%%%%%%%
 \justify
+
 \begin{minipage}[c]{0.6\linewidth}
     \'Enoncé
     \begin{enumerate}
@@ -174,16 +204,9 @@
 \vspace*{\stretch{1}}
 %%%%%%%%%%%%%%% RÉPONSE %%%%%%%%%%%%%%%%
 \justify
-Nam dui ligula, fringilla a, euismod sodales, sollicitudin vel, wisi.
-Morbi auctor lorem non justo. Nam lacus libero, pretium at, lobortis vitae, ultricies et, tellus. Donec aliquet, tortor sed accumsan
-bibendum, erat ligula aliquet magna, vitae ornare odio metus a
-mi. Morbi ac orci et nisl hendrerit mollis. Suspendisse ut massa.
-Cras nec ante. Pellentesque a nulla. Cum sociis natoque penatibus
-et magnis dis parturient montes, nascetur ridiculus mus. Aliquam
-tincidunt urna. Nulla ullamcorper vestibulum turpis. Pellentesque
-cursus luctus mauris.
+\lipsum[2]
 \newline
-\includegraphics[max size={\textwidth}{0.2\textheight}, center, keepaspectratio]{QCM/MATIERE/ID_QUESTION/qrcode.png}
+\includegraphics[max size={0.25\textwidth}{0.2\textheight}, center, keepaspectratio]{QCM/MATIERE/ID_QUESTION/qrcode.png}
 
 %%%%%%%%%%%%%%% RÉPONSE %%%%%%%%%%%%%%%%
 \vspace*{\stretch{1}}
@@ -191,10 +214,8 @@ cursus luctus mauris.
 %%%%%%%%%%%%%%% TEMPLATE IMAGE ENONCE + QR CODE REPONSE%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% --- background_MATIERE --- %
-\SetBgContents{\bgimage{1}{background_physique}}% Set tikz picture 
-\cardfrontfoot{\begin{center}\rule{8cm}{0.1mm}\\ \textit{Comprendre, appliquer}\end{center}}
-\begin{flashcard}[\begin{center}Physique -- L0\\ Lois de Newton et Kepler et leurs applications\\\rule{8cm}{0.1mm}\end{center}]{
+\cardfrontfooter{Comprendre, appliquer}
+\begin{flashcard}[\cardfrontheader{Physique}{L0}{Lois de Newton et Kepler et leurs applications}]{
 %%%%%%%%%%%%%%% ÉNONCÉ %%%%%%%%%%%%%%%%
 \justify
 Pour un point matériel en mouvement uniforme (c'est-à-dire un mouvement au cours duquel la norme de la vitesse est constante) :
@@ -220,8 +241,9 @@ Vous pouvez retrouver ces éléments dans la ressource suivante :
 \vspace*{\stretch{1}}
 \end{flashcard}
 
-\cardfrontfoot{\begin{center}\rule{8cm}{0.1mm}\\ \textit{Changement de langage}\end{center}}
-\begin{flashcard}[\begin{center}Physique -- L0\\ Optique géométrique\\\rule{8cm}{0.1mm}\end{center}]{
+\cardfrontstyle[\footnotesize\slshape]{headings}
+\cardfrontfooter{Changement de langage}
+\begin{flashcard}[\cardfrontheader{Physique}{L0}{Optique géométrique}]{
 %%%%%%%%%%%%%%% ÉNONCÉ %%%%%%%%%%%%%%%%
 \justify
 
@@ -254,9 +276,8 @@ Vous pouvez revoir le cours en suivant le lien donné par le QR Code ci-dessous.
 \vspace*{\stretch{1}}
 \end{flashcard}
 
-\SetBgContents{\bgimage{1}{background_mathematiques}}% Set tikz picture 
-\cardfrontfoot{\begin{center}\rule{8cm}{0.1mm}\\ \textit{Comprendre, appliquer}\end{center}}
-\begin{flashcard}[\begin{center}Mathématiques -- L0\\ Statistiques\\\rule{8cm}{0.1mm}\end{center}]{
+\cardfrontfooter{Comprendre, appliquer}
+\begin{flashcard}[\cardfrontheader{Mathématiques}{L0}{Statistiques}]{
 %%%%%%%%%%%%%%% ÉNONCÉ %%%%%%%%%%%%%%%%
 \justify
 
@@ -292,116 +313,61 @@ Le dessin de droite correspond à la série initiale.
 \vspace*{\stretch{1}}
 \end{flashcard}
 
-\cardfrontfoot{\begin{center}\rule{8cm}{0.1mm}\\ \textit{Comprendre, appliquer}\end{center}}
-\begin{flashcard}[\begin{center}Mathématiques -- L0\\ Statistiques\\\rule{8cm}{0.1mm}\end{center}]{
+% --- FONT SIZE --- %
+\cardfrontstyle[\small\slshape]{headings}
+\cardbackstyle[\small]{empty}
+
+\cardfrontfooter{Changement de langage}
+\begin{flashcard}[\cardfrontheader{Mathématiques}{L0}{Second degré, \'Equations/Inéquations}]{
 %%%%%%%%%%%%%%% ÉNONCÉ %%%%%%%%%%%%%%%%
 \justify
-
-\begin{minipage}[c]{0.6\linewidth}
-On considère une série statistique à 13 éléments décrite par sa courbe des fréquences cumulées croissantes.
-
-Lequel des graphiques suivant peut correspondre à son histogramme (en fréquence) ?
-    \begin{enumerate}
-        \item Dessin de gauche
-        \item Dessin du milieu
-    	\item Dessin de droite
-    \end{enumerate}
-\end{minipage}%
-\hfill
-\begin{minipage}[c]{0.3\linewidth}
-    \strut\vspace*{-\baselineskip}\newline
-    \includegraphics[max size={\textwidth}{0.5\textheight}, center, keepaspectratio]{QCM/Mathematiques/UTC-052/freq_cumulees.png}
-    \includegraphics[max size={\textwidth}{0.5\textheight}, center, keepaspectratio]{QCM/Mathematiques/UTC-052/histo_fréq.png}
-\end{minipage}
+L'équation $4x^2-4x-6 = 0$ a pour  solutions dans $\mathbb R$ :
+\begin{enumerate}
+    \item $\displaystyle\frac{1-\sqrt7}{2}$ et $\displaystyle\frac{1+\sqrt7}{2}$.
+    \item $\displaystyle\frac{-1+\sqrt7}{2}$ et $\displaystyle \frac{1+\sqrt7}{2}$.
+    \item $\displaystyle\frac{-1+\sqrt7}{2}$ et $\displaystyle\frac{1-\sqrt7}{2}$.
+\end{enumerate}
 }
 %%%%%%%%%%%%%%% ÉNONCÉ %%%%%%%%%%%%%%%%
 \vspace*{\stretch{1}}
 %%%%%%%%%%%%%%% RÉPONSE %%%%%%%%%%%%%%%%
 \justify
-D'après le graphe des fréquences cumulées, le minimum de la série est proche de 0.
+On peut vérifier que $\displaystyle\frac{1-\sqrt7}{2}$ et $\displaystyle\frac{1+\sqrt7}{2}$ sont solutions. On peut aussi calculer le discriminant du trinôme on trouve $16\times 7$ et les solutions sont $\displaystyle\frac{4-4\sqrt 7 }{8}$ et $\displaystyle\frac{4+4\sqrt 7 }{8}$.
 
-Le maximum de la série associée au dessin du milieu est supérieur à 8; ce ne peut donc être la bonne réponse.
-
-Il n'y a aucun élément entre 2 et 4 dans la série associée au diagramme de gauche; ce ne peut donc être la bonne réponse.
-
-Le dessin de droite correspond à la série initiale.
 %%%%%%%%%%%%%%% RÉPONSE %%%%%%%%%%%%%%%%
 \vspace*{\stretch{1}}
 \end{flashcard}
 
-\cardfrontfoot{\begin{center}\rule{8cm}{0.1mm}\\ \textit{Comprendre, appliquer}\end{center}}
-\begin{flashcard}[\begin{center}Mathématiques -- L0\\ Statistiques\\\rule{8cm}{0.1mm}\end{center}]{
+% --- FONT SIZE --- %
+\cardfrontstyle[\small\slshape]{headings}
+\cardbackstyle[\small]{empty}
+
+\cardfrontfooter{Changement de langage}
+\begin{flashcard}[\cardfrontheader{Mathématiques}{L0}{Algèbre linéaire}]{
 %%%%%%%%%%%%%%% ÉNONCÉ %%%%%%%%%%%%%%%%
 \justify
+Le système   $(\cal S )\; \left\{\begin{array}{ccc} x-y+z&=&0\\ 3x +4y-z&=&0\\ -10+y-z&=&0\end{array} \right.$ a pour solution :
 
-\begin{minipage}[c]{0.6\linewidth}
-On considère une série statistique à 13 éléments décrite par sa courbe des fréquences cumulées croissantes.
-
-Lequel des graphiques suivant peut correspondre à son histogramme (en fréquence) ?
-    \begin{enumerate}
-        \item Dessin de gauche
-        \item Dessin du milieu
-    	\item Dessin de droite
-    \end{enumerate}
-\end{minipage}%
-\hfill
-\begin{minipage}[c]{0.3\linewidth}
-    \strut\vspace*{-\baselineskip}\newline
-    \includegraphics[max size={\textwidth}{0.5\textheight}, center, keepaspectratio]{QCM/Mathematiques/UTC-052/freq_cumulees.png}
-    \includegraphics[max size={\textwidth}{0.5\textheight}, center, keepaspectratio]{QCM/Mathematiques/UTC-052/histo_fréq.png}
-\end{minipage}
+\begin{enumerate}
+    \item $(0; 5;-5)$.
+    \item $(10; \displaystyle\frac {100}{3}; \displaystyle\frac{-70}{3})$.
+    \item $(10; \displaystyle\frac {100}{3}; \displaystyle \frac{70}{3})$.
+\end{enumerate}
 }
 %%%%%%%%%%%%%%% ÉNONCÉ %%%%%%%%%%%%%%%%
 \vspace*{\stretch{1}}
 %%%%%%%%%%%%%%% RÉPONSE %%%%%%%%%%%%%%%%
 \justify
-D'après le graphe des fréquences cumulées, le minimum de la série est proche de 0.
+Si on réécrit le système $(\cal S )\;\left\{\begin{array}{lllc} x-y+z&=&0& \; (L_1) \\3x+4y-z&=&0& \; (L_2) \\\,\,\,\,\,\,\,\,y-z&=&10 & \; (L_3) \end{array} \right.$, qui est équivalent à $\left\{\begin{array}{llllllc} x&-y+z&=&0& \; (L_1) \\&7y-4z&=&0& \; (L_2\leftarrow L_2-3L_1) \\&y\,\,\,-z&=&10&\; (L_3) \end{array} \right.$, ou encore à $\left\{\begin{array}{llllllc} x&-y+z&=&0& \; (L_1) \\&7y-4z&=&0& \; (L_2) \\ &\;\;\,\,\,\,\,-3z&=&70 &\; (L_3\leftarrow 7L_3-L_2) \end{array} \right.$.
 
-Le maximum de la série associée au dessin du milieu est supérieur à 8; ce ne peut donc être la bonne réponse.
+On a donc $z = \displaystyle \frac{-70}{3}$, $y = 10+z=10 -  \displaystyle \frac{-70}{3}= \displaystyle \frac{100}{3}$ et $x = y-z= 10$.
 
-Il n'y a aucun élément entre 2 et 4 dans la série associée au diagramme de gauche; ce ne peut donc être la bonne réponse.
 
-Le dessin de droite correspond à la série initiale.
 %%%%%%%%%%%%%%% RÉPONSE %%%%%%%%%%%%%%%%
 \vspace*{\stretch{1}}
 \end{flashcard}
 
-\cardfrontfoot{\begin{center}\rule{8cm}{0.1mm}\\ \textit{Comprendre, appliquer}\end{center}}
-\begin{flashcard}[\begin{center}Mathématiques -- L0\\ Statistiques\\\rule{8cm}{0.1mm}\end{center}]{
-%%%%%%%%%%%%%%% ÉNONCÉ %%%%%%%%%%%%%%%%
-\justify
 
-\begin{minipage}[c]{0.6\linewidth}
-On considère une série statistique à 13 éléments décrite par sa courbe des fréquences cumulées croissantes.
-
-Lequel des graphiques suivant peut correspondre à son histogramme (en fréquence) ?
-    \begin{enumerate}
-        \item Dessin de gauche
-        \item Dessin du milieu
-    	\item Dessin de droite
-    \end{enumerate}
-\end{minipage}%
-\hfill
-\begin{minipage}[c]{0.3\linewidth}
-    \strut\vspace*{-\baselineskip}\newline
-    \includegraphics[max size={\textwidth}{0.5\textheight}, center, keepaspectratio]{QCM/Mathematiques/UTC-052/freq_cumulees.png}
-    \includegraphics[max size={\textwidth}{0.5\textheight}, center, keepaspectratio]{QCM/Mathematiques/UTC-052/histo_fréq.png}
-\end{minipage}
-}
-%%%%%%%%%%%%%%% ÉNONCÉ %%%%%%%%%%%%%%%%
-\vspace*{\stretch{1}}
-%%%%%%%%%%%%%%% RÉPONSE %%%%%%%%%%%%%%%%
-\justify
-D'après le graphe des fréquences cumulées, le minimum de la série est proche de 0.
-
-Le maximum de la série associée au dessin du milieu est supérieur à 8; ce ne peut donc être la bonne réponse.
-
-Il n'y a aucun élément entre 2 et 4 dans la série associée au diagramme de gauche; ce ne peut donc être la bonne réponse.
-
-Le dessin de droite correspond à la série initiale.
-%%%%%%%%%%%%%%% RÉPONSE %%%%%%%%%%%%%%%%
-\vspace*{\stretch{1}}
-\end{flashcard}
 \end{document}
 
 
