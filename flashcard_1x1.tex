@@ -4,7 +4,6 @@
 \usepackage{amsmath}
 \usepackage{datetime}
 \usepackage{ragged2e} % \justify
-
 \usepackage{hyperref}
 \hypersetup{
     colorlinks=false,
@@ -13,9 +12,57 @@
 \graphicspath{{./images/}}
 \usepackage[export]{adjustbox}
 \usepackage{lipsum}
-
+\usepackage{svg}
 \usepackage{tikz}
-\usepackage{background}
+\usepackage[some]{background}
+\usepackage{xcolor}
+\definecolor{unisciel-blue}{HTML}{0492bf}
+\definecolor{unisciel-pink}{HTML}{e7215a}
+\definecolor{unisciel-grey}{HTML}{676868}
+
+\usepackage{fontspec}
+\setsansfont{avgr45w.ttf}[
+    BoldFont       = avgr65w.ttf,
+    ItalicFont     = avgr46w.ttf,
+    BoldItalicFont = avgr66w.ttf,
+]
+
+
+%%%% COMMANDES CUSTOMS %%%%%
+
+\newcommand{\cardfrontfooter}[1]{
+    \cardfrontfoot{
+        \begin{center}
+            \begin{minipage}[l]{0.7\linewidth}
+                \vspace{2\baselineskip}
+                \pgfsetfillopacity{0.3}
+                \textcolor{unisciel-pink}{\textsf{#1}}
+            \end{minipage}%
+            \hfill
+            \begin{minipage}[r]{0.29\linewidth}
+                \vspace{1\baselineskip}
+                \includesvg[height=10mm]{LogoUnisciel}
+            \end{minipage}
+        \end{center}
+    }
+}
+
+\newcommand{\cardfrontheader}[3]{
+    \begin{center}
+        \begin{minipage}[l]{0.17\linewidth}
+            \includesvg[height=15.5mm]{icons/physique}
+        \end{minipage}%
+        \hspace{5mm}
+        \begin{minipage}[r]{0.75\linewidth}
+            %\vspace{-\baselineskip}
+            \textit{\textsf{#1}} -- \textsf{#2}\\
+            \rule[1.3mm]{2cm}{0.1mm}\\
+            \textsf{#3}\\
+            \textsf{#3}
+        \end{minipage}
+    \end{center}
+}
+
 
 % ------ CUSTOM PATTERN ------- %
 % defining the new dimensions
@@ -77,7 +124,7 @@
  vmargin=0.05mm,
  }
 % --- FONT SIZE --- %
-\cardfrontstyle[\small\slshape]{headings}
+\cardfrontstyle[\small\slshape]{empty}
 \cardbackstyle[\small]{empty}
 % --- CARD SIZE --- %
 \def\pageheight{7.4cm}
@@ -88,7 +135,7 @@
 \setlength{\cardheight}{\pageheight}
 \setlength{\cardwidth}{\pagewidth}
 
-\setlength{\cardmargin}{2.5mm}
+\setlength{\cardmargin}{4mm}
 \setlength{\topoffset}{0mm}
 \setlength{\oddoffset}{0.1mm}
 \setlength{\evenoffset}{0.1mm}
@@ -102,9 +149,9 @@
     \checkoddpage
     \ifoddpage
         %\fill[opacity=0.1,pattern=custom fivepointed stars, starspread=3mm, starsize=0.75mm] (-0.49\paperwidth,-0.49\paperheight) rectangle (0.49\paperwidth,0.49\paperheight);
-        \fill[opacity=0.1,pattern=custom dots, dotsize=#1mm, dotspread=#2mm] (-0.495\paperwidth,-0.495\paperheight) rectangle (0.495\paperwidth,0.495\paperheight);
+        \fill[color = black, opacity=0.1,pattern=custom dots, dotsize=#1mm, dotspread=#2mm] (-0.495\paperwidth,-0.495\paperheight) rectangle (0.495\paperwidth,0.495\paperheight);
     \else
-        %\fill[opacity=0.1,pattern=custom dots, dotsize=#1mm, dotspread=#2mm] (-0.495\paperwidth,-0.495\paperheight) rectangle (0.495\paperwidth,0.495\paperheight);
+        \fill[color = black, opacity=0.1,pattern=custom dots, dotsize=#1mm, dotspread=#2mm] (-0.495\paperwidth,-0.495\paperheight) rectangle (0.495\paperwidth,0.495\paperheight);
     \fi
 }
 \SetBgScale{1.0}% Select scale factor of logo
@@ -114,30 +161,8 @@
 %\SetBgPosition{current page.north west}% Select location
 % Cadre Rajouté à l'impression
 
-%%%% COMMANDES CUSTOMS %%%%%
-\newcommand{\cardfrontfooter}[1]{
-    \cardfrontfoot{
-        \begin{center}
-            \rule{8cm}{0.1mm}\\
-            \begin{minipage}[l]{0.6\linewidth}
-                \textit{#1}
-            \end{minipage}%
-            \hfill
-            \begin{minipage}[r]{0.3\linewidth}
-                %\strut\vspace*{-\baselineskip}\newline
-                \includegraphics[max size={0.9\textwidth}{0.5\textheight}, center, keepaspectratio]{unisciel-3x.png}
-            \end{minipage}
-        \end{center}
-    }
-}
 
-\newcommand{\cardfrontheader}[3]{
-    \begin{center}
-        #1 -- #2\\
-        #3\\
-        \rule{8cm}{0.1mm}
-    \end{center}
-}
+
 \begin{document}
 
 
