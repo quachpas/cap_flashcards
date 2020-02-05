@@ -1,22 +1,70 @@
-\documentclass[avery5371, frame]{flashcards}
-% Option grid, frame
+\documentclass[avery5371, grid]{flashcards}
+
 \usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage{datetime}
-\usepackage{ragged2e} % \justify
-
 \usepackage{hyperref}
+\usepackage{ragged2e}
 \hypersetup{
     colorlinks=false,
 }
+\usepackage{ifthen}
+\usepackage{transparent}
 \usepackage{graphicx}
 \graphicspath{{./images/}}
 \usepackage[export]{adjustbox}
 \usepackage{lipsum}
-
+\usepackage{svg}
 \usepackage{tikz}
-\usepackage{background}
-\usepackage{wallpaper}
+\usepackage[top]{background}
+\usepackage{xcolor}
+\definecolor{uniscielblue}{RGB}{4,146,191}
+\definecolor{uniscielpink}{RGB}{231,33,90}
+\definecolor{uniscielgrey}{RGB}{103,104,104}
+% Bleu : #0492bf
+% Rose : #e7215a
+% Gris : #676868
+
+\usepackage{fontspec}
+%ITC Avant Garde Gothic 
+\setsansfont{ITC Avant Garde Gothic}[
+    UprightFont={* Book},
+    ItalicFont={* Book Oblique},
+    BoldFont = {* Demi},
+    BoldItalicFont = {* Demi Oblique}
+]
+% --- FONT SIZE --- %
+\cardfrontstyle[\footnotesize\raggedright]{headings}
+\cardbackstyle[\footnotesize\raggedright]{plain}
+
+%%%% COMMANDES CUSTOMS %%%%%
+
+\newcommand{\cardfrontfooter}[6]{
+    \SetBgContents{\bgimage{0.15}{0.8}{#1}{#2}{#3}{#4}{#5}{#6}}    
+}
+
+\newcommand{\cardfrontheader}[3]{    
+    \begin{center}
+        \vspace{\baselineskip}
+        \begin{minipage}[c]{0.17\linewidth}
+            \vspace{-0.85\baselineskip}
+            \includesvg[height=1.1\linewidth]{icons/physique}
+        \end{minipage}%
+        \hspace{1.5\baselineskip}
+        \begin{minipage}[c]{0.74\linewidth}
+            \vspace{-\baselineskip}
+            \color{uniscielblue}
+            \textbf{\textsf{#1}} -- \textsf{\textbf{#2}}\\
+            \color{uniscielgrey}
+            \rule[1.1mm]{2cm}{0.3mm}\\
+            \color{uniscielpink}
+            \raggedright
+            \textsf{#3}\\
+        \end{minipage}
+    \end{center}
+}
+
+
 % ------ CUSTOM PATTERN ------- %
 % defining the new dimensions
 \newlength{\starsize}
@@ -68,98 +116,228 @@
 \contourlength{1pt}
 \usetikzlibrary{patterns,calc}
 
-
 \usepackage{geometry}
- \geometry{
  % --- PAPER SIZE --- %
- a4paper,
- hmargin=0mm,
- top=0cm,
- bottom=0cm,
+ \geometry{
+    % showframe,
+    a4paper,
+    marginparsep=0cm,
+    footskip=0cm,
+    hmargin=2mm,
+    vmargin=2mm,
  }
-
-% --- FONT SIZE --- %
-\cardfrontstyle[\small\slshape]{headings}
-\cardbackstyle[\small]{empty}
 % --- CARD SIZE --- %
-\renewcommand{\cardpapermode}{portrait}
-\renewcommand{\cardrows}{3}
-\renewcommand{\cardcolumns}{2}
-\setlength{\cardheight}{8.3cm}
-\setlength{\cardwidth}{10.5cm}
-
-\setlength{\cardmargin}{3mm}
-\setlength{\topoffset}{0mm}
-\setlength{\oddoffset}{0.1mm}
-\setlength{\evenoffset}{0.1mm}
 \newlength{\pageheight}
 \newlength{\pagewidth}
 \def\pageheight{297mm}
 \def\pagewidth{210mm}
+\renewcommand{\cardpapermode}{portrait}
+\renewcommand{\cardrows}{3}
+\renewcommand{\cardcolumns}{2}
+\setlength{\cardheight}{8cm}
+\setlength{\cardwidth}{10.2cm}
+
+\setlength{\cardmargin}{3mm}
+\setlength{\topoffset}{0mm}
+\setlength{\oddoffset}{0mm}
+\setlength{\evenoffset}{0mm}
  
+\newlength{\west}
+\newlength{\east}
+\newlength{\backeastright}
+\newlength{\backwestright}
+\newlength{\backeastleft}
+\newlength{\backwestleft}
+
+\newlength{\northleft}
+\newlength{\middleleft}
+\newlength{\southleft}
+\newlength{\northright}
+\newlength{\middleright}
+\newlength{\southright}
+
+\setlength{\west}{8.25cm}
+\setlength{\east}{2cm}
+\setlength{\backeastright}{9cm}
+\setlength{\backwestright}{1.3cm}
+\setlength{\backeastleft}{3cm}
+\setlength{\backwestleft}{6cm}
+
+\setlength{\northleft}{-7.8cm}
+\setlength{\northright}{-7.2cm}
+\setlength{\middleleft}{-15.8cm}
+\setlength{\middleright}{-15.2cm}
+\setlength{\southleft}{-23.8cm}
+\setlength{\southright}{-23.2cm}
 %%%% IMAGE DE FOND %%%%%
-\newcommand{\bgimage}[2]{
-\begin{tikzpicture}[remember picture, overlay]
-    \filigrane{#1}{#2}
-    % Graphics
-    %\node[inner sep=0pt] (russell) at (0.1,2.0){
-    %    \includegraphics[opacity=0.1, max size={\pagewidth}{\pageheight}, keepaspectratio]{.png}
-    %};
-    
-\end{tikzpicture}
+\newcommand{\bgimage}[8]{
+    \begin{tikzpicture}[remember picture, overlay]
+        \checkoddpage
+        \ifoddpage  
+            \filigrane{#1}{#2}
+            % NORTH WEST
+            \node [opacity=1] at ([xshift=-\west, yshift=\northleft]0,0) {
+                \color{uniscielpink}
+                #3
+            };
+            \node [opacity=1] at ([xshift=-\east, yshift=\northright]0,0) {
+                \includesvg[height=10mm]{LogoUnisciel}
+            };
+            % NORTH EAST
+            \node [opacity=1] at ([xshift=\east, yshift=\northleft]0,0) {
+                \color{uniscielpink}
+                #3
+            };
+            \node [opacity=1] at ([xshift=\west, yshift=\northright]0,0) {
+                \includesvg[height=10mm]{LogoUnisciel}
+            };
+            % CENTER WEST
+            \node [opacity=1] at ([xshift=-\west, yshift=\middleleft]0,0) {
+                \color{uniscielpink}
+                #3
+            };
+            \node [opacity=1] at ([xshift=-\east, yshift=\middleright]0,0) {
+                \includesvg[height=10mm]{LogoUnisciel}
+            };
+            % CENTER EAST
+            \node [opacity=1] at ([xshift=\east, yshift=\middleleft]0,0) {
+                \color{uniscielpink}
+                #3
+            };
+            \node [opacity=1] at ([xshift=\west, yshift=\middleright]0,0) {
+                \includesvg[height=10mm]{LogoUnisciel}
+            };
+            % SOUTH WEST
+            \node [opacity=1] at ([xshift=-\west, yshift=\southleft]0,0) {
+                \color{uniscielpink}
+                #3
+            };
+            \node [opacity=1] at ([xshift=-\east, yshift=\southright]0,0) {
+                \includesvg[height=10mm]{LogoUnisciel}
+            };
+            % SOUTH EAST
+            \node [opacity=1] at ([xshift=\east, yshift=\southleft]0,0) {
+                \color{uniscielpink}
+                #3
+            };
+            \node [opacity=1] at ([xshift=\west, yshift=\southright]0,0) {
+                \includesvg[height=10mm]{LogoUnisciel}
+            };
+        \else
+            \filigrane{#1}{#2}
+            % NORTH WEST
+            \node [align=left, opacity=1] at ([xshift=-\backwestleft, yshift=\northleft]0,0) {
+                \small
+                \color{uniscielpink}
+                \textsf{\textit{Vous pouvez revoir le cours en suivant le lien}}\\
+                \small
+                \color{uniscielpink}
+                \textsf{\textit{donnée par le QR Code ci-contre.}}
+            };
+            \node [opacity=1] at ([xshift=-\backwestright, yshift=\northright]0,0) {
+                \includegraphics[max size={0.05\textwidth}{0.1\textheight}, center, keepaspectratio]{qrcode.png}
+            };
+            % NORTH EAST
+            \node [align=left, opacity=1] at ([xshift=\backeastleft, yshift=\northleft]0,0) {
+                \small
+                \color{uniscielpink}
+                \textsf{\textit{Vous pouvez revoir le cours en suivant le lien}}\\
+                \small
+                \color{uniscielpink}
+                \textsf{\textit{donnée par le QR Code ci-contre.}}
+            };
+            \node [opacity=1] at ([xshift=\backeastright, yshift=\northright]0,0) {
+                \includegraphics[max size={0.05\textwidth}{0.1\textheight}, center, keepaspectratio]{qrcode.png}
+            };
+            % CENTER WEST
+            \node [align=left, opacity=1] at ([xshift=-\backeastright, yshift=\middleleft]0,0) {
+                \small
+                \color{uniscielpink}
+                \textsf{\textit{Vous pouvez revoir le cours en suivant le lien}}\\
+                \small
+                \color{uniscielpink}
+                \textsf{\textit{donnée par le QR Code ci-contre.}}\small
+                \color{uniscielpink}
+                \textsf{\textit{Vous pouvez revoir le cours en suivant le lien}}\\
+                \small
+                \color{uniscielpink}
+                \textsf{\textit{donnée par le QR Code ci-contre.}}
+            };
+            \node [opacity=1] at ([xshift=-\backwestright, yshift=\middleright]0,0) {
+                \includegraphics[max size={0.05\textwidth}{0.1\textheight}, center, keepaspectratio]{qrcode.png}
+            };
+            % CENTER EAST
+            \node [align=left, opacity=1] at ([xshift=\backwestright, yshift=\middleleft]0,0) {
+                \small
+                \color{uniscielpink}
+                \textsf{\textit{Vous pouvez revoir le cours en suivant le lien}}\\
+                \small
+                \color{uniscielpink}
+                \textsf{\textit{donnée par le QR Code ci-contre.}}
+            };
+            \node [opacity=1] at ([xshift=\backeastright, yshift=\middleright]0,0) {
+                \includegraphics[max size={0.05\textwidth}{0.1\textheight}, center, keepaspectratio]{qrcode.png}
+            };
+            % SOUTH WEST
+            \node [align=left, opacity=1] at ([xshift=-\backeastright, yshift=\southleft]0,0) {
+                \small
+                \color{uniscielpink}
+                \textsf{\textit{Vous pouvez revoir le cours en suivant le lien}}\\
+                \small
+                \color{uniscielpink}
+                \textsf{\textit{donnée par le QR Code ci-contre.}}
+            };
+            \node [opacity=1] at ([xshift=-\backwestright, yshift=\southright]0,0) {
+                \includegraphics[max size={0.05\textwidth}{0.1\textheight}, center, keepaspectratio]{qrcode.png}
+            };
+            % SOUTH EAST
+            \node [align=left, opacity=1] at ([xshift=\backwestright, yshift=\southleft]0,0) {
+                \small
+                \color{uniscielpink}
+                \textsf{\textit{Vous pouvez revoir le cours en suivant le lien}}\\
+                \small
+                \color{uniscielpink}
+                \textsf{\textit{donnée par le QR Code ci-contre.}}
+            };
+            \node [opacity=1] at ([xshift=\backeastright, yshift=\southright]0,0) {
+                \includegraphics[max size={0.05\textwidth}{0.1\textheight}, center, keepaspectratio]{qrcode.png}
+            };
+        \fi
+    \end{tikzpicture}
 }
 \newcommand{\filigrane}[2]{
-    \checkoddpage
-    \ifoddpage
-        %\fill[opacity=0.1,pattern=custom fivepointed stars, starspread=3mm, starsize=0.75mm] (-0.49\paperwidth,-0.49\paperheight) rectangle (0.49\paperwidth,0.49\paperheight);
-        \fill[opacity=0.1,pattern=custom dots, dotsize=#1mm, dotspread=#2mm] (-0.495\paperwidth,-0.495\paperheight) rectangle (0.495\paperwidth,0.495\paperheight);
-    \else
-        %\fill[opacity=0.1,pattern=custom dots, dotsize=#1mm, dotspread=#2mm] (-0.495\paperwidth,-0.495\paperheight) rectangle (0.495\paperwidth,0.495\paperheight);
-    \fi
+    %\fill[opacity=0.1,pattern=custom fivepointed stars, starspread=3mm, starsize=0.75mm] (-0.49\paperwidth,-0.49\paperheight) rectangle (0.49\paperwidth,0.49\paperheight);
+    \fill[
+        color = uniscielgrey,
+        opacity=0.1,
+        pattern=custom dots,
+        dotsize=#1mm, 
+        dotspread=#2mm
+        ](-1\paperwidth,-1\paperheight) rectangle (0.5\paperwidth,0.5\paperheight);
 }
 \SetBgScale{1.0}% Select scale factor of logo
 \SetBgAngle{0.0}% Select roation of logo
-\SetBgOpacity{1}% Select opacity
-\SetBgContents{\bgimage{0.15}{0.8}}% Set tikz picture
+%\SetBgOpacity{0.5}% Select opacity
+% \SetBgContents{\bgimage{0.15}{0.8}}% Set tikz picture
 %\SetBgPosition{current page.north west}% Select location
 % Cadre Rajouté à l'impression
 
-%%%% COMMANDES CUSTOMS %%%%%
-\newcommand{\cardfrontfooter}[1]{
-    \cardfrontfoot{
-        \begin{center}
-            \rule{8cm}{0.1mm}\\
-            \begin{minipage}[l]{0.6\linewidth}
-                \textit{#1}
-            \end{minipage}%
-            \hfill
-            \begin{minipage}[r]{0.3\linewidth}
-                %\strut\vspace*{-\baselineskip}\newline
-                \includegraphics[max size={0.9\textwidth}{0.5\textheight}, center, keepaspectratio]{unisciel-3x.png}
-            \end{minipage}
-        \end{center}
-    }
-}
 
-\newcommand{\cardfrontheader}[3]{
-    \begin{center}
-        #1 -- #2\\
-        #3\\
-        \rule{8cm}{0.1mm}
-    \end{center}
-}
+
 \begin{document}
 
 
 %%%%%%%%%%%%%%% TEMPLATE STANDARD %%%%%%%%%%%%%%%%
-% --- FONT SIZE --- %
 
-\cardfrontstyle[\small\slshape]{headings}
-\cardbackstyle[\small]{empty}
-\cardfrontfooter{Niveau de complexité}
+\cardfrontfooter
+{Niveau de complexité}
+{Niveau de complexité}
+{Comprendre, appliquer}
+{Changement de langage}
+{Comprendre, appliquer}
+{Changement de langage}
 \begin{flashcard}[\cardfrontheader{Matière}{L0}{Thème}]{
 %%%%%%%%%%%%%%% ÉNONCÉ %%%%%%%%%%%%%%%%
-\justify
 \'Enoncé
 \begin{enumerate}
     \item Réponse 1
@@ -171,7 +349,7 @@
 %%%%%%%%%%%%%%% ÉNONCÉ %%%%%%%%%%%%%%%%
 \vspace*{\stretch{1}}
 %%%%%%%%%%%%%%% RÉPONSE %%%%%%%%%%%%%%%%
-\justify
+
 \lipsum[2]
 %%%%%%%%%%%%%%% RÉPONSE %%%%%%%%%%%%%%%%
 \vspace*{\stretch{1}}
@@ -180,12 +358,12 @@
 
 
 %%%%%%%%%%%%%%% TEMPLATE IMAGE ENONCE + QR CODE REPONSE %%%%%%%%%%%%%%%%
-\cardfrontfooter{Niveau de complexité}
+
 \begin{flashcard}[\cardfrontheader{Matière}{L0}{Thème}]{
 %%%%%%%%%%%%%%% ÉNONCÉ %%%%%%%%%%%%%%%%
-\justify
 
-\begin{minipage}[c]{0.6\linewidth}
+
+\begin{minipage}[t]{0.6\linewidth}
     \'Enoncé
     \begin{enumerate}
         \item Réponse 1
@@ -195,7 +373,7 @@
     \end{enumerate}
 \end{minipage}%
 \hfill
-\begin{minipage}[c]{0.3\linewidth}
+\begin{minipage}[t]{0.3\linewidth}
     \strut\vspace*{-\baselineskip}\newline
     \includegraphics[max size={\textwidth}{0.5\textheight}, center, keepaspectratio]{QCM/MATIERE/ID_QUESTION/placeholder_150.png}
 \end{minipage}
@@ -203,10 +381,10 @@
 %%%%%%%%%%%%%%% ÉNONCÉ %%%%%%%%%%%%%%%%
 \vspace*{\stretch{1}}
 %%%%%%%%%%%%%%% RÉPONSE %%%%%%%%%%%%%%%%
-\justify
+
 \lipsum[2]
 \newline
-\includegraphics[max size={0.25\textwidth}{0.2\textheight}, center, keepaspectratio]{QCM/MATIERE/ID_QUESTION/qrcode.png}
+\includegraphics[max size={\textwidth}{0.2\textheight}, center, keepaspectratio]{QCM/MATIERE/ID_QUESTION/qrcode.png}
 
 %%%%%%%%%%%%%%% RÉPONSE %%%%%%%%%%%%%%%%
 \vspace*{\stretch{1}}
@@ -214,10 +392,9 @@
 %%%%%%%%%%%%%%% TEMPLATE IMAGE ENONCE + QR CODE REPONSE%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\cardfrontfooter{Comprendre, appliquer}
 \begin{flashcard}[\cardfrontheader{Physique}{L0}{Lois de Newton et Kepler et leurs applications}]{
 %%%%%%%%%%%%%%% ÉNONCÉ %%%%%%%%%%%%%%%%
-\justify
+
 Pour un point matériel en mouvement uniforme (c'est-à-dire un mouvement au cours duquel la norme de la vitesse est constante) :
     \begin{enumerate}
         \item le principe d'inertie est vérifié.
@@ -229,7 +406,7 @@ Pour un point matériel en mouvement uniforme (c'est-à-dire un mouvement au cou
 %%%%%%%%%%%%%%% ÉNONCÉ %%%%%%%%%%%%%%%%
 \vspace*{\stretch{1}}
 %%%%%%%%%%%%%%% RÉPONSE %%%%%%%%%%%%%%%
-\justify
+
 Principe d'inertie : Dans un référentiel galiléen, si un système assimilé à un point matériel n'est soumis à aucune force – système isolé – ou s'il est soumis à un ensemble de forces de résultante nulle ($\Sigma\vec{F}_{ext}=\vec{0}$) – système pseudo-isolé – alors il est immobile ou animé d'un mouvement rectiligne uniforme.
 
 Dans cette question, il s'agit de faire la distinction entre mouvement uniforme (la norme de la vitesse est constante, on ne sait rien de la trajectoire) et mouvement rectiligne uniforme ou mouvement circulaire uniforme (norme de la vitesse constante et trajectoire fixée).
@@ -241,13 +418,12 @@ Vous pouvez retrouver ces éléments dans la ressource suivante :
 \vspace*{\stretch{1}}
 \end{flashcard}
 
-\cardfrontstyle[\footnotesize\slshape]{headings}
-\cardfrontfooter{Changement de langage}
+
 \begin{flashcard}[\cardfrontheader{Physique}{L0}{Optique géométrique}]{
 %%%%%%%%%%%%%%% ÉNONCÉ %%%%%%%%%%%%%%%%
-\justify
 
-\begin{minipage}[c]{0.6\linewidth}
+
+\begin{minipage}[t]{0.6\linewidth}
     Étant donné le sens de propagation de la lumière choisi et indiqué sur le schéma, si $A$ est la position de l'objet, $A'$ celle de l'image et $O$ le centre de la lentille convergente, alors :
     \begin{enumerate}
         \item $\overline{OA}$ est positif et $\overline{OA'}$ est négatif.
@@ -257,7 +433,7 @@ Vous pouvez retrouver ces éléments dans la ressource suivante :
     \end{enumerate}
 \end{minipage}%
 \hfill
-\begin{minipage}[c]{0.3\linewidth}
+\begin{minipage}[t]{0.3\linewidth}
     \strut\vspace*{-\baselineskip}\newline
     \includegraphics[max size={\textwidth}{0.9\textheight}, center, keepaspectratio]{QCM/Physique/UTC-002/lentille.jpg}
 \end{minipage}
@@ -265,7 +441,7 @@ Vous pouvez retrouver ces éléments dans la ressource suivante :
 %%%%%%%%%%%%%%% ÉNONCÉ %%%%%%%%%%%%%%%%
 \vspace*{\stretch{1}}
 %%%%%%%%%%%%%%% RÉPONSE %%%%%%%%%%%%%%%%
-\justify
+
 Attention, ici on utilise les mesures algébriques, dont le signe dépend du point initial (ici $O$) et du point final ($A$ ou $A'$). Ici le sens allant de la gauche vers la droite est pris comme positif.
 
 Vous pouvez revoir le cours en suivant le lien donné par le QR Code ci-dessous.
@@ -276,12 +452,12 @@ Vous pouvez revoir le cours en suivant le lien donné par le QR Code ci-dessous.
 \vspace*{\stretch{1}}
 \end{flashcard}
 
-\cardfrontfooter{Comprendre, appliquer}
+
 \begin{flashcard}[\cardfrontheader{Mathématiques}{L0}{Statistiques}]{
 %%%%%%%%%%%%%%% ÉNONCÉ %%%%%%%%%%%%%%%%
-\justify
 
-\begin{minipage}[c]{0.6\linewidth}
+
+\begin{minipage}[t]{0.6\linewidth}
 On considère une série statistique à 13 éléments décrite par sa courbe des fréquences cumulées croissantes.
 
 Lequel des graphiques suivant peut correspondre à son histogramme (en fréquence) ?
@@ -292,7 +468,7 @@ Lequel des graphiques suivant peut correspondre à son histogramme (en fréquenc
     \end{enumerate}
 \end{minipage}%
 \hfill
-\begin{minipage}[c]{0.3\linewidth}
+\begin{minipage}[t]{0.3\linewidth}
     \strut\vspace*{-\baselineskip}\newline
     \includegraphics[max size={\textwidth}{0.5\textheight}, center, keepaspectratio]{QCM/Mathematiques/UTC-052/freq_cumulees.png}
     \includegraphics[max size={\textwidth}{0.5\textheight}, center, keepaspectratio]{QCM/Mathematiques/UTC-052/histo_fréq.png}
@@ -301,7 +477,7 @@ Lequel des graphiques suivant peut correspondre à son histogramme (en fréquenc
 %%%%%%%%%%%%%%% ÉNONCÉ %%%%%%%%%%%%%%%%
 \vspace*{\stretch{1}}
 %%%%%%%%%%%%%%% RÉPONSE %%%%%%%%%%%%%%%%
-\justify
+
 D'après le graphe des fréquences cumulées, le minimum de la série est proche de 0.
 
 Le maximum de la série associée au dessin du milieu est supérieur à 8; ce ne peut donc être la bonne réponse.
@@ -313,14 +489,10 @@ Le dessin de droite correspond à la série initiale.
 \vspace*{\stretch{1}}
 \end{flashcard}
 
-% --- FONT SIZE --- %
-\cardfrontstyle[\small\slshape]{headings}
-\cardbackstyle[\small]{empty}
 
-\cardfrontfooter{Changement de langage}
 \begin{flashcard}[\cardfrontheader{Mathématiques}{L0}{Second degré, \'Equations/Inéquations}]{
 %%%%%%%%%%%%%%% ÉNONCÉ %%%%%%%%%%%%%%%%
-\justify
+
 L'équation $4x^2-4x-6 = 0$ a pour  solutions dans $\mathbb R$ :
 \begin{enumerate}
     \item $\displaystyle\frac{1-\sqrt7}{2}$ et $\displaystyle\frac{1+\sqrt7}{2}$.
@@ -331,21 +503,17 @@ L'équation $4x^2-4x-6 = 0$ a pour  solutions dans $\mathbb R$ :
 %%%%%%%%%%%%%%% ÉNONCÉ %%%%%%%%%%%%%%%%
 \vspace*{\stretch{1}}
 %%%%%%%%%%%%%%% RÉPONSE %%%%%%%%%%%%%%%%
-\justify
+
 On peut vérifier que $\displaystyle\frac{1-\sqrt7}{2}$ et $\displaystyle\frac{1+\sqrt7}{2}$ sont solutions. On peut aussi calculer le discriminant du trinôme on trouve $16\times 7$ et les solutions sont $\displaystyle\frac{4-4\sqrt 7 }{8}$ et $\displaystyle\frac{4+4\sqrt 7 }{8}$.
 
 %%%%%%%%%%%%%%% RÉPONSE %%%%%%%%%%%%%%%%
 \vspace*{\stretch{1}}
 \end{flashcard}
 
-% --- FONT SIZE --- %
-\cardfrontstyle[\small\slshape]{headings}
-\cardbackstyle[\small]{empty}
-
-\cardfrontfooter{Changement de langage}
+\cardfrontfooter{Changement de langage}{}{}{}{}{}
 \begin{flashcard}[\cardfrontheader{Mathématiques}{L0}{Algèbre linéaire}]{
 %%%%%%%%%%%%%%% ÉNONCÉ %%%%%%%%%%%%%%%%
-\justify
+
 Le système   $(\cal S )\; \left\{\begin{array}{ccc} x-y+z&=&0\\ 3x +4y-z&=&0\\ -10+y-z&=&0\end{array} \right.$ a pour solution :
 
 \begin{enumerate}
@@ -357,7 +525,7 @@ Le système   $(\cal S )\; \left\{\begin{array}{ccc} x-y+z&=&0\\ 3x +4y-z&=&0\\ 
 %%%%%%%%%%%%%%% ÉNONCÉ %%%%%%%%%%%%%%%%
 \vspace*{\stretch{1}}
 %%%%%%%%%%%%%%% RÉPONSE %%%%%%%%%%%%%%%%
-\justify
+\footnotesize
 Si on réécrit le système $(\cal S )\;\left\{\begin{array}{lllc} x-y+z&=&0& \; (L_1) \\3x+4y-z&=&0& \; (L_2) \\\,\,\,\,\,\,\,\,y-z&=&10 & \; (L_3) \end{array} \right.$, qui est équivalent à $\left\{\begin{array}{llllllc} x&-y+z&=&0& \; (L_1) \\&7y-4z&=&0& \; (L_2\leftarrow L_2-3L_1) \\&y\,\,\,-z&=&10&\; (L_3) \end{array} \right.$, ou encore à $\left\{\begin{array}{llllllc} x&-y+z&=&0& \; (L_1) \\&7y-4z&=&0& \; (L_2) \\ &\;\;\,\,\,\,\,-3z&=&70 &\; (L_3\leftarrow 7L_3-L_2) \end{array} \right.$.
 
 On a donc $z = \displaystyle \frac{-70}{3}$, $y = 10+z=10 -  \displaystyle \frac{-70}{3}= \displaystyle \frac{100}{3}$ et $x = y-z= 10$.
