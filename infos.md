@@ -19,15 +19,17 @@ https://framagit.org/stephanep/amcexport
 Filtrage (retirer les questions qui ne "passent pas bien". Trop longue ? métadonnée "niveau de complexité" trop haut.
 - Conditions
     - Longueur de l'énoncé/réponse (présence de formule ?), ajustable jusqu'à \footnotesize (après, difficilement lisible)
+        - Implémentation : Détection d'un énoncé/une réponse "longue" (critères à définir), puis ajustement manuel de la part de l'utilisateur à l'aide du rendu https://wiki.qt.io/Handling_PDF#Calling_an_external_viewer_application 
     - Questions adaptés aux flashcards
-        - Questions de cours
+        - Questions de cours (explications au dos)
         - Exercices types solutionables de tête (dont les réponses sont vérifiables rapidement)
 - Exclure
     - Questions non adaptés aux flashcards
         - Beaucoup de calculs/rédactions
-    - Réponses à ressource (e.g. images)
+        - QCM de cours ? Utilité à débattre, sur une flashcard, il vaudrait mieux poser reformuler l'énoncé pour poser une questin de cours. 
+    - Réponses à ressource (e.g. images). Pour l'instant, le format flashcards n'est pas adapté pour contenir des ressources. L'utilisation du QR code amenant vers du contenu additionnel serait utile ! 
     - Ressources difficilement illisibles
-        - Implémentation : Tri manuel
+        - Implémentation : Tri manuel. On distingue les questions contenant des images dans l'énoncé, pour pouvoir vérifier la lisibilité manuellement. https://wiki.qt.io/Handling_PDF#Calling_an_external_viewer_application
 10h à 15h
 
 
