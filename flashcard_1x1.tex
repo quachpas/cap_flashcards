@@ -58,7 +58,7 @@
             \rule[1.1mm]{2cm}{0.3mm}\\
             \color{uniscielpink}
             \raggedright
-            \textsf{#3}\\
+            \textsf{#3}
         \end{minipage}
     \end{center}
 }
@@ -134,6 +134,10 @@
 \setlength{\cardheight}{\pageheight}
 \setlength{\cardwidth}{\pagewidth}
 
+\newlength{\enoncevspace}
+\setlength{\enoncevspace}{-2\baselineskip}
+\newlength{\reponsevspace}
+\setlength{\reponsevspace}{0cm}
 \setlength{\cardmargin}{3mm}
 \setlength{\topoffset}{0mm}
 \setlength{\oddoffset}{0mm}
@@ -144,7 +148,6 @@
         \checkoddpage
         \ifoddpage  
             \filigrane{#1}{#2}
-            % \node (0,0) {\includegraphics[width=5.0cm]{images/eiffel_tower}};
             \node [opacity=1] at ([xshift=-5.4cm, yshift=-1.7cm]current page.south) {
                 \color{uniscielpink}
                 #3
@@ -154,6 +157,9 @@
             };
         \else
             \filigrane{#1}{#2}
+            \node [opacity=1] at ([xshift=-1.2cm, yshift=1cm]current page.west) {
+                \includesvg[height=0.18\linewidth]{icons/physique}
+            };
             \node [align=left, opacity=1] at ([xshift=-3.7cm, yshift=-1.6cm]current page.south) {
                 \small
                 \color{uniscielpink}
@@ -195,6 +201,7 @@
 \cardfrontfooter{Niveau de complexité}
 \begin{flashcard}[\cardfrontheader{Matière}{L0}{Thème}]{
 %%%%%%%%%%%%%%% ÉNONCÉ %%%%%%%%%%%%%%%%
+\vspace{\enoncevspace}
 \'Enoncé
 \begin{enumerate}
     \item Réponse 1
@@ -206,7 +213,7 @@
 %%%%%%%%%%%%%%% ÉNONCÉ %%%%%%%%%%%%%%%%
 \vspace*{\stretch{1}}
 %%%%%%%%%%%%%%% RÉPONSE %%%%%%%%%%%%%%%%
-
+\vspace{\reponsevspace}
 \lipsum[2]
 %%%%%%%%%%%%%%% RÉPONSE %%%%%%%%%%%%%%%%
 \vspace*{\stretch{1}}
@@ -218,7 +225,7 @@
 \cardfrontfooter{Niveau de complexité}
 \begin{flashcard}[\cardfrontheader{Matière}{L0}{Thème}]{
 %%%%%%%%%%%%%%% ÉNONCÉ %%%%%%%%%%%%%%%%
-
+\vspace{\enoncevspace}
 
 \begin{minipage}[t]{0.6\linewidth}
     \'Enoncé
@@ -238,11 +245,8 @@
 %%%%%%%%%%%%%%% ÉNONCÉ %%%%%%%%%%%%%%%%
 \vspace*{\stretch{1}}
 %%%%%%%%%%%%%%% RÉPONSE %%%%%%%%%%%%%%%%
-
+\vspace{\reponsevspace}
 \lipsum[2]
-\newline
-\includegraphics[max size={\textwidth}{0.2\textheight}, center, keepaspectratio]{QCM/MATIERE/ID_QUESTION/qrcode.png}
-
 %%%%%%%%%%%%%%% RÉPONSE %%%%%%%%%%%%%%%%
 \vspace*{\stretch{1}}
 \end{flashcard}
@@ -252,7 +256,7 @@
 \cardfrontfooter{Comprendre, appliquer}
 \begin{flashcard}[\cardfrontheader{Physique}{L0}{Lois de Newton et Kepler et leurs applications}]{
 %%%%%%%%%%%%%%% ÉNONCÉ %%%%%%%%%%%%%%%%
-
+\vspace{\enoncevspace}
 Pour un point matériel en mouvement uniforme (c'est-à-dire un mouvement au cours duquel la norme de la vitesse est constante) :
     \begin{enumerate}
         \item le principe d'inertie est vérifié.
@@ -263,23 +267,22 @@ Pour un point matériel en mouvement uniforme (c'est-à-dire un mouvement au cou
 }
 %%%%%%%%%%%%%%% ÉNONCÉ %%%%%%%%%%%%%%%%
 \vspace*{\stretch{1}}
-%%%%%%%%%%%%%%% RÉPONSE %%%%%%%%%%%%%%%
-
+%%%%%%%%%%%%%%% RÉPONSE %%%%%%%%%%%%%%%%
+\vspace{\reponsevspace}
 Principe d'inertie : Dans un référentiel galiléen, si un système assimilé à un point matériel n'est soumis à aucune force – système isolé – ou s'il est soumis à un ensemble de forces de résultante nulle ($\Sigma\vec{F}_{ext}=\vec{0}$) – système pseudo-isolé – alors il est immobile ou animé d'un mouvement rectiligne uniforme.
 
 Dans cette question, il s'agit de faire la distinction entre mouvement uniforme (la norme de la vitesse est constante, on ne sait rien de la trajectoire) et mouvement rectiligne uniforme ou mouvement circulaire uniforme (norme de la vitesse constante et trajectoire fixée).
 
-Vous pouvez retrouver ces éléments dans la ressource suivante :
-\newline
-\includegraphics[max size={\textwidth}{0.2\textheight}, center, keepaspectratio]{QCM/Physique/UTC-001/qrcode.png}
 %%%%%%%%%%%%%%% RÉPONSE %%%%%%%%%%%%%%%%
+
 \vspace*{\stretch{1}}
+
 \end{flashcard}
 
 \cardfrontfooter{Changement de langage}
 \begin{flashcard}[\cardfrontheader{Physique}{L0}{Optique géométrique}]{
 %%%%%%%%%%%%%%% ÉNONCÉ %%%%%%%%%%%%%%%%
-
+\vspace{\enoncevspace}
 
 \begin{minipage}[t]{0.6\linewidth}
     Étant donné le sens de propagation de la lumière choisi et indiqué sur le schéma, si $A$ est la position de l'objet, $A'$ celle de l'image et $O$ le centre de la lentille convergente, alors :
@@ -289,7 +292,7 @@ Vous pouvez retrouver ces éléments dans la ressource suivante :
         \item $\overline{OA}$ et $\overline{OA'}$ sont négatifs.
     	\item $\overline{OA}$ et $\overline{OA'}$ sont positifs.
     \end{enumerate}
-\end{minipage}%
+\end{minipage}% 
 \hfill
 \begin{minipage}[t]{0.3\linewidth}
     \strut\vspace*{-\baselineskip}\newline
@@ -299,12 +302,9 @@ Vous pouvez retrouver ces éléments dans la ressource suivante :
 %%%%%%%%%%%%%%% ÉNONCÉ %%%%%%%%%%%%%%%%
 \vspace*{\stretch{1}}
 %%%%%%%%%%%%%%% RÉPONSE %%%%%%%%%%%%%%%%
-
+\vspace{\reponsevspace}
 Attention, ici on utilise les mesures algébriques, dont le signe dépend du point initial (ici $O$) et du point final ($A$ ou $A'$). Ici le sens allant de la gauche vers la droite est pris comme positif.
 
-Vous pouvez revoir le cours en suivant le lien donné par le QR Code ci-dessous.
-\newline
-\includegraphics[max size={\textwidth}{0.2\textheight}, center, keepaspectratio]{QCM/Physique/UTC-002/qrcode.png}
 
 %%%%%%%%%%%%%%% RÉPONSE %%%%%%%%%%%%%%%%
 \vspace*{\stretch{1}}
@@ -313,7 +313,7 @@ Vous pouvez revoir le cours en suivant le lien donné par le QR Code ci-dessous.
 \cardfrontfooter{Comprendre, appliquer}
 \begin{flashcard}[\cardfrontheader{Mathématiques}{L0}{Statistiques}]{
 %%%%%%%%%%%%%%% ÉNONCÉ %%%%%%%%%%%%%%%%
-
+\vspace{\enoncevspace}
 
 \begin{minipage}[t]{0.6\linewidth}
 On considère une série statistique à 13 éléments décrite par sa courbe des fréquences cumulées croissantes.
@@ -335,7 +335,7 @@ Lequel des graphiques suivant peut correspondre à son histogramme (en fréquenc
 %%%%%%%%%%%%%%% ÉNONCÉ %%%%%%%%%%%%%%%%
 \vspace*{\stretch{1}}
 %%%%%%%%%%%%%%% RÉPONSE %%%%%%%%%%%%%%%%
-
+\vspace{\reponsevspace}
 D'après le graphe des fréquences cumulées, le minimum de la série est proche de 0.
 
 Le maximum de la série associée au dessin du milieu est supérieur à 8; ce ne peut donc être la bonne réponse.
@@ -350,7 +350,7 @@ Le dessin de droite correspond à la série initiale.
 \cardfrontfooter{Changement de langage}
 \begin{flashcard}[\cardfrontheader{Mathématiques}{L0}{Second degré, \'Equations/Inéquations}]{
 %%%%%%%%%%%%%%% ÉNONCÉ %%%%%%%%%%%%%%%%
-
+\vspace{\enoncevspace}
 L'équation $4x^2-4x-6 = 0$ a pour  solutions dans $\mathbb R$ :
 \begin{enumerate}
     \item $\displaystyle\frac{1-\sqrt7}{2}$ et $\displaystyle\frac{1+\sqrt7}{2}$.
@@ -361,7 +361,7 @@ L'équation $4x^2-4x-6 = 0$ a pour  solutions dans $\mathbb R$ :
 %%%%%%%%%%%%%%% ÉNONCÉ %%%%%%%%%%%%%%%%
 \vspace*{\stretch{1}}
 %%%%%%%%%%%%%%% RÉPONSE %%%%%%%%%%%%%%%%
-
+\vspace{\reponsevspace}
 On peut vérifier que $\displaystyle\frac{1-\sqrt7}{2}$ et $\displaystyle\frac{1+\sqrt7}{2}$ sont solutions. On peut aussi calculer le discriminant du trinôme on trouve $16\times 7$ et les solutions sont $\displaystyle\frac{4-4\sqrt 7 }{8}$ et $\displaystyle\frac{4+4\sqrt 7 }{8}$.
 
 %%%%%%%%%%%%%%% RÉPONSE %%%%%%%%%%%%%%%%
@@ -371,7 +371,7 @@ On peut vérifier que $\displaystyle\frac{1-\sqrt7}{2}$ et $\displaystyle\frac{1
 \cardfrontfooter{Changement de langage}
 \begin{flashcard}[\cardfrontheader{Mathématiques}{L0}{Algèbre linéaire}]{
 %%%%%%%%%%%%%%% ÉNONCÉ %%%%%%%%%%%%%%%%
-
+\vspace{\enoncevspace}
 Le système   $(\cal S )\; \left\{\begin{array}{ccc} x-y+z&=&0\\ 3x +4y-z&=&0\\ -10+y-z&=&0\end{array} \right.$ a pour solution :
 
 \begin{enumerate}
@@ -383,6 +383,7 @@ Le système   $(\cal S )\; \left\{\begin{array}{ccc} x-y+z&=&0\\ 3x +4y-z&=&0\\ 
 %%%%%%%%%%%%%%% ÉNONCÉ %%%%%%%%%%%%%%%%
 \vspace*{\stretch{1}}
 %%%%%%%%%%%%%%% RÉPONSE %%%%%%%%%%%%%%%%
+\vspace{\reponsevspace}
 \footnotesize
 Si on réécrit le système $(\cal S )\;\left\{\begin{array}{lllc} x-y+z&=&0& \; (L_1) \\3x+4y-z&=&0& \; (L_2) \\\,\,\,\,\,\,\,\,y-z&=&10 & \; (L_3) \end{array} \right.$, qui est équivalent à $\left\{\begin{array}{llllllc} x&-y+z&=&0& \; (L_1) \\&7y-4z&=&0& \; (L_2\leftarrow L_2-3L_1) \\&y\,\,\,-z&=&10&\; (L_3) \end{array} \right.$, ou encore à $\left\{\begin{array}{llllllc} x&-y+z&=&0& \; (L_1) \\&7y-4z&=&0& \; (L_2) \\ &\;\;\,\,\,\,\,-3z&=&70 &\; (L_3\leftarrow 7L_3-L_2) \end{array} \right.$.
 
