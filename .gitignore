@@ -5,3 +5,6 @@
 *.out
 *.synctex.gz
 *.xdv
+Python/scenari2amc
+Python/src
+Python/virtual_environment
