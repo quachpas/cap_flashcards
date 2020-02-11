@@ -8,13 +8,17 @@ import re
 import argparse
 import traceback
 import xml.dom.minidom as minidom
+import time
 
 from lxml import etree
 from macpath import dirname
 
 parser = argparse.ArgumentParser(description='Conversion from Opale (XML) to LaTeX (flashcard)')
-parser.add_argument('sourcedir', help='XML files\' directory path - Path to root directory containing all XML files')
-parser.add_argument('--a4paper', action='store_const', const='a4paper', default='10x8', help='Output format - (defaults to printing 10x8cm flashcards)')
+parser.add_argument('sourcedir', help='XML files\' directory path - Path to root directory containing all XML files. N.B. : Unzipping a .scar archive is the simplest workaround to have the .quiz files locally. To refer correctly to the "&" directory, you need to add an \ before. The path becomes "*/\&"')
+parser.add_argument('--a4paper', action='store_const', const=True, default=False, help='Output format - (defaults to printing 10x8cm flashcards)')
+parser.add_argument('--verbose', action='store_const', const=True, default=False, help='Force the output - Ignores transcripts errors')
+parser.add_argument('--force', action='store_const', const=True, default=False, help='Verbose ouput - Details missing metadata errors')
+parser.add_argument('--logs', action='store_const', const=True, default=False, help='Logs output - Outputs warning and errors in output/logs.txt instead of writing in the console')
 args = parser.parse_args()
 # args.sourcedir
 
@@ -27,11 +31,14 @@ namespace = {
 
 licence_theme = {
     "integration" : "Intégration",
-    #etc.
+    "thermodyn" : "Thermodynamique",
+    "thermochim" : "Thermochimie",
 }
 
 subject = {
     "#math" : "Mathématiques",
+    "#phys" : "Physique",
+    "#chim" : "Chimie",
 }
 
 complexity_level = {
@@ -51,6 +58,8 @@ class Flashcard:
         self.question = question
         self.choices = choices
         self.answer = answer
+        self.err_flag = False
+        self.err_message = ""
 
 # print(namespace.keys())
 # print(namespace.values())
@@ -67,37 +76,124 @@ def remove_namespace(element):
     return etree.QName(element)
 
 def fetch_data(element, expression, filename):
+    data = []
+    output = ''
     for element in element.iterfind(expression, namespace):
-        return element.text
+        data.append(element.text)
+    for x in data:
+        output += x
+    return output
+
 
 def get_complexity_level(level):
-    return complexity_level.get(level, "Invalid complexity level")
+    return complexity_level.get(level, None)
 
 def get_licence_theme(theme_code):
-    return licence_theme.get(theme_code, "Invalid theme code")
+    return licence_theme.get(theme_code, None)
 
 def get_subject(subject_code):
-    return subject.get(subject_code, "Invalid subject code")
+    return subject.get(subject_code, None)
 
-def write_output(file, complexity_level, subject, education_level, licence_theme, question, choices, answer):
+def check_metadata(flashcard):
+    if (flashcard.complexity_level is None or flashcard.complexity_level == "Missing Complexity Level"
+            or flashcard.education_level is None or flashcard.education_level == "Missing Education Level"
+            or flashcard.licence_theme is None or flashcard.licence_theme == "Missing Licence Theme"
+            or flashcard.subject is None or flashcard.subject == "Missing Subject"):
+        if (args.force == False):
+            flashcard.err_flag = True
+        if (args.verbose == True):
+            flashcard.err_message = flashcard.file + ' was not written in out.tex.\n' + 'Metadata is missing :\n'
+            if (flashcard.complexity_level is None or flashcard.complexity_level == "Missing Complexity Level"):
+                flashcard.err_message += "\t- Missing Complexity Level\n"
+            if (flashcard.education_level is None or flashcard.education_level == "Missing Education Level"):
+                flashcard.err_message += "\t- Missing Education Level\n"
+            if (flashcard.licence_theme is None or flashcard.licence_theme == "Missing Licence Theme"):
+                flashcard.err_message += "\t- Missing Licence theme\n"
+            if (flashcard.subject is None or flashcard.subject == "Missing Subject"):
+                flashcard.err_message += "\t- Missing Subject\n"
+            flashcard.err_message += "\n"
+        else:
+            flashcard.err_message = flashcard.file + " : Metadata is missing."
+
+def write_logs(flashcard):
+    logs = open('output/logs.txt', 'a', encoding = 'utf-8')
+
+    logs.write(time.strftime("%m-%d-%Y @ %H:%M:%S\n", time.localtime()) + flashcard.err_message)
+
+def write_output(flashcard):
+    # Variables
     output = []
-    # Output
-    output.append('% Flashcard : ' + file + '\n')
-    output.append('\cardfrontfooter{' + complexity_level + '}\n')
-    output.append('\\begin{flashcard}[\cardfrontheader{' + subject + '}{' + education_level + '}{' + licence_theme + '}]{\n')
-    output.append('\\vspace{\enoncevspace}\n')
-    output.append(question + '\n')
-    output.append('\\begin{enumerate}\n')
-    for choice in range(len(choices)):
-        output.append('\t\\item' + choices[choice] + '\n')
-    output.append('\\end{enumerate}\n}\n')
-    output.append('\\vspace*{\\stretch{1}}\n\\vspace{\\reponsevspace}\n')
-    output.append(answer + '\n')
-    output.append('\\vspace*{\\stretch{1}}\n\\end{flashcard}')
-    
-    return output
+
+    # Check flashcard metadata
+    check_metadata(flashcard)
+    if (flashcard.err_flag == False):
+        # Output
+        output.append('% Flashcard : ' + flashcard.file + '\n')
+
+        if (args.a4paper == False):
+            output.append('\cardfrontfooter{' + flashcard.complexity_level + '}\n')
+
+        output.append('\\begin{flashcard}[\cardfrontheader{' + flashcard.subject + '}{' + flashcard.education_level + '}{' + flashcard.licence_theme + '}]{\n')
+        output.append('\\vspace{\enoncevspace}\n')
+        output.append(flashcard.question + '\n')
+        output.append('\\begin{enumerate}\n')
+        for choice in range(len(flashcard.choices)):
+            output.append('\t\\item ' + flashcard.choices[choice] + '\n')
+        output.append('\\end{enumerate}\n}\n')
+        output.append('\\vspace*{\\stretch{1}}\n\\vspace{\\reponsevspace}\n')
+        output.append(flashcard.answer + '\n')
+        output.append('\\vspace*{\\stretch{1}}\n\\end{flashcard}\n\n')
+        
+        return output
+    else:
+        return flashcard.err_message
    
+def write_out_a4paper(flashcard_list):
+    output_list = []
+    footer = ['\cardfrontfooter{']
+    question_count = 0 # Keeps track which question we're processing on a page [0-6]
+    question_number = 0 # Keeps track of which question we're processing in flashcard_list [0-len(flashcard_list)]
+    # Check metadata validity for each flashcard
+    for fc in flashcard_list:
+        check_metadata(fc)
+        if (fc.err_flag == False):
+            question_number += 1
+            question_count += 1
+            output_list.append(write_output(fc))
+            
+            # Main Loop
+            if (question_count != 6 and len(flashcard_list) - question_number >= 1):
+                # If len(flashcard_list) - question_number is between 6 and 1, then it's the last batch of flashcards
+                # The number of remaining flashcards might not be sufficient to do another loop
+                # So we treat the last flashcards separately 
+                footer.append(fc.complexity_level + '}\n{')
+            elif (len(flashcard_list) - question_number == 0 ):
+                footer.append(fc.complexity_level + '}\n')
+            else:
+                question_count = 0
+                footer.append(fc.complexity_level + '}\n')
+                output = ''.join(footer)
+                for fc in output_list:
+                    output += ''.join(fc)
+                write_outfile(output)
+                output = ''
+                output_list = []
+                footer = ['\cardfrontfooter{']
+    output = ''.join(footer)
+    for _ in range(0, 6 - question_count):
+        output += '{}\n'
+    for fc in output_list:
+        output += ''.join(fc)
+    write_outfile(output)
+
 def write_outfile(output):
+    # Open outfile 
+    outfile = open('output/out.tex', 'a', encoding = 'utf-8')
+    # Write content
+    outfile.write(''.join(output))
+    outfile.close     
+
+def write_outfile_header():
     # Directory and file output
     if os.path.isdir('output') is None:
         os.mkdir('output')
@@ -108,14 +204,20 @@ def write_outfile(output):
     outfile = open('output/out.tex', 'a', encoding = 'utf-8')
 
     # Write header
-    header = open(os.path.join(os.getcwd(),'header.tex'),'r', encoding="utf-8")
+    if (args.a4paper == True):
+        header = open(os.path.join(os.getcwd(),'header_a4paper.tex'),'r', encoding="utf-8")
+    else:
+        header = open(os.path.join(os.getcwd(),'header_default.tex'),'r', encoding="utf-8")
     for line in header.readlines():
         outfile.write(line)
     outfile.write('\n\n')
     header.close
 
-    # Write content
-    outfile.write(''.join(output))
+    outfile.close     
+
+def write_outfile_footer():
+    # Open outfile 
+    outfile = open('output/out.tex', 'a', encoding = 'utf-8')
 
     # Write footer
     outfile.write('\n\n')
@@ -124,13 +226,21 @@ def write_outfile(output):
         outfile.write(line)
     
     footer.close
-    outfile.close     
 
-def parse_files(args): # Copy all files in sourcedir/Prettified and prettify XML
+def parse_files(args, question_count, err_count): # Copy all files in sourcedir/Prettified and prettify XML
     sourcedir = os.path.realpath(args.sourcedir)
+    flashcard_list = []
+
     for file in os.listdir(sourcedir):
+        question_count += 1
         workpath = os.path.join(sourcedir, file)
-        if os.path.isfile(workpath) and file == '9493.quiz':
+        if os.path.isfile(workpath):
+            # variables 
+            theme_code = ''
+            subject = ''
+            licence_theme = ''
+            complexity_level = ''
+            education_level = ''
             # XML Tree
             tree = etree.parse(workpath, parser)
             root = tree.getroot()
@@ -138,19 +248,29 @@ def parse_files(args): # Copy all files in sourcedir/Prettified and prettify XML
             ## Type question : mcqSur, mcqMur
             if (remove_namespace(root[0]).localname == "mcqSur"):
                 question_type = "mcqSur"
-            print(question_type)
             ## Licence Theme and subject
             theme_code = fetch_data(root, ".//sp:themeLicence", file)
-            splitted = theme_code.split('-')
-            subject = get_subject(splitted[0])
-            licence_theme = get_licence_theme(splitted[1])
-            print(subject, licence_theme)
+            if (theme_code is not None):
+                splitted = theme_code.split('-')
+                if (len(splitted) > 3):
+                    for x in range(0, len(splitted)-1, 2):
+                        if (len(splitted) - 1 - x == 2):
+                            subject += get_subject(splitted[x])
+                            licence_theme += get_licence_theme(splitted[x+1])    
+                        else:
+                            subject += get_subject(splitted[x]) + '/'
+                            licence_theme += get_licence_theme(splitted[x+1]) + '/'
+                    print(file, subject, licence_theme)
+                else:
+                    subject = get_subject(splitted[0])
+                    licence_theme = get_licence_theme(splitted[1])
+            else:
+                subject = None
+                licence_theme = None
             ## Complexity level
             complexity_level = get_complexity_level(fetch_data(root, ".//sp:level", file))
-            print(complexity_level)
             ## Education level
             education_level = fetch_data(root, ".//sp:educationLevel", file)
-            print(education_level)
             ## Content
             ### Question
             question = "dummy question"
@@ -159,12 +279,57 @@ def parse_files(args): # Copy all files in sourcedir/Prettified and prettify XML
             ### Answer
             answer = "dummy dqzdzqdqz"
 
-            # Write in output
-            output = write_output(file, complexity_level, subject, education_level, licence_theme, question, choices, answer)
-            write_outfile(output)
+            # Create Flashcard instance
+            flashcard = Flashcard(file, complexity_level, subject, education_level, licence_theme, question, choices, answer)
+
+            # If --force option has been declared
+            if (args.force == True):
+                if (flashcard.complexity_level is None):
+                    flashcard.complexity_level = "Missing Complexity Level"
+                if (flashcard.education_level is None):
+                    flashcard.education_level = "Missing Education Level"
+                if (flashcard.licence_theme is None):
+                    flashcard.licence_theme = "Missing Licence Theme"
+                if (flashcard.subject is None):
+                    flashcard.subject = "Missing Subject"        
+            
+            if (args.a4paper == False):
+                # Write in output
+                output = write_output(flashcard)
+                if (flashcard.err_flag == False or args.force == True):
+                    write_outfile(output)
+                if (args.force == True):
+                    print(flashcard.err_message)
+                else:
+                    err_count += 1
+                    if (args.logs == False):
+                        print(flashcard.err_message)
+                    if (args.logs == True):
+                        write_logs(flashcard)
+            else:
+                output = ""
+                # A4 PAPER OUTPUT
+                flashcard_list.append(flashcard)
+    if (args.a4paper == True):
+        # Write flashcards
+        write_out_a4paper(flashcard_list)
+    
 
 
-parse_files(args)
+
+    # Check if --force has been declared
+    if (args.force == True):
+        print("WARNING : Option force has been declared. Transcription will process regardless of missing metadata.\n 'Missing [metadata_name]' will be added to fill in the flashcard.\n")
+    if (args.logs == True):
+        print("WARNING : Option logs has been declared. Errors messages will be written in output/logs.txt")
+    print(str(err_count) + '/' + str(question_count) + ' flashcards have missing metadata errors')
+
+question_count = 0
+err_count = 0
+write_outfile_header()
+parse_files(args, question_count, err_count)
+write_outfile_footer()
+print()
 
 # root = etree.XML("<root>dataaaa<test>data</test><test2>data</test2></root>")
 # print(root[1].tag)
