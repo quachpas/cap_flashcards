@@ -329,7 +329,6 @@ err_count = 0
 write_outfile_header()
 parse_files(args, question_count, err_count)
 write_outfile_footer()
-print()
 
 # root = etree.XML("<root>dataaaa<test>data</test><test2>data</test2></root>")
 # print(root[1].tag)
