@@ -6,10 +6,10 @@ sudo apt install libcanberra-gtk-module libcanberra-gtk3-module
 
 # 11/02 :
 - Get started on rich content
-- Fetch question/answer
+    - Fetch question/answer
 - Write header.tex and footer.tex
 - Write script log : 
     - Flashcards written/not written and reasons (list missing metadata)
-- a4paper, 
+- a4paper 
 - Compile out.tex after script
 
