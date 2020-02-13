@@ -5,11 +5,12 @@ sudo apt install libcanberra-gtk-module libcanberra-gtk3-module
 
 
 # 11/02 :
-- Get started on rich content
-    - Fetch question/answer
-- Write header.tex and footer.tex
-- Write script log : 
-    - Flashcards written/not written and reasons (list missing metadata)
-- a4paper 
+- Fetch correct answer
+- Image proof fetch_content
+- Ressource (url) => QR-Code
+- Check if content is too large for flashcard. 
+    - Number of characters ?
+    - Image or not ?
+    - If content does not fit, put it aside.
 - Compile out.tex after script
 
