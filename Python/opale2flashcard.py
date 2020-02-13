@@ -568,6 +568,22 @@ def parse_files(args, question_count, err_count, parser): # Copy all files in so
 
     return (question_count, err_count)
 
+def compile_tex(args):
+    user_choice = input("Do you want to compile the tex file ? You need to have miktex installed. [Y/N]\n").lower()
+    while True:
+        if (user_choice == 'y'):
+            os.chdir("./output")
+            os.system("latexmk -c")
+            os.system("latexmk --max-print-line=10000 -xelatex -synctex=1 -interaction=nonstopmode -file-line-error")
+            sys.exit(1)
+        elif (user_choice == 'n'):
+            os.system("nope")
+            sys.exit(1)
+        else:
+            print("Please enter valid choice. 'Y/y' or 'N/n'")
+
+
+
 def opale_to_tex(args):
     # Path validity check
     if (not os.path.isdir(args.sourcedir)):
@@ -593,7 +609,11 @@ def opale_to_tex(args):
     ## Display number of errors / number of questions
     print(str(err_count) + '/' + str(question_count) + ' flashcards have missing metadata errors')
     ## Informations
-    print("The .tex file out.tex has been created in ./output directory. Compiling it will produce a pdf file containing all flashcards in the specified source directory.")
+    print("The .tex filen  out.tex has been created in ./output directory. Compiling it will produce a pdf file containing all flashcards in the specified source directory.")
+
+    compile_tex(args)
+
+    
                 
 args = parser.parse_args()
 opale_to_tex(args)
