@@ -21,25 +21,27 @@ Script will process if a file has missing content (choice explanation, or global
 Script will abort if a file has missing metadata (Subject, theme, complexity level, education level). 
 You can bypass missing metadata errors by declaring the '--force' option. 
 """)
-parser.add_argument('sourcedir', help="""
+parser.add_argument('sourcedir', help = """
 XML files\' directory path - Path to root directory containing all XML files. 
 N.B. : Unzipping a .scar archive is the simplest workaround to have the .quiz files locally. 
 To refer correctly to the "&" directory, you need to add an \ before. The path becomes "*/\&.
 Example : python3 opale2flashcard.py faq2sciences/Physique-thermo_2020-2-11/\&
 """)
-parser.add_argument('--a4paper', action='store_const', const=True, default=False, help="""
+parser.add_argument('--a4paper', action = 'store_const', const = True, default = False, help  ="""
 Output format - (defaults to printing 10x8cm flashcards)
 """)
-parser.add_argument('--verbose', action='store_const', const=True, default=False, help="""
+parser.add_argument('--verbose', action = 'store_const', const = True, default = False, help = """
 Force the output - Ignores transcripts errors
 """)
-parser.add_argument('--force', action='store_const', const=True, default=False, help="""
+parser.add_argument('--force', action = 'store_const', const = True, default = False, help = """
 Verbose ouput - Details missing metadata errors
 """)
-parser.add_argument('--logs', action='store_const', const=True, default=False, help="""
+parser.add_argument('--logs', action = 'store_const', const = True, default = False, help = """
 Logs output - Outputs warning and errors in output/logs.txt instead of writing in the console
 """)
-
+parser.add_argument('--compile', action = 'store_const', const = True, default = False, help = """
+Compile output tex file - Automatically compiles out.tex file after the script and cleans the auxiliary files. Minimal console output.
+""")
 # XML namespaces
 namespace = {
     "sc" : "http://www.utc.fr/ics/scenari/v3/core",
@@ -52,6 +54,7 @@ licence_theme = {
     "integration" : "Intégration",
     "thermodyn" : "Thermodynamique",
     "thermochim" : "Thermochimie",
+    "optigeom" : "Optique géométrique",
 }
 
 subject = {
@@ -104,13 +107,15 @@ def remove_namespace(element):
 def literal_QName(ns, tag):
     return '{' + namespace.get(ns) + '}' + tag
 
-def fetch_data(element, expression):
+def fetch_data(file, element, expression):
     data = []
     output = ''
     for element in element.iterfind(expression, namespace):
         data.append(element.text)
     for x in data:
         output += x
+    if (output is ''):
+        return None
     return output
 
 def get_role_markup(role):
@@ -129,14 +134,14 @@ def get_subject(subject_code):
     return subject.get(subject_code, None)
 
 def check_metadata(flashcard):
-    if (flashcard.complexity_level is None or flashcard.complexity_level == "Missing Complexity Level"
-            or flashcard.education_level is None or flashcard.education_level == "Missing Education Level"
+    if (flashcard.complexity_level is None or flashcard.complexity_level == "Missing Complexity Level" 
+            or flashcard.education_level is None or flashcard.education_level == "Missing Education Level" 
             or flashcard.licence_theme is None or flashcard.licence_theme == "Missing Licence Theme"
             or flashcard.subject is None or flashcard.subject == "Missing Subject"):
         if (args.force == False):
             flashcard.err_flag = True
         if (args.verbose == True):
-            flashcard.err_message = flashcard.file + ' was not written in out.tex.\n' + 'Metadata is missing :\n'
+            flashcard.err_message = 'opale2flashcard.py: ' + flashcard.file + ' was not written in out.tex.\n' + 'Metadata is missing :\n'
             if (flashcard.complexity_level is None or flashcard.complexity_level == "Missing Complexity Level"):
                 flashcard.err_message += "\t- Missing Complexity Level\n"
             if (flashcard.education_level is None or flashcard.education_level == "Missing Education Level"):
@@ -146,31 +151,33 @@ def check_metadata(flashcard):
             if (flashcard.subject is None or flashcard.subject == "Missing Subject"):
                 flashcard.err_message += "\t- Missing Subject\n"
         else:
-            flashcard.err_message = flashcard.file + ": Metadata is missing."
+            flashcard.err_message = 'opale2flashcard.py(' + flashcard.file + "): Metadata is missing."
 
 def check_generator(file, generator, expression):
     try:
         next(generator)
         return True
     except StopIteration:
-
-        if (args.logs == False):
-            if (args.verbose == False):
-                print(file + ": Missing question content")
-            else:
-                print(file + ": Missing question content. Tried looking for " + expression)
-        else:
-            if (args.verbose == False):
-                write_logs(file + ": Missing question content")
-            else:
-                write_logs(file + ": Missing question content. Tried looking for " + expression)
+        write_logs(
+            'opale2flashcard.py(' + file + "): Missing question content. Tried looking for " + expression,
+            'opale2flashcard.py(' + file + "): Missing question content. Tried looking for " + expression
+        )
         return False
 
 
-def write_logs(err_message):
-    logs = open('output/logs.txt', 'a', encoding = 'utf-8')
-
-    logs.write(time.strftime("%m-%d-%Y @ %H:%M:%S - ", time.localtime()) + err_message + '\n')
+def write_logs(err_message, verb_err_message):
+    if (args.logs == False):
+        if (args.verbose == True):
+            print(verb_err_message)
+        else:
+            print(err_message)
+    else:
+        logs = open('output/logs.txt', 'a', encoding = 'utf-8')
+        if (args.verbose == True):
+            logs.write(time.strftime('opale2flashcard.py:' + "%m-%d-%Y @ %H:%M:%S - ", time.localtime()) + verb_err_message + '\n')
+        else:
+            logs.write(time.strftime('opale2flashcard.py:' + "%m-%d-%Y @ %H:%M:%S - ", time.localtime()) + err_message + '\n')
+        
 
 def write_output(flashcard):
     # Variables
@@ -234,10 +241,10 @@ def write_out_a4paper(flashcard_list):
         # fc has a missing metadata error
         else:
             error_count += 1
-            if (args.logs == False):
-                print(fc.err_message)
-            else:
-                write_logs(fc.err_message)
+            write_logs(
+                fc.err_message,
+                fc.err_message
+            )
 
     # Writing "\cardfrontfooter{.}{.}{.}{.}{.}{.}"
     output = ''.join(footer)
@@ -277,7 +284,10 @@ def write_outfile_header():
     else:
         header = open(os.path.join(os.getcwd(),'header_default.tex'),'r', encoding="utf-8")
     for line in header.readlines():
-        outfile.write(line)
+        if ('% Graphicspath' not in line):
+            outfile.write(line)
+        else:
+            outfile.write('\graphicspath{{' + os.path.realpath(os.getcwd()) + '/output/images/}}\n')
     outfile.write('\n\n')
     header.close
 
@@ -309,9 +319,12 @@ def fetch_content(file, root):
     if (remove_namespace(root[0]).localname == "mcqMur"):
         question_type = "mcqMur"
     ## Licence Theme and subject
-    theme_code = fetch_data(root, ".//sp:themeLicence")
+    theme_code = fetch_data(file, root, ".//sp:themeLicence")
     if (theme_code is not ''):
         splitted = theme_code.split('-')
+        # Case where there are multiple licenceTheme
+        # We just concatenate them with the delimiter '/' for subjects and '\n' for themes
+        # The probability that there is more than two themes is low.
         if (len(splitted) > 3):
             for x in range(0, len(splitted)-1, 2):
                 if (len(splitted) - 1 - x == 2):
@@ -331,9 +344,10 @@ def fetch_content(file, root):
                         subject += get_subject(splitted[x]) + '/'
                     
                     if (licence_theme is None):
-                        licence_theme = get_licence_theme(splitted[x+1]) + '/'
+                        licence_theme = get_licence_theme(splitted[x+1]) + '\\\\'
                     else:
-                        licence_theme += get_licence_theme(splitted[x+1]) + '/'
+                        licence_theme += get_licence_theme(splitted[x+1]) + '\\\\'
+        # Single licenceTheme
         else:
             subject = get_subject(splitted[0])
             licence_theme = get_licence_theme(splitted[1])
@@ -341,9 +355,9 @@ def fetch_content(file, root):
         subject = None
         licence_theme = None
     ## Complexity level
-    complexity_level = get_complexity_level(fetch_data(root, ".//sp:level"))
+    complexity_level = get_complexity_level(fetch_data(file, root, ".//sp:level"))
     ## Education level
-    education_level = fetch_data(root, ".//sp:educationLevel")
+    education_level = fetch_data(file, root, ".//sp:educationLevel")
     ## Content
     ### Question
 
@@ -361,7 +375,12 @@ def output_cleanup(output):
     translator = str.maketrans('\n\t\r', '   ')
     if (type(output) == list):
         for index in range(len(output)):
-            output[index] = output[index].translate(translator)
+            if ('\n' or '\t' or '\r' in output[index]):
+                output[index] = output[index].translate(translator)
+            if (type(output[index]) == str):
+                output[index] = output[index].translate(translator)
+            elif (type(output[index]) == list):
+                output[index] = ''.join(output_cleanup(output[index]))
     if (type(output) == str):
         output = output.translate(translator)
     return output
@@ -403,10 +422,7 @@ def markup_content(element):
                         url = texfilter(url.text)
                         
                     text = element.xpath('text()')
-                    if (len(text) == 1):
-                        text = output_cleanup(text[0])
-                    else:
-                        sys.exit("Weird stuff happened.")
+                    text = output_cleanup(text[0])
 
                 # element.text = texfilter(element.text)
                     
@@ -461,19 +477,70 @@ def fetch_choices(file, root):
 
 def fetch_answer(file, root, question_type):
     output = ''
+    solution_list = []
     number_list = []
     number_counter = 0
     choice_number = 0
 
-    # Find Solution
-    # if (question_type == 'mcqMur'):
-    #     print("mcqMur")
 
+    # Find Solution
+    if (question_type == 'mcqMur'):
+        # \begin{tikzpicture}[remember picture, overlay]
+        #     \node [align=left, opacity=1] at ([xshift=-1.75cm, yshift=2.5cm]current page.center) {
+        #                 \color{uniscielgrey}
+        #                 \textsf{\textit{Réponses}}
+        #             };
+        #     \node [align=left, opacity=1] at ([xshift=1.75cm, yshift=2.5cm]current page.center) {
+        #                 \color{uniscielgrey}
+        #                 $1:\boxtimes\qquad2:\square\qquad3:\square\qquad4:\square\qquad$\\
+        #                 \color{uniscielgrey}
+        #                 $5:\square\qquad6:\square\qquad$
+        #             };
+        # \end{tikzpicture}
+        for choice in root.findall(".//sc:choice", namespace):
+            choice_number += 1
+            if (choice.attrib.values()[0] == 'checked'):
+                solution_list.append(choice_number)
+        choice_number += 1
+        output += """
+\\begin{tikzpicture}[remember picture, overlay]
+\\node [align=left, opacity=1] at ([xshift=-1.75cm, yshift=2.5cm]current page.center) {
+\color{uniscielgrey}
+\\textsf{\\textit{Réponses}}
+};
+\\node [align=left, opacity=1] at ([xshift=1.75cm, yshift=2.5cm]current page.center) {
+"""        
+        for choice in range(1, choice_number):
+            if (choice % 4 == 1):
+                output += "\color{uniscielgrey}\n$"
+            
+            output += str(choice) + ':'
+
+            if (choice in solution_list):
+                output += '\\boxtimes'
+            else:
+                output += '\\square'
+            if (choice % 4 == 0):
+                output += "$"
+                if (choice_number -1 > 4):
+                    output += "\\\\\n"
+            else:
+                output += "\\qquad"
+            
+        if ( (choice_number - 1) % 4 != 0):
+            output += '$'        
+        output += """
+};
+\end{tikzpicture}
+"""
+        choice_number = 0
     # if (question_type == 'mcqSur'):
     #     print("mcqSur")
 
+
     # Explanations for each choices
-    if (check_generator(file, root.iterfind(".//sc:choice//sc:choiceExplanation//op:txt", namespace), './/sc:choice//sc:choiceExplanation//op:txt') == True):
+    choice_explanation_bool = check_generator(file, root.iterfind(".//sc:choice//sc:choiceExplanation//op:txt", namespace), './/sc:choice//sc:choiceExplanation//op:txt')
+    if (choice_explanation_bool == True):
         output += '\\begin{enumerate}\n'
         # Associate each explanation to a choice number
         for choice in root.iterfind(".//sc:choice//", namespace):
@@ -497,7 +564,7 @@ def fetch_answer(file, root, question_type):
         output += '\\end{enumerate}\n'
 
     # Global Explanation
-    check_generator(file , root.iterfind(".//sc:globalExplanation//op:txt", namespace), './/sc:globalExplanation//op:txt')
+    global_explanation_bool = check_generator(file , root.iterfind(".//sc:globalExplanation//op:txt", namespace), './/sc:globalExplanation//op:txt')
     for element in root.iterfind(".//sc:globalExplanation//op:txt", namespace):
         for child in element.getchildren():
             if child is not None:
@@ -510,7 +577,16 @@ def fetch_answer(file, root, question_type):
                         output += markup_content(child)
             output += '\n\n'
 
-    
+    if (choice_explanation_bool and global_explanation_bool):
+        write_logs(
+            'opale2flashcard.py(' + file + '): WARNING ! There might be an issue with the back content.',
+            'opale2flashcard.py(' + file + '): WARNING ! Both choice explanations and global explanation exist, the content on the back of the flashcard might overflow. Please check manually the corresponding flashcard.'
+        )
+    if (not choice_explanation_bool and not global_explanation_bool):
+        write_logs(
+            'opale2flashcard.py(' + file + '): WARNING ! This flashcard has an issue. There is nothing on the back.',
+            'opale2flashcard.py(' + file + '): WARNING ! Both choice explanations and global explanations are empty.'
+        )
     
     return output
 
@@ -552,10 +628,10 @@ def parse_files(args, question_count, err_count, parser): # Copy all files in so
                             print(flashcard.err_message)
                 else:
                     err_count += 1
-                    if (args.logs == False):
-                        print(flashcard.err_message)
-                    else:
-                        write_logs(flashcard.err_message)
+                    write_logs(
+                        flashcard.err_message,
+                        flashcard.err_message
+                    )
             ## a4paper output format
             else:
                 output = ""
@@ -569,19 +645,10 @@ def parse_files(args, question_count, err_count, parser): # Copy all files in so
     return (question_count, err_count)
 
 def compile_tex(args):
-    user_choice = input("Do you want to compile the tex file ? You need to have miktex installed. [Y/N]\n").lower()
-    while True:
-        if (user_choice == 'y'):
-            os.chdir("./output")
-            os.system("latexmk -c")
-            os.system("latexmk --max-print-line=10000 -xelatex -synctex=1 -interaction=nonstopmode -file-line-error")
-            sys.exit(1)
-        elif (user_choice == 'n'):
-            os.system("nope")
-            sys.exit(1)
-        else:
-            print("Please enter valid choice. 'Y/y' or 'N/n'")
-
+    if (args.compile == True):
+        os.chdir("./output")
+        os.system("latexmk --max-print-line=1000 --xelatex --synctex=1 --interaction=batchmode --file-line-error out.tex")
+        # os.system("latexmk -c")
 
 
 def opale_to_tex(args):
@@ -599,7 +666,10 @@ def opale_to_tex(args):
     (question_count, err_count) = parse_files(args, question_count, err_count, parser)
     write_outfile_footer()
 
-    # Termination messages
+    # Compile out.tex is option has been declared
+    compile_tex(args)
+
+    # Termination message
     ## Check if --force has been declared
     if (args.force == True):
         print("WARNING : Option force has been declared. Transcription will process regardless of missing metadata.\n 'Missing [metadata_name]' will be added to fill in the flashcard.\n Error count is false.\n")
@@ -607,11 +677,11 @@ def opale_to_tex(args):
     if (args.logs == True):
         print("WARNING : Option logs has been declared. Errors messages will be written in output/logs.txt")
     ## Display number of errors / number of questions
-    print(str(err_count) + '/' + str(question_count) + ' flashcards have missing metadata errors')
+    print('opale2flashcard.py: ' +str(err_count) + '/' + str(question_count) + ' flashcards have missing metadata errors')
     ## Informations
-    print("The .tex filen  out.tex has been created in ./output directory. Compiling it will produce a pdf file containing all flashcards in the specified source directory.")
+    print("opale2flashcard.py: The .tex filen  out.tex has been created in ./output directory. Compiling it will produce a pdf file containing all flashcards in the specified source directory.")
 
-    compile_tex(args)
+    
 
     
                 

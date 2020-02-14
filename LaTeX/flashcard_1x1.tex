@@ -23,7 +23,6 @@
 % Bleu : #0492bf
 % Rose : #e7215a
 % Gris : #676868
-
 \usepackage{fontspec}
 %ITC Avant Garde Gothic 
 \setsansfont{ITC Avant Garde Gothic}[
@@ -62,7 +61,6 @@
         \end{minipage}
     \end{center}
 }
-
 
 % ------ CUSTOM PATTERN ------- %
 % defining the new dimensions
@@ -204,16 +202,25 @@
 \vspace{\enoncevspace}
 \'Enoncé
 \begin{enumerate}
-    \item Réponse 1
-    \item Réponse 2
-    \item Réponse 3
-	\item Réponse 4
-\end{enumerate}
-}
+    \item Réponse 1        print(file, choice_number, choice_number % 4 != 0)
+
 %%%%%%%%%%%%%%% ÉNONCÉ %%%%%%%%%%%%%%%%
 \vspace*{\stretch{1}}
 %%%%%%%%%%%%%%% RÉPONSE %%%%%%%%%%%%%%%%
 \vspace{\reponsevspace}
+
+\begin{tikzpicture}[remember picture, overlay]
+    \node [align=left, opacity=1] at ([xshift=-1.75cm, yshift=2.5cm]current page.center) {
+                \color{uniscielgrey}
+                \textsf{\textit{Réponses}}
+            };
+    \node [align=left, opacity=1] at ([xshift=1.75cm, yshift=2.5cm]current page.center) {
+                \color{uniscielgrey}
+                $1:\boxtimes\qquad2:\square\qquad3:\square\qquad4:\square\qquad$\\
+                \color{uniscielgrey}
+                $5:\square\qquad6:\square\qquad$
+            };
+\end{tikzpicture}
 \lipsum[2]
 %%%%%%%%%%%%%%% RÉPONSE %%%%%%%%%%%%%%%%
 \vspace*{\stretch{1}}
