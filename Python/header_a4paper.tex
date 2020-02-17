@@ -147,48 +147,82 @@
 \newlength{\reponsevspace}
 \setlength{\reponsevspace}{0cm}
 
-% FOOTER 
-\newlength{\west}
-\newlength{\east}
+% FOOTER, complexity level (left), unisciel logo (right)
+% x_shift left or right
+\newlength{\westleft}
+\newlength{\westright}
+\newlength{\eastleft}
+\newlength{\eastright}
+% y_shift upper (north), middle (middle), lower (south), left or right
+\newlength{\northleft}
+\newlength{\northright}
+
+\newlength{\middleleft}
+\newlength{\middleright}
+
+\newlength{\southleft}
+\newlength{\southright}
+
+% ICON (nw)
+% x_shift, nw position within card, left or right
+\newlength{\backnwleft}
+\newlength{\backnwright}
+% y_shift upper, middle, lower; north, upper part of the card.
+\newlength{\backuppernorth}
+\newlength{\backmiddlenorth}
+\newlength{\backlowernorth}
+
+% Text (left) and QR Code (right)
+% x_shift
 \newlength{\backeastright}
 \newlength{\backwestright}
 \newlength{\backeastleft}
 \newlength{\backwestleft}
+% y_shift upper (north), middle (middle), lower (south), left or right
+\newlength{\backnorthleft}
+\newlength{\backnorthright}
 
-% ICON
-\newlength{\backnwleft}
-\newlength{\backnwright}
-\newlength{\backnorthwest}
-\newlength{\backwest}
-\newlength{\backsouthwest}
+\newlength{\backmiddleleft}
+\newlength{\backmiddleright}
 
-% FOOTER 
-\newlength{\northleft}
-\newlength{\middleleft}
-\newlength{\southleft}
-\newlength{\northright}
-\newlength{\middleright}
-\newlength{\southright}
+\newlength{\backsouthleft}
+\newlength{\backsouthright}
 
-\setlength{\backnwleft}{9.15cm}
-\setlength{\backnwright}{1.1cm}
-\setlength{\backnorthwest}{-0.9cm}
-\setlength{\backwest}{-8.9cm}
-\setlength{\backsouthwest}{-16.9cm}
-
-\setlength{\west}{8.25cm}
-\setlength{\east}{2cm}
-\setlength{\backeastright}{9.25cm}
-\setlength{\backwestright}{0.9cm}
-\setlength{\backeastleft}{3.5cm}
-\setlength{\backwestleft}{6.75cm}
-
+% FRONT, complexity level (left), unisciel logo (right)
+% x_shift 
+\setlength{\westleft}{-8.1cm}
+\setlength{\westright}{-2cm}
+\setlength{\eastleft}{2.2cm}
+\setlength{\eastright}{8.3cm}
+% y_shift
 \setlength{\northleft}{-7.8cm}
 \setlength{\northright}{-7.2cm}
 \setlength{\middleleft}{-15.8cm}
 \setlength{\middleright}{-15.2cm}
 \setlength{\southleft}{-23.8cm}
 \setlength{\southright}{-23.2cm}
+
+% BACK 
+% Icon x_shift
+\setlength{\backnwleft}{9.15cm}
+\setlength{\backnwright}{1.1cm}
+% Icon y_shift
+\setlength{\backuppernorth}{-0.9cm}
+\setlength{\backmiddlenorth}{-8.9cm}
+\setlength{\backlowernorth}{-16.9cm}
+
+% Text (left), QR Code (right)
+\setlength{\backeastleft}{3.7cm}
+\setlength{\backeastright}{9.3cm}
+\setlength{\backwestleft}{6.5cm}
+\setlength{\backwestright}{0.9cm}
+\setlength{\backnorthleft}{-7.6cm}
+\setlength{\backnorthright}{-7.3cm}
+\setlength{\backmiddleleft}{-15.6cm}
+\setlength{\backmiddleright}{-15.3cm}
+\setlength{\backsouthleft}{-23.6cm}
+\setlength{\backsouthright}{-23.3cm}
+
 %%%% IMAGE DE FOND %%%%%
 \newcommand{\bgimage}[8]{
     \begin{tikzpicture}[remember picture, overlay]
@@ -196,60 +230,60 @@
         \ifoddpage  
             \filigrane{#1}{#2}
             % NORTH WEST
-            \node [opacity=1] at ([xshift=-\west, yshift=\northleft]0,0) {
+            \node [opacity=1] at ([xshift=\westleft, yshift=\northleft]0,0) {
                 \color{uniscielpink}
                 #3
             };
-            \node [opacity=1] at ([xshift=-\east, yshift=\northright]0,0) {
+            \node [opacity=1] at ([xshift=\westright, yshift=\northright]0,0) {
                 \includesvg[height=10mm]{LogoUnisciel}
             };
             % NORTH EAST
-            \node [opacity=1] at ([xshift=\east, yshift=\northleft]0,0) {
+            \node [opacity=1] at ([xshift=\eastleft, yshift=\northleft]0,0) {
                 \color{uniscielpink}
                 #3
             };
-            \node [opacity=1] at ([xshift=\west, yshift=\northright]0,0) {
+            \node [opacity=1] at ([xshift=\eastright, yshift=\northright]0,0) {
                 \includesvg[height=10mm]{LogoUnisciel}
             };
             % CENTER WEST
-            \node [opacity=1] at ([xshift=-\west, yshift=\middleleft]0,0) {
+            \node [opacity=1] at ([xshift=\westleft, yshift=\middleleft]0,0) {
                 \color{uniscielpink}
                 #3
             };
-            \node [opacity=1] at ([xshift=-\east, yshift=\middleright]0,0) {
+            \node [opacity=1] at ([xshift=\westright, yshift=\middleright]0,0) {
                 \includesvg[height=10mm]{LogoUnisciel}
             };
             % CENTER EAST
-            \node [opacity=1] at ([xshift=\east, yshift=\middleleft]0,0) {
+            \node [opacity=1] at ([xshift=\eastleft, yshift=\middleleft]0,0) {
                 \color{uniscielpink}
                 #3
             };
-            \node [opacity=1] at ([xshift=\west, yshift=\middleright]0,0) {
+            \node [opacity=1] at ([xshift=\eastright, yshift=\middleright]0,0) {
                 \includesvg[height=10mm]{LogoUnisciel}
             };
             % SOUTH WEST
-            \node [opacity=1] at ([xshift=-\west, yshift=\southleft]0,0) {
+            \node [opacity=1] at ([xshift=\westleft, yshift=\southleft]0,0) {
                 \color{uniscielpink}
                 #3
             };
-            \node [opacity=1] at ([xshift=-\east, yshift=\southright]0,0) {
+            \node [opacity=1] at ([xshift=\westright, yshift=\southright]0,0) {
                 \includesvg[height=10mm]{LogoUnisciel}
             };
             % SOUTH EAST
-            \node [opacity=1] at ([xshift=\east, yshift=\southleft]0,0) {
+            \node [opacity=1] at ([xshift=\eastleft, yshift=\southleft]0,0) {
                 \color{uniscielpink}
                 #3
             };
-            \node [opacity=1] at ([xshift=\west, yshift=\southright]0,0) {
+            \node [opacity=1] at ([xshift=\eastright, yshift=\southright]0,0) {
                 \includesvg[height=10mm]{LogoUnisciel}
             };
         \else
             \filigrane{#1}{#2}
             % NORTH WEST
-            \node [opacity=1] at ([xshift=-\backnwleft, yshift=\backnorthwest]0,0) {
+            \node [opacity=1] at ([xshift=-\backnwleft, yshift=\backuppernorth]0,0) {
                 \includesvg[height=0.085\linewidth]{icons/physique}
             };
-            \node [align=left, opacity=1] at ([xshift=-\backwestleft, yshift=\northleft]0,0) {
+            \node [align=left, opacity=1] at ([xshift=-\backwestleft, yshift=\backnorthleft]0,0) {
                 \small
                 \color{uniscielpink}
                 \textsf{\textit{Vous pouvez revoir le cours en suivant le lien}}\\
@@ -257,15 +291,15 @@
                 \color{uniscielpink}
                 \textsf{\textit{donnée par le QR Code ci-contre.}}
             };
-            \node [opacity=1] at ([xshift=-\backwestright, yshift=\northright]0,0) {
+            \node [opacity=1] at ([xshift=-\backwestright, yshift=\backnorthright]0,0) {
                 \includegraphics[max size={0.05\textwidth}{0.1\textheight}, center, keepaspectratio]{qrcode.png}
             };
             % NORTH EAST
-            \node [opacity=1] at ([xshift=\backnwright, yshift=\backnorthwest]0,0) {
+            \node [opacity=1] at ([xshift=\backnwright, yshift=\backuppernorth]0,0) {
                 \includesvg[height=0.085\linewidth]{icons/physique}
 
             };
-            \node [align=left, opacity=1] at ([xshift=\backeastleft, yshift=\northleft]0,0) {
+            \node [align=left, opacity=1] at ([xshift=\backeastleft, yshift=\backnorthleft]0,0) {
                 \small
                 \color{uniscielpink}
                 \textsf{\textit{Vous pouvez revoir le cours en suivant le lien}}\\
@@ -273,15 +307,15 @@
                 \color{uniscielpink}
                 \textsf{\textit{donnée par le QR Code ci-contre.}}
             };
-            \node [opacity=1] at ([xshift=\backeastright, yshift=\northright]0,0) {
+            \node [opacity=1] at ([xshift=\backeastright, yshift=\backnorthright]0,0) {
                 \includegraphics[max size={0.05\textwidth}{0.1\textheight}, center, keepaspectratio]{qrcode.png}
             };
             % CENTER WEST
-            \node [opacity=1] at ([xshift=-\backnwleft, yshift=\backwest]0,0) {
+            \node [opacity=1] at ([xshift=-\backnwleft, yshift=\backmiddlenorth]0,0) {
                 \includesvg[height=0.085\linewidth]{icons/physique}
 
             };
-            \node [align=left, opacity=1] at ([xshift=-\backwestleft, yshift=\middleleft]0,0) {
+            \node [align=left, opacity=1] at ([xshift=-\backwestleft, yshift=\backmiddleleft]0,0) {
                 \small
                 \color{uniscielpink}
                 \textsf{\textit{Vous pouvez revoir le cours en suivant le lien}}\\
@@ -289,15 +323,15 @@
                 \color{uniscielpink}
                 \textsf{\textit{donnée par le QR Code ci-contre.}}\small
             };
-            \node [opacity=1] at ([xshift=-\backwestright, yshift=\middleright]0,0) {
+            \node [opacity=1] at ([xshift=-\backwestright, yshift=\backmiddleright]0,0) {
                 \includegraphics[max size={0.05\textwidth}{0.1\textheight}, center, keepaspectratio]{qrcode.png}
             };
             % CENTER EAST
-            \node [opacity=1] at ([xshift=\backnwright, yshift=\backwest]0,0) {
+            \node [opacity=1] at ([xshift=\backnwright, yshift=\backmiddlenorth]0,0) {
                 \includesvg[height=0.085\linewidth]{icons/physique}
 
             };
-            \node [align=left, opacity=1] at ([xshift=\backeastleft, yshift=\middleleft]0,0) {
+            \node [align=left, opacity=1] at ([xshift=\backeastleft, yshift=\backmiddleleft]0,0) {
                 \small
                 \color{uniscielpink}
                 \textsf{\textit{Vous pouvez revoir le cours en suivant le lien}}\\
@@ -305,15 +339,15 @@
                 \color{uniscielpink}
                 \textsf{\textit{donnée par le QR Code ci-contre.}}
             };
-            \node [opacity=1] at ([xshift=\backeastright, yshift=\middleright]0,0) {
+            \node [opacity=1] at ([xshift=\backeastright, yshift=\backmiddleright]0,0) {
                 \includegraphics[max size={0.05\textwidth}{0.1\textheight}, center, keepaspectratio]{qrcode.png}
             };
             % SOUTH WEST
-            \node [opacity=1] at ([xshift=-\backnwleft, yshift=\backsouthwest]0,0) {
+            \node [opacity=1] at ([xshift=-\backnwleft, yshift=\backlowernorth]0,0) {
                 \includesvg[height=0.085\linewidth]{icons/physique}
 
             };
-            \node [align=left, opacity=1] at ([xshift=-\backwestleft, yshift=\southleft]0,0) {
+            \node [align=left, opacity=1] at ([xshift=-\backwestleft, yshift=\backsouthleft]0,0) {
                 \small
                 \color{uniscielpink}
                 \textsf{\textit{Vous pouvez revoir le cours en suivant le lien}}\\
@@ -321,15 +355,15 @@
                 \color{uniscielpink}
                 \textsf{\textit{donnée par le QR Code ci-contre.}}
             };
-            \node [opacity=1] at ([xshift=-\backwestright, yshift=\southright]0,0) {
+            \node [opacity=1] at ([xshift=-\backwestright, yshift=\backsouthright]0,0) {
                 \includegraphics[max size={0.05\textwidth}{0.1\textheight}, center, keepaspectratio]{qrcode.png}
             };
             % SOUTH EAST
-            \node [opacity=1] at ([xshift=\backnwright, yshift=\backsouthwest]0,0) {
+            \node [opacity=1] at ([xshift=\backnwright, yshift=\backlowernorth]0,0) {
                 \includesvg[height=0.085\linewidth]{icons/physique}
 
             };
-            \node [align=left, opacity=1] at ([xshift=\backeastleft, yshift=\southleft]0,0) {
+            \node [align=left, opacity=1] at ([xshift=\backeastleft, yshift=\backsouthleft]0,0) {
                 \small
                 \color{uniscielpink}
                 \textsf{\textit{Vous pouvez revoir le cours en suivant le lien}}\\
@@ -337,7 +371,7 @@
                 \color{uniscielpink}
                 \textsf{\textit{donnée par le QR Code ci-contre.}}
             };
-            \node [opacity=1] at ([xshift=\backeastright, yshift=\southright]0,0) {
+            \node [opacity=1] at ([xshift=\backeastright, yshift=\backsouthright]0,0) {
                 \includegraphics[max size={0.05\textwidth}{0.1\textheight}, center, keepaspectratio]{qrcode.png}
             };
         \fi
