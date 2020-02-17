@@ -88,7 +88,7 @@ tags_markup = {
     "phrase" : ("\href{", "}"),
 }
 class Flashcard:
-    def __init__(self, file, question_type, complexity_level, subject, education_level, licence_theme, question, choices, answer):
+    def __init__(self, file, question_type, complexity_level, subject, education_level, licence_theme, question, choices, answer, solution_list, choice_number):
         self.file = file
         self.question_type = question_type
         self.complexity_level = complexity_level
@@ -98,6 +98,8 @@ class Flashcard:
         self.question = question
         self.choices = choices
         self.answer = answer
+        self.solution_list = solution_list
+        self.choice_number = choice_number
         self.err_flag = False
         self.err_message = ""
 
@@ -178,8 +180,110 @@ def write_logs(err_message, verb_err_message):
         else:
             logs.write(time.strftime('opale2flashcard.py:' + "%m-%d-%Y @ %H:%M:%S - ", time.localtime()) + err_message + '\n')
         
+def write_solution(question_type, solution_list, choice_number, question_count):
+    output = ''
+    if (question_count is not None):
+        (x_shift_1, x_shift_2, y_shift_1, y_shift_2) = solution_positions_a4paper(question_count)
+    else:
+        (x_shift_1, x_shift_2, y_shift_1, y_shift_2) = ('-1.75cm', '1.75cm', '2.65cm', '2.66cm')
 
-def write_output(flashcard):
+
+    if (question_type == 'mcqMur'):
+        choice_number += 1
+
+        output += "\\begin{tikzpicture}[remember picture, overlay]\n"
+        output += "\\node [align=left, opacity=1] at ([xshift=" + x_shift_1 + ", yshift=" + y_shift_1 + "]current page.center) {\n"
+        output += "\\color{uniscielgrey}\n\\textsf{\\textit{Réponses}}\n};\n"
+        output += "\\node [align=left, opacity=1] at ([xshift=" + x_shift_2 + ", yshift=" + y_shift_2 + "]current page.center) {\n"
+
+        for choice in range(1, choice_number):
+            if (choice % 4 == 1):
+                output += "\color{uniscielgrey}\n$"
+            
+            output += str(choice) + ':'
+
+            if (choice in solution_list):
+                output += '\\boxtimes'
+            else:
+                output += '\\square'
+            if (choice % 4 == 0):
+                output += "$"
+                if (choice_number -1 > 4):
+                    output += "\\\\\n"
+            else:
+                output += "\\qquad"
+            
+        if ( (choice_number - 1) % 4 != 0):
+            output += '$'      
+            
+        output += "};\n\\end{tikzpicture}\n"
+    
+    if (question_type == 'mcqSur'):
+
+        choice_number += 1
+
+        output += "\\begin{tikzpicture}[remember picture, overlay]\n"
+        output += "\\node [align=left, opacity=1] at ([xshift=" + x_shift_1 + ", yshift=" + y_shift_1 + "]current page.center) {\n"
+        output += "\\color{uniscielgrey}\n\\textsf{\\textit{Réponse}}\n};\n"
+        output += "\\node [align=left, opacity=1] at ([xshift=" + x_shift_2 + ", yshift=" + y_shift_2 + "]current page.center) {\n"
+
+        for choice in range(1, choice_number):
+            if (choice % 4 == 1):
+                output += "\color{uniscielgrey}\n$"
+            
+            output += str(choice) + ':'
+
+            # Choice is an int
+            # Solution_list is an array of strings (values of choice in <sc:solution>)
+            if (str(choice) in solution_list):
+                output += '\\boxtimes'
+            else:
+                output += '\\square'
+            if (choice % 4 == 0):
+                output += "$"
+                if (choice_number -1 > 4):
+                    output += "\\\\\n"
+            else:
+                output += "\\qquad"
+            
+        if ( (choice_number - 1) % 4 != 0):
+            output += '$'      
+            
+        output += "\n};\n\\end{tikzpicture}\n"
+
+
+    return output
+
+def solution_positions_a4paper(question_count):
+    #               1 2       2 1
+    # QUESTIONS     3 4   =>  4 3      ANSWERS
+    #               5 6       6 5
+    # Positions are "reversed"
+    if (question_count % 2 == 1):
+        # Right side
+        x_shift_1 = '3.1cm'
+        x_shift_2 = '6.6cm'
+    else :
+        # Left side 
+        x_shift_1 = '-7cm'
+        x_shift_2 = '-3.5cm'
+
+    if (question_count <= 2):
+        # Upper
+        y_shift_1 = '13.05cm'
+        y_shift_2 = '13.06cm'
+    elif (question_count <= 4):
+        # Middle
+        y_shift_1 = '5.05cm'
+        y_shift_2 = '5.06cm'
+    else:
+        # Lower
+        y_shift_1 = '-2.97cm'
+        y_shift_2 = '-2.96cm'
+    
+    return (x_shift_1, x_shift_2, y_shift_1, y_shift_2)
+
+def write_output(flashcard, question_count):
     # Variables
     output = []
 
@@ -187,7 +291,7 @@ def write_output(flashcard):
     check_metadata(flashcard)
     if (flashcard.err_flag == False):
         # Output
-        output.append('% Flashcard : ' + flashcard.file + '\n')
+        output.append('% Flashcard : ' + flashcard.file + '/' + flashcard.question_type + '\n')
 
         if (args.a4paper == False):
             output.append('\cardfrontfooter{' + flashcard.complexity_level + '}\n')
@@ -199,6 +303,7 @@ def write_output(flashcard):
         output.append(flashcard.choices)
         output.append('\\end{enumerate}\n}\n')
         output.append('\\vspace*{\\stretch{1}}\n\\vspace{\\reponsevspace}\n')
+        output.append(write_solution(flashcard.question_type, flashcard.solution_list, flashcard.choice_number, question_count))
         output.append(flashcard.answer + '\n')
         output.append('\\vspace*{\\stretch{1}}\n\\end{flashcard}\n\n')
         
@@ -208,7 +313,7 @@ def write_output(flashcard):
    
 def write_out_a4paper(flashcard_list):
     output_list = []
-    footer = ['\cardfrontfooter{']
+    footer = ['\cardfrontfooter']
     question_count = 0 # Keeps track which question we're processing on a page [0-6]
     question_number = 0 # Keeps track of which question we're processing in flashcard_list [0-len(flashcard_list)]
     error_count = 0 # Tracking number of questions with missing metadata
@@ -219,25 +324,24 @@ def write_out_a4paper(flashcard_list):
         if (fc.err_flag == False):
             question_number += 1
             question_count += 1
-            output_list.append(write_output(fc))
-            
-            if (question_count != 6 and len(flashcard_list) - question_number > 1):
+            output_list.append(write_output(fc, question_count))
+            if (question_count != 6 and len(flashcard_list) - question_number >= 1):
                 # If len(flashcard_list) - question_number is between 6 and 1, then we're processing the last page of flashcards
                 # The number of remaining flashcards will not be sufficient to do another loop
-                # So we treat the last flashcards separately 
-                footer.append(fc.complexity_level + '}\n{')
-            elif (len(flashcard_list) - question_number == 1 ):
+                # So we treat the last flashcard separately 
+                footer.append('{' + fc.complexity_level + '}\n')
+            elif (len(flashcard_list) - question_number == 0 ):
                 footer.append(fc.complexity_level + '}\n')
             else:
                 question_count = 0
-                footer.append(fc.complexity_level + '}\n')
+                footer.append('{' + fc.complexity_level + '}\n')
                 output = ''.join(footer)
                 for fc in output_list:
                     output += ''.join(fc)
                 write_outfile(output)
                 output = ''
                 output_list = []
-                footer = ['\cardfrontfooter{']
+                footer = ['\cardfrontfooter']
         # fc has a missing metadata error
         else:
             error_count += 1
@@ -364,10 +468,11 @@ def fetch_content(file, root):
     question = fetch_question(file, root)
     choices = fetch_choices(file, root)
     ### Answer
-    answer = fetch_answer(file, root, question_type)
-
+    answer = fetch_answer(file, root)
+    (solution_list, choice_number) = fetch_solution(file, root, question_type)
+    
     # Create Flashcard instance
-    flashcard = Flashcard(file, question_type, complexity_level, subject, education_level, licence_theme, question, choices, answer)
+    flashcard = Flashcard(file, question_type, complexity_level, subject, education_level, licence_theme, question, choices, answer, solution_list, choice_number)
     return flashcard
 
 def output_cleanup(output):
@@ -475,67 +580,11 @@ def fetch_choices(file, root):
         output += '\n'
     return output
 
-def fetch_answer(file, root, question_type):
+def fetch_answer(file, root):
     output = ''
-    solution_list = []
     number_list = []
     number_counter = 0
     choice_number = 0
-
-
-    # Find Solution
-    if (question_type == 'mcqMur'):
-        # \begin{tikzpicture}[remember picture, overlay]
-        #     \node [align=left, opacity=1] at ([xshift=-1.75cm, yshift=2.5cm]current page.center) {
-        #                 \color{uniscielgrey}
-        #                 \textsf{\textit{Réponses}}
-        #             };
-        #     \node [align=left, opacity=1] at ([xshift=1.75cm, yshift=2.5cm]current page.center) {
-        #                 \color{uniscielgrey}
-        #                 $1:\boxtimes\qquad2:\square\qquad3:\square\qquad4:\square\qquad$\\
-        #                 \color{uniscielgrey}
-        #                 $5:\square\qquad6:\square\qquad$
-        #             };
-        # \end{tikzpicture}
-        for choice in root.findall(".//sc:choice", namespace):
-            choice_number += 1
-            if (choice.attrib.values()[0] == 'checked'):
-                solution_list.append(choice_number)
-        choice_number += 1
-        output += """
-\\begin{tikzpicture}[remember picture, overlay]
-\\node [align=left, opacity=1] at ([xshift=-1.75cm, yshift=2.5cm]current page.center) {
-\color{uniscielgrey}
-\\textsf{\\textit{Réponses}}
-};
-\\node [align=left, opacity=1] at ([xshift=1.75cm, yshift=2.5cm]current page.center) {
-"""        
-        for choice in range(1, choice_number):
-            if (choice % 4 == 1):
-                output += "\color{uniscielgrey}\n$"
-            
-            output += str(choice) + ':'
-
-            if (choice in solution_list):
-                output += '\\boxtimes'
-            else:
-                output += '\\square'
-            if (choice % 4 == 0):
-                output += "$"
-                if (choice_number -1 > 4):
-                    output += "\\\\\n"
-            else:
-                output += "\\qquad"
-            
-        if ( (choice_number - 1) % 4 != 0):
-            output += '$'        
-        output += """
-};
-\end{tikzpicture}
-"""
-        choice_number = 0
-    # if (question_type == 'mcqSur'):
-    #     print("mcqSur")
 
 
     # Explanations for each choices
@@ -580,7 +629,7 @@ def fetch_answer(file, root, question_type):
     if (choice_explanation_bool and global_explanation_bool):
         write_logs(
             'opale2flashcard.py(' + file + '): WARNING ! There might be an issue with the back content.',
-            'opale2flashcard.py(' + file + '): WARNING ! Both choice explanations and global explanation exist, the content on the back of the flashcard might overflow. Please check manually the corresponding flashcard.'
+            'opale2flashcard.py(' + file + '): WARNING ! Both choice explanations and global explanation exist, the content on the back of the flashcard might overflow. Please manually check the corresponding flashcard.'
         )
     if (not choice_explanation_bool and not global_explanation_bool):
         write_logs(
@@ -589,6 +638,26 @@ def fetch_answer(file, root, question_type):
         )
     
     return output
+
+def fetch_solution(file, root, question_type):
+    solution_list = []
+    choice_number = 0 
+
+    if (question_type == 'mcqMur'):
+        for choice in root.findall(".//sc:choice", namespace):
+            choice_number += 1
+            if (choice.attrib.values()[0] == 'checked'):
+                solution_list.append(choice_number)
+    
+    if (question_type == 'mcqSur'):
+        for choice in root.findall(".//sc:choice", namespace):
+            choice_number += 1
+
+        for solution in root.iterfind(".//sc:solution", namespace):
+            solution_list = solution.attrib.values()
+
+
+    return (solution_list, choice_number)
 
 def parse_files(args, question_count, err_count, parser): # Copy all files in sourcedir/Prettified and prettify XML
     sourcedir = os.path.realpath(args.sourcedir)
@@ -604,7 +673,7 @@ def parse_files(args, question_count, err_count, parser): # Copy all files in so
             
             # Create Flashcard instance
             flashcard = fetch_content(file, root)
-
+            
             # If --force option has been declared, put in dummy text
             if (args.force == True):
                 if (flashcard.complexity_level is None):
@@ -619,7 +688,7 @@ def parse_files(args, question_count, err_count, parser): # Copy all files in so
             # Write output string and write in outfile
             ## Default output format
             if (args.a4paper == False):
-                output = write_output(flashcard)
+                output = write_output(flashcard, None)
                 if (flashcard.err_flag == False or args.force == True):
                     write_outfile(output)
                     if (args.force == True):
