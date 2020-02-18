@@ -20,6 +20,8 @@ Conversion from mcqMur/mcqSur (Opale-XML) to LaTeX (flashcard).
 Script will process if a file has missing content (choice explanation, or global explanation).
 Script will abort if a file has missing metadata (Subject, theme, complexity level, education level). 
 You can bypass missing metadata errors by declaring the '--force' option. 
+Some behaviours can be changed using options such as '--no_replace'.
+Debugging tools will only work with the default paper format, as you should not try to print any flashcards before checking them for defects.
 """)
 parser.add_argument('sourcedir', help = """
 XML files\' directory path - Path to root directory containing all XML files. 
@@ -53,6 +55,9 @@ Debugging tool - Outputs only files with images.
 """)
 parser.add_argument('--no_replace', action = 'store_true', help = """
 Question with image - Stops replacing "ci-dessous" with "ci-contre" for files with images in the question.  
+""")
+parser.add_argument('--overflow_only', action = 'store_true', help = """
+Debugging tool - Outputs only files with potential overflowing content.  
 """)
 # XML namespaces
 namespace = {
@@ -116,6 +121,7 @@ class Flashcard:
         self.answer = answer
         self.solution_list = solution_list
         self.choice_number = choice_number
+        self.overflow_flag = False
         self.err_flag = False
         self.err_message = ""
 
@@ -495,7 +501,7 @@ def fetch_content(file, root):
     ### Answer
     answer = fetch_answer(file, root)
     (solution_list, choice_number) = fetch_solution(file, root, question_type)
-    
+
     # Create Flashcard instance
     flashcard = Flashcard(file, question_type, complexity_level, subject, education_level, licence_theme, question, image, choices, answer, solution_list, choice_number)
     return flashcard
@@ -585,6 +591,7 @@ def markup_content(file, element):
 def fetch_question(file, root):
     output = ''
     image = ''
+    image_path = ''
     # Questions can have rich content (images, etc.), so we examine every children
     check_generator(file , root.iterfind(".//sc:question/op:res/sp:txt/op:txt", namespace), './/sc:question/op:res/sp:txt/op:txt/sc:para')
     for element in root.iterfind(".//sc:question/op:res", namespace):
@@ -625,7 +632,9 @@ def fetch_question(file, root):
     elif (args.no_replace == False):
         output = output.replace("ci-dessous", "ci-contre")
     if (args.file_name == file):
-        print('QUESTION\n' + output + '\n' + image_path)
+        print('QUESTION\n' + output + '\n')
+        if (image_path is not None):
+            print(image_path)
     return (output, image)
 
 def fetch_choices(file, root):
@@ -733,6 +742,23 @@ def fetch_solution(file, root, question_type):
 
     return (solution_list, choice_number)
 
+def check_overflow(flashcard):
+    if (flashcard.image is None):
+        if (
+                len(flashcard.question) + len(flashcard.choices) > 800
+            or  len(flashcard.answer) > 1000
+        ):
+            flashcard.overflow_flag = True
+            print(flashcard.file, len(flashcard.question), len(flashcard.choices), len(flashcard.answer))
+    else:
+        if (
+                len(flashcard.question) + len(flashcard.choices) > 700
+            or  len(flashcard.answer) > 1000
+        ):
+            flashcard.overflow_flag = True
+            print(flashcard.file, len(flashcard.question), len(flashcard.choices), len(flashcard.answer))
+    
+
 def parse_files(args, question_count, err_count, parser): # Copy all files in sourcedir/Prettified and prettify XML
     sourcedir = os.path.realpath(args.sourcedir)
     flashcard_list = []
@@ -748,6 +774,9 @@ def parse_files(args, question_count, err_count, parser): # Copy all files in so
             # Create Flashcard instance
             flashcard = fetch_content(file, root)
             
+            # Check overflow
+            check_overflow(flashcard)
+
             # If --force option has been declared, put in dummy text
             if (args.force == True):
                 if (flashcard.complexity_level is None):
@@ -772,7 +801,11 @@ def parse_files(args, question_count, err_count, parser): # Copy all files in so
                             if (flashcard.image is not None):
                                 write_outfile(output)
                         else:
-                            write_outfile(output)
+                            if (args.overflow_only is True):
+                                if (flashcard.overflow_flag is True):
+                                    write_outfile(output)
+                            else:
+                                write_outfile(output)
                         
                     if (args.force == True):
                         if (flashcard.err_message is not ''):   
@@ -784,7 +817,11 @@ def parse_files(args, question_count, err_count, parser): # Copy all files in so
                                     if (flashcard.image is not None):
                                         print(flashcard.err_message)
                                 else:
-                                    print(flashcard.err_message)
+                                    if (args.overflow_only is True):
+                                        if (flashcard.overflow_flag is True):
+                                            print(flashcard.err_message)
+                                    else:                                    
+                                        print(flashcard.err_message)
                 else:
                     err_count += 1
                     if (args.file_name is not None):
@@ -843,13 +880,18 @@ def opale_to_tex(args):
     if (args.logs == True):
         print("WARNING : Option logs has been declared. Errors messages will be written in output/logs.txt")
     ## Check if --debug_mode has been declared
-    if (args.debug_mode== True):
+    if (args.debug_mode == True):
         print("WARNING : Mode debug has been declared. The filename will be written next to the theme level.")
+    if (args.overflow_only == True):
+        print("WARNING : Only potentially overflowing cards have been written in out.tex")
     ## Display number of errors / number of questions
     print('opale2flashcard.py: ' +str(err_count) + '/' + str(question_count) + ' flashcards have missing metadata errors.\n These files will not be transcripted. Use option "--force" to ignore.\n')
+
+    ## Informations
     if (args.no_replace == False):
         print('WARNING : We replaced every occurence of "ci-dessous" in the question by "ci-contre". If it was a mistake, please modify as necessary.\n Use option --no_replace to deactivate this feature.')
-    ## Informations
+    print('Please make use of the "--overflow-only" option to check every flashcard for potential defects')
+
     if (args.compile == False):
         print("opale2flashcard.py: The .tex file out.tex has been created in ./output directory. Compiling it will produce a pdf file containing all flashcards in the specified source directory.\n Use option '--compile' if you want to compile directly after. You must have latexmk installed.")
     else:
