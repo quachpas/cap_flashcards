@@ -27,20 +27,32 @@ N.B. : Unzipping a .scar archive is the simplest workaround to have the .quiz fi
 To refer correctly to the "&" directory, you need to add an \ before. The path becomes "*/\&.
 Example : python3 opale2flashcard.py faq2sciences/Physique-thermo_2020-2-11/\&
 """)
-parser.add_argument('--a4paper', action = 'store_const', const = True, default = False, help  ="""
+parser.add_argument('--a4paper', action = 'store_true', help  ="""
 Output format - (defaults to printing 10x8cm flashcards)
 """)
-parser.add_argument('--verbose', action = 'store_const', const = True, default = False, help = """
+parser.add_argument('--verbose', action = 'store_true', help = """
 Force the output - Ignores transcripts errors
 """)
-parser.add_argument('--force', action = 'store_const', const = True, default = False, help = """
+parser.add_argument('--force', action = 'store_true', help = """
 Verbose ouput - Details missing metadata errors
 """)
-parser.add_argument('--logs', action = 'store_const', const = True, default = False, help = """
+parser.add_argument('--logs', action = 'store_true', help = """
 Logs output - Outputs warning and errors in output/logs.txt instead of writing in the console
 """)
-parser.add_argument('--compile', action = 'store_const', const = True, default = False, help = """
+parser.add_argument('--compile', action = 'store_true', help = """
 Compile output tex file - Automatically compiles out.tex file after the script and cleans the auxiliary files. Minimal console output.
+""")
+parser.add_argument('--debug_mode', action = 'store_true', help = """
+Debug mode - Adds the original file name next to the question's theme. 
+""")
+parser.add_argument('--file_name', action = 'store', help = """
+Debugging tool - Outputs only one file.  
+""")
+parser.add_argument('--image_only', action = 'store_true', help = """
+Debugging tool - Outputs only files with images.  
+""")
+parser.add_argument('--no_replace', action = 'store_true', help = """
+Question with image - Stops replacing "ci-dessous" with "ci-contre" for files with images in the question.  
 """)
 # XML namespaces
 namespace = {
@@ -86,9 +98,12 @@ tags_markup = {
     "txt" : None,
     "para" : None,
     "phrase" : ("\href{", "}"),
+    # "table" : ("\n\\begin{tabular}{| c | c | c |", "\end{tabular}"),
+    # "row" : ("\hline\n", "\\\\\n"),
+    # "cell" : ("", "&")
 }
 class Flashcard:
-    def __init__(self, file, question_type, complexity_level, subject, education_level, licence_theme, question, choices, answer, solution_list, choice_number):
+    def __init__(self, file, question_type, complexity_level, subject, education_level, licence_theme, question, image, choices, answer, solution_list, choice_number):
         self.file = file
         self.question_type = question_type
         self.complexity_level = complexity_level
@@ -96,6 +111,7 @@ class Flashcard:
         self.education_level = education_level
         self.licence_theme = licence_theme
         self.question = question
+        self.image = image
         self.choices = choices
         self.answer = answer
         self.solution_list = solution_list
@@ -161,7 +177,7 @@ def check_generator(file, generator, expression):
         return True
     except StopIteration:
         write_logs(
-            'opale2flashcard.py(' + file + "): Missing question content. Tried looking for " + expression,
+            None,
             'opale2flashcard.py(' + file + "): Missing question content. Tried looking for " + expression
         )
         return False
@@ -169,15 +185,15 @@ def check_generator(file, generator, expression):
 
 def write_logs(err_message, verb_err_message):
     if (args.logs == False):
-        if (args.verbose == True):
+        if (args.verbose == True and verb_err_message is not None):
             print(verb_err_message)
-        else:
+        elif (err_message is not None):
             print(err_message)
     else:
         logs = open('output/logs.txt', 'a', encoding = 'utf-8')
-        if (args.verbose == True):
+        if (args.verbose == True and verb_err_message is not None):
             logs.write(time.strftime('opale2flashcard.py:' + "%m-%d-%Y @ %H:%M:%S - ", time.localtime()) + verb_err_message + '\n')
-        else:
+        elif (err_message is not None):
             logs.write(time.strftime('opale2flashcard.py:' + "%m-%d-%Y @ %H:%M:%S - ", time.localtime()) + err_message + '\n')
         
 def write_solution(question_type, solution_list, choice_number, question_count):
@@ -296,12 +312,21 @@ def write_output(flashcard, question_count):
         if (args.a4paper == False):
             output.append('\cardfrontfooter{' + flashcard.complexity_level + '}\n')
 
-        output.append('\\begin{flashcard}[\cardfrontheader{' + flashcard.subject + '}{' + flashcard.education_level + '}{' + flashcard.licence_theme + '}]{\n')
+        output.append('\\begin{flashcard}[\cardfrontheader{' + flashcard.subject + '}{' + flashcard.education_level + '}{' + flashcard.licence_theme)
+        if (args.debug_mode == True):
+            output.append('--' + flashcard.file)
+        output.append('}]{\n')
         output.append('\\vspace{\enoncevspace}\n')
+        if (flashcard.image is not None):
+            output.append('\\begin{minipage}[t]{0.6\\linewidth}\n\\footnotesize')
         output.append(flashcard.question + '\n')
         output.append('\\begin{enumerate}\n')
         output.append(flashcard.choices)
-        output.append('\\end{enumerate}\n}\n')
+        output.append('\\end{enumerate}\n')
+        if (flashcard.image is not None):
+            output.append('\\end{minipage}')
+            output.append(flashcard.image)
+        output.append('}\n')
         output.append('\\vspace*{\\stretch{1}}\n\\vspace{\\reponsevspace}\n')
         output.append(write_solution(flashcard.question_type, flashcard.solution_list, flashcard.choice_number, question_count))
         output.append(flashcard.answer + '\n')
@@ -391,7 +416,7 @@ def write_outfile_header():
         if ('% Graphicspath' not in line):
             outfile.write(line)
         else:
-            outfile.write('\graphicspath{{' + os.path.realpath(os.getcwd()) + '/output/images/}}\n')
+            outfile.write('\graphicspath{{' + os.path.realpath(os.getcwd()) + '/}}\n')
     outfile.write('\n\n')
     header.close
 
@@ -465,14 +490,14 @@ def fetch_content(file, root):
     ## Content
     ### Question
 
-    question = fetch_question(file, root)
+    (question, image) = fetch_question(file, root)
     choices = fetch_choices(file, root)
     ### Answer
     answer = fetch_answer(file, root)
     (solution_list, choice_number) = fetch_solution(file, root, question_type)
     
     # Create Flashcard instance
-    flashcard = Flashcard(file, question_type, complexity_level, subject, education_level, licence_theme, question, choices, answer, solution_list, choice_number)
+    flashcard = Flashcard(file, question_type, complexity_level, subject, education_level, licence_theme, question, image, choices, answer, solution_list, choice_number)
     return flashcard
 
 def output_cleanup(output):
@@ -504,7 +529,7 @@ def texfilter(text):
     text = output_cleanup(text)
     return text
 
-def markup_content(element):
+def markup_content(file, element):
     output = []
     url = None
     text = None
@@ -515,12 +540,12 @@ def markup_content(element):
     tag_markup = get_tag_markup(localname)
     if (tag_markup is not None):
         output.append(tag_markup[0])
+
     # Check if there are attributes that are different from xml:space="preserve"
     if bool(element.attrib and element.attrib.keys()[0] != literal_QName('xml', 'space')):
         for key, value in zip(element.attrib.keys(), element.attrib.values()):
-            if key == 'role':
+            if (key == 'role' and value != ""):
                 role_markup = get_role_markup(value)
-
                 # Special case for urls
                 if value == 'url':
                     for url in element.iterfind(".//sp:url", namespace):
@@ -530,7 +555,8 @@ def markup_content(element):
                     text = output_cleanup(text[0])
 
                 # element.text = texfilter(element.text)
-                    
+            else:
+                role_markup = None        
     else:
         role_markup = None
 
@@ -548,25 +574,64 @@ def markup_content(element):
     if (tag_markup is not None):
         output.append(tag_markup[1])
     output = output_cleanup(output)
+
+    # Debugging
+    if (args.file_name == file):
+        print(file, localname, tag_markup, output, ''.join(output))
+    
     return ''.join(output)
 
 
 def fetch_question(file, root):
     output = ''
-    check_generator(file , root.iterfind(".//sc:question//sc:para", namespace), './/sc:question//sc:para')
-    for element in root.iterfind(".//sc:question//sc:para", namespace):
-        for text, child in zip_longest(element.xpath('text()'), element.getchildren()):
-            if text is not None:
-                output += texfilter(text)
-            if child is not None:
-                # Get all descendants
-                for child in child.iter():
-                    output += markup_content(child)
-    return output
+    image = ''
+    # Questions can have rich content (images, etc.), so we examine every children
+    check_generator(file , root.iterfind(".//sc:question/op:res/sp:txt/op:txt", namespace), './/sc:question/op:res/sp:txt/op:txt/sc:para')
+    for element in root.iterfind(".//sc:question/op:res", namespace):
+        for section in element.getchildren():
+            # Section is a text paragraph
+            if (remove_namespace(section).localname == 'txt'):
+                for child in section.iter():
+                    # Text
+                    if (remove_namespace(child).localname == 'para'):
+                        # Get all descendants
+                        for child in child.iter():
+                            output += markup_content(file, child)
+
+                    # Table 
+                    if (remove_namespace(child).localname == 'table'):
+                        output += "\n\\begin{center}\n\\tabcolsep=0.11cm\n\\begin{tabular}{"
+                        for column in child.iterfind(".//sc:column", namespace):
+                            output += '| c '
+                        output += '|}\n'
+                        for row in child.iterfind(".//sc:row", namespace):
+                            output += '\hline\n'
+                            for cell in row.iterfind(".//sc:cell", namespace):
+                                for content in cell.iter():
+                                    if (content.text is not None and not str.isspace(content.text)):
+                                        output += markup_content(file, content) + '&'
+                            output = output[:-1] # Remove the additional &
+                            output += '\\\\\n'
+                        output += '\hline\n'
+                        output += "\n\\end{tabular}\n\\end{center}\n"
+            # Section is a ressource
+            if (remove_namespace(section).localname == 'res'):
+                image_path = '/' + args.sourcedir + '/' + section.attrib.values()[0] + '/' + section.attrib.values()[0].replace("images/", "")
+                image += "\hfill\n\\begin{minipage}[t]{0.3\linewidth}\n\strut\\vspace*{-\\baselineskip}\\newline\n"
+                image += "\includegraphics[max size={\\textwidth}{0.5\\textheight}, center, keepaspectratio]{" + image_path + "}\n\\end{minipage}"
+
+    if (image == ''):
+        image = None
+    elif (args.no_replace == False):
+        output = output.replace("ci-dessous", "ci-contre")
+    if (args.file_name == file):
+        print('QUESTION\n' + output + '\n' + image_path)
+    return (output, image)
 
 def fetch_choices(file, root):
     output = ''
 
+    # Choice is text-only
     check_generator(file, root.iterfind(".//sc:choice//sc:choiceLabel//sc:para", namespace), './/sc:choice//sc:choiceLabel//sc:para')
     for element in root.iterfind(".//sc:choice//sc:choiceLabel//sc:para", namespace):
         output += '\\item '
@@ -576,8 +641,10 @@ def fetch_choices(file, root):
             if child is not None:
                 # Get all descendants
                 for child in child.iter():
-                    output += markup_content(child)
+                    output += markup_content(file, child)
         output += '\n'
+    if (args.file_name == file):
+        print('CHOICES\n' + output)
     return output
 
 def fetch_answer(file, root):
@@ -585,7 +652,6 @@ def fetch_answer(file, root):
     number_list = []
     number_counter = 0
     choice_number = 0
-
 
     # Explanations for each choices
     choice_explanation_bool = check_generator(file, root.iterfind(".//sc:choice//sc:choiceExplanation//op:txt", namespace), './/sc:choice//sc:choiceExplanation//op:txt')
@@ -607,7 +673,7 @@ def fetch_answer(file, root):
                     if text is not None:
                         output += texfilter(text)
                     if child is not None:
-                        output += markup_content(child)
+                        output += markup_content(file, child)
         output += '\n'
     if (check_generator(file, root.iterfind(".//sc:choice//sc:choiceExplanation//op:txt", namespace), './/sc:choice//sc:choiceExplanation//op:txt') == True):
         output += '\\end{enumerate}\n'
@@ -623,20 +689,28 @@ def fetch_answer(file, root):
                         output += texfilter(text)
                     # Don't append the url a second time
                     if (child is not None and remove_namespace(child.tag).localname != 'url' ):
-                        output += markup_content(child)
+                        output += markup_content(file, child)
             output += '\n\n'
 
     if (choice_explanation_bool and global_explanation_bool):
         write_logs(
-            'opale2flashcard.py(' + file + '): WARNING ! There might be an issue with the back content.',
-            'opale2flashcard.py(' + file + '): WARNING ! Both choice explanations and global explanation exist, the content on the back of the flashcard might overflow. Please manually check the corresponding flashcard.'
+            None,
+            'opale2flashcard.py(' + file + '): WARNING ! Both choice explanations and global explanation exist,\n the content on the back of the flashcard might overflow.\n Please manually check the corresponding flashcard using the option "--debug_mode"'
         )
     if (not choice_explanation_bool and not global_explanation_bool):
-        write_logs(
-            'opale2flashcard.py(' + file + '): WARNING ! This flashcard has an issue. There is nothing on the back.',
-            'opale2flashcard.py(' + file + '): WARNING ! Both choice explanations and global explanations are empty.'
-        )
-    
+        if (args.file_name is not None):
+            if (args.file_name == file):
+                write_logs(
+                    'opale2flashcard.py(' + file + '): WARNING ! This flashcard has an issue. There is nothing on the back.',
+                    'opale2flashcard.py(' + file + '): WARNING ! Both choice explanations and global explanations are empty.'
+                )
+        else:
+            write_logs(
+                'opale2flashcard.py(' + file + '): WARNING ! This flashcard has an issue. There is nothing on the back.',
+                'opale2flashcard.py(' + file + '): WARNING ! Both choice explanations and global explanations are empty.'
+            )
+    if (args.file_name == file):
+        print('ANSWER\n' + output)
     return output
 
 def fetch_solution(file, root, question_type):
@@ -690,17 +764,40 @@ def parse_files(args, question_count, err_count, parser): # Copy all files in so
             if (args.a4paper == False):
                 output = write_output(flashcard, None)
                 if (flashcard.err_flag == False or args.force == True):
-                    write_outfile(output)
-                    if (args.force == True):
+                    if (args.file_name is not None):
+                        if (args.file_name == file):
+                            write_outfile(output)
+                    else:
+                        if (args.image_only is True):
+                            if (flashcard.image is not None):
+                                write_outfile(output)
+                        else:
+                            write_outfile(output)
                         
-                        if (flashcard.err_message is not ''):    
-                            print(flashcard.err_message)
+                    if (args.force == True):
+                        if (flashcard.err_message is not ''):   
+                            if (args.file_name is not None):
+                                if (args.file_name == file):
+                                    print(flashcard.err_message)
+                            else:
+                                if (args.image_only is True):
+                                    if (flashcard.image is not None):
+                                        print(flashcard.err_message)
+                                else:
+                                    print(flashcard.err_message)
                 else:
                     err_count += 1
-                    write_logs(
-                        flashcard.err_message,
-                        flashcard.err_message
-                    )
+                    if (args.file_name is not None):
+                        if (args.file_name == file):
+                            write_logs(
+                                flashcard.err_message,
+                                flashcard.err_message
+                            )
+                    else:
+                        write_logs(
+                                flashcard.err_message,
+                                flashcard.err_message
+                            )
             ## a4paper output format
             else:
                 output = ""
@@ -745,14 +842,18 @@ def opale_to_tex(args):
     ## Check if --logs has been declared
     if (args.logs == True):
         print("WARNING : Option logs has been declared. Errors messages will be written in output/logs.txt")
+    ## Check if --debug_mode has been declared
+    if (args.debug_mode== True):
+        print("WARNING : Mode debug has been declared. The filename will be written next to the theme level.")
     ## Display number of errors / number of questions
-    print('opale2flashcard.py: ' +str(err_count) + '/' + str(question_count) + ' flashcards have missing metadata errors')
+    print('opale2flashcard.py: ' +str(err_count) + '/' + str(question_count) + ' flashcards have missing metadata errors.\n These files will not be transcripted. Use option "--force" to ignore.\n')
+    if (args.no_replace == False):
+        print('WARNING : We replaced every occurence of "ci-dessous" in the question by "ci-contre". If it was a mistake, please modify as necessary.\n Use option --no_replace to deactivate this feature.')
     ## Informations
-    print("opale2flashcard.py: The .tex filen  out.tex has been created in ./output directory. Compiling it will produce a pdf file containing all flashcards in the specified source directory.")
-
-    
-
-    
+    if (args.compile == False):
+        print("opale2flashcard.py: The .tex file out.tex has been created in ./output directory. Compiling it will produce a pdf file containing all flashcards in the specified source directory.\n Use option '--compile' if you want to compile directly after. You must have latexmk installed.")
+    else:
+        print("The .tex file has been compiled. The output pdf is in ./output directory. Please refer to output.log for eventual compilation errors.")
                 
 args = parser.parse_args()
 opale_to_tex(args)

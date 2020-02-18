@@ -49,7 +49,7 @@
     \begin{center}
         \begin{minipage}[c]{0.17\linewidth}
             \vspace{-0.85\baselineskip}
-            \includesvg[height=1.1\linewidth]{icons/physique}
+            \includesvg[height=1.1\linewidth]{output/images/icons/physique}
         \end{minipage}%
         \hspace{1.5\baselineskip}
         \begin{minipage}[c]{0.74\linewidth}
@@ -155,12 +155,12 @@
                 #3
             };
             \node [opacity=1] at ([xshift=0.7cm, yshift=-1.1cm]current page.south) {
-                \includesvg[height=10mm]{LogoUnisciel}
+                \includesvg[height=10mm]{output/images/LogoUnisciel}
             };
         \else
             \filigrane{#1}{#2}
             \node [opacity=1] at ([xshift=-1.2cm, yshift=1cm]current page.west) {
-                \includesvg[height=0.18\linewidth]{icons/physique}
+                \includesvg[height=0.18\linewidth]{output/images/icons/physique}
             };
             \node [align=left, opacity=1] at ([xshift=-3.7cm, yshift=-1.6cm]current page.south) {
                 \small
@@ -171,7 +171,7 @@
                 \textsf{\textit{donnée par le QR Code ci-contre.}}
             };
             \node [opacity=1] at ([xshift=1.8cm, yshift=-1.3cm]current page.south) {
-                \includegraphics[max size={0.1\textwidth}{0.2\textheight}, center, keepaspectratio]{qrcode.png}
+                \includegraphics[max size={0.1\textwidth}{0.2\textheight}, center, keepaspectratio]{output/images/qrcode.png}
             };
         \fi
     \end{tikzpicture}
