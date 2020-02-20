@@ -32,6 +32,7 @@ Filtrage (retirer les questions qui ne "passent pas bien". Trop longue ? métado
         - Implémentation : Tri manuel. On distingue les questions contenant des images dans l'énoncé, pour pouvoir vérifier la lisibilité manuellement. https://wiki.qt.io/Handling_PDF#Calling_an_external_viewer_application
 10h à 15h
 
+Alimenter questions depuis Scenari avec l'utilisation de requêtes (Xpath).
 
 Automatiser : a partir de tous les fichers XML de la banque de question, avoir un moyen de générer l'ensemble des flash cards.
 2h
