@@ -1004,7 +1004,7 @@ def opale_to_tex(args):
 
     ## Informations
     if (args.no_replace == False):
-        print('WARNING : We replaced every occurence of "ci-dessous" in the question by "ci-contre". If it was a mistake, please modify as necessary.\n Use option --no_replace to deactivate this feature.')
+        print('WARNING : We replaced every occurence of "ci-dessous" in the question by "ci-contre". If it was a mistake, please modify as necessary.\n Use option "--no_replace" to deactivate this feature.')
     print('Please make use of the "--overflow-only" option to check every flashcard for potential defects')
 
     if (args.compile == False):
