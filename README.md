@@ -161,13 +161,13 @@ opale2flashcard.py: The .tex file out.tex has been created in ./output directory
 
 ```
 
-Several issues seem to arise :
-    1. Some flashcards have missing metadata. These are listed, if you want to know which metadata is missing exactly, you can use the `--verbose` option.
-    2. Some flashcards have potentially overflowing content. The console outputs the len of the question, choices and answer in this order.
-        It also says whether the flashcard has an image in its question or not. You can use the `--overflow_only` option to compile and see the pdf output.
-        Using the `--image_only` option is also useful to check whether the images are sufficiently distinct.
-    3. One warning is given : 9540.quiz has no content on the back. This means that there are no explanations, only the solutions. If you want
-        to see the output pdf, and _only_ for this file. You can use the `--file_name FILE_NAME` option.
+Several issues seem to arise:
+1. Some flashcards have missing metadata. These are listed, if you want to know which metadata is missing exactly, you can use the `--verbose` option to get more details.
+2. Some flashcards have potentially overflowing content. The console outputs the len of the question, choices and answer in this order.
+It also says whether the flashcard has an image in its question or not. You can use the `--overflow_only` option to compile and see the pdf output.
+Using the `--image_only` option is also useful to check whether the images are sufficiently distinct.
+3. One warning is given : 9540.quiz has no content on the back. This means that there are no explanations, only the solutions. If you want
+to see the output pdf, and _only_ for this file. You can use the `--file_name FILE_NAME` option.
 
 ## Contributing
 
