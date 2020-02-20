@@ -5,9 +5,9 @@
 - It has not yet been tested on a large question bank. 
 
 ## Definition of a flashcard
-Many elements make up a flashcard:
-1. Metadata : subject, education level, subject theme, complexity level.
-2. Content : question, choices, solutions, answer (explanations)
+Many elements make up a flashcard:  
+1. Metadata : subject, education level, subject theme, complexity level;
+2. Content : question, choices, solutions, answer (explanations);
 3. Fixed elements : the subject icon and unisciel's logo. 
 
 ## Source files integrity check
@@ -36,11 +36,10 @@ For other types, the behaviour is unpredictable.
 The script will write in the './output/out.tex' file. 
 The front is always output before the back of the flashcard. 
 There are two output formats : 
-    - default, the page's dimensions are 10x8 cm. 
-    - a4paper, the output's format is an A4 page.
-    Every page contains 6 flashcards (10x8 cm).
-    A grid outlines the borders. 
-    This is the preferred format for printing at home.
+- default, the page's dimensions are 10x8 cm. 
+- a4paper, the output's format is an A4 page.
+Every page contains 6 flashcards (10x8 cm). A grid outlines the borders. This is the preferred format for printing flashcards at home.
+
 Some options can be used to filter the output (image_only, overflow_only, file_name [file_name])
 Combining these options will join the results, duplicates might exist.
 Using these options can help greatly in checking whether a flashcard is correctly transcripted.
