@@ -19,7 +19,7 @@ https://framagit.org/stephanep/amcexport
 Filtrage (retirer les questions qui ne "passent pas bien". Trop longue ? métadonnée "niveau de complexité" trop haut.
 - Conditions
     - Longueur de l'énoncé/réponse (présence de formule ?), ajustable jusqu'à \footnotesize (après, difficilement lisible)
-        - Implémentation : Détection d'un énoncé/une réponse "longue" (critères à définir), puis ajustement manuel de la part de l'utilisateur à l'aide du rendu https://wiki.qt.io/Handling_PDF#Calling_an_external_viewer_application 
+        - Implémentation : Détection d'un énoncé/une réponse "longue" (critères à définir).
     - Questions adaptés aux flashcards
         - Questions de cours (explications au dos)
         - Exercices types solutionables de tête (dont les réponses sont vérifiables rapidement)
