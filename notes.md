@@ -4,11 +4,9 @@ http://tex.my/background-images/
 sudo apt install libcanberra-gtk-module libcanberra-gtk3-module
 
 
-# 13/02 :
+# 19/02 :
 TODO:
-	- The script is not yet image proof.
-	- Implement detector for oversized content, eventually add font change in LaTeX to try and adjust to a certain extent. Give a warning if content is expected to overflow.
-	- Web interface
+	- Separate overflowing content from other
 
 
 
