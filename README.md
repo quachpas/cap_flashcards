@@ -1,12 +1,16 @@
 # Converting Opale XML to LaTeX flashcards
 
+## Project state
+- The script is a POC. Dictionaries for the xml namespaces and metadata are hard-coded and not fetched dynamically.
+- It has not yet been tested on a large question bank. 
+
 ## Definition of a flashcard
 Many elements make up a flashcard:
-    1. Metadata : subject, education level, subject theme, complexity level.
-    2. Content : question, choices, solutions, answer (explanations)
-    3. Fixed elements : the subject icon and unisciel's logo. 
+1. Metadata : subject, education level, subject theme, complexity level.
+2. Content : question, choices, solutions, answer (explanations)
+3. Fixed elements : the subject icon and unisciel's logo. 
 
-## Source files integrity check ---
+## Source files integrity check
 The script will check the integrity of the .quiz files. 
 Only mcqSur and mcqMur question types are completely supported.
 For other types, the behaviour is unpredictable. 
@@ -67,12 +71,15 @@ Logs will be in './output/logs.txt'.
 ## Getting Started
 
 There are two folders in this repository : LaTeX and Python. 
-The LaTeX folder is a playground for templating flashcards using the script. It contains basic examples.
-The Python folder contains the script, two headers for two distinct ouput format and one footer.
+
+* The LaTeX folder is a playground for templating flashcards using the script. It contains basic examples and the models used for creating flashcards.
+
+* The Python folder contains the script, two headers for two distinct ouput format and one footer. It also has some basic icons.
 
 ### Prerequisites
 
 Install `python3` and `inkscape` ([Installation guide](https://wiki.inkscape.org/wiki/index.php/Installing_Inkscape)), these are required packages.
+
 The following packages are optional : `latexmk` (necessary to use the `--compile` option).
 
 ### Installing
@@ -98,7 +105,7 @@ The output will be in ./output/out.tex
 The `--debug_mode` option should be enabled if you want to check the pdf output. It will let you associate the output to the original file name.
 
 Given the following console output : 
-```sh
+```
 python3 opale2flashcard.py faq2sciences/Physique-optigeom_2020-2-14/\&
 opale2flashcard.py(9583.quiz): Metadata is missing.
 opale2flashcard.py(9593.quiz): Metadata is missing.
@@ -163,24 +170,18 @@ Several issues seem to arise :
     3. One warning is given : 9540.quiz has no content on the back. This means that there are no explanations, only the solutions. If you want
         to see the output pdf, and _only_ for this file. You can use the `--file_name FILE_NAME` option.
 
-## Built With
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
 ## Contributing
 
 I'm open to any contributions. I am a complete beginner in regards to coding, and I am aware that my code has several design issues.
 Some parts might need to be rewritten completely. 
 
-## Authors
+## Author
 
 **Pascal Quach**, engineering student at _UTC (Université Technologique de Compiègne)_.
 
 ## License
 
-This project is licensed under the GNU General Public License v3.0. - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the GNU General Public License v3.0. - see the [LICENSE.md](LICENSE) file for details
 
 ## Acknowledgments
 
