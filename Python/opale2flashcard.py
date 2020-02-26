@@ -97,6 +97,9 @@ N.B. : Unzipping a .scar archive is the simplest workaround to have the .quiz fi
 To refer correctly to the "&" directory, you need to add an \ before. The path becomes "*/\&.
 Example : python3 opale2flashcard.py faq2sciences/Physique-thermo_2020-2-11/\&
 """)
+parser.add_argument('themefile', help = """
+Themes list file path - Path to an xml file containing all theme codes.
+""")
 parser.add_argument('--a4paper', action = 'store_true', help  ="""
 Output format - (defaults to printing 10x8cm flashcards)
 """)
@@ -132,23 +135,11 @@ Links to material - Adds urls to flashcards. Script won't output any links by de
 """)
 # XML namespaces
 namespace = {
+    "sm" : "http://www.utc.fr/ics/scenari/v3/modeling",
     "sc" : "http://www.utc.fr/ics/scenari/v3/core",
     "op" : "utc.fr:ics/opale3",
     "sp" : "http://www.utc.fr/ics/scenari/v3/primitive",
     "xml" : "http://www.w3.org/XML/1998/namespace",
-}
-
-licence_theme = {
-    "integration" : "Intégration",
-    "thermodyn" : "Thermodynamique",
-    "thermochim" : "Thermochimie",
-    "optigeom" : "Optique géométrique",
-}
-
-subject = {
-    "#math" : "Mathématiques",
-    "#phys" : "Physique",
-    "#chim" : "Chimie",
 }
 
 complexity_level = {
@@ -219,11 +210,54 @@ def get_tag_markup(tag):
 def get_complexity_level(level):
     return complexity_level.get(level, None)
 
-def get_licence_theme(theme_code):
-    return licence_theme.get(theme_code, None)
+def get_subject_and_themes(filename, parser):
+    licence_theme = {}
+    subject = {}
 
-def get_subject(subject_code):
-    return subject.get(subject_code, None)
+    # Theme file 
+    themefile = os.path.join(os.path.dirname(os.path.realpath(__file__)), filename)
+
+    # File check
+    if (themefile is None or os.path.isfile(themefile) is False):
+        write_logs(
+            "Themes list file does not exist (" + filename + ")",
+            "Themes list file does not exist (" + filename + ")"
+        )
+        return None 
+    
+    # Parsing theme file
+
+    themetree = etree.parse(themefile, parser)
+    if (themetree is None):
+        write_logs(
+            "Cannot parse themefile using etree (" + filename + ")",
+            "Cannot parse themefile using etree (" + filename + ")",
+        )
+        return None
+    
+    for theme in themetree.findall(".//sm:option", namespace):
+        code = theme.get("key")
+        name = theme.get("name")
+        splitted_code = code.split("-")
+        theme = cleantheme(name)
+        # Subject
+        if (splitted_code[1] is ''):
+            subject.update({splitted_code[0] : theme})
+        # Licence Theme
+        else:
+            licence_theme.update({splitted_code[1] : theme})
+    return licence_theme, subject
+
+def cleantheme(text):
+    text=''.join((c for c in unicodedata.normalize('NFKC', text)))
+    text=''.join(e for e in text  if (e.isalnum() or ord(e)==ord(' ')))
+    return text.strip()
+
+def get_licence_theme(licence_theme_dict, theme_code):
+    return licence_theme_dict.get(theme_code, None)
+
+def get_subject(subject_dict, subject_code):
+    return subject_dict.get(subject_code, None)
 
 def check_metadata(flashcard):
     if (flashcard.complexity_level is None or flashcard.complexity_level == "Missing Complexity Level" 
@@ -233,7 +267,7 @@ def check_metadata(flashcard):
         if (args.force == False):
             flashcard.err_flag = True
         if (args.verbose == True):
-            flashcard.err_message = 'opale2flashcard.py: ' + flashcard.file + ' was not written in out.tex.\n' + 'Metadata is missing :\n'
+            flashcard.err_message = 'opale2flashcard.py: ' + flashcard.file + ' was not written in out.tex.\n' + 'Metadata is missing :'
             if (flashcard.complexity_level is None or flashcard.complexity_level == "Missing Complexity Level"):
                 flashcard.err_message += "\t- Missing Complexity Level\n"
             if (flashcard.education_level is None or flashcard.education_level == "Missing Education Level"):
@@ -243,6 +277,8 @@ def check_metadata(flashcard):
             if (flashcard.subject is None or flashcard.subject == "Missing Subject"):
                 flashcard.err_message += "\t- Missing Subject\n"
         else:
+            if (flashcard.err_message is not ''):
+                flashcard.err_message += '\nopale2flashcard.py(' + flashcard.file + "): Metadata is missing.\n"    
             flashcard.err_message += 'opale2flashcard.py(' + flashcard.file + "): Metadata is missing."
 
 def check_generator(file, generator, expression):
@@ -392,7 +428,7 @@ def write_output(flashcard, question_count):
         output.append('}]{\n')
         output.append('\\vspace{\enoncevspace}\n')
         if (flashcard.image is not None):
-            output.append('\\begin{minipage}[t]{0.6\\linewidth}\n\\footnotesize')
+            output.append('\\begin{minipage}[t]{0.6\\linewidth}\n\\footnotesize ')
         output.append(flashcard.question + '\n')
         output.append('\\begin{enumerate}\n')
         output.append(flashcard.choices)
@@ -508,7 +544,7 @@ def write_outfile_footer():
     
     footer.close
 
-def fetch_content(file, root):
+def fetch_content(file, root, licence_theme_dict, subject_dict):
     # Fetch data
     # variables 
     theme_code = None
@@ -523,7 +559,7 @@ def fetch_content(file, root):
         question_type = "mcqMur"
     ## Licence Theme and subject
     theme_code = fetch_data(file, root, ".//sp:themeLicence")
-    if (theme_code is not ''):
+    if (theme_code is not None and theme_code is not ''):
         splitted = theme_code.split('-')
         # Case where there are multiple licenceTheme
         # We just concatenate them with the delimiter '/' for subjects and '\n' for themes
@@ -532,28 +568,28 @@ def fetch_content(file, root):
             for x in range(0, len(splitted)-1, 2):
                 if (len(splitted) - 1 - x == 2):
                     if (subject is None):
-                        subject = get_subject(splitted[x])
+                        subject = get_subject(subject_dict, splitted[x])
                     else:
-                        subject += get_subject(splitted[x])
+                        subject += get_subject(subject_dict, splitted[x])
                     
                     if (licence_theme is None):
-                        licence_theme = get_licence_theme(splitted[x+1])
+                        licence_theme = get_licence_theme(licence_theme_dict, splitted[x+1])
                     else:
-                        licence_theme += get_licence_theme(splitted[x+1])    
+                        licence_theme += get_licence_theme(licence_theme_dict, splitted[x+1])    
                 else:
                     if (subject is None):
-                        subject = get_subject(splitted[x]) + '/'
+                        subject = get_subject(subject_dict, splitted[x]) + '/'
                     else:
-                        subject += get_subject(splitted[x]) + '/'
+                        subject += get_subject(subject_dict, splitted[x]) + '/'
                     
                     if (licence_theme is None):
-                        licence_theme = get_licence_theme(splitted[x+1]) + '\\\\'
+                        licence_theme = get_licence_theme(licence_theme_dict, splitted[x+1]) + '\\\\'
                     else:
-                        licence_theme += get_licence_theme(splitted[x+1]) + '\\\\'
+                        licence_theme += get_licence_theme(licence_theme_dict, splitted[x+1]) + '\\\\'
         # Single licenceTheme
         else:
-            subject = get_subject(splitted[0])
-            licence_theme = get_licence_theme(splitted[1])
+            subject = get_subject(subject_dict, splitted[0])
+            licence_theme = get_licence_theme(licence_theme_dict, splitted[1])
     else:
         subject = None
         licence_theme = None
@@ -743,15 +779,16 @@ def fetch_question(file, root):
                         output += "\n\\end{tabular}\n\\end{center}\n"
             # Section is a ressource
             if (remove_namespace(section).localname == 'res'):
-                image_path = '/' + args.sourcedir + '/' + section.attrib.values()[0] + '/' + section.attrib.values()[0].replace("images/", "")
+                image_path = '/' + args.sourcedir + '/' + section.attrib.values()[0] + '/' + section.attrib.values()[0].split("/")[-1]
                 image += "\includegraphics[max size={\\textwidth}{0.5\\textheight}, center, keepaspectratio]{" + image_path + "}\n"
 
     if (image == "\hfill\n\\begin{minipage}[t]{0.3\linewidth}\n\strut\\vspace*{-\\baselineskip}\\newline\n"):
         image = None
     elif (image is not None):
         image += '\n\\end{minipage}'
-    elif (args.no_replace == False):
-        output = output.replace("ci-dessous", "ci-contre")
+        if (args.no_replace == False):
+            print(output)
+            output = output.replace("ci-dessous", "ci-contre")
     if (args.file_name == file):
         print('QUESTION\n' + output + '\n')
         if (image_path is not None):
@@ -788,12 +825,23 @@ def fetch_answer(file, root):
                 choice_number += 1
             if (remove_namespace(choice.tag).localname == 'choiceExplanation'):
                 number_list.append(choice_number)
-    for element in root.iterfind(".//sc:choice//sc:choiceExplanation//op:txt", namespace):
-        output += '\\item [' + str(number_list[number_counter]) +'.]'
-        number_counter += 1
+    for element in root.iterfind(".//sc:choice//sc:choiceExplanation/op:txt", namespace):
+        text = ''
+        for e in element.iter():
+            # Find text
+            if e.text is not None:
+                text += e.text
+        # If text
+        if (text is not ''):
+            output += '\\item [' + str(number_list[number_counter]) +'.]'
         for child in element.getchildren():
-            output += mixed_content_parsing(file, child)
-        output += '\n'
+            choice_explanation = mixed_content_parsing(file, child)
+            # op:txt can exist if there is a comment
+            if (choice_explanation is not ''):
+                output += choice_explanation
+                output += '\n'
+        number_counter += 1        
+        
     if (check_generator(file, root.iterfind(".//sc:choice//sc:choiceExplanation//op:txt", namespace), './/sc:choice//sc:choiceExplanation//op:txt') == True):
         output += '\\end{enumerate}\n'
 
@@ -858,24 +906,28 @@ def check_overflow(flashcard):
             or  len(flashcard.answer) > 1000
         ):
             flashcard.overflow_flag = True
-            flashcard.err_message += 'opale2flashcard.py(' + flashcard.file +  '): No image - Potentially overflowing content (Q, C, A): ' + str(len(flashcard.question)) + ' ' + str(len(flashcard.choices)) + ' ' + str(len(flashcard.answer)) + '\n'
+            flashcard.err_message += 'opale2flashcard.py(' + flashcard.file +  '): No image - Potentially overflowing content (Q, C, A): ' + str(len(flashcard.question)) + ' ' + str(len(flashcard.choices)) + ' ' + str(len(flashcard.answer)) + " "
     else:
         if (
                 len(flashcard.question) + len(flashcard.choices) > 700
             or  len(flashcard.answer) > 1000
         ):
             flashcard.overflow_flag = True
-            flashcard.err_message += 'opale2flashcard.py(' + flashcard.file +  '): Image - Potentially overflowing content (Q, C, A): ' + str(len(flashcard.question)) + ' ' + str(len(flashcard.choices)) + ' ' + str(len(flashcard.answer)) + '\n'
+            flashcard.err_message += 'opale2flashcard.py(' + flashcard.file +  '): Image - Potentially overflowing content (Q, C, A): ' + str(len(flashcard.question)) + ' ' + str(len(flashcard.choices)) + ' ' + str(len(flashcard.answer)) + " "
         if (flashcard.image.count("includegraphics") >= 2):
             write_logs(
                 'opale2flashcard.py(' + flashcard.file + '): WARNING ! There are at least two images in the question. Content might overflow',
                 'opale2flashcard.py(' + flashcard.file + '): WARNING ! There are at least two images in the question. Content might overflow', 
             )
 
-def parse_files(args, question_count, err_count, parser): # Copy all files in sourcedir/Prettified and prettify XML
+def parse_files(args, question_count, err_count, parser, licence_theme, subject): # Copy all files in sourcedir/Prettified and prettify XML
     sourcedir = os.path.realpath(args.sourcedir)
     flashcard_list = []
     for file in os.listdir(sourcedir):
+        # Ignore all files which are not .quiz
+        if (file.endswith(".quiz") is False):
+            continue
+
         question_count += 1
         workpath = os.path.join(sourcedir, file)
         if os.path.isfile(workpath):
@@ -884,7 +936,7 @@ def parse_files(args, question_count, err_count, parser): # Copy all files in so
             root = tree.getroot()
             
             # Create Flashcard instance
-            flashcard = fetch_content(file, root)
+            flashcard = fetch_content(file, root, licence_theme, subject)
             
             # Check overflow
             check_overflow(flashcard)
@@ -972,16 +1024,25 @@ def compile_tex(args):
 def opale_to_tex(args):
     # Path validity check
     if (not os.path.isdir(args.sourcedir)):
-        sys.stderr.write('Error: '+args.sourcedir+' is not a directory.\n')
+        sys.stderr.write('Error: ' + args.sourcedir + ' is not a directory or does not exist.\n')
         sys.exit(1)
-
+    if (not os.path.isfile(args.themefile)):    
+        sys.stderr.write('Error: ' + args.themefile +' is not a file or does not exist.\n')
+        sys.exit(1)
+    if (args.file_name is not None):
+        if (not os.path.isfile(os.path.realpath(args.sourcedir + "/" + args.file_name))):
+            sys.stderr.write('Error: ' + args.file_name +' is not a file or does not exist.\n')
+            sys.exit(1)
     # Parser settings
     parser = etree.XMLParser(remove_blank_text=True, remove_comments=True)
+
+    # Theme tree
+    (licence_theme, subject) = get_subject_and_themes(args.themefile, parser)
 
     # Variables
     (question_count, err_count) = (0,0)
     write_outfile_header()
-    (question_count, err_count) = parse_files(args, question_count, err_count, parser)
+    (question_count, err_count) = parse_files(args, question_count, err_count, parser, licence_theme, subject)
     write_outfile_footer()
 
     # Compile out.tex is option has been declared
