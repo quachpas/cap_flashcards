@@ -1,8 +1,10 @@
 # Converting Opale XML to LaTeX flashcards
 
 ## Project state
-- The script is a POC. Dictionaries for the xml namespaces and metadata are hard-coded and not fetched dynamically.
+- The script is a POC.
 - It has not yet been tested on a large question bank. 
+- Image suppport is limited, as it's always put on the right side of the text. Better image support will be added in the future.
+- As of now, only one document is given "out.pdf" as the script's output. Categorised output will be added in the future (sorted by subject for example)
 
 ## Definition of a flashcard
 Many elements make up a flashcard:  
@@ -92,9 +94,10 @@ cd  ./cap_flashcards
 Download an archive containing MCQ from Scenari using the option 'export an archive' (_exporter une archive_)
 Unzip it somewhere in the working directory. .scar archive can be renamed to .zip files.
 Open a terminal and run the script.
+> YOU NEED AN XML FILE WITH ALL LICENCE THEMES. There is one provided in the repository for simplicity's sake. Adjust as necessary.
 
 ```
-python3 opale2flashcard.py ./path/to/questions/directory
+python3 opale2flashcard.py ./path/to/questions/directory themeLicence.xml
 ```
 
 The output will be in ./output/out.tex
@@ -109,17 +112,13 @@ python3 opale2flashcard.py faq2sciences/Physique-optigeom_2020-2-14/\&
 opale2flashcard.py(9583.quiz): Metadata is missing.
 opale2flashcard.py(9593.quiz): Metadata is missing.
 opale2flashcard.py(9568.quiz): Image - Potentially overflowing content (Q, C, A): 445 100 1642
-
 opale2flashcard.py(9721.quiz): Metadata is missing.
 opale2flashcard.py(9541.quiz): No image - Potentially overflowing content (Q, C, A): 246 581 733
-
 opale2flashcard.py(9569.quiz): Metadata is missing.
 opale2flashcard.py(9620.quiz): Metadata is missing.
 opale2flashcard.py(9540.quiz): WARNING ! This flashcard has an issue. There is nothing on the back.
 opale2flashcard.py(9548.quiz): No image - Potentially overflowing content (Q, C, A): 255 624 831
-
 opale2flashcard.py(9523.quiz): No image - Potentially overflowing content (Q, C, A): 215 133 1468
-
 opale2flashcard.py(9612.quiz): Metadata is missing.
 opale2flashcard.py(9592.quiz): Metadata is missing.
 opale2flashcard.py(9572.quiz): Metadata is missing.
@@ -132,7 +131,6 @@ opale2flashcard.py(9582.quiz): WARNING ! This flashcard has an issue. There is n
 opale2flashcard.py(9582.quiz): Metadata is missing.
 opale2flashcard.py(9588.quiz): Metadata is missing.
 opale2flashcard.py(9558.quiz): No image - Potentially overflowing content (Q, C, A): 120 184 1185
-
 opale2flashcard.py(9590.quiz): Image - Potentially overflowing content (Q, C, A): 414 68 1407
 opale2flashcard.py(9590.quiz): Metadata is missing.
 opale2flashcard.py(9504.quiz): Metadata is missing.
@@ -144,7 +142,6 @@ opale2flashcard.py(9597.quiz): No image - Potentially overflowing content (Q, C,
 opale2flashcard.py(9597.quiz): Metadata is missing.
 opale2flashcard.py(9580.quiz): Metadata is missing.
 opale2flashcard.py(9560.quiz): No image - Potentially overflowing content (Q, C, A): 122 197 1118
-
 opale2flashcard.py(9581.quiz): Metadata is missing.
 opale2flashcard.py(9586.quiz): Metadata is missing.
 opale2flashcard.py(9579.quiz): Metadata is missing.
@@ -168,6 +165,8 @@ It also says whether the flashcard has an image in its question or not. You can 
 Using the `--image_only` option is also useful to check whether the images are sufficiently distinct.
 3. One warning is given : 9540.quiz has no content on the back. This means that there are no explanations, only the solutions. If you want
 to see the output pdf, and _only_ for this file. You can use the `--file_name FILE_NAME` option.
+
+> Be warned that the output LaTeX document is not necessarily without syntax errors. If the source files are riddled with LaTeX Math mistakes, the document won't compile properly.
 
 ## Contributing
 
