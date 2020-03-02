@@ -37,8 +37,8 @@
 
 %%%% COMMANDES CUSTOMS %%%%%
 
-\newcommand{\cardfrontfooter}[1]{
-    \SetBgContents{\bgimage{0.15}{0.8}{#1}}
+\newcommand{\cardfrontfooter}[2]{
+    \SetBgContents{\bgimage{0.15}{0.8}{#1}{#2}}
     
 }
 
@@ -141,7 +141,7 @@
 \setlength{\oddoffset}{0mm}
 \setlength{\evenoffset}{0mm}
 %%%% IMAGE DE FOND %%%%%
-\newcommand{\bgimage}[3]{
+\newcommand{\bgimage}[4]{
     \begin{tikzpicture}[remember picture, overlay]
         \checkoddpage
         \ifoddpage  
@@ -156,7 +156,7 @@
         \else
             \filigrane{#1}{#2}
             \node [opacity=1] at ([xshift=-1.2cm, yshift=1cm]current page.west) {
-                \includesvg[height=0.18\linewidth]{icons/physique}
+                \includesvg[height=0.18\linewidth]{icons/#4}
             };
             \node [align=left, opacity=1] at ([xshift=-3.7cm, yshift=-1.6cm]current page.south) {
                 \small
@@ -196,14 +196,18 @@
 
 %%%%%%%%%%%%%%% TEMPLATE STANDARD %%%%%%%%%%%%%%%%
 
-\cardfrontfooter{Niveau de complexité}
+\cardfrontfooter{Niveau de complexité}{physique}
 \begin{flashcard}[\cardfrontheader{Matière}{L0}{Thème}]{
 %%%%%%%%%%%%%%% ÉNONCÉ %%%%%%%%%%%%%%%%
 \vspace{\enoncevspace}
 \'Enoncé
 \begin{enumerate}
-    \item Réponse 1        print(file, choice_number, choice_number % 4 != 0)
-
+    \item Réponse 1
+    \item Réponse 2
+    \item Réponse 3
+    \item Réponse 4
+\end{enumerate}
+}
 %%%%%%%%%%%%%%% ÉNONCÉ %%%%%%%%%%%%%%%%
 \vspace*{\stretch{1}}
 %%%%%%%%%%%%%%% RÉPONSE %%%%%%%%%%%%%%%%
@@ -229,7 +233,7 @@
 
 
 %%%%%%%%%%%%%%% TEMPLATE IMAGE ENONCE + QR CODE REPONSE %%%%%%%%%%%%%%%%
-\cardfrontfooter{Niveau de complexité}
+\cardfrontfooter{Niveau de complexité}{physique}
 \begin{flashcard}[\cardfrontheader{Matière}{L0}{Thème}]{
 %%%%%%%%%%%%%%% ÉNONCÉ %%%%%%%%%%%%%%%%
 \vspace{\enoncevspace}
@@ -260,7 +264,7 @@
 %%%%%%%%%%%%%%% TEMPLATE IMAGE ENONCE + QR CODE REPONSE%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\cardfrontfooter{Comprendre, appliquer}
+\cardfrontfooter{Comprendre, appliquer}{physique}
 \begin{flashcard}[\cardfrontheader{Physique}{L0}{Lois de Newton et Kepler et leurs applications}]{
 %%%%%%%%%%%%%%% ÉNONCÉ %%%%%%%%%%%%%%%%
 \vspace{\enoncevspace}
@@ -286,7 +290,7 @@ Dans cette question, il s'agit de faire la distinction entre mouvement uniforme 
 
 \end{flashcard}
 
-\cardfrontfooter{Changement de langage}
+\cardfrontfooter{Changement de langage}{physique}
 \begin{flashcard}[\cardfrontheader{Physique}{L0}{Optique géométrique}]{
 %%%%%%%%%%%%%%% ÉNONCÉ %%%%%%%%%%%%%%%%
 \vspace{\enoncevspace}
@@ -317,7 +321,7 @@ Attention, ici on utilise les mesures algébriques, dont le signe dépend du poi
 \vspace*{\stretch{1}}
 \end{flashcard}
 
-\cardfrontfooter{Comprendre, appliquer}
+\cardfrontfooter{Comprendre, appliquer}{physique}
 \begin{flashcard}[\cardfrontheader{Mathématiques}{L0}{Statistiques}]{
 %%%%%%%%%%%%%%% ÉNONCÉ %%%%%%%%%%%%%%%%
 \vspace{\enoncevspace}
@@ -354,7 +358,7 @@ Le dessin de droite correspond à la série initiale.
 \vspace*{\stretch{1}}
 \end{flashcard}
 
-\cardfrontfooter{Changement de langage}
+\cardfrontfooter{Changement de langage}{physique}
 \begin{flashcard}[\cardfrontheader{Mathématiques}{L0}{Second degré, \'Equations/Inéquations}]{
 %%%%%%%%%%%%%%% ÉNONCÉ %%%%%%%%%%%%%%%%
 \vspace{\enoncevspace}
@@ -375,7 +379,7 @@ On peut vérifier que $\displaystyle\frac{1-\sqrt7}{2}$ et $\displaystyle\frac{1
 \vspace*{\stretch{1}}
 \end{flashcard}
 
-\cardfrontfooter{Changement de langage}
+\cardfrontfooter{Changement de langage}{physique}
 \begin{flashcard}[\cardfrontheader{Mathématiques}{L0}{Algèbre linéaire}]{
 %%%%%%%%%%%%%%% ÉNONCÉ %%%%%%%%%%%%%%%%
 \vspace{\enoncevspace}

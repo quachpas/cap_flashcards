@@ -10,12 +10,5 @@
 *.pdf_tex
 *.pdf_tex.svg
 logs.txt
-
-Python/scenari2amc
-Python/src
-Python/virtual_environment
-faq2sciences/
-biblio.md
-infos.md
-notes.md
+/Notes
 

@@ -1,5 +1,3 @@
-% This is a header
-
 \documentclass[avery5371]{flashcards}
 
 \usepackage{amssymb}
@@ -12,7 +10,7 @@
 }
 \usepackage{transparent}
 \usepackage{graphicx}
-% Graphicspath
+\graphicspath{{./images/}}
 \usepackage[export]{adjustbox}
 \usepackage{lipsum}
 \usepackage{svg}
@@ -25,7 +23,6 @@
 % Bleu : #0492bf
 % Rose : #e7215a
 % Gris : #676868
-
 \usepackage{fontspec}
 %ITC Avant Garde Gothic 
 \setsansfont{ITC Avant Garde Gothic}[
@@ -40,8 +37,8 @@
 
 %%%% COMMANDES CUSTOMS %%%%%
 
-\newcommand{\cardfrontfooter}[1]{
-    \SetBgContents{\bgimage{0.15}{0.8}{#1}}
+\newcommand{\cardfrontfooter}[2]{
+    \SetBgContents{\bgimage{0.15}{0.8}{#1}{#2}}
     
 }
 
@@ -49,7 +46,7 @@
     \begin{center}
         \begin{minipage}[c]{0.17\linewidth}
             \vspace{-0.85\baselineskip}
-            \includesvg[height=1.1\linewidth]{output/images/icons/physique}
+            \includesvg[height=1.1\linewidth]{icons/physique}
         \end{minipage}%
         \hspace{1.5\baselineskip}
         \begin{minipage}[c]{0.74\linewidth}
@@ -64,7 +61,6 @@
         \end{minipage}
     \end{center}
 }
-
 
 % ------ CUSTOM PATTERN ------- %
 % defining the new dimensions
@@ -145,7 +141,7 @@
 \setlength{\oddoffset}{0mm}
 \setlength{\evenoffset}{0mm}
 %%%% IMAGE DE FOND %%%%%
-\newcommand{\bgimage}[3]{
+\newcommand{\bgimage}[4]{
     \begin{tikzpicture}[remember picture, overlay]
         \checkoddpage
         \ifoddpage  
@@ -155,12 +151,12 @@
                 #3
             };
             \node [opacity=1] at ([xshift=0.7cm, yshift=-1.1cm]current page.south) {
-                \includesvg[height=10mm]{output/images/LogoUnisciel}
+                \includesvg[height=10mm]{LogoUnisciel}
             };
         \else
             \filigrane{#1}{#2}
             \node [opacity=1] at ([xshift=-1.2cm, yshift=1cm]current page.west) {
-                \includesvg[height=0.18\linewidth]{output/images/icons/physique}
+                \includesvg[height=0.18\linewidth]{icons/#4}
             };
             \node [align=left, opacity=1] at ([xshift=-3.7cm, yshift=-1.6cm]current page.south) {
                 \small
@@ -171,7 +167,7 @@
                 \textsf{\textit{donnée par le QR Code ci-contre.}}
             };
             \node [opacity=1] at ([xshift=1.8cm, yshift=-1.3cm]current page.south) {
-                \includegraphics[max size={0.1\textwidth}{0.2\textheight}, center, keepaspectratio]{output/images/qrcode.png}
+                \includegraphics[max size={0.1\textwidth}{0.2\textheight}, center, keepaspectratio]{qrcode.png}
             };
         \fi
     \end{tikzpicture}

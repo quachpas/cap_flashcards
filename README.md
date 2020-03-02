@@ -1,18 +1,248 @@
-# Converting Opale XML to LaTeX flashcards
+- [Introduction](#introduction)
+  - [SCENARIchain and Opale](#scenarichain-and-opale)
+    - [What is SCENARIchain ?](#what-is-scenarichain-)
+    - [What is Opale?](#what-is-opale)
+    - [Documentation](#documentation)
+  - [Why this script?](#why-this-script)
+- [How to use the script?](#how-to-use-the-script)
+  - [General instructions](#general-instructions)
+- [Project state](#project-state)
+  - [To do list](#to-do-list)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installing](#installing)
+- [LaTeX](#latex)
+  - [Definition of a flashcard](#definition-of-a-flashcard)
+  - [Latex implementation of a flashcard](#latex-implementation-of-a-flashcard)
+    - [Default output format (10x8cm)](#default-output-format-10x8cm)
+    - [a4paper output format](#a4paper-output-format)
+- [Script (Python)](#script-python)
+  - [Source files integrity check](#source-files-integrity-check)
+  - [Output settings](#output-settings)
+  - [Rich content](#rich-content)
+  - [Debugging tools](#debugging-tools)
+  - [Running the tests](#running-the-tests)
+- [Contributing](#contributing)
+- [Author](#author)
+- [License](#license)
+- [Acknowledgments](#acknowledgments)
+# Converting Opale XML to LaTeX flashcards <!-- omit in toc -->
+## Introduction
+>**If you are already familiar with the Scenari software suite, you can skip the following introduction.**
+
+This project is backed by [*Unisciel*](http://www.unisciel.fr/), an online university creating and providing resources for secondary school pupils aged 15-18 (*lycée*), students, teachers and educational institutions.
+### SCENARIchain and Opale
+#### What is SCENARIchain ?
+SCENARIchain refers to all Scenari software that involve structured collaborative writing.
+
+For individual use, SCENARIchain can be deployed as a desktop application.
+For collaborative use, SCENARIchain can be deployed as a server. 
+
+#### What is Opale?
+Opale is a publishing chain part of the software suite [Scenari](https://scenari.org/co/home.html). It is used to produce resources for academic training. These documents can be used for on-site, distance or blended learning. 
+
+Opale can be used to:
+- Design training modules, blending learning and evaluations activities into a single storyline.
+- Produce from a single content multiple documents:
+  - (web) Online course material,
+  - (PDF) Printable booklet for learners
+  - (HTML) Slideshows
+  - (PDF) Training document
+- Add rich multimedia content to the course: videos, sounds, images, diagrams, mathematical formulas (LaTeX, OpenDocument)
+- Create [quizzes](quizz): multiple choice question (MCQ), multi choice question single answer, [categorise items](categorise), [order items](order), etc.
+- Create accessible training materials in web format (HTML)
+- Export content compatible with [SCORM](SCORM) (SCORM 1.2, or SCORM2004) standard to distribute them either via a Learning Management System (LMS), or a MOOC platform. Please refer to the [official website](https://scorm.com/) for more details.
+
+[SCORM]: https://trac.scenari.org/opale/wiki/scorm
+[quizz]: https://moodle.utc.fr/file.php/1330/cometes-modules/cometes-module-3-advanced/cometes-module-3-parcours/co/0551_exercices_interactifs.html
+[categorise]: https://moodle.utc.fr/file.php/1330/cometes-modules/cometes-module-3-advanced/cometes-module-3-parcours/co/0551a_categorisation.html
+[order]: https://moodle.utc.fr/file.php/1330/cometes-modules/cometes-module-3-advanced/cometes-module-3-parcours/co/guide_advanced.html
+
+You will find below some examples of content produced using the Opale module in different format.
+
+From left to right: web material, web slideshow, PDF OpenDocument, web publication using [Emeraude](https://download.scenari.software/Emeraude@1.3.0.07/). 
+
+[![Opale web](https://doc.scenari.software/Opale@3.8/fr/res/OpaleAurora.png)](https://example.scenari.software/Opale@3.8/auroraW)
+[![Slideshow web](https://doc.scenari.software/Opale@3.8/fr/res/OpalePres.png) ](https://example.scenari.software/Opale@3.8/auroraD)
+[![PDF (OpenDocument)](https://doc.scenari.software/Opale@3.8/fr/res/OpaleOdt.png)](https://example.scenari.software/Opale@3.8/paperLight)
+[![Emeraude tutorial web](https://doc.scenari.software/Opale@3.8/fr/res/OpaleAurora.png)](https://example.scenari.software/Opale@3.8/auroraAW)
+
+
+#### Documentation
+[SCENARIchain documentation (English)](https://doc.scenari.software/SCENARIchain@5.0/en/)
+
+[SCENARIchain documentation (French)](https://doc.scenari.software/SCENARIchain@5.0/fr/)
+
+[Opale documentation (English)](https://doc.scenari.software/Opale@3.8/en/)
+
+[Opale documentation (French)](https://doc.scenari.software/Opale@3.8/fr/)
+### Why this script?
+The aim of this script is to produce printable flashcards to be used as learning support material for undergraduate students mainly. The format used is 10x8cm. You can find an example file [here](./LaTeX/flashcard_1x1.pdf).
+
+It can also be used to produce printable flashcards at home for students' personal use. (A4 paper format). Please refer to the example [file](./LaTeX/flashcard_2x3.pdf) given in the LaTeX folder for more details.
+
+Find below the front and the back of a flashcard. 
+
+**Please note that the examples are models that were produced at the beginning of the project as a first design of the flashcard and are OUTDATED. Some additional changes have been made since, including adding correct answers checkboxes on the back of the flashcard. Some other changes may or may not be made in the future.**
+
+<img src="LaTeX/models/flash-cards-01_Plan&#32;de&#32;travail&#32;1.jpg" width=400>
+<img src="LaTeX/models/flash-cards-03_Plan&#32;de&#32;travail&#32;1.jpg" width=400>
+
+## How to use the script?
+### General instructions
+The script works in collaboration with SCENARIchain.
+You will need the following:
+- Source files: the sources files **must be mcqSur or mcqMur quizzes** XML files, which you can download from your SCENARIchain server using the export option or export from your SCENARIchain desktop app. Find more details in the [Getting started](#getting-started) section.
+- Licence theme file: as seen above, the flashcards each have a **subject** and a **theme**. As these are stored in the form of a code (#subj-them) in the source file, we need to produce a dictionary with all valid associations. This dictionary can be hard-coded in the script in the `opale_to_tex` function.
+- Media resources: 
+  - Compulsory resources are the subject logo (upper left) and university's logo (bottom right on the front). 
+    > Both of these **must be** SVG files.
+  - an icon and a logo are provided by default in [Python/output/images](./Python/output/images). 
+> The script uses some tags that are present in Opale's document models **mcqSur** and **mcqMur**. Please find Opale's documentation [here](https://download.scenari.software/Opale@3.7/).
 
 ## Project state
-- The script is a POC.
-- It has not yet been tested on a large question bank. 
-- Image suppport is limited, as it's always put on the right side of the text. Better image support will be added in the future.
-- As of now, only one document is given "out.pdf" as the script's output. Categorised output will be added in the future (sorted by subject for example)
+- The script is a POC, therefore some functionalities may not function perfectly. Please use the debugging tools exhaustively to check the validity of the produced flashcards before printing.
+### To do list
+- Short tasks
+  - A short text and a QR code are added automatically at the back of the flashcard. Add an option to disable it.
+  - Image suppport is limited, as it's always put on the right side of the text. Better image support.
+- Moderately long tasks
+  - The icon is included in al flashcards. Implement a system to handle different icons according to which subject the flashcard has.
+  - As of now, only one document is given "out.pdf" as the script's output. Categorised output will be added (sorted by subject for example).
+- Long tasks
+  - The QR code is static, a dynamic QR code generation according to the ressources found in the source file may be added in the future.
+  - Write a configuration file template (YAML?) to implement:
+    - custom short text on the back of the flashcard
+    - custom subject/licence_theme dictionary
+    - QR Code toggle
+    - etc.
+    - Expected behaviour:
+      - Set default values to the script console options 
+      - console options should override configuration file
+## Getting Started
+The root folder contains:
+- [LICENSE](LICENSE), the license file.
+- [README.md](README.md), this file.
+- [themeLicence.xml](themeLicence.xml), an example XML file to produce the subject/licence dictionary.
 
-## Definition of a flashcard
-Many elements make up a flashcard:  
-1. Metadata : subject, education level, subject theme, complexity level;
-2. Content : question, choices, solutions, answer (explanations);
-3. Fixed elements : the subject icon and unisciel's logo. 
+There are two folders in this repository : LaTeX and Python. 
 
-## Source files integrity check
+* The LaTeX folder is a playground for templating flashcards using the script. It contains basic examples and the models used for creating flashcards.
+* The Python folder contains the script, two headers for two distinct ouput format and one footer. It also has some basic icons.
+
+### Prerequisites
+
+Install `python3` and `inkscape` ([Installation guide](https://wiki.inkscape.org/wiki/index.php/Installing_Inkscape)), these are required packages.
+
+The following packages are optional : `latexmk` (necessary to use the `--compile` option).
+
+### Installing
+
+Clone the repository and set it as your current directory
+
+```
+git clone https://gitlab.utc.fr/quachpas/cap_flashcards/
+cd  ./cap_flashcards
+```
+Download an archive from Scenari using the option 'export an archive' (_exporter une archive_).
+Unzip it somewhere in the working directory. The `.scar` archive can be renamed to  `.zip` files.
+Open a terminal and run the script.
+> YOU NEED AN XML FILE WITH ALL LICENCE THEMES. There is one provided in the repository for simplicity's sake. Adjust as necessary.
+
+```
+python3 opale2flashcard.py ./path/to/questions/directory themeLicence.xml
+```
+
+The output will be in `./output/out.tex`.
+
+## LaTeX
+### Definition of a flashcard
+A flashcard is made of different elements:  
+1. Metadata : subject, education level, subject theme, complexity level.
+2. Content : question, choices, solutions, answer (explanations).
+3. Fixed elements : the subject icon and the university's logo.
+
+
+
+
+### Latex implementation of a flashcard
+> You will below an exhaustive explanation of the header files, so the reader can modify it afterwards if needed. In the following paragraphs, we will assume the reader has sufficient knowledge of LaTeX.
+
+We use the [`flashcards` class](https://ctan.org/pkg/flashcards) for both output format. Follow the link to the class' CTAN page, and its documentation if you want to know more about the class itself. 
+
+Options:
+- The default option used is `avery5371`. 
+- The `frame` option is used to reveal the flashcard's edge. This option is enabled in the a4paper output format. It reveals where to separate the flashcards after printing them.
+- Add the `grid` option to reveal the **flashcard's content borders**. As specified in the class' documentation, there will be a uniform margin between the frame and the edge, defined by the length `\cardmargin`.
+
+Graphics:
+- Three colors are used that are part of unisciel's graphic charter
+    ```latex
+    \definecolor{uniscielblue}{RGB}{4,146,191}
+    \definecolor{uniscielpink}{RGB}{231,33,90}
+    \definecolor{uniscielgrey}{RGB}{103,104,104}
+    % Bleu : #0492bf
+    % Rose : #e7215a
+    % Gris : #676868
+    ```
+- We use the package `fontspec` to set custom fonts:
+    ```latex
+    \usepackage{fontspec}
+    %ITC Avant Garde Gothic 
+    \setsansfont{ITC Avant Garde Gothic}[
+        UprightFont={* Book},
+        ItalicFont={* Book Oblique},
+        BoldFont = {* Demi},
+        BoldItalicFont = {* Demi Oblique}
+    ]
+    ```   
+- The class' commands `\cardfrontstyle` and `\cardbackstyle` are used to set the content's font size and alignement behaviour.
+    ```latex
+    % --- FONT SIZE --- %
+    \cardfrontstyle[\footnotesize\raggedright]{headings}
+    \cardbackstyle[\footnotesize\raggedright]{plain}
+    ```
+
+
+#### Default output format (10x8cm)
+We define the lengths of the class as such:
+```latex
+% --- CARD SIZE --- %
+\def\pageheight{7.4cm}
+\def\pagewidth{9.5cm}
+\renewcommand{\cardpapermode}{portrait}
+\renewcommand{\cardrows}{1}
+\renewcommand{\cardcolumns}{1}
+\setlength{\cardheight}{\pageheight}
+\setlength{\cardwidth}{\pagewidth}
+...
+\setlength{\cardmargin}{3mm}
+\setlength{\topoffset}{0mm}
+\setlength{\oddoffset}{0mm}
+\setlength{\evenoffset}{0mm}
+```
+
+The package `geometry` is used to define the output's format.
+```latex
+ \geometry{
+    %showframe,
+    papersize={10cm,8cm},
+    marginparsep=0cm,
+    footskip=0cm,
+    hmargin=2mm,
+    vmargin=2mm,
+ }
+```
+
+The base of the flashcard template is written as such:
+```latex
+\begin{}
+```
+#### a4paper output format
+
+
+## Script (Python)
+### Source files integrity check
 The script will check the integrity of the .quiz files. 
 Only mcqSur and mcqMur question types are completely supported.
 For other types, the behaviour is unpredictable. 
@@ -34,7 +264,7 @@ For other types, the behaviour is unpredictable.
     Flashcards without are flagged if :
         - Q + C > 800 or A > 1000
 
-## Output settings
+### Output settings
 The script will write in the './output/out.tex' file. 
 The front is always output before the back of the flashcard. 
 There are two output formats : 
@@ -46,7 +276,7 @@ Some options can be used to filter the output (image_only, overflow_only, file_n
 Combining these options will join the results, duplicates might exist.
 Using these options can help greatly in checking whether a flashcard is correctly transcripted.
 
-## Rich content
+### Rich content
 Some flashcards contents can be quite rich. 
 Below, we define which content is supported or not.
 1. Question:
@@ -64,45 +294,11 @@ Below, we define which content is supported or not.
     - Links are supported. They are removed by default. 
     This behaviour can be removed using the 'add_url' option.
 
-## Debugging tools
+### Debugging tools
 Some options are available to help debug the code and/or check if the output
 is correct. 
 Logs will be in './output/logs.txt'. 
-
-## Getting Started
-
-There are two folders in this repository : LaTeX and Python. 
-
-* The LaTeX folder is a playground for templating flashcards using the script. It contains basic examples and the models used for creating flashcards.
-
-* The Python folder contains the script, two headers for two distinct ouput format and one footer. It also has some basic icons.
-
-### Prerequisites
-
-Install `python3` and `inkscape` ([Installation guide](https://wiki.inkscape.org/wiki/index.php/Installing_Inkscape)), these are required packages.
-
-The following packages are optional : `latexmk` (necessary to use the `--compile` option).
-
-### Installing
-
-Clone the repository and set it as your current directory
-
-```
-git clone https://gitlab.utc.fr/quachpas/cap_flashcards/
-cd  ./cap_flashcards
-```
-Download an archive containing MCQ from Scenari using the option 'export an archive' (_exporter une archive_)
-Unzip it somewhere in the working directory. .scar archive can be renamed to .zip files.
-Open a terminal and run the script.
-> YOU NEED AN XML FILE WITH ALL LICENCE THEMES. There is one provided in the repository for simplicity's sake. Adjust as necessary.
-
-```
-python3 opale2flashcard.py ./path/to/questions/directory themeLicence.xml
-```
-
-The output will be in ./output/out.tex
-
-## Running the tests
+### Running the tests
 
 The `--debug_mode` option should be enabled if you want to check the pdf output. It will let you associate the output to the original file name.
 
@@ -171,7 +367,7 @@ to see the output pdf, and _only_ for this file. You can use the `--file_name FI
 ## Contributing
 
 I'm open to any contributions. I am a complete beginner in regards to coding, and I am aware that my code has several design issues.
-Some parts might need to be rewritten completely. 
+Some parts might need to be completely refactored. 
 
 ## Author
 

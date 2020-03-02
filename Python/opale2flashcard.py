@@ -420,7 +420,7 @@ def write_output(flashcard, question_count):
         output.append('% Flashcard : ' + flashcard.file + '/' + flashcard.question_type + '\n')
 
         if (args.a4paper == False):
-            output.append('\cardfrontfooter{' + flashcard.complexity_level + '}\n')
+            output.append('\cardfrontfooter{' + flashcard.complexity_level + '}{' + flashcard.subject.lower() + '}\n')
 
         output.append('\\begin{flashcard}[\cardfrontheader{' + flashcard.subject + '}{' + flashcard.education_level + '}{' + flashcard.licence_theme)
         if (args.debug_mode == True):
@@ -787,7 +787,7 @@ def fetch_question(file, root):
     elif (image is not None):
         image += '\n\\end{minipage}'
         if (args.no_replace == False):
-            print(output)
+            # print(output)
             output = output.replace("ci-dessous", "ci-contre")
     if (args.file_name == file):
         print('QUESTION\n' + output + '\n')
@@ -1037,7 +1037,19 @@ def opale_to_tex(args):
     parser = etree.XMLParser(remove_blank_text=True, remove_comments=True)
 
     # Theme tree
+
+    # Comment this line if you want to use a hard-coded dictionary
     (licence_theme, subject) = get_subject_and_themes(args.themefile, parser)
+
+    # Example hard-coded dictionary
+    # licence_theme = {
+    #     'strucmat': 'Structure de la matière',
+    #     'them': 'Complete theme'
+    # }
+    # subject = {
+    #     '#subj': 'Subject',
+    #     '#math': 'Mathematics'
+    # }
 
     # Variables
     (question_count, err_count) = (0,0)
