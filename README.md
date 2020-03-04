@@ -30,8 +30,13 @@
     - [Back footer text and QR Code](#back-footer-text-and-qr-code)
 - [LaTeX](#latex)
   - [General Latex implementation of a flashcard](#general-latex-implementation-of-a-flashcard)
-    - [Default output format (10x8cm)](#default-output-format-10x8cm)
-    - [a4paper output format](#a4paper-output-format)
+  - [Graphic charter](#graphic-charter)
+  - [Default output format (10x8cm)](#default-output-format-10x8cm)
+    - [Output properties, card's size and margins](#output-properties-cards-size-and-margins)
+    - [Standard flashcard template](#standard-flashcard-template)
+    - [Flashcard with image template](#flashcard-with-image-template)
+  - [a4paper output format](#a4paper-output-format)
+    - [Output properties, card's size and margins](#output-properties-cards-size-and-margins-1)
 - [Script (Python)](#script-python)
   - [Source files integrity check](#source-files-integrity-check)
   - [Output settings](#output-settings)
@@ -115,6 +120,9 @@ Find below the front and the back of a flashcard.
   - Image suppport is limited, as it's always put on the right side of the text. Better image support.
   - The icon is included in all flashcards. Implement a system to handle different icons according to which subject the flashcard has.
   - As of now, only one document is given "out.pdf" as the script's output. Categorised output will be added (sorted by subject for example).
+  - Template LaTeX flashcards' better
+    - Transfer a4paper positions to Python, to prepare for an eventual move to a configuration file.
+    - Create a new command for solutions boxes.
 - Long tasks
   - The QR code is static, a dynamic QR code generation according to the ressources found in the source file may be added in the future.
   - Write a configuration file template (YAML?) to implement:
@@ -376,16 +384,16 @@ The text and the QR code are placed manually using `tikzpicture`.
 ## LaTeX
 
 ### General Latex implementation of a flashcard
-> You will below an exhaustive explanation of the header files, so the reader can modify it afterwards if needed. In the following paragraphs, we will assume the reader has sufficient knowledge of LaTeX.
+> You will find below an exhaustive explanation of the header files, so the reader can modify it afterwards if needed. In the following paragraphs, we will assume the reader has sufficient knowledge of LaTeX.
 
 We use the [`flashcards` class](https://ctan.org/pkg/flashcards) for both output format. Follow the link to the class' CTAN page, and its documentation if you want to know more about the class itself. 
 
-Options:
+Options used:
 - The default option used is `avery5371`. 
 - The `frame` option is used to reveal the flashcard's edge. This option is enabled in the a4paper output format. It reveals where to separate the flashcards after printing them.
 - Add the `grid` option to reveal the **flashcard's content borders**. As specified in the class' documentation, there will be a uniform margin between the frame and the edge, defined by the length `\cardmargin`.
 
-Graphics:
+### Graphic charter
 - Three colors are used that are part of unisciel's graphic charter
     ```latex
     \definecolor{uniscielblue}{RGB}{4,146,191}
@@ -414,10 +422,21 @@ Graphics:
     ```
 
 
-#### Default output format (10x8cm)
+### Default output format (10x8cm)
+The package `geometry` is used to define the output's format.
+```latex
+ \geometry{
+    %showframe,
+    papersize={10cm,8cm},
+    marginparsep=0cm,
+    footskip=0cm,
+    hmargin=2mm,
+    vmargin=2mm,
+ }
+```
+#### Output properties, card's size and margins
 We define the lengths of the class as such:
 ```latex
-% --- CARD SIZE --- %
 \def\pageheight{7.4cm}
 \def\pagewidth{9.5cm}
 \renewcommand{\cardpapermode}{portrait}
@@ -431,25 +450,118 @@ We define the lengths of the class as such:
 \setlength{\oddoffset}{0mm}
 \setlength{\evenoffset}{0mm}
 ```
-
-The package `geometry` is used to define the output's format.
+We define some custom lengths used to position the content correctly:
 ```latex
- \geometry{
-    %showframe,
-    papersize={10cm,8cm},
-    marginparsep=0cm,
-    footskip=0cm,
-    hmargin=2mm,
-    vmargin=2mm,
- }
+\newlength{\questionvspace}
+\setlength{\questionvspace}{-2\baselineskip}
+\newlength{\answervspace}
+\setlength{\answervspace}{0cm}
 ```
+#### Standard flashcard template
+The output template is as such :
+<img src="LaTeX/models/standard-flashcard-template.png" width=800>
 
 The base of the flashcard template is written as such:
 ```latex
-\begin{}
+\cardfrontfooter{Complexity level}{subject}
+\begin{flashcard}[\cardfrontheader{Subject}{Education Level}{Subject Theme}]{
+%%%%%%%%%%%%%%% ÉNONCÉ %%%%%%%%%%%%%%%%
+\vspace{\enoncevspace} % Text vertical positionning
+[Insert Question here]
+\begin{enumerate}
+    \item Choice 1
+    \item Choice 2
+    \item Choice 3
+    \item Choice 4
+    \item Choice 5
+    \item Choice 6
+\end{enumerate}
+}
+%%%%%%%%%%%%%%% ÉNONCÉ %%%%%%%%%%%%%%%%
+\vspace*{\stretch{1}}
+%%%%%%%%%%%%%%% RÉPONSE %%%%%%%%%%%%%%%%
+\vspace{\reponsevspace} % Text vertical positionning
+
+% SOLUTIONS BOXES % 
+\begin{tikzpicture}[remember picture, overlay]
+    \node [align=left, opacity=1] at ([xshift=-1.75cm, yshift=2.5cm]current page.center) {
+                \color{uniscielgrey}
+                \textsf{\textit{Answers}}
+            };
+    \node [align=left, opacity=1] at ([xshift=1.75cm, yshift=2.5cm]current page.center) {
+                \color{uniscielgrey}
+                $1:\boxtimes\qquad2:\square\qquad3:\square\qquad4:\square\qquad$\\
+                \color{uniscielgrey}
+                $5:\square\qquad6:\square\qquad$
+            };
+\end{tikzpicture}
+% SOLUTIONS BOXES %
+
+[Insert explanations here]
+%%%%%%%%%%%%%%% RÉPONSE %%%%%%%%%%%%%%%%
+\vspace*{\stretch{1}}
+\end{flashcard}
 ```
-#### a4paper output format
-d
+#### Flashcard with image template
+An example flashcard:
+<img src="LaTeX/models//flashcard-image-template.png" width=800>
+The template code can be written as:
+```latex
+\cardfrontfooter{Complexity level}{subject}
+\begin{flashcard}[\cardfrontheader{Subject}{Education Level}{Subject Theme}]{
+%%%%%%%%%%%%%%% ÉNONCÉ %%%%%%%%%%%%%%%%
+\vspace{\enoncevspace} % Text vertical positionning
+\begin{minipage}[t]{0.6\linewidth}
+  [Insert Question here]
+  \begin{enumerate}
+      \item Choice 1
+      \item Choice 2
+      \item Choice 3
+      \item Choice 4
+      \item Choice 5
+      \item Choice 6
+  \end{enumerate}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.3\linewidth}
+    \strut\vspace*{-\baselineskip}\newline
+    \includegraphics[max size={\textwidth}{0.5\textheight}, center, keepaspectratio]{[Insert path to image]}
+\end{minipage}
+}
+...
+\end{flashcard}
+```
+The image is added using `minipage`. We split the flashcard's front into two pieces. The image is placed on the right side. 
+> As of now, every image will be placed on the right side regardless of its proportions. Eventually, I will try to implement a better image support.
+
+### a4paper output format
+We set the output format using the `geometry` package:
+```latex
+\geometry{
+  % showframe,
+  a4paper,
+  marginparsep=0cm,
+  footskip=0cm,
+  hmargin=2mm,
+  vmargin=2mm,
+}
+```
+#### Output properties, card's size and margins
+The vertical positionning lengths for the question and the answer and the card margins are kept identical to the default output format. 
+
+We change the lengths and parameters related to the card's size:
+```latex
+\newlength{\pageheight}
+\newlength{\pagewidth}
+\def\pageheight{297mm}
+\def\pagewidth{210mm}
+\renewcommand{\cardpapermode}{portrait}
+\renewcommand{\cardrows}{3}
+\renewcommand{\cardcolumns}{2}
+\setlength{\cardheight}{8cm}
+\setlength{\cardwidth}{10.2cm}
+```
+
 
 ## Script (Python)
 ### Source files integrity check

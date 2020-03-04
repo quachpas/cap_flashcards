@@ -669,6 +669,7 @@ def markup_content(file, element):
                     text = element.xpath('text()')
                     text = output_cleanup(text[0])
                     
+                    
 
                 # element.text = texfilter(element.text)
             else:
@@ -690,7 +691,6 @@ def markup_content(file, element):
     if (tag_markup is not None):
         output.append(tag_markup[1])
     output = output_cleanup(output)
-
     # Debugging
     # if (args.file_name == file):
     #     print(file, localname, tag_markup, output, ''.join(output))
@@ -739,14 +739,14 @@ def mixed_content_parsing(file, node):
         if ((type(element) == etree._Element)):
             output += markup_content(file, element)
         else:
-            output += ' ' + element + ' '
+            output +=   element + ' '
 
     return output
 
 def fetch_question(file, root):
     output = ''
     image = "\hfill\n\\begin{minipage}[t]{0.3\linewidth}\n\strut\\vspace*{-\\baselineskip}\\newline\n"
-    image_path = ''
+    path_to_image = ''
     # Questions can have rich content (images, etc.), so we examine every children
     check_generator(file , root.iterfind(".//sc:question/op:res", namespace), './/sc:question/op:res')
     for element in root.iterfind(".//sc:question/op:res", namespace):
@@ -779,8 +779,12 @@ def fetch_question(file, root):
                         output += "\n\\end{tabular}\n\\end{center}\n"
             # Section is a ressource
             if (remove_namespace(section).localname == 'res'):
-                image_path = '/' + args.sourcedir + '/' + section.attrib.values()[0] + '/' + section.attrib.values()[0].split("/")[-1]
-                image += "\includegraphics[max size={\\textwidth}{0.5\\textheight}, center, keepaspectratio]{" + image_path + "}\n"
+                for root, dirs, files in os.walk(args.sourcedir):
+                    for name in files:
+                        if(name == section.attrib.values()[0].split("/")[-1]):
+                            path_to_image = os.path.abspath(os.path.join(root, name))
+
+                image += "\includegraphics[max size={\\textwidth}{0.5\\textheight}, center, keepaspectratio]{" + path_to_image + "}\n"
 
     if (image == "\hfill\n\\begin{minipage}[t]{0.3\linewidth}\n\strut\\vspace*{-\\baselineskip}\\newline\n"):
         image = None
@@ -791,8 +795,8 @@ def fetch_question(file, root):
             output = output.replace("ci-dessous", "ci-contre")
     if (args.file_name == file):
         print('QUESTION\n' + output + '\n')
-        if (image_path is not None):
-            print(image_path)
+        if (path_to_image is not None):
+            print(path_to_image)
     return (output, image)
 
 def fetch_choices(file, root):
@@ -903,14 +907,14 @@ def check_overflow(flashcard):
     if (flashcard.image is None):
         if (
                 len(flashcard.question) + len(flashcard.choices) > 800
-            or  len(flashcard.answer) > 1000
+            or  len(flashcard.answer) > 950
         ):
             flashcard.overflow_flag = True
             flashcard.err_message += 'opale2flashcard.py(' + flashcard.file +  '): No image - Potentially overflowing content (Q, C, A): ' + str(len(flashcard.question)) + ' ' + str(len(flashcard.choices)) + ' ' + str(len(flashcard.answer)) + " "
     else:
         if (
                 len(flashcard.question) + len(flashcard.choices) > 700
-            or  len(flashcard.answer) > 1000
+            or  len(flashcard.answer) > 950
         ):
             flashcard.overflow_flag = True
             flashcard.err_message += 'opale2flashcard.py(' + flashcard.file +  '): Image - Potentially overflowing content (Q, C, A): ' + str(len(flashcard.question)) + ' ' + str(len(flashcard.choices)) + ' ' + str(len(flashcard.answer)) + " "
@@ -919,6 +923,8 @@ def check_overflow(flashcard):
                 'opale2flashcard.py(' + flashcard.file + '): WARNING ! There are at least two images in the question. Content might overflow',
                 'opale2flashcard.py(' + flashcard.file + '): WARNING ! There are at least two images in the question. Content might overflow', 
             )
+    if (args.debug_mode == True):
+        print('opale2flashcard.py(' + flashcard.file +  ')(Debug): Image - Length (Q, C, A): ' + str(len(flashcard.question)) + ' ' + str(len(flashcard.choices)) + ' ' + str(len(flashcard.answer)) + " ")
 
 def parse_files(args, question_count, err_count, parser, licence_theme, subject): # Copy all files in sourcedir/Prettified and prettify XML
     sourcedir = os.path.realpath(args.sourcedir)
@@ -1073,7 +1079,7 @@ def opale_to_tex(args):
     if (args.overflow_only == True):
         print("WARNING : Only potentially overflowing cards have been written in out.tex")
     ## Display number of errors / number of questions
-    print('opale2flashcard.py: ' +str(err_count) + '/' + str(question_count) + ' flashcards have missing metadata errors.\n These files will not be transcripted. Use option "--force" to ignore.\n')
+    print('opale2flashcard.py: ' +str(err_count) + '/' + str(question_count) + ' flashcards errors, either metadata or overflowing content.\n These files will not be transcripted. Use option "--force" to ignore.\n')
 
     ## Informations
     if (args.no_replace == False):

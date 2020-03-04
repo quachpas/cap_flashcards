@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#chim-agir-convener-reacoxydo-</sp:themeLycee>
+			<sp:themeLicence>#chim-electrochim-</sp:themeLicence>
+			<sp:level>1</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<!--<comment xmlns="scenari.eu:comment:1.0" type="thread"><comment author="camille.dufourg" creationTime="1575019814894">Il manque les mots-clés et la licence.</comment></comment>-->
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://unice.fr</sp:url>
+</op:urlM>unice.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="mar" creationTime="1431414195659">Remplacer les flèches par le signe = et insérer un espace entre 2 et e-.
+Mettre le e de Et en minuscule.</comment></comment>-->
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="etu02" creationTime="1430898033728">Image un peu petite</comment><comment author="map" creationTime="1430907744504">PB d'image à revoir équipe technique </comment><comment author="ext-lug" creationTime="1431351730165">Corrigé</comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Parmi les propositions suivantes, quelle est l'électrode siège de l'oxydation dans la pile Daniell ?
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+				<sp:res sc:refUri="&amp;/Questions/Chimie/POSchim/images/image20.png">
+					<op:resInfoM/>
+				</sp:res>
+				<sp:txt>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="ves" creationTime="1519296686399">Mettre de doubles flèches pour les réactions au lieu de =</comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">Lors de l'expérience, on observe la réduction du cuivre :
+		</sc:para>
+						<sc:para xml:space="preserve">
+			Cu<sc:textLeaf role="exp">2+</sc:textLeaf> + 2 eˉ → Cu
+		</sc:para>
+						<sc:para xml:space="preserve">
+			et l'oxydation du zinc :
+		</sc:para>
+						<sc:para xml:space="preserve">
+			Zn → Zn<sc:textLeaf role="exp">2+</sc:textLeaf> + 2eˉ.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			La cathode.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="etu03" creationTime="1435847246790">URGENT 
+Il ne faut pas mettre "avec r et c en gras pour réduction et cathodique
+avec o et a en gras pour oxydation et anodique" dans l'explication, mais changer la première lettre de chaque mot en gras (pour comprendre le moyen mémotechnique</comment></comment>-->
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="mar" creationTime="1431414406150" updateTime="1431415628883">Ajouter dans l'explication :
+Voici une règle mnémotechnique permettant de retenir à quelle électrode a lieu l'oxydation et la réduction : réduction cathodique (deux consonnes), oxydation anodique (deux voyelles).
+avec r et c en gras pour réduction et cathodique 
+avec o et a en gras pour oxydation et anodique</comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">
+			La cathode est le siège de la réduction.</sc:para>
+						<sc:para xml:space="preserve">Voici une règle mnémotechnique permettant de retenir à quelle électrode a lieu l'oxydation et la réduction : réduction cathodique (deux consonnes), oxydation anodique (deux voyelles) :</sc:para>
+						<sc:para xml:space="preserve">
+<sc:inlineStyle role="emp">r</sc:inlineStyle>éduction et <sc:inlineStyle role="emp">c</sc:inlineStyle>athodique</sc:para>
+						<sc:para xml:space="preserve">
+<sc:inlineStyle role="emp">o</sc:inlineStyle>xydation et <sc:inlineStyle role="emp">a</sc:inlineStyle>nodique</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			L'anode.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="etu03" creationTime="1435847266078">URGENT : IDEM</comment></comment>-->
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="mar" creationTime="1431415587276" updateTime="1431415621804">Remplacer l'explication par :
+l'anode est le siège de l'oxydation.
+Voici une règle mnémotechnique permettant de retenir à quelle électrode a lieu l'oxydation et la réduction : réduction cathodique (deux consonnes), oxydation anodique (deux voyelles).
+avec r et c en gras pour réduction et cathodique 
+avec o et a en gras pour oxydation et anodique </comment></comment>-->
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="etu02" creationTime="1430898064968">Faute de frappe : un s en trop "le siège"</comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">
+			L'anode est le siège de l'oxydation.</sc:para>
+						<sc:para xml:space="preserve">Voici une règle mnémotechnique permettant de retenir à quelle électrode a lieu l'oxydation et la réduction : réduction cathodique (deux consonnes), oxydation anodique (deux voyelles) :</sc:para>
+						<sc:para xml:space="preserve">
+<sc:inlineStyle role="emp">r</sc:inlineStyle>éduction et <sc:inlineStyle role="emp">c</sc:inlineStyle>athodique</sc:para>
+						<sc:para xml:space="preserve">
+<sc:inlineStyle role="emp">o</sc:inlineStyle>xydation et <sc:inlineStyle role="emp">a</sc:inlineStyle>nodique</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve"> 
+			Le pôle négatif.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="mar" creationTime="1431415741605" updateTime="1431416079316">Remplacer l'explication par :
+le pôle négatif dans une pile est le pôle où les électrons sont produits. Il correspond donc à l'électrode où a lieu une oxydation car lors d'une oxydation il y a libération d'un ou plusieurs électrons.</comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Le pôle négatif dans une pile est le pôle où les électrons sont produits. Il correspond donc à l'électrode où a lieu une oxydation car lors d'une oxydation il y a libération d'un ou plusieurs électrons.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			L'électrode de Zinc.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="mar" creationTime="1431415404100" updateTime="1431423413764" updatedBy="map">Remplacer l'explication par :
+l'électrode de zinc est le siège de l'oxydation car le zinc est oxydé.</comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">
+			L'électrode de zinc est le siège de l'oxydation car le zinc est oxydé.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Toutes les propositions sont fausses.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+	</op:mcqMur>
+</sc:item>

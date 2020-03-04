@@ -132,10 +132,10 @@
 \setlength{\cardheight}{\pageheight}
 \setlength{\cardwidth}{\pagewidth}
 
-\newlength{\enoncevspace}
-\setlength{\enoncevspace}{-2\baselineskip}
-\newlength{\reponsevspace}
-\setlength{\reponsevspace}{0cm}
+\newlength{\questionvspace}
+\setlength{\questionvspace}{-2\baselineskip}
+\newlength{\answervspace}
+\setlength{\answervspace}{0cm}
 \setlength{\cardmargin}{3mm}
 \setlength{\topoffset}{0mm}
 \setlength{\oddoffset}{0mm}
@@ -151,7 +151,7 @@
                 #3
             };
             \node [opacity=1] at ([xshift=0.7cm, yshift=-1.1cm]current page.south) {
-                \includesvg[height=10mm]{LogoUnisciel}
+                \includesvg[height=10mm]{university_logo}
             };
         \else
             \filigrane{#1}{#2}
@@ -183,11 +183,10 @@
         ](-1\paperwidth,-1\paperheight) rectangle (0.5\paperwidth,0.5\paperheight);
 }
 \SetBgScale{1.0}% Select scale factor of logo
-\SetBgAngle{0.0}% Select roation of logo
+\SetBgAngle{0.0}% Select rotation of logo
 %\SetBgOpacity{0.5}% Select opacity
 % \SetBgContents{\bgimage{0.15}{0.8}}% Set tikz picture
 %\SetBgPosition{current page.north west}% Select location
-% Cadre Rajouté à l'impression
 
 
 
