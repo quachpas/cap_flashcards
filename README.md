@@ -4,16 +4,32 @@
     - [What is Opale?](#what-is-opale)
     - [Documentation](#documentation)
   - [Why this script?](#why-this-script)
-- [How to use the script?](#how-to-use-the-script)
-  - [General instructions](#general-instructions)
-- [Project state](#project-state)
+- [Project's roadmap](#projects-roadmap)
   - [To do list](#to-do-list)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
-  - [Installing](#installing)
+    - [Linux systems](#linux-systems)
+    - [Windows](#windows)
+    - [macOS](#macos)
+  - [Installing and first test run](#installing-and-first-test-run)
+- [How to use the script?](#how-to-use-the-script)
+  - [General instructions](#general-instructions)
+- [Definition of a flashcard and associated XML tags](#definition-of-a-flashcard-and-associated-xml-tags)
+    - [Metadata](#metadata)
+      - [Subject and the subject's theme.](#subject-and-the-subjects-theme)
+      - [Complexity level](#complexity-level)
+      - [Education level](#education-level)
+    - [Content](#content)
+      - [Question](#question)
+      - [Choices](#choices)
+      - [Solutions](#solutions)
+      - [Answer (explanations)](#answer-explanations)
+  - [Customisable design elements](#customisable-design-elements)
+    - [Filigrane](#filigrane)
+    - [Subject's icon and university's logo](#subjects-icon-and-universitys-logo)
+    - [Back footer text and QR Code](#back-footer-text-and-qr-code)
 - [LaTeX](#latex)
-  - [Definition of a flashcard](#definition-of-a-flashcard)
-  - [Latex implementation of a flashcard](#latex-implementation-of-a-flashcard)
+  - [General Latex implementation of a flashcard](#general-latex-implementation-of-a-flashcard)
     - [Default output format (10x8cm)](#default-output-format-10x8cm)
     - [a4paper output format](#a4paper-output-format)
 - [Script (Python)](#script-python)
@@ -39,7 +55,7 @@ For individual use, SCENARIchain can be deployed as a desktop application.
 For collaborative use, SCENARIchain can be deployed as a server. 
 
 #### What is Opale?
-Opale is a publishing chain part of the software suite [Scenari](https://scenari.org/co/home.html). It is used to produce resources for academic training. These documents can be used for on-site, distance or blended learning. 
+Opale is a publishing chain part of the [Scenari](https://scenari.org/co/home.html) software suite. It is used to produce resources for academic training. These documents can be used for on-site, distance or blended learning. 
 
 Opale can be used to:
 - Design training modules, blending learning and evaluations activities into a single storyline.
@@ -49,9 +65,9 @@ Opale can be used to:
   - (HTML) Slideshows
   - (PDF) Training document
 - Add rich multimedia content to the course: videos, sounds, images, diagrams, mathematical formulas (LaTeX, OpenDocument)
-- Create [quizzes](quizz): multiple choice question (MCQ), multi choice question single answer, [categorise items](categorise), [order items](order), etc.
+- Create [quizzes][quizz]: multiple choice question (MCQ), multi choice question single answer, [categorise items][categorise], [order items][order], etc.
 - Create accessible training materials in web format (HTML)
-- Export content compatible with [SCORM](SCORM) (SCORM 1.2, or SCORM2004) standard to distribute them either via a Learning Management System (LMS), or a MOOC platform. Please refer to the [official website](https://scorm.com/) for more details.
+- Export content compatible with [SCORM][SCORM] (SCORM 1.2, or SCORM2004) standard to distribute them either via a Learning Management System (LMS), or a MOOC platform. Please refer to the [official website](https://scorm.com/) for more details.
 
 [SCORM]: https://trac.scenari.org/opale/wiki/scorm
 [quizz]: https://moodle.utc.fr/file.php/1330/cometes-modules/cometes-module-3-advanced/cometes-module-3-parcours/co/0551_exercices_interactifs.html
@@ -88,6 +104,93 @@ Find below the front and the back of a flashcard.
 <img src="LaTeX/models/flash-cards-01_Plan&#32;de&#32;travail&#32;1.jpg" width=400>
 <img src="LaTeX/models/flash-cards-03_Plan&#32;de&#32;travail&#32;1.jpg" width=400>
 
+
+## Project's roadmap
+- The script is a POC, therefore some functionalities may not work perfectly. Please use the debugging tools to check the validity of the produced flashcards before printing or sending into production.
+### To do list
+- Short tasks
+  - A short text and a QR code are added automatically at the back of the flashcard. Add an option to disable it.
+  - Add option to disable choice explanation's output. 
+- Moderately long tasks
+  - Image suppport is limited, as it's always put on the right side of the text. Better image support.
+  - The icon is included in all flashcards. Implement a system to handle different icons according to which subject the flashcard has.
+  - As of now, only one document is given "out.pdf" as the script's output. Categorised output will be added (sorted by subject for example).
+- Long tasks
+  - The QR code is static, a dynamic QR code generation according to the ressources found in the source file may be added in the future.
+  - Write a configuration file template (YAML?) to implement:
+    - custom short text on the back of the flashcard
+    - custom subject/licence_theme dictionary and complexity_level dictionary 
+    - QR Code toggle
+    - etc.
+    - Expected behaviour:
+      - Set default values to the script console options 
+      - console options should override configuration file
+## Getting Started
+The root folder contains:
+- [LICENSE](LICENSE), the license file.
+- [README.md](README.md), this file.
+
+There are three folders in this repository : Example files, LaTeX and Python. 
+
+* The LaTeX folder is a playground for templating flashcards using the script. It contains basic examples and the models used for creating flashcards.
+* The Python folder contains the script, two headers for two distinct ouput format and one footer. It also has some basic icons.
+* The Example files folder contains `themeLicence.xml`, `9047.quiz`, and `8983.quiz` and folders leading to the image resource used by `9047.quiz`. 
+
+### Prerequisites
+The script has only been tested on a linux system so far (Ubuntu 18.04.4 LTS). If all dependencies are installed, it should probably work seamlessly. You might need to tweak a few settings for `inkscape` to work properly.
+
+Here is the latexmk recipe I use in VS Code's LaTeX Workshop:
+```json
+"name": "latexmk",
+"command": "latexmk",
+"args": [
+    "-xelatex",
+    "-synctex=1",
+    "-interaction=nonstopmode",
+    "-file-line-error",
+    "-outdir=%OUTDIR%",
+    "--shell-escape",
+    "-cd",
+    "%DOC%"
+]
+```
+
+#### Linux systems
+Install `python3` if needed and `inkscape` ([Installation guide](https://wiki.inkscape.org/wiki/index.php/Installing_Inkscape#Installing_on_Linux)), these are required packages.
+
+The following packages are optional : `latexmk` ([Installation guide](https://mg.readthedocs.io/latexmk.html))(necessary to use the `--compile` option). As perl is installed by default, there is no need to install it. 
+You may need to update your packages
+
+#### Windows
+Install `python3` ([Installation guide](https://docs.python.org/3/using/windows.html)) and `inkscape` ([Installation guide](https://wiki.inkscape.org/wiki/index.php/Installing_Inkscape#Installing_on_a_Windows_system)).
+
+Optional : You can install `latexmk` through MikTex on Windows. If MikTex is not already installed, please follow this [link](https://miktex.org/download). `latemxk` needs Perl, you can install [Strawberry Perl](http://strawberryperl.com/).
+
+#### macOS
+MacOS comes with Python 2.7 pre-installed. Since this script has been tested on Python 3, please update your version of Python if it's already not up-to-date. You can find an installation guide here : [MacPython](https://docs.python.org/3/using/mac.html).
+
+Inkscape is used to include `.svg` files. Here is an installation guide, and a faq : [installation guide and faq](https://wiki.inkscape.org/wiki/index.php/Installing_Inkscape#Installing_on_a_Mac).
+
+Optional : `latexmk` is probably already installed. If not, follow instructions [here](https://miktex.org/howto/install-miktex-mac).
+
+### Installing and first test run
+
+Clone the repository where you want it to be and set it as your current working directory.
+
+```
+git clone https://gitlab.utc.fr/quachpas/cap_flashcards/
+cd  ./cap_flashcards
+```
+At this point, if you want to run the script, you need source files. There is a sample provided in the folder [Example files](/Example-files/).
+
+Open a terminal and run the script.
+> For now, you need an XML files with all themes. There is one provided in the repository for example's sake. Please adjust as necessary. 
+
+```
+python3 ./Python/opale2flashcard.py ./Examples-files ./Examples-files/themeLicence.xml
+```
+
+The output will be in `./cap_flashcards/Python/output/out.tex`.
 ## How to use the script?
 ### General instructions
 The script works in collaboration with SCENARIchain.
@@ -100,72 +203,179 @@ You will need the following:
   - an icon and a logo are provided by default in [Python/output/images](./Python/output/images). 
 > The script uses some tags that are present in Opale's document models **mcqSur** and **mcqMur**. Please find Opale's documentation [here](https://download.scenari.software/Opale@3.7/).
 
-## Project state
-- The script is a POC, therefore some functionalities may not function perfectly. Please use the debugging tools exhaustively to check the validity of the produced flashcards before printing.
-### To do list
-- Short tasks
-  - A short text and a QR code are added automatically at the back of the flashcard. Add an option to disable it.
-  - Image suppport is limited, as it's always put on the right side of the text. Better image support.
-- Moderately long tasks
-  - The icon is included in al flashcards. Implement a system to handle different icons according to which subject the flashcard has.
-  - As of now, only one document is given "out.pdf" as the script's output. Categorised output will be added (sorted by subject for example).
-- Long tasks
-  - The QR code is static, a dynamic QR code generation according to the ressources found in the source file may be added in the future.
-  - Write a configuration file template (YAML?) to implement:
-    - custom short text on the back of the flashcard
-    - custom subject/licence_theme dictionary
-    - QR Code toggle
-    - etc.
-    - Expected behaviour:
-      - Set default values to the script console options 
-      - console options should override configuration file
-## Getting Started
-The root folder contains:
-- [LICENSE](LICENSE), the license file.
-- [README.md](README.md), this file.
-- [themeLicence.xml](themeLicence.xml), an example XML file to produce the subject/licence dictionary.
+## Definition of a flashcard and associated XML tags
+The following XML tags are associated with Opale's model document (`mcqSur`, `mcqMur`).
+We consider the following elements for a flashcard:
+#### Metadata
+##### Subject and the subject's theme.
+ The tags are `sp:themeLicence` or `sp:themeLycee` tags. This script is destined for students, so we're only using the first one. 
+> Both subject and the subject's theme depend on the themes file given as an argument to the script. One example is provided in [`/cap_flashcards/Example-files`](Example-files/themeLicence.xml).
+##### Complexity level
+The complexity ranges from 1 to 4, and corresponds to a custom dictionary following Unisciel's standards.
+The complexity level correspond to `sp:level`.
+> I will try to make it customisable in the future. 
+##### Education level
+The education level corresponds to `sp:educationLevel`. The script simply outputs the tag content.
 
-There are two folders in this repository : LaTeX and Python. 
-
-* The LaTeX folder is a playground for templating flashcards using the script. It contains basic examples and the models used for creating flashcards.
-* The Python folder contains the script, two headers for two distinct ouput format and one footer. It also has some basic icons.
-
-### Prerequisites
-
-Install `python3` and `inkscape` ([Installation guide](https://wiki.inkscape.org/wiki/index.php/Installing_Inkscape)), these are required packages.
-
-The following packages are optional : `latexmk` (necessary to use the `--compile` option).
-
-### Installing
-
-Clone the repository and set it as your current directory
-
+Here is a sample code deliberately left in its original formatting:
+```xml
+<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#chim-obscoulim-matcolo-forlewis-</sp:themeLycee>
+			<sp:themeLicence>#chim-strucmat-</sp:themeLicence>
+			<sp:level>1</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://unice.fr</sp:url>
+</op:urlM>unice.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
 ```
-git clone https://gitlab.utc.fr/quachpas/cap_flashcards/
-cd  ./cap_flashcards
-```
-Download an archive from Scenari using the option 'export an archive' (_exporter une archive_).
-Unzip it somewhere in the working directory. The `.scar` archive can be renamed to  `.zip` files.
-Open a terminal and run the script.
-> YOU NEED AN XML FILE WITH ALL LICENCE THEMES. There is one provided in the repository for simplicity's sake. Adjust as necessary.
+#### Content
+As we are converting MCQ into flashcards, the content is defined by the question and the choices on the front, the solutions and the answer (or explanation) on the back.
 
+##### Question
+The question is enclosed in `sc:question` tags. Here is a first code sample :
+```xml 
+<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Comment appelle-t-on la représentation bidimensionnelle des atomes/molécules où l'on symbolise les électrons célibataires, les charges et les doublets non liants ?
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
 ```
-python3 opale2flashcard.py ./path/to/questions/directory themeLicence.xml
+As you can see, some questions are fairly simple and text represents the whole content. However, that is generally not the case :
+```xml
+<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Parmi les propositions suivantes, quelle est l'électrode siège de l'oxydation dans la pile Daniell ?
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+				<sp:res sc:refUri="&amp;/Questions/Chimie/POSchim/images/image20.png">
+					<op:resInfoM/>
+				</sp:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">Lors de l'expérience, on observe la réduction du cuivre :
+		</sc:para>
+						<sc:para xml:space="preserve">
+			Cu<sc:textLeaf role="exp">2+</sc:textLeaf> + 2 eˉ → Cu
+		</sc:para>
+						<sc:para xml:space="preserve">
+			et l'oxydation du zinc :
+		</sc:para>
+						<sc:para xml:space="preserve">
+			Zn → Zn<sc:textLeaf role="exp">2+</sc:textLeaf> + 2eˉ.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+```
+Here, the question is made up of three parts : a text section, an image resource and another text section, respectively denoted by `sp:txt` and `sp:res`.
+
+Some content might be enclosed in special tags inside a paragraph. For example `sc:textLeaf`, which result will differ based on the value of its attribute `role`. Here, an `exp` role will result in enclosing the tag's content with `$^{}$`.
+##### Choices
+The choices are inside a `sc:choices` tags, and each choice, including its explanation if there exists one, is enclosed inside a `sc:choice` tag. The choice's content is enclosed inside `sc:choiceLabel` and its explanation inside `sc:choiceExplanation`.
+We have the following structure :
+```xml
+<sc:choices>
+    <!-- First choice -->
+    <sc:choice>
+        <sc:choiceLabel>
+        <!-- CHOICE 1-->
+        </sc:choiceLabel>
+        <sc:choiceExplanation>
+        <!-- CHOICE 1 EXPLANATION-->
+        </sc:choiceExplanation>
+    </sc:choice>
+    <!-- Second choice -->
+    <sc:choice>
+        <sc:choiceLabel>
+        <!-- CHOICE 2-->
+        </sc:choiceLabel>
+    </sc:choice>
+</sc:choices>
+```
+##### Solutions
+For `mcqSur` files, where only a single answer is accepted, a `sc:solution` tag will follow immediately after the choices. For example :
+```xml
+<sc:solution choice="1"/>
+```
+For `mcqMur` files, the solutions are given as attributes of the choices.
+```xml
+<sc:choice solution="unchecked">
+<sc:choice solution="checked">
 ```
 
-The output will be in `./output/out.tex`.
+##### Answer (explanations)
+There are two types of explanations : global explanations (`sc:globalExplanation`) and choice explanations (`sc:choiceExplanation`).
+The first one comes after `sc:choices`, and is basically another section.
+The second one comes after `sc:choiceLabel` inside a `sc:choice`. 
+For example :
+```xml
+<sc:choice solution="unchecked">
+    <sc:choiceLabel>
+      <op:txt>
+        <sc:para xml:space="preserve">
+  La réaction est réalisée dans les proportions stœchiométriques.
+</sc:para>
+      </op:txt>
+    </sc:choiceLabel>
+    <sc:choiceExplanation>
+      <op:txt>
+        <sc:para xml:space="preserve">
+  La réaction n'est pas réalisée dans les proportions stœchiométriques car les rapports <sc:textLeaf role="mathtex">n_i(\textrm{H}_2(g))/2</sc:textLeaf> et <sc:textLeaf role="mathtex">n_i(\textrm{O}_2(g))/1</sc:textLeaf> sont différents,<sc:textLeaf role="mathtex">n_i</sc:textLeaf>
+  désignant la quantité de matière initiale du réactif.</sc:para>
+      </op:txt>
+    </sc:choiceExplanation>
+  </sc:choice>
+```
+### Customisable design elements
+Some elements were added on the flashcard for esthetism' sake or practical reasons.
+All these elements were added to the flashcard using `tikzpicture` to a fixed position to prevent the flashcard's content from displacing them. 
+
+#### Filigrane
+A filigrane was added to both front and back of the flashcard, otherwise the flashcard content on the other side might become readable depending on the paper used. 
+It is implemented directly in LaTeX using a customisable `pgf` pattern (stars and dots) and `tikzpicture`. 
+
+> There is no easy way to modify the patterns right now, you have to modify the header files directly to change the patterns.
+
+#### Subject's icon and university's logo
+The subject's icon is placed on the upper left side of the flashcard, on both front and back. It is included in the `.tex` file from an `.svg` file and using `inkscape` to convert it to a `.pdf_tex` file. 
+
+The university's logo on the lower right side of the front is produced identically to the subject's icon. 
+
+To customise these logos, you only need to provide another file. You may need to change the files' names according to your needs:
+- The university's logo includes by default `university_logo.svg`.
+- The subjects' icons include `[lowercase.subject].svg` by default. If the flashcard's subject is "Mathématiques", then it will try to include `mathématiques.svg`.
+#### Back footer text and QR Code
+The text and the QR code are placed manually using `tikzpicture`. 
+> As of now, there is no simple way to customise the these. You have to modify the header file directly. The text is placed manually using absolute positionning. 
 
 ## LaTeX
-### Definition of a flashcard
-A flashcard is made of different elements:  
-1. Metadata : subject, education level, subject theme, complexity level.
-2. Content : question, choices, solutions, answer (explanations).
-3. Fixed elements : the subject icon and the university's logo.
 
-
-
-
-### Latex implementation of a flashcard
+### General Latex implementation of a flashcard
 > You will below an exhaustive explanation of the header files, so the reader can modify it afterwards if needed. In the following paragraphs, we will assume the reader has sufficient knowledge of LaTeX.
 
 We use the [`flashcards` class](https://ctan.org/pkg/flashcards) for both output format. Follow the link to the class' CTAN page, and its documentation if you want to know more about the class itself. 
@@ -239,7 +449,7 @@ The base of the flashcard template is written as such:
 \begin{}
 ```
 #### a4paper output format
-
+d
 
 ## Script (Python)
 ### Source files integrity check
