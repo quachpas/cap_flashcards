@@ -10,7 +10,7 @@
 }
 \usepackage{transparent}
 \usepackage{graphicx}
-\graphicspath{{./images/}}
+\graphicspath{{./images/print/}}
 \usepackage[export]{adjustbox}
 \usepackage{lipsum}
 \usepackage{svg}
@@ -25,16 +25,34 @@
 % Gris : #676868
 \usepackage{fontspec}
 %ITC Avant Garde Gothic 
-\setsansfont{ITC Avant Garde Gothic}[
-    UprightFont={* Book},
-    ItalicFont={* Book Oblique},
-    BoldFont = {* Demi},
-    BoldItalicFont = {* Demi Oblique}
-]
+\setsansfont{Eufoniem One}
 % --- FONT SIZE --- %
 \cardfrontstyle[\footnotesize\raggedright]{headings}
 \cardbackstyle[\footnotesize\raggedright]{plain}
+\usepackage{changepage}
+\strictpagecheck
+\usepackage[outline]{contour}
+\contourlength{1pt}
+\usetikzlibrary{patterns,calc}
 
+% \usepackage{geometry}
+%  % --- PAPER SIZE --- %
+ \geometry{
+    showframe,
+    papersize={100truemm,80truemm},
+    marginparsep=0cm,
+    footskip=0cm,
+    hmargin=2mm,
+    vmargin=2mm,
+ }
+\usepackage[
+     noinfo,
+     cam,
+    %  cross,
+     width=110truemm,
+     height=90truemm,
+     center
+ ]{crop}
 %%%% COMMANDES CUSTOMS %%%%%
 
 \newcommand{\cardfrontfooter}[2]{
@@ -42,7 +60,19 @@
     
 }
 
-\newcommand{\cardfrontheader}[3]{    
+\newcommand{\cardfrontheader}[3]{  
+    \begin{tikzpicture}[remember picture, overlay]
+        \checkoddpage
+        \ifoddpage  
+            \node [opacity=1] at ([xshift=0cm, yshift=0cm]current page.center) {
+                \includesvg[]{recto-entete}
+            };
+        \else
+            \node [opacity=1] at ([xshift=0cm, yshift=0cm]current page.center) {
+                \includegraphics[max size={\textwidth}{0.5\textheight}, center, keepaspectratio]{qrcode}
+            };
+        \fi
+    \end{tikzpicture}  
     \begin{center}
         \begin{minipage}[c]{0.17\linewidth}
             \vspace{-0.85\baselineskip}
@@ -61,127 +91,43 @@
         \end{minipage}
     \end{center}
 }
-
-% ------ CUSTOM PATTERN ------- %
-% defining the new dimensions
-\newlength{\starsize}
-\newlength{\starspread}
-% declaring the keys in tikz
-\tikzset{starsize/.code={\setlength{\starsize}{#1}},
-    starspread/.code={\setlength{\starspread}{#1}}}
-% setting the default values
-\tikzset{starsize=1mm,starspread=3mm}
-% declaring the pattern
-\pgfdeclarepatternformonly[\starspread,\starsize]% variables
-    {custom fivepointed stars}% name
-    {\pgfpointorigin}% lower left corner
-    {\pgfqpoint{\starspread}{\starspread}}% upper right corner
-    {\pgfqpoint{\starspread}{\starspread}}% tilesize
-    {% shape description
-    \pgftransformshift{\pgfqpoint{\starsize}{\starsize}}
-    \pgfpathmoveto{\pgfqpointpolar{18}{\starsize}}
-    \pgfpathlineto{\pgfqpointpolar{162}{\starsize}}
-    \pgfpathlineto{\pgfqpointpolar{306}{\starsize}}
-    \pgfpathlineto{\pgfqpointpolar{90}{\starsize}}
-    \pgfpathlineto{\pgfqpointpolar{234}{\starsize}}
-    \pgfpathclose%
-    \pgfusepath{fill}
-    }
-% defining the new dimensions
-\newlength{\dotsize}
-\newlength{\dotspread}
-% declaring the keys in tikz
-\tikzset{dotsize/.code={\setlength{\dotsize}{#1}},
-    dotspread/.code={\setlength{\dotspread}{#1}}}
-% setting the default values
-\tikzset{dotsize=1mm,dotspread=1mm}
-\pgfdeclarepatternformonly[\dotsize,\dotspread]%
-    {custom dots}% name
-    {\pgfqpoint{-\dotsize}{-\dotsize}} % lower left
-    {\pgfqpoint{\dotsize}{\dotsize}} % upper right corner
-    {\pgfqpoint{\dotspread}{\dotspread}}% tilesize
-    {% shape description
-      \pgfpathcircle{\pgfpoint{0}{0}}{\dotsize}
-      \pgfusepath{fill}
-    }
-
-% ------ CUSTOM PATTERN ------- %
-
-\usepackage{changepage}
-\strictpagecheck
-\usepackage[outline]{contour}
-\contourlength{1pt}
-\usetikzlibrary{patterns,calc}
-
-\usepackage{geometry}
- % --- PAPER SIZE --- %
- \geometry{
-    %showframe,
-    papersize={10cm,8cm},
-    marginparsep=0cm,
-    footskip=0cm,
-    hmargin=2mm,
-    vmargin=2mm,
- }
-% --- CARD SIZE --- %
-\def\pageheight{7.4cm}
-\def\pagewidth{9.5cm}
-\renewcommand{\cardpapermode}{portrait}
-\renewcommand{\cardrows}{1}
-\renewcommand{\cardcolumns}{1}
-\setlength{\cardheight}{\pageheight}
-\setlength{\cardwidth}{\pagewidth}
-
-\newlength{\enoncevspace}
-\setlength{\enoncevspace}{-2\baselineskip}
-\newlength{\reponsevspace}
-\setlength{\reponsevspace}{0cm}
-\setlength{\cardmargin}{3mm}
-\setlength{\topoffset}{0mm}
-\setlength{\oddoffset}{0mm}
-\setlength{\evenoffset}{0mm}
 %%%% IMAGE DE FOND %%%%%
 \newcommand{\bgimage}[4]{
     \begin{tikzpicture}[remember picture, overlay]
         \checkoddpage
         \ifoddpage  
-            \filigrane{#1}{#2}
             \node [opacity=1] at ([xshift=-5.4cm, yshift=-1.7cm]current page.south) {
                 \color{uniscielpink}
                 #3
             };
             \node [opacity=1] at ([xshift=0.7cm, yshift=-1.1cm]current page.south) {
-                \includesvg[height=10mm]{LogoUnisciel}
+                % \includegraphics[max size={\textwidth}{0.5\textheight}, center, keepaspectratio]{university_logo}
             };
         \else
-            \filigrane{#1}{#2}
             \node [opacity=1] at ([xshift=-1.2cm, yshift=1cm]current page.west) {
                 \includesvg[height=0.18\linewidth]{icons/#4}
-            };
-            \node [align=left, opacity=1] at ([xshift=-3.7cm, yshift=-1.6cm]current page.south) {
-                \small
-                \color{uniscielpink}
-                \textsf{\textit{Vous pouvez revoir le cours en suivant le lien}}\\
-                \small
-                \color{uniscielpink}
-                \textsf{\textit{donnée par le QR Code ci-contre.}}
-            };
-            \node [opacity=1] at ([xshift=1.8cm, yshift=-1.3cm]current page.south) {
-                \includegraphics[max size={0.1\textwidth}{0.2\textheight}, center, keepaspectratio]{qrcode.png}
             };
         \fi
     \end{tikzpicture}
 }
-\newcommand{\filigrane}[2]{
-    %\fill[opacity=0.1,pattern=custom fivepointed stars, starspread=3mm, starsize=0.75mm] (-0.49\paperwidth,-0.49\paperheight) rectangle (0.49\paperwidth,0.49\paperheight);
-    \fill[
-        color = uniscielgrey,
-        opacity=0.1,
-        pattern=custom dots,
-        dotsize=#1mm, 
-        dotspread=#2mm
-        ](-1\paperwidth,-1\paperheight) rectangle (0.5\paperwidth,0.5\paperheight);
-}
+
+
+% --- CARD SIZE --- %
+\renewcommand{\cardpapermode}{portrait}
+\renewcommand{\cardrows}{1}
+\renewcommand{\cardcolumns}{1}
+\setlength{\cardheight}{7.4cm}
+\setlength{\cardwidth}{9.5cm}
+
+\newlength{\enoncevspace}
+\setlength{\enoncevspace}{0cm}
+\newlength{\reponsevspace}
+\setlength{\reponsevspace}{0cm}
+\setlength{\cardmargin}{1cm}
+\setlength{\topoffset}{0mm}
+\setlength{\oddoffset}{0mm}
+\setlength{\evenoffset}{0mm}
+
 \SetBgScale{1.0}% Select scale factor of logo
 \SetBgAngle{0.0}% Select roation of logo
 %\SetBgOpacity{0.5}% Select opacity

@@ -42,11 +42,11 @@
     
 }
 
-\newcommand{\cardfrontheader}[3]{    
+\newcommand{\cardfrontheader}[4]{    
     \begin{center}
         \begin{minipage}[c]{0.17\linewidth}
             \vspace{-0.85\baselineskip}
-            \includesvg[height=1.1\linewidth]{icons/physique}
+            \includesvg[height=1.1\linewidth]{icons/#4}
         \end{minipage}%
         \hspace{1.5\baselineskip}
         \begin{minipage}[c]{0.74\linewidth}
@@ -134,8 +134,8 @@
 
 \newlength{\questionvspace}
 \setlength{\questionvspace}{-2\baselineskip}
-\newlength{\answervspace}
-\setlength{\answervspace}{0cm}
+\newlength{\reponsevspace}
+\setlength{\reponsevspace}{0cm}
 \setlength{\cardmargin}{3mm}
 \setlength{\topoffset}{0mm}
 \setlength{\oddoffset}{0mm}
