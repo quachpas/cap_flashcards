@@ -127,6 +127,9 @@ Debugging tool - Outputs only files with images.
 parser.add_argument('--overflow_only', action = 'store_true', help = """
 Debugging tool - Outputs only files with potential overflowing content.  
 """)
+parser.add_argument('--non_relevant_only', action = 'store_true', help = """
+Debugging tool - Outputs only files with content flagged non-relevant.
+""")
 parser.add_argument('--no_replace', action = 'store_true', help = """
 Question with image - Stops replacing "ci-dessous" with "ci-contre" for files with images in the question.  
 """)
@@ -153,7 +156,7 @@ roles_markup = {
     "emp" : ("\emph{", "}"),
     "exp" : ("$^{", "}$"),
     "ind" : ("$_{", "}$"),
-    "mathtex" : ("$", "$"),
+    "mathtex" : ("$.", "$"),
     "url" : ("}", "{"),
 }
 
@@ -183,6 +186,7 @@ class Flashcard:
         self.overflow_flag = False
         self.err_flag = False
         self.err_message = ""
+        self.relevant = True
 
 def remove_namespace(element):
     return etree.QName(element)
@@ -254,10 +258,16 @@ def cleantheme(text):
     return text.strip()
 
 def get_licence_theme(licence_theme_dict, theme_code):
-    return licence_theme_dict.get(theme_code, None)
+    if (licence_theme_dict.get(theme_code, None) is not None):
+        return licence_theme_dict.get(theme_code, None)
+    else:
+        return ''
 
 def get_subject(subject_dict, subject_code):
-    return subject_dict.get(subject_code, None)
+    if (subject_dict.get(subject_code, None) is not None):
+        return subject_dict.get(subject_code, None)
+    else:
+        return ''
 
 def check_metadata(flashcard):
     if (flashcard.complexity_level is None or flashcard.complexity_level == "Missing Complexity Level" 
@@ -267,7 +277,7 @@ def check_metadata(flashcard):
         if (args.force == False):
             flashcard.err_flag = True
         if (args.verbose == True):
-            flashcard.err_message = 'opale2flashcard.py: ' + flashcard.file + ' was not written in out.tex.\n' + 'Metadata is missing :'
+            flashcard.err_message += 'opale2flashcard.py: ' + flashcard.file + ' was not written in out.tex.\n' + 'Metadata is missing :'
             if (flashcard.complexity_level is None or flashcard.complexity_level == "Missing Complexity Level"):
                 flashcard.err_message += "\t- Missing Complexity Level\n"
             if (flashcard.education_level is None or flashcard.education_level == "Missing Education Level"):
@@ -292,6 +302,57 @@ def check_generator(file, generator, expression):
         )
         return False
 
+def check_overflow(flashcard):
+    if (flashcard.image is None):
+        if (
+                len(flashcard.question) + len(flashcard.choices) > 800
+            or  len(flashcard.answer) > 950
+        ):
+            flashcard.overflow_flag = True
+            flashcard.err_message += 'opale2flashcard.py(' + flashcard.file +  '): No image - Potentially overflowing content (Q, C, A): ' + str(len(flashcard.question)) + ' ' + str(len(flashcard.choices)) + ' ' + str(len(flashcard.answer)) + " "
+    else:
+        if (
+                len(flashcard.question) + len(flashcard.choices) > 700
+            or  len(flashcard.answer) > 950
+        ):
+            flashcard.overflow_flag = True
+            flashcard.err_message += 'opale2flashcard.py(' + flashcard.file +  '): Image - Potentially overflowing content (Q, C, A): ' + str(len(flashcard.question)) + ' ' + str(len(flashcard.choices)) + ' ' + str(len(flashcard.answer)) + " "
+        if (flashcard.image.count("includegraphics") >= 2):
+            write_logs(
+                'opale2flashcard.py(' + flashcard.file + '): WARNING ! There are at least two images in the question. Content might overflow',
+                'opale2flashcard.py(' + flashcard.file + '): WARNING ! There are at least two images in the question. Content might overflow', 
+            )
+    if (args.debug_mode == True):
+        print('opale2flashcard.py(' + flashcard.file +  ')(Debug): Image - Length (Q, C, A): ' + str(len(flashcard.question)) + ' ' + str(len(flashcard.choices)) + ' ' + str(len(flashcard.answer)) + " ")
+
+def check_content(flashcard):
+    # Check irrelevant content in flashcard
+    # Remove flashcard if not pertinent
+    if ('http://' in flashcard.answer or 'https://' in flashcard.answer):
+        flashcard.relevant = False
+        flashcard.err_message += 'opale2flashcard.py(' + flashcard.file + "): Answer contains an URL."
+
+def check_output(output, err_count):
+    if (args.file_name is True and output.count("\begin{flashcard}") is not 1):
+        write_logs(
+            'opale2flashcard.py (--file_name) DANGER ! More than one flashcard.',
+            'opale2flashcard.py (--file_name) DANGER ! Specified option "--file_name" did not work as expected. More than one flashcard in output file.',
+        )
+    if (args.image_only is True and output.count("\includegraphics[") < output.count("\begin{flashcard}")):
+        write_logs(
+            'opale2flashcard.py (--file_name) DANGER ! Less images than expected.',
+            'opale2flashcard.py (--file_name) DANGER ! Specified option "--image_only" did not work as expected. There are less images than flashcards.',
+        )
+    if (args.overflow_only is True and err_count != output.count("\begin{flashcard}")):
+        write_logs(
+            'opale2flashcard.py (--file_name) DANGER ! Non-expected flashcards.',
+            'opale2flashcard.py (--file_name) DANGER ! Specified option "--overflow_only" did not work as expected. The error_count does not coincide with the number of flashcards',
+        )
+    if (args.non_relevant_only is True and err_count != output.count("\begin{flashcard}")):
+        write_logs(
+            'opale2flashcard.py (--file_name) DANGER ! Non-expected flashcards.',
+            'opale2flashcard.py (--file_name) DANGER ! Specified option "--non_relevant_only" did not work as expected. The error_count does not coincide with the number of flashcards',
+        )
 
 def write_logs(err_message, verb_err_message):
     if (args.logs == False):
@@ -308,11 +369,10 @@ def write_logs(err_message, verb_err_message):
         
 def write_solution(question_type, solution_list, choice_number, question_count):
     output = ''
-    if (question_count is not None):
+    if (question_count is not None and args.a4paper == True):
         (x_shift_1, x_shift_2, y_shift_1, y_shift_2) = solution_positions_a4paper(question_count)
-    else:
+    elif (args.a4paper == False):
         (x_shift_1, x_shift_2, y_shift_1, y_shift_2) = ('-1.75cm', '1.75cm', '2.65cm', '2.66cm')
-
 
     if (question_type == 'mcqMur'):
         choice_number += 1
@@ -413,38 +473,33 @@ def write_output(flashcard, question_count):
     # Variables
     output = []
 
-    # Check flashcard metadata
-    check_metadata(flashcard)
-    if (flashcard.err_flag == False):
-        # Output
-        output.append('% Flashcard : ' + flashcard.file + '/' + flashcard.question_type + '\n')
+    # Output
+    output.append('% Flashcard : ' + flashcard.file + '/' + flashcard.question_type + '\n')
 
-        if (args.a4paper == False):
-            output.append('\cardfrontfooter{' + flashcard.complexity_level + '}{' + flashcard.subject.lower() + '}\n')
+    if (args.a4paper == False):
+        output.append('\cardfrontfooter{' + flashcard.complexity_level + '}{' + flashcard.subject.lower() + '}\n')
 
-        output.append('\\begin{flashcard}[\cardfrontheader{' + flashcard.subject + '}{' + flashcard.education_level + '}{' + flashcard.licence_theme)
-        if (args.debug_mode == True):
-            output.append('--' + flashcard.file)
-        output.append('}]{\n')
-        output.append('\\vspace{\enoncevspace}\n')
-        if (flashcard.image is not None):
-            output.append('\\begin{minipage}[t]{0.6\\linewidth}\n\\footnotesize ')
-        output.append(flashcard.question + '\n')
-        output.append('\\begin{enumerate}\n')
-        output.append(flashcard.choices)
-        output.append('\\end{enumerate}\n')
-        if (flashcard.image is not None):
-            output.append('\\end{minipage}')
-            output.append(flashcard.image)
-        output.append('}\n')
-        output.append('\\vspace*{\\stretch{1}}\n\\vspace{\\reponsevspace}\n')
-        output.append(write_solution(flashcard.question_type, flashcard.solution_list, flashcard.choice_number, question_count))
-        output.append(flashcard.answer + '\n')
-        output.append('\\vspace*{\\stretch{1}}\n\\end{flashcard}\n\n')
-        
-        return output
-    else:
-        return flashcard.err_message
+    output.append('\\begin{flashcard}[\cardfrontheader{' + flashcard.subject + '}{' + flashcard.education_level + '}{' + flashcard.licence_theme)
+    if (args.debug_mode == True):
+        output.append('--' + flashcard.file)
+    output.append('}{' + flashcard.subject.lower() + '}]{\n')
+    output.append('\\vspace{\questionvspace}\n')
+    if (flashcard.image is not None):
+        output.append('\\begin{minipage}[t]{0.6\\linewidth}\n\\footnotesize ')
+    output.append(flashcard.question + '\n')
+    output.append('\\begin{enumerate}\n')
+    output.append(flashcard.choices)
+    output.append('\\end{enumerate}\n')
+    if (flashcard.image is not None):
+        output.append('\\end{minipage}')
+        output.append(flashcard.image)
+    output.append('}\n')
+    output.append('\\vspace*{\\stretch{1}}\n\\vspace{\\reponsevspace}\n')
+    output.append(write_solution(flashcard.question_type, flashcard.solution_list, flashcard.choice_number, question_count))
+    output.append(flashcard.answer + '\n')
+    output.append('\\vspace*{\\stretch{1}}\n\\end{flashcard}\n\n')
+    
+    return output
    
 def write_out_a4paper(flashcard_list):
     output_list = []
@@ -455,35 +510,26 @@ def write_out_a4paper(flashcard_list):
 
     # Main Loop
     for fc in flashcard_list:
-        check_metadata(fc)
-        if (fc.err_flag == False):
-            question_number += 1
-            question_count += 1
-            output_list.append(write_output(fc, question_count))
-            if (question_count != 6 and len(flashcard_list) - question_number >= 1):
-                # If len(flashcard_list) - question_number is between 6 and 1, then we're processing the last page of flashcards
-                # The number of remaining flashcards will not be sufficient to do another loop
-                # So we treat the last flashcard separately 
-                footer.append('{' + fc.complexity_level + '}\n')
-            elif (len(flashcard_list) - question_number == 0 ):
-                footer.append(fc.complexity_level + '}\n')
-            else:
-                question_count = 0
-                footer.append('{' + fc.complexity_level + '}\n')
-                output = ''.join(footer)
-                for fc in output_list:
-                    output += ''.join(fc)
-                write_outfile(output)
-                output = ''
-                output_list = []
-                footer = ['\cardfrontfooter']
-        # fc has a missing metadata error
+        question_number += 1
+        question_count += 1
+        output_list.append(write_output(fc, question_count))
+        if (question_count != 6 and len(flashcard_list) - question_number >= 1):
+            # If len(flashcard_list) - question_number is between 6 and 1, then we're processing the last page of flashcards
+            # The number of remaining flashcards will not be sufficient to do another loop
+            # So we treat the last flashcard separately 
+            footer.append('{' + fc.complexity_level + '}\n')
+        elif (len(flashcard_list) - question_number == 0 ):
+            footer.append(fc.complexity_level + '}\n')
         else:
-            error_count += 1
-            write_logs(
-                fc.err_message,
-                fc.err_message
-            )
+            question_count = 0
+            footer.append('{' + fc.complexity_level + '}\n')
+            output = ''.join(footer)
+            for fc in output_list:
+                output += ''.join(fc)
+            write_outfile(output)
+            output = ''
+            output_list = []
+            footer = ['\cardfrontfooter']
 
     # Writing "\cardfrontfooter{.}{.}{.}{.}{.}{.}"
     output = ''.join(footer)
@@ -560,36 +606,45 @@ def fetch_content(file, root, licence_theme_dict, subject_dict):
     ## Licence Theme and subject
     theme_code = fetch_data(file, root, ".//sp:themeLicence")
     if (theme_code is not None and theme_code is not ''):
+        
         splitted = theme_code.split('-')
         # Case where there are multiple licenceTheme
         # We just concatenate them with the delimiter '/' for subjects and '\n' for themes
         # The probability that there is more than two themes is low.
         if (len(splitted) > 3):
             for x in range(0, len(splitted)-1, 2):
+                # One theme
                 if (len(splitted) - 1 - x == 2):
+                    # If subjects or licence_theme have not been initialised
                     if (subject is None):
                         subject = get_subject(subject_dict, splitted[x])
                     else:
-                        subject += get_subject(subject_dict, splitted[x])
+                        if (subject != get_subject(subject_dict, splitted[x])):
+                            subject += '/' + get_subject(subject_dict, splitted[x])
+                    if (licence_theme is None):
+                        licence_theme = get_licence_theme(licence_theme_dict, splitted[x+1])
+                    else:
+                        if (licence_theme != get_licence_theme(licence_theme_dict, splitted[x+1])):
+                            licence_theme += '\\\\' + get_licence_theme(licence_theme_dict, splitted[x+1])    
+                # Two themes
+                else:
+                    # If subjects or licence_theme have not been initialised
+                    if (subject is None):
+                        subject = get_subject(subject_dict, splitted[x])
+                    else:
+                        if (subject != get_subject(subject_dict, splitted[x])):
+                            subject += '/' + get_subject(subject_dict, splitted[x])
                     
                     if (licence_theme is None):
                         licence_theme = get_licence_theme(licence_theme_dict, splitted[x+1])
                     else:
-                        licence_theme += get_licence_theme(licence_theme_dict, splitted[x+1])    
-                else:
-                    if (subject is None):
-                        subject = get_subject(subject_dict, splitted[x]) + '/'
-                    else:
-                        subject += get_subject(subject_dict, splitted[x]) + '/'
-                    
-                    if (licence_theme is None):
-                        licence_theme = get_licence_theme(licence_theme_dict, splitted[x+1]) + '\\\\'
-                    else:
-                        licence_theme += get_licence_theme(licence_theme_dict, splitted[x+1]) + '\\\\'
+                        if (licence_theme != get_licence_theme(licence_theme_dict, splitted[x+1])):
+                            licence_theme += '\\\\' + get_licence_theme(licence_theme_dict, splitted[x+1])
         # Single licenceTheme
         else:
             subject = get_subject(subject_dict, splitted[0])
             licence_theme = get_licence_theme(licence_theme_dict, splitted[1])
+        
     else:
         subject = None
         licence_theme = None
@@ -608,7 +663,14 @@ def fetch_content(file, root, licence_theme_dict, subject_dict):
 
     # Create Flashcard instance
     flashcard = Flashcard(file, question_type, complexity_level, subject, education_level, licence_theme, question, image, choices, answer, solution_list, choice_number)
+
     return flashcard
+
+def output_check(output):
+    if ('http://' in output or 'https://'):
+        output = output
+
+    return output
 
 def output_cleanup(output):
     # Delete control characters like \n \t \r
@@ -875,6 +937,9 @@ def fetch_answer(file, root):
             )
     if (args.file_name == file):
         print('ANSWER\n' + output)
+    
+    output = texfilter(output)
+    output = output_cleanup(output)
     return output
 
 def fetch_solution(file, root, question_type):
@@ -903,35 +968,63 @@ def fetch_solution(file, root, question_type):
 
     return (solution_list, choice_number)
 
-def check_overflow(flashcard):
-    if (flashcard.image is None):
-        if (
-                len(flashcard.question) + len(flashcard.choices) > 800
-            or  len(flashcard.answer) > 950
-        ):
-            flashcard.overflow_flag = True
-            flashcard.err_message += 'opale2flashcard.py(' + flashcard.file +  '): No image - Potentially overflowing content (Q, C, A): ' + str(len(flashcard.question)) + ' ' + str(len(flashcard.choices)) + ' ' + str(len(flashcard.answer)) + " "
-    else:
-        if (
-                len(flashcard.question) + len(flashcard.choices) > 700
-            or  len(flashcard.answer) > 950
-        ):
-            flashcard.overflow_flag = True
-            flashcard.err_message += 'opale2flashcard.py(' + flashcard.file +  '): Image - Potentially overflowing content (Q, C, A): ' + str(len(flashcard.question)) + ' ' + str(len(flashcard.choices)) + ' ' + str(len(flashcard.answer)) + " "
-        if (flashcard.image.count("includegraphics") >= 2):
+
+def process_error(flashcard):
+    if (args.file_name is not None or args.image_only is True or args.overflow_only is True or args.non_relevant_only is True):
+        if (args.file_name == flashcard.file and args.file_name is not None):
             write_logs(
-                'opale2flashcard.py(' + flashcard.file + '): WARNING ! There are at least two images in the question. Content might overflow',
-                'opale2flashcard.py(' + flashcard.file + '): WARNING ! There are at least two images in the question. Content might overflow', 
+                flashcard.err_message,
+                flashcard.err_message
+            )                            
+        if (flashcard.image is not None and args.image_only is True):
+            write_logs(
+                flashcard.err_message,
+                flashcard.err_message
+            ) 
+        if (flashcard.overflow_flag is True and args.overflow_only is True):
+            write_logs(
+                flashcard.err_message,
+                flashcard.err_message
             )
-    if (args.debug_mode == True):
-        print('opale2flashcard.py(' + flashcard.file +  ')(Debug): Image - Length (Q, C, A): ' + str(len(flashcard.question)) + ' ' + str(len(flashcard.choices)) + ' ' + str(len(flashcard.answer)) + " ")
+        if (flashcard.relevant is False and args.non_relevant_only is True):
+            write_logs(
+                flashcard.err_message,
+                flashcard.err_message
+            )
+    # Else, just process the error message
+    else:
+        write_logs(
+            flashcard.err_message,
+            flashcard.err_message
+        ) 
+def process_write_outfile(flashcard, output):
+    # If any output options have been declared
+    if (args.file_name is not None or args.image_only is True or args.overflow_only is True or args.non_relevant_only is True):
+        # Treat each `option`
+        if (args.file_name == flashcard.file and args.file_name is not None):
+            write_outfile(output)
+        if (flashcard.image is not None and args.image_only is True):
+            write_outfile(output)
+        if (flashcard.overflow_flag is True and args.overflow_only is True):
+            write_outfile(output)
+        if (flashcard.relevant is False and args.non_relevant_only is True):
+            write_outfile(output)
+    # Else, just write the output if the flashcard is valid.
+    elif (flashcard.err_flag is False and flashcard.overflow_flag is False and flashcard.relevant is True):
+        write_outfile(output)
 
 def parse_files(args, question_count, err_count, parser, licence_theme, subject): # Copy all files in sourcedir/Prettified and prettify XML
     sourcedir = os.path.realpath(args.sourcedir)
+    output = ''
     flashcard_list = []
+    file_name = ''
     for file in os.listdir(sourcedir):
         # Ignore all files which are not .quiz
         if (file.endswith(".quiz") is False):
+            continue
+
+        # File name option
+        if (args.file_name is not None and file != args.file_name):
             continue
 
         question_count += 1
@@ -946,8 +1039,22 @@ def parse_files(args, question_count, err_count, parser, licence_theme, subject)
             
             # Check overflow
             check_overflow(flashcard)
+                        
+            # Check metadata
+            check_metadata(flashcard)
 
-            # If --force option has been declared, put in dummy text
+            # Check non-pertinent content (URLs)
+            check_content(flashcard)
+            
+            # Process errors, ignore flashcards not concerned
+            if (args.image_only is True and flashcard.image is None):
+                continue
+            elif (args.overflow_only is True and flashcard.overflow_flag is False):
+                continue
+            elif (args.non_relevant_only is True and flashcard.relevant is True):
+                continue
+
+            # If --force option has been declared, put in dummy text to avoid compilation errors
             if (args.force == True):
                 if (flashcard.complexity_level is None):
                     flashcard.complexity_level = "Missing Complexity Level"
@@ -961,58 +1068,32 @@ def parse_files(args, question_count, err_count, parser, licence_theme, subject)
             # Write output string and write in outfile
             ## Default output format
             if (args.a4paper == False):
-                output = write_output(flashcard, None)
-                if ((flashcard.err_flag == False and flashcard.overflow_flag == False) or args.force == True):
-                    if (args.file_name is not None or args.image_only is True or args.overflow_only is True):
-                        if (args.file_name == file and args.file_name is not None):
-                            write_outfile(output)
-                        if (flashcard.image is not None and args.image_only is True):
-                            write_outfile(output)
-                        if (flashcard.overflow_flag is True and args.overflow_only is True):
-                            write_outfile(output)
-                    else:
-                        write_outfile(output)
-
-                    if (args.force == True and flashcard.err_message is not ''):
-                        if (args.file_name is not None or args.image_only is True or args.overflow_only is True):
-                            if (args.file_name == file and args.file_name is not None):
-                                write_logs(
-                                    flashcard.err_message,
-                                    flashcard.err_message
-                                )                            
-                            if (flashcard.image is not None and args.image_only is True):
-                                write_logs(
-                                    flashcard.err_message,
-                                    flashcard.err_message
-                                ) 
-                            if (flashcard.overflow_flag is True and args.overflow_only is True):
-                                write_logs(
-                                    flashcard.err_message,
-                                    flashcard.err_message
-                                ) 
-                        else:
-                            write_logs(
-                                flashcard.err_message,
-                                flashcard.err_message
-                            ) 
-                else:
+                # Create a standard output only if the flashcard's errors flags are not set
+                # OR if any debug "only-options" are used
+                if ((flashcard.err_flag == False and flashcard.overflow_flag == False and flashcard.relevant == True) 
+                or (args.image_only is True or args.overflow_only is True or args.non_relevant_only is True)):
+                    output = write_output(flashcard, None)
+                
+                
+                
+                # Write in the outfile only the valid files
+                process_write_outfile(flashcard, output)
+                    
+                # Error procedure
+                if (flashcard.err_flag is False or flashcard.overflow_flag is False or flashcard.relevant is True):
                     err_count += 1
-                    if (args.file_name is not None):
-                        if (args.file_name == file):
-                            write_logs(
-                                flashcard.err_message,
-                                flashcard.err_message
-                            )
-                    else:
-                        write_logs(
-                                flashcard.err_message,
-                                flashcard.err_message
-                            )
+                    process_error(flashcard) 
+                
+                # If a flashcard has been forcibly output, and its error message is not null
+                if (args.force == True and flashcard.err_message is not ''):
+                    err_count += 1
+                    process_error(flashcard)
             ## a4paper output format
             else:
                 output = ""
                 # Make a list of every flashcard in sourcedir
                 flashcard_list.append(flashcard)
+        
     # Once finished reading all files in sourcedir, write output and write into outfile.
     if (args.a4paper == True):
         # Write flashcards
@@ -1063,7 +1144,10 @@ def opale_to_tex(args):
     (question_count, err_count) = parse_files(args, question_count, err_count, parser, licence_theme, subject)
     write_outfile_footer()
 
-    # Compile out.tex is option has been declared
+    # Check out.tex
+
+
+    # Compile out.tex if option --compile has been declared
     compile_tex(args)
 
     # Termination message
@@ -1084,12 +1168,14 @@ def opale_to_tex(args):
     ## Informations
     if (args.no_replace == False):
         print('WARNING : We replaced every occurence of "ci-dessous" in the question by "ci-contre". If it was a mistake, please modify as necessary.\n Use option "--no_replace" to deactivate this feature.')
-    print('Please make use of the "--overflow-only" option to check every flashcard for potential defects')
+    print('Please make use of the "--XXX-only" options to check every flashcard for potential defects')
 
     if (args.compile == False):
         print("opale2flashcard.py: The .tex file out.tex has been created in ./output directory. Compiling it will produce a pdf file containing all flashcards in the specified source directory.\n Use option '--compile' if you want to compile directly after. You must have latexmk installed.")
     else:
         print("The .tex file has been compiled. The output pdf is in ./output directory. Please refer to output.log for eventual compilation errors.")
-                
+
+start_time = time.time()                
 args = parser.parse_args()
 opale_to_tex(args)
+print("The script took {0:0.3f} seconds to complete.".format(time.time() - start_time))

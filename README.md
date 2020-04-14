@@ -35,10 +35,14 @@
     - [Output properties, card's size and margins](#output-properties-cards-size-and-margins)
     - [Standard flashcard template](#standard-flashcard-template)
     - [Flashcard with image template](#flashcard-with-image-template)
+    - [Solutions boxes](#solutions-boxes)
+    - [Explanations](#explanations)
   - [a4paper output format](#a4paper-output-format)
     - [Output properties, card's size and margins](#output-properties-cards-size-and-margins-1)
+    - [Other changes](#other-changes)
 - [Script (Python)](#script-python)
-  - [Source files integrity check](#source-files-integrity-check)
+  - [Generalities](#generalities)
+  - [Flashcards validation check](#flashcards-validation-check)
   - [Output settings](#output-settings)
   - [Rich content](#rich-content)
   - [Debugging tools](#debugging-tools)
@@ -119,7 +123,7 @@ Find below the front and the back of a flashcard.
 - Moderately long tasks
   - Image suppport is limited, as it's always put on the right side of the text. Better image support.
   - The icon is included in all flashcards. Implement a system to handle different icons according to which subject the flashcard has.
-  - As of now, only one document is given "out.pdf" as the script's output. Categorised output will be added (sorted by subject for example).
+  - As of now, only one document is given "out.pdf" as the script's output. Categorised output will be added (sorted by subject, errors flashcards, etc.).
   - Template LaTeX flashcards' better
     - Transfer a4paper positions to Python, to prepare for an eventual move to a configuration file.
     - Create a new command for solutions boxes.
@@ -483,18 +487,7 @@ The base of the flashcard template is written as such:
 \vspace{\reponsevspace} % Text vertical positionning
 
 % SOLUTIONS BOXES % 
-\begin{tikzpicture}[remember picture, overlay]
-    \node [align=left, opacity=1] at ([xshift=-1.75cm, yshift=2.5cm]current page.center) {
-                \color{uniscielgrey}
-                \textsf{\textit{Answers}}
-            };
-    \node [align=left, opacity=1] at ([xshift=1.75cm, yshift=2.5cm]current page.center) {
-                \color{uniscielgrey}
-                $1:\boxtimes\qquad2:\square\qquad3:\square\qquad4:\square\qquad$\\
-                \color{uniscielgrey}
-                $5:\square\qquad6:\square\qquad$
-            };
-\end{tikzpicture}
+% Tikz picture
 % SOLUTIONS BOXES %
 
 [Insert explanations here]
@@ -531,8 +524,51 @@ The template code can be written as:
 ...
 \end{flashcard}
 ```
-The image is added using `minipage`. We split the flashcard's front into two pieces. The image is placed on the right side. 
+The image is added using `minipage`. We split the flashcard's front into two pieces. The image is placed on the right side. The script will add all images in the flashcard's question section. 
 > As of now, every image will be placed on the right side regardless of its proportions. Eventually, I will try to implement a better image support.
+
+#### Solutions boxes
+The solutions boxes are drawn using `tikzpicture`. A row consists of four checkboxes. 
+```latex
+\begin{tikzpicture}[remember picture, overlay]
+  \node [align=left, opacity=1] at ([xshift=-1.75cm, yshift=2.5cm]current page.center) {
+      \color{uniscielgrey}
+      \textsf{\textit{Answers}}
+  };
+  \node [align=left, opacity=1] at ([xshift=1.75cm, yshift=2.5cm]current page.center) {
+      \color{uniscielgrey}
+      $1:\boxtimes\qquad2:\square\qquad3:\square\qquad4:\square\qquad$\\
+      \color{uniscielgrey}
+      $5:\square\qquad6:\square\qquad$
+  };
+\end{tikzpicture}
+```
+> As of now, this code is repeated in every flashcard. The positions are written via the Python script.
+
+#### Explanations
+Choices explanations if they exist are written in an `enumerate` block. The global explanation is written afterwards as text. 
+```latex
+\cardfrontfooter{Complexity level}{subject}
+\begin{flashcard}[\cardfrontheader{Subject}{Education Level}{Subject Theme}]{
+%%%%%%%%%%%%%%% ÉNONCÉ %%%%%%%%%%%%%%%%
+\vspace{\enoncevspace} % Text vertical positionning
+% Question + Choices
+}
+\vspace*{\stretch{1}}
+\vspace{\reponsevspace}
+% Solutions Boxes
+
+% Choices explanations
+\begin{enumerate}
+\item [i.] Choice explanation for choice n°i
+\end{enumerate}
+% Choices explanations
+
+[Insert global explanation]
+
+\vspace*{\stretch{1}}
+\end{flashcard}
+```
 
 ### a4paper output format
 We set the output format using the `geometry` package:
@@ -561,30 +597,61 @@ We change the lengths and parameters related to the card's size:
 \setlength{\cardheight}{8cm}
 \setlength{\cardwidth}{10.2cm}
 ```
+#### Other changes
+1. The `\cardfrontfooter` command takes arguments for 6 flashcards at once. 
+2. The command managing the fixed elements is scaled to print the elements for 6 flashcards. 
 
+<img src="LaTeX/models/flashcard_a4paper.png" width=800>
 
 ## Script (Python)
-### Source files integrity check
-The script will check the integrity of the .quiz files. 
-Only mcqSur and mcqMur question types are completely supported.
-For other types, the behaviour is unpredictable. 
+
+### Generalities 
+- We use `lxml`'s `etree` `XMLparser` to scan through the contents of the source files. 
+- A single `.tex` file is produced as the output. Hopefully, that will change in the future.
+
+The steps the script goes through are the following:
+1. Validity check for the arguments
+2. Writing the dictionaries `licence_theme` and `subject`.
+3. Write the header in `output.tex` 
+4. For each `.quiz` file in the source directory:
+   1. Fetch the flashcard's content and return it. That is, fetch all metadata, the question, the choices, the solutions, and the answer. 
+   2. Perform both overflow and metadata check on the flashcard.
+   3. If the `--force` option has been declared, replace the missing metadata by dummy text, to avoid LaTeX compilation errors.
+   4. If the output format is the default:
+      1. Create an output string from the flashcard only if it has no errors, except if `--force` has been declared.
+      2. If the flashcard is valid, or if the `--force` option has been declared, write in the outfile the output created according to the various output options (`file_name`, `image_only`, `overflow_only`), if any have been used.
+      > This part is most probably going to change to accomodate the multiple output files.
+      3. Else, the flashcard isn't valid, and we process the errors.
+      4. If the `--force` option has been used, but the flashcard's error message isn't empty, then we process the errors.
+   5. Else, the output format is `a4paper`. We append every flashcard to a list. 
+5. If the output format is `a4paper`:
+   1. 
+6. Write the footer in `output.tex`
+
+
+### Flashcards validation check
+The script will check the validity of the flashcards produced from the `.quiz` source files. 
+Only `mcqSur` and `mcqMur` question types are completely supported.
+For other types, the behaviour is unpredictable.  
 1. Missing content:
     The script will continue if a flashcard has missing content,
     whether that be the question, choices, solutions or answer. 
     The script will give a warning message. 
 2. Missing metadata:
     The script will NOT output the flashcard if it has missing metadata.
-    You can bypass this behaviour using the '--force' option.
-    Be aware that it replace missing metadata with 'Missing METADATA_NAME'. 
+    You can bypass this behaviour using the `--force` option.
+    Be aware that it replace missing metadata with `Missing  [METADATA_NAME]`. 
 3. Content size:
     Some flashcards have large content, these might overflow,
-    and will be removed by default. 
-    The criteria used to define that is a character count. 
+    and will be removed from the output by default. 
+    The criteria used to define that is a simple character count. 
     Q : Question, C : Choices, A : Answer
     Flashcards with an image in their question are flagged if :
-        - Q + C > 700 or A > 1000
+        - Q + C > 700 or A > 950
     Flashcards without are flagged if :
-        - Q + C > 800 or A > 1000
+        - Q + C > 800 or A > 950
+4. Content check:
+   1. If an answer contains an URL (http), then it's flagged. 
 
 ### Output settings
 The script will write in the './output/out.tex' file. 
@@ -595,7 +662,7 @@ There are two output formats :
 Every page contains 6 flashcards (10x8 cm). A grid outlines the borders. This is the preferred format for printing flashcards at home.
 
 Some options can be used to filter the output (image_only, overflow_only, file_name [file_name])
-Combining these options will join the results, duplicates might exist.
+Combining these options will not join the results. The priority order is the following : `--file_name`, `--image_only`, `overflow_only`, `non_relevant_only`. 
 Using these options can help greatly in checking whether a flashcard is correctly transcripted.
 
 ### Rich content
