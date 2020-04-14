@@ -1,0 +1,2016 @@
+\documentclass[avery5371]{flashcards}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{datetime}
+\usepackage{hyperref}
+\usepackage{ragged2e}
+\hypersetup{
+    colorlinks=false,
+}
+\usepackage{transparent}
+\usepackage{graphicx}
+\graphicspath{{./images/}}
+\usepackage[export]{adjustbox}
+\usepackage{lipsum}
+\usepackage{svg}
+\usepackage{tikz}
+\usepackage[top]{background}
+\usepackage{xcolor}
+\definecolor{uniscielblue}{RGB}{4,146,191}
+\definecolor{uniscielpink}{RGB}{231,33,90}
+\definecolor{uniscielgrey}{RGB}{103,104,104}
+% Bleu : #0492bf
+% Rose : #e7215a
+% Gris : #676868
+\usepackage{fontspec}
+%ITC Avant Garde Gothic 
+\setsansfont{ITC Avant Garde Gothic}[
+    UprightFont={* Book},
+    ItalicFont={* Book Oblique},
+    BoldFont = {* Demi},
+    BoldItalicFont = {* Demi Oblique}
+]
+% --- FONT SIZE --- %
+\cardfrontstyle[\footnotesize\raggedright]{headings}
+\cardbackstyle[\footnotesize\raggedright]{plain}
+
+%%%% COMMANDES CUSTOMS %%%%%
+
+\newcommand{\cardfrontfooter}[2]{
+    \SetBgContents{\bgimage{0.15}{0.8}{#1}{#2}}
+    
+}
+
+\newcommand{\cardfrontheader}[4]{    
+    \begin{center}
+        \begin{minipage}[c]{0.17\linewidth}
+            \vspace{-0.85\baselineskip}
+            \includesvg[height=1.1\linewidth]{icons/#4}
+        \end{minipage}%
+        \hspace{1.5\baselineskip}
+        \begin{minipage}[c]{0.74\linewidth}
+            \vspace{-\baselineskip}
+            \color{uniscielblue}
+            \textbf{\textsf{#1}} -- \textsf{\textbf{#2}}\\
+            \color{uniscielgrey}
+            \rule[1.1mm]{2cm}{0.3mm}\\
+            \color{uniscielpink}
+            \raggedright
+            \textsf{#3}
+        \end{minipage}
+    \end{center}
+}
+
+% ------ CUSTOM PATTERN ------- %
+% defining the new dimensions
+\newlength{\starsize}
+\newlength{\starspread}
+% declaring the keys in tikz
+\tikzset{starsize/.code={\setlength{\starsize}{#1}},
+    starspread/.code={\setlength{\starspread}{#1}}}
+% setting the default values
+\tikzset{starsize=1mm,starspread=3mm}
+% declaring the pattern
+\pgfdeclarepatternformonly[\starspread,\starsize]% variables
+    {custom fivepointed stars}% name
+    {\pgfpointorigin}% lower left corner
+    {\pgfqpoint{\starspread}{\starspread}}% upper right corner
+    {\pgfqpoint{\starspread}{\starspread}}% tilesize
+    {% shape description
+    \pgftransformshift{\pgfqpoint{\starsize}{\starsize}}
+    \pgfpathmoveto{\pgfqpointpolar{18}{\starsize}}
+    \pgfpathlineto{\pgfqpointpolar{162}{\starsize}}
+    \pgfpathlineto{\pgfqpointpolar{306}{\starsize}}
+    \pgfpathlineto{\pgfqpointpolar{90}{\starsize}}
+    \pgfpathlineto{\pgfqpointpolar{234}{\starsize}}
+    \pgfpathclose%
+    \pgfusepath{fill}
+    }
+% defining the new dimensions
+\newlength{\dotsize}
+\newlength{\dotspread}
+% declaring the keys in tikz
+\tikzset{dotsize/.code={\setlength{\dotsize}{#1}},
+    dotspread/.code={\setlength{\dotspread}{#1}}}
+% setting the default values
+\tikzset{dotsize=1mm,dotspread=1mm}
+\pgfdeclarepatternformonly[\dotsize,\dotspread]%
+    {custom dots}% name
+    {\pgfqpoint{-\dotsize}{-\dotsize}} % lower left
+    {\pgfqpoint{\dotsize}{\dotsize}} % upper right corner
+    {\pgfqpoint{\dotspread}{\dotspread}}% tilesize
+    {% shape description
+      \pgfpathcircle{\pgfpoint{0}{0}}{\dotsize}
+      \pgfusepath{fill}
+    }
+
+% ------ CUSTOM PATTERN ------- %
+
+\usepackage{changepage}
+\strictpagecheck
+\usepackage[outline]{contour}
+\contourlength{1pt}
+\usetikzlibrary{patterns,calc}
+
+\usepackage{geometry}
+ % --- PAPER SIZE --- %
+ \geometry{
+    %showframe,
+    papersize={10cm,8cm},
+    marginparsep=0cm,
+    footskip=0cm,
+    hmargin=2mm,
+    vmargin=2mm,
+ }
+% --- CARD SIZE --- %
+\def\pageheight{7.4cm}
+\def\pagewidth{9.5cm}
+\renewcommand{\cardpapermode}{portrait}
+\renewcommand{\cardrows}{1}
+\renewcommand{\cardcolumns}{1}
+\setlength{\cardheight}{\pageheight}
+\setlength{\cardwidth}{\pagewidth}
+
+\newlength{\questionvspace}
+\setlength{\questionvspace}{-2\baselineskip}
+\newlength{\reponsevspace}
+\setlength{\reponsevspace}{0cm}
+\setlength{\cardmargin}{3mm}
+\setlength{\topoffset}{0mm}
+\setlength{\oddoffset}{0mm}
+\setlength{\evenoffset}{0mm}
+%%%% IMAGE DE FOND %%%%%
+\newcommand{\bgimage}[4]{
+    \begin{tikzpicture}[remember picture, overlay]
+        \checkoddpage
+        \ifoddpage  
+            \filigrane{#1}{#2}
+            \node [opacity=1] at ([xshift=-5.4cm, yshift=-1.7cm]current page.south) {
+                \color{uniscielpink}
+                #3
+            };
+            \node [opacity=1] at ([xshift=0.7cm, yshift=-1.1cm]current page.south) {
+                \includesvg[height=10mm]{university_logo}
+            };
+        \else
+            \filigrane{#1}{#2}
+            \node [opacity=1] at ([xshift=-1.2cm, yshift=1cm]current page.west) {
+                \includesvg[height=0.18\linewidth]{icons/#4}
+            };
+            \node [align=left, opacity=1] at ([xshift=-3.7cm, yshift=-1.6cm]current page.south) {
+                \small
+                \color{uniscielpink}
+                \textsf{\textit{Vous pouvez revoir le cours en suivant le lien}}\\
+                \small
+                \color{uniscielpink}
+                \textsf{\textit{donnée par le QR Code ci-contre.}}
+            };
+            \node [opacity=1] at ([xshift=1.8cm, yshift=-1.3cm]current page.south) {
+                \includegraphics[max size={0.1\textwidth}{0.2\textheight}, center, keepaspectratio]{qrcode.png}
+            };
+        \fi
+    \end{tikzpicture}
+}
+\newcommand{\filigrane}[2]{
+    %\fill[opacity=0.1,pattern=custom fivepointed stars, starspread=3mm, starsize=0.75mm] (-0.49\paperwidth,-0.49\paperheight) rectangle (0.49\paperwidth,0.49\paperheight);
+    \fill[
+        color = uniscielgrey,
+        opacity=0.1,
+        pattern=custom dots,
+        dotsize=#1mm, 
+        dotspread=#2mm
+        ](-1\paperwidth,-1\paperheight) rectangle (0.5\paperwidth,0.5\paperheight);
+}
+\SetBgScale{1.0}% Select scale factor of logo
+\SetBgAngle{0.0}% Select rotation of logo
+%\SetBgOpacity{0.5}% Select opacity
+% \SetBgContents{\bgimage{0.15}{0.8}}% Set tikz picture
+%\SetBgPosition{current page.north west}% Select location
+
+
+
+\begin{document}
+% Enable output generation
+% \scrollmode
+
+% Flashcard : UNS-BCL-041.quiz/mcqMur
+\cardfrontfooter{Connaître}{biologie}
+\begin{flashcard}[\cardfrontheader{Biologie}{L1}{Cellule structure et fonctions}{biologie}]{
+\vspace{\questionvspace}
+Concernant l'appareil de Golgi, quelles sont des propositions fausses ?
+
+\begin{enumerate}
+\item Le côté « cis » reçoit des vésicules en provenance du RE.
+\item Côté « trans », les hydrolases acides sont sélectivement regroupées et enfermées dans des vésicules.
+\item Certaines vésicules golgiennes transportent des protéines vers les mitochondries.
+\item La fonction des vésicules qui se forment à partir du côté « trans » est soit à la digestion cellulaire, soit l'exocytose.
+\item Toutes les vésicules partant du réseau trans-golgien fusionneront avec la membrane plasmique.
+\end{enumerate}
+}
+\vspace*{\stretch{1}}
+\vspace{\reponsevspace}
+\begin{tikzpicture}[remember picture, overlay]
+\node [align=left, opacity=1] at ([xshift=-1.75cm, yshift=2.65cm]current page.center) {
+\color{uniscielgrey}
+\textsf{\textit{Réponses}}
+};
+\node [align=left, opacity=1] at ([xshift=1.75cm, yshift=2.66cm]current page.center) {
+\color{uniscielgrey}
+$1:\square\qquad2:\square\qquad3:\boxtimes\qquad4:\square$\\
+\color{uniscielgrey}
+$5:\boxtimes\qquad$};
+\end{tikzpicture}
+Pour en savoir plus :    Présentation de l'appareil de Golgi http://ressources.unisciel.fr/biocell/chap8/co/module\_Chap8\_6.html    
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+% Flashcard : UNS-BCL-032.quiz/mcqMur
+\cardfrontfooter{Connaître}{biologie}
+\begin{flashcard}[\cardfrontheader{Biologie}{L1}{Cellule structure et fonctions}{biologie}]{
+\vspace{\questionvspace}
+Concernant la membrane plasmique, quelles sont les propositions vraies ?
+
+\begin{enumerate}
+\item La distribution des lipides entre les deux feuillets est asymétrique.
+\item La phosphatidylsérine est chargée négativement et se trouve uniquement dans le feuillet interne.
+\item La phosphatidylcholine se trouve uniquement dans le feuillet externe.
+\item Les glycolipides se trouvent uniquement dans le feuillet interne.
+\item Il existe une différence de charge significative entre les deux feuillets.
+\end{enumerate}
+}
+\vspace*{\stretch{1}}
+\vspace{\reponsevspace}
+\begin{tikzpicture}[remember picture, overlay]
+\node [align=left, opacity=1] at ([xshift=-1.75cm, yshift=2.65cm]current page.center) {
+\color{uniscielgrey}
+\textsf{\textit{Réponses}}
+};
+\node [align=left, opacity=1] at ([xshift=1.75cm, yshift=2.66cm]current page.center) {
+\color{uniscielgrey}
+$1:\boxtimes\qquad2:\boxtimes\qquad3:\square\qquad4:\square$\\
+\color{uniscielgrey}
+$5:\boxtimes\qquad$};
+\end{tikzpicture}
+Pour en savoir plus :   Les lipides en double couche http://ressources.unisciel.fr/biocell/chap1/co/module\_Chap1\_4.html    
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+% Flashcard : ULY-BIO-063.quiz/mcqSur
+\cardfrontfooter{Connaître}{biologie}
+\begin{flashcard}[\cardfrontheader{Biologie}{L1}{Biochimie et biologie moléculaire}{biologie}]{
+\vspace{\questionvspace}
+Lequel de ces composés résulte de l'estérification d'un alcool et d'un acide gras ?
+
+\begin{enumerate}
+\item Glucides.
+\item Lipides.
+\item Protides.
+\item Vitamines.
+\end{enumerate}
+}
+\vspace*{\stretch{1}}
+\vspace{\reponsevspace}
+\begin{tikzpicture}[remember picture, overlay]
+\node [align=left, opacity=1] at ([xshift=-1.75cm, yshift=2.65cm]current page.center) {
+\color{uniscielgrey}
+\textsf{\textit{Réponse}}
+};
+\node [align=left, opacity=1] at ([xshift=1.75cm, yshift=2.66cm]current page.center) {
+\color{uniscielgrey}
+$1:\square\qquad2:\boxtimes\qquad3:\square\qquad4:\square$
+};
+\end{tikzpicture}
+Si on veut préciser il s'agit des glycérides (ou acylglycérols) qui présentent 1 à 3 acides gras estérifiés sur les groupements OH (alcool) du glycérol.  Pour avoir les formules et des précisions :     http://www.chups.jussieu.fr/polys/biochimie/SGLbioch/POLY.Chp.2.4.html    
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+% Flashcard : ULY-BIO-043.quiz/mcqMur
+\cardfrontfooter{Connaître}{biologie}
+\begin{flashcard}[\cardfrontheader{Biologie}{L0}{Biologie animale}{biologie}]{
+\vspace{\questionvspace}
+Une hormone :
+
+\begin{enumerate}
+\item est produite par une glande endocrine.
+\item est produite par un neurone.
+\item circule dans le sang.
+\item est libérée au niveau d'une synapse.
+\item agit sur des cellules cibles à distance du lieu de synthèse.
+\item agit sur des cellules cibles environnant le lieu de synthèse.
+\end{enumerate}
+}
+\vspace*{\stretch{1}}
+\vspace{\reponsevspace}
+\begin{tikzpicture}[remember picture, overlay]
+\node [align=left, opacity=1] at ([xshift=-1.75cm, yshift=2.65cm]current page.center) {
+\color{uniscielgrey}
+\textsf{\textit{Réponses}}
+};
+\node [align=left, opacity=1] at ([xshift=1.75cm, yshift=2.66cm]current page.center) {
+\color{uniscielgrey}
+$1:\boxtimes\qquad2:\square\qquad3:\boxtimes\qquad4:\square$\\
+\color{uniscielgrey}
+$5:\boxtimes\qquad6:\square\qquad$};
+\end{tikzpicture}
+Les neurotransmetteurs sont des molécules chimiques libérées par des neurones et qui agissent généralement sur d'autres neurones. Il participent à la transmission de l'information sur de courtes distances au sein du système nerveux au niveau des synapses.  Avec les hormones ils sont les messagers de l'organisme et permettent la communication entre cellules. Il existe des neurohormones qui sont secrétées par des neurones mais agissent sur des cellules cibles éloignées comme des hormones.  Une animation lyonnaise sur le neurone et la production de neurotransmetteurs:      http://www.youtube.com/watch?v=rQIzI8W3gwA    
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+% Flashcard : ULY-BIO-003.quiz/mcqSur
+\cardfrontfooter{Connaître}{biologie}
+\begin{flashcard}[\cardfrontheader{Biologie}{L0}{Cellule structure et fonctions}{biologie}]{
+\vspace{\questionvspace}
+Associer un composant cellulaire à sa fonction : le noyau.
+
+\begin{enumerate}
+\item Stockage de l'information génétique.
+\item Traduction.
+\item Barrière, interface avec le milieu extracellulaire.
+\item Production d'énergie.
+\end{enumerate}
+}
+\vspace*{\stretch{1}}
+\vspace{\reponsevspace}
+\begin{tikzpicture}[remember picture, overlay]
+\node [align=left, opacity=1] at ([xshift=-1.75cm, yshift=2.65cm]current page.center) {
+\color{uniscielgrey}
+\textsf{\textit{Réponse}}
+};
+\node [align=left, opacity=1] at ([xshift=1.75cm, yshift=2.66cm]current page.center) {
+\color{uniscielgrey}
+$1:\boxtimes\qquad2:\square\qquad3:\square\qquad4:\square$
+};
+\end{tikzpicture}
+Pour revoir l'organisation de la cellule et le rôle des différentes structures cellulaires :   http://fr.wikipedia.org/wiki/Cellule\_\%28biologie\%29\#Cellule\_eucaryote    Pour revoir le concept de cellule et observer des images associées :   http://planet-vie.ens.fr/content/la-cellule-unite-du-vivant    Pour visionner une vidéo sur la cellule (concept, organisation, fonction des organites...) :   http://www.canal-u.tv/video/science\_en\_cours/la\_cellule\_2002.47    
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+% Flashcard : ULY-BIO-001.quiz/mcqSur
+\cardfrontfooter{Connaître}{biologie}
+\begin{flashcard}[\cardfrontheader{Biologie}{L0}{Cellule structure et fonctions}{biologie}]{
+\vspace{\questionvspace}
+La forme de la cellule végétale est associée à :
+
+\begin{enumerate}
+\item la membrane plasmique.
+\item la paroi cellulosique.
+\end{enumerate}
+}
+\vspace*{\stretch{1}}
+\vspace{\reponsevspace}
+\begin{tikzpicture}[remember picture, overlay]
+\node [align=left, opacity=1] at ([xshift=-1.75cm, yshift=2.65cm]current page.center) {
+\color{uniscielgrey}
+\textsf{\textit{Réponse}}
+};
+\node [align=left, opacity=1] at ([xshift=1.75cm, yshift=2.66cm]current page.center) {
+\color{uniscielgrey}
+$1:\square\qquad2:\boxtimes\qquad$
+};
+\end{tikzpicture}
+Pour revoir l'organisation de la cellule végétale et avoir des précisions sur la paroi végétale :      http://uel.unisciel.fr/biologie/module1/module1\_ch03/co/apprendre\_ch03\_1.html    
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+% Flashcard : UNS-BCL-034.quiz/mcqMur
+\cardfrontfooter{Connaître}{biologie}
+\begin{flashcard}[\cardfrontheader{Biologie}{L1}{Cellule structure et fonctions}{biologie}]{
+\vspace{\questionvspace}
+Concernant les pores nucléaires, quelles propositions sont vraies ?
+
+\begin{enumerate}
+\item Ils sont formés d'une seule protéine transmembranaire qui possède une ouverture en son milieu.
+\item Les petites particules (ions, molécules d'eau) les traversent facilement par simple diffusion.
+\item Ils permettent un transport sélectif de protéines d'une masse moléculaire supérieure à 50 000 Da.
+\item L'ouverture de l'orifice central peut se dilater pour laisser passer des sous-unités ribosomales.
+\item Un passage rapide des hydrolases acides est possible grâce à leur séquence de localisation nucléaire.
+\end{enumerate}
+}
+\vspace*{\stretch{1}}
+\vspace{\reponsevspace}
+\begin{tikzpicture}[remember picture, overlay]
+\node [align=left, opacity=1] at ([xshift=-1.75cm, yshift=2.65cm]current page.center) {
+\color{uniscielgrey}
+\textsf{\textit{Réponses}}
+};
+\node [align=left, opacity=1] at ([xshift=1.75cm, yshift=2.66cm]current page.center) {
+\color{uniscielgrey}
+$1:\square\qquad2:\boxtimes\qquad3:\boxtimes\qquad4:\boxtimes$\\
+\color{uniscielgrey}
+$5:\square\qquad$};
+\end{tikzpicture}
+Pour en savoir plus :    Structure du pore nucléaire http://ressources.unisciel.fr/biocell/chap10/co/module\_Chap10\_16.html        Trafic moléculaire au travers du pore http://ressources.unisciel.fr/biocell/chap10/co/module\_Chap10\_17.html    
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+% Flashcard : UNS-BCL-031.quiz/mcqMur
+\cardfrontfooter{Connaître}{biologie}
+\begin{flashcard}[\cardfrontheader{Biologie}{L1}{Cellule structure et fonctions}{biologie}]{
+\vspace{\questionvspace}
+Donnez les propositions vraies relatives à la membrane plasmique.
+
+\begin{enumerate}
+\item La fluidité membranaire est indépendante de la température.
+\item Plus la concentration en cholestérol est élevée, plus la membrane est fluide à 37°C.
+\item Plus la concentration en cholestérol est élevée, moins les lipides se déplacent latéralement.
+\item La présence de chaînes hydrocarbonées courtes et insaturées permet une plus grande fluidité de la membrane à basse température.
+\item A basse température, le cholestérol rend la membrane moins fluide.
+\end{enumerate}
+}
+\vspace*{\stretch{1}}
+\vspace{\reponsevspace}
+\begin{tikzpicture}[remember picture, overlay]
+\node [align=left, opacity=1] at ([xshift=-1.75cm, yshift=2.65cm]current page.center) {
+\color{uniscielgrey}
+\textsf{\textit{Réponses}}
+};
+\node [align=left, opacity=1] at ([xshift=1.75cm, yshift=2.66cm]current page.center) {
+\color{uniscielgrey}
+$1:\square\qquad2:\square\qquad3:\boxtimes\qquad4:\boxtimes$\\
+\color{uniscielgrey}
+$5:\square\qquad$};
+\end{tikzpicture}
+Pour en savoir plus :   Les lipides en double couche http://ressources.unisciel.fr/biocell/chap1/co/module\_Chap1\_4.html    
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+% Flashcard : UNS-BCL-004.quiz/mcqMur
+\cardfrontfooter{Connaître}{biologie}
+\begin{flashcard}[\cardfrontheader{Biologie}{L1}{Cellule structure et fonctions}{biologie}]{
+\vspace{\questionvspace}
+Concernant l'appareil de Golgi, quelles sont les propositions vraies ?
+
+\begin{enumerate}
+\item Il s'agit d'un compartiment intracellulaire qui contient de l'ADN.
+\item Il s'agit d'un ensemble de vésicules et de saccules aplatis empilés.
+\item Il s'agit d'une structure qui présente deux faces distinctes, appelées cis et trans.
+\item Il s'agit d'un compartiment entouré par une double membrane.
+\item Il s'agit d'un compartiment impliqué dans la modification des chaînes oligosaccharidiques des protéines.
+\end{enumerate}
+}
+\vspace*{\stretch{1}}
+\vspace{\reponsevspace}
+\begin{tikzpicture}[remember picture, overlay]
+\node [align=left, opacity=1] at ([xshift=-1.75cm, yshift=2.65cm]current page.center) {
+\color{uniscielgrey}
+\textsf{\textit{Réponses}}
+};
+\node [align=left, opacity=1] at ([xshift=1.75cm, yshift=2.66cm]current page.center) {
+\color{uniscielgrey}
+$1:\square\qquad2:\boxtimes\qquad3:\boxtimes\qquad4:\square$\\
+\color{uniscielgrey}
+$5:\boxtimes\qquad$};
+\end{tikzpicture}
+    L'appareil de Golgi http://ressources.unisciel.fr/biocell/chap8/co/module\_Chap8\_7.html    
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+% Flashcard : ULY-BIO-052.quiz/mcqMur
+\cardfrontfooter{Connaître}{biologie}
+\begin{flashcard}[\cardfrontheader{Biologie}{L1}{Biochimie et biologie moléculaire}{biologie}]{
+\vspace{\questionvspace}
+Les acides aminés :
+
+\begin{enumerate}
+\item sont des lipides.
+\item comportent au moins deux fonctions chimiques différentes.
+\item diffèrent les uns des autres uniquement par un radical de composition variable.
+\item rentrent dans la composition des peptides.
+\end{enumerate}
+}
+\vspace*{\stretch{1}}
+\vspace{\reponsevspace}
+\begin{tikzpicture}[remember picture, overlay]
+\node [align=left, opacity=1] at ([xshift=-1.75cm, yshift=2.65cm]current page.center) {
+\color{uniscielgrey}
+\textsf{\textit{Réponses}}
+};
+\node [align=left, opacity=1] at ([xshift=1.75cm, yshift=2.66cm]current page.center) {
+\color{uniscielgrey}
+$1:\square\qquad2:\boxtimes\qquad3:\boxtimes\qquad4:\boxtimes$};
+\end{tikzpicture}
+Un acide aminé (COOH-CHR-NH3+) est une molécule qui possède un groupement acide carboxylique ainsi qu'une fonction amine donc au moins deux fonctions chimiques différentes. Leurs structures diffèrent par un radical R dont la composition est très variable (H, CH3, mais aussi des groupements hydroxyle ou une fonction amine...).  Pour en savoir plus :    https://fr.wikipedia.org/wiki/Acide\_amin\%C3\%A9   
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+% Flashcard : ULY-BIO-005.quiz/mcqSur
+\cardfrontfooter{Connaître}{biologie}
+\begin{flashcard}[\cardfrontheader{Biologie}{L0}{Cellule structure et fonctions}{biologie}]{
+\vspace{\questionvspace}
+Associer un composant cellulaire à sa fonction : la mitochondrie.
+
+\begin{enumerate}
+\item Stockage de l'information génétique.
+\item Traduction.
+\item Barrière, interface avec le milieu extracellulaire.
+\item Production d'énergie.
+\end{enumerate}
+}
+\vspace*{\stretch{1}}
+\vspace{\reponsevspace}
+\begin{tikzpicture}[remember picture, overlay]
+\node [align=left, opacity=1] at ([xshift=-1.75cm, yshift=2.65cm]current page.center) {
+\color{uniscielgrey}
+\textsf{\textit{Réponse}}
+};
+\node [align=left, opacity=1] at ([xshift=1.75cm, yshift=2.66cm]current page.center) {
+\color{uniscielgrey}
+$1:\square\qquad2:\square\qquad3:\square\qquad4:\boxtimes$
+};
+\end{tikzpicture}
+Pour revoir l'organisation de la cellule et le rôle des différentes structures cellulaires :   http://fr.wikipedia.org/wiki/Cellule\_\%28biologie\%29\#Cellule\_eucaryote    Pour revoir le concept de cellule et observer des images associées :   http://planet-vie.ens.fr/content/la-cellule-unite-du-vivant    Pour visionner une vidéo sur la cellule (concept, organisation, fonction des organites...) :   http://www.canal-u.tv/video/science\_en\_cours/la\_cellule\_2002.47    
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+% Flashcard : ULY-BIO-012.quiz/mcqSur
+\cardfrontfooter{Connaître}{biologie}
+\begin{flashcard}[\cardfrontheader{Biologie}{L0}{Cellule structure et fonctions}{biologie}]{
+\vspace{\questionvspace}
+Mitochondries et chloroplastes sont des :
+
+\begin{enumerate}
+\item cellules.
+\item organes.
+\item organites.
+\end{enumerate}
+}
+\vspace*{\stretch{1}}
+\vspace{\reponsevspace}
+\begin{tikzpicture}[remember picture, overlay]
+\node [align=left, opacity=1] at ([xshift=-1.75cm, yshift=2.65cm]current page.center) {
+\color{uniscielgrey}
+\textsf{\textit{Réponse}}
+};
+\node [align=left, opacity=1] at ([xshift=1.75cm, yshift=2.66cm]current page.center) {
+\color{uniscielgrey}
+$1:\square\qquad2:\square\qquad3:\boxtimes\qquad$
+};
+\end{tikzpicture}
+Une animation pour resituer les différentes échelles du vivant :   http://ressources.unisciel.fr/biocell/chap1/res/hierarchie.swf    Pour revoir ce que sont une mitochondrie et un chloroplaste :        http://fr.wikipedia.org/wiki/Mitochondrie        http://fr.wikipedia.org/wiki/Chloroplaste    
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+% Flashcard : UNS-BCL-030.quiz/mcqMur
+\cardfrontfooter{Connaître}{biologie}
+\begin{flashcard}[\cardfrontheader{Biologie}{L1}{Cellule structure et fonctions}{biologie}]{
+\vspace{\questionvspace}
+Concernant les protéines chapéronnes, quelles propositions sont fausses ?
+
+\begin{enumerate}
+\item Elles portent des séquences signales servant à l'adressage des protéines.
+\item Elles jouent un rôle dans le repliement des protéines.
+\item Elles sont présentes entre autres, dans le RE et les mitochondries.
+\item Elles sont présentes exclusivement dans le RE et le noyau.
+\item Elles transportent des lipides membranaires du RE vers les mitochondries.
+\end{enumerate}
+}
+\vspace*{\stretch{1}}
+\vspace{\reponsevspace}
+\begin{tikzpicture}[remember picture, overlay]
+\node [align=left, opacity=1] at ([xshift=-1.75cm, yshift=2.65cm]current page.center) {
+\color{uniscielgrey}
+\textsf{\textit{Réponses}}
+};
+\node [align=left, opacity=1] at ([xshift=1.75cm, yshift=2.66cm]current page.center) {
+\color{uniscielgrey}
+$1:\boxtimes\qquad2:\square\qquad3:\square\qquad4:\boxtimes$\\
+\color{uniscielgrey}
+$5:\boxtimes\qquad$};
+\end{tikzpicture}
+Pour en savoir plus :    Les protéines chaperonnes : leur rôle dans le repliement http://ressources.unisciel.fr/biocell/chap8/co/module\_Chap8\_5.html    
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+% Flashcard : UNS-BCL-022.quiz/mcqMur
+\cardfrontfooter{Connaître}{biologie}
+\begin{flashcard}[\cardfrontheader{Biologie}{L1}{Cellule structure et fonctions}{biologie}]{
+\vspace{\questionvspace}
+Concernant un organisme pluricellulaire, quelles sont les propositions fausses ?
+
+\begin{enumerate}
+\item La plupart des cellules sont en phase M.
+\item Après la division cellulaire, les cellules entrent en phase G0.
+\item Les cellules en phase G0 ne contiennent pas de cyclines.
+\item La durée de la phase G0 dépend du type cellulaire.
+\item Les facteurs de croissance provoquent la synthèse de la protéine du rétinoblastome.
+\end{enumerate}
+}
+\vspace*{\stretch{1}}
+\vspace{\reponsevspace}
+\begin{tikzpicture}[remember picture, overlay]
+\node [align=left, opacity=1] at ([xshift=-1.75cm, yshift=2.65cm]current page.center) {
+\color{uniscielgrey}
+\textsf{\textit{Réponses}}
+};
+\node [align=left, opacity=1] at ([xshift=1.75cm, yshift=2.66cm]current page.center) {
+\color{uniscielgrey}
+$1:\boxtimes\qquad2:\square\qquad3:\square\qquad4:\square$\\
+\color{uniscielgrey}
+$5:\boxtimes\qquad$};
+\end{tikzpicture}
+Pour en savoir plus :    LA REGULATION DU CYCLE CELLULAIRE http://www.snv.jussieu.fr/bmedia/cyclecellBM/07G0\_G1.htm    
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+% Flashcard : ULY-BIO-050.quiz/mcqSur
+\cardfrontfooter{Connaître}{biologie}
+\begin{flashcard}[\cardfrontheader{Biologie}{L1}{Biochimie et biologie moléculaire}{biologie}]{
+\vspace{\questionvspace}
+Les polyosides :
+
+\begin{enumerate}
+\item n'existent que chez les végétaux.
+\item n'existent que chez les animaux.
+\item sont des macromolécules.
+\item sont de grosses molécules de lipides.
+\end{enumerate}
+}
+\vspace*{\stretch{1}}
+\vspace{\reponsevspace}
+\begin{tikzpicture}[remember picture, overlay]
+\node [align=left, opacity=1] at ([xshift=-1.75cm, yshift=2.65cm]current page.center) {
+\color{uniscielgrey}
+\textsf{\textit{Réponse}}
+};
+\node [align=left, opacity=1] at ([xshift=1.75cm, yshift=2.66cm]current page.center) {
+\color{uniscielgrey}
+$1:\square\qquad2:\square\qquad3:\boxtimes\qquad4:\square$
+};
+\end{tikzpicture}
+Les polyosides ou polysaccahraides sont des macromolécules polymères d'oses liés en eux par liaisons osidiques.  Pour en savoir plus :   https://fr.wikipedia.org/wiki/Polysaccharide    
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+% Flashcard : ULY-BIO-044.quiz/mcqMur
+\cardfrontfooter{Connaître}{biologie}
+\begin{flashcard}[\cardfrontheader{Biologie}{L0}{Biologie animale}{biologie}]{
+\vspace{\questionvspace}
+Un neurotransmetteur :
+
+\begin{enumerate}
+\item est produit par une glande endocrine.
+\item est produit par un neurone.
+\item circule dans le sang.
+\item est libéré au niveau d'une synapse.
+\item agit sur des cellules cibles à distance du lieu de synthèse.
+\item agit sur des cellules cibles environnant le lieu de synthèse.
+\end{enumerate}
+}
+\vspace*{\stretch{1}}
+\vspace{\reponsevspace}
+\begin{tikzpicture}[remember picture, overlay]
+\node [align=left, opacity=1] at ([xshift=-1.75cm, yshift=2.65cm]current page.center) {
+\color{uniscielgrey}
+\textsf{\textit{Réponses}}
+};
+\node [align=left, opacity=1] at ([xshift=1.75cm, yshift=2.66cm]current page.center) {
+\color{uniscielgrey}
+$1:\square\qquad2:\boxtimes\qquad3:\square\qquad4:\boxtimes$\\
+\color{uniscielgrey}
+$5:\square\qquad6:\boxtimes\qquad$};
+\end{tikzpicture}
+Les neurotransmetteurs sont des molécules chimiques libérées par des neurones et qui agissent généralement sur d'autres neurones. Il participent à la transmission de l'information sur de courtes distances au sein du système nerveux au niveau des synapses.  Avec les hormones ils sont les messagers de l'organisme et permettent la communication entre cellules. Il existe des neurohormones qui sont secrétées par des neurones mais agissent sur des cellules cibles éloignées comme des hormones.  Une animation lyonnaise sur le neurone et la production de neurotransmetteurs :     http://www.youtube.com/watch?v=rQIzI8W3gwA    
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+% Flashcard : UNS-BCL-023.quiz/mcqMur
+\cardfrontfooter{Connaître}{biologie}
+\begin{flashcard}[\cardfrontheader{Biologie}{L1}{Cellule structure et fonctions}{biologie}]{
+\vspace{\questionvspace}
+Concernant le génome mitochondrial, quelles propositions sont fausses ?
+
+\begin{enumerate}
+\item Il est constitué de plusieurs doubles hélices d'ADN linéaires.
+\item Il est constitué de molécules d'ADN circulaire double brin.
+\item Il porte l'information pour la synthèse de 22 ARNt.
+\item Il porte l'information pour la synthèse de 2 ARNr.
+\item Il est dupliqué uniquement pendant la période de la réplication de l'ADN nucléaire.
+\end{enumerate}
+}
+\vspace*{\stretch{1}}
+\vspace{\reponsevspace}
+\begin{tikzpicture}[remember picture, overlay]
+\node [align=left, opacity=1] at ([xshift=-1.75cm, yshift=2.65cm]current page.center) {
+\color{uniscielgrey}
+\textsf{\textit{Réponses}}
+};
+\node [align=left, opacity=1] at ([xshift=1.75cm, yshift=2.66cm]current page.center) {
+\color{uniscielgrey}
+$1:\boxtimes\qquad2:\square\qquad3:\square\qquad4:\square$\\
+\color{uniscielgrey}
+$5:\boxtimes\qquad$};
+\end{tikzpicture}
+Pour en savoir plus :    La mitochondrie Origine http://ressources.unisciel.fr/biocell/chap5/co/module\_Chap5\_2.html        Organisation de la mitochondrie http://ressources.unisciel.fr/biocell/chap5/co/module\_Chap5\_12.html    
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+% Flashcard : UNS-BCL-027.quiz/mcqMur
+\cardfrontfooter{Connaître}{biologie}
+\begin{flashcard}[\cardfrontheader{Biologie}{L1}{Cellule structure et fonctions}{biologie}]{
+\vspace{\questionvspace}
+Quelles sont les propositions fausses ?
+
+\begin{enumerate}
+\item Chaque protéine peut quitter le RE via le trafic vésiculaire.
+\item Les protéines résidentes du RE ne participent pas au trafic vésiculaire antérograde.
+\item Les protéines résidentes du RE possèdent une séquence signal (KDEL).
+\item Le transport antérograde (RE vers Golgi) est assuré par un transport vésiculaire sélectif.
+\item Toutes les protéines correctement synthétisées et repliées peuvent quitter le RE.
+\end{enumerate}
+}
+\vspace*{\stretch{1}}
+\vspace{\reponsevspace}
+\begin{tikzpicture}[remember picture, overlay]
+\node [align=left, opacity=1] at ([xshift=-1.75cm, yshift=2.65cm]current page.center) {
+\color{uniscielgrey}
+\textsf{\textit{Réponses}}
+};
+\node [align=left, opacity=1] at ([xshift=1.75cm, yshift=2.66cm]current page.center) {
+\color{uniscielgrey}
+$1:\square\qquad2:\square\qquad3:\square\qquad4:\square$\\
+\color{uniscielgrey}
+$5:\square\qquad$};
+\end{tikzpicture}
+Pour en savoir plus :    Système Endomembranaire https://www.youtube.com/watch?v=oPbzPUWa5HM\&t=27s        Système Endomembranaire https://www.youtube.com/watch?v=Q6wxoOZARdg\&t=68s    
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+% Flashcard : ULY-BIO-018.quiz/mcqSur
+\cardfrontfooter{Connaître}{biologie}
+\begin{flashcard}[\cardfrontheader{Biologie}{L0}{Biochimie et biologie moléculaire}{biologie}]{
+\vspace{\questionvspace}
+Trouver quel est le synonyme au type de molécule suivant : acide nucléique.
+
+\begin{enumerate}
+\item Polymère de nucléotides.
+\item Polymère d'acides aminés.
+\item Polysaccharide.
+\end{enumerate}
+}
+\vspace*{\stretch{1}}
+\vspace{\reponsevspace}
+\begin{tikzpicture}[remember picture, overlay]
+\node [align=left, opacity=1] at ([xshift=-1.75cm, yshift=2.65cm]current page.center) {
+\color{uniscielgrey}
+\textsf{\textit{Réponse}}
+};
+\node [align=left, opacity=1] at ([xshift=1.75cm, yshift=2.66cm]current page.center) {
+\color{uniscielgrey}
+$1:\boxtimes\qquad2:\square\qquad3:\square\qquad$
+};
+\end{tikzpicture}
+Une page qui reprend l'essentiel de la biochimie de lycée :     http://www.chambon.ac-versailles.fr/science/bioch/    
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+% Flashcard : UNS-BCL-019.quiz/mcqMur
+\cardfrontfooter{Connaître}{biologie}
+\begin{flashcard}[\cardfrontheader{Biologie}{L1}{Cellule structure et fonctions}{biologie}]{
+\vspace{\questionvspace}
+Concernant les MAPs motrices, quelles propositions sont fausses ?
+
+\begin{enumerate}
+\item Elles possèdent une activité ATPasique (elles sont capables d'hydrolyser de l'ATP).
+\item Elles peuvent provoquer un glissement de microtubules l'un par rapport à l'autre.
+\item Elles peuvent protéger l'extrémité d'un microtubule contre une dépolymérisation.
+\item Les kinésines peuvent se déplacer le long d'un microtubule dans deux sens opposés.
+\item Les MAPs de type kinésine fixent les microtubules polaires à la membrane plasmique.
+\end{enumerate}
+}
+\vspace*{\stretch{1}}
+\vspace{\reponsevspace}
+\begin{tikzpicture}[remember picture, overlay]
+\node [align=left, opacity=1] at ([xshift=-1.75cm, yshift=2.65cm]current page.center) {
+\color{uniscielgrey}
+\textsf{\textit{Réponses}}
+};
+\node [align=left, opacity=1] at ([xshift=1.75cm, yshift=2.66cm]current page.center) {
+\color{uniscielgrey}
+$1:\square\qquad2:\square\qquad3:\square\qquad4:\boxtimes$\\
+\color{uniscielgrey}
+$5:\boxtimes\qquad$};
+\end{tikzpicture}
+Pour en savoir plus :    Trois types principaux de structures protéiques constituent le cytosquelette http://ressources.unisciel.fr/biocell/chap4/co/module\_Chap4\_1.html    
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+% Flashcard : UNS-BCL-042.quiz/mcqMur
+\cardfrontfooter{Connaître}{biologie}
+\begin{flashcard}[\cardfrontheader{Biologie}{L1}{Cellule structure et fonctions}{biologie}]{
+\vspace{\questionvspace}
+Concernant l'appareil de Golgi, quelles sont les propositions vraies ?
+
+\begin{enumerate}
+\item Il s'agit d'une structure endomembranaire polarisée.
+\item Il participe à l'acheminement des phosphatases acides vers le lysosome.
+\item Il s'agit d'un compartiment intracellulaire délimité par deux membranes.
+\item Il joue un rôle dans la glycosylation des protéines membranaires.
+\item Il joue un rôle dans la glycosylation des protéines cytosoliques.
+\end{enumerate}
+}
+\vspace*{\stretch{1}}
+\vspace{\reponsevspace}
+\begin{tikzpicture}[remember picture, overlay]
+\node [align=left, opacity=1] at ([xshift=-1.75cm, yshift=2.65cm]current page.center) {
+\color{uniscielgrey}
+\textsf{\textit{Réponses}}
+};
+\node [align=left, opacity=1] at ([xshift=1.75cm, yshift=2.66cm]current page.center) {
+\color{uniscielgrey}
+$1:\boxtimes\qquad2:\boxtimes\qquad3:\square\qquad4:\boxtimes$\\
+\color{uniscielgrey}
+$5:\square\qquad$};
+\end{tikzpicture}
+Pour en savoir plus :    Présentation de l'appareil de Golgi http://ressources.unisciel.fr/biocell/chap8/co/module\_Chap8\_6.html    
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+% Flashcard : UNS-BCL-012.quiz/mcqMur
+\cardfrontfooter{Connaître}{biologie}
+\begin{flashcard}[\cardfrontheader{Biologie}{L1}{Cellule structure et fonctions}{biologie}]{
+\vspace{\questionvspace}
+Les lysosomes ne possèdent que trois des propriétés proposées, lesquelles ?
+
+\begin{enumerate}
+\item La dégradation de protéines ubiquitinylées.
+\item La dégradation de mitochondries arrivées au terme de leur existence.
+\item La synthèse des lipides membranaires.
+\item La nutrition cellulaire.
+\item La digestion des matériaux endocytés.
+\end{enumerate}
+}
+\vspace*{\stretch{1}}
+\vspace{\reponsevspace}
+\begin{tikzpicture}[remember picture, overlay]
+\node [align=left, opacity=1] at ([xshift=-1.75cm, yshift=2.65cm]current page.center) {
+\color{uniscielgrey}
+\textsf{\textit{Réponses}}
+};
+\node [align=left, opacity=1] at ([xshift=1.75cm, yshift=2.66cm]current page.center) {
+\color{uniscielgrey}
+$1:\square\qquad2:\boxtimes\qquad3:\square\qquad4:\boxtimes$\\
+\color{uniscielgrey}
+$5:\boxtimes\qquad$};
+\end{tikzpicture}
+Pour en savoir plus :    Le lysosome http://ressources.unisciel.fr/biocell/chap7/co/module\_Chap7\_6.html    
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+% Flashcard : UNS-BCL-043.quiz/mcqMur
+\cardfrontfooter{Connaître}{biologie}
+\begin{flashcard}[\cardfrontheader{Biologie}{L1}{Cellule structure et fonctions}{biologie}]{
+\vspace{\questionvspace}
+Quelles sont les propositions vraies ?
+
+\begin{enumerate}
+\item La SRP (particule de reconnaissance du signal) reconnaît la séquence signal de localisation nucléaire.
+\item Le récepteur à la SRP est une protéine intrinsèque de la membrane mitochondriale.
+\item La SRP se lie à la séquence signal d'une protéine destinée à la sécrétion et arrête la traduction.
+\item Le récepteur à la SRP amène le complexe ribosome/SRP au translocateur protéique (Sec 61).
+\item Le ribosome reprend la traduction après la dissociation de la SRP et de son récepteur.
+\end{enumerate}
+}
+\vspace*{\stretch{1}}
+\vspace{\reponsevspace}
+\begin{tikzpicture}[remember picture, overlay]
+\node [align=left, opacity=1] at ([xshift=-1.75cm, yshift=2.65cm]current page.center) {
+\color{uniscielgrey}
+\textsf{\textit{Réponses}}
+};
+\node [align=left, opacity=1] at ([xshift=1.75cm, yshift=2.66cm]current page.center) {
+\color{uniscielgrey}
+$1:\square\qquad2:\square\qquad3:\boxtimes\qquad4:\boxtimes$\\
+\color{uniscielgrey}
+$5:\boxtimes\qquad$};
+\end{tikzpicture}
+Pour en savoir plus :    Le peptide signal induit le passage vers le REr : acheminement co-traductionnel http://ressources.unisciel.fr/biocell/chap8/co/module\_Chap8\_16.html    
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+% Flashcard : UNS-BCL-018.quiz/mcqMur
+\cardfrontfooter{Connaître}{biologie}
+\begin{flashcard}[\cardfrontheader{Biologie}{L1}{Cellule structure et fonctions}{biologie}]{
+\vspace{\questionvspace}
+Concernant le protéasome, quelles propositions sont vraies ?
+
+\begin{enumerate}
+\item Il s'agit d'un complexe protéique responsable de la dégradation de protéines dans le cytosol et le noyau.
+\item Uniquement les protéines non fonctionnelles seront dégradées.
+\item Ses substrats sont des protéines qui contiennent une suite de 5 à 8 acides aminés chargés positifs.
+\item Il est responsable d'une phosphorylation de protéines mal repliées.
+\item Il n'est pas entouré d'une bicouche lipidique.
+\end{enumerate}
+}
+\vspace*{\stretch{1}}
+\vspace{\reponsevspace}
+\begin{tikzpicture}[remember picture, overlay]
+\node [align=left, opacity=1] at ([xshift=-1.75cm, yshift=2.65cm]current page.center) {
+\color{uniscielgrey}
+\textsf{\textit{Réponses}}
+};
+\node [align=left, opacity=1] at ([xshift=1.75cm, yshift=2.66cm]current page.center) {
+\color{uniscielgrey}
+$1:\boxtimes\qquad2:\square\qquad3:\square\qquad4:\square$\\
+\color{uniscielgrey}
+$5:\boxtimes\qquad$};
+\end{tikzpicture}
+Pour en savoir plus :    Un grand complexe de protéases http://ressources.unisciel.fr/biocell/chap7/co/module\_Chap7\_10.html    
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+% Flashcard : ULY-BIO-038.quiz/mcqSur
+\cardfrontfooter{Connaître}{biologie}
+\begin{flashcard}[\cardfrontheader{Biologie}{L0}{Biologie animale}{biologie}]{
+\vspace{\questionvspace}
+Une boucle de rétrocontrôle positif est :
+
+\begin{enumerate}
+\item une boucle de régulation par laquelle un phénomène est amplifié.
+\item une boucle de régulation par laquelle un phénomène est maintenu stable, constant.
+\item une boucle de régulation par laquelle un phénomène est régulé à la baisse, diminué, freiné.
+\end{enumerate}
+}
+\vspace*{\stretch{1}}
+\vspace{\reponsevspace}
+\begin{tikzpicture}[remember picture, overlay]
+\node [align=left, opacity=1] at ([xshift=-1.75cm, yshift=2.65cm]current page.center) {
+\color{uniscielgrey}
+\textsf{\textit{Réponse}}
+};
+\node [align=left, opacity=1] at ([xshift=1.75cm, yshift=2.66cm]current page.center) {
+\color{uniscielgrey}
+$1:\boxtimes\qquad2:\square\qquad3:\square\qquad$
+};
+\end{tikzpicture}
+Un rétrocontrôle (ou feedback ou rétroaction) est un mécanisme par lequel un paramètre influe sur sa propre valeur.  Dans le cadre d'un rétrocontrôle positif, l'augmentation de la valeur d'un paramètre stimule sa propre augmentation, c'est la fuite en avant, l'effet boule de neige (Exemple : pic de FSH et de LH impliqué dans l'ovulation chez la femme).  Dans la cadre d'un rétrocontrôle négatif, l'augmentation de la valeur d'un paramètre dans un sens autour d'une valeur de consigne implique une régulation dans le sens opposé de ce paramètre qui revient donc à la normale (exemple : régulation de la glycémie autour de 1gr par litre de sang, régulation de la testostéronémie chez l'homme).  Les rétrocontrôles sont impliqués dans le phénomène d’homéostasie (stabilité du milieu intérieur). Dans la vie courante on retrouve ce type de mécanismes dans les thermostats.  La définition d'un rétrocontrôle par le Larousse médical :     http://www.larousse.fr/encyclopedie/medical/r\%C3\%A9trocontr\%C3\%B4le\_hormonal/15871    
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+% Flashcard : ULY-BIO-009.quiz/mcqMur
+\cardfrontfooter{Connaître}{biologie}
+\begin{flashcard}[\cardfrontheader{Biologie}{L0}{Cellule structure et fonctions}{biologie}]{
+\vspace{\questionvspace}
+Indiquer dans quel(s) type(s) de cellule(s) ce composé est présent : membrane plasmique.
+
+\begin{enumerate}
+\item Cellule eucaryote végétale.
+\item Cellule eucaryote animale.
+\item Cellule procaryote.
+\end{enumerate}
+}
+\vspace*{\stretch{1}}
+\vspace{\reponsevspace}
+\begin{tikzpicture}[remember picture, overlay]
+\node [align=left, opacity=1] at ([xshift=-1.75cm, yshift=2.65cm]current page.center) {
+\color{uniscielgrey}
+\textsf{\textit{Réponses}}
+};
+\node [align=left, opacity=1] at ([xshift=1.75cm, yshift=2.66cm]current page.center) {
+\color{uniscielgrey}
+$1:\boxtimes\qquad2:\boxtimes\qquad3:\boxtimes\qquad$};
+\end{tikzpicture}
+Pour en savoir plus sur la comparaison entre procaryotes et eucaryotes :     http://fr.wikipedia.org/wiki/Cellule\_\%28biologie\%29\#Principales\_structures\_cellulaires    Pour en savoir plus sur le comparaison entre cellule animale et végétale :     http://planet-vie.ens.fr/content/comparaison-cellule-animale-cellule-vegetale    
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+% Flashcard : UNS-BCL-008.quiz/mcqMur
+\cardfrontfooter{Connaître}{biologie}
+\begin{flashcard}[\cardfrontheader{Biologie}{L1}{Cellule structure et fonctions}{biologie}]{
+\vspace{\questionvspace}
+L'activation de la kinase Cdk1 est possible :
+
+\begin{enumerate}
+\item pendant la phase S.
+\item si elle est associée à la cycline B.
+\item si elle est phosphorylée par une protéine CKI.
+\item si elle est déphosphorylée par la phosphatase (cdc25).
+\item si la concentration de la protéine p53 augmente dans la cellule.
+\end{enumerate}
+}
+\vspace*{\stretch{1}}
+\vspace{\reponsevspace}
+\begin{tikzpicture}[remember picture, overlay]
+\node [align=left, opacity=1] at ([xshift=-1.75cm, yshift=2.65cm]current page.center) {
+\color{uniscielgrey}
+\textsf{\textit{Réponses}}
+};
+\node [align=left, opacity=1] at ([xshift=1.75cm, yshift=2.66cm]current page.center) {
+\color{uniscielgrey}
+$1:\square\qquad2:\boxtimes\qquad3:\square\qquad4:\boxtimes$\\
+\color{uniscielgrey}
+$5:\square\qquad$};
+\end{tikzpicture}
+Pour en savoir plus :   Différents complexes Cycline / Cdk interviennent à des moments précis du cycle cellulaire http://www.snv.jussieu.fr/bmedia/cyclecellBM/02CDK.htm\#moments   
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+% Flashcard : UNS-BCL-014.quiz/mcqMur
+\cardfrontfooter{Connaître}{biologie}
+\begin{flashcard}[\cardfrontheader{Biologie}{L1}{Cellule structure et fonctions}{biologie}]{
+\vspace{\questionvspace}
+Concernant les protéines du cytosquelette, quelles propositions sont fausses ?
+
+\begin{enumerate}
+\item Tous les filaments intermédiaires sont des structures polarisées.
+\item La phosphorylation des lamines provoque la fragmentation de l'enveloppe nucléaire.
+\item La myosine II est une molécule motrice associée aux filaments d'actine.
+\item Les monomères de lamines dépourvus de groupements phosphates polymérisent et forment des filaments fins d'un diamètre de 5nm.
+\item Le nombre de microtubules dans une cellule en interphase est inférieur à celui d'une cellule en phase M.
+\end{enumerate}
+}
+\vspace*{\stretch{1}}
+\vspace{\reponsevspace}
+\begin{tikzpicture}[remember picture, overlay]
+\node [align=left, opacity=1] at ([xshift=-1.75cm, yshift=2.65cm]current page.center) {
+\color{uniscielgrey}
+\textsf{\textit{Réponses}}
+};
+\node [align=left, opacity=1] at ([xshift=1.75cm, yshift=2.66cm]current page.center) {
+\color{uniscielgrey}
+$1:\boxtimes\qquad2:\square\qquad3:\square\qquad4:\boxtimes$\\
+\color{uniscielgrey}
+$5:\square\qquad$};
+\end{tikzpicture}
+Pour en savoir plus :    Trois types principaux de structures protéiques constituent le cytosquelette http://ressources.unisciel.fr/biocell/chap4/co/module\_Chap4\_1.html    
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+% Flashcard : ULY-BIO-019.quiz/mcqSur
+\cardfrontfooter{Connaître}{biologie}
+\begin{flashcard}[\cardfrontheader{Biologie}{L0}{Biochimie et biologie moléculaire}{biologie}]{
+\vspace{\questionvspace}
+Trouver quel est le synonyme au type de molécule suivant : protéine.
+
+\begin{enumerate}
+\item Polymère de nucléotides.
+\item Polymère d'acides aminés.
+\item Polysaccharide.
+\end{enumerate}
+}
+\vspace*{\stretch{1}}
+\vspace{\reponsevspace}
+\begin{tikzpicture}[remember picture, overlay]
+\node [align=left, opacity=1] at ([xshift=-1.75cm, yshift=2.65cm]current page.center) {
+\color{uniscielgrey}
+\textsf{\textit{Réponse}}
+};
+\node [align=left, opacity=1] at ([xshift=1.75cm, yshift=2.66cm]current page.center) {
+\color{uniscielgrey}
+$1:\square\qquad2:\boxtimes\qquad3:\square\qquad$
+};
+\end{tikzpicture}
+Une page qui reprend l'essentiel de la biochimie de lycée :     http://www.chambon.ac-versailles.fr/science/bioch/    
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+% Flashcard : UNS-BCL-029.quiz/mcqMur
+\cardfrontfooter{Connaître}{biologie}
+\begin{flashcard}[\cardfrontheader{Biologie}{L1}{Cellule structure et fonctions}{biologie}]{
+\vspace{\questionvspace}
+Concernant l'enveloppe nucléaire, quelles sont les propositions vraies ?
+
+\begin{enumerate}
+\item La membrane externe de l'enveloppe nucléaire est souvent parsemée de ribosomes.
+\item L'espace périnucléaire est en continuité avec la lumière du réticulum endoplasmique.
+\item Au niveau des pores nucléaires, l'enveloppe nucléaire est perméable à toutes les protéines.
+\item La lamina nucléaire constitue un lien entre la membrane interne de l'enveloppe nucléaire est la chromatine.
+\item L'enveloppe nucléaire est constituée d'une seule bicouche lipidique.
+\end{enumerate}
+}
+\vspace*{\stretch{1}}
+\vspace{\reponsevspace}
+\begin{tikzpicture}[remember picture, overlay]
+\node [align=left, opacity=1] at ([xshift=-1.75cm, yshift=2.65cm]current page.center) {
+\color{uniscielgrey}
+\textsf{\textit{Réponses}}
+};
+\node [align=left, opacity=1] at ([xshift=1.75cm, yshift=2.66cm]current page.center) {
+\color{uniscielgrey}
+$1:\boxtimes\qquad2:\boxtimes\qquad3:\square\qquad4:\boxtimes$\\
+\color{uniscielgrey}
+$5:\square\qquad$};
+\end{tikzpicture}
+Pour en savoir plus :    Acheminement des protéines vers la membrane (face cytoplasmique), le peroxysome, la mitochondrie ou le noyau http://ressources.unisciel.fr/biocell/chap10/co/module\_Chap10\_15.html    
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+% Flashcard : UNS-BCL-026.quiz/mcqMur
+\cardfrontfooter{Connaître}{biologie}
+\begin{flashcard}[\cardfrontheader{Biologie}{L1}{Cellule structure et fonctions}{biologie}]{
+\vspace{\questionvspace}
+Le système endomembranaire joue un rôle dans :
+
+\begin{enumerate}
+\item la détoxification des substances liposolubles.
+\item le stockage de glycogène et de triglycérides.
+\item la synthèse des protéines intrinsèques de la membrane plasmique.
+\item la synthèse des protéines intrinsèques de la membrane externe mitochondriale.
+\item la synthèse des protéines sécrétées.
+\end{enumerate}
+}
+\vspace*{\stretch{1}}
+\vspace{\reponsevspace}
+\begin{tikzpicture}[remember picture, overlay]
+\node [align=left, opacity=1] at ([xshift=-1.75cm, yshift=2.65cm]current page.center) {
+\color{uniscielgrey}
+\textsf{\textit{Réponses}}
+};
+\node [align=left, opacity=1] at ([xshift=1.75cm, yshift=2.66cm]current page.center) {
+\color{uniscielgrey}
+$1:\boxtimes\qquad2:\square\qquad3:\boxtimes\qquad4:\square$\\
+\color{uniscielgrey}
+$5:\boxtimes\qquad$};
+\end{tikzpicture}
+Pour en savoir plus :    Système Endomembranaire https://www.youtube.com/watch?v=oPbzPUWa5HM\&t=27s        Système Endomembranaire https://www.youtube.com/watch?v=Q6wxoOZARdg\&t=68s    
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+% Flashcard : ULY-BIO-010.quiz/mcqMur
+\cardfrontfooter{Connaître}{biologie}
+\begin{flashcard}[\cardfrontheader{Biologie}{L0}{Cellule structure et fonctions}{biologie}]{
+\vspace{\questionvspace}
+Indiquer dans quel(s) type(s) de cellule(s) ce composé est présent : paroi pectocellulosique.
+
+\begin{enumerate}
+\item Cellule eucaryote végétale.
+\item Cellule eucaryote animale.
+\item Cellule procaryote.
+\end{enumerate}
+}
+\vspace*{\stretch{1}}
+\vspace{\reponsevspace}
+\begin{tikzpicture}[remember picture, overlay]
+\node [align=left, opacity=1] at ([xshift=-1.75cm, yshift=2.65cm]current page.center) {
+\color{uniscielgrey}
+\textsf{\textit{Réponses}}
+};
+\node [align=left, opacity=1] at ([xshift=1.75cm, yshift=2.66cm]current page.center) {
+\color{uniscielgrey}
+$1:\boxtimes\qquad2:\square\qquad3:\square\qquad$};
+\end{tikzpicture}
+Pour en savoir plus sur la comparaison entre procaryotes et eucaryotes :     http://fr.wikipedia.org/wiki/Cellule\_\%28biologie\%29\#Principales\_structures\_cellulaires    Pour en savoir plus sur le comparaison entre cellule animale et végétale :     http://planet-vie.ens.fr/content/comparaison-cellule-animale-cellule-vegetale    
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+% Flashcard : ULY-BIO-011.quiz/mcqMur
+\cardfrontfooter{Connaître}{biologie}
+\begin{flashcard}[\cardfrontheader{Biologie}{L0}{Cellule structure et fonctions}{biologie}]{
+\vspace{\questionvspace}
+Indiquer dans quel(s) type(s) de cellule(s) ce composé est présent : vacuole.
+
+\begin{enumerate}
+\item Cellule eucaryote végétale.
+\item Cellule eucaryote animale.
+\item Cellule procaryote.
+\end{enumerate}
+}
+\vspace*{\stretch{1}}
+\vspace{\reponsevspace}
+\begin{tikzpicture}[remember picture, overlay]
+\node [align=left, opacity=1] at ([xshift=-1.75cm, yshift=2.65cm]current page.center) {
+\color{uniscielgrey}
+\textsf{\textit{Réponses}}
+};
+\node [align=left, opacity=1] at ([xshift=1.75cm, yshift=2.66cm]current page.center) {
+\color{uniscielgrey}
+$1:\boxtimes\qquad2:\square\qquad3:\square\qquad$};
+\end{tikzpicture}
+Pour en savoir plus sur la comparaison entre procaryotes et eucaryotes :     http://fr.wikipedia.org/wiki/Cellule\_\%28biologie\%29\#Principales\_structures\_cellulaires    Pour en savoir plus sur le comparaison entre cellule animale et végétale :     http://planet-vie.ens.fr/content/comparaison-cellule-animale-cellule-vegetale    
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+% Flashcard : UNS-BCL-013.quiz/mcqMur
+\cardfrontfooter{Connaître}{biologie}
+\begin{flashcard}[\cardfrontheader{Biologie}{L1}{Cellule structure et fonctions}{biologie}]{
+\vspace{\questionvspace}
+Concernant le lysosome secondaire, quelles propositions sont vraies ?
+
+\begin{enumerate}
+\item Sa membrane contient des perméases qui permettent la sortie des monosaccharides et des acides aminés dans le cytosol.
+\item Sa concentration en protons est 100 fois supérieure à celle du cytosol.
+\item Sa concentration en protons est 10 fois supérieure à celle du cytosol.
+\item Sa membrane contient des transporteurs qui permettent une entrée de macromolécules.
+\item Sa membrane contient une ouverture permettant un passage libre aux protons.
+\end{enumerate}
+}
+\vspace*{\stretch{1}}
+\vspace{\reponsevspace}
+\begin{tikzpicture}[remember picture, overlay]
+\node [align=left, opacity=1] at ([xshift=-1.75cm, yshift=2.65cm]current page.center) {
+\color{uniscielgrey}
+\textsf{\textit{Réponses}}
+};
+\node [align=left, opacity=1] at ([xshift=1.75cm, yshift=2.66cm]current page.center) {
+\color{uniscielgrey}
+$1:\boxtimes\qquad2:\boxtimes\qquad3:\square\qquad4:\boxtimes$\\
+\color{uniscielgrey}
+$5:\square\qquad$};
+\end{tikzpicture}
+Pour en savoir plus :   Le lysosome http://ressources.unisciel.fr/biocell/chap7/co/module\_Chap7\_6.html    
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+% Flashcard : UNS-BCL-024.quiz/mcqMur
+\cardfrontfooter{Connaître}{biologie}
+\begin{flashcard}[\cardfrontheader{Biologie}{L1}{Cellule structure et fonctions}{biologie}]{
+\vspace{\questionvspace}
+Concernant la mitochondrie, une seule proposition est fausse, laquelle ?
+
+\begin{enumerate}
+\item Elle est délimitée par deux membranes.
+\item La surface de la membrane interne est 3 à 5 fois supérieure à celle de la membrane externe.
+\item La matrice mitochondriale contient des ribosomes.
+\item Elle est délimitée par une seule membrane fortement repliée.
+\item La matrice mitochondriale contient des acides ribonucléiques.
+\end{enumerate}
+}
+\vspace*{\stretch{1}}
+\vspace{\reponsevspace}
+\begin{tikzpicture}[remember picture, overlay]
+\node [align=left, opacity=1] at ([xshift=-1.75cm, yshift=2.65cm]current page.center) {
+\color{uniscielgrey}
+\textsf{\textit{Réponses}}
+};
+\node [align=left, opacity=1] at ([xshift=1.75cm, yshift=2.66cm]current page.center) {
+\color{uniscielgrey}
+$1:\square\qquad2:\square\qquad3:\square\qquad4:\boxtimes$\\
+\color{uniscielgrey}
+$5:\square\qquad$};
+\end{tikzpicture}
+Pour en savoir plus :    Organisation de la mitochondrie http://ressources.unisciel.fr/biocell/chap5/co/module\_Chap5\_12.html    
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+% Flashcard : UNS-BCL-037.quiz/mcqMur
+\cardfrontfooter{Connaître}{biologie}
+\begin{flashcard}[\cardfrontheader{Biologie}{L1}{Cellule structure et fonctions}{biologie}]{
+\vspace{\questionvspace}
+Concernant les cellules procaryotes, quelles sont les propositions vraies ?
+
+\begin{enumerate}
+\item Au cours de l'évolution, elles sont apparues après les cellules eucaryotes primitives.
+\item Leur ADN génomique est constitué d'une molécule circulaire double brin.
+\item Certains de leurs organites ne sont pas présents dans les cellules eucaryotes.
+\item Leur ADN est attaché à la membrane plasmique.
+\item Certains procaryotes comme les cyanobactéries contiennent des chloroplastes.
+\end{enumerate}
+}
+\vspace*{\stretch{1}}
+\vspace{\reponsevspace}
+\begin{tikzpicture}[remember picture, overlay]
+\node [align=left, opacity=1] at ([xshift=-1.75cm, yshift=2.65cm]current page.center) {
+\color{uniscielgrey}
+\textsf{\textit{Réponses}}
+};
+\node [align=left, opacity=1] at ([xshift=1.75cm, yshift=2.66cm]current page.center) {
+\color{uniscielgrey}
+$1:\square\qquad2:\boxtimes\qquad3:\square\qquad4:\boxtimes$\\
+\color{uniscielgrey}
+$5:\square\qquad$};
+\end{tikzpicture}
+Pour en savoir plus :    Diversité et Unicité du Vivant : Procaryotes http://ressources.unisciel.fr/DiversiteUnicite/chap2/co/2-Microbiologie\_3.html    
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+% Flashcard : ULY-BIO-040.quiz/mcqSur
+\cardfrontfooter{Connaître}{géosciences}
+\begin{flashcard}[\cardfrontheader{Géosciences}{L0}{}{géosciences}]{
+\vspace{\questionvspace}
+La formation d'une chaîne de montagne se déroule sur :
+
+\begin{enumerate}
+\item quelques centaines d'années.
+\item quelques milliers d'années.
+\item quelques millions d'années.
+\end{enumerate}
+}
+\vspace*{\stretch{1}}
+\vspace{\reponsevspace}
+\begin{tikzpicture}[remember picture, overlay]
+\node [align=left, opacity=1] at ([xshift=-1.75cm, yshift=2.65cm]current page.center) {
+\color{uniscielgrey}
+\textsf{\textit{Réponse}}
+};
+\node [align=left, opacity=1] at ([xshift=1.75cm, yshift=2.66cm]current page.center) {
+\color{uniscielgrey}
+$1:\square\qquad2:\square\qquad3:\boxtimes\qquad$
+};
+\end{tikzpicture}
+Pour en savoir plus sur l'histoire de la terre, une vidéo en deux parties qui reprend toute l'histoire de la terre et de la vie sur terre.  Episode 1 :  http://www.youtube.com/watch?v=-BcanF3Mmkw    Episode 2 :   http://www.youtube.com/watch?v=4KmGBLa0tFk    
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+% Flashcard : UNS-BCL-025.quiz/mcqMur
+\cardfrontfooter{Connaître}{biologie}
+\begin{flashcard}[\cardfrontheader{Biologie}{L1}{Cellule structure et fonctions}{biologie}]{
+\vspace{\questionvspace}
+Concernant la mitochondrie, quelles sont les propositions vraies ?
+
+\begin{enumerate}
+\item La plus grande partie de ses protéines sont synthétisées dans le cytosol puis importées.
+\item Toutes les protéines et lipides nécessaires à sa formation sont synthétisés dans la matrice mitochondriale.
+\item Les ribosomes mitochondriales sont formés dans le cytosol puis importés.
+\item Aucune protéine n'est synthétisée dans la matrice mitochondriale puis exportée vers le cytosol.
+\item Elle reçoit de nouvelles membranes via le trafic vésiculaire.
+\end{enumerate}
+}
+\vspace*{\stretch{1}}
+\vspace{\reponsevspace}
+\begin{tikzpicture}[remember picture, overlay]
+\node [align=left, opacity=1] at ([xshift=-1.75cm, yshift=2.65cm]current page.center) {
+\color{uniscielgrey}
+\textsf{\textit{Réponses}}
+};
+\node [align=left, opacity=1] at ([xshift=1.75cm, yshift=2.66cm]current page.center) {
+\color{uniscielgrey}
+$1:\boxtimes\qquad2:\square\qquad3:\square\qquad4:\boxtimes$\\
+\color{uniscielgrey}
+$5:\square\qquad$};
+\end{tikzpicture}
+Pour en savoir plus :    Organisation de la mitochondrie http://ressources.unisciel.fr/biocell/chap5/co/module\_Chap5\_12.html    
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+% Flashcard : ULY-BIO-048.quiz/mcqSur
+\cardfrontfooter{Connaître}{biologie}
+\begin{flashcard}[\cardfrontheader{Biologie}{L1}{Biochimie et biologie moléculaire}{biologie}]{
+\vspace{\questionvspace}
+Le glycérol est un constituant :
+
+\begin{enumerate}
+\item des corps gras.
+\item des corps protidiques.
+\item Des corps glucidiques.
+\item des acides nucléiques.
+\end{enumerate}
+}
+\vspace*{\stretch{1}}
+\vspace{\reponsevspace}
+\begin{tikzpicture}[remember picture, overlay]
+\node [align=left, opacity=1] at ([xshift=-1.75cm, yshift=2.65cm]current page.center) {
+\color{uniscielgrey}
+\textsf{\textit{Réponse}}
+};
+\node [align=left, opacity=1] at ([xshift=1.75cm, yshift=2.66cm]current page.center) {
+\color{uniscielgrey}
+$1:\boxtimes\qquad2:\square\qquad3:\square\qquad4:\square$
+};
+\end{tikzpicture}
+Le glycérol est le constituant de base des triglycérides (lipides) avec les acides gras qui lui sont greffés par liaison ester.  Pour en savoir plus :     https://fr.wikipedia.org/wiki/Triglyc\%C3\%A9ride    
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+% Flashcard : ULY-BIO-017.quiz/mcqSur
+\cardfrontfooter{Connaître}{biologie}
+\begin{flashcard}[\cardfrontheader{Biologie}{L0}{Biochimie et biologie moléculaire}{biologie}]{
+\vspace{\questionvspace}
+Trouver quel est le synonyme au type de molécule suivant : graisse.
+
+\begin{enumerate}
+\item Lipide.
+\item Glucide.
+\item Protéine.
+\item Acide nucléique.
+\end{enumerate}
+}
+\vspace*{\stretch{1}}
+\vspace{\reponsevspace}
+\begin{tikzpicture}[remember picture, overlay]
+\node [align=left, opacity=1] at ([xshift=-1.75cm, yshift=2.65cm]current page.center) {
+\color{uniscielgrey}
+\textsf{\textit{Réponse}}
+};
+\node [align=left, opacity=1] at ([xshift=1.75cm, yshift=2.66cm]current page.center) {
+\color{uniscielgrey}
+$1:\boxtimes\qquad2:\square\qquad3:\square\qquad4:\square$
+};
+\end{tikzpicture}
+Une page qui reprend l'essentiel de la biochimie de lycée :     http://www.chambon.ac-versailles.fr/science/bioch/    
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+% Flashcard : ULY-BIO-036.quiz/mcqSur
+\cardfrontfooter{Connaître}{biologie}
+\begin{flashcard}[\cardfrontheader{Biologie}{L0}{Biologie animale}{biologie}]{
+\vspace{\questionvspace}
+Une hormone est :
+
+\begin{enumerate}
+\item une molécule qui agit sur toutes les cellules de l'organisme.
+\item une molécule qui atteint toutes les cellules de l'organisme mais n'agit que sur certaines.
+\item une molécule qui agit sur quelques cellules proches de son site de production.
+\end{enumerate}
+}
+\vspace*{\stretch{1}}
+\vspace{\reponsevspace}
+\begin{tikzpicture}[remember picture, overlay]
+\node [align=left, opacity=1] at ([xshift=-1.75cm, yshift=2.65cm]current page.center) {
+\color{uniscielgrey}
+\textsf{\textit{Réponse}}
+};
+\node [align=left, opacity=1] at ([xshift=1.75cm, yshift=2.66cm]current page.center) {
+\color{uniscielgrey}
+$1:\square\qquad2:\boxtimes\qquad3:\square\qquad$
+};
+\end{tikzpicture}
+Une hormone est un messager chimique sécrété dans le sang par une glande endocrine. Elle atteint donc toutes les cellules de l'organisme par voie sanguine mais n'agit que sur des cellules cibles qui possèdent des récepteurs spécifiques de l'hormone. La liaison de l'hormone à son récepteur entraîne une réponse de la cellule cible, on qualifie donc les hormones de messagers.  Pour en savoir plus sur la communication entre les cellules :      http://ressources.unisciel.fr/biocell/chap11/co/module\_Chap11\_8.html    
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+% Flashcard : UNS-BCL-020.quiz/mcqMur
+\cardfrontfooter{Connaître}{biologie}
+\begin{flashcard}[\cardfrontheader{Biologie}{L1}{Cellule structure et fonctions}{biologie}]{
+\vspace{\questionvspace}
+Quelle est la proposition fausse ?
+
+\begin{enumerate}
+\item La caryocinèse correspond à la séparation des chromosomes en deux lots identiques.
+\item La durée du cycle cellulaire est identique dans tous les types cellulaires au sein d'une même espèce.
+\item La réplication de l'ADN marque le début de la phase S.
+\item Dans les cellules tumorales, l'interphase est d'une durée extrêmement courte.
+\item La phase G0 correspond à un état de quiescence cellulaire.
+\end{enumerate}
+}
+\vspace*{\stretch{1}}
+\vspace{\reponsevspace}
+\begin{tikzpicture}[remember picture, overlay]
+\node [align=left, opacity=1] at ([xshift=-1.75cm, yshift=2.65cm]current page.center) {
+\color{uniscielgrey}
+\textsf{\textit{Réponses}}
+};
+\node [align=left, opacity=1] at ([xshift=1.75cm, yshift=2.66cm]current page.center) {
+\color{uniscielgrey}
+$1:\square\qquad2:\boxtimes\qquad3:\square\qquad4:\square$\\
+\color{uniscielgrey}
+$5:\square\qquad$};
+\end{tikzpicture}
+Pour en savoir plus :   Les différentes phases et les événements du cycle cellulaire http://www.snv.jussieu.fr/bmedia/cyclecellBM/index.htm\#intro   
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+% Flashcard : UNS-BCL-007.quiz/mcqMur
+\cardfrontfooter{Connaître}{biologie}
+\begin{flashcard}[\cardfrontheader{Biologie}{L1}{Cellule structure et fonctions}{biologie}]{
+\vspace{\questionvspace}
+Quelles sont les propositions vraies ?
+
+\begin{enumerate}
+\item La présence des cyclines varie au cours du cycle de division cellulaire.
+\item Les Cdk sont des protéines kinases dépendantes des cyclines.
+\item Les cyclines ne possèdent pas une activité enzymatique.
+\item Les Cdk sont des protomères régulateurs.
+\item Les cyclines peuvent transférer un groupement phosphate de l'ATP sur une protéine cible.
+\end{enumerate}
+}
+\vspace*{\stretch{1}}
+\vspace{\reponsevspace}
+\begin{tikzpicture}[remember picture, overlay]
+\node [align=left, opacity=1] at ([xshift=-1.75cm, yshift=2.65cm]current page.center) {
+\color{uniscielgrey}
+\textsf{\textit{Réponses}}
+};
+\node [align=left, opacity=1] at ([xshift=1.75cm, yshift=2.66cm]current page.center) {
+\color{uniscielgrey}
+$1:\boxtimes\qquad2:\boxtimes\qquad3:\boxtimes\qquad4:\square$\\
+\color{uniscielgrey}
+$5:\square\qquad$};
+\end{tikzpicture}
+Pour en savoir plus :    LA REGULATION DU CYCLE CELLULAIRE http://www.snv.jussieu.fr/bmedia/cyclecellBM/02CDK.htm        Différents complexes Cycline / Cdk interviennent à des moments précis du cycle cellulaire http://www.snv.jussieu.fr/bmedia/cyclecellBM/02CDK.htm\#moments        Les différentes phases et les événements du cycle cellulaire https://rnbio.upmc.fr/bio-cell\_cycle-cellulaire\_introduction    
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+% Flashcard : ULY-BIO-013.quiz/mcqSur
+\cardfrontfooter{Connaître}{biologie}
+\begin{flashcard}[\cardfrontheader{Biologie}{L0}{Biochimie et biologie moléculaire}{biologie}]{
+\vspace{\questionvspace}
+Quel est l'atome caractéristique de la matière organique, constitutive des être vivants ?
+
+\begin{enumerate}
+\item H, hydrogène.
+\item C, carbone.
+\item O, oxygène.
+\item N, azote.
+\end{enumerate}
+}
+\vspace*{\stretch{1}}
+\vspace{\reponsevspace}
+\begin{tikzpicture}[remember picture, overlay]
+\node [align=left, opacity=1] at ([xshift=-1.75cm, yshift=2.65cm]current page.center) {
+\color{uniscielgrey}
+\textsf{\textit{Réponse}}
+};
+\node [align=left, opacity=1] at ([xshift=1.75cm, yshift=2.66cm]current page.center) {
+\color{uniscielgrey}
+$1:\square\qquad2:\boxtimes\qquad3:\square\qquad4:\square$
+};
+\end{tikzpicture}
+La matière organique, constitutive des être vivants, est riche en carbone. Le carbone est présent dans de nombreuses molécules mais il est l'atome central des biomolécules telles que glucides, lipides, protéines et acides nucléiques dont il constitue le squelette. Les molécules organiques contiennent également d'autres atomes tels que l'oxygène O, l'azote N ou l'hydrogène H qui sont également très présents dans la matière minérale (eau H2O, méthane CH4, dioxyde de carbone CO2).  Exemple de molécule organique : le glucose (\$.C\_6 H\_\{12\} O\_6\$).   Pour avoir des précisions sur la matière organique :   http://fr.wikipedia.org/wiki/Mati\%C3\%A8re\_organique    
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+% Flashcard : UNS-BCL-003.quiz/mcqMur
+\cardfrontfooter{Connaître}{biologie}
+\begin{flashcard}[\cardfrontheader{Biologie}{L1}{Cellule structure et fonctions}{biologie}]{
+\vspace{\questionvspace}
+Quelles sont les propositions vraies ?
+
+\begin{enumerate}
+\item Certaines protéines membranaires possèdent une activité enzymatique.
+\item Certaines protéines membranaires permettent le passage de molécules polaires ou chargées.
+\item Certaines protéines transmembranaires sont entièrement hydrophiles.
+\item Certaines protéines membranaires sont des phospholipides.
+\item Certaines protéines membranaires forment une hélice alpha pour traverser la bicouche lipidique.
+\end{enumerate}
+}
+\vspace*{\stretch{1}}
+\vspace{\reponsevspace}
+\begin{tikzpicture}[remember picture, overlay]
+\node [align=left, opacity=1] at ([xshift=-1.75cm, yshift=2.65cm]current page.center) {
+\color{uniscielgrey}
+\textsf{\textit{Réponses}}
+};
+\node [align=left, opacity=1] at ([xshift=1.75cm, yshift=2.66cm]current page.center) {
+\color{uniscielgrey}
+$1:\boxtimes\qquad2:\boxtimes\qquad3:\square\qquad4:\square$\\
+\color{uniscielgrey}
+$5:\boxtimes\qquad$};
+\end{tikzpicture}
+    Les protéines de la membrane cytoplasmique http://ressources.unisciel.fr/biocell/chap1/co/module\_Chap1\_7.html    Les protéines membranaires permettent le passage de molécules chargées ou hydrophobes en formant une ouverture sous forme d'un tube ou d'un canal hydrophile. Elles peuvent lier des molécules d'un côté de la membrane et les relâcher à l'autre côté (fonction de transport). Parfois elles possèdent une activité enzymatique. Elles peuvent aussi permettre la transmission d'un signal extracellulaire vers l'intracellulaire. Elles peuvent servir de protéines de reconnaissance cellulaire ou d'adhérence cellulaire (pour fixer une cellule à une cellule adjacente ou encore pour lier une cellule à la matrice extracellulaire d'un côté, et au cytosquelette de l'autre côté de la membrane).  
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+% Flashcard : ULY-BIO-053.quiz/mcqMur
+\cardfrontfooter{Connaître}{biologie}
+\begin{flashcard}[\cardfrontheader{Biologie}{L1}{Biochimie et biologie moléculaire}{biologie}]{
+\vspace{\questionvspace}
+Les protéines :
+
+\begin{enumerate}
+\item sont des macromolécules.
+\item sont formées d'acides aminés liés par des liaisons peptidiques.
+\item ont toutes la même composition en acides aminés.
+\item contiennent un nombre d'acides aminés inférieur à 20.
+\end{enumerate}
+}
+\vspace*{\stretch{1}}
+\vspace{\reponsevspace}
+\begin{tikzpicture}[remember picture, overlay]
+\node [align=left, opacity=1] at ([xshift=-1.75cm, yshift=2.65cm]current page.center) {
+\color{uniscielgrey}
+\textsf{\textit{Réponses}}
+};
+\node [align=left, opacity=1] at ([xshift=1.75cm, yshift=2.66cm]current page.center) {
+\color{uniscielgrey}
+$1:\boxtimes\qquad2:\boxtimes\qquad3:\square\qquad4:\square$};
+\end{tikzpicture}
+Les protéines sont des macromolécules polymères d'acides aminés liés par liaison peptidique :  NH2-CHR1-CO-NH-CHR2-CO-NH-CHRn-COO-  Le Radical R détermine de quel acide aminé il s'agit et l’enchaînement de ces acides aminés (séquence ou structure primaire de la protéine) varie d'une protéine à l'autre mais peut largement dépasser les 20 acides aminés mais les petites protéines d'un nombre d'acides aminés inférieur à 20 sont nommées peptides.  Pour en savoir plus :   https://fr.wikipedia.org/wiki/Prot\%C3\%A9ine    
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+% Flashcard : UNS-BCL-017.quiz/mcqMur
+\cardfrontfooter{Connaître}{biologie}
+\begin{flashcard}[\cardfrontheader{Biologie}{L1}{Cellule structure et fonctions}{biologie}]{
+\vspace{\questionvspace}
+Une protéine destinée à la sécrétion peut être localisée successivement dans :
+
+\begin{enumerate}
+\item le cytosol, le RER, les vésicules de sécrétion.
+\item le cytosol, le REL, l'appareil de Golgi, les vésicules de sécrétion.
+\item les endosomes précoces, les endosomes tardifs, les vésicules de sécrétion.
+\item le RER, l'appareil de Golgi, les vésicules de sécrétion.
+\item les vésicules de sécrétion, l'appareil de Golgi, le RER.
+\end{enumerate}
+}
+\vspace*{\stretch{1}}
+\vspace{\reponsevspace}
+\begin{tikzpicture}[remember picture, overlay]
+\node [align=left, opacity=1] at ([xshift=-1.75cm, yshift=2.65cm]current page.center) {
+\color{uniscielgrey}
+\textsf{\textit{Réponses}}
+};
+\node [align=left, opacity=1] at ([xshift=1.75cm, yshift=2.66cm]current page.center) {
+\color{uniscielgrey}
+$1:\square\qquad2:\square\qquad3:\square\qquad4:\boxtimes$\\
+\color{uniscielgrey}
+$5:\square\qquad$};
+\end{tikzpicture}
+Pour en savoir plus :   Système Endomembranaire https://www.youtube.com/watch?v=oPbzPUWa5HM\&t=150s       Système Endomembranaire 2 https://www.youtube.com/watch?v=Q6wxoOZARdg    
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+% Flashcard : ULY-BIO-007.quiz/mcqMur
+\cardfrontfooter{Connaître}{biologie}
+\begin{flashcard}[\cardfrontheader{Biologie}{L0}{Cellule structure et fonctions}{biologie}]{
+\vspace{\questionvspace}
+Indiquer dans quel(s) type(s) de cellule(s) ce composé est présent : mitochondrie.
+
+\begin{enumerate}
+\item Cellule eucaryote végétale.
+\item Cellule eucaryote animale.
+\item Cellule procaryote.
+\end{enumerate}
+}
+\vspace*{\stretch{1}}
+\vspace{\reponsevspace}
+\begin{tikzpicture}[remember picture, overlay]
+\node [align=left, opacity=1] at ([xshift=-1.75cm, yshift=2.65cm]current page.center) {
+\color{uniscielgrey}
+\textsf{\textit{Réponses}}
+};
+\node [align=left, opacity=1] at ([xshift=1.75cm, yshift=2.66cm]current page.center) {
+\color{uniscielgrey}
+$1:\boxtimes\qquad2:\boxtimes\qquad3:\square\qquad$};
+\end{tikzpicture}
+Pour en savoir plus sur la comparaison entre procaryotes et eucaryotes :     http://fr.wikipedia.org/wiki/Cellule\_\%28biologie\%29\#Principales\_structures\_cellulaires    Pour en savoir plus sur le comparaison entre cellule animale et végétale :     http://planet-vie.ens.fr/content/comparaison-cellule-animale-cellule-vegetale    
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+% Flashcard : ULY-BIO-004.quiz/mcqSur
+\cardfrontfooter{Connaître}{biologie}
+\begin{flashcard}[\cardfrontheader{Biologie}{L0}{Cellule structure et fonctions}{biologie}]{
+\vspace{\questionvspace}
+Associer un composant cellulaire à sa fonction : le ribosome.
+
+\begin{enumerate}
+\item Stockage de l'information génétique.
+\item Traduction.
+\item Barrière, interface avec le milieu extracellulaire.
+\item Production d'énergie.
+\end{enumerate}
+}
+\vspace*{\stretch{1}}
+\vspace{\reponsevspace}
+\begin{tikzpicture}[remember picture, overlay]
+\node [align=left, opacity=1] at ([xshift=-1.75cm, yshift=2.65cm]current page.center) {
+\color{uniscielgrey}
+\textsf{\textit{Réponse}}
+};
+\node [align=left, opacity=1] at ([xshift=1.75cm, yshift=2.66cm]current page.center) {
+\color{uniscielgrey}
+$1:\square\qquad2:\boxtimes\qquad3:\square\qquad4:\square$
+};
+\end{tikzpicture}
+Pour revoir l'organisation de la cellule et le rôle des différentes structures cellulaires :   http://fr.wikipedia.org/wiki/Cellule\_\%28biologie\%29\#Cellule\_eucaryote    Pour revoir le concept de cellule et observer des images associées :   http://planet-vie.ens.fr/content/la-cellule-unite-du-vivant    Pour visionner une vidéo sur la cellule (concept, organisation, fonction des organites...) :   http://www.canal-u.tv/video/science\_en\_cours/la\_cellule\_2002.47    
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+% Flashcard : ULY-BIO-006.quiz/mcqMur
+\cardfrontfooter{Connaître}{biologie}
+\begin{flashcard}[\cardfrontheader{Biologie}{L0}{Cellule structure et fonctions}{biologie}]{
+\vspace{\questionvspace}
+Indiquer dans quel(s) type(s) de cellule(s) ce composé est présent : noyau.
+
+\begin{enumerate}
+\item Cellule eucaryote végétale.
+\item Cellule eucaryote animale.
+\item Cellule procaryote.
+\end{enumerate}
+}
+\vspace*{\stretch{1}}
+\vspace{\reponsevspace}
+\begin{tikzpicture}[remember picture, overlay]
+\node [align=left, opacity=1] at ([xshift=-1.75cm, yshift=2.65cm]current page.center) {
+\color{uniscielgrey}
+\textsf{\textit{Réponses}}
+};
+\node [align=left, opacity=1] at ([xshift=1.75cm, yshift=2.66cm]current page.center) {
+\color{uniscielgrey}
+$1:\boxtimes\qquad2:\boxtimes\qquad3:\square\qquad$};
+\end{tikzpicture}
+Pour en savoir plus sur la comparaison entre procaryotes et eucaryotes :     http://fr.wikipedia.org/wiki/Cellule\_\%28biologie\%29\#Principales\_structures\_cellulaires    Pour en savoir plus sur le comparaison entre cellule animale et végétale :     http://planet-vie.ens.fr/content/comparaison-cellule-animale-cellule-vegetale    
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+% Flashcard : UNS-BCL-005.quiz/mcqMur
+\cardfrontfooter{Connaître}{biologie}
+\begin{flashcard}[\cardfrontheader{Biologie}{L1}{Cellule structure et fonctions}{biologie}]{
+\vspace{\questionvspace}
+Quelles sont les propositions vraies ?
+
+\begin{enumerate}
+\item L'extrémité « - » des microtubules est orienté vers le cortex cellulaire.
+\item Les « MAPs » sont des protéines motrices associées aux microtubules.
+\item Les kinésines stabilisent les filaments d'actine.
+\item La nucléation des microtubules en interphase à lieu dans la matrice péricentriolaire.
+\item Les protéines tau et map2 protègent les microtubules contre une dépolymérisation.
+\end{enumerate}
+}
+\vspace*{\stretch{1}}
+\vspace{\reponsevspace}
+\begin{tikzpicture}[remember picture, overlay]
+\node [align=left, opacity=1] at ([xshift=-1.75cm, yshift=2.65cm]current page.center) {
+\color{uniscielgrey}
+\textsf{\textit{Réponses}}
+};
+\node [align=left, opacity=1] at ([xshift=1.75cm, yshift=2.66cm]current page.center) {
+\color{uniscielgrey}
+$1:\square\qquad2:\boxtimes\qquad3:\square\qquad4:\boxtimes$\\
+\color{uniscielgrey}
+$5:\boxtimes\qquad$};
+\end{tikzpicture}
+Pour en savoir plus :    Les microtubules (25 nm) http://ressources.unisciel.fr/biocell/chap4/co/module\_Chap4\_6.html    
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+% Flashcard : ULY-BIO-035.quiz/mcqMur
+\cardfrontfooter{Connaître}{biologie}
+\begin{flashcard}[\cardfrontheader{Biologie}{L0}{Evolution  classification  biodiversité}{biologie}]{
+\vspace{\questionvspace}
+Les liens de parenté :
+
+\begin{enumerate}
+\item existent entre tous les êtres vivants.
+\item n'existent pas entre les animaux et les végétaux.
+\item supposent l'existence d'un ancêtre commun aux êtres vivants.
+\end{enumerate}
+}
+\vspace*{\stretch{1}}
+\vspace{\reponsevspace}
+\begin{tikzpicture}[remember picture, overlay]
+\node [align=left, opacity=1] at ([xshift=-1.75cm, yshift=2.65cm]current page.center) {
+\color{uniscielgrey}
+\textsf{\textit{Réponses}}
+};
+\node [align=left, opacity=1] at ([xshift=1.75cm, yshift=2.66cm]current page.center) {
+\color{uniscielgrey}
+$1:\boxtimes\qquad2:\square\qquad3:\boxtimes\qquad$};
+\end{tikzpicture}
+Tous les êtres vivants ont des caractères communs qui indiquent une origine commune. Deux êtres vivants ont tous un ancêtre commun plus ou moins récent et donc des liens de parenté plus ou moins importants. Ces liens de parenté entre les êtres vivants sont utilisés pour regrouper les espèces dans une classification qui reflète l'évolution des espèces. On parle de classification phylogénétique. On représente souvent la classification phylogénétique sous la forme d'arbre.  Pour comprendre les enjeux et les méthodes de la classification phylogénétique :     http://planet-vie.ens.fr/content/classification-vivant-mode-emploi    Un peu d'histoire sur la notion de parenté :     http://www.snv.jussieu.fr/bmedia/parente/parente.htm    Ci dessous, une illustration de l'arbre du vivant d'après   http://fr.wikipedia.org/wiki/Phylog\%C3\%A9nie\#mediaviewer/Fichier:Phylogenetics-french.jpg    
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+% Flashcard : ULY-BIO-041.quiz/mcqSur
+\cardfrontfooter{Connaître}{géosciences}
+\begin{flashcard}[\cardfrontheader{Géosciences}{L0}{}{géosciences}]{
+\vspace{\questionvspace}
+Le déplacement des plaques lithosphériques se fait à une vitesse de :
+
+\begin{enumerate}
+\item quelques cm par an.
+\item quelques m par an.
+\item quelques km par an.
+\item quelques cm par millier d'années.
+\end{enumerate}
+}
+\vspace*{\stretch{1}}
+\vspace{\reponsevspace}
+\begin{tikzpicture}[remember picture, overlay]
+\node [align=left, opacity=1] at ([xshift=-1.75cm, yshift=2.65cm]current page.center) {
+\color{uniscielgrey}
+\textsf{\textit{Réponse}}
+};
+\node [align=left, opacity=1] at ([xshift=1.75cm, yshift=2.66cm]current page.center) {
+\color{uniscielgrey}
+$1:\boxtimes\qquad2:\square\qquad3:\square\qquad4:\square$
+};
+\end{tikzpicture}
+Un épisode de la série "le dessous des cartes" sur la tectonique des plaques :  http://www.youtube.com/watch?v=81oWM63r8Zg      
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+% Flashcard : ULY-BIO-002.quiz/mcqSur
+\cardfrontfooter{Connaître}{biologie}
+\begin{flashcard}[\cardfrontheader{Biologie}{L0}{Cellule structure et fonctions}{biologie}]{
+\vspace{\questionvspace}
+Associer un composant cellulaire à sa fonction : la membrane plasmique.
+
+\begin{enumerate}
+\item Stockage de l'information génétique.
+\item Traduction.
+\item Barrière, interface avec le milieu extracellulaire.
+\item Production d'énergie.
+\end{enumerate}
+}
+\vspace*{\stretch{1}}
+\vspace{\reponsevspace}
+\begin{tikzpicture}[remember picture, overlay]
+\node [align=left, opacity=1] at ([xshift=-1.75cm, yshift=2.65cm]current page.center) {
+\color{uniscielgrey}
+\textsf{\textit{Réponse}}
+};
+\node [align=left, opacity=1] at ([xshift=1.75cm, yshift=2.66cm]current page.center) {
+\color{uniscielgrey}
+$1:\square\qquad2:\square\qquad3:\boxtimes\qquad4:\square$
+};
+\end{tikzpicture}
+Pour revoir l'organisation de la cellule et le rôle des différentes structures cellulaires :   http://fr.wikipedia.org/wiki/Cellule\_\%28biologie\%29\#Cellule\_eucaryote    Pour revoir le concept de cellule et observer des images associées :   http://planet-vie.ens.fr/content/la-cellule-unite-du-vivant    Pour visionner une vidéo sur la cellule (concept, organisation, fonction des organites...) :   http://www.canal-u.tv/video/science\_en\_cours/la\_cellule\_2002.47    
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+% Flashcard : UNS-BCL-028.quiz/mcqMur
+\cardfrontfooter{Connaître}{biologie}
+\begin{flashcard}[\cardfrontheader{Biologie}{L1}{Cellule structure et fonctions}{biologie}]{
+\vspace{\questionvspace}
+Concernant le nucléosome, quelles sont les propositions vraies ?
+
+\begin{enumerate}
+\item Il est l'unité fondamentale de l'empaquetage de l'ADN.
+\item Il est constitué de l'ADN qui s'enroule autour d'un octamère d'histones.
+\item Ils donnent l'apparence d'un « collier de perles » à l'ADN.
+\item Il contient des protéines non histones.
+\item C'est une forme d'empaquetage d'ADN trouvée dans les cellules procaryotes.
+\end{enumerate}
+}
+\vspace*{\stretch{1}}
+\vspace{\reponsevspace}
+\begin{tikzpicture}[remember picture, overlay]
+\node [align=left, opacity=1] at ([xshift=-1.75cm, yshift=2.65cm]current page.center) {
+\color{uniscielgrey}
+\textsf{\textit{Réponses}}
+};
+\node [align=left, opacity=1] at ([xshift=1.75cm, yshift=2.66cm]current page.center) {
+\color{uniscielgrey}
+$1:\boxtimes\qquad2:\boxtimes\qquad3:\boxtimes\qquad4:\square$\\
+\color{uniscielgrey}
+$5:\square\qquad$};
+\end{tikzpicture}
+Pour en savoir plus :    Protection du matériel génétique lors de la division cellulaire http://ressources.unisciel.fr/DAEU-biologie/P1/co/P1\_chap2\_c1.html        How DNA is Packaged (Advanced) https://youtu.be/gbSIBhFwQ4s        Chromatin, Histones and Modifications, Rate My Science https://youtu.be/eYrQ0EhVCYA    
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+% Flashcard : UNS-BCL-021.quiz/mcqMur
+\cardfrontfooter{Connaître}{biologie}
+\begin{flashcard}[\cardfrontheader{Biologie}{L1}{Cellule structure et fonctions}{biologie}]{
+\vspace{\questionvspace}
+Concernant l'anaphase, quelles sont les propositions vraies ?
+
+\begin{enumerate}
+\item Les microtubules kinétochoriens se raccourcissent par dépolymérisation.
+\item L'instabilité dynamique des microtubules augmente d'un facteur 20.
+\item Les microtubules astraux se raccourcissent.
+\item Les microtubules polaires se raccourcissent.
+\item Les deux pôles du fuseau mitotique s'éloignent d'avantage.
+\end{enumerate}
+}
+\vspace*{\stretch{1}}
+\vspace{\reponsevspace}
+\begin{tikzpicture}[remember picture, overlay]
+\node [align=left, opacity=1] at ([xshift=-1.75cm, yshift=2.65cm]current page.center) {
+\color{uniscielgrey}
+\textsf{\textit{Réponses}}
+};
+\node [align=left, opacity=1] at ([xshift=1.75cm, yshift=2.66cm]current page.center) {
+\color{uniscielgrey}
+$1:\boxtimes\qquad2:\square\qquad3:\boxtimes\qquad4:\square$\\
+\color{uniscielgrey}
+$5:\boxtimes\qquad$};
+\end{tikzpicture}
+Pour en savoir plus :   La mitose: de l'interphase à la cytodiérèse https://rnbio.upmc.fr/bio-cell\_mitose\_animation    
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+% Flashcard : UNS-BCL-016.quiz/mcqMur
+\cardfrontfooter{Connaître}{biologie}
+\begin{flashcard}[\cardfrontheader{Biologie}{L1}{Cellule structure et fonctions}{biologie}]{
+\vspace{\questionvspace}
+Quelles sont les propositions vraies ?
+
+\begin{enumerate}
+\item Le complexe cycline B/Cdk1 est activé par déphosphorylation.
+\item Le complexe cycline B/Cdk1 est activé par dégradation de la cycline par les protéasomes.
+\item Certaines protéines (les CKI comme p21) peuvent inhiber le complexe cycline B/Cdk1actif.
+\item L'ADN endommagé provoque la synthèse des protéines CKI.
+\item L'ADN endommagé provoque la dégradation de p53.
+\end{enumerate}
+}
+\vspace*{\stretch{1}}
+\vspace{\reponsevspace}
+\begin{tikzpicture}[remember picture, overlay]
+\node [align=left, opacity=1] at ([xshift=-1.75cm, yshift=2.65cm]current page.center) {
+\color{uniscielgrey}
+\textsf{\textit{Réponses}}
+};
+\node [align=left, opacity=1] at ([xshift=1.75cm, yshift=2.66cm]current page.center) {
+\color{uniscielgrey}
+$1:\boxtimes\qquad2:\square\qquad3:\boxtimes\qquad4:\boxtimes$\\
+\color{uniscielgrey}
+$5:\square\qquad$};
+\end{tikzpicture}
+Pour en savoir plus :   Activation brutale des Cycline B / Cdk1 http://www.snv.jussieu.fr/bmedia/cyclecellBM/04G2\_M.htm\#activ   
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+% Flashcard : ULI-IHT-028.quiz/mcqMur
+\cardfrontfooter{Connaître}{informatique}
+\begin{flashcard}[\cardfrontheader{Informatique}{L1}{Langage HTML}{informatique}]{
+\vspace{\questionvspace}
+         Parmi les énoncés suivants lesquels sont corrects dans le cas d'un document déclaré conforme par un validateur XHTML ?        
+
+\begin{enumerate}
+\item          Le document est bien parenthésé        
+\item          Les balises sont en minuscules        
+\item          A toute balise ouvrante <balise>est associée une
+balise fermante </balise> 
+\item          Le document respecte la syntaxe HTML        
+\end{enumerate}
+}
+\vspace*{\stretch{1}}
+\vspace{\reponsevspace}
+\begin{tikzpicture}[remember picture, overlay]
+\node [align=left, opacity=1] at ([xshift=-1.75cm, yshift=2.65cm]current page.center) {
+\color{uniscielgrey}
+\textsf{\textit{Réponses}}
+};
+\node [align=left, opacity=1] at ([xshift=1.75cm, yshift=2.66cm]current page.center) {
+\color{uniscielgrey}
+$1:\boxtimes\qquad2:\boxtimes\qquad3:\boxtimes\qquad4:\boxtimes$};
+\end{tikzpicture}
+         Pour des explications vous devriez consulter    cette ressource \{http://techweb.univ-lille.fr/tw1/chap1-partie3.html\}   
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+% Flashcard : ULY-BIO-016.quiz/mcqSur
+\cardfrontfooter{Connaître}{biologie}
+\begin{flashcard}[\cardfrontheader{Biologie}{L0}{Biochimie et biologie moléculaire}{biologie}]{
+\vspace{\questionvspace}
+Trouver quel est le synonyme au type de molécule suivant : sucre.
+
+\begin{enumerate}
+\item Lipide.
+\item Glucide.
+\item Protéine.
+\item Acide nucléique.
+\end{enumerate}
+}
+\vspace*{\stretch{1}}
+\vspace{\reponsevspace}
+\begin{tikzpicture}[remember picture, overlay]
+\node [align=left, opacity=1] at ([xshift=-1.75cm, yshift=2.65cm]current page.center) {
+\color{uniscielgrey}
+\textsf{\textit{Réponse}}
+};
+\node [align=left, opacity=1] at ([xshift=1.75cm, yshift=2.66cm]current page.center) {
+\color{uniscielgrey}
+$1:\square\qquad2:\boxtimes\qquad3:\square\qquad4:\square$
+};
+\end{tikzpicture}
+Une page qui reprend l'essentiel de la biochimie de lycée :     http://www.chambon.ac-versailles.fr/science/bioch/    
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+% Flashcard : UNS-BCL-039.quiz/mcqMur
+\cardfrontfooter{Connaître}{biologie}
+\begin{flashcard}[\cardfrontheader{Biologie}{L1}{Cellule structure et fonctions}{biologie}]{
+\vspace{\questionvspace}
+Concernant la membrane biologique, deux propositions sont fausses, lesquelles ?
+
+\begin{enumerate}
+\item Elle est perméable aux molécules d'eau.
+\item Les molécules hydrophobes, comme les hydrocarbures la traversent aisément.
+\item Elle est facilement perméable aux ions, comme le $.H^+$et le $.Na^+$. 
+\item Le glucose la traverse rapidement par diffusion.
+\item Elle est imperméable aux petites molécules chargées.
+\end{enumerate}
+}
+\vspace*{\stretch{1}}
+\vspace{\reponsevspace}
+\begin{tikzpicture}[remember picture, overlay]
+\node [align=left, opacity=1] at ([xshift=-1.75cm, yshift=2.65cm]current page.center) {
+\color{uniscielgrey}
+\textsf{\textit{Réponses}}
+};
+\node [align=left, opacity=1] at ([xshift=1.75cm, yshift=2.66cm]current page.center) {
+\color{uniscielgrey}
+$1:\square\qquad2:\square\qquad3:\boxtimes\qquad4:\boxtimes$\\
+\color{uniscielgrey}
+$5:\square\qquad$};
+\end{tikzpicture}
+Pour en savoir plus :    Les lipides en double couche http://ressources.unisciel.fr/biocell/chap1/co/module\_Chap1\_4.html    
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+% Flashcard : ULY-BIO-008.quiz/mcqMur
+\cardfrontfooter{Connaître}{biologie}
+\begin{flashcard}[\cardfrontheader{Biologie}{L0}{Cellule structure et fonctions}{biologie}]{
+\vspace{\questionvspace}
+Indiquer dans quel(s) type(s) de cellule(s) ce composé est présent : chloroplaste.
+
+\begin{enumerate}
+\item Cellule eucaryote végétale.
+\item Cellule eucaryote animale.
+\item Cellule procaryote.
+\end{enumerate}
+}
+\vspace*{\stretch{1}}
+\vspace{\reponsevspace}
+\begin{tikzpicture}[remember picture, overlay]
+\node [align=left, opacity=1] at ([xshift=-1.75cm, yshift=2.65cm]current page.center) {
+\color{uniscielgrey}
+\textsf{\textit{Réponses}}
+};
+\node [align=left, opacity=1] at ([xshift=1.75cm, yshift=2.66cm]current page.center) {
+\color{uniscielgrey}
+$1:\boxtimes\qquad2:\square\qquad3:\square\qquad$};
+\end{tikzpicture}
+Pour en savoir plus sur la comparaison entre procaryotes et eucaryotes :     http://fr.wikipedia.org/wiki/Cellule\_\%28biologie\%29\#Principales\_structures\_cellulaires    Pour en savoir plus sur le comparaison entre cellule animale et végétale :     http://planet-vie.ens.fr/content/comparaison-cellule-animale-cellule-vegetale    
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+
+
+% This is a footer
+
+% Disable output generation
+% \batchmode
+\end{document}

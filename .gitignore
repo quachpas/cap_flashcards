@@ -5,8 +5,6 @@
 *.out
 *.synctex.gz
 *.xdv
-*.tex
-/svg-inkscape
 **.pdf
 **.pdf_tex
 logs.txt

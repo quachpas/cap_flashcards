@@ -1,0 +1,201 @@
+\RequirePackage{atbegshi} % Background stuff on top of trim marks
+\AtBeginShipoutInit
+\documentclass[avery5371]{flashcards}
+
+%%% PACKAGES
+\usepackage{mfirstuc} % capitalisation
+\usepackage{amssymb} % boxes
+\usepackage{amsmath} % maths
+\usepackage{lipsum} % dummy text
+\usepackage{ragged2e} % switch commands to flushLeft/right
+\usepackage{graphicx} % include jged, png, etc.
+\graphicspath{{./images/print/}} 
+\usepackage[export]{adjustbox} % use adjustbox keys in includegraphics, e.g. max height/width
+\usepackage{svg} % include svg using inkscape
+\usepackage[top]{background} % BgContents stuff
+\usepackage{eso-pic}
+\usepackage{tikz} % tikz drawing
+\pgfdeclarelayer{background}
+\pgfdeclarelayer{foreground}
+\pgfsetlayers{background,main,foreground}
+\usepackage{xcolor} % custom colors
+\definecolor{uniscielblue}{RGB}{4,146,191}
+\definecolor{uniscielpink}{RGB}{231,33,90}
+\definecolor{uniscielgrey}{RGB}{103,104,104}
+% Bleu : #0492bf
+% Rose : #e7215a
+% % Gris : #676868
+
+%%% FONTS %%%%
+\usepackage{fontspec}
+\setsansfont{Eufoniem One}
+
+%%% GEOMETRY AND BLEED MARKS %%%
+\geometry{
+    showframe,
+    papersize = {100 truemm, 80 truemm},
+    margin = 0 truemm,
+    % marginparwidth = 0 truemm,
+    % marginparsep = 0 truemm
+}
+\usepackage[
+width = 110 truemm,
+height = 90 truemm,
+frame,
+cam,
+noinfo,
+center,
+]{crop}    
+
+
+%%% FLASHCARDS PARAMETERS %%%
+% Card size and margins
+\renewcommand{\cardpapermode}{portrait}
+\renewcommand{\cardrows}{1}
+\renewcommand{\cardcolumns}{1}
+\setlength{\cardwidth}{9.7 cm}
+\setlength{\cardheight}{7.5 cm}
+
+\setlength{\cardmargin}{2 mm}
+\setlength{\topoffset}{0 mm}
+\setlength{\oddoffset}{0 mm}
+\setlength{\evenoffset}{0 mm}
+
+% Card Background
+\SetBgScale{1.0}                          % Select scale factor
+\SetBgAngle{0.0}                          % Select rotation
+% \SetBgOpacity{0.5}                        % Select opacity
+% \SetBgContents{\bgimage{0.15}{0.8}}       % Set tikz picture
+% \SetBgPosition{current page.north west}   % Select location
+
+% Card styles and fonts
+\cardfrontstyle[\small]{plain}
+\cardbackstyle[\footnotesize]{plain}
+
+%%% CUSTOM COMMANDS %%%
+\usepackage{changepage} % page check
+\strictpagecheck
+\newcommand{\cardbackground}[8]{
+    \SetBgContents{
+        \AddToShipoutPictureBG*{    
+            \begin{tikzpicture}[remember picture, overlay]
+                \checkoddpage
+                \ifoddpage
+                    % Subject front header
+                    \node at ([xshift = -0.85 cm, yshift = -0.85 cm]current page.north) {
+                        \includesvg[width = 0.9\textwidth]{#4}
+                    };
+                    % Subject front footer
+                    \node at ([xshift = 0.75 cm, yshift = 0.5 cm]current page.south) {
+                        \includesvg[width = 0.9\textwidth]{#5}
+                    };
+                    % Subject icon
+                    \node [opacity = 1] at ([xshift = 1.25 cm, yshift = -1 cm]current page.north west) {
+                        \includesvg[height = 0.175\textheight]{icons/#2}
+                    };
+                    % Subject text
+                    \node [opacity = 1] at ([xshift = -1.75 cm, yshift = -0.75 cm]current page.north) {
+                        \color{white}
+                        \huge
+                        \capitalisewords{\textsf{#2}}
+                    };
+                    % Theme
+                    \node [opacity = 1] at ([xshift = 2.25 cm, yshift = -2 cm]current page.north) {
+                        \begin{varwidth}{0.5\textwidth}
+                            \setlength{\parskip}{0 cm}
+                            \color{uniscielblue}
+                            \raggedleft
+                            \LARGE
+                            \textsf{#3}    
+                        \end{varwidth}
+                    };
+                    % University front logo
+                    \node [opacity=1] at ([xshift = -1.75 cm, yshift = 0.75 cm]current page.south east) {                    
+                        \includegraphics[max height = 0.135\textheight, center, keepaspectratio]{front_university_logo}
+                    };
+                    % Complexity level
+                    \node [opacity=1] at ([xshift = -2.75 cm, yshift = 1.175 cm]current page.south) {
+                        \color{uniscielpink}
+                        \textit{#1}
+                    };
+                \else
+                    % Back background
+                    \node at (current page.center) {
+                        \includesvg[width = 1.1\textwidth]{#6}
+                    };
+                    % Subject back header
+                    \node at ([xshift = -0.85 cm, yshift = -0.85 cm]current page.north) {
+                        \includesvg[width = 0.9\textwidth]{#7}
+                    };
+                    % Subject back footer
+                    \node at ([xshift = 0.75 cm, yshift = 0.5 cm]current page.south) {
+                        \includesvg[width = 0.9\textwidth]{#8}
+                    };
+                    % QR Code
+                    \node at ([xshift = 1.375 cm, yshift = -0.85 cm]current page.north west) {
+                        \includegraphics[width = 0.150\textwidth, keepaspectratio]{qrcode}
+                    };
+                    % University back logo
+                    \node [opacity=1] at ([xshift = -1.75 cm, yshift = 0.75 cm]current page.south east) {                    
+                        \includesvg[height = 0.135\textheight]{back_university_logo}
+                    };
+                \fi
+            \end{tikzpicture}
+        }           
+    }
+}
+\begin{document}
+    
+
+%%%%%%%%%%%%%%% STANDARD TEMPLATE %%%%%%%%%%%%%%%%
+
+\cardbackground{Niveau de complexité}{physique}{Lois de Kepler et Newton et leurs applications}{physics-front-header}{physics-front-footer}{physics-back-background}{physics-back-header}{physics-back-footer}
+\begin{flashcard}[]{
+
+%%% QUESTION %%% 
+\color{black}
+\vspace{0.30\textheight}
+\raggedright
+% Topic
+\'Enoncé
+
+% Choices
+\begin{enumerate}
+    \item Réponse 1
+    \item Réponse 2
+    \item Réponse 3
+    \item Réponse 4
+\end{enumerate}
+}
+
+%%% QUESTION %%% 
+\vspace*{\stretch{1}}
+%%% ANSWER %%% 
+\color{white}
+% \vspace{\reponsevspace}
+
+% Correct answer boxes
+\begin{tikzpicture}[remember picture, overlay]
+    \node [align=left, opacity=1] at ([xshift = -0.25 cm, yshift = 2.25 cm]current page.center) {
+                \color{white}
+                \textsf{\textit{Réponses}}
+            };
+    \node [align=left, opacity=1] at ([xshift = 2.75 cm, yshift = 2.25 cm]current page.center) {
+                \color{white}
+                $1:\boxtimes\qquad2:\square\qquad3:\square\qquad4:\square\qquad$\\
+                \color{white}
+                $5:\square\qquad6:\square\qquad$
+            };
+\end{tikzpicture}
+
+% Explanations
+\raggedright
+\lipsum[100]
+
+%%% ANSWER %%% 
+\vspace*{\stretch{1}}
+\end{flashcard}
+%%%%%%%%%%%%%%% STANDARD TEMPLATE %%%%%%%%%%%%%%%%
+
+
+\end{document}
