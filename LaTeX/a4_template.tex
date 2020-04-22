@@ -1,0 +1,708 @@
+\RequirePackage{atbegshi} % Background stuff on top of trim marks
+\AtBeginShipoutInit
+\documentclass[avery5371]{flashcards}
+
+%%% PACKAGES
+\usepackage{xkeyval}% kvp
+\usepackage{changepage} % page check
+\strictpagecheck
+\usepackage{amssymb} % boxes
+\usepackage{amsmath} % maths
+\usepackage{lipsum} % dummy text
+\usepackage{ragged2e} % switch commands to flushLeft/right
+\usepackage{graphicx} % include jged, png, etc.
+\graphicspath{{./images/}} 
+\usepackage[export]{adjustbox} % use adjustbox keys in includegraphics, e.g. max height/width
+\usepackage{svg} % include svg using inkscape
+\usepackage[top]{background} % BgContents stuff
+\usepackage{eso-pic}
+\usepackage{tikz} % tikz drawing
+\pgfdeclarelayer{background}
+\pgfdeclarelayer{foreground}
+\pgfsetlayers{background,main,foreground}
+\usepackage{xcolor} % custom colors
+\definecolor{uniscielblue}{RGB}{4,146,191}
+\definecolor{uniscielpink}{RGB}{231,33,90}
+\definecolor{uniscielgrey}{RGB}{103,104,104}
+\definecolor{physicsviolet}{HTML}{463374}
+% Bleu : #0492bf
+% Rose : #e7215a
+% Gris : #676868
+% Violet : #463374
+
+%%% FONTS %%%%
+\usepackage{fontspec}
+\setsansfont{Eufoniem One}
+
+%%% GEOMETRY AND BLEED MARKS %%%
+\geometry{
+    papersize = {210 truemm, 297 truemm},
+    margin = 0 truemm,
+    % marginparwidth = 0 truemm,
+    % marginparsep = 0 truemm
+}
+
+\usepackage[
+width = 210 truemm,
+height =  297 truemm,
+noinfo,
+center
+]{crop}    
+
+%%% FLASHCARDS PARAMETERS %%%
+% Card size and margins
+\renewcommand{\cardpapermode}{portrait}
+\renewcommand{\cardrows}{3}
+\renewcommand{\cardcolumns}{2}
+\setlength{\cardwidth}{10 cm}
+\setlength{\cardheight}{8 cm}
+
+\setlength{\cardmargin}{3 mm}
+\setlength{\topoffset}{0 mm}
+\setlength{\oddoffset}{0 mm}
+\setlength{\evenoffset}{0 mm}
+
+% Card Background
+\SetBgScale{1.0}                          % Select scale factor
+\SetBgAngle{0.0}                          % Select rotation
+% \SetBgOpacity{0.5}                        % Select opacity
+% \SetBgContents{\bgimage{0.15}{0.8}}       % Set tikz picture
+% \SetBgPosition{current page.north west}   % Select location
+
+% Card styles and fonts
+\cardfrontstyle[\small]{plain}
+\cardbackstyle[\footnotesize]{plain}
+
+%%% CUSTOM COMMANDS %%%
+% KVP
+\makeatletter
+
+\define@cmdkey{One}[FCone@]{complexityLevel}{}
+\define@cmdkey{One}[FCone@]{subject}{}
+\define@cmdkey{One}[FCone@]{theme}{}
+\define@cmdkey{One}[FCone@]{qrcode}{}
+
+\define@cmdkey{Two}[FCtwo@]{complexityLevel}{}
+\define@cmdkey{Two}[FCtwo@]{subject}{}
+\define@cmdkey{Two}[FCtwo@]{theme}{}
+\define@cmdkey{Two}[FCtwo@]{qrcode}{}
+
+\define@cmdkey{Three}[FCthree@]{complexityLevel}{}
+\define@cmdkey{Three}[FCthree@]{subject}{}
+\define@cmdkey{Three}[FCthree@]{theme}{}
+\define@cmdkey{Three}[FCthree@]{qrcode}{}
+
+\define@cmdkey{Four}[FCfour@]{complexityLevel}{}
+\define@cmdkey{Four}[FCfour@]{subject}{}
+\define@cmdkey{Four}[FCfour@]{theme}{}
+\define@cmdkey{Four}[FCfour@]{qrcode}{}
+
+\define@cmdkey{Five}[FCfive@]{complexityLevel}{}
+\define@cmdkey{Five}[FCfive@]{subject}{}
+\define@cmdkey{Five}[FCfive@]{theme}{}
+\define@cmdkey{Five}[FCfive@]{qrcode}{}
+
+\define@cmdkey{Six}[FCsix@]{complexityLevel}{}
+\define@cmdkey{Six}[FCsix@]{subject}{}
+\define@cmdkey{Six}[FCsix@]{theme}{}
+\define@cmdkey{Six}[FCsix@]{qrcode}{}
+
+
+\presetkeys{Two}{
+    complexityLevel = none,
+    subject = none,
+    theme = none,
+    qrcode = none
+}{}
+\presetkeys{Three}{
+    complexityLevel = none,
+    subject = none,
+    theme = none,
+    qrcode = none
+}{}
+\presetkeys{Four}{
+    complexityLevel = none,
+    subject = none,
+    theme = none,
+    qrcode = none
+}{}
+\presetkeys{Five}{
+    complexityLevel = none,
+    subject = none,
+    theme = none,
+    qrcode = none
+}{}
+\presetkeys{Six}{
+    complexityLevel = none,
+    subject = none,
+    theme = none,
+    qrcode = none
+}{}
+\newcommand{\setFCkeys}[6]{
+    \setkeys{One}{#1}
+    \setkeys{Two}{#2}
+    \setkeys{Three}{#3}
+    \setkeys{Four}{#4}
+    \setkeys{Five}{#5}
+    \setkeys{Six}{#6}
+}
+\newcommand{\cardbackground}{
+    \SetBgContents{
+        \AddToShipoutPictureBG*{    
+            \begin{tikzpicture}[remember picture, overlay]
+                
+                \checkoddpage
+                \ifoddpage
+                %%%%%% FC ONE
+                    % Subject front header
+                    \node at ([xshift = 4 cm, yshift = -1 cm]current page.north west) {
+                        \includesvg[width = 0.8\cardwidth]{\frontheader}
+                    };
+                    % Subject front footer
+                    \node at ([xshift = 6 cm, yshift = -7.5 cm]current page.north west) {
+                        \includesvg[width = 0.8\cardwidth]{\frontfooter}
+                    };
+                    % Subject icon
+                    \node [opacity = 1] at ([xshift = 1.25 cm, yshift = -1 cm]current page.north west) {
+                        \includesvg[height = 0.15
+                        \cardheight]{icons/\subjecticon}
+                    };
+                    % Subject text
+                    \node [opacity = 1] at ([xshift = 3 cm, yshift = -0.85 cm]current page.north west) {
+                        \color{white}
+                        \huge
+                        \textsf{\FCone@subject}
+                    };
+                    % Theme
+                    \node [opacity = 1] at ([xshift = 7.5 cm, yshift = -2.25 cm]current page.north west) {
+                        \begin{varwidth}{0.5\cardwidth}
+                            \setlength{\parskip}{0 cm}
+                            \color{uniscielblue}
+                            \raggedleft
+                            \LARGE
+                            \textsf{\FCone@theme}    
+                        \end{varwidth}
+                    };
+                    % University front logo
+                    \node [opacity=1] at ([xshift = 8.25 cm, yshift = -7.5 cm]current page.north west) {                    
+                        \includegraphics[max height = 0.135\cardheight, center, keepaspectratio]{\frontuniversitylogo}
+                    };
+                    % Complexity level
+                    \node [opacity=1] at ([xshift = 2 cm, yshift = -7 cm]current page.north west) {
+                        \color{uniscielpink}
+                        \textit{\FCone@complexityLevel}
+                    };
+                %%%%%% FC TWO
+                %%%%%% FC THREE
+                %%%%%% FC FOUR
+                %%%%%% FC FIVE
+                %%%%%% FC SIX
+                \else
+                %%%%%% FC ONE
+                    % Back background
+                    \node at ([xshift = 15 cm, yshift = -4.25 cm]current page.north west) {
+                        \includesvg[width = 1\cardwidth]{\backbackground}
+                    };
+                    % Subject back header
+                    \node at ([xshift = 14 cm, yshift = -1 cm]current page.north west) {
+                        \includesvg[width = 0.8\cardwidth]{\backheader}
+                    };
+                    % Subject back footer
+                    \node at ([xshift = 16 cm, yshift = -7.5 cm]current page.north west) {
+                        \includesvg[width = 0.8\cardwidth]{\backfooter}
+                    };
+                    % QR Code
+                    \node at ([xshift = 11.25 cm, yshift = -1 cm]current page.north west) {
+                        \includegraphics[width = 0.150\cardwidth, keepaspectratio]{\FCone@qrcode}
+                    };
+                    % Subject text
+                    \node [opacity = 1] at ([xshift = 13 cm, yshift = -0.85 cm]current page.north west) {
+                        \color{physicsviolet}
+                        \huge
+                        \textsf{\FCone@subject}
+                    };
+                    % University back logo
+                    \node [opacity=1] at ([xshift = 18.25 cm, yshift = -7.5 cm]current page.north west) {                    
+                        \includesvg[height = 0.135\cardheight]{\backuniversitylogo}
+                    };
+                %%%%%% FC TWO
+                    % % Back background
+                    % \node at ([xshift = 5 cm, yshift = -4.25 cm]current page.north west) {
+                    %     \includesvg[width = 1\cardwidth]{\backbackground}
+                    % };
+                    % % Subject back header
+                    % \node at ([xshift = 4 cm, yshift = -1 cm]current page.north west) {
+                    %     \includesvg[width = 0.8\cardwidth]{\backheader}
+                    % };
+                    % % Subject back footer
+                    % \node at ([xshift = 6 cm, yshift = -7.5 cm]current page.north west) {
+                    %     \includesvg[width = 0.8\cardwidth]{\backfooter}
+                    % };
+                    % % QR Code
+                    % \node at ([xshift = 1.25 cm, yshift = -1 cm]current page.north west) {
+                    %     \includegraphics[width = 0.150\cardwidth, keepaspectratio]{\FCone@qrcode}
+                    % };
+                    % % Subject text
+                    % \node [opacity = 1] at ([xshift = 3 cm, yshift = -0.85 cm]current page.north west) {
+                    %     \color{physicsviolet}
+                    %     \huge
+                    %     \textsf{\FCone@subject}
+                    % };
+                    % % University back logo
+                    % \node [opacity=1] at ([xshift = 8.25 cm, yshift = -7.5 cm]current page.north west) {                    
+                    %     \includesvg[height = 0.135\cardheight]{\backuniversitylogo}
+                    % };
+                %%%%%% FC THREE
+                %%%%%% FC FOUR
+                %%%%%% FC FIVE
+                %%%%%% FC SIX
+                \fi
+                
+            \end{tikzpicture}
+        }           
+    }
+}
+\makeatother
+\newcommand{\backgroundparam}[8]{
+    \providecommand{\subjecticon}{#1}
+    \providecommand{\frontheader}{#2}
+    \providecommand{\frontfooter}{#3}
+    \providecommand{\backbackground}{#4}
+    \providecommand{\backheader}{#5}
+    \providecommand{\backfooter}{#6}
+    \providecommand{\frontuniversitylogo}{#7}
+    \providecommand{\backuniversitylogo}{#8}
+    \renewcommand{\subjecticon}{#1}
+    \renewcommand{\frontheader}{#2}
+    \renewcommand{\frontfooter}{#3}
+    \renewcommand{\backbackground}{#4}
+    \renewcommand{\backheader}{#5}
+    \renewcommand{\backfooter}{#6}
+    \renewcommand{\frontuniversitylogo}{#7}
+    \renewcommand{\backuniversitylogo}{#8}
+}
+
+
+\begin{document}
+
+\backgroundparam
+{physique} % subject icon
+{physics-front-header}% Front header filename
+{physics-front-footer}% Front footer filename
+{physics-back-background}% Back background filename
+{physics-back-header}% Back header filename
+{physics-back-footer}% Back footer filename
+{front_university_logo}% Front university logo
+{back_university_logo}% Back university logo
+
+% For 6 flashcards
+\setFCkeys{
+    complexityLevel = {Niveau de complexité},
+    subject = {Physique},
+    theme = {Lois de Kepler et Newton et leurs applications},
+    qrcode = {qrcode}
+}{
+    complexityLevel = {Niveau de complexité},
+    subject = {Physique},
+    theme = {Lois de Newton et Kepler et leurs applications},
+    qrcode = {qrcode}
+}{
+    complexityLevel = {Comprendre, appliquer},
+    subject = {Physique},
+    theme = {Lois de Newton et Kepler et leurs applications},
+    qrcode = {qrcode}
+}{
+    complexityLevel = {Changement de langage},
+    subject = {Physique},
+    theme = {Optique géométrique},
+    qrcode = {qrcode}
+}{
+    complexityLevel = {Changement de langage},
+    subject = {Physique},
+    theme = {Optique géométrique},
+    qrcode = {qrcode}
+}{
+    complexityLevel = {Changement de langage},
+    subject = {Physique},
+    theme = {Optique géométrique},
+    qrcode = {qrcode}
+}
+
+\cardbackground
+
+%%%%%%%%%%%%%%% STANDARD TEMPLATE %%%%%%%%%%%%%%%%
+\begin{flashcard}[]{
+%%% QUESTION %%% 
+\color{black}
+\vspace{0.30\cardheight} % Adjust that parameter from 0.1 to 0.3 according to the size of the text
+\raggedright
+% Topic
+\'Enoncé
+% Choices
+\begin{enumerate}
+    \item Réponse 1
+    \item Réponse 2
+    \item Réponse 3
+    \item Réponse 4
+\end{enumerate}
+}
+%%% QUESTION %%% 
+\vspace*{\stretch{1}}
+%%% ANSWER %%% 
+\color{white}
+
+% Correct answer boxes
+\begin{tikzpicture}[remember picture, overlay]
+    \node [align=left, opacity=1] at ([xshift = -0.25 cm, yshift = 2.25 cm]current page.center) {
+                \color{white}
+                \normalsize
+                \textsf{\textit{Réponses}}
+            };
+    \node [align=left, opacity=1] at ([xshift = 2.75 cm, yshift = 2.25 cm]current page.center) {
+                \color{white}
+                $1:\boxtimes\qquad2:\square\qquad3:\square\qquad4:\square\qquad$\\
+                \color{white}
+                $5:\square\qquad6:\square\qquad$
+            };
+\end{tikzpicture}
+
+% Explanations
+\raggedright
+\lipsum[100]
+
+%%% ANSWER %%% 
+\vspace*{\stretch{1}}
+\end{flashcard}
+%%%%%%%%%%%%%%% STANDARD TEMPLATE %%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%% STANDARD TEMPLATE WITH IMAGE %%%%%%%%%%%%%%%%
+
+\begin{flashcard}[]{
+%%% QUESTION %%% 
+\color{black}
+\vspace{0.15\cardheight} % Adjust that parameter from 0.1 to 0.3 according to the size of the text
+\raggedright
+% Topic
+\begin{minipage}[t]{0.6\linewidth}
+    \'Enoncé
+    % Choices
+    \begin{enumerate}
+        \item Choix 1
+        \item Choix 2
+        \item Choix 3
+        \item Choix 4
+    \end{enumerate}
+\end{minipage}% 
+\hfill
+% Image
+\begin{minipage}[t]{0.3\linewidth}
+    \strut\vspace*{-\baselineskip}\newline
+    \includegraphics[max size={\textwidth}{0.9\textheight}, center, keepaspectratio]{QCM/MATIERE/ID_QUESTION/placeholder_150.png}
+\end{minipage}
+}
+
+%%% QUESTION %%% 
+\vspace*{\stretch{1}}
+%%% ANSWER %%% 
+\color{white}
+
+% Correct answer boxes
+\begin{tikzpicture}[remember picture, overlay]
+    \node [align=left, opacity=1] at ([xshift = -0.25 cm, yshift = 2.25 cm]current page.center) {
+                \color{white}
+                \normalsize
+                \textsf{\textit{Réponses}}
+            };
+    \node [align=left, opacity=1] at ([xshift = 2.75 cm, yshift = 2.25 cm]current page.center) {
+                \color{white}
+                $1:\boxtimes\qquad2:\square\qquad3:\square\qquad4:\square\qquad$\\
+                \color{white}
+                $5:\square\qquad6:\square\qquad$
+            };
+\end{tikzpicture}
+
+% Explanations
+\raggedright
+\lipsum[100]
+
+%%% ANSWER %%% 
+\vspace*{\stretch{1}}
+\end{flashcard}
+%%%%%%%%%%%%%%% STANDARD TEMPLATE WITH IMAGE %%%%%%%%%%%%%%%%
+
+% Test flashcard n°1
+\begin{flashcard}[]{
+%%% QUESTION %%% 
+\color{black}
+\vspace{0.20\cardheight}
+\raggedright
+% Topic
+Pour un point matériel en mouvement uniforme (c'est-à-dire un mouvement au cours duquel la norme de la vitesse est constante) :
+% Choices
+\begin{enumerate}
+    \item le principe d'inertie est vérifié.
+    \item la trajectoire est rectiligne.
+    \item la trajectoire peut être un cercle.
+    \item la somme des forces qui s'exercent sur le corps est nulle
+\end{enumerate}
+}
+%%% QUESTION %%% 
+\vspace*{\stretch{1}}
+%%% ANSWER %%% 
+\color{white}
+
+% Correct answer boxes
+\begin{tikzpicture}[remember picture, overlay]
+    \node [align=left, opacity=1] at ([xshift = -0.25 cm, yshift = 2.25 cm]current page.center) {
+                \color{white}
+                \normalsize
+                \textsf{\textit{Réponses}}
+            };
+    \node [align=left, opacity=1] at ([xshift = 2.75 cm, yshift = 2.25 cm]current page.center) {
+                \color{white}
+                $1:\boxtimes\qquad2:\square\qquad3:\square\qquad4:\square\qquad$\\
+                \color{white}
+                $5:\square\qquad6:\square\qquad$
+            };
+\end{tikzpicture}
+
+% Explanations
+\raggedright
+Principe d'inertie : Dans un référentiel galiléen, si un système assimilé à un point matériel n'est soumis à aucune force – système isolé – ou s'il est soumis à un ensemble de forces de résultante nulle ($\Sigma\vec{F}_{ext}=\vec{0}$) – système pseudo-isolé – alors il est immobile ou animé d'un mouvement rectiligne uniforme.
+
+Dans cette question, il s'agit de faire la distinction entre mouvement uniforme (la norme de la vitesse est constante, on ne sait rien de la trajectoire) et mouvement rectiligne uniforme ou mouvement circulaire uniforme (norme de la vitesse constante et trajectoire fixée).
+
+%%% ANSWER %%% 
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+% Test flashcard n°2a
+
+\begin{flashcard}[]{
+%%% QUESTION %%% 
+\color{black}
+\vspace{0.15\cardheight}
+\raggedright
+% Topic
+\begin{minipage}[t]{0.6\linewidth}
+Étant donné le sens de propagation de la lumière choisi et indiqué sur le schéma, si $A$ est la position de l'objet, $A'$ celle de l'image et $O$ le centre de la lentille convergente, alors :
+% Choices
+\begin{enumerate}
+    \item $\overline{OA}$ est positif et $\overline{OA'}$ est négatif.
+    \item $\overline{OA}$ est négatif et $\overline{OA'}$ est positif.
+    \item $\overline{OA}$ et $\overline{OA'}$ sont négatifs.
+    \item $\overline{OA}$ et $\overline{OA'}$ sont positifs.
+\end{enumerate}
+\end{minipage}% 
+\hfill
+% Image
+\begin{minipage}[t]{0.3\linewidth}
+    \strut\vspace*{-\baselineskip}\newline
+    \includegraphics[max size={\textwidth}{0.9\textheight}, center, keepaspectratio]{QCM/Physique/UTC-002/lentille.jpg}
+\end{minipage}
+}
+
+%%% QUESTION %%% 
+\vspace*{\stretch{1}}
+%%% ANSWER %%% 
+\color{white}
+
+% Correct answer boxes
+\begin{tikzpicture}[remember picture, overlay]
+    \node [align=left, opacity=1] at ([xshift = -0.25 cm, yshift = 2.25 cm]current page.center) {
+                \color{white}
+                \normalsize
+                \textsf{\textit{Réponses}}
+            };
+    \node [align=left, opacity=1] at ([xshift = 2.75 cm, yshift = 2.25 cm]current page.center) {
+                \color{white}
+                $1:\boxtimes\qquad2:\square\qquad3:\square\qquad4:\square\qquad$\\
+                \color{white}
+                $5:\square\qquad6:\square\qquad$
+            };
+\end{tikzpicture}
+
+% Explanations
+\raggedright
+Principe d'inertie : Dans un référentiel galiléen, si un système assimilé à un point matériel n'est soumis à aucune force – système isolé – ou s'il est soumis à un ensemble de forces de résultante nulle ($\Sigma\vec{F}_{ext}=\vec{0}$) – système pseudo-isolé – alors il est immobile ou animé d'un mouvement rectiligne uniforme.
+
+Dans cette question, il s'agit de faire la distinction entre mouvement uniforme (la norme de la vitesse est constante, on ne sait rien de la trajectoire) et mouvement rectiligne uniforme ou mouvement circulaire uniforme (norme de la vitesse constante et trajectoire fixée).
+
+%%% ANSWER %%% 
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+% Test flashcard n°2b
+\begin{flashcard}[]{
+%%% QUESTION %%% 
+\color{black}
+\vspace{0.15\cardheight}
+\raggedright
+% Topic
+\begin{minipage}[t]{0.6\linewidth}
+Étant donné le sens de propagation de la lumière choisi et indiqué sur le schéma, si $A$ est la position de l'objet, $A'$ celle de l'image et $O$ le centre de la lentille convergente, alors :
+% Choices
+\begin{enumerate}
+    \item $\overline{OA}$ est positif et $\overline{OA'}$ est négatif.
+    \item $\overline{OA}$ est négatif et $\overline{OA'}$ est positif.
+    \item $\overline{OA}$ et $\overline{OA'}$ sont négatifs.
+    \item $\overline{OA}$ et $\overline{OA'}$ sont positifs.
+\end{enumerate}
+\end{minipage}% 
+\hfill
+% Image
+\begin{minipage}[t]{0.3\linewidth}
+    \strut\vspace*{-\baselineskip}\newline
+    \includegraphics[max size={\textwidth}{0.9\textheight}, center, keepaspectratio]{QCM/Physique/UTC-002/lentille.jpg}
+\end{minipage}
+}
+
+%%% QUESTION %%% 
+\vspace*{\stretch{1}}
+%%% ANSWER %%% 
+\color{white}
+
+% Correct answer boxes
+\begin{tikzpicture}[remember picture, overlay]
+    \node [align=left, opacity=1] at ([xshift = -0.25 cm, yshift = 2.25 cm]current page.center) {
+                \color{white}
+                \normalsize
+                \textsf{\textit{Réponses}}
+            };
+    \node [align=left, opacity=1] at ([xshift = 2.75 cm, yshift = 2.25 cm]current page.center) {
+                \color{white}
+                $1:\boxtimes\qquad2:\square\qquad3:\square\qquad4:\square\qquad$\\
+                \color{white}
+                $5:\square\qquad6:\square\qquad$
+            };
+\end{tikzpicture}
+
+% Explanations
+\raggedright
+Principe d'inertie : Dans un référentiel galiléen, si un système assimilé à un point matériel n'est soumis à aucune force – système isolé – ou s'il est soumis à un ensemble de forces de résultante nulle ($\Sigma\vec{F}_{ext}=\vec{0}$) – système pseudo-isolé – alors il est immobile ou animé d'un mouvement rectiligne uniforme.
+
+Dans cette question, il s'agit de faire la distinction entre mouvement uniforme (la norme de la vitesse est constante, on ne sait rien de la trajectoire) et mouvement rectiligne uniforme ou mouvement circulaire uniforme (norme de la vitesse constante et trajectoire fixée).
+
+%%% ANSWER %%% 
+\vspace*{\stretch{1}}
+\end{flashcard}
+% Test flashcard n°2c
+
+\begin{flashcard}[]{
+%%% QUESTION %%% 
+\color{black}
+\vspace{0.15\cardheight}
+\raggedright
+% Topic
+\begin{minipage}[t]{0.6\linewidth}
+Étant donné le sens de propagation de la lumière choisi et indiqué sur le schéma, si $A$ est la position de l'objet, $A'$ celle de l'image et $O$ le centre de la lentille convergente, alors :
+% Choices
+\begin{enumerate}
+    \item $\overline{OA}$ est positif et $\overline{OA'}$ est négatif.
+    \item $\overline{OA}$ est négatif et $\overline{OA'}$ est positif.
+    \item $\overline{OA}$ et $\overline{OA'}$ sont négatifs.
+    \item $\overline{OA}$ et $\overline{OA'}$ sont positifs.
+\end{enumerate}
+\end{minipage}% 
+\hfill
+% Image
+\begin{minipage}[t]{0.3\linewidth}
+    \strut\vspace*{-\baselineskip}\newline
+    \includegraphics[max size={\textwidth}{0.9\textheight}, center, keepaspectratio]{QCM/Physique/UTC-002/lentille.jpg}
+\end{minipage}
+}
+
+%%% QUESTION %%% 
+\vspace*{\stretch{1}}
+%%% ANSWER %%% 
+\color{white}
+
+% Correct answer boxes
+\begin{tikzpicture}[remember picture, overlay]
+    \node [align=left, opacity=1] at ([xshift = -0.25 cm, yshift = 2.25 cm]current page.center) {
+                \color{white}
+                \normalsize
+                \textsf{\textit{Réponses}}
+            };
+    \node [align=left, opacity=1] at ([xshift = 2.75 cm, yshift = 2.25 cm]current page.center) {
+                \color{white}
+                $1:\boxtimes\qquad2:\square\qquad3:\square\qquad4:\square\qquad$\\
+                \color{white}
+                $5:\square\qquad6:\square\qquad$
+            };
+\end{tikzpicture}
+
+% Explanations
+\raggedright
+Principe d'inertie : Dans un référentiel galiléen, si un système assimilé à un point matériel n'est soumis à aucune force – système isolé – ou s'il est soumis à un ensemble de forces de résultante nulle ($\Sigma\vec{F}_{ext}=\vec{0}$) – système pseudo-isolé – alors il est immobile ou animé d'un mouvement rectiligne uniforme.
+
+Dans cette question, il s'agit de faire la distinction entre mouvement uniforme (la norme de la vitesse est constante, on ne sait rien de la trajectoire) et mouvement rectiligne uniforme ou mouvement circulaire uniforme (norme de la vitesse constante et trajectoire fixée).
+
+%%% ANSWER %%% 
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+% New set of 6 flashcards
+\setFCkeys{
+    complexityLevel = {Changement de langage},
+    subject = {Physique},
+    theme = {Optique géométrique},
+    qrcode = {qrcode}
+}{}{}{}{}{}
+
+% Test flashcard n°2d
+
+\begin{flashcard}[]{
+%%% QUESTION %%% 
+\color{black}
+\vspace{0.15\cardheight}
+\raggedright
+% Topic
+\begin{minipage}[t]{0.6\linewidth}
+Étant donné le sens de propagation de la lumière choisi et indiqué sur le schéma, si $A$ est la position de l'objet, $A'$ celle de l'image et $O$ le centre de la lentille convergente, alors :
+% Choices
+\begin{enumerate}
+    \item $\overline{OA}$ est positif et $\overline{OA'}$ est négatif.
+    \item $\overline{OA}$ est négatif et $\overline{OA'}$ est positif.
+    \item $\overline{OA}$ et $\overline{OA'}$ sont négatifs.
+    \item $\overline{OA}$ et $\overline{OA'}$ sont positifs.
+\end{enumerate}
+\end{minipage}% 
+\hfill
+% Image
+\begin{minipage}[t]{0.3\linewidth}
+    \strut\vspace*{-\baselineskip}\newline
+    \includegraphics[max size={\textwidth}{0.9\textheight}, center, keepaspectratio]{QCM/Physique/UTC-002/lentille.jpg}
+\end{minipage}
+}
+
+%%% QUESTION %%% 
+\vspace*{\stretch{1}}
+%%% ANSWER %%% 
+\color{white}
+
+% Correct answer boxes
+\begin{tikzpicture}[remember picture, overlay]
+    \node [align=left, opacity=1] at ([xshift = -0.25 cm, yshift = 2.25 cm]current page.center) {
+                \color{white}
+                \normalsize
+                \textsf{\textit{Réponses}}
+            };
+    \node [align=left, opacity=1] at ([xshift = 2.75 cm, yshift = 2.25 cm]current page.center) {
+                \color{white}
+                $1:\boxtimes\qquad2:\square\qquad3:\square\qquad4:\square\qquad$\\
+                \color{white}
+                $5:\square\qquad6:\square\qquad$
+            };
+\end{tikzpicture}
+
+% Explanations
+\raggedright
+Principe d'inertie : Dans un référentiel galiléen, si un système assimilé à un point matériel n'est soumis à aucune force – système isolé – ou s'il est soumis à un ensemble de forces de résultante nulle ($\Sigma\vec{F}_{ext}=\vec{0}$) – système pseudo-isolé – alors il est immobile ou animé d'un mouvement rectiligne uniforme.
+
+Dans cette question, il s'agit de faire la distinction entre mouvement uniforme (la norme de la vitesse est constante, on ne sait rien de la trajectoire) et mouvement rectiligne uniforme ou mouvement circulaire uniforme (norme de la vitesse constante et trajectoire fixée).
+
+%%% ANSWER %%% 
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+\end{document}

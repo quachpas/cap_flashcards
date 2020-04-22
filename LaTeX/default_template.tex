@@ -9,7 +9,7 @@
 \usepackage{lipsum} % dummy text
 \usepackage{ragged2e} % switch commands to flushLeft/right
 \usepackage{graphicx} % include jged, png, etc.
-\graphicspath{{./images/print/}} 
+\graphicspath{{./images/}} 
 \usepackage[export]{adjustbox} % use adjustbox keys in includegraphics, e.g. max height/width
 \usepackage{svg} % include svg using inkscape
 \usepackage[top]{background} % BgContents stuff
@@ -34,9 +34,8 @@
 
 %%% GEOMETRY AND BLEED MARKS %%%
 \geometry{
-    showframe,
     papersize = {100 truemm, 80 truemm},
-    margin = 0 truemm,
+    margin = 0 truemm
     % marginparwidth = 0 truemm,
     % marginparsep = 0 truemm
 }
@@ -174,7 +173,6 @@ center,
 \begin{document}
     
 
-%%%%%%%%%%%%%%% STANDARD TEMPLATE %%%%%%%%%%%%%%%%
 \backgroundparam
 {physique} % subject icon
 {physics-front-header}% Front header filename
@@ -185,6 +183,7 @@ center,
 {front_university_logo}% Front university logo
 {back_university_logo}% Back university logo
 
+%%%%%%%%%%%%%%% STANDARD TEMPLATE %%%%%%%%%%%%%%%%
 \cardbackground
 {Niveau de complexité}% Complexity level
 {Physique}% Subject
@@ -235,16 +234,6 @@ center,
 \end{flashcard}
 %%%%%%%%%%%%%%% STANDARD TEMPLATE %%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%% STANDARD TEMPLATE WITH IMAGE %%%%%%%%%%%%%%%%
-\backgroundparam
-{physique} % subject icon
-{physics-front-header}% Front header filename
-{physics-front-footer}% Front footer filename
-{physics-back-background}% Back background filename
-{physics-back-header}% Back header filename
-{physics-back-footer}% Back footer filename
-{front_university_logo}% Front university logo
-{back_university_logo}% Back university logo
-
 \cardbackground
 {Niveau de complexité}% Complexity level
 {Physique}% Subject
@@ -305,16 +294,6 @@ center,
 %%%%%%%%%%%%%%% STANDARD TEMPLATE WITH IMAGE %%%%%%%%%%%%%%%%
 
 % Test flashcard n°1
-\backgroundparam
-{physique} % subject icon
-{physics-front-header}% Front header filename
-{physics-front-footer}% Front footer filename
-{physics-back-background}% Back background filename
-{physics-back-header}% Back header filename
-{physics-back-footer}% Back footer filename
-{front_university_logo}% Front university logo
-{back_university_logo}% Back university logo
-
 \cardbackground
 {Comprendre, appliquer}% Complexity level
 {Physique}% Subject
@@ -367,16 +346,6 @@ Dans cette question, il s'agit de faire la distinction entre mouvement uniforme 
 \end{flashcard}
 
 % Test flashcard n°2
-\backgroundparam
-{physique} % subject icon
-{physics-front-header}% Front header filename
-{physics-front-footer}% Front footer filename
-{physics-back-background}% Back background filename
-{physics-back-header}% Back header filename
-{physics-back-footer}% Back footer filename
-{front_university_logo}% Front university logo
-{back_university_logo}% Back university logo
-
 \cardbackground
 {Changement de langage}% Complexity level
 {Physique}% Subject
