@@ -1,9 +1,10 @@
-\RequirePackage{atbegshi} % Background stuff on top of trim marks
+\RequirePackage{atbegshi} % Background stuff below trim marks
 \AtBeginShipoutInit
 \documentclass[avery5371]{flashcards}
 
 %%% PACKAGES
-\usepackage{mfirstuc} % capitalisation
+\usepackage{changepage} % page check
+\strictpagecheck
 \usepackage{amssymb} % boxes
 \usepackage{amsmath} % maths
 \usepackage{lipsum} % dummy text
@@ -12,12 +13,9 @@
 \graphicspath{{./images/}} 
 \usepackage[export]{adjustbox} % use adjustbox keys in includegraphics, e.g. max height/width
 \usepackage{svg} % include svg using inkscape
-\usepackage[top]{background} % BgContents stuff
-\usepackage{eso-pic}
+\usepackage[top]{background} % Background stuff
+\usepackage{eso-pic} % AddToShipoutPictureBG
 \usepackage{tikz} % tikz drawing
-\pgfdeclarelayer{background}
-\pgfdeclarelayer{foreground}
-\pgfsetlayers{background,main,foreground}
 \usepackage{xcolor} % custom colors
 \definecolor{uniscielblue}{RGB}{4,146,191}
 \definecolor{uniscielpink}{RGB}{231,33,90}
@@ -93,8 +91,7 @@ center,
     \renewcommand{\frontuniversitylogo}{#7}
     \renewcommand{\backuniversitylogo}{#8}
 }
-\usepackage{changepage} % page check
-\strictpagecheck
+
 \newcommand{\cardbackground}[4]{
     \SetBgContents{
         \AddToShipoutPictureBG*{    
@@ -124,7 +121,7 @@ center,
                         \begin{varwidth}{0.5\textwidth}
                             \setlength{\parskip}{0 cm}
                             \color{uniscielblue}
-                            \raggedleft
+                            \RaggedLeft
                             \LARGE
                             \textsf{#3}    
                         \end{varwidth}
@@ -155,7 +152,7 @@ center,
                     \node [opacity = 1] at ([xshift = -1.4 cm, yshift = -0.75 cm]current page.north) {
                         \color{physicsviolet}
                         \huge
-                        \capitalisewords{\textsf{#2}}
+                        \textsf{#2}
                     };
                     % QR Code
                     \node at ([xshift = 1.375 cm, yshift = -0.85 cm]current page.north west) {
@@ -194,7 +191,7 @@ center,
 %%% QUESTION %%% 
 \color{black}
 \vspace{0.30\textheight} % Adjust that parameter from 0.1 to 0.3 according to the size of the text
-\raggedright
+\RaggedRight
 % Topic
 \'Enoncé
 % Choices
@@ -226,7 +223,7 @@ center,
 \end{tikzpicture}
 
 % Explanations
-\raggedright
+\RaggedRight
 \lipsum[100]
 
 %%% ANSWER %%% 
@@ -244,7 +241,7 @@ center,
 %%% QUESTION %%% 
 \color{black}
 \vspace{0.15\textheight} % Adjust that parameter from 0.1 to 0.3 according to the size of the text
-\raggedright
+\RaggedRight
 % Topic
 \begin{minipage}[t]{0.6\linewidth}
     \'Enoncé
@@ -285,7 +282,7 @@ center,
 \end{tikzpicture}
 
 % Explanations
-\raggedright
+\RaggedRight
 \lipsum[100]
 
 %%% ANSWER %%% 
@@ -304,7 +301,7 @@ center,
 %%% QUESTION %%% 
 \color{black}
 \vspace{0.20\textheight}
-\raggedright
+\RaggedRight
 % Topic
 Pour un point matériel en mouvement uniforme (c'est-à-dire un mouvement au cours duquel la norme de la vitesse est constante) :
 % Choices
@@ -336,7 +333,7 @@ Pour un point matériel en mouvement uniforme (c'est-à-dire un mouvement au cou
 \end{tikzpicture}
 
 % Explanations
-\raggedright
+\RaggedRight
 Principe d'inertie : Dans un référentiel galiléen, si un système assimilé à un point matériel n'est soumis à aucune force – système isolé – ou s'il est soumis à un ensemble de forces de résultante nulle ($\Sigma\vec{F}_{ext}=\vec{0}$) – système pseudo-isolé – alors il est immobile ou animé d'un mouvement rectiligne uniforme.
 
 Dans cette question, il s'agit de faire la distinction entre mouvement uniforme (la norme de la vitesse est constante, on ne sait rien de la trajectoire) et mouvement rectiligne uniforme ou mouvement circulaire uniforme (norme de la vitesse constante et trajectoire fixée).
@@ -356,7 +353,7 @@ Dans cette question, il s'agit de faire la distinction entre mouvement uniforme 
 %%% QUESTION %%% 
 \color{black}
 \vspace{0.15\textheight}
-\raggedright
+\RaggedRight
 % Topic
 \begin{minipage}[t]{0.6\linewidth}
 Étant donné le sens de propagation de la lumière choisi et indiqué sur le schéma, si $A$ est la position de l'objet, $A'$ celle de l'image et $O$ le centre de la lentille convergente, alors :
@@ -397,7 +394,7 @@ Dans cette question, il s'agit de faire la distinction entre mouvement uniforme 
 \end{tikzpicture}
 
 % Explanations
-\raggedright
+\RaggedRight
 Principe d'inertie : Dans un référentiel galiléen, si un système assimilé à un point matériel n'est soumis à aucune force – système isolé – ou s'il est soumis à un ensemble de forces de résultante nulle ($\Sigma\vec{F}_{ext}=\vec{0}$) – système pseudo-isolé – alors il est immobile ou animé d'un mouvement rectiligne uniforme.
 
 Dans cette question, il s'agit de faire la distinction entre mouvement uniforme (la norme de la vitesse est constante, on ne sait rien de la trajectoire) et mouvement rectiligne uniforme ou mouvement circulaire uniforme (norme de la vitesse constante et trajectoire fixée).
