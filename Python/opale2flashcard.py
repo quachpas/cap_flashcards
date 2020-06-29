@@ -104,13 +104,13 @@ parser.add_argument('--a4paper', action = 'store_true', help  ="""
 Output format - (defaults to printing 10x8cm flashcards)
 """)
 parser.add_argument('--force', action = 'store_true', help = """
-Verbose ouput - Details missing metadata errors
+Force the output - Ignores transcripts errors
 """)
 parser.add_argument('--compile', action = 'store_true', help = """
 Compile output tex file - Automatically compiles out.tex file after the script and cleans the auxiliary files. Minimal console output.
 """)
 parser.add_argument('--verbose', action = 'store_true', help = """
-Force the output - Ignores transcripts errors
+Verbose ouput - Details missing metadata errors
 """)
 parser.add_argument('--logs', action = 'store_true', help = """
 Logs output - Outputs warning and errors in output/logs.txt instead of writing in the console
@@ -219,8 +219,8 @@ def get_subject_and_themes(filename, parser):
     subject = {}
 
     # Theme file 
-    themefile = os.path.join(os.path.dirname(os.path.realpath(__file__)), filename)
-
+    themefile = os.path.join(os.path.dirname(os.path.realpath(filename)), os.path.basename(filename))
+    
     # File check
     if (themefile is None or os.path.isfile(themefile) is False):
         write_logs(
@@ -268,6 +268,30 @@ def get_subject(subject_dict, subject_code):
         return subject_dict.get(subject_code, None)
     else:
         return ''
+
+def get_output_directory():
+    if (os.path.basename(os.getcwd()) == 'cap_flashcards'):
+        return os.path.join(os.getcwd(), 'Python/output')
+    elif (os.path.basename(os.getcwd()) == 'Python'):
+        return os.path.join(os.getcwd(), 'output')
+    else:
+        write_logs(
+            "Current working directory is neither cap_flashcards nor Python",
+            "Current working directory is neither cap_flashcards nor Python"
+        )
+        return None
+
+def get_headers_directory():
+    if (os.path.basename(os.getcwd()) == 'cap_flashcards'):
+        return os.path.join(os.getcwd(), 'Python')
+    elif (os.path.basename(os.getcwd()) == 'Python'):
+        return os.getcwd()
+    else:
+        write_logs(
+            "Current working directory is neither cap_flashcards nor Python",
+            "Current working directory is neither cap_flashcards nor Python"
+        )
+        return None
 
 def check_metadata(flashcard):
     if (flashcard.complexity_level is None or flashcard.complexity_level == "Missing Complexity Level" 
@@ -547,44 +571,64 @@ def write_out_a4paper(flashcard_list):
     return error_count
 
 def write_outfile(output):
+    # Get output directory
+    output_dir = get_output_directory()
+    outfile_path = os.path.join(output_dir, 'out.tex')
     # Open outfile 
-    outfile = open('output/out.tex', 'a', encoding = 'utf-8')
+    outfile = open(outfile_path, 'a', encoding = 'utf-8')
     # Write content
     outfile.write(''.join(output))
     outfile.close     
 
 def write_outfile_header():
+    # Get output directory
+    output_dir = get_output_directory()
+    outfile_path = os.path.join(output_dir, 'out.tex')
+    
+    # Get headers' directory
+    headers_dir = get_headers_directory()
+    header_default_path = os.path.join(headers_dir, 'header_default.tex')
+    header_a4paper_path = os.path.join(headers_dir, 'header_a4paper.tex')
+
     # Directory and file output
-    if os.path.isdir('output') is None:
-        os.mkdir('output')
-    if os.path.isfile('output/out.tex'):
-        os.remove(os.path.join(os.getcwd(),'output/out.tex'))
+    if os.path.isdir(output_dir) is None:
+        os.mkdir(output_dir)
+    if os.path.isfile(outfile_path):
+        os.remove(outfile_path)
 
     # Open outfile 
-    outfile = open('output/out.tex', 'a', encoding = 'utf-8')
+    outfile = open(outfile_path, 'a', encoding = 'utf-8')
 
     # Write header
     if (args.a4paper == True):
-        header = open(os.path.join(os.getcwd(),'header_a4paper.tex'),'r', encoding="utf-8")
+        header = open(header_a4paper_path,'r', encoding="utf-8")
     else:
-        header = open(os.path.join(os.getcwd(),'header_default.tex'),'r', encoding="utf-8")
+        header = open(header_default_path,'r', encoding="utf-8")
     for line in header.readlines():
         if ('% Graphicspath' not in line):
             outfile.write(line)
         else:
-            outfile.write('\graphicspath{{' + os.path.realpath(os.getcwd()) + '/}}\n')
+            outfile.write('\graphicspath{{' + output_dir + '/images/' + '/}' + '}\n')
     outfile.write('\n\n')
     header.close
 
     outfile.close     
 
 def write_outfile_footer():
+    # Get output directory
+    output_dir = get_output_directory()
+    outfile_path = os.path.join(output_dir, 'out.tex')
+
+    # Get headers' directory
+    headers_dir = get_headers_directory()
+    footer_path = os.path.join(headers_dir, 'footer.tex')
+    
     # Open outfile 
-    outfile = open('output/out.tex', 'a', encoding = 'utf-8')
+    outfile = open(outfile_path, 'a', encoding = 'utf-8')
 
     # Write footer
     outfile.write('\n\n')
-    footer = open(os.path.join(os.getcwd(),'footer.tex'),'r', encoding="utf-8")
+    footer = open(footer_path,'r', encoding="utf-8")
     for line in footer.readlines():
         outfile.write(line)
     
@@ -1009,8 +1053,8 @@ def process_write_outfile(flashcard, output):
             write_outfile(output)
         if (flashcard.relevant is False and args.non_relevant_only is True):
             write_outfile(output)
-    # Else, just write the output if the flashcard is valid.
-    elif (flashcard.err_flag is False and flashcard.overflow_flag is False and flashcard.relevant is True):
+    # Else, just write the output if the flashcard is valid, or force option has been set
+    elif (flashcard.err_flag is False and flashcard.overflow_flag is False and flashcard.relevant is True or args.force == True):
         write_outfile(output)
 
 def parse_files(args, question_count, err_count, parser, licence_theme, subject): # Copy all files in sourcedir/Prettified and prettify XML
@@ -1068,13 +1112,12 @@ def parse_files(args, question_count, err_count, parser, licence_theme, subject)
             # Write output string and write in outfile
             ## Default output format
             if (args.a4paper == False):
-                # Create a standard output only if the flashcard's errors flags are not set
+                # Create a standard output only if the flashcard's errors flags are not set (or force option has been set)
                 # OR if any debug "only-options" are used
                 if ((flashcard.err_flag == False and flashcard.overflow_flag == False and flashcard.relevant == True) 
-                or (args.image_only is True or args.overflow_only is True or args.non_relevant_only is True)):
+                or (args.image_only is True or args.overflow_only is True or args.non_relevant_only is True)
+                or args.force is True):
                     output = write_output(flashcard, None)
-                
-                
                 
                 # Write in the outfile only the valid files
                 process_write_outfile(flashcard, output)
@@ -1122,7 +1165,6 @@ def opale_to_tex(args):
             sys.exit(1)
     # Parser settings
     parser = etree.XMLParser(remove_blank_text=True, remove_comments=True)
-
     # Theme tree
 
     # Comment this line if you want to use a hard-coded dictionary
