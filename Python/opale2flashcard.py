@@ -525,7 +525,7 @@ def write_output(flashcard, question_count):
 
         output.append('\\end{enumerate}\\end{minipage}\n\\hfill\n')
     output.append('}\n')
-
+    output.append('\\vspace*{\\stretch{1}}\n\color{white}\n')
     # Answer/Solution
     output.append(write_solution(flashcard.question_type, flashcard.solution_list, flashcard.choice_number, question_count))
     output.append('\\vspace{0.05\\textheight}\n\\RaggedRight\n')
