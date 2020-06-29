@@ -491,7 +491,7 @@ def write_output(flashcard, question_count):
     output.append('\\cardbackground\n{' + flashcard.complexity_level + '}\n{' + flashcard.subject + '}\n{' + flashcard.licence_theme + '}\n{' + 'qrcode}\n')
     # TODO : Qrcode ici, hardcoded. HARDCODED
 
-    output.append('\\begin{flashcard}[]{\n\\color{black}\n')
+    output.append('\\begin{flashcard}[]{\n\\color{white}\n')
     output.append('\\vspace{' + str(vspace_question) + '\\textheight}\n\\RaggedRight\n')
 
     # Question + Choices
