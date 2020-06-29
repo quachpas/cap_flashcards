@@ -13,7 +13,6 @@ import time
 import timeit
 
 from lxml import etree
-from macpath import dirname
 from itertools import zip_longest
 
 parser = argparse.ArgumentParser(description="""
@@ -201,7 +200,7 @@ def fetch_data(file, element, expression):
         data.append(element.text)
     for x in data:
         output += x
-    if (output is ''):
+    if (output == ''):
         return None
     return output
 
@@ -245,7 +244,7 @@ def get_subject_and_themes(filename, parser):
         splitted_code = code.split("-")
         theme = cleantheme(name)
         # Subject
-        if (splitted_code[1] is ''):
+        if (splitted_code[1] == ''):
             subject.update({splitted_code[0] : theme})
         # Licence Theme
         else:
@@ -311,7 +310,7 @@ def check_metadata(flashcard):
             if (flashcard.subject is None or flashcard.subject == "Missing Subject"):
                 flashcard.err_message += "\t- Missing Subject\n"
         else:
-            if (flashcard.err_message is not ''):
+            if (flashcard.err_message != ''):
                 flashcard.err_message += '\nopale2flashcard.py(' + flashcard.file + "): Metadata is missing.\n"    
             flashcard.err_message += 'opale2flashcard.py(' + flashcard.file + "): Metadata is missing."
 
@@ -357,7 +356,7 @@ def check_content(flashcard):
         flashcard.err_message += 'opale2flashcard.py(' + flashcard.file + "): Answer contains an URL."
 
 def check_output(output, err_count):
-    if (args.file_name is True and output.count("\begin{flashcard}") is not 1):
+    if (args.file_name is True and output.count("\begin{flashcard}") != 1):
         write_logs(
             'opale2flashcard.py (--file_name) DANGER ! More than one flashcard.',
             'opale2flashcard.py (--file_name) DANGER ! Specified option "--file_name" did not work as expected. More than one flashcard in output file.',
@@ -649,7 +648,7 @@ def fetch_content(file, root, licence_theme_dict, subject_dict):
         question_type = "mcqMur"
     ## Licence Theme and subject
     theme_code = fetch_data(file, root, ".//sp:themeLicence")
-    if (theme_code is not None and theme_code is not ''):
+    if (theme_code is not None and theme_code != ''):
         
         splitted = theme_code.split('-')
         # Case where there are multiple licenceTheme
@@ -942,12 +941,12 @@ def fetch_answer(file, root):
             if e.text is not None:
                 text += e.text
         # If text
-        if (text is not ''):
+        if (text != ''):
             output += '\\item [' + str(number_list[number_counter]) +'.]'
         for child in element.getchildren():
             choice_explanation = mixed_content_parsing(file, child)
             # op:txt can exist if there is a comment
-            if (choice_explanation is not ''):
+            if (choice_explanation != ''):
                 output += choice_explanation
                 output += '\n'
         number_counter += 1        
@@ -1123,14 +1122,10 @@ def parse_files(args, question_count, err_count, parser, licence_theme, subject)
                 process_write_outfile(flashcard, output)
                     
                 # Error procedure
-                if (flashcard.err_flag is False or flashcard.overflow_flag is False or flashcard.relevant is True):
-                    err_count += 1
-                    process_error(flashcard) 
-                
-                # If a flashcard has been forcibly output, and its error message is not null
-                if (args.force == True and flashcard.err_message is not ''):
+                if (flashcard.err_message != ''):
                     err_count += 1
                     process_error(flashcard)
+                    
             ## a4paper output format
             else:
                 output = ""
