@@ -5,6 +5,7 @@ import os
 import shutil
 import unicodedata
 import re
+from PIL import Image
 import argparse
 from argparse import RawDescriptionHelpFormatter
 import traceback
@@ -169,7 +170,7 @@ tags_markup = {
     "phrase" : ("\href{", "}"),
 }
 class Flashcard:
-    def __init__(self, file, question_type, complexity_level, subject, education_level, licence_theme, question, image, choices, answer, solution_list, choice_number,subject_length, licence_theme_length, question_length, choices_length, answer_length):
+    def __init__(self, file, question_type, complexity_level, subject, education_level, licence_theme, question, image, image_square, image_rectangular, choices, answer, solution_list, choice_number,subject_length, licence_theme_length, question_length, choices_length, answer_length):
         self.file = file
         self.question_type = question_type
         self.complexity_level = complexity_level
@@ -178,6 +179,8 @@ class Flashcard:
         self.licence_theme = licence_theme
         self.question = question
         self.image = image
+        self.image_square = image_square
+        self.image_rectangular = image_rectangular
         self.choices = choices
         self.answer = answer
         self.solution_list = solution_list
@@ -186,11 +189,11 @@ class Flashcard:
         self.err_flag = False
         self.err_message = ""
         self.relevant = True
-        self.subject_length = 0
-        self.licence_theme_length = 0
-        self.question_length = 0
-        self.choices_length = 0
-        self.answer_length = 0
+        self.subject_length = subject_length
+        self.licence_theme_length = licence_theme_length
+        self.question_length = question_length
+        self.choices_length = choices_length
+        self.answer_length = answer_length
 
 def remove_namespace(element):
     return etree.QName(element)
@@ -489,14 +492,15 @@ def write_output(flashcard, question_count):
     # TODO : Qrcode ici, hardcoded. HARDCODED
 
     output.append('\\begin{flashcard}[]{\n\\color{black}\n')
-    output.append('\\vspace{' + vspace_question + '\\textheight}\n\\RaggedRight')
+    output.append('\\vspace{' + str(vspace_question) + '\\textheight}\n\\RaggedRight')
 
     # Question + Choices
     if (flashcard.image is not None):
         output.append('\\begin{minipage}[t]{0.6\\linewidth}\n\\footnotesize')
     output.append(flashcard.question + '\n')
+    
     # Image is square, 1x2 grid
-    if (flashcard.image_square is True):
+    if (flashcard.image_rectangular is False):
         output.append('\\begin{enumerate}\n')
         for choice in flashcard.choices:
             output.append(choice)
@@ -705,14 +709,14 @@ def fetch_content(file, root, licence_theme_dict, subject_dict):
     ## Content
     ### Question
 
-    (question, question_length, image) = fetch_question(file, root)
+    (question, question_length, image, square, rectangular) = fetch_question(file, root)
     (choices, choices_length) = fetch_choices(file, root)
     ### Answer
     (answer, answer_length) = fetch_answer(file, root)
     (solution_list, choice_number) = fetch_solution(file, root, question_type)
 
     # Create Flashcard instance
-    flashcard = Flashcard(file, question_type, complexity_level, subject, education_level, licence_theme, question, image, choices, answer, solution_list, choice_number, len(subject), len(licence_theme), question_length, choices_length, answer_length)
+    flashcard = Flashcard(file, question_type, complexity_level, subject, education_level, licence_theme, question, image, square, rectangular, choices, answer, solution_list, choice_number, len(subject), len(licence_theme), question_length, choices_length, answer_length)
 
     return flashcard
 
@@ -858,6 +862,8 @@ def mixed_content_parsing(file, node):
 def fetch_question(file, root):
     output = ''
     text_length = 0
+    square = False
+    rectangular = False
     image = "\hfill\n\\begin{minipage}[t]{0.3\linewidth}\n\strut\\vspace*{-\\baselineskip}\\newline\n"
     path_to_image = ''
     # Questions can have rich content (images, etc.), so we examine every children
@@ -908,8 +914,16 @@ def fetch_question(file, root):
         image += '\n\\end{minipage}'
         if (args.no_replace == False):
             output = output.replace("ci-dessous", "ci-contre")
-    
-    return (output, text_length, image)
+        print(path_to_image)
+        (width, height) = Image.open(path_to_image).size
+        if (width / height > 0.825):
+            square = False
+            rectangular = True
+        else:
+            square = True
+            rectangular = False
+
+    return (output, text_length, image, square, rectangular)
 
 def fetch_choices(file, root):
     output_arr = []
@@ -924,6 +938,8 @@ def fetch_choices(file, root):
             text_length += (len(mixed_content_parsing(file, child)) - text_length)
         output += '\n'
         output_arr.append(output)
+        output = ''
+        print(output_arr)
     if (args.file_name == file):
         print('CHOICES\n' + output)
     return (output_arr, text_length)
@@ -1072,21 +1088,18 @@ def process_write_outfile(flashcard, output):
 
 def parse_files(args, question_count, err_count, parser, licence_theme, subject): # Copy all files in sourcedir/Prettified and prettify XML
     sourcedir = os.path.realpath(args.sourcedir)
-    output = ''
-    last_subject = ''
-    current_subject = ''
+    output = []
+    subject_list = []
     flashcard_list = []
 
     for file in os.listdir(sourcedir):
         # Ignore all files which are not .quiz
         if (file.endswith(".quiz") is False):
             continue
-
         # File name option
         if (args.file_name is not None and file != args.file_name):
             continue
 
-        question_count += 1
         workpath = os.path.join(sourcedir, file)
         if os.path.isfile(workpath):
             # XML Tree
@@ -1095,8 +1108,8 @@ def parse_files(args, question_count, err_count, parser, licence_theme, subject)
             
             # Create Flashcard instance
             flashcard = fetch_content(file, root, licence_theme, subject)
-            current_subject = flashcard.subject
-
+            subject_list.append(flashcard.subject)
+            
             # Check overflow
             check_overflow(flashcard)
                         
@@ -1129,17 +1142,20 @@ def parse_files(args, question_count, err_count, parser, licence_theme, subject)
             ## Default output format
             if (args.a4paper == False):
                 # Background parameters
-                output = '\\backgroundparam\n{' + flashcard.subject.lower() + '}\n{' + flashcard.subject.lower() + '-front-header}\n{' + flashcard.subject.lower() + '-front-footer}\n{' + flashcard.subject.lower() + '-back-background}\n{' + flashcard.subject.lower() + '-back-header}\n{' + flashcard.subject.lower() + '-back-header}\n{' + flashcard.subject.lower() + '}\n{' + flashcard.subject.lower() + '-back-footer}\n{front_university_logo}\n{back_university_logo}\n'
+                if (question_count == 0 or subject_list[question_count-1] != subject_list[question_count]):
+                    output = ['\\backgroundparam\n{' + flashcard.subject.lower() + '}\n{' + flashcard.subject.lower() + '-front-header}\n{' + flashcard.subject.lower() + '-front-footer}\n{' + flashcard.subject.lower() + '-back-background}\n{' + flashcard.subject.lower() + '-back-header}\n{' + flashcard.subject.lower() + '-back-header}\n{' + flashcard.subject.lower() + '}\n{' + flashcard.subject.lower() + '-back-footer}\n{front_university_logo}\n{back_university_logo}\n']
 
                 # Create a standard output only if the flashcard's errors flags are not set (or force option has been set)
                 # OR if any debug "only-options" are used
                 if ((flashcard.err_flag == False and flashcard.overflow_flag == False and flashcard.relevant == True) 
                 or (args.image_only is True or args.overflow_only is True or args.non_relevant_only is True)
                 or args.force is True):
-                    output.append(write_output(flashcard, None))
+                    for out in write_output(flashcard, None):
+                        output.append(out)
                 
                 # Write in the outfile only the valid files
                 process_write_outfile(flashcard, output)
+                output = []
                     
                 # Error procedure
                 if (flashcard.err_message != ''):
@@ -1152,6 +1168,7 @@ def parse_files(args, question_count, err_count, parser, licence_theme, subject)
                 # Make a list of every flashcard in sourcedir
                 flashcard_list.append(flashcard)
         
+        question_count += 1
     # Once finished reading all files in sourcedir, write output and write into outfile.
     if (args.a4paper == True):
         # Write flashcards
