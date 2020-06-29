@@ -78,7 +78,7 @@ Find below the front and the back of a flashcard.
 **Please note that the examples are models that were produced at the beginning of the project as a first design of the flashcard and are OUTDATED. Some additional changes have been made since, including adding correct answers checkboxes on the back of the flashcard. Some other changes may or may not be made in the future.**
 
 <img src="LaTeX/models/recto-flash-cards.png" width=400>
-<img src="LaTeX/models/verso-flash-cards." width=400>
+<img src="LaTeX/models/verso-flash-cards.png" width=400>
 
 
 ## Project's roadmap
