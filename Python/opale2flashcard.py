@@ -414,7 +414,7 @@ def write_solution(question_type, solution_list, choice_number, question_count):
     if (question_count is not None and args.a4paper == True):
         (x_shift_1, x_shift_2, y_shift_1, y_shift_2) = solution_positions_a4paper(question_count)
     elif (args.a4paper == False):
-        (x_shift_1, x_shift_2, y_shift_1, y_shift_2) = ('-0.25cm', '2.25cm', '2.75cm', '2.25cm')
+        (x_shift_1, x_shift_2, y_shift_1, y_shift_2) = ('-0.25cm', '2.75cm', '2.25cm', '2.25cm')
 
     
     choice_number += 1
