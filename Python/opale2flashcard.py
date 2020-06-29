@@ -501,7 +501,7 @@ def write_output(flashcard, question_count):
     
     # Image is square, 1x2 grid
     if (flashcard.image_rectangular is False):
-        output.append('\\begin{enumerate}\n')
+        output.append('\begin{enumerate}\n')
         for choice in flashcard.choices:
             output.append(choice)
         output.append('\\end{enumerate}\n')
@@ -529,6 +529,7 @@ def write_output(flashcard, question_count):
     # Answer/Solution
     output.append(write_solution(flashcard.question_type, flashcard.solution_list, flashcard.choice_number, question_count))
     output.append('\\vspace{0.05\\textheight}\n\\RaggedRight\n')
+    
     output.append(flashcard.answer + '\n')
     output.append('\\vspace*{\\stretch{1}}\n\\end{flashcard}\n\n')
     
@@ -742,7 +743,6 @@ def output_cleanup(output):
     return output
 
 def texfilter(text):
-    text = text.replace('\\','\\textbackslash')
     text = text.replace('~','\\textasciitilde')
     text = text.replace('^','\\textasciicircum')
     text = text.replace('&','\\&')
@@ -750,9 +750,7 @@ def texfilter(text):
     text = text.replace('$','\\$')
     text = text.replace('#','\\#')
     text = text.replace('_','\\_')
-    text = text.replace('{','\\{')
-    text = text.replace('}','\\}')
-    text = output_cleanup(text)
+    #text = output_cleanup(text)
     return text
 
 def markup_content(file, element):
@@ -1009,9 +1007,9 @@ def fetch_answer(file, root):
             )
     if (args.file_name == file):
         print('ANSWER\n' + output)
-    
     output = texfilter(output)
-    output = output_cleanup(output)
+    #output = output_cleanup(output)
+    
     return (output, text_length)
 
 def fetch_solution(file, root, question_type):
