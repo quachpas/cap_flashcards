@@ -488,11 +488,11 @@ def write_output(flashcard, question_count):
     # Output
     output.append('% Flashcard : ' + flashcard.file + '/' + flashcard.question_type + '\n')
 
-    output.append('\\cardbackground\n{' + flashcard.complexity_level + '}\n{' + flashcard.subject + '}\n{' + flashcard.licence_theme + '}\n{' + 'qrcode')
+    output.append('\\cardbackground\n{' + flashcard.complexity_level + '}\n{' + flashcard.subject + '}\n{' + flashcard.licence_theme + '}\n{' + 'qrcode}\n')
     # TODO : Qrcode ici, hardcoded. HARDCODED
 
     output.append('\\begin{flashcard}[]{\n\\color{black}\n')
-    output.append('\\vspace{' + str(vspace_question) + '\\textheight}\n\\RaggedRight')
+    output.append('\\vspace{' + str(vspace_question) + '\\textheight}\n\\RaggedRight\n')
 
     # Question + Choices
     if (flashcard.image is not None):
