@@ -1084,7 +1084,7 @@ def process_write_outfile(flashcard, output):
         write_outfile(output)
 
 def write_background_parameter(flashcard):
-     write_outfile(['\\backgroundparam\n{' + flashcard.subject.lower() + '}\n{' + flashcard.subject.lower() + '-front-header}\n{' + flashcard.subject.lower() + '-front-footer}\n{' + flashcard.subject.lower() + '-back-background}\n{' + flashcard.subject.lower() + '-back-header}\n{' + flashcard.subject.lower() + '-back-header}\n{' + flashcard.subject.lower() + '}\n{' + flashcard.subject.lower() + '-back-footer}\n{front-university-logo}\n{back-university-logo}\n'])
+     write_outfile(['\\backgroundparam\n{' + flashcard.subject.lower() + '}\n{' + flashcard.subject.lower() + '-front-header}\n{' + flashcard.subject.lower() + '-front-footer}\n{' + flashcard.subject.lower() + '-back-background}\n{' + flashcard.subject.lower() + '-back-header}\n{' + flashcard.subject.lower() + '-back-footer}\n{front-university-logo}\n{back-university-logo}\n'])
 
 def parse_files(args, question_count, err_count, parser, licence_theme, subject): # Copy all files in sourcedir/Prettified and prettify XML
     sourcedir = os.path.realpath(args.sourcedir)
