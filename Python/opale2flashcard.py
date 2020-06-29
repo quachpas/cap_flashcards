@@ -1177,7 +1177,8 @@ def parse_files(args, question_count, err_count, parser, licence_theme, subject)
 
 def compile_tex(args):
     if (args.compile == True):
-        os.chdir("./output")
+        
+        os.chdir(get_output_directory())
         os.system("latexmk --max-print-line=1000 --xelatex --synctex=1 --interaction=batchmode --file-line-error out.tex")
         # os.system("latexmk -c")
 
