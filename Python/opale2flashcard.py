@@ -939,7 +939,6 @@ def fetch_choices(file, root):
         output += '\n'
         output_arr.append(output)
         output = ''
-        print(output_arr)
     if (args.file_name == file):
         print('CHOICES\n' + output)
     return (output_arr, text_length)
