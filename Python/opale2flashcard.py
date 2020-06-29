@@ -408,7 +408,7 @@ def write_logs(err_message, verb_err_message):
             logs.write(time.strftime('opale2flashcard.py:' + "%m-%d-%Y @ %H:%M:%S - ", time.localtime()) + verb_err_message + '\n')
         elif (err_message is not None):
             logs.write(time.strftime('opale2flashcard.py:' + "%m-%d-%Y @ %H:%M:%S - ", time.localtime()) + err_message + '\n')
-        
+
 def write_solution(question_type, solution_list, choice_number, question_count):
     output = ''
     if (question_count is not None and args.a4paper == True):
@@ -1085,6 +1085,9 @@ def process_write_outfile(flashcard, output):
     elif (flashcard.err_flag is False and flashcard.overflow_flag is False and flashcard.relevant is True or args.force == True):
         write_outfile(output)
 
+def write_background_parameter(flashcard):
+     write_outfile(['\\backgroundparam\n{' + flashcard.subject.lower() + '}\n{' + flashcard.subject.lower() + '-front-header}\n{' + flashcard.subject.lower() + '-front-footer}\n{' + flashcard.subject.lower() + '-back-background}\n{' + flashcard.subject.lower() + '-back-header}\n{' + flashcard.subject.lower() + '-back-header}\n{' + flashcard.subject.lower() + '}\n{' + flashcard.subject.lower() + '-back-footer}\n{front_university_logo}\n{back_university_logo}\n'])
+
 def parse_files(args, question_count, err_count, parser, licence_theme, subject): # Copy all files in sourcedir/Prettified and prettify XML
     sourcedir = os.path.realpath(args.sourcedir)
     output = []
@@ -1141,8 +1144,9 @@ def parse_files(args, question_count, err_count, parser, licence_theme, subject)
             ## Default output format
             if (args.a4paper == False):
                 # Background parameters
+
                 if (question_count == 0 or subject_list[question_count-1] != subject_list[question_count]):
-                    output = ['\\backgroundparam\n{' + flashcard.subject.lower() + '}\n{' + flashcard.subject.lower() + '-front-header}\n{' + flashcard.subject.lower() + '-front-footer}\n{' + flashcard.subject.lower() + '-back-background}\n{' + flashcard.subject.lower() + '-back-header}\n{' + flashcard.subject.lower() + '-back-header}\n{' + flashcard.subject.lower() + '}\n{' + flashcard.subject.lower() + '-back-footer}\n{front_university_logo}\n{back_university_logo}\n']
+                    write_background_parameter(flashcard)
 
                 # Create a standard output only if the flashcard's errors flags are not set (or force option has been set)
                 # OR if any debug "only-options" are used
