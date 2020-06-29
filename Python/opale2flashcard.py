@@ -375,22 +375,22 @@ def check_content(flashcard):
         flashcard.err_message += 'opale2flashcard.py(' + flashcard.file + "): Answer contains an URL."
 
 def check_output(output, err_count):
-    if (args.file_name is True and output.count("\begin{flashcard}") != 1):
+    if (args.file_name is True and output.count("\\begin{flashcard}") != 1):
         write_logs(
             'opale2flashcard.py (--file_name) DANGER ! More than one flashcard.',
             'opale2flashcard.py (--file_name) DANGER ! Specified option "--file_name" did not work as expected. More than one flashcard in output file.',
         )
-    if (args.image_only is True and output.count("\includegraphics[") < output.count("\begin{flashcard}")):
+    if (args.image_only is True and output.count("\includegraphics[") < output.count("\\begin{flashcard}")):
         write_logs(
             'opale2flashcard.py (--file_name) DANGER ! Less images than expected.',
             'opale2flashcard.py (--file_name) DANGER ! Specified option "--image_only" did not work as expected. There are less images than flashcards.',
         )
-    if (args.overflow_only is True and err_count != output.count("\begin{flashcard}")):
+    if (args.overflow_only is True and err_count != output.count("\\begin{flashcard}")):
         write_logs(
             'opale2flashcard.py (--file_name) DANGER ! Non-expected flashcards.',
             'opale2flashcard.py (--file_name) DANGER ! Specified option "--overflow_only" did not work as expected. The error_count does not coincide with the number of flashcards',
         )
-    if (args.non_relevant_only is True and err_count != output.count("\begin{flashcard}")):
+    if (args.non_relevant_only is True and err_count != output.count("\\begin{flashcard}")):
         write_logs(
             'opale2flashcard.py (--file_name) DANGER ! Non-expected flashcards.',
             'opale2flashcard.py (--file_name) DANGER ! Specified option "--non_relevant_only" did not work as expected. The error_count does not coincide with the number of flashcards',
@@ -501,7 +501,7 @@ def write_output(flashcard, question_count):
     
     # Image is square, 1x2 grid
     if (flashcard.image_rectangular is False):
-        output.append('\begin{enumerate}\n')
+        output.append('\\begin{enumerate}\n')
         for choice in flashcard.choices:
             output.append(choice)
         output.append('\\end{enumerate}\n')
@@ -1084,7 +1084,7 @@ def process_write_outfile(flashcard, output):
         write_outfile(output)
 
 def write_background_parameter(flashcard):
-     write_outfile(['\\backgroundparam\n{' + flashcard.subject.lower() + '}\n{' + flashcard.subject.lower() + '-front-header}\n{' + flashcard.subject.lower() + '-front-footer}\n{' + flashcard.subject.lower() + '-back-background}\n{' + flashcard.subject.lower() + '-back-header}\n{' + flashcard.subject.lower() + '-back-header}\n{' + flashcard.subject.lower() + '}\n{' + flashcard.subject.lower() + '-back-footer}\n{front_university_logo}\n{back_university_logo}\n'])
+     write_outfile(['\\backgroundparam\n{' + flashcard.subject.lower() + '}\n{' + flashcard.subject.lower() + '-front-header}\n{' + flashcard.subject.lower() + '-front-footer}\n{' + flashcard.subject.lower() + '-back-background}\n{' + flashcard.subject.lower() + '-back-header}\n{' + flashcard.subject.lower() + '-back-header}\n{' + flashcard.subject.lower() + '}\n{' + flashcard.subject.lower() + '-back-footer}\n{front-university-logo}\n{back-university-logo}\n'])
 
 def parse_files(args, question_count, err_count, parser, licence_theme, subject): # Copy all files in sourcedir/Prettified and prettify XML
     sourcedir = os.path.realpath(args.sourcedir)
