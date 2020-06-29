@@ -169,7 +169,7 @@ tags_markup = {
     "phrase" : ("\href{", "}"),
 }
 class Flashcard:
-    def __init__(self, file, question_type, complexity_level, subject, education_level, licence_theme, question, image, choices, answer, solution_list, choice_number):
+    def __init__(self, file, question_type, complexity_level, subject, education_level, licence_theme, question, image, choices, answer, solution_list, choice_number,subject_length, licence_theme_length, question_length, choices_length, answer_length):
         self.file = file
         self.question_type = question_type
         self.complexity_level = complexity_level
@@ -186,6 +186,11 @@ class Flashcard:
         self.err_flag = False
         self.err_message = ""
         self.relevant = True
+        self.subject_length = 0
+        self.licence_theme_length = 0
+        self.question_length = 0
+        self.choices_length = 0
+        self.answer_length = 0
 
 def remove_namespace(element):
     return etree.QName(element)
@@ -255,6 +260,17 @@ def cleantheme(text):
     text=''.join((c for c in unicodedata.normalize('NFKC', text)))
     text=''.join(e for e in text  if (e.isalnum() or ord(e)==ord(' ')))
     return text.strip()
+
+def calc_vspace_parameters(flashcard):
+    if (flashcard.image is not None):
+        vspace_question = 0.10
+        vspace_answer = 0.05
+    else:
+        vspace_question = 0.15
+        vspace_answer = 0.05
+
+    return (vspace_question, vspace_answer)
+
 
 def get_licence_theme(licence_theme_dict, theme_code):
     if (licence_theme_dict.get(theme_code, None) is not None):
@@ -395,71 +411,40 @@ def write_solution(question_type, solution_list, choice_number, question_count):
     if (question_count is not None and args.a4paper == True):
         (x_shift_1, x_shift_2, y_shift_1, y_shift_2) = solution_positions_a4paper(question_count)
     elif (args.a4paper == False):
-        (x_shift_1, x_shift_2, y_shift_1, y_shift_2) = ('-1.75cm', '1.75cm', '2.65cm', '2.66cm')
+        (x_shift_1, x_shift_2, y_shift_1, y_shift_2) = ('-0.25cm', '2.25cm', '2.75cm', '2.25cm')
 
-    if (question_type == 'mcqMur'):
-        choice_number += 1
-
-        output += "\\begin{tikzpicture}[remember picture, overlay]\n"
-        output += "\\node [align=left, opacity=1] at ([xshift=" + x_shift_1 + ", yshift=" + y_shift_1 + "]current page.center) {\n"
-        output += "\\color{uniscielgrey}\n\\textsf{\\textit{Réponses}}\n};\n"
-        output += "\\node [align=left, opacity=1] at ([xshift=" + x_shift_2 + ", yshift=" + y_shift_2 + "]current page.center) {\n"
-
-        for choice in range(1, choice_number):
-            if (choice % 4 == 1):
-                output += "\color{uniscielgrey}\n$"
-            
-            output += str(choice) + ':'
-
-            if (choice in solution_list):
-                output += '\\boxtimes'
-            else:
-                output += '\\square'
-            if (choice % 4 == 0):
-                output += "$"
-                if (choice_number -1 > 4):
-                    output += "\\\\\n"
-            else:
-                output += "\\qquad"
-            
-        if ( (choice_number - 1) % 4 != 0):
-            output += '$'      
-            
-        output += "};\n\\end{tikzpicture}\n"
     
+    choice_number += 1
+
+    output += "\\begin{tikzpicture}[remember picture, overlay]\n"
+    output += "\\node [align=left, opacity=1] at ([xshift=" + x_shift_1 + ", yshift=" + y_shift_1 + "]current page.center) {\n"
+    if (question_type == 'mcqMur'):
+        output += "\\color{white}\n\\normalsize\\textsf{\\textit{Réponses}}\n};\n"
     if (question_type == 'mcqSur'):
+        output += "\\color{white}\n\\normalsize\\textsf{\\textit{Réponse}}\n};\n"
+    output += "\\node [align=left, opacity=1] at ([xshift=" + x_shift_2 + ", yshift=" + y_shift_2 + "]current page.center) {\n"
 
-        choice_number += 1
+    for choice in range(1, choice_number):
+        if (choice % 4 == 1):
+            output += "\color{white}\n$"
+        
+        output += str(choice) + ':'
 
-        output += "\\begin{tikzpicture}[remember picture, overlay]\n"
-        output += "\\node [align=left, opacity=1] at ([xshift=" + x_shift_1 + ", yshift=" + y_shift_1 + "]current page.center) {\n"
-        output += "\\color{uniscielgrey}\n\\textsf{\\textit{Réponse}}\n};\n"
-        output += "\\node [align=left, opacity=1] at ([xshift=" + x_shift_2 + ", yshift=" + y_shift_2 + "]current page.center) {\n"
-
-        for choice in range(1, choice_number):
-            if (choice % 4 == 1):
-                output += "\color{uniscielgrey}\n$"
-            
-            output += str(choice) + ':'
-
-            # Choice is an int
-            # Solution_list is an array of strings (values of choice in <sc:solution>)
-            if (str(choice) in solution_list):
-                output += '\\boxtimes'
-            else:
-                output += '\\square'
-            if (choice % 4 == 0):
-                output += "$"
-                if (choice_number -1 > 4):
-                    output += "\\\\\n"
-            else:
-                output += "\\qquad"
-            
-        if ( (choice_number - 1) % 4 != 0):
-            output += '$'      
-            
-        output += "\n};\n\\end{tikzpicture}\n"
-
+        if (choice in solution_list):
+            output += '\\boxtimes'
+        else:
+            output += '\\square'
+        if (choice % 4 == 0):
+            output += "$"
+            if (choice_number -1 > 4):
+                output += "\\\\\n"
+        else:
+            output += "\\qquad"
+        
+    if ( (choice_number - 1) % 4 != 0):
+        output += '$'      
+        
+    output += "};\n\\end{tikzpicture}\n"
 
     return output
 
@@ -495,30 +480,51 @@ def solution_positions_a4paper(question_count):
 def write_output(flashcard, question_count):
     # Variables
     output = []
-
+    (vspace_question, vspace_answer) = calc_vspace_parameters(flashcard)
+    
     # Output
     output.append('% Flashcard : ' + flashcard.file + '/' + flashcard.question_type + '\n')
 
-    if (args.a4paper == False):
-        output.append('\cardfrontfooter{' + flashcard.complexity_level + '}{' + flashcard.subject.lower() + '}\n')
+    output.append('\\cardbackground\n{' + flashcard.complexity_level + '}\n{' + flashcard.subject + '}\n{' + flashcard.licence_theme + '}\n{' + 'qrcode')
+    # TODO : Qrcode ici, hardcoded. HARDCODED
 
-    output.append('\\begin{flashcard}[\cardfrontheader{' + flashcard.subject + '}{' + flashcard.education_level + '}{' + flashcard.licence_theme)
-    if (args.debug_mode == True):
-        output.append('--' + flashcard.file)
-    output.append('}{' + flashcard.subject.lower() + '}]{\n')
-    output.append('\\vspace{\questionvspace}\n')
+    output.append('\\begin{flashcard}[]{\n\\color{black}\n')
+    output.append('\\vspace{' + vspace_question + '\\textheight}\n\\RaggedRight')
+
+    # Question + Choices
     if (flashcard.image is not None):
-        output.append('\\begin{minipage}[t]{0.6\\linewidth}\n\\footnotesize ')
+        output.append('\\begin{minipage}[t]{0.6\\linewidth}\n\\footnotesize')
     output.append(flashcard.question + '\n')
-    output.append('\\begin{enumerate}\n')
-    output.append(flashcard.choices)
-    output.append('\\end{enumerate}\n')
+    # Image is square, 1x2 grid
+    if (flashcard.image_square is True):
+        output.append('\\begin{enumerate}\n')
+        for choice in flashcard.choices:
+            output.append(choice)
+        output.append('\\end{enumerate}\n')
+
     if (flashcard.image is not None):
         output.append('\\end{minipage}')
         output.append(flashcard.image)
+
+    # Image is rectangular, 2x2 grid
+    if (flashcard.image_rectangular is True):
+        minipage_length = 0.90/(len(flashcard.choices)//2)
+        output.append('\\begin{minipage}[l]{' + minipage_length + '\\linewidth}\n\\begin{enumerate}\n')
+        i = 0
+        for choice in flashcard.choices:
+            if (i % 2 == 0):
+                output.append('\\end{enumerate}\n\\end{minipage}\n\\hfill\n')
+                output.append('\\begin{minipage}[l]{' + minipage_length + '\\linewidth}\n\\begin{enumerate}\n')
+            output.append(choice)
+            i += 1
+        output.append('\\end{enumerate}\n\\end{minipage}\n\\hfill\n')
+
+        output.append('\\end{enumerate}\\end{minipage}\n\\hfill\n')
     output.append('}\n')
-    output.append('\\vspace*{\\stretch{1}}\n\\vspace{\\reponsevspace}\n')
+
+    # Answer/Solution
     output.append(write_solution(flashcard.question_type, flashcard.solution_list, flashcard.choice_number, question_count))
+    output.append('\\vspace{0.05\\textheight}\n\\RaggedRight\n')
     output.append(flashcard.answer + '\n')
     output.append('\\vspace*{\\stretch{1}}\n\\end{flashcard}\n\n')
     
@@ -577,7 +583,7 @@ def write_outfile(output):
     outfile = open(outfile_path, 'a', encoding = 'utf-8')
     # Write content
     outfile.write(''.join(output))
-    outfile.close     
+    outfile.close
 
 def write_outfile_header():
     # Get output directory
@@ -691,6 +697,7 @@ def fetch_content(file, root, licence_theme_dict, subject_dict):
     else:
         subject = None
         licence_theme = None
+
     ## Complexity level
     complexity_level = get_complexity_level(fetch_data(file, root, ".//sp:level"))
     ## Education level
@@ -698,14 +705,14 @@ def fetch_content(file, root, licence_theme_dict, subject_dict):
     ## Content
     ### Question
 
-    (question, image) = fetch_question(file, root)
-    choices = fetch_choices(file, root)
+    (question, question_length, image) = fetch_question(file, root)
+    (choices, choices_length) = fetch_choices(file, root)
     ### Answer
-    answer = fetch_answer(file, root)
+    (answer, answer_length) = fetch_answer(file, root)
     (solution_list, choice_number) = fetch_solution(file, root, question_type)
 
     # Create Flashcard instance
-    flashcard = Flashcard(file, question_type, complexity_level, subject, education_level, licence_theme, question, image, choices, answer, solution_list, choice_number)
+    flashcard = Flashcard(file, question_type, complexity_level, subject, education_level, licence_theme, question, image, choices, answer, solution_list, choice_number, len(subject), len(licence_theme), question_length, choices_length, answer_length)
 
     return flashcard
 
@@ -850,6 +857,7 @@ def mixed_content_parsing(file, node):
 
 def fetch_question(file, root):
     output = ''
+    text_length = 0
     image = "\hfill\n\\begin{minipage}[t]{0.3\linewidth}\n\strut\\vspace*{-\\baselineskip}\\newline\n"
     path_to_image = ''
     # Questions can have rich content (images, etc.), so we examine every children
@@ -864,6 +872,7 @@ def fetch_question(file, root):
                         if(args.file_name == file):
                             print(child.tag)
                         output += mixed_content_parsing(file, child)
+                        text_length += (len(mixed_content_parsing(file, child)) - text_length)
                         output += '\n'
 
                     # Table 
@@ -882,6 +891,7 @@ def fetch_question(file, root):
                             output += '\\\\\n'
                         output += '\hline\n'
                         output += "\n\\end{tabular}\n\\end{center}\n"
+
             # Section is a ressource
             if (remove_namespace(section).localname == 'res'):
                 for root, dirs, files in os.walk(args.sourcedir):
@@ -889,37 +899,38 @@ def fetch_question(file, root):
                         if(name == section.attrib.values()[0].split("/")[-1]):
                             path_to_image = os.path.abspath(os.path.join(root, name))
 
-                image += "\includegraphics[max size={\\textwidth}{0.5\\textheight}, center, keepaspectratio]{" + path_to_image + "}\n"
+                image += "\\includegraphics[max size={\\textwidth}{0.5\\textheight}, center, keepaspectratio]{" + path_to_image + "}\n"
 
-    if (image == "\hfill\n\\begin{minipage}[t]{0.3\linewidth}\n\strut\\vspace*{-\\baselineskip}\\newline\n"):
+    # unchanged -> no image
+    if (image == "\\hfill\n\\begin{minipage}[t]{0.3\linewidth}\n\\strut\\vspace*{-\\baselineskip}\\newline\n"):
         image = None
     elif (image is not None):
         image += '\n\\end{minipage}'
         if (args.no_replace == False):
-            # print(output)
             output = output.replace("ci-dessous", "ci-contre")
-    if (args.file_name == file):
-        print('QUESTION\n' + output + '\n')
-        if (path_to_image is not None):
-            print(path_to_image)
-    return (output, image)
+    
+    return (output, text_length, image)
 
 def fetch_choices(file, root):
+    output_arr = []
     output = ''
-
+    text_length = 0
     # Choice is text-only
     check_generator(file, root.iterfind(".//sc:choice//sc:choiceLabel", namespace), './/sc:choice//sc:choiceLabel')
     for element in root.iterfind(".//sc:choice//sc:choiceLabel//op:txt", namespace):
         output += '\\item '
         for child in element.getchildren():
             output += mixed_content_parsing(file, child)
+            text_length += (len(mixed_content_parsing(file, child)) - text_length)
         output += '\n'
+        output_arr.append(output)
     if (args.file_name == file):
         print('CHOICES\n' + output)
-    return output
+    return (output_arr, text_length)
 
 def fetch_answer(file, root):
     output = ''
+    text_length = 0
     number_list = []
     number_counter = 0
     choice_number = 0
@@ -940,16 +951,18 @@ def fetch_answer(file, root):
             # Find text
             if e.text is not None:
                 text += e.text
+            
         # If text
         if (text != ''):
             output += '\\item [' + str(number_list[number_counter]) +'.]'
         for child in element.getchildren():
             choice_explanation = mixed_content_parsing(file, child)
+            text_length += (len(mixed_content_parsing(file, child)) - text_length)
             # op:txt can exist if there is a comment
             if (choice_explanation != ''):
                 output += choice_explanation
                 output += '\n'
-        number_counter += 1        
+        number_counter += 1
         
     if (check_generator(file, root.iterfind(".//sc:choice//sc:choiceExplanation//op:txt", namespace), './/sc:choice//sc:choiceExplanation//op:txt') == True):
         output += '\\end{enumerate}\n'
@@ -959,6 +972,7 @@ def fetch_answer(file, root):
     for element in root.iterfind(".//sc:globalExplanation//op:txt", namespace):
         for child in element.getchildren():
             output += mixed_content_parsing(file, child)
+            text_length += (len(mixed_content_parsing(file, child)) - text_length)
             output += '\n\n'
 
     if (choice_explanation_bool and global_explanation_bool):
@@ -983,7 +997,7 @@ def fetch_answer(file, root):
     
     output = texfilter(output)
     output = output_cleanup(output)
-    return output
+    return (output, text_length)
 
 def fetch_solution(file, root, question_type):
     solution_list = []
@@ -1059,8 +1073,10 @@ def process_write_outfile(flashcard, output):
 def parse_files(args, question_count, err_count, parser, licence_theme, subject): # Copy all files in sourcedir/Prettified and prettify XML
     sourcedir = os.path.realpath(args.sourcedir)
     output = ''
+    last_subject = ''
+    current_subject = ''
     flashcard_list = []
-    file_name = ''
+
     for file in os.listdir(sourcedir):
         # Ignore all files which are not .quiz
         if (file.endswith(".quiz") is False):
@@ -1079,7 +1095,8 @@ def parse_files(args, question_count, err_count, parser, licence_theme, subject)
             
             # Create Flashcard instance
             flashcard = fetch_content(file, root, licence_theme, subject)
-            
+            current_subject = flashcard.subject
+
             # Check overflow
             check_overflow(flashcard)
                         
@@ -1111,12 +1128,15 @@ def parse_files(args, question_count, err_count, parser, licence_theme, subject)
             # Write output string and write in outfile
             ## Default output format
             if (args.a4paper == False):
+                # Background parameters
+                output = '\\backgroundparam\n{' + flashcard.subject.lower() + '}\n{' + flashcard.subject.lower() + '-front-header}\n{' + flashcard.subject.lower() + '-front-footer}\n{' + flashcard.subject.lower() + '-back-background}\n{' + flashcard.subject.lower() + '-back-header}\n{' + flashcard.subject.lower() + '-back-header}\n{' + flashcard.subject.lower() + '}\n{' + flashcard.subject.lower() + '-back-footer}\n{front_university_logo}\n{back_university_logo}\n'
+
                 # Create a standard output only if the flashcard's errors flags are not set (or force option has been set)
                 # OR if any debug "only-options" are used
                 if ((flashcard.err_flag == False and flashcard.overflow_flag == False and flashcard.relevant == True) 
                 or (args.image_only is True or args.overflow_only is True or args.non_relevant_only is True)
                 or args.force is True):
-                    output = write_output(flashcard, None)
+                    output.append(write_output(flashcard, None))
                 
                 # Write in the outfile only the valid files
                 process_write_outfile(flashcard, output)
