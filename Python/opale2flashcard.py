@@ -515,7 +515,10 @@ def write_output(flashcard, question_count):
 
     # Image is rectangular, 2x2 grid
     if (flashcard.image_rectangular is True):
-        minipage_length = str(0.90/(len(flashcard.choices)//2+1))
+        if (len(flashcard.choices) % 2 == 0):
+            minipage_length = str(0.90/(len(flashcard.choices)//2))
+        else:
+            minipage_length = str(0.90/(len(flashcard.choices)//2+1))
         output.append('\\begin{minipage}[l]{' + minipage_length + '\\linewidth}\n\\begin{enumerate}\n')
         i = 0
         for choice in flashcard.choices:
@@ -895,8 +898,13 @@ def fetch_question(file, root):
                     for name in files:
                         if(name == section.attrib.values()[0].split("/")[-1]):
                             path_to_image = os.path.abspath(os.path.join(root, name))
-
-                image += "\\includegraphics[max size={\\textwidth}{0.5\\textheight}, center, keepaspectratio]{" + path_to_image + "}\n"
+                if (not path_to_image.endswith('.gif')):
+                    image += "\\includegraphics[max size={\\textwidth}{0.5\\textheight}, center, keepaspectratio]{" + path_to_image + "}\n"
+                else:
+                    write_logs(
+                        'gif images are not supported',
+                        'Found a .gif ressource image. Not supported'
+                    )
 
     # unchanged -> no image
     if (image == "\\hfill\n\\begin{minipage}[t]{0.3\linewidth}\n\\strut\\vspace*{-\\baselineskip}\\newline\n"):
