@@ -156,7 +156,7 @@ roles_markup = {
     "emp" : ("\emph{", "}"),
     "exp" : ("$^{", "}$"),
     "ind" : ("$_{", "}$"),
-    "mathtex" : (" $", "$ "),
+    "mathtex" : ("$", "$"),
     "url" : ("}", "{"),
 }
 
@@ -805,9 +805,6 @@ def markup_content(file, element):
     if (tag_markup is not None):
         output.append(tag_markup[1])
     output = output_cleanup(output)
-    # Debugging
-    if (args.file_name == file and args.debug_mode is True):
-        print(file, localname, tag_markup, output, ''.join(output))
     
     return ''.join(output)
 
@@ -830,8 +827,6 @@ def tail_gen(file, node, url):
             else:
                 tail = node.tail.strip()
         else:
-            if (args.file_name == file and args.debug_mode == True):
-                print(node.tag, node.tail.strip())
             if (remove_namespace(node).localname == 'phrase'):
                 tail = node.tail.strip()
             else:
@@ -852,10 +847,15 @@ def mixed_content_parsing(file, node):
         if ((type(element) == etree._Element)):
             if (element.text != ' '):
                 output += markup_content(file, element)
-        else:
             if (args.file_name == file and args.debug_mode is True):
-                print(element)
-            output += texfilter(element)
+                print("MIXED CONTENT PARSING ->" + output)
+        else:
+            if (element[0] not in [',', '.']):
+                output += ' ' + texfilter(element) + ' '
+            else:
+                output += texfilter(element)
+            if (args.file_name == file and args.debug_mode is True):
+                print("MIXED CONTENT PARSING ->" + output)
 
     return output
 
@@ -875,8 +875,6 @@ def fetch_question(file, root):
                 for child in section.find('op:txt', namespace):
                     # Text
                     if (remove_namespace(child).localname == 'para'):
-                        if(args.file_name == file and args.debug_mode is True):
-                            print(child.tag)
                         output += mixed_content_parsing(file, child)
                         text_length += len(mixed_content_parsing(file, child))
                         output += '\n'
@@ -923,6 +921,9 @@ def fetch_question(file, root):
             square = True
             rectangular = False
 
+    if (args.debug_mode is True and args.file_name == file):
+        print('QUESTION\n' + output)
+
     return (output, text_length, image, square, rectangular)
 
 def fetch_choices(file, root):
@@ -940,7 +941,7 @@ def fetch_choices(file, root):
         output_arr.append(output)
         output = ''
     if (args.file_name == file and args.debug_mode is True):
-        print('CHOICES\n' + output)
+        print('CHOICES\n' + ''.join(output_arr))
     return (output_arr, text_length)
 
 def fetch_answer(file, root):
@@ -966,7 +967,7 @@ def fetch_answer(file, root):
             # Find text
             if e.text is not None:
                 text += e.text
-            
+        
         # If text
         if (text != ''):
             output += '\\item [' + str(number_list[number_counter]) +'.]'
