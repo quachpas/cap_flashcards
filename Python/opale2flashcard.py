@@ -261,9 +261,7 @@ def get_subject_and_themes(filename, parser):
 
 def cleantheme(text):
     text=''.join((c for c in unicodedata.normalize('NFKC', text)))
-    print(text)
     text=''.join(e for e in text if (e.isalnum() or ord(e)==ord(' ') or e in ['-', ',', '(', ')']))
-    print(text)
     return text.strip()
 
 def calc_vspace_parameters(flashcard):
@@ -495,6 +493,7 @@ def write_output(flashcard, question_count):
     
     # Output
     output.append('% Flashcard : ' + flashcard.file + '/' + flashcard.question_type + '\n')
+    output.append('% (Q, C, A) : ' + str(flashcard.question_length) + ', ' + str(flashcard.choices_length) + ', ' + str(flashcard.answer_length) + '\n')
 
     output.append('\\cardbackground\n{' + flashcard.complexity_level + '}\n{' + flashcard.subject + '}\n{' + flashcard.licence_theme + '}\n{' + 'qrcode}\n')
     # TODO : Qrcode ici, hardcoded. HARDCODED
