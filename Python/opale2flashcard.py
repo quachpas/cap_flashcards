@@ -432,8 +432,7 @@ def write_solution(question_type, solution_list, choice_number, question_count):
             output += "\color{white}\n$"
         
         output += str(choice) + ':'
-
-        if (choice in solution_list):
+        if (str(choice) in solution_list):
             output += '\\boxtimes'
         else:
             output += '\\square'
@@ -525,7 +524,7 @@ def write_output(flashcard, question_count):
 
         output.append('\\end{enumerate}\\end{minipage}\n\\hfill\n')
     output.append('}\n')
-    output.append('\\vspace*{\\stretch{1}}\n\color{white}\n')
+    output.append('\\vspace*{\\stretch{1}}\n\\color{white}\n')
     # Answer/Solution
     output.append(write_solution(flashcard.question_type, flashcard.solution_list, flashcard.choice_number, question_count))
     output.append('\\vspace{0.05\\textheight}\n\\RaggedRight\n')
@@ -873,8 +872,8 @@ def fetch_question(file, root):
                 for child in section.find('op:txt', namespace):
                     # Text
                     if (remove_namespace(child).localname == 'para'):
-                        if(args.file_name == file):
-                            print(child.tag)
+                        # if(args.file_name == file):
+                        #     print(child.tag)
                         output += mixed_content_parsing(file, child)
                         text_length += (len(mixed_content_parsing(file, child)) - text_length)
                         output += '\n'
@@ -937,8 +936,8 @@ def fetch_choices(file, root):
         output += '\n'
         output_arr.append(output)
         output = ''
-    if (args.file_name == file):
-        print('CHOICES\n' + output)
+    # if (args.file_name == file):
+    #     print('CHOICES\n' + output)
     return (output_arr, text_length)
 
 def fetch_answer(file, root):
@@ -1005,8 +1004,8 @@ def fetch_answer(file, root):
                 'opale2flashcard.py(' + file + '): WARNING ! This flashcard has an issue. There is nothing on the back.',
                 'opale2flashcard.py(' + file + '): WARNING ! Both choice explanations and global explanations are empty.'
             )
-    if (args.file_name == file):
-        print('ANSWER\n' + output)
+    # if (args.file_name == file):
+    #     print('ANSWER\n' + output)
     output = texfilter(output)
     #output = output_cleanup(output)
     
@@ -1029,7 +1028,7 @@ def fetch_solution(file, root, question_type):
         for solution in root.iterfind(".//sc:solution", namespace):
             solution_list = solution.attrib.values()
 
-    if (solution_list == []):
+    if (not solution_list):
         write_logs(
             'opale2flashcard.py(' + file + '): WARNING ! This flashcard has an issue. No solutions found.',
             'opale2flashcard.py(' + file + '): WARNING ! The solution_list is empty. Question type was : ' + question_type + '.'
