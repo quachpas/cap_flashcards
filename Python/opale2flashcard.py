@@ -162,7 +162,7 @@ roles_markup = {
 
 tags_markup = {
     "textLeaf" : None,
-    "inlineStyle" : (' ', ' '),
+    "inlineStyle" : None,
     "choiceLabel" : ("\item ", "\n"),
     "choiceExplanation" : None,
     "txt" : None,
@@ -848,6 +848,8 @@ def mixed_content_parsing(file, node):
     output = ''
     gen = tail_gen(file, node, False)
     for element in gen:
+        if (remove_namespace(node).localname == 'inlineStyle'):
+            element = ' ' + element + ' '
         if (type(element) != str):
             if (remove_namespace(element).localname == 'url'):
                 continue
