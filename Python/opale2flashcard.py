@@ -1086,7 +1086,7 @@ def write_background_parameter(flashcard):
      write_outfile(['\\backgroundparam\n{' + flashcard.subject.lower() + '}\n{' + flashcard.subject.lower() + '-front-header}\n{' + flashcard.subject.lower() + '-front-footer}\n{' + flashcard.subject.lower() + '-back-background}\n{' + flashcard.subject.lower() + '-back-header}\n{' + flashcard.subject.lower() + '-back-footer}\n{front-university-logo}\n{back-university-logo}\n'])
 
 def parse_files(args, question_count, err_count, parser, licence_theme, subject): # Copy all files in sourcedir/Prettified and prettify XML
-    sourcedir = os.path.realpath(args.sourcedir)
+    sourcedir = os.path.abspath(args.sourcedir)
     output = []
     subject_list = []
     flashcard_list = []
@@ -1187,10 +1187,10 @@ def compile_tex(args):
 def opale_to_tex(args):
     # Path validity check
     if (not os.path.isdir(args.sourcedir)):
-        sys.stderr.write('Error: ' + args.sourcedir + ' is not a directory or does not exist.\n')
+        sys.stderr.write('Error source directory: ' + args.sourcedir + ' is not a directory or does not exist.\n')
         sys.exit(1)
     if (not os.path.isfile(args.themefile)):    
-        sys.stderr.write('Error: ' + args.themefile +' is not a file or does not exist.\n')
+        sys.stderr.write('Error themefile: ' + args.themefile +' is not a file or does not exist.\n')
         sys.exit(1)
     if (args.file_name is not None):
         if (not os.path.isfile(os.path.realpath(args.sourcedir + "/" + args.file_name))):
