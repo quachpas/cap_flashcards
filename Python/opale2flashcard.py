@@ -156,7 +156,7 @@ roles_markup = {
     "emp" : ("\emph{", "}"),
     "exp" : ("$^{", "}$"),
     "ind" : ("$_{", "}$"),
-    "mathtex" : ("$.", "$"),
+    "mathtex" : (" $", "$ "),
     "url" : ("}", "{"),
 }
 
@@ -749,10 +749,10 @@ def texfilter(text):
     text = text.replace('^','\\textasciicircum')
     text = text.replace('&','\\&')
     text = text.replace('%','\\%')
-    text = text.replace('$','\\$')
+    # text = text.replace('$','\\$')
     text = text.replace('#','\\#')
-    text = text.replace('_','\\_')
-    #text = output_cleanup(text)
+    # text = text.replace('_','\\_')
+    # text = output_cleanup(text)
     return text
 
 def markup_content(file, element):
@@ -763,6 +763,7 @@ def markup_content(file, element):
         print("Error type")
 
     localname = remove_namespace(element).localname
+
     if (localname == 'phrase' and args.add_url is not True):
         tag_markup = None
     else:
@@ -808,8 +809,8 @@ def markup_content(file, element):
         output.append(tag_markup[1])
     output = output_cleanup(output)
     # Debugging
-    # if (args.file_name == file):
-    #     print(file, localname, tag_markup, output, ''.join(output))
+    if (args.file_name == file):
+        print(file, localname, tag_markup, output, ''.join(output))
     
     return ''.join(output)
 
@@ -853,9 +854,10 @@ def mixed_content_parsing(file, node):
             if (remove_namespace(element).localname == 'url'):
                 continue
         if ((type(element) == etree._Element)):
-            output += markup_content(file, element)
+            if (element.text != ' '):
+                output += markup_content(file, element)
         else:
-            output +=   element + ' '
+            output += element
 
     return output
 
