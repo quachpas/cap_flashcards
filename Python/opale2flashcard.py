@@ -849,7 +849,7 @@ def mixed_content_parsing(file, node):
                 output += markup_content(file, element)
             if (args.file_name == file and args.debug_mode is True):
                 print("MIXED CONTENT PARSING ->" + output)
-        else:
+        elif (element):
             if (element[0] not in [',', '.']):
                 output += ' ' + texfilter(element) + ' '
             else:
