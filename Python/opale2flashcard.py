@@ -1047,22 +1047,23 @@ def process_error(flashcard):
             write_logs(
                 flashcard.err_message,
                 flashcard.err_message
-            )                            
-        if (flashcard.image is not None and args.image_only is True):
-            write_logs(
-                flashcard.err_message,
-                flashcard.err_message
-            ) 
-        if (flashcard.overflow_flag is True and args.overflow_only is True):
-            write_logs(
-                flashcard.err_message,
-                flashcard.err_message
             )
-        if (flashcard.relevant is False and args.non_relevant_only is True):
-            write_logs(
-                flashcard.err_message,
-                flashcard.err_message
-            )
+        else:
+            if (flashcard.image is not None and args.image_only is True):
+                write_logs(
+                    flashcard.err_message,
+                    flashcard.err_message
+                ) 
+            if (flashcard.overflow_flag is True and args.overflow_only is True):
+                write_logs(
+                    flashcard.err_message,
+                    flashcard.err_message
+                )
+            if (flashcard.relevant is False and args.non_relevant_only is True):
+                write_logs(
+                    flashcard.err_message,
+                    flashcard.err_message
+                )
     # Else, just process the error message
     else:
         write_logs(
