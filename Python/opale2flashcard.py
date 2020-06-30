@@ -348,7 +348,7 @@ def check_overflow(flashcard):
     if (flashcard.image is None):
         if (
                 flashcard.question_length + flashcard.choices_length > 490
-                or flashcard.answer_length > 780
+                or flashcard.answer_length > 725
         ):
             flashcard.overflow_flag = True
             flashcard.err_message += 'opale2flashcard.py(' + flashcard.file +  '): No image - Potentially overflowing content (Q, C, A): ' + str(flashcard.question_length) + ' ' + str(flashcard.choices_length) + ' ' + str(flashcard.answer_length) + " "
@@ -534,7 +534,7 @@ def write_output(flashcard, question_count):
     output.append('\\vspace*{\\stretch{1}}\n\\color{white}\n')
     # Answer/Solution
     output.append(write_solution(flashcard.question_type, flashcard.solution_list, flashcard.choice_number, question_count))
-    output.append('\\vspace{0.05\\textheight}\n\\RaggedRight\n')
+    output.append('\\vspace{0.10\\textheight}\n\\RaggedRight\n')
     
     output.append(flashcard.answer + '\n')
     output.append('\\vspace*{\\stretch{1}}\n\\end{flashcard}\n\n')
