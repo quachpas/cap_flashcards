@@ -510,8 +510,8 @@ def write_output(flashcard, question_count):
         output.append('\\end{enumerate}\n')
 
     if (flashcard.image is not None):
-        output.append('\\end{minipage}')
-        output.append(flashcard.image)
+        output.append('\\end{minipage}\n')
+        output.append(flashcard.image + '\n')
 
     # Image is rectangular, 2x2 grid
     if (flashcard.image_rectangular is True):
@@ -519,14 +519,13 @@ def write_output(flashcard, question_count):
         output.append('\\begin{minipage}[l]{' + minipage_length + '\\linewidth}\n\\begin{enumerate}\n')
         i = 0
         for choice in flashcard.choices:
-            if (i % 2 == 0):
+            if (i % 2 == 0 and i != 0):
                 output.append('\\end{enumerate}\n\\end{minipage}\n\\hfill\n')
                 output.append('\\begin{minipage}[l]{' + minipage_length + '\\linewidth}\n\\begin{enumerate}\n')
             output.append(choice)
             i += 1
         output.append('\\end{enumerate}\n\\end{minipage}\n\\hfill\n')
 
-        output.append('\\end{enumerate}\\end{minipage}\n\\hfill\n')
     output.append('}\n')
     output.append('\\vspace*{\\stretch{1}}\n\\color{white}\n')
     # Answer/Solution
