@@ -515,7 +515,7 @@ def write_output(flashcard, question_count):
 
     # Image is rectangular, 2x2 grid
     if (flashcard.image_rectangular is True):
-        minipage_length = str(0.90/(len(flashcard.choices)//2))
+        minipage_length = str(0.90/(len(flashcard.choices)//2+1))
         output.append('\\begin{minipage}[l]{' + minipage_length + '\\linewidth}\n\\begin{enumerate}\n')
         i = 0
         for choice in flashcard.choices:
