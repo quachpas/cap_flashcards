@@ -784,7 +784,6 @@ def markup_content(file, element):
                         url = texfilter(url.text)
                     text = element.xpath('text()')
                     text = output_cleanup(text[0])
-                    
                 # element.text = texfilter(element.text)
             else:
                 role_markup = None        
@@ -804,8 +803,8 @@ def markup_content(file, element):
         output.append(text)
     if (tag_markup is not None):
         output.append(tag_markup[1])
-    output = output_cleanup(output)
     
+    output = output_cleanup(output)
     return ''.join(output)
 
 def tail_gen(file, node, url):
@@ -828,9 +827,9 @@ def tail_gen(file, node, url):
                 tail = node.tail.strip()
         else:
             if (remove_namespace(node).localname == 'phrase'):
-                tail = node.tail.strip()
+                tail = node.tail
             else:
-                tail = node.tail.strip()
+                tail = node.tail
     else:
         tail = None
     
@@ -848,14 +847,12 @@ def mixed_content_parsing(file, node):
             if (element.text != ' '):
                 output += markup_content(file, element)
             if (args.file_name == file and args.debug_mode is True):
-                print("MIXED CONTENT PARSING ->" + output)
-        else:
-            if (element[0] not in [',', '.']):
-                output += ' ' + texfilter(element) + ' '
-            else:
-                output += texfilter(element)
+                print("MIXED CONTENT PARSING ->" + output + '/')
+        elif (element):
+            output += texfilter(element)
             if (args.file_name == file and args.debug_mode is True):
-                print("MIXED CONTENT PARSING ->" + output)
+                print("MIXED CONTENT PARSING ->" + output + '/')                
+
 
     return output
 
