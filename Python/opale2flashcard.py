@@ -42,11 +42,6 @@ For other types, the behaviour is unpredictable.
     and will be removed by default. 
     The criteria used to define that is a character count. 
     Q : Question, C : Choices, A : Answer
-    Flashcards with an image in their question are flagged if :
-        - Q + C > 700 or A > 1000
-    Flashcards without are flagged if :
-        - Q + C > 800 or A > 1000
-
 --- Output settings ---
 The script will write in the './output/out.tex' file. 
 The front is always output before the back of the flashcard. 
@@ -81,7 +76,7 @@ Below, we define which content is supported or not.
 --- Debugging tools ---
 Some options are available to help debug the code and/or check if the output
 is correct. 
-Logs will be in './output/logs.txt'. 
+Logs will be in './output/logs.txt'.
 
 --- How to use ---
 After cloning the repository, you should download a .scar archive from Scenari
@@ -116,7 +111,7 @@ parser.add_argument('--logs', action = 'store_true', help = """
 Logs output - Outputs warning and errors in output/logs.txt instead of writing in the console
 """)
 parser.add_argument('--debug_mode', action = 'store_true', help = """
-Debug mode - Adds the original file name next to the question's theme. 
+Debug mode - Combined with file_name, prints out fetching contents. Solely use for debugging the script.
 """)
 parser.add_argument('--file_name', action = 'store', help = """
 Debugging tool - Outputs only one file.
@@ -169,6 +164,7 @@ tags_markup = {
     "para" : None,
     "phrase" : ("\href{", "}"),
 }
+
 class Flashcard:
     def __init__(self, file, question_type, complexity_level, subject, education_level, licence_theme, question, image, image_square, image_rectangular, choices, answer, solution_list, choice_number,subject_length, licence_theme_length, question_length, choices_length, answer_length):
         self.file = file
@@ -1087,9 +1083,39 @@ def process_write_outfile(flashcard, output):
 def write_background_parameter(flashcard):
      write_outfile(['\\backgroundparam\n{' + flashcard.subject.lower() + '}\n{' + flashcard.subject.lower() + '-front-header}\n{' + flashcard.subject.lower() + '-front-footer}\n{' + flashcard.subject.lower() + '-back-background}\n{' + flashcard.subject.lower() + '-back-header}\n{' + flashcard.subject.lower() + '-back-footer}\n{front-university-logo}\n{back-university-logo}\n'])
 
-def parse_files(args, question_count, err_count, parser, licence_theme, subject): # Copy all files in sourcedir/Prettified and prettify XML
-    sourcedir = os.path.abspath(args.sourcedir)
+def write_flashcards(flashcard_list, subject_list, err_count):
+# Write output string and write in outfile
+## Default output format
     output = []
+    if (args.a4paper == False):
+        question_count = 0
+        for flashcard in flashcard_list:
+            # Background parameters
+            if (args.force is True
+            or ((flashcard.overflow_flag is False and flashcard.err_flag is False) and 
+                (question_count == 0 or subject_list[question_count-1] != subject_list[question_count]))):
+                write_background_parameter(flashcard)
+            # Create a standard output only if the flashcard's errors flags are not set (or force option has been set)
+            # OR if any debug "only-options" are used
+            if ((flashcard.err_flag is False and flashcard.overflow_flag is False and flashcard.relevant is True) 
+            or (args.image_only is True or args.overflow_only is True or args.non_relevant_only is True)
+            or args.force is True):
+                for out in write_output(flashcard, None):
+                    output.append(out)
+            
+            # Write in the outfile only the valid files
+            process_write_outfile(flashcard, output)
+            output = []
+            question_count += 1
+    else:
+        # Once finished reading all files in sourcedir, write output and write into outfile.
+        # Deprecated TODO
+        err_count = write_out_a4paper(flashcard_list)
+
+    return err_count
+
+def parse_files(args, question_count, parser, licence_theme, subject): # Copy all files in sourcedir/Prettified and prettify XML
+    sourcedir = os.path.abspath(args.sourcedir)
     subject_list = []
     flashcard_list = []
 
@@ -1139,46 +1165,12 @@ def parse_files(args, question_count, err_count, parser, licence_theme, subject)
                 if (flashcard.subject is None):
                     flashcard.subject = "Missing Subject"        
             
-            # Write output string and write in outfile
-            ## Default output format
-            if (args.a4paper == False):
-                # Background parameters
-
-                if (args.force is True
-                or ((flashcard.overflow_flag is False and flashcard.err_flag is False) and 
-                    (question_count == 0 or subject_list[question_count-1] != subject_list[question_count]))):
-                    write_background_parameter(flashcard)
-
-                # Create a standard output only if the flashcard's errors flags are not set (or force option has been set)
-                # OR if any debug "only-options" are used
-                if ((flashcard.err_flag is False and flashcard.overflow_flag is False and flashcard.relevant is True) 
-                or (args.image_only is True or args.overflow_only is True or args.non_relevant_only is True)
-                or args.force is True):
-                    for out in write_output(flashcard, None):
-                        output.append(out)
-                
-                # Write in the outfile only the valid files
-                process_write_outfile(flashcard, output)
-                output = []
-                    
-                # Error procedure
-                if (flashcard.err_message != ''):
-                    err_count += 1
-                    process_error(flashcard)
-                    
-            ## a4paper output format
-            else:
-                output = ""
-                # Make a list of every flashcard in sourcedir
-                flashcard_list.append(flashcard)
+            # Make a list of every flashcard in sourcedir
+            flashcard_list.append(flashcard)
         
         question_count += 1
-    # Once finished reading all files in sourcedir, write output and write into outfile.
-    if (args.a4paper == True):
-        # Write flashcards
-        err_count = write_out_a4paper(flashcard_list)
 
-    return (question_count, err_count)
+    return (flashcard_list, subject_list, question_count)
 
 def compile_tex(args):
     if (args.compile == True):
@@ -1219,7 +1211,8 @@ def opale_to_tex(args):
     # Variables
     (question_count, err_count) = (0,0)
     write_outfile_header()
-    (question_count, err_count) = parse_files(args, question_count, err_count, parser, licence_theme, subject)
+    (flashcard_list, subject_list, question_count) = parse_files(args, question_count, parser, licence_theme, subject)
+    err_count = write_flashcards(flashcard_list, subject_list, err_count)
     write_outfile_footer()
 
     # Check out.tex
