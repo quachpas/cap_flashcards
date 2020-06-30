@@ -499,7 +499,7 @@ def write_output(flashcard, question_count):
 
     # Question + Choices
     if (flashcard.image is not None):
-        output.append('\\begin{minipage}[t]{0.6\\linewidth}\n\\footnotesize')
+        output.append('\\begin{minipage}[t]{0.6\\linewidth}\n')
     output.append(flashcard.question + '\n')
     
     # Image is square, 1x2 grid
