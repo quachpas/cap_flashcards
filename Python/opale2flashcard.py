@@ -749,6 +749,7 @@ def texfilter(text):
     text = text.replace('^','\\textasciicircum')
     text = text.replace('&','\\&')
     text = text.replace('%','\\%')
+    text = text.replace('ˉ', '$^{-}$')
     # text = text.replace('$','\\$')
     text = text.replace('#','\\#')
     # text = text.replace('_','\\_')
@@ -786,8 +787,6 @@ def markup_content(file, element):
                     text = element.xpath('text()')
                     text = output_cleanup(text[0])
                     
-                    
-
                 # element.text = texfilter(element.text)
             else:
                 role_markup = None        
@@ -809,7 +808,7 @@ def markup_content(file, element):
         output.append(tag_markup[1])
     output = output_cleanup(output)
     # Debugging
-    if (args.file_name == file):
+    if (args.file_name == file and args.debug_mode is True):
         print(file, localname, tag_markup, output, ''.join(output))
     
     return ''.join(output)
@@ -823,7 +822,6 @@ def tail_gen(file, node, url):
             url = True
         yield from tail_gen(file, child, url)
     
-    
     if node.tail is not None:
         if (args.add_url == True):
             if (url is not True):
@@ -834,8 +832,8 @@ def tail_gen(file, node, url):
             else:
                 tail = node.tail.strip()
         else:
-            # if (args.file_name == file):
-            #     print(node.tag, node.tail.strip())
+            if (args.file_name == file and args.debug_mode == True):
+                print(node.tag, node.tail.strip())
             if (remove_namespace(node).localname == 'phrase'):
                 tail = node.tail.strip()
             else:
@@ -857,7 +855,9 @@ def mixed_content_parsing(file, node):
             if (element.text != ' '):
                 output += markup_content(file, element)
         else:
-            output += element
+            if (args.file_name == file and args.debug_mode is True):
+                print(element)
+            output += texfilter(element)
 
     return output
 
@@ -877,8 +877,8 @@ def fetch_question(file, root):
                 for child in section.find('op:txt', namespace):
                     # Text
                     if (remove_namespace(child).localname == 'para'):
-                        # if(args.file_name == file):
-                        #     print(child.tag)
+                        if(args.file_name == file and args.debug_mode is True):
+                            print(child.tag)
                         output += mixed_content_parsing(file, child)
                         text_length += len(mixed_content_parsing(file, child))
                         output += '\n'
@@ -941,8 +941,8 @@ def fetch_choices(file, root):
         output += '\n'
         output_arr.append(output)
         output = ''
-    # if (args.file_name == file):
-    #     print('CHOICES\n' + output)
+    if (args.file_name == file and args.debug_mode is True):
+        print('CHOICES\n' + output)
     return (output_arr, text_length)
 
 def fetch_answer(file, root):
@@ -1009,8 +1009,8 @@ def fetch_answer(file, root):
                 'opale2flashcard.py(' + file + '): WARNING ! This flashcard has an issue. There is nothing on the back.',
                 'opale2flashcard.py(' + file + '): WARNING ! Both choice explanations and global explanations are empty.'
             )
-    # if (args.file_name == file):
-    #     print('ANSWER\n' + output)
+    if (args.file_name == file and args.debug_mode is True):
+        print('ANSWER\n' + output)
     output = texfilter(output)
     #output = output_cleanup(output)
     
