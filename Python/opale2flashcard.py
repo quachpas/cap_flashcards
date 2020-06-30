@@ -353,7 +353,7 @@ def check_overflow(flashcard):
             flashcard.overflow_flag = True
             flashcard.err_message += 'opale2flashcard.py(' + flashcard.file +  '): No image - Potentially overflowing content (Q, C, A): ' + str(flashcard.question_length) + ' ' + str(flashcard.choices_length) + ' ' + str(flashcard.answer_length) + " "
     else:
-        if (flashcard.image_square and flashcard.question_length + flashcard.choices_length > 240 or flashcard.image_rectangular and flashcard.question_length + flashcard.choices_length > 450):
+        if (flashcard.image_square and flashcard.question_length + flashcard.choices_length > 240 or flashcard.image_rectangular and flashcard.question_length + flashcard.choices_length > 450 or flashcard.answer_length > 780):
             flashcard.overflow_flag = True
             flashcard.err_message += 'opale2flashcard.py(' + flashcard.file +  '): Image - Potentially overflowing content (Q, C, A): ' + str(flashcard.question_length) + ' ' + str(flashcard.choices_length) + ' ' + str(flashcard.answer_length) + " "
         if (flashcard.image.count("includegraphics") >= 2):
@@ -878,7 +878,7 @@ def fetch_question(file, root):
                         # if(args.file_name == file):
                         #     print(child.tag)
                         output += mixed_content_parsing(file, child)
-                        text_length += (len(mixed_content_parsing(file, child)) - text_length)
+                        text_length += len(mixed_content_parsing(file, child))
                         output += '\n'
 
                     # Table 
@@ -914,7 +914,7 @@ def fetch_question(file, root):
         image += '\n\\end{minipage}'
         if (args.no_replace == False):
             output = output.replace("ci-dessous", "ci-contre")
-        print(path_to_image)
+        # print(path_to_image)
         (width, height) = Image.open(path_to_image).size
         if (width / height > 0.825):
             square = False
@@ -935,7 +935,7 @@ def fetch_choices(file, root):
         output += '\\item '
         for child in element.getchildren():
             output += mixed_content_parsing(file, child)
-            text_length += (len(mixed_content_parsing(file, child)) - text_length)
+            text_length += len(mixed_content_parsing(file, child))
         output += '\n'
         output_arr.append(output)
         output = ''
@@ -972,7 +972,7 @@ def fetch_answer(file, root):
             output += '\\item [' + str(number_list[number_counter]) +'.]'
         for child in element.getchildren():
             choice_explanation = mixed_content_parsing(file, child)
-            text_length += (len(mixed_content_parsing(file, child)) - text_length)
+            text_length += len(mixed_content_parsing(file, child))
             # op:txt can exist if there is a comment
             if (choice_explanation != ''):
                 output += choice_explanation
@@ -987,7 +987,7 @@ def fetch_answer(file, root):
     for element in root.iterfind(".//sc:globalExplanation//op:txt", namespace):
         for child in element.getchildren():
             output += mixed_content_parsing(file, child)
-            text_length += (len(mixed_content_parsing(file, child)) - text_length)
+            text_length += len(mixed_content_parsing(file, child))
             output += '\n\n'
 
     if (choice_explanation_bool and global_explanation_bool):
