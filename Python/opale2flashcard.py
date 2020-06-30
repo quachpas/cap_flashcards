@@ -1144,8 +1144,9 @@ def parse_files(args, question_count, err_count, parser, licence_theme, subject)
             if (args.a4paper == False):
                 # Background parameters
 
-                if (args.force is True or 
-                (flashcard.err_flag is False and (question_count == 0 or subject_list[question_count-1] != subject_list[question_count]))):
+                if (args.force is True
+                or ((flashcard.overflow_flag is False and flashcard.err_flag is False) and 
+                    (question_count == 0 or subject_list[question_count-1] != subject_list[question_count]))):
                     write_background_parameter(flashcard)
 
                 # Create a standard output only if the flashcard's errors flags are not set (or force option has been set)
