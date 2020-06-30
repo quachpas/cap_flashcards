@@ -739,8 +739,8 @@ def output_cleanup(output):
     return output
 
 def texfilter(text):
-    text = text.replace('~','\\textasciitilde')
-    text = text.replace('^','\\textasciicircum')
+    # text = text.replace('~','\\textasciitilde')
+    # text = text.replace('^','\\textasciicircum')
     text = text.replace('&','\\&')
     text = text.replace('%','\\%')
     text = text.replace('ˉ', '$^{-}$')
