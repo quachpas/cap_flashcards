@@ -64,7 +64,7 @@ Using these options can help greatly in checking whether a flashcard is correctl
 Some flashcards contents can be quite rich. 
 Below, we define which content is supported or not.
 1. Question:
-    - TWO images maximum. We consider that fitting two images on one flashcard
+    - ONE image maximum. We consider that fitting two images on one flashcard
     is possible, but that would notably reduce the size and therefore make
     them indistinct. Image file format supported are pdf, png, jpeg, eps.
     If the script finds any occurences of "ci-contre" (see below), it will replace 
@@ -119,10 +119,10 @@ parser.add_argument('--debug_mode', action = 'store_true', help = """
 Debug mode - Adds the original file name next to the question's theme. 
 """)
 parser.add_argument('--file_name', action = 'store', help = """
-Debugging tool - Outputs only one file.  
+Debugging tool - Outputs only one file.
 """)
 parser.add_argument('--image_only', action = 'store_true', help = """
-Debugging tool - Outputs only files with images.  
+Debugging tool - Outputs only files with images. 
 """)
 parser.add_argument('--overflow_only', action = 'store_true', help = """
 Debugging tool - Outputs only files with potential overflowing content.  
@@ -347,25 +347,29 @@ def check_generator(file, generator, expression):
 def check_overflow(flashcard):
     if (flashcard.image is None):
         if (
-                len(flashcard.question) + len(flashcard.choices) > 800
-            or  len(flashcard.answer) > 950
+                flashcard.question_length + flashcard.choices_length > 490
+                or flashcard.answer_length > 780
         ):
             flashcard.overflow_flag = True
-            flashcard.err_message += 'opale2flashcard.py(' + flashcard.file +  '): No image - Potentially overflowing content (Q, C, A): ' + str(len(flashcard.question)) + ' ' + str(len(flashcard.choices)) + ' ' + str(len(flashcard.answer)) + " "
+            flashcard.err_message += 'opale2flashcard.py(' + flashcard.file +  '): No image - Potentially overflowing content (Q, C, A): ' + str(flashcard.question_length) + ' ' + str(flashcard.choices_length) + ' ' + str(flashcard.answer_length) + " "
     else:
-        if (
-                len(flashcard.question) + len(flashcard.choices) > 700
-            or  len(flashcard.answer) > 950
-        ):
+        if (flashcard.image_square and flashcard.question_length + flashcard.choices_length > 240 or flashcard.image_rectangular and flashcard.question_length + flashcard.choices_length > 450):
             flashcard.overflow_flag = True
-            flashcard.err_message += 'opale2flashcard.py(' + flashcard.file +  '): Image - Potentially overflowing content (Q, C, A): ' + str(len(flashcard.question)) + ' ' + str(len(flashcard.choices)) + ' ' + str(len(flashcard.answer)) + " "
+            flashcard.err_message += 'opale2flashcard.py(' + flashcard.file +  '): Image - Potentially overflowing content (Q, C, A): ' + str(flashcard.question_length) + ' ' + str(flashcard.choices_length) + ' ' + str(flashcard.answer_length) + " "
         if (flashcard.image.count("includegraphics") >= 2):
+            flashcard.overflow_flag = True
             write_logs(
                 'opale2flashcard.py(' + flashcard.file + '): WARNING ! There are at least two images in the question. Content might overflow',
                 'opale2flashcard.py(' + flashcard.file + '): WARNING ! There are at least two images in the question. Content might overflow', 
             )
+        if (flashcard.question.count("tabular") >= 1):
+            flashcard.overflow_flag = True
+            write_logs(
+                'opale2flashcard.py(' + flashcard.file + '): WARNING ! There is at least one table in the question. Content might overflow',
+                'opale2flashcard.py(' + flashcard.file + '): WARNING ! There is at least one table in the question. Content might overflow', 
+            )
     if (args.debug_mode == True):
-        print('opale2flashcard.py(' + flashcard.file +  ')(Debug): Image - Length (Q, C, A): ' + str(len(flashcard.question)) + ' ' + str(len(flashcard.choices)) + ' ' + str(len(flashcard.answer)) + " ")
+        print('opale2flashcard.py(' + flashcard.file +  ')(Debug): Image - Length (Q, C, A): ' + str(flashcard.question_length) + ' ' + str(flashcard.choices_length) + ' ' + str(flashcard.answer_length) + " ")
 
 def check_content(flashcard):
     # Check irrelevant content in flashcard
@@ -432,7 +436,7 @@ def write_solution(question_type, solution_list, choice_number, question_count):
             output += "\color{white}\n$"
         
         output += str(choice) + ':'
-        if (str(choice) in solution_list):
+        if (choice in solution_list):
             output += '\\boxtimes'
         else:
             output += '\\square'
@@ -511,7 +515,7 @@ def write_output(flashcard, question_count):
 
     # Image is rectangular, 2x2 grid
     if (flashcard.image_rectangular is True):
-        minipage_length = 0.90/(len(flashcard.choices)//2)
+        minipage_length = str(0.90/(len(flashcard.choices)//2))
         output.append('\\begin{minipage}[l]{' + minipage_length + '\\linewidth}\n\\begin{enumerate}\n')
         i = 0
         for choice in flashcard.choices:
@@ -1026,7 +1030,7 @@ def fetch_solution(file, root, question_type):
             choice_number += 1
 
         for solution in root.iterfind(".//sc:solution", namespace):
-            solution_list = solution.attrib.values()
+            solution_list = [int(i) for i in solution.attrib.values()]
 
     if (not solution_list):
         write_logs(
@@ -1228,7 +1232,7 @@ def opale_to_tex(args):
     # Termination message
     ## Check if --force has been declared
     if (args.force == True):
-        print("WARNING : Option force has been declared. Transcription will process regardless of missing metadata.\n 'Missing [metadata_name]' will be added to fill in the flashcard.\n Error count is false.\n")
+        print("WARNING : Option force has been declared. Transcription will process regardless of missing metadata.\n 'Missing [metadata_name]' will be added to fill in the flashcard.\n Error count may be wrong.\n")
     ## Check if --logs has been declared
     if (args.logs == True):
         print("WARNING : Option logs has been declared. Errors messages will be written in output/logs.txt")
