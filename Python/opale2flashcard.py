@@ -723,12 +723,6 @@ def fetch_content(file, root, licence_theme_dict, subject_dict):
 
     return flashcard
 
-def output_check(output):
-    if ('http://' in output or 'https://'):
-        output = output
-
-    return output
-
 def output_cleanup(output):
     # Delete control characters like \n \t \r
     translator = str.maketrans('\n\t\r', '   ')
@@ -848,8 +842,6 @@ def mixed_content_parsing(file, node):
     output = ''
     gen = tail_gen(file, node, False)
     for element in gen:
-        if (remove_namespace(node).localname == 'inlineStyle'):
-            element = ' ' + element + ' '
         if (type(element) != str):
             if (remove_namespace(element).localname == 'url'):
                 continue
