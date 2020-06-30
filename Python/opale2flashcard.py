@@ -162,7 +162,7 @@ roles_markup = {
 
 tags_markup = {
     "textLeaf" : None,
-    "inlineStyle" : None,
+    "inlineStyle" : (' ', ' '),
     "choiceLabel" : ("\item ", "\n"),
     "choiceExplanation" : None,
     "txt" : None,
