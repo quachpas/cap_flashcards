@@ -261,7 +261,9 @@ def get_subject_and_themes(filename, parser):
 
 def cleantheme(text):
     text=''.join((c for c in unicodedata.normalize('NFKC', text)))
-    text=''.join(e for e in text  if (e.isalnum() or ord(e)==ord(' ')))
+    print(text)
+    text=''.join(e for e in text if (e.isalnum() or ord(e)==ord(' ') or e in ['-', ',', '(', ')']))
+    print(text)
     return text.strip()
 
 def calc_vspace_parameters(flashcard):
@@ -407,7 +409,10 @@ def write_logs(err_message, verb_err_message):
         elif (err_message is not None):
             print(err_message)
     else:
-        logs = open('output/logs.txt', 'a', encoding = 'utf-8')
+        # Get output directory
+        output_dir = get_output_directory()
+        logsfile_path = os.path.join(output_dir, 'logs.txt')
+        logs = open(logsfile_path, 'a', encoding = 'utf-8')
         if (args.verbose == True and verb_err_message is not None):
             logs.write(time.strftime('opale2flashcard.py:' + "%m-%d-%Y @ %H:%M:%S - ", time.localtime()) + verb_err_message + '\n')
         elif (err_message is not None):
@@ -1202,7 +1207,6 @@ def opale_to_tex(args):
 
     # Comment this line if you want to use a hard-coded dictionary
     (licence_theme, subject) = get_subject_and_themes(args.themefile, parser)
-
     # Example hard-coded dictionary
     # licence_theme = {
     #     'strucmat': 'Structure de la matière',
