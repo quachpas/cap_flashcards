@@ -4,8 +4,6 @@
     - [What is Opale?](#what-is-opale)
     - [Documentation](#documentation)
   - [Why this script?](#why-this-script)
-- [Project's roadmap](#projects-roadmap)
-  - [To do list](#to-do-list)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
     - [Linux systems](#linux-systems)
@@ -80,30 +78,6 @@ Find below the front and the back of a flashcard.
 <img src="LaTeX/models/recto-flash-cards.png" width=400>
 <img src="LaTeX/models/verso-flash-cards.png" width=400>
 
-
-## Project's roadmap
-- The script is a POC, therefore some functionalities may not work perfectly. Please use the debugging tools to check the validity of the produced flashcards before printing or sending into production.
-### To do list
-- Short tasks
-  - A short text and a QR code are added automatically at the back of the flashcard. Add an option to disable it.
-  - Add option to disable choice explanation's output. 
-- Moderately long tasks
-  - Image suppport is limited, as it's always put on the right side of the text. Better image support.
-  - The icon is included in all flashcards. Implement a system to handle different icons according to which subject the flashcard has.
-  - As of now, only one document is given "out.pdf" as the script's output. Categorised output will be added (sorted by subject, errors flashcards, etc.).
-  - Template LaTeX flashcards' better
-    - Transfer a4paper positions to Python, to prepare for an eventual move to a configuration file.
-    - Create a new command for solutions boxes.
-- Long tasks
-  - The QR code is static, a dynamic QR code generation according to the ressources found in the source file may be added in the future.
-  - Write a configuration file template (YAML?) to implement:
-    - custom short text on the back of the flashcard
-    - custom subject/licence_theme dictionary and complexity_level dictionary 
-    - QR Code toggle
-    - etc.
-    - Expected behaviour:
-      - Set default values to the script console options 
-      - console options should override configuration file
 ## Getting Started
 The root folder contains:
 - [LICENSE](LICENSE), the license file.
@@ -118,23 +92,9 @@ There are three folders in this repository : Example files, LaTeX and Python.
 ### Prerequisites
 The script has only been tested on a linux system so far (Ubuntu 18.04.4 LTS). If all dependencies are installed, it should probably work seamlessly. You might need to tweak a few settings for `inkscape` to work properly.
 
-Here is the latexmk tool I use in VS Code's LaTeX Workshop:
-```json
-"name": "latexmk",
-"command": "latexmk",
-"args": [
-    "-xelatex",
-    "-synctex=1",
-    "-interaction=nonstopmode",
-    "-file-line-error",
-    "-outdir=%OUTDIR%",
-    "--shell-escape",
-    "-cd",
-    "%DOC%"
-]
-```
+Please check that you have all necessary latex packages installed. If not, use `tlmgr` to install the missing packages. You can find an exhaustive list in the wiki. The ones you probably won't have already installed are : `svg`, `background`, `eso-pic`, `changepage`.
 
-The recipe calls that tool once.
+The script calls that tool **twice** and it can take up to a few minutes to produce a complete pdf of a few hundreds flashcards.
 
 #### Linux systems
 Install `python3` if needed and `inkscape` ([Installation guide](https://wiki.inkscape.org/wiki/index.php/Installing_Inkscape#Installing_on_Linux)), these are required packages.
@@ -183,7 +143,8 @@ Open a terminal and run the script.
 python3 ./Python/opale2flashcard.py ./Examples-files ./Examples-files/themeLicence.xml
 ```
 
-The output will be in `./cap_flashcards/Python/output/out.tex`.
+The output will be found in your **current directory**, that is from where you launch the script.
+
 ## How to use the script?
 ### General instructions
 The script works in collaboration with SCENARIchain.
@@ -195,6 +156,8 @@ You will need the following:
     > Both of these **must be** SVG files.
   - an icon and a logo are provided by default in [Python/output/images](./Python/output/images). 
 > The script uses some tags that are present in Opale's document models **mcqSur** and **mcqMur**. Please find Opale's documentation [here](https://download.scenari.software/Opale@3.7/).
+
+**You will find more details on how to obtain a scar archive in the wiki. This particular page is written in French.**
 
 ## Contributing
 
