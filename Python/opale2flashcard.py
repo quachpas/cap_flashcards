@@ -265,10 +265,10 @@ def cleantheme(text):
 def calc_vspace_parameters(flashcard):
     if (flashcard.image is not None):
         vspace_question = 0.10
-        vspace_answer = 0.05
+        vspace_answer = 0.10
     else:
         vspace_question = 0.15
-        vspace_answer = 0.05
+        vspace_answer = 0.10
 
     return (vspace_question, vspace_answer)
 
@@ -345,8 +345,8 @@ def check_generator(file, generator, expression):
 def check_overflow(flashcard):
     if (flashcard.image is None):
         if (
-                flashcard.question_length + flashcard.choices_length > 550
-                or flashcard.answer_length > 725
+                flashcard.question_length + flashcard.choices_length > 530
+                or flashcard.answer_length > 630
         ):
             flashcard.overflow_flag = True
             flashcard.err_message += 'opale2flashcard.py(' + flashcard.file +  '): No image - Potentially overflowing content (Q, C, A): ' + str(flashcard.question_length) + ' ' + str(flashcard.choices_length) + ' ' + str(flashcard.answer_length) + " "
@@ -375,6 +375,11 @@ def check_content(flashcard):
     if ('http://' in flashcard.answer or 'https://' in flashcard.answer):
         flashcard.relevant = False
         flashcard.err_message += 'opale2flashcard.py(' + flashcard.file + "): Answer contains an URL."
+    
+    if (not flashcard.choices):
+        flashcard.err_flag = True
+        flashcard.err_message += 'opale2flashcard.py(' + flashcard.file + "): Flashcard does not have any choices."
+
 
 def check_output(output, err_count):
     if (args.file_name is True and output.count("\\begin{flashcard}") != 1):
@@ -779,14 +784,20 @@ def fetch_choices(file, root):
     text_length = 0
     # Choice is text-only
     check_generator(file, root.iterfind(".//sc:choice//sc:choiceLabel", namespace), './/sc:choice//sc:choiceLabel')
+    i = 0
     for element in root.iterfind(".//sc:choice//sc:choiceLabel//op:txt", namespace):
-        output += '\\item '
+        output += '\\item [' + str(i) + ']'
         for child in element.getchildren():
             output += mixed_content_parsing(file, child)
             text_length += len(mixed_content_parsing(file, child))
-        output += '\n'
-        output_arr.append(output)
-        output = ''
+        if(output == '\\item [' + str(i) + ']'):
+            output = ''
+        else:
+            output += '\n'
+            output_arr.append(output)
+            output = ''
+            i += 1
+    
     if (args.file_name == file and args.debug_mode is True):
         print('CHOICES\n' + ''.join(output_arr))
     return (output_arr, text_length)
@@ -990,7 +1001,7 @@ def write_output(flashcard, question_count):
     output.append('\\vspace*{\\stretch{1}}\n\\color{white}\n')
     # Answer/Solution
     output.append(write_solution(flashcard.question_type, flashcard.solution_list, flashcard.choice_number, question_count))
-    output.append('\\vspace{0.10\\textheight}\n\\RaggedRight\n')
+    output.append('\\vspace{' + str(vspace_answer) + '\\textheight}\n\\RaggedRight\n')
     
     output.append(flashcard.answer + '\n')
     output.append('\\vspace*{\\stretch{1}}\n\\end{flashcard}\n\n')
