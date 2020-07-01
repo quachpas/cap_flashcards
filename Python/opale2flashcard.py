@@ -1056,7 +1056,8 @@ def write_outfile(output, subject):
 def write_outfile_header(subject_set):
     # Get output directory
     output_dir = get_output_directory()
-    subject_set.remove('')
+    if ('' in subject_set):
+        subject_set.remove('')
     for subject in subject_set:
         outfile_path = os.path.join(output_dir, 'out-' + subject.lower() + '.tex')
         
@@ -1098,7 +1099,8 @@ def write_header(output_dir, outfile_path):
 def write_outfile_footer(subject_set):
     # Get output directory
     output_dir = get_output_directory()
-    subject_set.remove('')
+    if ('' in subject_set):
+        subject_set.remove('')
     for subject in subject_set:
         outfile_path = os.path.join(output_dir, 'out-' + subject.lower() + '.tex')
 
@@ -1155,17 +1157,11 @@ def write_flashcards(flashcard_list):
 
 def sort_flashcards_by_subject(flashcard_list, subject_set):
     sorted_list = []
-    unsortable_list = []
     subject = ''
     for subject in subject_set:
         for fc in flashcard_list:
             if (fc.subject == subject):
-                sorted_list.append(fc)
-            else:
-                unsortable_list.append(fc)
-    
-    for fc in unsortable_list:
-        sorted_list.append(fc)
+                sorted_list.append(fc)    
         
     return sorted_list
 
@@ -1277,7 +1273,6 @@ def opale_to_tex(args):
     (flashcard_list, subject_list, question_count, err_count) = parse_files(args, question_count, err_count, parser, licence_theme, subject)
     
     sorted_list = sort_flashcards_by_subject(flashcard_list, set(subject_list))
-    
     write_outfile_header(set(subject_list))
     write_flashcards(sorted_list)
     write_outfile_footer(set(subject_list))
