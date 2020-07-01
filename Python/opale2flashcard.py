@@ -1043,7 +1043,7 @@ def write_out_a4paper(flashcard_list):
 def write_outfile(output, subject):
     # Get output directory
     output_dir = get_output_directory()
-    if (subject is not None or subject != ''):
+    if (subject is not None and subject != ''):
         outfile_path = os.path.join(output_dir, 'out-' + subject.lower() + '.tex')
     else:
         outfile_path = os.path.join(output_dir, 'out.tex')
@@ -1056,6 +1056,7 @@ def write_outfile(output, subject):
 def write_outfile_header(subject_set):
     # Get output directory
     output_dir = get_output_directory()
+    subject_set.remove('')
     for subject in subject_set:
         outfile_path = os.path.join(output_dir, 'out-' + subject.lower() + '.tex')
         
@@ -1097,6 +1098,7 @@ def write_header(output_dir, outfile_path):
 def write_outfile_footer(subject_set):
     # Get output directory
     output_dir = get_output_directory()
+    subject_set.remove('')
     for subject in subject_set:
         outfile_path = os.path.join(output_dir, 'out-' + subject.lower() + '.tex')
 
