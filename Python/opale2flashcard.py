@@ -12,7 +12,6 @@ import traceback
 import xml.dom.minidom as minidom
 import time
 import timeit
-
 from lxml import etree
 from itertools import zip_longest
 
@@ -896,7 +895,6 @@ def fetch_solution(file, root, question_type):
             'opale2flashcard.py(' + file + '): WARNING ! The solution_list is empty. Question type was : ' + question_type + '.'
         )
 
-
     return (solution_list, choice_number)
 
 
@@ -929,9 +927,7 @@ def process_error(flashcard):
             flashcard.err_message,
             flashcard.err_message
         ) 
-def process_write_outfile(flashcard, output):
-    rejected = {}
-    accepted = {}
+def process_write_outfile(flashcard, output, accepted, rejected):
     # If any output options have been declared
     if (args.file_name is not None or args.image_only is True or args.overflow_only is True or args.non_relevant_only is True):
         # Treat each `option`
@@ -949,20 +945,25 @@ def process_write_outfile(flashcard, output):
             write_outfile(output, None)
     # Else, just write the output if the flashcard is valid, or force option has been set
     elif (flashcard.err_flag is False and flashcard.overflow_flag is False and flashcard.relevant is True or args.force == True):
-        if (rejected[flashcard.subject.lower()] is None):
-            rejected[flashcard.subject.lower()] = 0
+        if (flashcard.subject.lower() in accepted):
+            accepted[flashcard.subject.lower()] += 1
         else:
-            rejected[flashcard.subject.lower()] += 1
+            accepted[flashcard.subject.lower()] = 0
             
         write_outfile(output, flashcard.subject.lower())
         write_outfile(output, None)
+        
     else:
-        if (accepted[flashcard.subject.lower()] is None):
-            accepted[flashcard.subject.lower()] = 0
+        if (flashcard.subject.lower() in rejected):
+            rejected[flashcard.subject.lower()] += 1
         else:
-            accepted[flashcard.subject.lower()] += 1
-        rejected = flashcard.subject.lower() + '-rejected'
-        write_outfile(output, rejected)
+            rejected[flashcard.subject.lower()] = 0
+        
+        if (flashcard.subject.lower() == ''):
+            write_outfile(output, 'unclassifiable-rejected')
+        else:
+            write_outfile(output, flashcard.subject.lower() + '-rejected')
+            
         write_outfile(output, 'rejected')
         
     return (accepted, rejected)
@@ -1163,6 +1164,8 @@ def write_background_parameter(flashcard):
 def write_flashcards(flashcard_list):
 # Write output string and write in outfile
 ## Default output format
+    accepted = {}
+    rejected = {}
     output = []
     if (args.a4paper == False):
         question_count = 0
@@ -1181,7 +1184,7 @@ def write_flashcards(flashcard_list):
                     output.append(out)
             
             # Write in the outfile only the valid files
-            (accepted, rejected) = process_write_outfile(flashcard, output)
+            (accepted, rejected) = process_write_outfile(flashcard, output, accepted, rejected)
             output = []
             question_count += 1
             
@@ -1280,7 +1283,7 @@ def opale_to_tex(args):
     if (not os.path.isdir(args.sourcedir)):
         sys.stderr.write('Error source directory: ' + args.sourcedir + ' is not a directory or does not exist.\n')
         sys.exit(1)
-    if (not os.path.isfile(args.themefile)):    
+    if (not os.path.isfile(args.themefile)):
         sys.stderr.write('Error themefile: ' + args.themefile +' is not a file or does not exist.\n')
         sys.exit(1)
     if (args.file_name is not None):
@@ -1340,13 +1343,16 @@ def opale_to_tex(args):
     print('opale2flashcard.py: ' +str(err_count) + '/' + str(question_count) + ' flashcards errors, either metadata or overflowing content.\n These files will not be transcripted. Use option "--force" to ignore.\n')
     
     ## Display statistics
-    print("Accepted flashcards by flashcards:")
+    print("Accepted flashcards by subject:", str(question_count-err_count))
     for subject in accepted:
         print(subject, ':', accepted[subject])
 
-    print("Rejected flashcards by flashcards:")
+    print("\nRejected flashcards by subject:", str(err_count))
     for subject in rejected:
-        print(subject, ':', rejected[subject])
+        if (subject == ''):
+            print('Non classifié', ':', rejected[subject])
+        else:
+            print(subject, ':', rejected[subject])
         
     ## Informations
     if (args.no_replace == False):
