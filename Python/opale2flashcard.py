@@ -499,7 +499,7 @@ def write_output(flashcard, question_count):
 
     # Question + Choices
     if (flashcard.image is not None):
-        output.append('\\begin{minipage}[t]{0.6\\linewidth}\n')
+        output.append('\\begin{minipage}[t]{0.5\\linewidth}\n')
     output.append(flashcard.question + '\n')
     
     # Image is square, 1x2 grid
@@ -860,7 +860,7 @@ def fetch_question(file, root):
     text_length = 0
     square = False
     rectangular = False
-    image = "\hfill\n\\begin{minipage}[t]{0.3\linewidth}\n\strut\\vspace*{-\\baselineskip}\\newline\n"
+    image = "\hfill\n\\begin{minipage}[t]{0.45\linewidth}\n\strut\\vspace*{-\\baselineskip}\\newline\n"
     path_to_image = ''
     # Questions can have rich content (images, etc.), so we examine every children
     check_generator(file , root.iterfind(".//sc:question/op:res", namespace), './/sc:question/op:res')
