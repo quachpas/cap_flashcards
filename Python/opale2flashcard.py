@@ -82,7 +82,7 @@ Logs will be in './output/logs.txt'.
 After cloning the repository, you should download a .scar archive from Scenari
 and unzip it directly in the same directory (rename it to '*.zip').
 Pass in the path to the directory containing the .quiz files to the script.
-If you have latexmk installed, you can use the '--compile' option to directly
+If you have xelatex installed, you can use the '--compile' option to directly
 compile the pdf. 
 """, formatter_class=RawDescriptionHelpFormatter)
 
@@ -784,13 +784,13 @@ def fetch_choices(file, root):
     text_length = 0
     # Choice is text-only
     check_generator(file, root.iterfind(".//sc:choice//sc:choiceLabel", namespace), './/sc:choice//sc:choiceLabel')
-    i = 0
+    i = 1
     for element in root.iterfind(".//sc:choice//sc:choiceLabel//op:txt", namespace):
-        output += '\\item [' + str(i) + ']'
+        output += '\\item [' + str(i) + '.]'
         for child in element.getchildren():
             output += mixed_content_parsing(file, child)
             text_length += len(mixed_content_parsing(file, child))
-        if(output == '\\item [' + str(i) + ']'):
+        if(output == '\\item [' + str(i) + '.]'):
             output = ''
         else:
             output += '\n'
@@ -1103,7 +1103,7 @@ def write_header(output_dir, outfile_path):
         if ('% Graphicspath' not in line):
             outfile.write(line)
         else:
-            outfile.write('\graphicspath{{' + output_dir + '/images/' + '/}' + '}\n')
+            outfile.write('\graphicspath{{' + output_dir + '/images/' + '}' + '}\n')
     outfile.write('\n\n')
     header.close
 
@@ -1248,8 +1248,8 @@ def compile_tex(args):
     if (args.compile == True):
         
         os.chdir(get_output_directory())
-        os.system("latexmk --xelatex --synctex=1 --interaction=batchmode --file-line-error --shell-escape out.tex")
-        # os.system("latexmk -c")
+        os.system("xelatex --synctex=1 --interaction=batchmode --file-line-error --shell-escape out.tex")
+        os.system("xelatex --synctex=1 --interaction=batchmode --file-line-error --shell-escape out.tex")
 
 def clean_tex(args):
         
@@ -1326,7 +1326,7 @@ def opale_to_tex(args):
     print('Please make use of the "--XXX-only" options to check every flashcard for potential defects')
 
     if (args.compile == False):
-        print("opale2flashcard.py: The .tex file out.tex has been created in ./output directory. Compiling it will produce a pdf file containing all flashcards in the specified source directory.\n Use option '--compile' if you want to compile directly after. You must have latexmk installed.")
+        print("opale2flashcard.py: The .tex file out.tex has been created in ./output directory. Compiling it will produce a pdf file containing all flashcards in the specified source directory.\n Use option '--compile' if you want to compile directly after. You must have xelatex installed.")
     else:
         print("The .tex file has been compiled. The output pdf is in ./output directory. Please refer to output.log for eventual compilation errors.")
 
