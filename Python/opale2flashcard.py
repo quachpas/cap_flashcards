@@ -89,7 +89,7 @@ compile the pdf.
 parser.add_argument('sourcedir', help = """
 XML files\' directory path - Path to root directory containing all XML files. 
 N.B. : Unzipping a .scar archive is the simplest workaround to have the .quiz files locally. 
-To refer correctly to the "&" directory, you need to add an \ before. The path becomes "*/\&.
+To refer correctly to the "000&" directory, you need to add an \ before. The path becomes "*/\&.
 Example : python3 opale2flashcard.py faq2sciences/Physique-thermo_2020-2-11/\&
 """)
 parser.add_argument('themefile', help = """
@@ -309,7 +309,7 @@ def get_headers_directory():
 
 def check_metadata(flashcard):
     if (flashcard.complexity_level is None or flashcard.complexity_level == "Missing Complexity Level" 
-            or flashcard.education_level is None or flashcard.education_level == "Missing Education Level" 
+            # or flashcard.education_level is None or flashcard.education_level == "Missing Education Level" 
             or flashcard.licence_theme is None or flashcard.licence_theme == "Missing Licence Theme"
             or flashcard.subject is None or flashcard.subject == "Missing Subject"):
         if (args.force == False):
@@ -318,8 +318,8 @@ def check_metadata(flashcard):
             flashcard.err_message += 'opale2flashcard.py: ' + flashcard.file + ' was not written in out.tex.\n' + 'Metadata is missing :'
             if (flashcard.complexity_level is None or flashcard.complexity_level == "Missing Complexity Level"):
                 flashcard.err_message += "\t- Missing Complexity Level\n"
-            if (flashcard.education_level is None or flashcard.education_level == "Missing Education Level"):
-                flashcard.err_message += "\t- Missing Education Level\n"
+            # if (flashcard.education_level is None or flashcard.education_level == "Missing Education Level"):
+            #     flashcard.err_message += "\t- Missing Education Level\n"
             if (flashcard.licence_theme is None or flashcard.licence_theme == "Missing Licence Theme"):
                 flashcard.err_message += "\t- Missing Licence theme\n"
             if (flashcard.subject is None or flashcard.subject == "Missing Subject"):
@@ -343,13 +343,13 @@ def check_generator(file, generator, expression):
 def check_overflow(flashcard):
     if (flashcard.image is None):
         if (
-                flashcard.question_length + flashcard.choices_length > 490
+                flashcard.question_length + flashcard.choices_length > 550
                 or flashcard.answer_length > 725
         ):
             flashcard.overflow_flag = True
             flashcard.err_message += 'opale2flashcard.py(' + flashcard.file +  '): No image - Potentially overflowing content (Q, C, A): ' + str(flashcard.question_length) + ' ' + str(flashcard.choices_length) + ' ' + str(flashcard.answer_length) + " "
     else:
-        if (flashcard.image_square and flashcard.question_length + flashcard.choices_length > 240 or flashcard.image_rectangular and flashcard.question_length + flashcard.choices_length > 450 or flashcard.answer_length > 780):
+        if (flashcard.image_square is True and flashcard.question_length + flashcard.choices_length > 240 or flashcard.image_rectangular is True and flashcard.question_length + flashcard.choices_length > 385 and flashcard.choices_length > 60 or flashcard.answer_length > 780):
             flashcard.overflow_flag = True
             flashcard.err_message += 'opale2flashcard.py(' + flashcard.file +  '): Image - Potentially overflowing content (Q, C, A): ' + str(flashcard.question_length) + ' ' + str(flashcard.choices_length) + ' ' + str(flashcard.answer_length) + " "
         if (flashcard.image.count("includegraphics") >= 2):
@@ -482,6 +482,7 @@ def solution_positions_a4paper(question_count):
     
     return (x_shift_1, x_shift_2, y_shift_1, y_shift_2)
 
+<<<<<<< HEAD
 def write_output(flashcard, question_count):
     # Variables
     output = []
@@ -649,6 +650,8 @@ def write_outfile_footer():
     
     footer.close
 
+=======
+>>>>>>> 3c8368000ee2c0580172bd2f7c44d454d698c9eb
 def fetch_content(file, root, licence_theme_dict, subject_dict):
     # Fetch data
     # variables 
@@ -902,8 +905,8 @@ def fetch_question(file, root):
                     image += "\\includegraphics[max size={\\textwidth}{0.5\\textheight}, center, keepaspectratio]{" + path_to_image + "}\n"
                 else:
                     write_logs(
-                        'gif images are not supported',
-                        'Found a .gif ressource image. Not supported'
+                        file + ' > Found a .gif ressource/image. Not supported',
+                        file + ' > Found a .gif ressource/image. Not supported'
                     )
 
     # unchanged -> no image
@@ -1077,21 +1080,212 @@ def process_write_outfile(flashcard, output):
     if (args.file_name is not None or args.image_only is True or args.overflow_only is True or args.non_relevant_only is True):
         # Treat each `option`
         if (args.file_name == flashcard.file and args.file_name is not None):
-            write_outfile(output)
+            write_outfile(output, flashcard.subject.lower())
+            write_outfile(output, None)
         if (flashcard.image is not None and args.image_only is True):
-            write_outfile(output)
+            write_outfile(output, flashcard.subject.lower())
+            write_outfile(output, None)
         if (flashcard.overflow_flag is True and args.overflow_only is True):
-            write_outfile(output)
+            write_outfile(output, flashcard.subject.lower())
+            write_outfile(output, None)
         if (flashcard.relevant is False and args.non_relevant_only is True):
-            write_outfile(output)
+            write_outfile(output, flashcard.subject.lower())
+            write_outfile(output, None)
     # Else, just write the output if the flashcard is valid, or force option has been set
     elif (flashcard.err_flag is False and flashcard.overflow_flag is False and flashcard.relevant is True or args.force == True):
-        write_outfile(output)
+        write_outfile(output, flashcard.subject.lower())
+        write_outfile(output, None)
+
+def write_output(flashcard, question_count):
+    # Variables
+    output = []
+    (vspace_question, vspace_answer) = calc_vspace_parameters(flashcard)
+    
+    # Output
+    output.append('% Flashcard : ' + flashcard.file + '/' + flashcard.question_type + '\n')
+    output.append('% (Q, C, A) : ' + str(flashcard.question_length) + ', ' + str(flashcard.choices_length) + ', ' + str(flashcard.answer_length) + '\n')
+
+    output.append('\\cardbackground\n{' + flashcard.complexity_level + '}\n{' + flashcard.subject + '}\n{' + flashcard.licence_theme + '}\n{' + 'qrcode}\n')
+    # TODO : Qrcode ici, hardcoded. HARDCODED
+
+    output.append('\\begin{flashcard}[]{\n\\color{black}\n')
+    output.append('\\vspace{' + str(vspace_question) + '\\textheight}\n\\RaggedRight\n')
+
+    # Question + Choices
+    if (flashcard.image is not None):
+        output.append('\\begin{minipage}[t]{0.6\\linewidth}\n')
+    output.append(flashcard.question + '\n')
+    
+    # Image is square, 1x2 grid
+    if (flashcard.image_rectangular is False):
+        output.append('\\begin{enumerate}\n')
+        for choice in flashcard.choices:
+            output.append(choice)
+        output.append('\\end{enumerate}\n')
+
+    if (flashcard.image is not None):
+        output.append('\\end{minipage}\n')
+        output.append(flashcard.image + '\n')
+
+    # Image is rectangular, 2x2 grid
+    if (flashcard.image_rectangular is True):
+        if (len(flashcard.choices) % 2 == 0):
+            minipage_length = str(0.90/(len(flashcard.choices)//2))
+        else:
+            minipage_length = str(0.90/(len(flashcard.choices)//2+1))
+        output.append('\\begin{minipage}[l]{' + minipage_length + '\\linewidth}\n\\begin{enumerate}\n')
+        i = 0
+        for choice in flashcard.choices:
+            if (i % 2 == 0 and i != 0):
+                output.append('\\end{enumerate}\n\\end{minipage}\n\\hfill\n')
+                output.append('\\begin{minipage}[l]{' + minipage_length + '\\linewidth}\n\\begin{enumerate}\n')
+            output.append(choice)
+            i += 1
+        output.append('\\end{enumerate}\n\\end{minipage}\n\\hfill\n')
+
+    output.append('}\n')
+    output.append('\\vspace*{\\stretch{1}}\n\\color{white}\n')
+    # Answer/Solution
+    output.append(write_solution(flashcard.question_type, flashcard.solution_list, flashcard.choice_number, question_count))
+    output.append('\\vspace{0.10\\textheight}\n\\RaggedRight\n')
+    
+    output.append(flashcard.answer + '\n')
+    output.append('\\vspace*{\\stretch{1}}\n\\end{flashcard}\n\n')
+    
+    return output
+   
+def write_out_a4paper(flashcard_list):
+    output_list = []
+    footer = ['\\cardfrontfooter']
+    question_count = 0 # Keeps track which question we're processing on a page [0-6]
+    question_number = 0 # Keeps track of which question we're processing in flashcard_list [0-len(flashcard_list)]
+    error_count = 0 # Tracking number of questions with missing metadata
+
+    # Main Loop
+    for fc in flashcard_list:
+        question_number += 1
+        question_count += 1
+        output_list.append(write_output(fc, question_count))
+        if (question_count != 6 and len(flashcard_list) - question_number >= 1):
+            # If len(flashcard_list) - question_number is between 6 and 1, then we're processing the last page of flashcards
+            # The number of remaining flashcards will not be sufficient to do another loop
+            # So we treat the last flashcard separately 
+            footer.append('{' + fc.complexity_level + '}\n')
+        elif (len(flashcard_list) - question_number == 0 ):
+            footer.append(fc.complexity_level + '}\n')
+        else:
+            question_count = 0
+            footer.append('{' + fc.complexity_level + '}\n')
+            output = ''.join(footer)
+            for fc in output_list:
+                output += ''.join(fc)
+            write_outfile(output, fc.subject.lower())
+            output = ''
+            output_list = []
+            footer = ['\cardfrontfooter']
+
+    # Writing "\cardfrontfooter{.}{.}{.}{.}{.}{.}"
+    output = ''.join(footer)
+
+    # Adding the missing empty parameters to \cardfrontfooter
+    for _ in range(0, 6 - question_count):
+        output += '{}\n'
+
+    # Writing output string
+    for fc in output_list:
+        output += ''.join(fc)
+    
+    write_outfile(output, fc.subject.lower())
+
+    return error_count
+
+def write_outfile(output, subject):
+    # Get output directory
+    output_dir = get_output_directory()
+    if (subject is not None):
+        outfile_path = os.path.join(output_dir, 'out-' + subject.lower() + '.tex')
+    else:
+        outfile_path = os.path.join(output_dir, 'out.tex')
+    # Open outfile
+    outfile = open(outfile_path, 'a', encoding = 'utf-8')
+    # Write content
+    outfile.write(''.join(output))
+    outfile.close
+
+def write_outfile_header(subject_set):
+    # Get output directory
+    output_dir = get_output_directory()
+    for subject in subject_set:
+        outfile_path = os.path.join(output_dir, 'out-' + subject.lower() + '.tex')
+        
+        write_header(output_dir, outfile_path)    
+
+    outfile_path = os.path.join(output_dir, 'out.tex')
+    write_header(output_dir, outfile_path)  
+
+def write_header(output_dir, outfile_path):
+    # Get headers' directory
+    headers_dir = get_headers_directory()
+    header_default_path = os.path.join(headers_dir, 'header_default.tex')
+    header_a4paper_path = os.path.join(headers_dir, 'header_a4paper.tex')
+
+    # Directory and file output
+    if os.path.isdir(output_dir) is None:
+        os.mkdir(output_dir)
+    if os.path.isfile(outfile_path):
+        os.remove(outfile_path)
+
+    # Open outfile 
+    outfile = open(outfile_path, 'a', encoding = 'utf-8')
+
+    # Write header
+    if (args.a4paper == True):
+        header = open(header_a4paper_path,'r', encoding="utf-8")
+    else:
+        header = open(header_default_path,'r', encoding="utf-8")
+    for line in header.readlines():
+        if ('% Graphicspath' not in line):
+            outfile.write(line)
+        else:
+            outfile.write('\graphicspath{{' + output_dir + '/images/' + '/}' + '}\n')
+    outfile.write('\n\n')
+    header.close
+
+    outfile.close 
+
+def write_outfile_footer(subject_set):
+    # Get output directory
+    output_dir = get_output_directory()
+    for subject in subject_set:
+        outfile_path = os.path.join(output_dir, 'out-' + subject.lower() + '.tex')
+
+        write_footer(output_dir, outfile_path)
+
+    outfile_path = os.path.join(output_dir, 'out.tex')
+    write_footer(output_dir, outfile_path)
+
+def write_footer(output_dir, outfile_path):
+    # Get headers' directory
+    headers_dir = get_headers_directory()
+    footer_path = os.path.join(headers_dir, 'footer.tex')
+    
+    # Open outfile 
+    outfile = open(outfile_path, 'a', encoding = 'utf-8')
+
+    # Write footer
+    outfile.write('\n\n')
+    footer = open(footer_path,'r', encoding="utf-8")
+    for line in footer.readlines():
+        outfile.write(line)
+    
+    footer.close
 
 def write_background_parameter(flashcard):
-     write_outfile(['\\backgroundparam\n{' + flashcard.subject.lower() + '}\n{' + flashcard.subject.lower() + '-front-header}\n{' + flashcard.subject.lower() + '-front-footer}\n{' + flashcard.subject.lower() + '-back-background}\n{' + flashcard.subject.lower() + '-back-header}\n{' + flashcard.subject.lower() + '-back-footer}\n{front-university-logo}\n{back-university-logo}\n'])
+    backgroundparam = ['\\backgroundparam\n{' + flashcard.subject.lower() + '}\n{' + flashcard.subject.lower() + '-front-header}\n{' + flashcard.subject.lower() + '-front-footer}\n{' + flashcard.subject.lower() + '-back-background}\n{' + flashcard.subject.lower() + '-back-header}\n{' + flashcard.subject.lower() + '-back-footer}\n{front-university-logo}\n{back-university-logo}\n']
+    write_outfile(backgroundparam, flashcard.subject.lower())
+    write_outfile(backgroundparam, None)
 
-def write_flashcards(flashcard_list, subject_list, err_count):
+def write_flashcards(flashcard_list, err_count):
 # Write output string and write in outfile
 ## Default output format
     output = []
@@ -1101,7 +1295,7 @@ def write_flashcards(flashcard_list, subject_list, err_count):
             # Background parameters
             if (args.force is True
             or ((flashcard.overflow_flag is False and flashcard.err_flag is False) and 
-                (question_count == 0 or subject_list[question_count-1] != subject_list[question_count]))):
+                (question_count == 0 or flashcard_list[question_count-1].subject.lower() != flashcard_list[question_count].subject.lower()))):
                 write_background_parameter(flashcard)
             # Create a standard output only if the flashcard's errors flags are not set (or force option has been set)
             # OR if any debug "only-options" are used
@@ -1121,6 +1315,16 @@ def write_flashcards(flashcard_list, subject_list, err_count):
         err_count = write_out_a4paper(flashcard_list)
 
     return err_count
+
+def sort_flashcards_by_subject(flashcard_list, subject_set):
+    sorted_list = []
+    subject = ''
+    for subject in subject_set:
+        for fc in flashcard_list:
+            if (fc.subject.lower() == subject.lower()):
+                sorted_list.append(fc)
+    
+    return sorted_list
 
 def parse_files(args, question_count, parser, licence_theme, subject): # Copy all files in sourcedir/Prettified and prettify XML
     sourcedir = os.path.abspath(args.sourcedir)
@@ -1166,8 +1370,8 @@ def parse_files(args, question_count, parser, licence_theme, subject): # Copy al
             if (args.force == True):
                 if (flashcard.complexity_level is None):
                     flashcard.complexity_level = "Missing Complexity Level"
-                if (flashcard.education_level is None):
-                    flashcard.education_level = "Missing Education Level"
+                # if (flashcard.education_level is None):
+                #     flashcard.education_level = "Missing Education Level"
                 if (flashcard.licence_theme is None):
                     flashcard.licence_theme = "Missing Licence Theme"
                 if (flashcard.subject is None):
@@ -1218,10 +1422,12 @@ def opale_to_tex(args):
 
     # Variables
     (question_count, err_count) = (0,0)
-    write_outfile_header()
+    
     (flashcard_list, subject_list, question_count) = parse_files(args, question_count, parser, licence_theme, subject)
-    err_count = write_flashcards(flashcard_list, subject_list, err_count)
-    write_outfile_footer()
+    sorted_list = sort_flashcards_by_subject(flashcard_list, set(subject_list))
+    write_outfile_header(set(subject_list))
+    err_count = write_flashcards(sorted_list, err_count)
+    write_outfile_footer(set(subject_list))
 
     # Check out.tex
 
