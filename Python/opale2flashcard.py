@@ -264,10 +264,10 @@ def cleantheme(text):
 def calc_vspace_parameters(flashcard):
     if (flashcard.image is not None):
         vspace_question = 0.10
-        vspace_answer = 0.9
+        vspace_answer = 0.09
     else:
         vspace_question = 0.15
-        vspace_answer = 0.9
+        vspace_answer = 0.09
 
     return (vspace_question, vspace_answer)
 
