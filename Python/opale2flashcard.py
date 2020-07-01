@@ -555,7 +555,18 @@ def fetch_content(file, root, licence_theme_dict, subject_dict):
     (solution_list, choice_number) = fetch_solution(file, root, question_type)
 
     # Create Flashcard instance
-    flashcard = Flashcard(file, question_type, complexity_level, subject, education_level, licence_theme, question, image, square, rectangular, choices, answer, solution_list, choice_number, len(subject), len(licence_theme), question_length, choices_length, answer_length)
+    
+    if (subject == None):
+        subject = ''
+        subject_length = 0
+    else:
+        subject_length = len(subject)
+    if (licence_theme == None):
+        licence_theme_length = 0
+    else:
+        licence_theme_length = len(licence_theme)
+    
+    flashcard = Flashcard(file, question_type, complexity_level, subject, education_level, licence_theme, question, image, square, rectangular, choices, answer, solution_list, choice_number, subject_length, licence_theme_length, question_length, choices_length, answer_length)
 
     return flashcard
 
@@ -732,7 +743,7 @@ def fetch_question(file, root):
                         if(name == section.attrib.values()[0].split("/")[-1]):
                             path_to_image = os.path.abspath(os.path.join(root, name))
                 if (not path_to_image.endswith('.gif')):
-                    image += "\\includegraphics[max size={\\textwidth}{0.5\\textheight}, center, keepaspectratio]{" + path_to_image + "}\n"
+                    image += "\\includegraphics[max size={\\textwidth}{0.45\\textheight}, center, keepaspectratio]{" + path_to_image + "}\n"
                 else:
                     write_logs(
                         file + ' > Found a .gif ressource/image. Not supported',
@@ -740,7 +751,7 @@ def fetch_question(file, root):
                     )
 
     # unchanged -> no image
-    if (image == "\\hfill\n\\begin{minipage}[t]{0.3\linewidth}\n\\strut\\vspace*{-\\baselineskip}\\newline\n"):
+    if (image == "\\hfill\n\\begin{minipage}[t]{0.45\linewidth}\n\\strut\\vspace*{-\\baselineskip}\\newline\n"):
         image = None
     elif (image is not None):
         image += '\n\\end{minipage}'
@@ -1115,7 +1126,7 @@ def write_background_parameter(flashcard):
     write_outfile(backgroundparam, flashcard.subject.lower())
     write_outfile(backgroundparam, None)
 
-def write_flashcards(flashcard_list, err_count):
+def write_flashcards(flashcard_list):
 # Write output string and write in outfile
 ## Default output format
     output = []
@@ -1139,21 +1150,21 @@ def write_flashcards(flashcard_list, err_count):
             process_write_outfile(flashcard, output)
             output = []
             question_count += 1
-    else:
-        # Once finished reading all files in sourcedir, write output and write into outfile.
-        # Deprecated TODO
-        err_count = write_out_a4paper(flashcard_list)
-
-    return err_count
 
 def sort_flashcards_by_subject(flashcard_list, subject_set):
     sorted_list = []
+    unsortable_list = []
     subject = ''
     for subject in subject_set:
         for fc in flashcard_list:
-            if (fc.subject.lower() == subject.lower()):
+            if (fc.subject == subject):
                 sorted_list.append(fc)
+            else:
+                unsortable_list.append(fc)
     
+    for fc in unsortable_list:
+        sorted_list.append(fc)
+        
     return sorted_list
 
 def parse_files(args, question_count, parser, licence_theme, subject): # Copy all files in sourcedir/Prettified and prettify XML
@@ -1200,8 +1211,6 @@ def parse_files(args, question_count, parser, licence_theme, subject): # Copy al
             if (args.force == True):
                 if (flashcard.complexity_level is None):
                     flashcard.complexity_level = "Missing Complexity Level"
-                # if (flashcard.education_level is None):
-                #     flashcard.education_level = "Missing Education Level"
                 if (flashcard.licence_theme is None):
                     flashcard.licence_theme = "Missing Licence Theme"
                 if (flashcard.subject is None):
@@ -1254,9 +1263,11 @@ def opale_to_tex(args):
     (question_count, err_count) = (0,0)
     
     (flashcard_list, subject_list, question_count) = parse_files(args, question_count, parser, licence_theme, subject)
+    
     sorted_list = sort_flashcards_by_subject(flashcard_list, set(subject_list))
+    
     write_outfile_header(set(subject_list))
-    err_count = write_flashcards(sorted_list, err_count)
+    write_flashcards(sorted_list)
     write_outfile_footer(set(subject_list))
 
     # Check out.tex
