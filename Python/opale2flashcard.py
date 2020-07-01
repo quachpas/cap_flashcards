@@ -265,10 +265,10 @@ def cleantheme(text):
 def calc_vspace_parameters(flashcard):
     if (flashcard.image is not None):
         vspace_question = 0.10
-        vspace_answer = 0.10
+        vspace_answer = 0.9
     else:
         vspace_question = 0.15
-        vspace_answer = 0.10
+        vspace_answer = 0.9
 
     return (vspace_question, vspace_answer)
 
@@ -346,12 +346,12 @@ def check_overflow(flashcard):
     if (flashcard.image is None):
         if (
                 flashcard.question_length + flashcard.choices_length > 530
-                or flashcard.answer_length > 630
+                or flashcard.answer_length > 615
         ):
             flashcard.overflow_flag = True
             flashcard.err_message += 'opale2flashcard.py(' + flashcard.file +  '): No image - Potentially overflowing content (Q, C, A): ' + str(flashcard.question_length) + ' ' + str(flashcard.choices_length) + ' ' + str(flashcard.answer_length) + " "
     else:
-        if (flashcard.image_square is True and flashcard.question_length + flashcard.choices_length > 240 or flashcard.image_rectangular is True and flashcard.question_length + flashcard.choices_length > 385 and flashcard.choices_length > 60 or flashcard.answer_length > 780):
+        if (flashcard.image_square is True and flashcard.question_length + flashcard.choices_length > 240 or flashcard.image_rectangular is True and flashcard.question_length + flashcard.choices_length > 385 and flashcard.choices_length > 60 or flashcard.answer_length > 615):
             flashcard.overflow_flag = True
             flashcard.err_message += 'opale2flashcard.py(' + flashcard.file +  '): Image - Potentially overflowing content (Q, C, A): ' + str(flashcard.question_length) + ' ' + str(flashcard.choices_length) + ' ' + str(flashcard.answer_length) + " "
         if (flashcard.image.count("includegraphics") >= 2):
@@ -930,6 +930,8 @@ def process_error(flashcard):
             flashcard.err_message
         ) 
 def process_write_outfile(flashcard, output):
+    rejected = {}
+    accepted = {}
     # If any output options have been declared
     if (args.file_name is not None or args.image_only is True or args.overflow_only is True or args.non_relevant_only is True):
         # Treat each `option`
@@ -947,12 +949,23 @@ def process_write_outfile(flashcard, output):
             write_outfile(output, None)
     # Else, just write the output if the flashcard is valid, or force option has been set
     elif (flashcard.err_flag is False and flashcard.overflow_flag is False and flashcard.relevant is True or args.force == True):
+        if (rejected[flashcard.subject.lower()] is None):
+            rejected[flashcard.subject.lower()] = 0
+        else:
+            rejected[flashcard.subject.lower()] += 1
+            
         write_outfile(output, flashcard.subject.lower())
         write_outfile(output, None)
     else:
+        if (accepted[flashcard.subject.lower()] is None):
+            accepted[flashcard.subject.lower()] = 0
+        else:
+            accepted[flashcard.subject.lower()] += 1
         rejected = flashcard.subject.lower() + '-rejected'
         write_outfile(output, rejected)
         write_outfile(output, 'rejected')
+        
+    return (accepted, rejected)
 
 def write_output(flashcard, question_count):
     # Variables
@@ -1168,9 +1181,11 @@ def write_flashcards(flashcard_list):
                     output.append(out)
             
             # Write in the outfile only the valid files
-            process_write_outfile(flashcard, output)
+            (accepted, rejected) = process_write_outfile(flashcard, output)
             output = []
             question_count += 1
+            
+    return (accepted, rejected)
 
 def sort_flashcards_by_subject(flashcard_list, subject_set):
     sorted_list = []
@@ -1300,7 +1315,7 @@ def opale_to_tex(args):
     
     sorted_list = sort_flashcards_by_subject(flashcard_list, set(subject_list))
     write_outfile_header(set(subject_list))
-    write_flashcards(sorted_list)
+    (accepted, rejected) = write_flashcards(sorted_list)
     write_outfile_footer(set(subject_list))
 
     # Check out.tex
@@ -1323,7 +1338,16 @@ def opale_to_tex(args):
         print("WARNING : Only potentially overflowing cards have been written in out.tex")
     ## Display number of errors / number of questions
     print('opale2flashcard.py: ' +str(err_count) + '/' + str(question_count) + ' flashcards errors, either metadata or overflowing content.\n These files will not be transcripted. Use option "--force" to ignore.\n')
+    
+    ## Display statistics
+    print("Accepted flashcards by flashcards:")
+    for subject in accepted:
+        print(subject, ':', accepted[subject])
 
+    print("Rejected flashcards by flashcards:")
+    for subject in rejected:
+        print(subject, ':', rejected[subject])
+        
     ## Informations
     if (args.no_replace == False):
         print('WARNING : We replaced every occurence of "ci-dessous" in the question by "ci-contre". If it was a mistake, please modify as necessary.\n Use option "--no_replace" to deactivate this feature.')
