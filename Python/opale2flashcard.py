@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # encoding: utf-8
 import sys
-import os
+import os, glob
 import shutil
 import unicodedata
 import re
@@ -97,6 +97,9 @@ Themes list file path - Path to an xml file containing all theme codes.
 """)
 parser.add_argument('--a4paper', action = 'store_true', help  ="""
 Output format - (defaults to printing 10x8cm flashcards)
+""")
+parser.add_argument('--noclean', action = 'store_true', help  ="""
+Clean output folder - Cleanse by default
 """)
 parser.add_argument('--force', action = 'store_true', help = """
 Force the output - Ignores transcripts errors
@@ -223,7 +226,6 @@ def get_subject_and_themes(filename, parser):
 
     # Theme file 
     themefile = os.path.join(os.path.dirname(os.path.realpath(filename)), os.path.basename(filename))
-    
     # File check
     if (themefile is None or os.path.isfile(themefile) is False):
         write_logs(
@@ -704,7 +706,7 @@ def fetch_question(file, root):
     text_length = 0
     square = False
     rectangular = False
-    image = "\hfill\n\\begin{minipage}[t]{0.45\linewidth}\n\strut\\vspace*{-\\baselineskip}\\newline\n"
+    image = "\hfill\n\\begin{minipage}[t]{0.4\linewidth}\n\strut\\vspace*{-\\baselineskip}\\newline\n"
     path_to_image = ''
     # Questions can have rich content (images, etc.), so we examine every children
     check_generator(file , root.iterfind(".//sc:question/op:res", namespace), './/sc:question/op:res')
@@ -743,7 +745,7 @@ def fetch_question(file, root):
                         if(name == section.attrib.values()[0].split("/")[-1]):
                             path_to_image = os.path.abspath(os.path.join(root, name))
                 if (not path_to_image.endswith('.gif')):
-                    image += "\\includegraphics[max size={\\textwidth}{0.45\\textheight}, center, keepaspectratio]{" + path_to_image + "}\n"
+                    image += "\\includegraphics[max size={\\textwidth}{0.4\\textheight}, center, keepaspectratio]{" + path_to_image + "}\n"
                 else:
                     write_logs(
                         file + ' > Found a .gif ressource/image. Not supported',
@@ -751,7 +753,7 @@ def fetch_question(file, root):
                     )
 
     # unchanged -> no image
-    if (image == "\\hfill\n\\begin{minipage}[t]{0.45\linewidth}\n\\strut\\vspace*{-\\baselineskip}\\newline\n"):
+    if (image == "\\hfill\n\\begin{minipage}[t]{0.4\linewidth}\n\\strut\\vspace*{-\\baselineskip}\\newline\n"):
         image = None
     elif (image is not None):
         image += '\n\\end{minipage}'
@@ -954,7 +956,7 @@ def write_output(flashcard, question_count):
 
     # Question + Choices
     if (flashcard.image is not None):
-        output.append('\\begin{minipage}[t]{0.6\\linewidth}\n')
+        output.append('\\begin{minipage}[t]{0.55\\linewidth}\n')
     output.append(flashcard.question + '\n')
     
     # Image is square, 1x2 grid
@@ -1238,6 +1240,10 @@ def compile_tex(args):
         os.system("latexmk --xelatex --synctex=1 --interaction=batchmode --file-line-error --shell-escape out.tex")
         # os.system("latexmk -c")
 
+def clean_tex(args):
+        
+    for filename in glob.glob(os.path.join(get_output_directory(), "out*")):
+        os.remove(filename)
 
 def opale_to_tex(args):
     # Path validity check
@@ -1251,10 +1257,15 @@ def opale_to_tex(args):
         if (not os.path.isfile(os.path.realpath(args.sourcedir + "/" + args.file_name))):
             sys.stderr.write('Error: ' + args.file_name +' is not a file or does not exist.\n')
             sys.exit(1)
+    
     # Parser settings
     parser = etree.XMLParser(remove_blank_text=True, remove_comments=True)
     # Theme tree
 
+    # clean output directory
+    if (args.noclean is False):
+        clean_tex(args)
+    
     # Comment this line if you want to use a hard-coded dictionary
     (licence_theme, subject) = get_subject_and_themes(args.themefile, parser)
     # Example hard-coded dictionary
