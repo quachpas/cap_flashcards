@@ -1167,7 +1167,7 @@ def sort_flashcards_by_subject(flashcard_list, subject_set):
         
     return sorted_list
 
-def parse_files(args, question_count, parser, licence_theme, subject): # Copy all files in sourcedir/Prettified and prettify XML
+def parse_files(args, question_count, err_count, parser, licence_theme, subject): # Copy all files in sourcedir/Prettified and prettify XML
     sourcedir = os.path.abspath(args.sourcedir)
     subject_list = []
     flashcard_list = []
@@ -1216,12 +1216,22 @@ def parse_files(args, question_count, parser, licence_theme, subject): # Copy al
                 if (flashcard.subject is None):
                     flashcard.subject = "Missing Subject"        
             
+            # Error procedure
+            if (flashcard.err_flag is True or flashcard.overflow_flag is True or flashcard.relevant is False):
+                err_count += 1
+                process_error(flashcard) 
+            
+            # If a flashcard has been forcibly output, and its error message is not null
+            if (args.force == True and flashcard.err_message != ''):
+                err_count += 1
+                process_error(flashcard)
+
             # Make a list of every flashcard in sourcedir
             flashcard_list.append(flashcard)
         
         question_count += 1
 
-    return (flashcard_list, subject_list, question_count)
+    return (flashcard_list, subject_list, question_count, err_count)
 
 def compile_tex(args):
     if (args.compile == True):
@@ -1262,7 +1272,7 @@ def opale_to_tex(args):
     # Variables
     (question_count, err_count) = (0,0)
     
-    (flashcard_list, subject_list, question_count) = parse_files(args, question_count, parser, licence_theme, subject)
+    (flashcard_list, subject_list, question_count, err_count) = parse_files(args, question_count, err_count, parser, licence_theme, subject)
     
     sorted_list = sort_flashcards_by_subject(flashcard_list, set(subject_list))
     
