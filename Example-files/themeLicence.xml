@@ -39,7 +39,7 @@
         <sm:option key="#phys-loisnewton-" name="￼;    Lois de Newton et Kepler et leurs applications￼" />
         <sm:option key="#phys-mecasol-" name="￼;    Mécanique du solide ￼" />
         <sm:option key="#phys-mecafluides-" name="￼;    Mécanique des fluides￼" />
-	<sm:option key="#phys-oscilreson-" name="￼;    Oscillateurs, résonance￼" />
+	      <sm:option key="#phys-oscilreson-" name="￼;    Oscillateurs, résonance￼" />
         <sm:option key="#phys-acous-" name="￼;    Acoustique￼" />
         <sm:option key="#phys-optigeom-" name="￼;    Optique géométrique￼" />
         <sm:option key="#phys-thermodyn-" name="￼;    Thermodynamique￼" />
@@ -85,6 +85,9 @@
         <sm:option key="#geo-planet-" name="￼;    Planétologie￼" />
         <sm:option key="#geo-cosmo-" name="￼;    Cosmologie￼" />
         <sm:option key="#geo-geote-" name="￼;    Géologie de terrain￼" />
+        <sm:option key="#geo-paleonto-" name="Paléontologie" />
+        <sm:option key="#geo-sedimento-" name="￼Sédimentologie" />
+        <sm:option key="#geo-stratigra-" name="Stratigraphie" />
         <sm:option key="#info-" name="￼;Informatique￼" />
         <sm:option key="#info-logiq-" name="￼;    Logique￼" />
         <sm:option key="#info-algor-" name="￼;    Algorithmique￼" />

@@ -949,6 +949,10 @@ def process_write_outfile(flashcard, output):
     elif (flashcard.err_flag is False and flashcard.overflow_flag is False and flashcard.relevant is True or args.force == True):
         write_outfile(output, flashcard.subject.lower())
         write_outfile(output, None)
+    else:
+        rejected = flashcard.subject.lower() + '-rejected'
+        write_outfile(output, rejected)
+        write_outfile(output, 'rejected')
 
 def write_output(flashcard, question_count):
     # Variables
