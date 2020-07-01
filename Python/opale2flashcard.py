@@ -1043,7 +1043,7 @@ def write_out_a4paper(flashcard_list):
 def write_outfile(output, subject):
     # Get output directory
     output_dir = get_output_directory()
-    if (subject is not None or subject != ''):
+    if (subject is not None and subject != ''):
         outfile_path = os.path.join(output_dir, 'out-' + subject.lower() + '.tex')
     else:
         outfile_path = os.path.join(output_dir, 'out.tex')
