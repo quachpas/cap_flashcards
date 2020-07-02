@@ -518,7 +518,7 @@ def fetch_content(file, root, licence_theme_dict, subject_dict):
                         subject = get_subject(subject_dict, splitted[x])
                     else:
                         if (subject != get_subject(subject_dict, splitted[x])):
-                            subject += '/' + get_subject(subject_dict, splitted[x])
+                            subject += '-' + get_subject(subject_dict, splitted[x])
                     if (licence_theme is None):
                         licence_theme = get_licence_theme(licence_theme_dict, splitted[x+1])
                     else:
@@ -531,7 +531,7 @@ def fetch_content(file, root, licence_theme_dict, subject_dict):
                         subject = get_subject(subject_dict, splitted[x])
                     else:
                         if (subject != get_subject(subject_dict, splitted[x])):
-                            subject += '/' + get_subject(subject_dict, splitted[x])
+                            subject += '-' + get_subject(subject_dict, splitted[x])
                     
                     if (licence_theme is None):
                         licence_theme = get_licence_theme(licence_theme_dict, splitted[x+1])
@@ -878,9 +878,12 @@ def fetch_solution(file, root, question_type):
 
     if (question_type == 'mcqMur'):
         for choice in root.findall(".//sc:choice", namespace):
-            choice_number += 1
-            if (choice.attrib.values()[0] == 'checked'):
-                solution_list.append(choice_number)
+            if (args.file_name == file and args.debug_mode is True):
+                print(choice.attrib)
+            if (choice.attrib):
+                choice_number += 1
+                if (choice.attrib.values()[0] == 'checked'):
+                    solution_list.append(choice_number)
     
     if (question_type == 'mcqSur'):
         for choice in root.findall(".//sc:choice", namespace):
