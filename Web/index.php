@@ -1,10 +1,10 @@
 <?php
-const FILES_EXTENSIONS = ["SCAR"];
+const FILES_EXTENSIONS = ['SCAR'];
 
 function error($text) {
-	require_once("header.inc.php");
+	require_once("header.php");
 	echo($text);
-	require_once("footer.inc.php");
+	require_once("footer.php");
 	exit(1);
 }
 // look in a directory recursively to find a file that contains "$filename"
@@ -36,8 +36,8 @@ if (!empty($_FILES)) {
      $legalExtensions = array_map("strtolower", FILES_EXTENSIONS);
      
      $newName = bin2hex(random_bytes(16));
-     $actualName = $_FILES["tmp_name"];
-     $actualSize = $_FILES["size"];
+     $actualName = $_FILES['file']['tmp_name'];
+     $actualSize = $_FILES['file']['size'];
      $extension = strtolower(pathinfo($_FILES["name"], PATHINFO_EXTENSION));
 
      // No empty file
