@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sm:structure xmlns:sm="http://www.utc.fr/ics/scenari/v3/modeling">
+  <sm:enum>
+        <sm:option key="#chim-" name="￼;Chimie￼" />
+        <sm:option key="#chim-strucmat-" name="￼;    Structure de la matière￼" />
+        <sm:option key="#chim-chimorga-" name="￼;    Chimie organique￼" />
+        <sm:option key="#chim-chimsolu-" name="￼;    Chimie des solutions￼" />
+        <sm:option key="#chim-chimexpetech-" name="￼;    Chimie expérimentale et techniques de laboratoire￼" />
+        <sm:option key="#chim-thermochim-" name="￼;    Thermochimie￼" />
+        <sm:option key="#chim-stereochim-" name="￼;    Stéréochimie￼" />
+        <sm:option key="#chim-cinechim-" name="￼;    Cinétique chimique￼" />
+        <sm:option key="#chim-spectrosco-" name="￼;    Spectroscopies￼" />
+        <sm:option key="#chim-chimquant-" name="￼;    Chimie quantique￼" />
+        <sm:option key="#chim-chimsoli-" name="￼;    Chimie du solide￼" />
+        <sm:option key="#chim-chiminorg-" name="￼;    Chimie inorganique￼" />
+        <sm:option key="#chim-electrochim-" name="￼;    Electrochimie￼" />
+        <sm:option key="#chim-plymmat-" name="￼;    Polymères et matériaux￼" />
+        <sm:option key="#chim-chimindus-" name="￼;    Chimie industrielle￼" />
+        <sm:option key="#math-" name="￼;Mathématiques￼" />
+        <sm:option key="#math-algo-" name="￼;    Algorithmique￼" />
+        <sm:option key="#math-lograis-" name="￼;    Logique et raisonnements￼" />
+        <sm:option key="#math-arithm-" name="￼;    Arithmétique￼" />
+        <sm:option key="#math-suites-" name="￼;    Suites￼" />
+        <sm:option key="#math-series-" name="￼;    Séries￼" />
+        <sm:option key="#math-fonctions-" name="￼;    Fonctions￼" />
+        <sm:option key="#math-derivation-" name="￼;    Dérivation￼" />
+        <sm:option key="#math-equa-" name="￼;    Equations/Inéquations￼" />
+        <sm:option key="#math-nbreelscompl-" name="￼;    Nombres réels et complexes￼" />
+        <sm:option key="#math-integration-" name="￼;    Intégration￼" />
+        <sm:option key="#math-polyno-" name="￼;    Polynomes￼" />
+        <sm:option key="#math-alglin-" name="￼;    Algèbre linéaire￼" />
+        <sm:option key="#math-geo-" name="￼;    Géométrie￼" />
+        <sm:option key="#math-trigonometrie-" name="￼;    Trigonométrie￼" />
+        <sm:option key="#math-stat-" name="￼;    Statistique￼" />
+        <sm:option key="#math-proba-" name="￼;    Probabilités￼" />
+        <sm:option key="#phys-" name="￼;Physique￼" />
+        <sm:option key="#phys-forcemvt-" name="￼;    Force et mouvement￼" />
+        <sm:option key="#phys-loiscons-" name="￼;    Lois de conservation￼" />
+        <sm:option key="#phys-loisnewton-" name="￼;    Lois de Newton et Kepler et leurs applications￼" />
+        <sm:option key="#phys-mecasol-" name="￼;    Mécanique du solide ￼" />
+        <sm:option key="#phys-mecafluides-" name="￼;    Mécanique des fluides￼" />
+	      <sm:option key="#phys-oscilreson-" name="￼;    Oscillateurs, résonance￼" />
+        <sm:option key="#phys-acous-" name="￼;    Acoustique￼" />
+        <sm:option key="#phys-optigeom-" name="￼;    Optique géométrique￼" />
+        <sm:option key="#phys-thermodyn-" name="￼;    Thermodynamique￼" />
+        <sm:option key="#phys-ondes-" name="￼;    Physique des ondes￼" />
+        <sm:option key="#phys-electrostat-" name="￼;    Electrostatique￼" />
+        <sm:option key="#phys-electrocin-" name="￼;    Electrocinétique￼" />
+        <sm:option key="#phys-traitsign-" name="￼;    Traitement du signal￼" />
+        <sm:option key="#phys-magnetism-" name="￼;    Magnétisme￼" />
+        <sm:option key="#phys-electromagn-" name="￼;    Electromagnétisme￼" />
+        <sm:option key="#phys-elecana-" name="￼;    Electronique analogique￼" />
+        <sm:option key="#phys-electron-" name="￼;    Electronique numérique " />
+        <sm:option key="#phys-courelec-" name="￼;    Courant électrique￼" />
+        <sm:option key="#phys-condohm-" name="￼;    Conducteurs ohmiques￼" />
+        <sm:option key="#phys-reslin-" name="￼;    Réseaux linéaires￼" />
+        <sm:option key="#phys-physnucl-" name="￼;    Physique nucléaire￼" />
+        <sm:option key="#phys-cristall-" name="￼;    Cristallographie￼" />
+        <sm:option key="#phys-physquant-" name="￼;    Physique quantique￼" />
+        <sm:option key="#phys-relativite-" name="￼;    Relativité￼" />
+        <sm:option key="#phys-mesinstrinc-" name="￼;    Mesure, instrumentation et incertitudes￼" />
+        <sm:option key="#phys-mathphys-" name="￼;    Mathématiques pour la physique￼" />
+        <sm:option key="#bio-" name="￼;Biologie￼" />
+        <sm:option key="#bio-bioanim-" name="￼;    Biologie animale￼" />
+        <sm:option key="#bio-bioveget-" name="￼;    Biologie végétale￼" />
+        <sm:option key="#bio-cellule-" name="￼;    Cellule structure et fonctions￼" />
+        <sm:option key="#bio-angenome-" name="￼;    Acides nucléiques, génomes et divisions cellulaires" />
+        <sm:option key="#bio-evoclasbiod-" name="￼;    Evolution – classification – biodiversité￼" />
+        <sm:option key="#bio-biomol-" name="￼;    Biochimie et biologie moléculaire￼" />
+        <sm:option key="#bio-microbio-" name="￼;    Microbiologie￼" />
+        <sm:option key="#bio-immuno-" name="￼;    Immunologie￼" />
+        <sm:option key="#bio-ecolenvir-" name="￼;    Ecologie – Environnement￼" />
+        <sm:option key="#bio-techbiotech-" name="￼;    Techniques d'études et biotechnologies￼" />
+        <sm:option key="#bio-phyanim-" name="￼;    Physiologie animale￼" />
+        <sm:option key="#bio-phyvege-" name="￼;    Physiologie végétale￼" />
+        <sm:option key="#geo-" name="￼;Géosciences￼" />
+        <sm:option key="#geo-tecto-" name="￼;    Tectonique￼" />
+        <sm:option key="#geo-geody-" name="￼;    Géodynamique￼" />
+        <sm:option key="#geo-miner-" name="￼;    Minéralogie￼" />
+        <sm:option key="#geo-hydro-" name="￼;    Hydrologie￼" />
+        <sm:option key="#geo-clima-" name="￼;    Climatologie￼" />
+        <sm:option key="#geo-petrol-" name="￼;    Pétrologie￼" />
+        <sm:option key="#geo-geoph-" name="￼;    Géophysique￼" />
+        <sm:option key="#geo-geoch-" name="￼;    Géochimie￼" />
+        <sm:option key="#geo-planet-" name="￼;    Planétologie￼" />
+        <sm:option key="#geo-cosmo-" name="￼;    Cosmologie￼" />
+        <sm:option key="#geo-geote-" name="￼;    Géologie de terrain￼" />
+        <sm:option key="#geo-paleonto-" name="Paléontologie" />
+        <sm:option key="#geo-sedimento-" name="￼Sédimentologie" />
+        <sm:option key="#geo-stratigra-" name="Stratigraphie" />
+        <sm:option key="#info-" name="￼;Informatique￼" />
+        <sm:option key="#info-logiq-" name="￼;    Logique￼" />
+        <sm:option key="#info-algor-" name="￼;    Algorithmique￼" />
+        <sm:option key="#info-cpp-" name="￼;    Programmation C++￼" />
+        <sm:option key="#info-python-" name="￼;    Programmation Python￼" />
+        <sm:option key="#info-jsc-" name="￼;    Programmation JavaScript￼" />
+        <sm:option key="#info-html-" name="￼;    Langage HTML￼" />
+        <sm:option key="#info-css-" name="￼;    Langage CSS￼" />
+  </sm:enum>
+</sm:structure>
