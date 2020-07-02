@@ -394,6 +394,9 @@ def check_content(flashcard):
         flashcard.err_flag = True
         flashcard.err_message += 'opale2flashcard.py(' + flashcard.file + "): Flashcard has empty content."
 
+    if (flashcard.licence_theme == 'Algorithmique'):
+        flashcard.relevant = False
+        flashcard.err_message += 'opale2flashcard.py(' + flashcard.file + "): Subject is algorithm."
 
 def check_output(output, err_count):
     if (args.file_name is True and output.count("\\begin{flashcard}") != 1):
@@ -614,11 +617,11 @@ def output_cleanup(output):
 def texfilter(text):
     # text = text.replace('~','\\textasciitilde')
     # text = text.replace('^','\\textasciicircum')
-    text = text.replace('&','\\&')
-    text = text.replace('%','\\%')
+    # text = text.replace('&','\\&')
+    # text = text.replace('%','\\%')
     text = text.replace('ˉ', '$^{-}$')
     # text = text.replace('$','\\$')
-    text = text.replace('#','\\#')
+    # text = text.replace('#','\\#')
     # text = text.replace('_','\\_')
     # text = output_cleanup(text)
     text = text.replace('α', '$\\alpha$')
