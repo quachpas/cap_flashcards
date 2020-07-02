@@ -131,7 +131,7 @@ parser.add_argument('--no_replace', action = 'store_true', help = """
 Question with image - Stops replacing "ci-dessous" with "ci-contre" for files with images in the question.  
 """)
 parser.add_argument('--add_url', action = 'store_true', help = """
-Links to material - Adds urls to flashcards. Script won't output any links by default.
+Links to material - DOES NOT WORK. Adds urls to flashcards. Script won't output any links by default.
 """)
 # XML namespaces
 namespace = {
@@ -378,6 +378,10 @@ def check_content(flashcard):
     if (not flashcard.choices):
         flashcard.err_flag = True
         flashcard.err_message += 'opale2flashcard.py(' + flashcard.file + "): Flashcard does not have any choices."
+    
+    if (flashcard.answer_length == 0 or flashcard.question_length == 0 or flashcard.choices_length == 0):
+        flashcard.err_flag = True
+        flashcard.err_message += 'opale2flashcard.py(' + flashcard.file + "): Flashcard has empty content."
 
 
 def check_output(output, err_count):
@@ -526,18 +530,23 @@ def fetch_content(file, root, licence_theme_dict, subject_dict):
                             licence_theme += '\\\\' + get_licence_theme(licence_theme_dict, splitted[x+1])    
                 # Two themes
                 else:
-                    # If subjects or licence_theme have not been initialised
-                    if (subject is None):
-                        subject = get_subject(subject_dict, splitted[x])
-                    else:
-                        if (subject != get_subject(subject_dict, splitted[x])):
-                            subject += '-' + get_subject(subject_dict, splitted[x])
+                    write_logs(
+                        file + " contains two licence theme.",
+                        file + " contains two licence theme. Took just one of them."
+                    )
+                    # Commented code concatenates two licence themes
+                    # # If subjects or licence_theme have not been initialised
+                    # if (subject is None):
+                    #     subject = get_subject(subject_dict, splitted[x])
+                    # else:
+                    #     if (subject != get_subject(subject_dict, splitted[x])):
+                    #         subject += '-' + get_subject(subject_dict, splitted[x])
                     
-                    if (licence_theme is None):
-                        licence_theme = get_licence_theme(licence_theme_dict, splitted[x+1])
-                    else:
-                        if (licence_theme != get_licence_theme(licence_theme_dict, splitted[x+1])):
-                            licence_theme += '\\\\' + get_licence_theme(licence_theme_dict, splitted[x+1])
+                    # if (licence_theme is None):
+                    #     licence_theme = get_licence_theme(licence_theme_dict, splitted[x+1])
+                    # else:
+                    #     if (licence_theme != get_licence_theme(licence_theme_dict, splitted[x+1])):
+                    #         licence_theme += '\\\\' + get_licence_theme(licence_theme_dict, splitted[x+1])
         # Single licenceTheme
         else:
             subject = get_subject(subject_dict, splitted[0])
@@ -625,10 +634,11 @@ def markup_content(file, element):
         for key, value in zip(element.attrib.keys(), element.attrib.values()):
             if (key == 'role' and value != ""):
                 role_markup = get_role_markup(value)
+                
                 # Special case for urls
                 if (value == 'url' and args.add_url is not True):
                     role_markup = None
-                elif (value == 'url'):
+                if (value == 'url'):
                     for url in element.iterfind(".//sp:url", namespace):
                         url = texfilter(url.text)
                     text = element.xpath('text()')
@@ -638,7 +648,6 @@ def markup_content(file, element):
                 role_markup = None        
     else:
         role_markup = None
-
     if url is not None:
         output.append(url)
     if (role_markup is not None):

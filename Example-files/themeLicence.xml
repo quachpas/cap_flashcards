@@ -64,7 +64,7 @@
         <sm:option key="#bio-bioanim-" name="￼;    Biologie animale￼" />
         <sm:option key="#bio-bioveget-" name="￼;    Biologie végétale￼" />
         <sm:option key="#bio-cellule-" name="￼;    Cellule structure et fonctions￼" />
-        <sm:option key="#bio-angenome-" name="￼;    Acides nucléiques, génomes et divisions cellulaires (mitose, méiose)￼" />
+        <sm:option key="#bio-angenome-" name="￼;    Acides nucléiques, génomes et divisions cellulaires" />
         <sm:option key="#bio-evoclasbiod-" name="￼;    Evolution – classification – biodiversité￼" />
         <sm:option key="#bio-biomol-" name="￼;    Biochimie et biologie moléculaire￼" />
         <sm:option key="#bio-microbio-" name="￼;    Microbiologie￼" />
