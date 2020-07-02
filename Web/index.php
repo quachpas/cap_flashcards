@@ -49,7 +49,7 @@ if (!empty($_FILES)) {
           error("Erreur interne : le nom a déjà été utilisé.");
 
      // Size checks
-     if($actualSize < $legalSize)
+     if($actualSize > $legalSize)
           error("Erreur interne : le fichier est trop volumineux");
 
      // Allowed extension 
