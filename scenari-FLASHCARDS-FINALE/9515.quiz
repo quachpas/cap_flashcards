@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#phys-comploimod-tempmvtevol-descmvtpttps-</sp:themeLycee>
+			<sp:themeLicence>#phys-forcemvt-</sp:themeLicence>
+			<sp:level>4</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://univ-lille1.fr</sp:url>
+</op:urlM>univ-lille1.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Entre deux instants 
+  
+  	<sc:textLeaf role="mathtex">\textstyle{t_{1}}</sc:textLeaf>
+  
+   et 
+  
+  	<sc:textLeaf role="mathtex">\textstyle{t_{2}}</sc:textLeaf>
+  
+   un point matériel est en mouvement rectiligne et son accélération est donnée par le vecteur
+  
+  	<sc:textLeaf role="mathtex">\textstyle{\overrightarrow{a}}</sc:textLeaf>
+		 constant et non nul. </sc:para>
+						<sc:para xml:space="preserve">
+			Que peut-on en déduire sur le mouvement entre ces instants ?
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			La vitesse est colinéaire à l'accélération.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Le point matériel va de plus en plus vite.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">Si le vecteur vitesse est de sens opposé au vecteur accélération, la norme de la vitesse diminue : on dit que le mouvement est retardé.
+		</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Le mouvement est toujours dans le sens donné par le vecteur accélération.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">La vitesse peut être en sens contraire de l'accélération auquel cas le mouvement est alors retardé.
+		</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Il s'agit d'un mouvement rectiligne uniformément varié.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			
+  
+  Vous pouvez trouver des éléments de réponse dans la ressource suivante : <sc:phrase role="url"><op:urlM>
+<sp:url>http://ressources.unisciel.fr/DAEU-mecanique/co/DAEU-Mecanique.html</sp:url>
+</op:urlM>
+Cinématique et dynamique newtoniennes.</sc:phrase>
+</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

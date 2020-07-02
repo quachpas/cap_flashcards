@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#phys-comploimod-tempmvtevol-consquanmvtsys-</sp:themeLycee>
+			<sp:themeLicence>#phys-loiscons-</sp:themeLicence>
+			<sp:level>3</sp:level>
+			<sp:educationLevel>L1</sp:educationLevel>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://univ-lille1.fr</sp:url>
+</op:urlM>univ-lille1.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="auc" creationTime="1435168043500" updateTime="1435168166936">PROBLEME : je pense largement hors programme
+Niveau fin de L1</comment></comment>-->
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="auc" creationTime="1431420727117">À déplacer dans : Lois de conservation 
+Niveau 3 : analyse</comment></comment>-->
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="auc" creationTime="1430304653172">Conservation de la quantité de mouvement</comment><comment author="map" creationTime="1430744692130" updateTime="1430919824833">Et donc Newton ou force et mouvement? Sophie?</comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Une fusée, considérée comme un système isolé, accélère en éjectant des gaz derrière elle. 
+		</sc:para>
+						<sc:para xml:space="preserve">
+			Son mouvement est rectiligne. 
+		</sc:para>
+						<sc:para xml:space="preserve">
+			Il est observé dans un référentiel galiléen. 
+		</sc:para>
+						<sc:para xml:space="preserve">
+			La vitesse d'éjection des gaz est fixée.
+		</sc:para>
+						<sc:para xml:space="preserve">
+			Que se passe-il si le débit d'éjection des gaz diminue (ce qui signifie qu'en un temps donné la masse de gaz éjectée est plus petite) ?
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			La fusée continue son mouvement à vitesse constant.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			 La fusée éjecte toujours des gaz, elle continue donc à accélérer, et la norme de sa vitesse à augmenter (application du principe de conservation de la quantité de mouvement au système fusée+gaz éjectés).
+		</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			La vitesse de la fusée diminue.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			 La fusée éjecte toujours des gaz, elle continue dont à accélérer, et la norme de sa vitesse à augmenter (application du principe de conservation de la quantité de mouvement au système fusée+gaz éjectés).
+		</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			L'accélération de la fusée diminue.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			L'accélération reste constante.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			 La fusée éjecte moins de gaz en un temps donné, toutes choses restant par ailleurs égales : la norme de son accélération sera donc plus petite (application du principe de conservation de la quantité de mouvement au système fusée+gaz éjectés).
+		</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			La norme de la vitesse de la fusée augmente, mais moins vite qu'auparavant.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+	</op:mcqMur>
+</sc:item>

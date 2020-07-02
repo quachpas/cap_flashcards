@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="paf" creationTime="1478096375999">Regrouper les explications en une correction générale de la question</comment></comment>-->
+		<op:exeM>
+			<sp:themeLycee>#chim-sante-medicam-groupcaract-</sp:themeLycee>
+			<sp:themeLicence>#chim-chimsolu-</sp:themeLicence>
+			<sp:themeLicence>#chim-chimorga-</sp:themeLicence>
+			<sp:level>2</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<!--<comment xmlns="scenari.eu:comment:1.0" type="thread"><comment author="camille.dufourg" creationTime="1575020338537">Il manque les mots-clés et la licence.</comment></comment>-->
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">Université Nice-Sophia-Antipolis</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="isr" creationTime="1487022017619">Cette question devrait plutôt figurer dans "Chimie organique".</comment></comment>-->
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread"><comment author="etu03" creationTime="1435845943187">Peut-être une explication générale avec la formule semi-développée du méthanol pour que cela soit plus visuel ?</comment><comment author="viw" creationTime="1457110465599">La classe du méthanol n'est pas unanime au sein de la communauté scientifique et le programme de Première S ne fait aucune référence à un éventuel alcool nullaire. Je suggère de modifier la question avec un autre alcool qui ne laisse pas de doute quant à sa classe.</comment><comment author="cee" creationTime="1479130189174">Je suis d'accord avec "viw", je n'ai aucun souvenir d'avoir vu un alcool "nullaire" au lycée.</comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Quelle est la classe chimique du méthanol ?
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Un alcool primaire.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Un alcool tertiaire.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Un alcool nullaire.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Un alcool secondaire.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Toutes les propositions sont fausses.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">Un alcool est dit primaire lorsque le groupement -OH est porté par un carbone lié à un seul carbone.</sc:para>
+						<sc:para xml:space="preserve">Un alcool est dit secondaire lorsque le groupement -OH est porté par un carbone lié à deux carbone et un hydrogène.</sc:para>
+						<sc:para xml:space="preserve">Un alcool est dit tertiaire lorsque le groupement -OH est porté par un carbone lié à trois carbone.</sc:para>
+						<sc:para xml:space="preserve">Un alcool est dit nullaire lorsque le groupement -OH est porté par un carbone lié à trois hydrogène, c'est a dire le méthanol obligatoirement.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

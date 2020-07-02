@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#math-analyse-suites-suitarithgeom-</sp:themeLycee>
+			<sp:themeLicence>#math-suites-</sp:themeLicence>
+			<sp:level>4</sp:level>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://unistra.fr</sp:url>
+</op:urlM>unistra.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve"> Soit<sc:textLeaf role="mathtex"> (v_n)_{n\ge 0}</sc:textLeaf> une suite réelle géométrique de raison <sc:textLeaf role="mathtex">\frac{2}{3}</sc:textLeaf>. On définit la suite<sc:textLeaf role="mathtex"> (w_n)_{n\ge 0}</sc:textLeaf> en posant <sc:textLeaf role="mathtex">w_0= v_0</sc:textLeaf> et <sc:textLeaf role="mathtex">w_{n+1}= w_n+v_{n+1}</sc:textLeaf> pour <sc:textLeaf role="mathtex">n\ge 0</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			   La suite <sc:textLeaf role="mathtex">(w_n)</sc:textLeaf> est une suite géométrique.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			   La suite<sc:textLeaf role="mathtex"> (w_n)</sc:textLeaf> est une suite arithmétique.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			   La suite <sc:textLeaf role="mathtex">(w_n)</sc:textLeaf> est convergente et on a<sc:textLeaf role="mathtex"> \lim_{n\to+\infty}w_n=3 v_0</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			   La suite<sc:textLeaf role="mathtex"> (w_n)</sc:textLeaf> est convergente et on a <sc:textLeaf role="mathtex">\lim\limits_{n\to+\infty}w_n=\frac{2}{3}v_0</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">On peut commencer par calculer les premiers termes de <sc:textLeaf role="mathtex">(w_n)</sc:textLeaf> (on pose <sc:textLeaf role="mathtex">a=\frac{2}{3}</sc:textLeaf>) : <sc:textLeaf role="mathtex">w_0=v_0</sc:textLeaf>, <sc:textLeaf role="mathtex">w_1=v_0+a v_0=v_0(1+a)</sc:textLeaf>, <sc:textLeaf role="mathtex">w_2=v_0(1+a+a^2)</sc:textLeaf>, <sc:textLeaf role="mathtex">w_3=v_0(1+a+a^2+a^3)</sc:textLeaf>. En se souvenant que <sc:textLeaf role="mathtex">1+a+a^2+\dots+a^m=\frac{1-a^{m+1}}{1-a}</sc:textLeaf> (<sc:textLeaf role="mathtex">a\neq 1</sc:textLeaf>), on a <sc:textLeaf role="mathtex">w_2=v_0\frac{1-a^{3}}{1-a}</sc:textLeaf>, <sc:textLeaf role="mathtex">w_3=v_0\frac{1-a^{4}}{1-a}</sc:textLeaf>, et on peut supposer que <sc:textLeaf role="mathtex">w_n=v_0 \frac{1-a^{n+1}}{1-a}</sc:textLeaf>. Cela se prouve par récurrence : on a fait l'initialisation, pour l'hérédité, supposons la propriété vraie au rang <sc:textLeaf role="mathtex">n</sc:textLeaf>, montrons la au rang <sc:textLeaf role="mathtex">n+1</sc:textLeaf>. <sc:textLeaf role="mathtex">w_{n+1}=w_n+v_{n+1}=v_0 \frac{1-a^{n+1}}{1-a}+v_0 a^{n+1}=v_0 \frac{1-a^{n+1}+a^{n+1}-a^{n+2}}{1-a}=v_0 \frac{1-a^{n+2}}{1-a}</sc:textLeaf>, ce qu'il fallait démontrer. A partir de là, on voit que <sc:textLeaf role="mathtex">(w_n)</sc:textLeaf> n'est ni géométrique, ni arithmétique, par contre elle converge vers <sc:textLeaf role="mathtex">v_0 \frac{1-0}{1-2/3}=3v_0</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

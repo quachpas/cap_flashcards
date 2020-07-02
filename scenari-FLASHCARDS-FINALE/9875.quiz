@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:title>Organisation des plantes</sp:title>
+			<sp:themeLycee>#scvie-terunivers-exemviefix-</sp:themeLycee>
+			<sp:themeLicence>#bio-bioveget-</sp:themeLicence>
+			<sp:level>3</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      Université Lille 1
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">Les tissus verts :</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						peuvent faire de la photosynthèse.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						peuvent absorber la solution hydrominérale du sol.							
+					</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						sont situés en profondeur dans les organes des plantes.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						ont des cellules riches en chloroplastes.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			La photosynthèse dépend de la présence d'une molécule, la chlorophylle qui, confinée dans les chloroplastes, confère la couleur verte à cet organe. Seuls les tissus chlorophylliens donc verts peuvent faire de la photosynthèse. Ils sont en périphérie des organes aériens car ils ont besoin de capter l'énergie lumineuse.
+		</sc:para>
+						<sc:para xml:space="preserve">
+			Ressources à consulter : 
+		</sc:para>
+						<sc:itemizedList>
+							<sc:listItem>
+								<sc:para xml:space="preserve">
+			
+  
+  <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://www.snv.jussieu.fr/bmedia/cyclecellBM/index.htm</sp:url>
+</op:urlM>La mitose</sc:phrase>
+  
+  
+		</sc:para>
+							</sc:listItem>
+							<sc:listItem>
+								<sc:para xml:space="preserve">
+			
+  
+  <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://www.snv.jussieu.fr/bmedia/Photosynthese/exp11.html</sp:url>
+</op:urlM>Mise en évidence de la photosynthèse</sc:phrase>
+  
+  
+		</sc:para>
+							</sc:listItem>
+							<sc:listItem>
+								<sc:para xml:space="preserve">
+			
+  
+  <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://www.snv.jussieu.fr/bmedia/racine/index.htm</sp:url>
+</op:urlM>La croissance de la racine</sc:phrase>
+  
+  
+		</sc:para>
+							</sc:listItem>
+						</sc:itemizedList>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

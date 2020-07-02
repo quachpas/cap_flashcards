@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#math-analyse-derivation-nbrderivfonc-</sp:themeLycee>
+			<sp:themeLicence>#math-derivation-</sp:themeLicence>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      UTT, 
+      Lacresse, 
+      Visca, 
+      30-05-2012, 
+      <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://utt.fr</sp:url>
+</op:urlM>utt.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread"><comment author="pij" creationTime="1459517646733">Ludovic : 
+Ajouter en un point après fonction
+
+A discuter il serait mieux de définir que la fonction est définie au voisinage du point pour que le taux d'accroissement soit defini
+</comment><comment author="ext-lug" creationTime="1460450238100">Ajout en un point après fonction</comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Si le taux d'accroissement d'une fonction en un point tend vers <sc:textLeaf role="mathtex">+\infty</sc:textLeaf>, on observe :</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			une tangente verticale en ce point.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			une asymptote verticale en ce point.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			une tangente horizontale en ce point.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="1"/>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Si le taux d'accroissement tend vers l'infini, la courbe admet alors une tangente verticale et non une asymptote verticale.
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:title>Construction des rayons réfléchi et réfracté : Loi de SNELL-DESCARTES</sp:title>
+			<sp:themeLycee>#phys-sante-diagmedic-refrrefl-</sp:themeLycee>
+			<sp:themeLicence>#phys-optigeom-</sp:themeLicence>
+			<sp:level><!--<comment xmlns="scenari.eu:comment:1.0" type="thread"><comment author="ves" creationTime="1520846187623">niveau 2?</comment></comment>-->1</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://univ-lille1.fr</sp:url>
+</op:urlM>univ-lille1.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">Deux  milieux matériels d'indices respectifs <sc:textLeaf role="mathtex">n_1</sc:textLeaf> et <sc:textLeaf role="mathtex">n_2</sc:textLeaf> sont séparés par une surface quelconque. Un rayon lumineux arrive sur cette surface en un point I. Le rayon incident dans le milieu 1 fait un angle 
+  
+  	<sc:textLeaf role="mathtex">\textstyle{i_{1}}</sc:textLeaf>
+		 avec la normale.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Le rayon réfléchi n'existe que s'il n'y a pas de réfraction.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			
+  
+  Le plus souvent, il existe un rayon réfléchi et un rayon réfracté même si leurs intensités peuvent être différentes en fonction de l'angle d'incidence et des deux matériaux. Pourtant dans certains cas (voir plus loin), il peut y avoir réflexion totale (pas de rayon réfracté) mais ce n'est pas le cas généralement.
+		</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Le rayon réfléchi reste dans le milieu 1 et est le symétrique du rayon incident par rapport à la normale à la surface.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			
+  
+  <sc:inlineStyle role="emp">Affirmation vraie</sc:inlineStyle> pour la réflexion.
+		</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Le rayon réfracté n'existe que s'il n'y a pas de réflexion.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			
+  
+  Le plus souvent, les 2 rayons existent mais leurs intensités dépendent de l'angle d'incidence et des deux matériaux.
+		</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Le rayon réfracté traverse l'interface entre les 2 surfaces. Les angles 
+  
+  	<sc:textLeaf role="mathtex">\textstyle{i_{1}}</sc:textLeaf>
+  
+   et 
+  
+  	<sc:textLeaf role="mathtex">\textstyle{i_{2}}</sc:textLeaf>
+		 que font les rayons incidents et réfractés avec la normale sont différents.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Les rayons incidents et réfractés sont situés de part et d'autre de la normale.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Revoir les lois de Snell et Descartes et revoir les règles essentielles de la trigonométrie et la géométrie dans le plan, dans cette <sc:phrase role="url"><op:urlM>
+<sp:url>http://uel.unisciel.fr/physique/optigeo/optigeo_ch02/co/apprendre_ch02_02.html</sp:url>
+</op:urlM>ressource</sc:phrase>.
+</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

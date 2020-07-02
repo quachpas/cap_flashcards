@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#math-probastat-modrepetexp-</sp:themeLycee>
+			<sp:themeLicence>#math-stat-</sp:themeLicence>
+			<sp:level>2</sp:level>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      <sc:phrase role="url"><op:urlM xmlns:sc="http://www.utc.fr/ics/scenari/v3/core" xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive"><sp:url>www.parisdescartes.fr</sp:url></op:urlM>
+parisdescartes.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread"><comment author="hur" creationTime="1460412341327">Remplacer disquettes par clés usb</comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Un revendeur de matériel informatique veut se fournir en clés USB chez un grossiste, où une clé USB sur 
+  <sc:textLeaf role="mathtex">\textstyle{25}</sc:textLeaf>
+ est défectueuse. Il prélève au hasard, pour les examiner, successivement et avec remise, 
+  <sc:textLeaf role="mathtex">\textstyle{10}</sc:textLeaf>
+clés USB chez le grossiste. La probabilité que le revendeur trouve au plus une clé usb défectueuse parmi les 
+  <sc:textLeaf role="mathtex">\textstyle{10}</sc:textLeaf>
+ prélevées est 
+  <sc:textLeaf role="mathtex">\textstyle{\dfrac1{25}}</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Vrai</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Faux</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="2"/>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			On prélève une clé USB. On appelle succès l'événement 
+  <sc:textLeaf role="mathtex">\textstyle{S}</sc:textLeaf> "la clé est défectueuse".</sc:para>
+						<sc:para xml:space="preserve">
+			On répète 
+  <sc:textLeaf role="mathtex">\textstyle{10}</sc:textLeaf>
+ fois la même expérience, les résultats étant indépendants. Soit 
+  <sc:textLeaf role="mathtex">\textstyle{X}</sc:textLeaf>
+ la variable aléatoire qui compte le nombre de succès. 
+  <sc:textLeaf role="mathtex">\textstyle{X}</sc:textLeaf>
+ suit la loi binomiale de paramètres 
+  <sc:textLeaf role="mathtex">\textstyle{\left(10;\dfrac1{25}\right)}</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">
+			La probabilité cherchée est 
+  <sc:textLeaf role="mathtex">\textstyle{\mathbb P(X\leq1)}</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\begin{eqnarray*}\mathbb P(X\leq1)&amp;=&amp;\mathbb P(X=0)+\mathbb P(X=1)\\&amp;=&amp;\left(\begin{array}{c}10\\0\end{array}\right)\left(\dfrac{24}{25}\right)^{10}+\left(\begin{array}{c}10\\1\end{array}\right)\left(\dfrac1{25}\right)\left(\dfrac{24}{25}\right)^9\\&amp;\approx&amp;0,94\end{eqnarray*}</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

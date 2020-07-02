@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#math-probastat-probfin-probeven-</sp:themeLycee>
+			<sp:themeLicence>#math-proba-</sp:themeLicence>
+			<sp:level>4</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://parisdescartes.fr</sp:url>
+</op:urlM>parisdescartes.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="hur" creationTime="1460411809498" updateTime="1460411976360">Il manque l'expérience aléatoire et la question
+On tire un élève au hasard dans la classe. Quelle est la probabilité qu'il apprenne les trois langues?</comment><comment author="ves" creationTime="1524815971908">J'ai ajouté la partie manquante à la question: "espagnol et allemand. On tire un élève au hasard dans la classe. Quelle est la probabilité qu'il apprenne les trois langues?" en faisant la déduction selon la figure de la réponse globale. </comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Tous les élèves d'une classe de 
+  <sc:textLeaf role="mathtex">\textstyle{35}</sc:textLeaf>
+  étudient au moins une langue, allemand, anglais ou espagnol. 
+  <sc:textLeaf role="mathtex">\textstyle{11}</sc:textLeaf>
+ parlent allemand, 
+  <sc:textLeaf role="mathtex">\textstyle{20}</sc:textLeaf>
+ anglais et 
+  <sc:textLeaf role="mathtex">\textstyle{14}</sc:textLeaf>
+ espagnol. Parmi eux, 
+  <sc:textLeaf role="mathtex">\textstyle{5}</sc:textLeaf>
+ parlent anglais et espagnol, 
+  <sc:textLeaf role="mathtex">\textstyle{4}</sc:textLeaf>
+ anglais et allemand et 
+  <sc:textLeaf role="mathtex">\textstyle{3}</sc:textLeaf> espagnol et allemand. 
+		On tire un élève au hasard dans la classe. Quelle est la probabilité qu'il parle les trois langues?</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			
+  <sc:textLeaf role="mathtex">\textstyle{0}</sc:textLeaf>
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			
+  <sc:textLeaf role="mathtex">\textstyle{\dfrac2{35}}</sc:textLeaf>
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			On ne peut pas savoir
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="2"/>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Soit 
+  <sc:textLeaf role="mathtex">\textstyle{x}</sc:textLeaf>
+ le nombre d'élèves apprenant les trois langues. On a 
+  <sc:textLeaf role="mathtex">\textstyle{5-x}</sc:textLeaf>
+ élèves apprenant uniquement l'anglais et l'espagnol et 
+  <sc:textLeaf role="mathtex">\textstyle{4-x}</sc:textLeaf>
+ apprenant uniquement l'anglais et l'allemand. Sur les 
+  <sc:textLeaf role="mathtex">\textstyle{20}</sc:textLeaf>
+ élèves anglicistes, il reste 
+  <sc:textLeaf role="mathtex">\textstyle{20-\left((4-x)+(5-x)+x\right)}</sc:textLeaf>
+ élèves n'apprenant que l'anglais, soit 
+  <sc:textLeaf role="mathtex">\textstyle{11+x}</sc:textLeaf>
+ élèves. On fait de même pour les autres langues et l'on obtient le schéma ci-dessous. On a alors : 
+  <sc:textLeaf role="mathtex">\textstyle{(11+x)+(4+x)+(6+x)+(4-x)+(5-x)+(3-x)=35}</sc:textLeaf>
+ soit 
+  <sc:textLeaf role="mathtex">\textstyle{x=2}</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">L'univers est l'ensemble des élèves, et il y a équiprobabilité, d'où la réponse 
+  <sc:textLeaf role="mathtex">\textstyle{\dfrac2{35}}</sc:textLeaf>.
+		
+			
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+				<sp:res sc:refUri="images/01_fq_901.gif">
+					<op:resInfoM/>
+				</sp:res>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

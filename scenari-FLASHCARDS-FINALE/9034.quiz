@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#chim-obscoulim-matcolo-molliaconj-</sp:themeLycee>
+			<sp:themeLicence>#chim-chimorga-</sp:themeLicence>
+			<sp:level>1</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<!--<comment xmlns="scenari.eu:comment:1.0" type="thread"><comment author="camille.dufourg" creationTime="1574418153895">Il manque les mots-clés et la licence.</comment></comment>-->
+				<op:info>
+					<sp:cpyrgt>Université Nice-Sophia-Antipolis<op:sPara>
+							<sc:para xml:space="preserve">Université Nice-Sophia-Antipolis</sc:para>
+						</op:sPara></sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Parmi les composés suivants, lesquels sont dits «conjugués» ?
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			<sc:inlineImg role="ico" sc:refUri="images/image06.png"/>
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			<sc:inlineImg role="ico" sc:refUri="images/image06b.png"/>
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			<sc:inlineImg role="ico" sc:refUri="images/image06c.png"/>
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			<sc:inlineImg role="ico" sc:refUri="images/image06d.png"/>
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Les molécules présentées ici ne sont pas conjuguées.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">Une molécule est dite conjuguée (on parle plus généralement de système conjugué) si elle présente des liaisons conjuguées : alternance double liaison - simple liaison - double liaison. Une molécule présentant plusieurs liaisons conjuguées sera donc caractérisée par une alternance de doubles liaisons et de simples liaisons.</sc:para>
+						<sc:para xml:space="preserve">Vous pouvez trouver des éléments dans la ressource <sc:phrase role="url"><op:urlM>
+<sp:url>http://uel.unisciel.fr/chimie/nomen/nomen/co/nomen.html</sp:url>
+</op:urlM>
+introduction à la nomenclature en chimie organique</sc:phrase></sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#math-geo-coordplan-</sp:themeLycee>
+			<sp:themeLicence>#math-geo-</sp:themeLicence>
+			<sp:level>3</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">utc.fr</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">Soient <sc:textLeaf role="mathtex">A</sc:textLeaf>, <sc:textLeaf role="mathtex">B</sc:textLeaf> et <sc:textLeaf role="mathtex">C</sc:textLeaf>, trois points du plan.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\overrightarrow{AB} + 2 \overrightarrow{BC} = 3 \overrightarrow{AC}</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve"><sc:textLeaf role="mathtex">
+\overrightarrow{AB} - \overrightarrow{BC} = \overrightarrow{AC}</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve"><sc:textLeaf role="mathtex">
+\overrightarrow{BC} + \overrightarrow{AB} = \overrightarrow{AC}</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="3"/>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">On écrit <sc:textLeaf role="mathtex">\overrightarrow{BC} + \overrightarrow{AB} = \overrightarrow{AB} + \overrightarrow{BC}</sc:textLeaf> et la relation de Chasles permet de conclure que la somme donne <sc:textLeaf role="mathtex">\overrightarrow{AC}</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

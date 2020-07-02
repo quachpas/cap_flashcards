@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#chim-sante-diagmed-identions-</sp:themeLycee>
+			<sp:themeLicence>#chim-chimsolu-</sp:themeLicence>
+			<sp:level>1</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<!--<comment xmlns="scenari.eu:comment:1.0" type="thread"><comment author="camille.dufourg" creationTime="1574416609060">Il manque des mots-clés et la licence.</comment></comment>-->
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">Université Nice-Sophia-Antipolis</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Lorsque l'on plonge NaCl dans l'eau, il se forme :</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="checked">
+				<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="etu03" creationTime="1435845862807">URGENT Attention le "l" de Cl est passé en exposant !</comment></comment>-->
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Na<sc:textLeaf role="exp">+</sc:textLeaf> et Cl<sc:textLeaf role="exp">-</sc:textLeaf>.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Na<sc:textLeaf role="exp">+</sc:textLeaf> et Cl<sc:textLeaf role="exp">+</sc:textLeaf>.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Na<sc:textLeaf role="exp">-</sc:textLeaf> et Cl<sc:textLeaf role="exp">-</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Na<sc:textLeaf role="exp">-</sc:textLeaf> et Cl<sc:textLeaf role="exp">+</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Toutes les propositions sont fausses.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			NaCl est un sel qui se dissout facilement dans l'eau. Un élément chimique cherche toujours à avoir une configuration électronique semblable à celle du gaz parfait le plus proche dans le tableau périodique. Ainsi, Na qui se trouve dans la première colonne, aspire à avoir la même configuration que le néon (Ne), qui possède un électron de moins. Na a donc tendance à perdre un électron pour pouvoir avoir la même configuration que le néon : il se forme Na<sc:textLeaf role="exp">+</sc:textLeaf>. De même pour Cl qui voudra avoir la même configuration électronique que l'argon (Ar), qui possède un électron de plus. Il formera donc préférentiellement l'ion Cl<sc:textLeaf role="exp">-</sc:textLeaf>.
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

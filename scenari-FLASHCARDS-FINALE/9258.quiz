@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#math-analyse-ineq-resolalgineq-</sp:themeLycee>
+			<sp:themeLicence>#math-equa-</sp:themeLicence>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://unistra.fr</sp:url>
+</op:urlM>unistra.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			  Soit <sc:textLeaf role="mathtex">a</sc:textLeaf>un réel
+		 :</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			   Si <sc:textLeaf role="mathtex">a</sc:textLeaf> vérifie <sc:textLeaf role="mathtex">a &gt; 0</sc:textLeaf>, alors il vérifie <sc:textLeaf role="mathtex">a &gt; -1</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			   Si  <sc:textLeaf role="mathtex">a</sc:textLeaf> vérifie <sc:textLeaf role="mathtex">a \geq 0</sc:textLeaf>, alors il vérifie <sc:textLeaf role="mathtex">a &gt; 0</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			   Si <sc:textLeaf role="mathtex">a</sc:textLeaf> vérifie <sc:textLeaf role="mathtex">a \geq 0</sc:textLeaf>, alors il vérifie <sc:textLeaf role="mathtex">a = 0</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			   Si <sc:textLeaf role="mathtex">a</sc:textLeaf> vérifie <sc:textLeaf role="mathtex">a &gt; 0</sc:textLeaf>, alors il vérifie <sc:textLeaf role="mathtex">a \geq 0</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+	</op:mcqMur>
+</sc:item>

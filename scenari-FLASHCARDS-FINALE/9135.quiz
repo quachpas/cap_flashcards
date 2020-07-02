@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#chim-sante-medicam-</sp:themeLycee>
+			<sp:themeLycee>#chim-sante-medicam-reacchim-</sp:themeLycee>
+			<sp:themeLicence>#chim-chimsolu-</sp:themeLicence>
+			<sp:level><!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="ves" creationTime="1519383230934">niveau 3?</comment></comment>-->3</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<!--<comment xmlns="scenari.eu:comment:1.0" type="thread"><comment author="camille.dufourg" creationTime="1575297620545">Il manque les mots-clés et la licence.</comment></comment>-->
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      Université de technologie de Troyes, 
+      Baudrion, 
+      Verchier, 
+      01-06-2012, 
+      <sc:phrase role="url"><op:urlM>
+<sp:url>http://utt.fr</sp:url>
+</op:urlM>
+utt.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="vaw" creationTime="1483455391278">Dans la question et dans les commentaires, remplacer le mot "équilibrée" par "pondérée" </comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Indiquez l'équation-bilan correctement équilibrée.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						<sc:textLeaf role="mathtex">\mathrm{Fe + 2 \, H_3O^+ \rightarrow Fe^{2+} + H_2 + 2\, H_2O}</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						<sc:textLeaf role="mathtex">\mathrm{2\, Fe + 2 \, H_3O^+ \rightarrow Fe^{2+} + H_2 + 2\, H_2O}</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">On dénombre deux éléments de fer du côté des réactifs pour un élément fer du côté des produits : la conservation de la matière n'est pas vérifiée.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						<sc:textLeaf role="mathtex">\mathrm{3 \, Fe + 2 \, H_3O^+ \rightarrow Fe^{2+} +2\, H_2 + 2\, H_2O}</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">On dénombre trois éléments de fer du côté des réactifs pour un élément fer du côté des produits : la conservation de la matière n'est pas vérifiée.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						<sc:textLeaf role="mathtex">\mathrm{2 \, Fe + 2 \, H_3O^+ \rightarrow 2\, \,Fe^{2+} + H_2 + 2\, H_2O}</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">On dénombre deux charges positives  du côté des réactifs pour quatre charges positives du côté des produits : la conservation de la charge totale n'est pas vérifiée.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="1"/>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="cee" creationTime="1479131374989">Rajouter le domaine de compétences (ex : équilibres acide/base, réaction d'oxydoréduction...).</comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Une réaction chimique s'équilibre en appliquant les lois de conservation de la matière et de conservation de la charge totale.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#math-analyse-ineq-resolalgineq-</sp:themeLycee>
+			<sp:themeLicence>#math-equa-</sp:themeLicence>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://unistra.fr</sp:url>
+</op:urlM>unistra.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			  Soient a et b des réels distincts
+		 :</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			   On a toujours <sc:textLeaf role="mathtex">a^2+b^2&gt;2ab</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			   L'inégalité <sc:textLeaf role="mathtex">a&gt; 2ab</sc:textLeaf> implique<sc:textLeaf role="mathtex"> b&lt;\frac12</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			   L'inégalité <sc:textLeaf role="mathtex"> {a^2+1\over a}&gt;2</sc:textLeaf> est équivalente à <sc:textLeaf role="mathtex">(a-1)^2&gt;0</sc:textLeaf> pour tout <sc:textLeaf role="mathtex">a\in\mathbb R^*</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			   On a toujours <sc:textLeaf role="mathtex">(a-b)^2&gt;(a+b)^2</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+	</op:mcqMur>
+</sc:item>

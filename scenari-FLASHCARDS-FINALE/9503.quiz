@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#phys-obs-coulvisim-lenminconv-</sp:themeLycee>
+			<sp:themeLicence>#phys-optigeom-</sp:themeLicence>
+			<sp:level>1</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://univ-lille1.fr</sp:url>
+</op:urlM>univ-lille1.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">Pour qu'une lentille puisse être modélisée par une lentille mince convergente, il faut que :</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			ses bords soient minces par rapport à son diamètre.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			l'épaisseur au centre soit négligeable par rapport à ses autres dimensions.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			ses bords soient minces par rapport à son épaisseur au centre.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			les images qu'elle donne d'un objet soient toutes minces.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Les dimensions de l'image n'ont rien à voir avec celles de la lentille.
+		</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<!--<comment xmlns="scenari.eu:comment:1.0" type="thread"><comment author="lea.morral" creationTime="1574417254339">Peut-être plus d'explications ?</comment></comment>-->
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			
+  
+  Vous pouvez revoir <sc:phrase role="url"><op:urlM>
+<sp:url>http://uel.unisciel.fr/physique/optigeo/optigeo_ch08/co/apprendre_ch08_01.html</sp:url>
+</op:urlM>
+Lentilles minces</sc:phrase>.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

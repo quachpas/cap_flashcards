@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#chim-sante-diagmed-</sp:themeLycee>
+			<sp:themeLicence>#chim-chimsolu-</sp:themeLicence>
+			<sp:level><!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="ves" creationTime="1521192939744">niveau 3 car calcul à faire</comment></comment>-->3</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<!--<comment xmlns="scenari.eu:comment:1.0" type="thread"><comment author="camille.dufourg" creationTime="1575299305169">Il manque les mots-clés et la licence.</comment></comment>-->
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      Université de technologie de Troyes, 
+      Baudrion, 
+      Verchier, 
+      01-06-2012, 
+      <sc:phrase role="url"><op:urlM>
+<sp:url>http://utt.fr</sp:url>
+</op:urlM>
+utt.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="etu02" creationTime="1430821897048">Erreur dans l'expression de NA : la puissance de 10 n'est pas en exposant</comment><comment author="mar" creationTime="1430987633670" updateTime="1430992720693">exact : 23 doit être en exposant.
+Ajouter un espace entre solution et ?.
+Ajouter un espace avant et après chaque signe =.
+Ajouter un espace avant les ;.
+Ajouter un ; avant NA = 6,02.10^23 mol-1
+
+Cependant, toutes ces données sont inutiles pour identifier la réponse exacte. Pour axer la question sur le savoir testé (expression d'une concentration molaire), je suggère de les supprimer ainsi que la formule brute du glycérol et de formuler la question comme ci-dessous :
+100 mL d'une solution aqueuse contiennent 1 mol de glycérol. Quelle est la concentration molaire de la solution ?</comment><comment author="map" creationTime="1431013441381">enlever tout ça: M(C)=12,0 g.mol-1; M(O)=16,0 g.mol-1; M(H)=1,0 g.mol-1 NA=6,02.1023 mol-1</comment><comment author="ext-lug" creationTime="1431942052769">Corrigé</comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">
+			100 <sc:textLeaf role="mathtex">\mathrm{mL}</sc:textLeaf> d'une solution aqueuse contiennent 1,00 <sc:textLeaf role="mathtex">\mathrm{mol}</sc:textLeaf> de glycérol. Quelle est la concentration molaire de la solution ?</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						10,0 <sc:textLeaf role="mathtex">\mathrm{mol \cdot L^{-1}}</sc:textLeaf>.							
+					</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						100 <sc:textLeaf role="mathtex">\mathrm{mol \cdot L^{-1}}</sc:textLeaf>.							
+					</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						0, 03 <sc:textLeaf role="mathtex">\mathrm{mol \cdot L^{-1}}</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						1 <sc:textLeaf role="mathtex">\mathrm{mol \cdot L^{-1}}</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="1"/>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="mar" creationTime="1430992014541" updateTime="1430992595380">Ce n'est pas le volume de solvant mais le volume de solution qui doit être pris en compte pour exprimer ou calculer la concentration molaire d'une solution. Le phénomène de contraction ou d'expansion de volume peut modifier le volume après mélange du soluté et du solvant.
+
+Remplacer l'explication par :
+La concentration molaire d'une solution se calcule en divisant la quantité de matière du soluté par le volume de la solution. Elle s'exprime généralement en mol.L-1.</comment><comment author="map" creationTime="1431013543757">mettre -1 en exposant</comment><comment author="ext-lug" creationTime="1431942098819">Corrige</comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Par définition de la concentration molaire <sc:textLeaf role="mathtex">C</sc:textLeaf>, <sc:textLeaf role="mathtex">C=\dfrac{n}{V}=\dfrac{1,00}{100 \cdot 10^{-3}}=10,0 \, \mathrm{mol \cdot L^{-1}}</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

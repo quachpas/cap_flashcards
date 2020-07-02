@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:title>Isomères de constitution</sp:title>
+			<sp:themeLycee>#chim-sante-medicam-</sp:themeLycee>
+			<sp:themeLycee>#chim-comploismod-strtran-confmol-</sp:themeLycee>
+			<sp:themeLicence>#chim-chimsolu-</sp:themeLicence>
+			<sp:themeLicence>#chim-chimorga-</sp:themeLicence>
+			<sp:level>1</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<!--<comment xmlns="scenari.eu:comment:1.0" type="thread"><comment author="camille.dufourg" creationTime="1573662344155">Il manque des mots-clés et la licence.</comment></comment>-->
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">Université Lille 1</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="ves" creationTime="1519055861310">Isomères de constitution.</comment></comment>-->
+			<op:res>
+				<sp:txt>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="mar" creationTime="1433006277413">Ajouter "de constitution" après "isomères" dans le titre et dans l'intitulé de la question.</comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">
+			  Des isomères de constitution sont des molécules :
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			ayant la même formule développée ou semi-développée.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="mar" creationTime="1433006516945">Ajouter un s à semi-développée.</comment></comment>-->
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			ayant la même formule brute et des formules développées ou semi-développées différentes.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			n’ayant pas la même formule brute.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			ayant la même formule développée.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="mar" creationTime="1433006420942" updateTime="1433071540065">Ajouter "de constitution" après "isomères" dans l'intitulé de la compétence et dans la phrase d'explication.</comment></comment>-->
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="etu02" creationTime="1430816443899">Faute de frappe dans tout l'exercice : "des formules développées ou semi-développéeS différentes"</comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">
+			<sc:inlineStyle role="emp">Compétence(s)</sc:inlineStyle> : <sc:inlineStyle role="emp">définir des isomères de constitution.</sc:inlineStyle>
+		</sc:para>
+						<sc:para xml:space="preserve">
+			Des isomères de constitution sont des molécules ayant la même formule brute et des formules développées ou semi-développées différentes.
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

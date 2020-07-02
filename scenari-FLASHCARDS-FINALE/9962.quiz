@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:title>Le rôle des végétaux dans l'environnement</sp:title>
+			<sp:themeLycee>#scvie-terunivers-exemviefix-</sp:themeLycee>
+			<sp:themeLicence>#bio-bioveget-</sp:themeLicence>
+			<sp:level>3</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      Université Lille 1
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">La cellulose est un glucide constitutif de la paroi des cellules végétales, elle est la molécule la plus abondante de la biosphère.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						Cela explique pourquoi les forêts sont considérées comme une forme de stockage du <sc:textLeaf role="mathtex">CO_2</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						Cela explique pourquoi les végétaux sont considérés comme des consommateurs primaires.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						Cela explique l'intérêt des recherches sur les biocarburants.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						Cela explique que les végétaux soient considérés comme une énergie renouvelable.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Les végétaux produisent 50 à 100 milliards de tonnes de cellulose par an. Elle est d'autant plus synthétisée que l'arbre est jeune et en pleine croissance. De ce fait, une grande quantité de <sc:textLeaf role="mathtex">CO_2</sc:textLeaf> peut être piégée par ce type de forêt jeune et entretenue. En tant que glucide, elle est combustible ce qui explique que le bois brûle. C'est donc en partie à cause d'elle que les végétaux sont considérés comme énergie renouvelable.
+		</sc:para>
+						<sc:para xml:space="preserve">
+			Ressources à consulter : 
+		</sc:para>
+						<sc:itemizedList>
+							<sc:listItem>
+								<sc:para xml:space="preserve">
+			
+  
+  <sc:phrase role="url"><op:urlM>
+<sp:url>http://www.snv.jussieu.fr/bmedia/Photosynthese/exp12.html</sp:url>
+</op:urlM>
+Mise en évidence de l'utilisation du CO2 et du <sc:phrase role="url"><op:urlM>
+<sp:url>http://www.snv.jussieu.fr/bmedia/Photosynthese/exp12.html</sp:url>
+</op:urlM>
+rejet d'O2</sc:phrase>
+</sc:phrase>
+</sc:para>
+							</sc:listItem>
+						</sc:itemizedList>
+						<sc:itemizedList>
+							<sc:listItem>
+								<sc:para xml:space="preserve">
+			
+  
+  <sc:phrase role="url"><op:urlM>
+<sp:url>http://www.uel.education.fr/consultation/reference/biologie/biochimie1/apprendre/chapitre3/chapitre3C/ap3c1.htm</sp:url>
+</op:urlM>
+
+<sc:phrase role="url"><op:urlM>
+<sp:url>http://uel.unisciel.fr/biologie/biochimie1/biochimie1_ch03/co/apprendre_ch3_03.html</sp:url>
+</op:urlM>
+La cellulose</sc:phrase>
+</sc:phrase>
+</sc:para>
+							</sc:listItem>
+						</sc:itemizedList>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

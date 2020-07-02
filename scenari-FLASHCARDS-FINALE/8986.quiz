@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#chim-comploismod-strtran-formtopo-</sp:themeLycee>
+			<sp:themeLicence>#chim-chimorga-</sp:themeLicence>
+			<sp:level>2</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<!--<comment xmlns="scenari.eu:comment:1.0" type="thread"><comment author="camille.dufourg" creationTime="1573814166284">Il manque les mots-clés et la licence.</comment></comment>-->
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">Université Nice-Sophia-Antipolis</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="etu02" creationTime="1430832677848">L'image est un peu petite</comment><comment author="map" creationTime="1430905608171">PB d'image de molécule à revoir équipe technique </comment><comment author="ext-lug" creationTime="1431351241057" updateTime="1431351287192">Corrigé</comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Considérons la molécule suivante :
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+				<sp:res sc:refUri="images/image10.png">
+					<op:resInfoM/>
+				</sp:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">Combien de fonctions différentes possède-t-elle ?</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			2.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			3.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			4.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			5.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">Toutes les propositions sont fausses.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			La molécule possède 3 fonctions principales : une fonction acide carboxylique, une fonction éther et une fonction amine. La chaîne hydrocarbonée d'un alcane n'est pas prise en compte dans le décompte des fonctions d'une molécule.
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

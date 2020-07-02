@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:title>Symbiose et parasitisme</sp:title>
+			<sp:themeLycee>#scvie-terunivers-exemviefix-</sp:themeLycee>
+			<sp:themeLicence>#bio-bioveget-</sp:themeLicence>
+			<sp:level>1</sp:level>
+			<sp:educationLevel>L1</sp:educationLevel>
+			<sp:info>
+				<op:info>
+					<sp:keywds>
+						<op:keywds>
+							<sp:keywd>symbiose</sp:keywd>
+							<sp:keywd>mycorhizes</sp:keywd>
+							<sp:keywd>champignons</sp:keywd>
+						</op:keywds>
+					</sp:keywds>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      <sc:phrase role="url"><op:urlM>
+<sp:url>http://univ-lemans.fr</sp:url>
+</op:urlM>
+Le Mans Université</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Les mycorhizes :
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						sont des champignons.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						interagissent avec les racines de nombreux végétaux.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						parasitent certaines plantes.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						empêchent certaines plantes d'être broutées par certains animaux.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Les mycorhizes sont des champignons qui interagissent avec les racines de nombreux végétaux. La nature de l'interaction est une symbiose au cours de laquelle chaque organisme tire avantage de l'interaction avec l'autre partenaire. Les échanges sont essentiellement de l'ordre nutritif : les champignons profitent de la matière organique produite par le végétal par photosynthèse et le végétal a accès à une source de nitrate, de phosphate et d'eau plus abondante. En aucun cas, il ne s'agit de parasitisme. Par ailleurs, les mycorhizes ne sont pas connues pour repousser les brouteurs.
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

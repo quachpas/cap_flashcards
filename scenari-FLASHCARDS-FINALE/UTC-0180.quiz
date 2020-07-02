@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#phys-comploimod-cohetransmat-matdiffech-</sp:themeLycee>
+			<sp:themeLicence>#phys-mesinstrinc-</sp:themeLicence>
+			<sp:level>1</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">utc.fr</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">On a fabriqué 4 cubes de même dimension, numérotés de 1 à 4. Chaque cube est constitué d'un unique matériau :</sc:para>
+						<sc:itemizedList>
+							<sc:listItem>
+								<sc:para xml:space="preserve">cube n°1 : acier</sc:para>
+							</sc:listItem>
+							<sc:listItem>
+								<sc:para xml:space="preserve">cube n°2 : aluminium</sc:para>
+							</sc:listItem>
+							<sc:listItem>
+								<sc:para xml:space="preserve">cube n°3 : cuivre</sc:para>
+							</sc:listItem>
+							<sc:listItem>
+								<sc:para xml:space="preserve">cube n°4 : titane</sc:para>
+							</sc:listItem>
+						</sc:itemizedList>
+						<sc:para xml:space="preserve">Si on les classe du plus lourd au plus léger, on obtient le chiffre :</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">3142.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">4132.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">1324.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">1432.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="1"/>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">Masses volumiques</sc:para>
+						<sc:itemizedList>
+							<sc:listItem>
+								<sc:para xml:space="preserve">acier : 7800 <sc:textLeaf role="mathtex">kg/m^3</sc:textLeaf>
+</sc:para>
+							</sc:listItem>
+							<sc:listItem>
+								<sc:para xml:space="preserve">aluminium : 2700 <sc:textLeaf role="mathtex">kg/m^3</sc:textLeaf>
+</sc:para>
+							</sc:listItem>
+							<sc:listItem>
+								<sc:para xml:space="preserve">cuivre : 8900 <sc:textLeaf role="mathtex">kg/m^3</sc:textLeaf>
+</sc:para>
+							</sc:listItem>
+							<sc:listItem>
+								<sc:para xml:space="preserve"> titane : 4500 <sc:textLeaf role="mathtex">kg/m^3</sc:textLeaf>
+</sc:para>
+							</sc:listItem>
+						</sc:itemizedList>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

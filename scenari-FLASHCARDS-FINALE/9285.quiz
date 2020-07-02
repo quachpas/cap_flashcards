@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#math-analyse-expalg-transfexpalg-</sp:themeLycee>
+			<sp:themeLicence>#math-fonctions-</sp:themeLicence>
+			<sp:level>4</sp:level>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://unistra.fr</sp:url>
+</op:urlM>unistra.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve"> On admet qu'il existe trois réels <sc:textLeaf role="mathtex">a</sc:textLeaf>, <sc:textLeaf role="mathtex">b</sc:textLeaf> et <sc:textLeaf role="mathtex">c</sc:textLeaf> tels que pour tout <sc:textLeaf role="mathtex">x</sc:textLeaf> différent de <sc:textLeaf role="mathtex">1</sc:textLeaf> et de <sc:textLeaf role="mathtex">-3</sc:textLeaf>, on ait l'égalité <sc:textLeaf role="mathtex">\frac{x}{(x-1)(x+3)^2}=\frac{a}{x-1}+\frac{b}{x+3}+\frac{c}{(x+3)^2}.</sc:textLeaf> On en déduit que :</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			   pour tout <sc:textLeaf role="mathtex">x</sc:textLeaf> différent de <sc:textLeaf role="mathtex">1</sc:textLeaf> et de <sc:textLeaf role="mathtex">-3</sc:textLeaf>, on <sc:textLeaf role="mathtex">(a+b)x^2+(6a+2b+c)x+9a-3b-c=x </sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			  <sc:textLeaf role="mathtex"> a=\frac{1}{16}</sc:textLeaf>
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			  <sc:textLeaf role="mathtex"> b=\frac{1}{16}</sc:textLeaf>
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			  <sc:textLeaf role="mathtex"> c=\frac{1}{4}</sc:textLeaf>
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">On réduit au même dénominateur : <sc:textLeaf role="mathtex">\frac{a}{x-1}+\frac{b}{x+3}+\frac{c}{(x+3)^2}=\frac{a(x+3)^2+b(x-1)(x+3)+c(x-1)}{(x-1)(x+3)^2}</sc:textLeaf>. On a donc l'égalité <sc:textLeaf role="mathtex">\frac{a(x+3)^2+b(x-1)(x+3)+c(x-1)}{(x-1)(x+3)^2}=\frac{x}{(x-1)(x+3)^2}</sc:textLeaf>, et, en multipliant par <sc:textLeaf role="mathtex">(x-1)(x+3)^2</sc:textLeaf>, <sc:textLeaf role="mathtex">a(x+3)^2+b(x-1)(x+3)+c(x-1)=x</sc:textLeaf>. On développe :</sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">ax^2+6ax+9a+bx^2+2bx-3b+cx-c=x</sc:textLeaf>
+</sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">(a+b)x^2+(6a+2b+c)x+9a-3b-c=x</sc:textLeaf> : la réponse 1) est juste</sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">(a+b)x^2+(6a+2b+c-1)x+9a-3b-c=0</sc:textLeaf> pour tout <sc:textLeaf role="mathtex">x</sc:textLeaf> différent de <sc:textLeaf role="mathtex">1</sc:textLeaf> et <sc:textLeaf role="mathtex">-3</sc:textLeaf> : ce polynôme admet une infinité de racines, donc c'est le polynôme nul, c'est-à-dire</sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">a+b=0</sc:textLeaf>, <sc:textLeaf role="mathtex">6a+2b+c-1=0</sc:textLeaf>, <sc:textLeaf role="mathtex">9a-3b-c=0</sc:textLeaf>. La résolution de ce petit système donne <sc:textLeaf role="mathtex">a=\frac{1}{16},\,b=-\frac{1}{16},\,c=\frac{3}{4}</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

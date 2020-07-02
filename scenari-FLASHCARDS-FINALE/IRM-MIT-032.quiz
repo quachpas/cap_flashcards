@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3">
+		<op:exeM>
+			<sp:themeLycee xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-analyse-integration-</sp:themeLycee>
+			<sp:themeLicence xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-integration-</sp:themeLicence>
+			<sp:level xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">2</sp:level>
+			<sp:educationLevel xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">L0</sp:educationLevel>
+			<sp:info xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">ECRA-IREM-Clermont-Ferrand</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">Soit <sc:textLeaf role="mathtex">f</sc:textLeaf> et <sc:textLeaf role="mathtex">g</sc:textLeaf> deux fonctions continues sur <sc:textLeaf role="mathtex">\mathbb R</sc:textLeaf>, et <sc:textLeaf role="mathtex">a</sc:textLeaf>, <sc:textLeaf role="mathtex">b</sc:textLeaf>, <sc:textLeaf role="mathtex">c</sc:textLeaf> trois réels.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">On a <sc:textLeaf role="mathtex">3\int_a^bf(t)dt=\int_{3a}^{3b}f(t)dt</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">On a <sc:textLeaf role="mathtex">3\int_a^b f(t)dt-\int_a^c g(t)dt = \int _a^b(3f(t)-g(t))dt+\int_c^bg(t)dt</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">On a <sc:textLeaf role="mathtex">3\int_a^b f(t)dt+\int_{-a}^{-b}(t)dt=\int_a^b(3f(t)-g(t))dt</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">On a <sc:textLeaf role="mathtex">\int_a^b f(t)g(t)dt=\Bigg(\int_a^bf(t)dt \Bigg) \Bigg( \int_a^bg(t)dt\Bigg)</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="2"/>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">L'affirmation "On a <sc:textLeaf role="mathtex">3\int_a^bf(t)dt=\int_{3a}^{3b}f(t)dt</sc:textLeaf> est fausse : en effet, si on note <sc:textLeaf role="mathtex">F</sc:textLeaf> une primitive de <sc:textLeaf role="mathtex">f</sc:textLeaf>, on a <sc:textLeaf role="mathtex">3\int_{}^{b}f(t)dt=3(F(b)-F(a))</sc:textLeaf>, tandis que <sc:textLeaf role="mathtex">\int_{3a}^{3b}f(t)dt=F(3b)-F(3a)</sc:textLeaf> : Ces deux quantités sont en général différentes.</sc:para>
+						<sc:para xml:space="preserve">Prenons un contre-exemple, en posant <sc:textLeaf role="mathtex">f(x)=x,\ a=0\;\mathrm{et}\; b= 1</sc:textLeaf>. Une primitive de <sc:textLeaf role="mathtex">f</sc:textLeaf> est la fonction <sc:textLeaf role="mathtex">F(x)=\frac{x^2}{2}</sc:textLeaf> , et on a <sc:textLeaf role="mathtex">3(F(1)-F(0))=\frac32\neq F(3)-F(0)=\frac 92</sc:textLeaf> .</sc:para>
+						<sc:para xml:space="preserve">L'affirmation "On a <sc:textLeaf role="mathtex">3\int_a^b f(t)dt-\int_a^c g(t)dt = \int _a^b(3f(t)-g(t))dt+\int_c^bg(t)dt</sc:textLeaf>" est juste. On le montre en utilisant la relation de Chasles et la linéarité de l'intégrale : on a <sc:textLeaf role="mathtex">\displaystyle3\int_{a}^{b}f(t)dt-\int_{a}^{c}g(t)dt=\int_{a}^{b}3f(t)dt-\left(\int_{a}^{b}g(t)dt+\int_{b}^{c}g(t)dt\right)</sc:textLeaf>, ce qui est égal, toujours par linéarité de l'intégrale, à <sc:textLeaf role="mathtex">\displaystyle\int_{a}^{b}\left(3f(t)-g(t)\right)dt-\int_{b}^{c}g(t)dt=\int_{a}^{b}\left(3f(t)-g(t)\right)dt+\int_{c}^{b}g(t)dt</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">L'affirmation "On a <sc:textLeaf role="mathtex">3\int_a^b f(t)dt+\int_{-a}^{-b}(t)dt=\int_a^b(3f(t)-g(t))dt</sc:textLeaf>" est fausse : on a bien l'égalité <sc:textLeaf role="mathtex">\displaystyle3\int_{a}^{b}f(t)dt=\int_{a}^{b}3f(t)dt</sc:textLeaf> par linéarité de l'intégrale, mais par contre les deux expressions <sc:textLeaf role="mathtex">\int_{-a}^{-b}g(t)dt\quad\mathrm{et}\quad-\int_{a}^{b}g(t)dt</sc:textLeaf> sont en général différentes :</sc:para>
+						<sc:para xml:space="preserve">si on note <sc:textLeaf role="mathtex">G</sc:textLeaf> une primitive de <sc:textLeaf role="mathtex">g</sc:textLeaf>, la 1ère expression est égale à <sc:textLeaf role="mathtex">G(-b)-G(-a)</sc:textLeaf> tandis que la 2ème est égale à <sc:textLeaf role="mathtex">-(G(b)-G(a))</sc:textLeaf>. Par exemple, considérons la fonction <sc:textLeaf role="mathtex">g(t)=e^t</sc:textLeaf>, dont une primitive est</sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">G(t)=e^t</sc:textLeaf>, et posons <sc:textLeaf role="mathtex">a=0</sc:textLeaf> et <sc:textLeaf role="mathtex">b=\ln(2)</sc:textLeaf>. On a <sc:textLeaf role="mathtex">\displaystyle\int_{-a}^{-b}g(t)dt=G(-b)-G(-a)= e^{-\ln(2)}-1=\frac12-1=-\frac12</sc:textLeaf>, tandis que <sc:textLeaf role="mathtex">\displaystyle-\int_{a}^{b}g(t)dt=-(G(b)-G(a))=-(e^{\ln(2)}-1)= -(2-1)=-1</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">Enfin l'affirmation "On a <sc:textLeaf role="mathtex">\int_a^b f(t)g(t)dt=\Bigg(\int_a^bf(t)dt \Bigg) \Bigg( \int_a^bg(t)dt\Bigg)</sc:textLeaf>" est fausse elle aussi, l'intégrale du produit de deux fonctions n'a en général rien à voir avec le produit des intégrales de chacune des deux fonctions. Prenons par exemple les fonctions <sc:textLeaf role="mathtex">f(t)=g(t)=t</sc:textLeaf>, et <sc:textLeaf role="mathtex">a=0\; , b=1</sc:textLeaf>. On a alors <sc:textLeaf role="mathtex">\displaystyle\int_{a}^{b}f(t)g(t)dt=\int_{0}^{1}t^2dt=\left[\frac{t^3}{3}\right]_{0}^{1}=\frac13</sc:textLeaf> tandis que <sc:textLeaf role="mathtex">\displaystyle\left(\int_{a}^{b}f(t)dt\right)\left(\int_{a}^{b}g(t)dt\right)=\left(\int_{0}^{1}tdt\right)^2=\left(\left[\frac{t^2}{2}\right]_{0}^{1}\right)^2=\frac14</sc:textLeaf> .</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

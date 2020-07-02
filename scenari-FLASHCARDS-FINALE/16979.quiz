@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#math-probastat-notloidens-loiexpo-</sp:themeLycee>
+			<sp:themeLicence>#math-stat-</sp:themeLicence>
+			<sp:level>2</sp:level>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      <sc:phrase role="url"><op:urlM xmlns:sc="http://www.utc.fr/ics/scenari/v3/core" xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive"><sp:url>www.parisdescartes.fr</sp:url></op:urlM>
+parisdescartes.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			On s'intéresse à la durée de vie <sc:textLeaf role="mathtex">X</sc:textLeaf> d'un appareil ménager avant la première panne. On peut modéliser cette situation par une loi de probabilité exponentielle de paramètre 
+  <sc:textLeaf role="mathtex">\textstyle{\lambda}</sc:textLeaf>
+</sc:para>
+						<sc:para xml:space="preserve">Sachant que l'appareil n'a connu aucune panne au cours des deux premières années après sa mise en service, la probabilité qu'il ne connaisse aucune panne l'année suivante est :</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			
+  <sc:textLeaf role="mathtex">P(X\geq 3)</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Cette probabilité est celle que l'appareil ne connaisse pas de panne durant les trois premières années. 
+		</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			
+  <sc:textLeaf role="mathtex">P(X\geq 1)
+	</sc:textLeaf>	</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			
+  
+		<sc:textLeaf role="mathtex">P(2\leq X\leq 3)</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Cette probabilité est celle que l'appareil tombe en panne la troisième année. 
+		</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="2"/>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			On cherche 
+  <sc:textLeaf role="mathtex">\textstyle{\mathbb P_{X\geq 2}(X\geq 3)}</sc:textLeaf> : 
+		</sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\mathbb P_{X\geq 2}(X\geq 3)=\dfrac{\mathbb P(X\geq 2\cap(X\geq 3)}{\mathbb P(X\geq 2)}=\dfrac{\mathbb P(X\geq 3)}{\mathbb P(X\geq 2)}</sc:textLeaf>
+</sc:para>
+						<sc:para xml:space="preserve">
+			Or pour 
+  <sc:textLeaf role="mathtex">\textstyle{t}</sc:textLeaf>
+ réel positif, 
+  <sc:textLeaf role="mathtex">\textstyle{\mathbb P(X\geq t)=1-\int_0^t\lambda e^{-\lambda x}\,\mathrm{d}x=1-\left[-e^{-\lambda x}\right]_0^t=e^{-\lambda t}}</sc:textLeaf> , d'où 
+		</sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\dfrac{\mathbb P(X\geq 3)}{\mathbb P(X\geq 2)}=\dfrac{e^{-3\lambda}}{e^{-2\lambda}}=e^{-1\lambda}=\mathbb P(X\geq 1)</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">
+			On retrouve ici la loi de durée de vie sans vieillissement.
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

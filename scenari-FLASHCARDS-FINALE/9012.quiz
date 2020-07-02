@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#chim-obscoulim-matcolo-forlewis-</sp:themeLycee>
+			<sp:themeLicence>#chim-strucmat-</sp:themeLicence>
+			<sp:level>1</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<!--<comment xmlns="scenari.eu:comment:1.0" type="thread"><comment author="camille.dufourg" creationTime="1574413630841">Il manque les mots-clés et la licence.</comment></comment>-->
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">Université Nice-Sophia-Antipolis</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			La formule de Lewis du méthanal est :
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			CH<sc:textLeaf role="ind">2</sc:textLeaf>O.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			CH<sc:textLeaf role="ind">3</sc:textLeaf>CHO.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">Toutes les propositions sont fausses.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<!--<comment xmlns="scenari.eu:comment:1.0" type="thread"><comment author="camille.dufourg" creationTime="1574414404897">Les images ne doivent-elles pas être mises en ressources même si elles sont au sein de l'explication ?</comment></comment>-->
+			<op:res>
+				<sp:txt>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread"><comment author="etu02" creationTime="1430828223570">Les images sont là encore très petites et donc peu lisibles.</comment><comment author="map" creationTime="1430904341420" updateTime="1431332448710">PB de taille des images à revoir équipe technique </comment><comment author="ext-lug" creationTime="1431351651973">Corrigé</comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Les réponses CH<sc:textLeaf role="ind">2</sc:textLeaf>O et CH<sc:textLeaf role="ind">3</sc:textLeaf>CHO sont des formules brutes. La réponse :</sc:para>
+					</op:txt>
+				</sp:txt>
+				<sp:res sc:refUri="images/image_12c.png">
+					<op:resInfoM/>
+				</sp:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">est la représentation de Lewis de l'éthanal, celle du méthanal étant la réponse :</sc:para>
+					</op:txt>
+				</sp:txt>
+				<sp:res sc:refUri="images/image_12d.png">
+					<op:resInfoM/>
+				</sp:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">Le méthanal est aussi appelé formaldéhyde.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:title>Expression des caractères génétiques</sp:title>
+			<sp:themeLycee>#scvie-terunivers-natvivant-</sp:themeLycee>
+			<sp:themeLicence>#bio-angenome-</sp:themeLicence>
+			<sp:level>3</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<op:info>
+					<sp:keywds>
+						<op:keywds>
+							<sp:keywd>génétique</sp:keywd>
+						</op:keywds>
+					</sp:keywds>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      Université Lille 1
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			 On enlève le noyau d'une cellule œuf de crapaud normale, et on y injecte le noyau d'une cellule intestinale de crapaud albinos. La cellule œuf en se développant donne
+		 :</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						un amas de quelques cellules intestinales.							
+					</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						un crapaud normal.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						un crapaud albinos.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						un crapaud présentant des cellules normales et des cellules albinos.							
+					</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="3"/>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Les caractères d'un individu sont portés par l'ADN du noyau de la cellule œuf et transmis à toutes les cellules par mitoses. </sc:para>
+						<sc:para xml:space="preserve">Le noyau de la cellule intestinale introduit dans l'ovule mime ce qui aurait pu être obtenu par la fusion d'un ovule et d'un spermatozoïde. L'individu issu de cette cellule œuf contenant un noyau de crapaud albinos sera donc un crapaud albinos. </sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

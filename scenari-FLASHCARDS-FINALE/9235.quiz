@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLicence>#math-fonctions-</sp:themeLicence>
+			<sp:themeLicence>#math-polyno-</sp:themeLicence>
+			<sp:level>3</sp:level>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://unistra.fr</sp:url>
+</op:urlM>unistra.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			  On considère la fonction polynomiale f définie par<sc:textLeaf role="mathtex"> f(x)=x^3+3x+4</sc:textLeaf>. L'équation <sc:textLeaf role="mathtex">f(x)=0</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			   admet trois solutions réelles distinctes.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			   n'admet aucune solution réelle.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			   n'admet aucune solution réelle positive.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			   admet une unique solution réelle.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">La fonction <sc:textLeaf role="mathtex">f</sc:textLeaf> est dérivable de dérivée <sc:textLeaf role="mathtex">f'(x)=3x^2+3&gt;0</sc:textLeaf> donc est strictement croissante. De plus, elle tend vers <sc:textLeaf role="mathtex">-\infty</sc:textLeaf> quand <sc:textLeaf role="mathtex">x\to- \infty</sc:textLeaf> et vers <sc:textLeaf role="mathtex">+\infty</sc:textLeaf> quand <sc:textLeaf role="mathtex">x\to+\infty</sc:textLeaf>, donc par le théorème des valeurs intermédiaires, elle s'annule au moins une fois. Elle ne peut pas s'annuler plus d'une fois car elle est strictement croissante. D'où la réponse 4). La réponse 3) est fausse car pour <sc:textLeaf role="mathtex">x\geq 0</sc:textLeaf>, <sc:textLeaf role="mathtex">f(x)\geq 4</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

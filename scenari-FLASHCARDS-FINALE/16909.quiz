@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#math-probastat-echantil-intechant-</sp:themeLycee>
+			<sp:themeLicence>#math-stat-</sp:themeLicence>
+			<sp:level>1</sp:level>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      <sc:phrase role="url"><op:urlM xmlns:sc="http://www.utc.fr/ics/scenari/v3/core" xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive"><sp:url>www.parisdescartes.fr</sp:url></op:urlM>
+parisdescartes.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Bob lance 
+  <sc:textLeaf role="mathtex">\textstyle{n}</sc:textLeaf>
+ fois une pièce de monnaie truquée et note 
+  <sc:textLeaf role="mathtex">\textstyle{X_n}</sc:textLeaf>
+ comme la variable aléatoire donnant le nombre de pile obtenus. On suppose que la probabilité de tomber sur pile est 
+  <sc:textLeaf role="mathtex">\textstyle{p\in]0, 1[}</sc:textLeaf>
+. Un intervalle de fluctuation asymptotique pour 
+  <sc:textLeaf role="mathtex">\textstyle{\frac{X_n}{n}}</sc:textLeaf>
+ au seuil 
+  <sc:textLeaf role="mathtex">\textstyle{0,95}</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			 
+  <sc:textLeaf role="mathtex">\textstyle{\left[ p - 1.96 \frac{\sqrt{p}}{\sqrt{n}}, p + 1.96 \frac{\sqrt{p}}{\sqrt{n}}\right]}</sc:textLeaf>
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			 
+  <sc:textLeaf role="mathtex">\textstyle{\left[ p - 1.96 \frac{\sqrt{p}}{n}, p + 1.96 \frac{\sqrt{p}}{n}\right]}</sc:textLeaf>
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			 
+  <sc:textLeaf role="mathtex">\textstyle{\left[ p - 1.96 \frac{\sqrt{p(1-p)}}{\sqrt{n}}, p + 1.96 \frac{\sqrt{p(1-p)}}{\sqrt{n}}\right]}</sc:textLeaf>
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			 
+  <sc:textLeaf role="mathtex">\textstyle{\left[ p - 1.96 \frac{\sqrt{p(1-p)}}{n}, p + 1.96 \frac{\sqrt{p(1-p)}}{n}\right]}</sc:textLeaf>
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="3"/>
+	</op:mcqSur>
+</sc:item>

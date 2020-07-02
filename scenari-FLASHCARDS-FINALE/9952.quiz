@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:title>La méiose</sp:title>
+			<sp:themeLycee>#scvie-terunivers-natvivant-</sp:themeLycee>
+			<sp:themeLicence>#bio-angenome-</sp:themeLicence>
+			<sp:level>3</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<op:info>
+					<sp:keywds>
+						<op:keywds>
+							<sp:keywd>cellule</sp:keywd>
+							<sp:keywd>génétique</sp:keywd>
+							<sp:keywd>méiose</sp:keywd>
+						</op:keywds>
+					</sp:keywds>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      Université Lille 1
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			 Le brassage interchromosomique
+		 :</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">est dû aux crossing-over.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">se fait à chaque division de la méiose.							
+					</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">se fait entre chromosomes d'une même paire.							
+					</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">est dû à la répartition aléatoire des  chromosomes de chaque paire au cours de la méiose.							
+					</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="4"/>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">Il est très important de ne pas confondre le brassage INTERchromosomique avec le brassage INTRAchromosomique.</sc:para>
+						<sc:para xml:space="preserve">Lors de la 1ère division de la méiose (la division réductionnelle) le nombre de chromosomes est divisé par deux car chaque paire d'homologues se sépare : un chromosome d'une paire donné va dans une des deux cellules filles et le 2ème chromosome de la paire va dans l'autre.</sc:para>
+						<sc:para xml:space="preserve">Le brassage interchromosomique correspond à la séparation aléatoire des paires de chromosomes  au cours de la méiose. Ce qui permet pour l'espèce humaine d'avoir 8,3 millions (2<sc:textLeaf role="exp">23</sc:textLeaf>) de  combinaisons de gamètes possibles, car il y a 2 possibilités de répartition pour chaque paire de chromosomes.</sc:para>
+						<sc:para xml:space="preserve">Ressources à consulter : 
+		</sc:para>
+						<sc:itemizedList>
+							<sc:listItem>
+								<sc:para xml:space="preserve">
+			
+  
+  <sc:phrase role="url"><op:urlM>
+<sp:url>http://www.youtube.com/watch?v=7a3ezJe3ptM&amp;feature=related</sp:url>
+</op:urlM>
+Gènes et chromosomes</sc:phrase>
+  
+  
+		</sc:para>
+							</sc:listItem>
+							<sc:listItem>
+								<sc:para xml:space="preserve">
+			
+  
+  <sc:phrase role="url"><op:urlM>
+<sp:url>http://www.youtube.com/watch?v=YGSj_5RuqvM&amp;feature=related</sp:url>
+</op:urlM>
+Les mutations</sc:phrase>
+  
+  
+		</sc:para>
+							</sc:listItem>
+						</sc:itemizedList>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:title>La fécondation</sp:title>
+			<sp:themeLycee>#scvie-terunivers-natvivant-</sp:themeLycee>
+			<sp:themeLicence>#bio-angenome-</sp:themeLicence>
+			<sp:level>2</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<op:info>
+					<sp:keywds>
+						<op:keywds>
+							<sp:keywd>cellule</sp:keywd>
+							<sp:keywd>génétique</sp:keywd>
+							<sp:keywd>méiose</sp:keywd>
+							<sp:keywd>fécondation</sp:keywd>
+						</op:keywds>
+					</sp:keywds>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      Université Lille 1
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			 Chaque individu d'une espèce est unique :</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">car la cellule œuf, à l'origine de l'individu, est obtenue après méiose et fécondation qui permettent un brassage chromosomique.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">car tous les gènes sont différents chez les individus d'une même espèce.							
+					</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">car les gènes sont mélangés par crossing-over.							
+					</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">car 2 gamètes identiques ne peuvent pas se féconder.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="1"/>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Le brassage chromosomique se fait au cours de la méiose et de la fécondation. La cellule œuf issue de la fécondation possède un patrimoine génétique différent de celui des parents, une association d'allèles considérée unique.</sc:para>
+						<sc:para xml:space="preserve">La probabilité d'avoir 2 gamètes identiques est très faible, celle qu'ils se rencontrent est quasi nulle. </sc:para>
+						<sc:para xml:space="preserve">Chez l'être humain il y a 2<sc:textLeaf role="exp">23</sc:textLeaf> gamètes possibles pour un individu. Lorsque deux gamètes se rencontrent cela constitue donc un événement parmi 2<sc:textLeaf role="exp">46</sc:textLeaf>, soit plus de 7<sc:textLeaf role="exp">13 </sc:textLeaf> possibilités (bien plus que le nombre d'humains sur Terre...). Cela sans compter le polymorphisme génétique. En effet dans ce calcul on ne considère que les différentes combinaisons possibles de répartition de 23 paires de chromosomes pour former chaque gamète et les combinaisons possibles lors de la fusion, mais on ne prend pas en compte le fait que chaque gène peut présenter en plus différents allèles.</sc:para>
+						<sc:para xml:space="preserve">Ressources à consulter : 
+		</sc:para>
+						<sc:itemizedList>
+							<sc:listItem>
+								<sc:para xml:space="preserve">
+			
+  
+  <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://www.youtube.com/watch?v=7a3ezJe3ptM&amp;feature=related</sp:url>
+</op:urlM>Gènes et chromosomes</sc:phrase>
+  
+  
+		</sc:para>
+							</sc:listItem>
+							<sc:listItem>
+								<sc:para xml:space="preserve">
+			
+  
+  <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://www.youtube.com/watch?v=YGSj_5RuqvM&amp;feature=related</sp:url>
+</op:urlM>Les mutations</sc:phrase>
+  
+  
+		</sc:para>
+							</sc:listItem>
+						</sc:itemizedList>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

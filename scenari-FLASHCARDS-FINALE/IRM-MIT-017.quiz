@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3">
+		<op:exeM>
+			<sp:themeLycee xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-analyse-integration-</sp:themeLycee>
+			<sp:themeLicence xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-integration-</sp:themeLicence>
+			<sp:level xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">2</sp:level>
+			<sp:educationLevel xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">L0</sp:educationLevel>
+			<sp:info xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">ECRA-IREM-Clermont-Ferrand</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">On donne les courbes <sc:textLeaf role="mathtex">C_f</sc:textLeaf> et <sc:textLeaf role="mathtex">C_g</sc:textLeaf> représentatives respectivement des fonctions <sc:textLeaf role="mathtex">f</sc:textLeaf> et <sc:textLeaf role="mathtex">g</sc:textLeaf> définies sur <sc:textLeaf role="mathtex">\mathbb R</sc:textLeaf> par <sc:textLeaf role="mathtex">f(x) =e^x</sc:textLeaf> et <sc:textLeaf role="mathtex">g(x)=-x</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sp:txt>
+				<sp:res sc:refUri="Ressources/QI17_1.PNG" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:resInfoM/>
+				</sp:res>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">L'aire coloriée est égale à <sc:textLeaf role="mathtex">\Bigg( e-\frac 32 \Bigg)</sc:textLeaf> unités d'aire</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\lim\limits_{\lambda\rightarrow - \infty} \int_\lambda^{10} f(x)dx=+\infty</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\int_{-1}^0\Big(f(x)-g(x)\Big)dx=0</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">L'aire coloriée est comprise entre <sc:textLeaf role="mathtex">2</sc:textLeaf> et <sc:textLeaf role="mathtex">3</sc:textLeaf> unités d'aire</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="4"/>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:inlineStyle role="emp">Propriété 1</sc:inlineStyle>
+</sc:para>
+						<sc:para xml:space="preserve">Soit <sc:textLeaf role="mathtex">f</sc:textLeaf> une fonction définie, continue et <sc:inlineStyle role="emp">positive</sc:inlineStyle> sur <sc:textLeaf role="mathtex">[a ;b]</sc:textLeaf> (avec <sc:textLeaf role="mathtex">a&lt;b</sc:textLeaf>). L'intégrale de <sc:textLeaf role="mathtex">a</sc:textLeaf> à <sc:textLeaf role="mathtex">b</sc:textLeaf> de la fonction <sc:textLeaf role="mathtex">f</sc:textLeaf>, notée <sc:textLeaf role="mathtex">\displaystyle\int_a^bf(x)dx</sc:textLeaf>, est égale à l'aire de la partie du plan délimitée par la courbe de la fonction <sc:textLeaf role="mathtex">f</sc:textLeaf>, l'axe des abscisses et les deux droites d'équation <sc:textLeaf role="mathtex">x=a</sc:textLeaf> et <sc:textLeaf role="mathtex">x=b</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sp:txt>
+				<sp:txtRes xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txtRes>
+						<op:txtResM>
+							<sp:pos>lft</sp:pos>
+						</op:txtResM>
+						<sp:txt>
+							<op:txt>
+								<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\displaystyle\int_a^bf(x)dx</sc:textLeaf> est l'aire &quot;sous la courbe&quot; de la fonction <sc:textLeaf role="mathtex">f</sc:textLeaf>. Cette aire est exprimée en <sc:textLeaf role="mathtex">u.a.</sc:textLeaf> (unité d'aire).</sc:para>
+							</op:txt>
+						</sp:txt>
+						<sp:img sc:refUri="illustrations/irm_clf_mit_017-1.PNG"/>
+					</op:txtRes>
+				</sp:txtRes>
+				<sp:txtRes xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txtRes>
+						<op:txtResM>
+							<sp:pos>rgt</sp:pos>
+						</op:txtResM>
+						<sp:txt>
+							<op:txt>
+								<sc:para xml:space="preserve">
+<sc:inlineStyle role="emp">Propriété 2</sc:inlineStyle>
+</sc:para>
+								<sc:para xml:space="preserve">Si <sc:textLeaf role="mathtex">f</sc:textLeaf> est une fonction <sc:inlineStyle role="emp">négative</sc:inlineStyle> sur <sc:textLeaf role="mathtex">[a ;b]</sc:textLeaf>, par symétrie, l'aire rouge &quot;au dessus de <sc:textLeaf role="mathtex">C_f</sc:textLeaf>&quot; est égale à l'aire bleue &quot;en dessous de <sc:textLeaf role="mathtex">C_{-f}</sc:textLeaf>&quot;.</sc:para>
+								<sc:para xml:space="preserve">La fonction <sc:textLeaf role="mathtex">\big(-f\big)</sc:textLeaf> étant positive sur <sc:textLeaf role="mathtex">[a ;b]</sc:textLeaf>, cette aire est donc égale à <sc:textLeaf role="mathtex">\displaystyle\int_a^b-f(x)dx</sc:textLeaf>.</sc:para>
+							</op:txt>
+						</sp:txt>
+						<sp:img sc:refUri="illustrations/irm_clf_mit_017-2.PNG"/>
+					</op:txtRes>
+				</sp:txtRes>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:itemizedList>
+							<sc:listItem>
+								<sc:para xml:space="preserve">L'aire coloriée est la somme de l'aire &quot;en dessous de <sc:textLeaf role="mathtex">C_f</sc:textLeaf>&quot; et de l'aire &quot;au dessus de <sc:textLeaf role="mathtex">C_g</sc:textLeaf>&quot;, soit :</sc:para>
+								<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\displaystyle{\int_0^1f(x)dx+\int_0^1-g(x)dx=\int_0^1e^xdx+\int_0^1xdx=\bigg[e^x\bigg]^1_0+\bigg[\frac{x^2}2\bigg]^1_0=e-1+\frac12=e-\frac12\approx2,2\; u.a}</sc:textLeaf>.</sc:para>
+							</sc:listItem>
+						</sc:itemizedList>
+					</op:txt>
+				</sp:txt>
+				<sp:txtRes xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txtRes>
+						<op:txtResM>
+							<sp:pos>rgt</sp:pos>
+						</op:txtResM>
+						<sp:txt>
+							<op:txt>
+								<sc:para xml:space="preserve">
+<sc:inlineStyle role="emp">Remarques</sc:inlineStyle>
+</sc:para>
+								<sc:itemizedList>
+									<sc:listItem>
+										<sc:para xml:space="preserve">Graphiquement, il est clair que la réponse est fausse <sc:inlineStyle role="spec">&quot;L'aire coloriée est égale à <sc:textLeaf role="mathtex">\Bigg( e-\frac 3 2 \Bigg)</sc:textLeaf> unités d'aire&quot;</sc:inlineStyle> (<sc:textLeaf role="mathtex">e-\frac32\approx1,3</sc:textLeaf>) tandis que la réponse <sc:inlineStyle role="spec">&quot;L'aire coloriée est comprise entre <sc:textLeaf role="mathtex">2</sc:textLeaf> et <sc:textLeaf role="mathtex">3</sc:textLeaf> unités d'aire&quot;</sc:inlineStyle> semble correcte.</sc:para>
+									</sc:listItem>
+									<sc:listItem>
+										<sc:para xml:space="preserve">
+<sc:inlineStyle role="emp">Attention</sc:inlineStyle>, il ne faut pas confondre unité d'aire et carreau. Dans le graphique ci-contre, l'aire coloriée est égale à <sc:textLeaf role="mathtex">1,5\;u.a.</sc:textLeaf> (ou <sc:textLeaf role="mathtex">6</sc:textLeaf> carreaux).</sc:para>
+									</sc:listItem>
+								</sc:itemizedList>
+							</op:txt>
+						</sp:txt>
+						<sp:img sc:refUri="illustrations/irm_clf_mit_017-3.PNG"/>
+					</op:txtRes>
+				</sp:txtRes>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:itemizedList>
+							<sc:listItem>
+								<sc:para xml:space="preserve">Soit <sc:textLeaf role="mathtex">\lambda\in\mathbb R</sc:textLeaf>. On a <sc:textLeaf role="mathtex">\displaystyle{\int_{\lambda}^{10}f(x)dx=\int_{\lambda}^{10}e^xdx=\bigg[e^x\bigg]^{10}_{\lambda}=e^{10}-e^{\lambda}}</sc:textLeaf>. D'où : <sc:textLeaf role="mathtex">\lim\limits_{\lambda\rightarrow - \infty} \int_\lambda^{10} f(x)dx=\lim\limits_{\lambda\rightarrow -\infty}\bigg(e^{10}-e^{\lambda}\bigg)=e^{10}</sc:textLeaf>
+</sc:para>
+							</sc:listItem>
+							<sc:listItem>
+								<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\displaystyle{\int_{-1}^0\big(f(x)-g(x)\big)dx=\int_{-1}^0\bigg(e^x+x\bigg)dx=\bigg[e^x+\frac{x^2}2\bigg]^0_{-1}=1-e^{-1}-\frac12=\frac12-e^{-1}\approx0,13\neq0}</sc:textLeaf>
+</sc:para>
+							</sc:listItem>
+						</sc:itemizedList>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

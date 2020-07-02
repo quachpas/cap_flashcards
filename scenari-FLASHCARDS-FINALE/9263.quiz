@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#math-analyse-ineq-resolalgineq-</sp:themeLycee>
+			<sp:themeLicence>#math-equa-</sp:themeLicence>
+			<sp:level>1</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://unistra.fr</sp:url>
+</op:urlM>unistra.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread"><comment author="pij" creationTime="1459369710935">Ce serait bien de commencer par soit x&gt;-1 un réel</comment><comment author="pij" creationTime="1460443064767">Ludovic : idem
+Soit x &gt;= -1</comment><comment author="ext-lug" creationTime="1460450599906">Ajout</comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">
+			 Soit <sc:textLeaf role="mathtex">x\ge 1</sc:textLeaf>, l'inéquation <sc:textLeaf role="mathtex"> x-1\le \sqrt{x+1}</sc:textLeaf> :</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread"><comment author="ariane.lozon" creationTime="1574953500144">x&gt;=1 non nécessaire car mis dans l'énoncé</comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">
+			   implique <sc:textLeaf role="mathtex">x(x-3)\le 0</sc:textLeaf> lorsque <sc:textLeaf role="mathtex">x\ge 1</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			   a pour solution <sc:textLeaf role="mathtex">x\in [-1,3]</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			   a pour solution <sc:textLeaf role="mathtex">x\in [0,3]</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			   implique <sc:textLeaf role="mathtex">x(x-3)\le 0</sc:textLeaf> pour tout <sc:textLeaf role="mathtex">x\ge -1</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread"><comment author="pas" creationTime="1453217907602">ressource non adaptée : il faudrait une ressource sur les inéquations : on pourrait simplement rappeler que 
+-~- si 2 nombres a et b  POSITIFS sont tels que a&lt;= b alors a^2 &lt;=b^2 ( Les  carrées de nombres positifs sont rangés comme les nombres eux-mêmes)
+-~- racine (u) n'est définie que si u &gt;=0. 
+-~- une racine carrée est toujours positive et x-1 &gt;= 0 si et seulement si x&gt;= 1.  </comment></comment>-->
+					<op:txt>
+						<sc:itemizedList>
+							<sc:listItem>
+								<sc:para xml:space="preserve">Si 2 nombres <sc:textLeaf role="mathtex">a</sc:textLeaf> et <sc:textLeaf role="mathtex">b</sc:textLeaf> <sc:inlineStyle role="emp">positifs</sc:inlineStyle> sont tels que <sc:textLeaf role="mathtex">a\leq b</sc:textLeaf> alors <sc:textLeaf role="mathtex">a^2 \leq b^2</sc:textLeaf> (Les carrées de nombres positifs sont rangés comme les nombres eux-mêmes)</sc:para>
+							</sc:listItem>
+							<sc:listItem>
+								<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\sqrt{u}</sc:textLeaf> n'est définie que si <sc:textLeaf role="mathtex">u\geq 0</sc:textLeaf>.</sc:para>
+							</sc:listItem>
+							<sc:listItem>
+								<sc:para xml:space="preserve">une racine carrée est toujours positive et <sc:textLeaf role="mathtex">x-1 \geq 0</sc:textLeaf> si et seulement si <sc:textLeaf role="mathtex">x\geq 1</sc:textLeaf>.</sc:para>
+							</sc:listItem>
+						</sc:itemizedList>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#phys-comploimod-tempmvtevol-descmvtpttps-</sp:themeLycee>
+			<sp:themeLicence>#phys-mathphys-</sp:themeLicence>
+			<sp:level>3</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      UTT, 
+      Vial, 
+      Vezy, 
+      25-06-2012, 
+      <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://utt.fr</sp:url>
+</op:urlM>utt.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="auc" creationTime="1461856724096">Mise en équation d'une situation simple</comment></comment>-->
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Pim, Pam et Poum partent en vélo ensemble pour l'université. Pam arrive à 12h. Pim est arrivé à 11h avec une vitesse moyenne de <sc:textLeaf role="mathtex">30 km/h</sc:textLeaf>. Poum arrive à 13h avec une vitesse moyenne de <sc:textLeaf role="mathtex">20 km/h</sc:textLeaf>. Quelle est la vitesse moyenne de Pam ?
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve"><sc:textLeaf role="mathtex">24 km/h</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve"><sc:textLeaf role="mathtex">
+			25 km/h</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve"><sc:textLeaf role="mathtex">
+			26 km/h
+	</sc:textLeaf>.	</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve"><sc:textLeaf role="mathtex">
+			27,5 km/h
+	</sc:textLeaf>.	</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="1"/>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Il faut calculer la distance parcourue pour en déduire la vitesse de Pam. Par contre, on ne peut pas faire la moyenne des vitesses.
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

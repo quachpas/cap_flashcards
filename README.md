@@ -125,6 +125,23 @@ python3 ./Python/opale2flashcard.py ./Examples-files ./Examples-files/themeLicen
 
 The output will be found in your **current directory**, that is from where you launch the script.
 
+### Compiling directly after conversion
+
+The output automatically separates flashcards by subjects and status (accepted, rejected). **It also cleans the entire output before each run**.
+
+`out.tex` will however contain all accepted flashcards, regardless of subject. Launching the script with the `--compile` option will compile this document twice using the following command :
+```
+xelatex --synctex=1 --interaction=batchmode --file-line-error --shell-escape out.tex
+```
+
+**This option is only functionla if the script is launched from the output directory.**
+
+```
+# From /cap_flashcards/
+cd ./Python/output
+python3 ../opale2flashcard.py ../../Examples-files ../../Examples-files/themeLicence.xml --compile
+```
+
 ## How to use the script?
 ### General instructions
 The script works in collaboration with SCENARIchain.

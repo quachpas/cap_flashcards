@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#chim-comploismod-strtran-phdefmes-</sp:themeLycee>
+			<sp:themeLicence>#chim-chimsolu-</sp:themeLicence>
+			<sp:level>4</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<op:info>
+					<sp:keywds>
+						<op:keywds>
+							<sp:keywd>Analyse</sp:keywd>
+						</op:keywds>
+					</sp:keywds>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">utc.fr</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="false"><comment author="cee" creationTime="1479132055604">Écrire le &quot;-3&quot; en exposant</comment></comment>-->
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="false"><comment author="sod" creationTime="1477641170391">&quot;5.10^(-3)&quot; -&gt; pour que ce soit un peu plu clair</comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">Soit une solution de soude (<sc:textLeaf role="mathtex">NaOH</sc:textLeaf>) de concentration <sc:textLeaf role="mathtex">5.10^-3</sc:textLeaf> <sc:textLeaf role="mathtex">mol.L^{-1}</sc:textLeaf>. Quel est le pH, au dixième près, de cette solution ?</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">10,9.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">11,7.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">7,5.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">5,5.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">4,7.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">Pour calculer un pH : <sc:textLeaf role="mathtex">pH=-\log{(H_3O^+)}</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">Par définition, on sait que le produit ionique Ke= [<sc:textLeaf role="mathtex">H_3O^+</sc:textLeaf>]*[<sc:textLeaf role="mathtex">OH^-</sc:textLeaf>]=<sc:textLeaf role="mathtex">10^{-14}</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">Donc : <sc:textLeaf role="mathtex"> [H_3O^+]= \frac {10^{-14}}{[OH^-]}= \frac {10{^-14}}{5.10^{-3}} =2.10^{-12} mol.L-1</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">La soude est une base forte, on applique la relation qui permet de calculer le pH :</sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">pH=-\log{[H_3O^+]}=-log {(2.10^{-12})}=11,7</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

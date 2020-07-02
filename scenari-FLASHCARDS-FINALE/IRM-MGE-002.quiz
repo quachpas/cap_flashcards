@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3">
+		<op:exeM>
+			<sp:themeLycee xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-geo-geomespace-geomvecto-</sp:themeLycee>
+			<sp:themeLicence xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-geo-</sp:themeLicence>
+			<sp:level xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">2</sp:level>
+			<sp:educationLevel xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">L0</sp:educationLevel>
+			<sp:info xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">ECRA – IREM – Strasbourg</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">Dans l'espace muni d'un repère orthonormé, soient <sc:textLeaf role="mathtex">(P)</sc:textLeaf> le plan d'équation <sc:textLeaf role="mathtex">x -2y+7z-29=0</sc:textLeaf> et <sc:textLeaf role="mathtex">(d)</sc:textLeaf> la droite de représentation paramétrique <sc:textLeaf role="mathtex">\left\{ \begin{array}{lll} x=15+t \\ y = -2t &amp;\text{avec }t\in \mathbb{R} \\ z=14+7t \end{array}\right.</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">L'intersection de <sc:textLeaf role="mathtex">(P)</sc:textLeaf> et <sc:textLeaf role="mathtex">(d)</sc:textLeaf> est vide.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">L'intersection de <sc:textLeaf role="mathtex">(P)</sc:textLeaf> et <sc:textLeaf role="mathtex">(d)</sc:textLeaf> est un cercle de rayon <sc:textLeaf role="mathtex">r=\sqrt{29}</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">(P)</sc:textLeaf> et <sc:textLeaf role="mathtex">(d)</sc:textLeaf> sont orthogonaux.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">(d)</sc:textLeaf> est inclus dans <sc:textLeaf role="mathtex">(P)</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">(P)</sc:textLeaf> et <sc:textLeaf role="mathtex">(d)</sc:textLeaf> se coupent en un seul point.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">"L'intersection de <sc:textLeaf role="mathtex">(P)</sc:textLeaf> et <sc:textLeaf role="mathtex">(d)</sc:textLeaf> est un cercle de rayon <sc:textLeaf role="mathtex">r=\sqrt{29}</sc:textLeaf>" est évidemment fausse car les intersections possibles entre une droite et un plan sont soit une droite (la droite se trouve dans le plan), soit un point (la droite n'est pas dans le plan), soit l'ensemble vide.</sc:para>
+						<sc:para xml:space="preserve">D'autre part :</sc:para>
+						<sc:itemizedList>
+							<sc:listItem>
+								<sc:para xml:space="preserve">L'ensemble de tous les points <sc:textLeaf role="mathtex">M(x ; y ; z)</sc:textLeaf> vérifiant l'équation <sc:textLeaf role="mathtex">ax+by+cz+d=0</sc:textLeaf> est un plan de vecteur normal de coordonnées <sc:textLeaf role="mathtex">(a ; b ; c)</sc:textLeaf>
+</sc:para>
+							</sc:listItem>
+						</sc:itemizedList>
+						<sc:itemizedList>
+							<sc:listItem>
+								<sc:para xml:space="preserve">Une représentation paramétrique de la droite passant par un point <sc:textLeaf role="mathtex">A(x_0 ; y_0 ; z_0)</sc:textLeaf> et de vecteur directeur  <sc:textLeaf role="mathtex">\begin{pmatrix} a \\ b \\ c \end{pmatrix}</sc:textLeaf> est : <sc:textLeaf role="mathtex">\left\{ \begin{array}{lll} x=x_0+at \\ y = y_0+bt &amp; \text{avec }t\in \mathbb{R} \\ z=z_0+ct \end{array}\right.</sc:textLeaf>
+</sc:para>
+							</sc:listItem>
+						</sc:itemizedList>
+						<sc:para xml:space="preserve">Dans ce cas, le vecteur <sc:textLeaf role="mathtex">\begin{pmatrix} 1 \\ -2 \\ 7 \end{pmatrix}</sc:textLeaf> est à la fois un vecteur normal du plan <sc:textLeaf role="mathtex">(P)</sc:textLeaf> et vecteur directeur de la droite <sc:textLeaf role="mathtex">(d)</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">Donc, <sc:textLeaf role="mathtex">(P)</sc:textLeaf> et <sc:textLeaf role="mathtex">(d)</sc:textLeaf> sont orthogonaux. Les affirmations  "<sc:textLeaf role="mathtex">(P)</sc:textLeaf> et <sc:textLeaf role="mathtex">(d)</sc:textLeaf> sont orthogonaux" et "<sc:textLeaf role="mathtex">(P)</sc:textLeaf> et <sc:textLeaf role="mathtex">(d)</sc:textLeaf> se coupent en un seul point" sont vraies. Et les affirmations "L'intersection de <sc:textLeaf role="mathtex">(P)</sc:textLeaf> et <sc:textLeaf role="mathtex">(d)</sc:textLeaf> est vide" et "<sc:textLeaf role="mathtex">(d)</sc:textLeaf> est inclus dans <sc:textLeaf role="mathtex">(P)</sc:textLeaf>" sont fausses.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

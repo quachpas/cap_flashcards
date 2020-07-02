@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3">
+		<op:exeM>
+			<sp:themeLycee xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-geo-nbcomplex-</sp:themeLycee>
+			<sp:themeLicence xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-nbreelscompl-</sp:themeLicence>
+			<sp:level xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">4</sp:level>
+			<sp:educationLevel xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">L0</sp:educationLevel>
+			<sp:info xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">ECRA – IREM – Strasbourg</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">Pour tout nombre complexe non nul <sc:textLeaf role="mathtex">z</sc:textLeaf>, notons par <sc:textLeaf role="mathtex">\overline z</sc:textLeaf> le conjugué de <sc:textLeaf role="mathtex">z</sc:textLeaf>
+</sc:para>
+						<sc:para xml:space="preserve">Si <sc:textLeaf role="mathtex">z</sc:textLeaf> n'est pas un nombre réel, alors le nombre complexe <sc:textLeaf role="mathtex">\frac{z^3-\overline z^3}{z-\overline z}</sc:textLeaf> est :</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">nul.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">Pour <sc:textLeaf role="mathtex">z=i</sc:textLeaf>, on a : <sc:textLeaf role="mathtex">z^3=-i</sc:textLeaf> et <sc:textLeaf role="mathtex">\overline z^3=i</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">Et dans ce cas, <sc:textLeaf role="mathtex">z^3-\overline z^3=-2i \ne 0</sc:textLeaf> et <sc:textLeaf role="mathtex">z-\overline z=2i</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">D'où : <sc:textLeaf role="mathtex">\frac{z^3-\overline z^3}{z-\overline z}=-1\ne 0</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">un nombre réel.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">On utilise ici deux propriétés du conjugué des complexes :</sc:para>
+						<sc:itemizedList>
+							<sc:listItem>
+								<sc:para xml:space="preserve">Pour tout entier <sc:textLeaf role="mathtex">n</sc:textLeaf>, et pour tout nombre complexe <sc:textLeaf role="mathtex">z</sc:textLeaf>, <sc:textLeaf role="mathtex">\overline{z^n}=\overline{z}^n</sc:textLeaf>
+</sc:para>
+							</sc:listItem>
+						</sc:itemizedList>
+						<sc:itemizedList>
+							<sc:listItem>
+								<sc:para xml:space="preserve">Pour tout nombre complexe <sc:textLeaf role="mathtex">z</sc:textLeaf>, <sc:textLeaf role="mathtex">z-\overline z=2i  Im(z)</sc:textLeaf>, <sc:textLeaf role="mathtex">Im(z)</sc:textLeaf> étant la partie imaginaire de <sc:textLeaf role="mathtex">z</sc:textLeaf>
+</sc:para>
+							</sc:listItem>
+						</sc:itemizedList>
+						<sc:para xml:space="preserve">Donc, si <sc:textLeaf role="mathtex">z</sc:textLeaf> n'est pas un nombre réel, alors : <sc:textLeaf role="mathtex">\frac{z^3-\overline z^3}{z-\overline z}=\frac{2iIm(z^3)}{2iIm(z)}=\frac{Im(z^3)}{Im(z)} \in \mathbb{R}</sc:textLeaf>
+</sc:para>
+						<sc:para xml:space="preserve">
+<sc:inlineStyle role="emp">Attention :</sc:inlineStyle> Soyons prudent, en général : <sc:textLeaf role="mathtex">\frac{Im(z^3)}{Im(z)} \ne Im(z^2)</sc:textLeaf> et <sc:textLeaf role="mathtex">\frac{Im(z^3)}{Im(z)} \ne z^2</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">un nombre imaginaire pur.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">Pour <sc:textLeaf role="mathtex">z=i</sc:textLeaf>, on a : <sc:textLeaf role="mathtex">z^3=-i</sc:textLeaf> et <sc:textLeaf role="mathtex">\overline z^3=i</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">Et dans ce cas : <sc:textLeaf role="mathtex">z^3-\overline z^3=-2i \ne 0</sc:textLeaf> et <sc:textLeaf role="mathtex">z-\overline z=2i</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">D'où : <sc:textLeaf role="mathtex">\frac{z^3-\overline z^3}{z-\overline z}=-1 \in \mathbb{R}</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="2"/>
+	</op:mcqSur>
+</sc:item>

@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3">
+		<op:exeM>
+			<sp:title xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">Kaprekar</sp:title>
+			<sp:themeLycee xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-algorith-bouiter-</sp:themeLycee>
+			<sp:themeLicence xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-algo-</sp:themeLicence>
+			<sp:level xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">2</sp:level>
+			<sp:educationLevel xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">L1</sp:educationLevel>
+			<sp:info xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">ECRA-IREM-Strasbourg</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">On donne l'algorithme ci-dessous :</sc:para>
+						<sc:para xml:space="preserve">
+<sc:inlineStyle role="spec">
+<sc:inlineStyle role="emp">Entrée</sc:inlineStyle>
+</sc:inlineStyle>
+</sc:para>
+						<sc:para xml:space="preserve">
+<sc:inlineStyle role="spec">Saisir un entier <sc:textLeaf role="mathtex">N</sc:textLeaf> à <sc:textLeaf role="mathtex">4</sc:textLeaf> chiffres</sc:inlineStyle>
+</sc:para>
+						<sc:para xml:space="preserve">
+<sc:inlineStyle role="spec">
+<sc:inlineStyle role="emp">Traitement</sc:inlineStyle>
+</sc:inlineStyle>
+</sc:para>
+						<sc:para xml:space="preserve">
+<sc:inlineStyle role="spec">Pour <sc:textLeaf role="mathtex">k</sc:textLeaf> de <sc:textLeaf role="mathtex">1</sc:textLeaf> à <sc:textLeaf role="mathtex">10</sc:textLeaf> faire</sc:inlineStyle>
+</sc:para>
+						<sc:para xml:space="preserve">  |<sc:inlineStyle role="spec"> <sc:textLeaf role="mathtex">G</sc:textLeaf> prend la valeur du plus grand nombre que l'on peut écrire avec les chiffres de <sc:textLeaf role="mathtex">N</sc:textLeaf>
+</sc:inlineStyle>
+</sc:para>
+						<sc:para xml:space="preserve">  |<sc:inlineStyle role="spec"> <sc:textLeaf role="mathtex">P</sc:textLeaf> prend la valeur du plus petit nombre que l'on peut écrire avec les chiffres de <sc:textLeaf role="mathtex">N</sc:textLeaf>
+</sc:inlineStyle>
+</sc:para>
+						<sc:para xml:space="preserve">  |<sc:inlineStyle role="spec"> <sc:textLeaf role="mathtex">D</sc:textLeaf> prend la valeur <sc:textLeaf role="mathtex">G-P</sc:textLeaf>
+</sc:inlineStyle>
+</sc:para>
+						<sc:para xml:space="preserve">  |<sc:inlineStyle role="spec"> <sc:textLeaf role="mathtex">N</sc:textLeaf> prend la valeur <sc:textLeaf role="mathtex">D</sc:textLeaf>
+</sc:inlineStyle>
+</sc:para>
+						<sc:para xml:space="preserve">
+<sc:inlineStyle role="spec">Fin Pour</sc:inlineStyle>
+</sc:para>
+						<sc:para xml:space="preserve">
+<sc:inlineStyle role="spec">
+<sc:inlineStyle role="emp">Sortie</sc:inlineStyle>
+</sc:inlineStyle>
+</sc:para>
+						<sc:para xml:space="preserve">
+<sc:inlineStyle role="spec">Afficher <sc:textLeaf role="mathtex">N</sc:textLeaf>
+</sc:inlineStyle>
+</sc:para>
+					</op:txt>
+				</sp:txt>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">Quel sera l'affichage si l'on saisit en entrée <sc:textLeaf role="mathtex">2545</sc:textLeaf> ?</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">0</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">495</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">6174</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">3087</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="3"/>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">On peut dérouler la boucle "Pour" de l'algorithme dans un tableau :</sc:para>
+						<sc:table role="">
+							<sc:column width="14"/>
+							<sc:column width="14"/>
+							<sc:column width="14"/>
+							<sc:column width="14"/>
+							<sc:column width="14"/>
+							<sc:column width="14"/>
+							<sc:column width="14"/>
+							<sc:row role="head">
+								<sc:cell>
+									<sc:para xml:space="preserve">Variables</sc:para>
+								</sc:cell>
+								<sc:cell>
+									<sc:para xml:space="preserve">Entrée</sc:para>
+								</sc:cell>
+								<sc:cell colSpan="5">
+									<sc:para xml:space="preserve">Boucle "Pour"</sc:para>
+								</sc:cell>
+							</sc:row>
+							<sc:row>
+								<sc:cell role="word">
+									<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">k</sc:textLeaf>
+</sc:para>
+								</sc:cell>
+								<sc:cell role="word">
+									<sc:para xml:space="preserve">/</sc:para>
+								</sc:cell>
+								<sc:cell role="word">
+									<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">1</sc:textLeaf>
+</sc:para>
+								</sc:cell>
+								<sc:cell role="word">
+									<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">2</sc:textLeaf>
+</sc:para>
+								</sc:cell>
+								<sc:cell role="word">
+									<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">3</sc:textLeaf>
+</sc:para>
+								</sc:cell>
+								<sc:cell role="word">
+									<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">4</sc:textLeaf>
+</sc:para>
+								</sc:cell>
+								<sc:cell role="word">
+									<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">5</sc:textLeaf>
+</sc:para>
+								</sc:cell>
+							</sc:row>
+							<sc:row>
+								<sc:cell role="word">
+									<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">N</sc:textLeaf>
+</sc:para>
+								</sc:cell>
+								<sc:cell role="word">
+									<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">2545</sc:textLeaf>
+</sc:para>
+								</sc:cell>
+								<sc:cell role="word">
+									<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">2545</sc:textLeaf>
+</sc:para>
+								</sc:cell>
+								<sc:cell role="word">
+									<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">3087</sc:textLeaf>
+</sc:para>
+								</sc:cell>
+								<sc:cell role="word">
+									<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">8352</sc:textLeaf>
+</sc:para>
+								</sc:cell>
+								<sc:cell role="word">
+									<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">6174</sc:textLeaf>
+</sc:para>
+								</sc:cell>
+								<sc:cell role="word">
+									<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">6174</sc:textLeaf>
+</sc:para>
+								</sc:cell>
+							</sc:row>
+							<sc:row>
+								<sc:cell role="word">
+									<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">G</sc:textLeaf>
+</sc:para>
+								</sc:cell>
+								<sc:cell role="word">
+									<sc:para xml:space="preserve">/</sc:para>
+								</sc:cell>
+								<sc:cell role="word">
+									<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">5542</sc:textLeaf>
+</sc:para>
+								</sc:cell>
+								<sc:cell role="word">
+									<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">8730</sc:textLeaf>
+</sc:para>
+								</sc:cell>
+								<sc:cell role="word">
+									<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">8532</sc:textLeaf>
+</sc:para>
+								</sc:cell>
+								<sc:cell role="word">
+									<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">7641</sc:textLeaf>
+</sc:para>
+								</sc:cell>
+								<sc:cell role="word">
+									<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">7651</sc:textLeaf>
+</sc:para>
+								</sc:cell>
+							</sc:row>
+							<sc:row>
+								<sc:cell role="word">
+									<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">P</sc:textLeaf>
+</sc:para>
+								</sc:cell>
+								<sc:cell role="word">
+									<sc:para xml:space="preserve">/</sc:para>
+								</sc:cell>
+								<sc:cell role="word">
+									<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">2455</sc:textLeaf>
+</sc:para>
+								</sc:cell>
+								<sc:cell role="word">
+									<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">378</sc:textLeaf>
+</sc:para>
+								</sc:cell>
+								<sc:cell role="word">
+									<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">2358</sc:textLeaf>
+</sc:para>
+								</sc:cell>
+								<sc:cell role="word">
+									<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">1467</sc:textLeaf>
+</sc:para>
+								</sc:cell>
+								<sc:cell role="word">
+									<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">1467</sc:textLeaf>
+</sc:para>
+								</sc:cell>
+							</sc:row>
+							<sc:row>
+								<sc:cell role="word">
+									<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">D</sc:textLeaf>
+</sc:para>
+								</sc:cell>
+								<sc:cell role="word">
+									<sc:para xml:space="preserve">/</sc:para>
+								</sc:cell>
+								<sc:cell role="word">
+									<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">3087</sc:textLeaf>
+</sc:para>
+								</sc:cell>
+								<sc:cell role="word">
+									<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">8352</sc:textLeaf>
+</sc:para>
+								</sc:cell>
+								<sc:cell role="word">
+									<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">6174</sc:textLeaf>
+</sc:para>
+								</sc:cell>
+								<sc:cell role="word">
+									<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">6174</sc:textLeaf>
+</sc:para>
+								</sc:cell>
+								<sc:cell role="word">
+									<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">6174</sc:textLeaf>
+</sc:para>
+								</sc:cell>
+							</sc:row>
+						</sc:table>
+						<sc:para xml:space="preserve">Les 5 itérations suivantes donneront à chaque fois le même résultat pour D. L'affichage sera la dernière valeur prise par <sc:textLeaf role="mathtex">N</sc:textLeaf>, c'est-à-dire <sc:textLeaf role="mathtex">6174</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sp:txt>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:inlineStyle role="emp">Remarque</sc:inlineStyle> : Cet algorithme s'appelle l'algorithme de Kaprekar. Si on continuait les itérations, on obtiendrait toujours <sc:textLeaf role="mathtex">495</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

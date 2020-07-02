@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#math-geo-geomespace-drplposrel-</sp:themeLycee>
+			<sp:themeLicence>#math-geo-</sp:themeLicence>
+			<sp:level>1</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://unistra.fr</sp:url>
+</op:urlM>unistra.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			  Dans l'espace rapporté à un repère orthonormal centré en O, l'équation <sc:textLeaf role="mathtex">\\x+y+1=0</sc:textLeaf> est l'équation...</sc:para>
+						<sc:para xml:space="preserve">Choisir la (ou les) bonne(s) réponse(s) :</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="unchecked">
+				<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="sod" creationTime="1479718283083">"de coordonnées"</comment></comment>-->
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			   d'une droite de vecteur directeur de coordonnées (-1; 1; 0).</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			   d'une droite parallèle à la droite (Oz).</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="sod" creationTime="1479718265376">"vecteur normal de coordonnées"</comment><comment author="lam" creationTime="1484932135950">Choisir la (ou les) bonne(s) réponse(s).
+
+Niveau 1</comment></comment>-->
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			   d'un plan de vecteur normal de coordonnées (1; 1; 0).</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			   d'un plan parallèle à la droite (Oz).</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">Voici une ressource en lien avec le sujet : Géométrie dans l'espace: <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://ressources.unisciel.fr/ramses/514-113a-produit-scalaire/co/514-113a_webUnisciel.html</sp:url>
+</op:urlM>Produits scalaire dans l'espace – Droites et plans dans l'espace</sc:phrase>
+</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

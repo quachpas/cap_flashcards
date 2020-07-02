@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3">
+		<op:exeM>
+			<sp:themeLycee xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-geo-geomespace-geomvecto-</sp:themeLycee>
+			<sp:themeLicence xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-geo-</sp:themeLicence>
+			<sp:level xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">4</sp:level>
+			<sp:educationLevel xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">L0</sp:educationLevel>
+			<sp:info xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">ECRA – IREM – Strasbourg</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txtRes xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txtRes>
+						<op:txtResM>
+							<sp:pos>rgt</sp:pos>
+						</op:txtResM>
+						<sp:txt>
+							<op:txt>
+								<sc:para xml:space="preserve">Dans le cube <sc:textLeaf role="mathtex">ABCDEFGH</sc:textLeaf> d'arête <sc:textLeaf role="mathtex">a</sc:textLeaf>, <sc:textLeaf role="mathtex">I</sc:textLeaf> et <sc:textLeaf role="mathtex">J</sc:textLeaf> sont les centres des faces <sc:textLeaf role="mathtex">EFGH</sc:textLeaf> et <sc:textLeaf role="mathtex">BCGF</sc:textLeaf> respectivement.</sc:para>
+							</op:txt>
+						</sp:txt>
+						<sp:img sc:refUri="Images/GVC_005_01.png"/>
+					</op:txtRes>
+				</sp:txtRes>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\overrightarrow{BF}.\overrightarrow{BJ}=0</sc:textLeaf> ;</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:inlineImg role="ico" sc:refUri="Images/GVC_005_02.png"/>
+</sc:para>
+						<sc:para xml:space="preserve">Le triangle <sc:textLeaf role="mathtex">BFJ</sc:textLeaf> est rectangle en <sc:textLeaf role="mathtex">J</sc:textLeaf>. Donc, <sc:textLeaf role="mathtex">J</sc:textLeaf> est le projeté orthogonal de <sc:textLeaf role="mathtex">F</sc:textLeaf> sur <sc:textLeaf role="mathtex">(BJ)</sc:textLeaf>. Dans ce cas : <sc:textLeaf role="mathtex">\overrightarrow{BF}.\overrightarrow{BJ}=BJ^2 \ne 0</sc:textLeaf>
+</sc:para>
+						<sc:para xml:space="preserve">L'affirmation &quot;<sc:textLeaf role="mathtex">\overrightarrow{BF}.\overrightarrow{BJ}=0</sc:textLeaf>&quot; est fausse.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve"> <sc:textLeaf role="mathtex">\overrightarrow{EI}.\overrightarrow{HF}=0</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:inlineImg role="ico" sc:refUri="Images/GVC_005_05.png"/>
+</sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">EFGH </sc:textLeaf> étant un carré de centre <sc:textLeaf role="mathtex">I</sc:textLeaf>, <sc:textLeaf role="mathtex">(EI)</sc:textLeaf> et <sc:textLeaf role="mathtex">(HF)</sc:textLeaf> sont perpendiculaires.</sc:para>
+						<sc:para xml:space="preserve">L'affirmation &quot;<sc:textLeaf role="mathtex">\overrightarrow{EI}.\overrightarrow{HF}=0</sc:textLeaf>&quot; est vraie.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\overrightarrow{BJ}.\overrightarrow{HD}=-\frac{a^2}{2}</sc:textLeaf> ;</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:inlineImg role="ico" sc:refUri="Images/GVC_005_04.png"/>
+</sc:para>
+						<sc:para xml:space="preserve">Remarquons que :</sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\overrightarrow{BJ}=-\frac{1}{2}\overrightarrow{GB}</sc:textLeaf> et <sc:textLeaf role="mathtex">\overrightarrow{HD}=\overrightarrow{GC}</sc:textLeaf>
+</sc:para>
+						<sc:para xml:space="preserve">Dans ce cas, d'après la relation de Chasles, on a :</sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\overrightarrow{BJ}.\overrightarrow{HD}=-\frac{1}{2}\overrightarrow{GB}.\overrightarrow{GC}=-\frac{1}{2}(\overrightarrow{GC}+\overrightarrow{CB}).\overrightarrow{GC}</sc:textLeaf>
+</sc:para>
+						<sc:para xml:space="preserve">Et comme <sc:textLeaf role="mathtex">(GC) \perp (BC)</sc:textLeaf>, on obtient :</sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\overrightarrow{BJ}.\overrightarrow{HD}=-\frac{1}{2}\overrightarrow{GC}^2=-\frac{a^2}{2}</sc:textLeaf>
+</sc:para>
+						<sc:para xml:space="preserve">L'affirmation &quot;<sc:textLeaf role="mathtex">\overrightarrow{BJ}.\overrightarrow{HD}=-\frac{a^2}{2}</sc:textLeaf> &quot; est vraie.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">Aucune de ces trois propositions n'est vraie.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:inlineImg role="ico" sc:refUri="Images/GVC_005_05.png"/>
+</sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">EFGH</sc:textLeaf> étant un carré de centre <sc:textLeaf role="mathtex">I</sc:textLeaf>, <sc:textLeaf role="mathtex">(EI)</sc:textLeaf> et <sc:textLeaf role="mathtex">(HF)</sc:textLeaf> sont perpendiculaires.</sc:para>
+						<sc:para xml:space="preserve">Donc, au moins l'affirmation &quot;<sc:textLeaf role="mathtex">\overrightarrow{EI}.\overrightarrow{HF}=0</sc:textLeaf>&quot; est vraie.</sc:para>
+						<sc:para xml:space="preserve">L'affirmation &quot;Aucune de ces trois propositions n'est vraie&quot; est fausse.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+		</sc:choices>
+	</op:mcqMur>
+</sc:item>

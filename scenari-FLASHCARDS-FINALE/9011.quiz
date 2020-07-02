@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#chim-obscoulim-matcolo-forlewis-</sp:themeLycee>
+			<sp:themeLicence>#chim-strucmat-</sp:themeLicence>
+			<sp:level>1</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<!--<comment xmlns="scenari.eu:comment:1.0" type="thread"><comment author="camille.dufourg" creationTime="1574413453564">Il manque les mots-clés et la licence.</comment></comment>-->
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">Université Nice-Sophia-Antipolis</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="jeg" creationTime="1458660815547">niveau 1</comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">
+			La formule de Lewis :
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			permet de représenter des molécules radicalaires.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			ne permet pas une représentation spatiale en 3D.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			permet de calculer les angles de liaisons.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			permet de calculer les énergies des molécules.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">Toutes les propositions sont fausses.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="cee" creationTime="1477036306289" updateTime="1477036456288">Expliquer pourquoi la réponse 1 est vraie (représentation des électrons), et pourquoi la 4 ne l'est pas.
+
+Remarque: les réponses de cette questions me paraissent assez "compliquées", dans le sens où j'ai réellement vu les notions d'angle de liaison, electrons célibataires, et énergies des molécules en post-BAC uniquement...</comment><comment author="ves" creationTime="1526033261412">Ajout ressource unsiciel pour expliquer la réponse 1 et 4</comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Le modèle de Lewis permet de représenter la connectivité entre les atomes, les charges et les doublets non liants. Ce modèle ne permet pas d'avoir une bonne idée des angles de liaison de la molécule. Par exemple, pour le méthane, on pourrait penser que les angles sont de 90° alors qu'ils sont en réalité de 109,5° car le méthane a une géométrie tétraédrique. On ne peut pas le prévoir avec le modèle de Lewis qui ne représente pas la molécule dans l'espace en trois dimensions.
+		</sc:para>
+						<sc:para xml:space="preserve">Pour plus d’informations, vous pouvez regarder la ressource suivante : <sc:phrase role="url"><op:urlM>
+<sp:url>http://uel.unisciel.fr/chimie/strucmic/strucmic_ch05/co/apprendre_ch05_01.html</sp:url>
+<sp:title>Le modèle de Lewis</sp:title>
+</op:urlM>
+le modèle de Lewis</sc:phrase>.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

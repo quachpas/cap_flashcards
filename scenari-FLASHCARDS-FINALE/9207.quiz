@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#math-geo-nbcomplex-affptvect-</sp:themeLycee>
+			<sp:themeLicence>#math-nbreelscompl-</sp:themeLicence>
+			<sp:level>2</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://unistra.fr</sp:url>
+</op:urlM>unistra.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			 Dans le plan complexe rapporté à un repère orthonormal centré en <sc:textLeaf role="mathtex">O</sc:textLeaf>, on considère les points A, B et M d'affixes respectives <sc:textLeaf role="mathtex"> i</sc:textLeaf>, <sc:textLeaf role="mathtex">2-i</sc:textLeaf> et <sc:textLeaf role="mathtex">z</sc:textLeaf>.
+		Quelles sont les affirmations vraies :</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			   Si z=1 alors les points A, B et M sont alignés. 
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			   Si <sc:textLeaf role="mathtex">z=1+i</sc:textLeaf> alors le triangle ABM est rectangle en M.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			 Si <sc:textLeaf role="mathtex">z=-2-3i</sc:textLeaf> alors le triangle ABM est isocèle en M.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			 Si <sc:textLeaf role="mathtex"> z=1-i</sc:textLeaf> alors les droites (AM) et (OB) sont parallèles.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread"><comment author="qns" creationTime="1454916133690">Mêmes remarques qu'en 9205 pour les vidéos.</comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">Vous pouvez regarder les ressources suivantes</sc:para>
+						<sc:para xml:space="preserve">
+<sc:phrase role="url">
+<op:urlM>
+<sp:url>http://ressources.unisciel.fr/ramses/511-14-nbr-complexes/co/511-14_webUnisciel.html</sp:url>
+</op:urlM>Nombres complexes</sc:phrase> <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://www.canal-u.tv/video/tele2sciences/chapitre_nombres_complexes_partie_2_racines_carrees_equations_du_second_degre.10078</sp:url>
+</op:urlM>
+</sc:phrase>
+</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

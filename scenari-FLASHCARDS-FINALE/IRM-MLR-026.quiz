@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3">
+		<op:exeM>
+			<sp:themeLycee xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-logique-</sp:themeLycee>
+			<sp:themeLicence xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-lograis-</sp:themeLicence>
+			<sp:level xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">2</sp:level>
+			<sp:educationLevel xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">L0</sp:educationLevel>
+			<sp:info xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">ECRA-IREM-Limoges</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">On sait que le symbole <sc:textLeaf role="mathtex">\exists</sc:textLeaf> signifie et se lit <sc:inlineStyle role="quote">il existe</sc:inlineStyle> et que le symbole <sc:textLeaf role="mathtex">\forall</sc:textLeaf> signifie et se lit <sc:inlineStyle role="quote">pour tout</sc:inlineStyle>.</sc:para>
+						<sc:para xml:space="preserve">Soit <sc:textLeaf role="mathtex">D_1</sc:textLeaf> l'ensemble des diviseurs de 24 et <sc:textLeaf role="mathtex">D_2</sc:textLeaf> l'ensemble des diviseurs de 12. Soit <sc:textLeaf role="mathtex">P</sc:textLeaf> la proposition : <sc:inlineStyle role="quote">Il y a un diviseur de 12 qui est un diviseur de 24</sc:inlineStyle>. La proposition <sc:textLeaf role="mathtex">P</sc:textLeaf> se traduit par :</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\exists x\in D_1 ; \;x\in D_2</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\forall x\in D_1 ; \;x\in D_2</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\exists x\in D_2 ; \;x\in D_1</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">6 est un diviseur de 12 et de 24.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="3"/>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">Le début de phrase "Il y a" signifie dans le langage usuel <sc:textLeaf role="mathtex">\exists</sc:textLeaf> (Il existe).</sc:para>
+						<sc:para xml:space="preserve">On remarque que la réponse 4 ne traduit pas la proposition <sc:textLeaf role="mathtex">P</sc:textLeaf> mais en est une preuve.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

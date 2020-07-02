@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:title>Les acides nucléiques</sp:title>
+			<sp:themeLycee>#scvie-terunivers-natvivant-</sp:themeLycee>
+			<sp:themeLicence>#bio-angenome-</sp:themeLicence>
+			<sp:level>1</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<op:info>
+					<sp:keywds>
+						<op:keywds>
+							<sp:keywd>biochimie</sp:keywd>
+							<sp:keywd>biologie moléculaire</sp:keywd>
+							<sp:keywd>ARN</sp:keywd>
+						</op:keywds>
+					</sp:keywds>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      Université Lille 1
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">L'ARN est :</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						constitué d'une succession d'acides aminés.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						constitué d'une succession de nucléotides.							
+					</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						de même composition que l'ADN.							
+					</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						l'équivalent d'un brin d'ADN.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="2"/>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			l'ADN est constitué de deux chaînes de nucléotides complémentaires liées grâce à des liaisons faibles, tandis que l'ARN est constitué d'une seule chaîne de nucléotides. L'ARN diffère aussi de l'ADN par la nature de ses bases azotées : adénine, thymine, guanine, et cytosine pour l'ADN et adénine, uracile, guanine, et cytosine et par le sucre constitutif du nucléotide. En effet, les nucléotides composants l'ADN sont des désoxyriboses tandis que pour l'ARN ce sont des riboses, d'où les noms de ces deux acides nucléiques.</sc:para>
+						<sc:table role="">
+							<sc:column width="26"/>
+							<sc:column width="50"/>
+							<sc:column width="50"/>
+							<sc:row>
+								<sc:cell/>
+								<sc:cell role="word">
+									<sc:para xml:space="preserve">
+			ADN
+		</sc:para>
+								</sc:cell>
+								<sc:cell role="word">
+									<sc:para xml:space="preserve">
+			ARN
+		</sc:para>
+								</sc:cell>
+							</sc:row>
+							<sc:row>
+								<sc:cell>
+									<sc:para xml:space="preserve">
+			Bases azotées
+		</sc:para>
+								</sc:cell>
+								<sc:cell role="word">
+									<sc:para xml:space="preserve">
+			Adénine, Thymine,
+		</sc:para>
+									<sc:para xml:space="preserve">
+			 Guanine, Cytosine
+		</sc:para>
+								</sc:cell>
+								<sc:cell role="word">
+									<sc:para xml:space="preserve">
+			Adénine, Uracile, 
+		</sc:para>
+									<sc:para xml:space="preserve">
+			Guanine, Cytosine</sc:para>
+								</sc:cell>
+							</sc:row>
+							<sc:row>
+								<sc:cell>
+									<sc:para xml:space="preserve">
+			Sucres 
+		</sc:para>
+								</sc:cell>
+								<sc:cell role="word">
+									<sc:para xml:space="preserve">
+			Désoxyribose
+		</sc:para>
+								</sc:cell>
+								<sc:cell role="word">
+									<sc:para xml:space="preserve">
+			Ribose
+		</sc:para>
+								</sc:cell>
+							</sc:row>
+							<sc:row>
+								<sc:cell>
+									<sc:para xml:space="preserve">
+			Nb de chaînes de nucléotides
+		</sc:para>
+								</sc:cell>
+								<sc:cell role="word">
+									<sc:para xml:space="preserve">
+			2
+		</sc:para>
+								</sc:cell>
+								<sc:cell role="word">
+									<sc:para xml:space="preserve">
+			1
+		</sc:para>
+								</sc:cell>
+							</sc:row>
+						</sc:table>
+						<sc:para xml:space="preserve">
+			Ressources à consulter : 
+		</sc:para>
+						<sc:itemizedList>
+							<sc:listItem>
+								<sc:para xml:space="preserve">
+			
+  
+  <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://www.snv.jussieu.fr/vie/documents/decouverteadn/index.htm</sp:url>
+</op:urlM>ADN</sc:phrase>
+</sc:para>
+							</sc:listItem>
+						</sc:itemizedList>
+						<sc:itemizedList>
+							<sc:listItem>
+								<sc:para xml:space="preserve">
+			
+  
+  <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://www.snv.jussieu.fr/vie/dossiers/m&amp;s/m&amp;s.html</sp:url>
+</op:urlM>ARN et ADN</sc:phrase>
+  
+  
+		</sc:para>
+							</sc:listItem>
+						</sc:itemizedList>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3">
+		<op:exeM>
+			<sp:themeLycee xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-analyse-equations-resolalgequa-</sp:themeLycee>
+			<sp:themeLicence xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-equa-</sp:themeLicence>
+			<sp:level xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">2</sp:level>
+			<sp:educationLevel xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">L1</sp:educationLevel>
+			<sp:info xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">ECRA-IREM-Clermont-Ferrand</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">On considère dans <sc:textLeaf role="mathtex">\mathbb C</sc:textLeaf> l'équation <sc:textLeaf role="mathtex">(E) : x(x^2-3x+1)(x^2+1)=0</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">Les solutions réelles de <sc:textLeaf role="mathtex">(E)</sc:textLeaf> sont <sc:textLeaf role="mathtex">1</sc:textLeaf> et <sc:textLeaf role="mathtex">2</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">Les solutions réelles de <sc:textLeaf role="mathtex">(E)</sc:textLeaf> sont <sc:textLeaf role="mathtex">0</sc:textLeaf>, <sc:textLeaf role="mathtex">1</sc:textLeaf>, <sc:textLeaf role="mathtex">2</sc:textLeaf> et <sc:textLeaf role="mathtex">-1</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">La seule solution complexe non réelle de <sc:textLeaf role="mathtex">(E)</sc:textLeaf> est <sc:textLeaf role="mathtex">i</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">(E)</sc:textLeaf> admet cinq solutions distinctes dans <sc:textLeaf role="mathtex">\mathbb C</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="4"/>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:inlineStyle role="emp">Propriété :</sc:inlineStyle> Un produit de facteur est nul si et seulement si un de ses facteurs est nul.</sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">x(x^2-3x+2)(x^2+1)=0\iff x=0\;\mathrm{ou}\; (x^2-3x+2)=0\;\mathrm{ou}\; (x^2+1)=0</sc:textLeaf>
+</sc:para>
+						<sc:para xml:space="preserve">Or : <sc:textLeaf role="mathtex">x^2-3x+2=0</sc:textLeaf> a pour discriminant <sc:textLeaf role="mathtex">\Delta=1</sc:textLeaf>. On a donc deux solutions réelles : <sc:textLeaf role="mathtex">x=1\;\mathrm{et}\; x=2</sc:textLeaf>
+</sc:para>
+						<sc:para xml:space="preserve">et : <sc:textLeaf role="mathtex">x^2+1=0\iff x^2=-1\iff x=i\;\mathrm{ou}\; x=-i</sc:textLeaf>
+</sc:para>
+						<sc:para xml:space="preserve">On obtient alors :</sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">x(x^2-3x+2)(x^2+1)=0\iff x=0 \;\mathrm{ou}\; x=1 \;\mathrm{ou}\; x=2\;\mathrm{ou}\; x=i  \;\mathrm{ou}\; x=-i \\S=\left\{0 ;1 ;2 ;i ;-i\right\}</sc:textLeaf>
+</sc:para>
+						<sc:para xml:space="preserve">donc l'équation <sc:textLeaf role="mathtex">(E)</sc:textLeaf> admet trois solutions réelles <sc:textLeaf role="mathtex">(0 ;1 \;\mathrm{et}\; 2)</sc:textLeaf> et deux solutions complexes non réelles <sc:textLeaf role="mathtex">(i \;\mathrm{et}\;-i)</sc:textLeaf>
+</sc:para>
+						<sc:para xml:space="preserve">
+<sc:inlineStyle role="emp">Attention :</sc:inlineStyle> Ne pas oublier que les réels sont es nombres complexes.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

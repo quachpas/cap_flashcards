@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#math-analyse-derivation-extremumfonc-</sp:themeLycee>
+			<sp:themeLicence>#math-derivation-</sp:themeLicence>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://unistra.fr</sp:url>
+</op:urlM>unistra.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			   Soit O le centre d'un repère orthonormé. On considère le rectangle <sc:textLeaf role="mathtex"> OHM_xK</sc:textLeaf>  construit comme suit.</sc:para>
+						<sc:para xml:space="preserve">Le point <sc:textLeaf role="mathtex">M_x</sc:textLeaf> est le point de coordonnés <sc:textLeaf role="mathtex">(x;f(x))</sc:textLeaf> de la courbe représentative de la fonction <sc:textLeaf role="mathtex">f: x\mapsto\sqrt{1-x}</sc:textLeaf> avec <sc:textLeaf role="mathtex">x\in [0,1]</sc:textLeaf>. Les point H et K sont les projections orthogonales de <sc:textLeaf role="mathtex">M_x</sc:textLeaf> sur les axes du repère orthonormé centré en O.</sc:para>
+					</op:txt>
+				</sp:txt>
+				<sp:res sc:refUri="images/Mod3.png">
+					<op:resInfoM/>
+				</sp:res>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			 L'aire du rectangle est maximale lorsque x=2/3.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			 L'aire du rectangle est maximale lorsque x=1/3.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			 L'aire du rectangle est maximale lorsque x=1/2.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			 L'aire du rectangle est maximale lorsque x=3/7 ou lorsque x=6/7.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">Vous pouvez regarder les ressources suivantes :</sc:para>
+						<sc:para xml:space="preserve">
+<sc:phrase role="url"><op:urlM>
+<sp:url>http://ressources.unisciel.fr/ramses/517-17-fonctions-num/co/fa201_4.html</sp:url>
+</op:urlM>
+Dérivation</sc:phrase>
+</sc:para>
+						<sc:para xml:space="preserve">et en vidéo :</sc:para>
+						<sc:para xml:space="preserve">
+<sc:phrase role="url"><op:urlM>
+<sp:url>http://www.canal-u.tv/video/tele2sciences/derivees_partie_1_definition.12085</sp:url>
+</op:urlM>
+Dérivés- Partie 1 : définition</sc:phrase>
+</sc:para>
+						<sc:para xml:space="preserve">
+<sc:phrase role="url"><op:urlM>
+<sp:url>http://www.canal-u.tv/video/tele2sciences/derivees_partie_2_calculs.12086</sp:url>
+</op:urlM>
+Dérivés- Partie 2 : Calculs</sc:phrase>
+</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

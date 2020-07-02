@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:title>Le cycle cellulaire</sp:title>
+			<sp:themeLycee>#scvie-terunivers-natvivant-</sp:themeLycee>
+			<sp:themeLicence>#bio-angenome-</sp:themeLicence>
+			<sp:level>1</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<op:info>
+					<sp:keywds>
+						<op:keywds>
+							<sp:keywd>cellule</sp:keywd>
+							<sp:keywd>mitose</sp:keywd>
+							<sp:keywd>cycle cellulaire</sp:keywd>
+						</op:keywds>
+					</sp:keywds>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      Université Lille 1</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">Le cycle cellulaire :</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">est constitué de la mitose et de l'interphase.							
+					</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">peut être divisé entre trois phases qui sont les phases G1, S et G2.							
+					</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">peut être divisé entre quatre phases qui sont prophase,  métaphase, anaphase, et télophase.							
+					</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">est constitué de la mitose et la méïose.							
+					</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="1"/>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Le cycle cellulaire est l'ensemble des modifications qu'une cellule subit entre sa formation par division à partir d'une cellule mère et le moment où cette cellule a fini de se diviser en deux cellules filles. On sépare ce cycle en deux grandes étapes : interphase et mitose. </sc:para>
+						<sc:para xml:space="preserve">L'interphase est l'étape entre deux mitoses, et se subdivise elle même en trois étapes : G1 (croissance de la cellule), S (réplication du matériel génétique) et G2 (préparation de la mitose). </sc:para>
+						<sc:para xml:space="preserve">La mitose va permettre d'obtenir deux cellules filles à partir de la cellule mère.</sc:para>
+						<sc:para xml:space="preserve">
+			Ressources à consulter : 
+		</sc:para>
+						<sc:itemizedList>
+							<sc:listItem>
+								<sc:para xml:space="preserve">
+<sc:phrase role="url">
+<op:urlM>
+<sp:url>http://www.snv.jussieu.fr/bmedia/Mitose/index.htm</sp:url>
+</op:urlM>La mitose 1</sc:phrase>
+  
+  
+		</sc:para>
+							</sc:listItem>
+						</sc:itemizedList>
+						<sc:itemizedList>
+							<sc:listItem>
+								<sc:para xml:space="preserve">
+<sc:phrase role="url">
+<op:urlM>
+<sp:url>http://uel.unisciel.fr/biologie/introgen/introgen_ch04/co/simuler_ch4_01.html</sp:url>
+</op:urlM>La mitose 2</sc:phrase>
+  
+  
+		</sc:para>
+							</sc:listItem>
+							<sc:listItem>
+								<sc:para xml:space="preserve">
+			
+  
+  <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://www.snv.jussieu.fr/vie/dossiers/mitoseveg/mitose-veg.html?width=80%&amp;height=80%&amp;jqmRefresh=false</sp:url>
+</op:urlM>Spécificités de la mitose végétale</sc:phrase>
+  
+  
+		</sc:para>
+							</sc:listItem>
+							<sc:listItem>
+								<sc:para xml:space="preserve">
+			
+  
+  <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://www.snv.jussieu.fr/bmedia/Meiose/Meiose.htm</sp:url>
+</op:urlM>Les conséquences génétiques de la méiose</sc:phrase>
+  
+  
+		</sc:para>
+							</sc:listItem>
+							<sc:listItem>
+								<sc:para xml:space="preserve">
+			
+  
+  <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://www.snv.jussieu.fr/vie/dossiers/meioseprep/meiose.htm?width=80%&amp;height=80%&amp;jqmRefresh=false</sp:url>
+</op:urlM>La méiose chez une plante à fleurs</sc:phrase>
+  
+  
+		</sc:para>
+							</sc:listItem>
+							<sc:listItem>
+								<sc:para xml:space="preserve">
+			
+  
+  <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://uel.unisciel.fr/biologie/introgen/introgen_ch04/co/simuler_ch4_02.html</sp:url>
+</op:urlM>La méiose (film animation 2D)</sc:phrase>
+  
+  
+		</sc:para>
+							</sc:listItem>
+						</sc:itemizedList>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

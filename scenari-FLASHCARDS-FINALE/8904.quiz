@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:title>Dosage spectrophotométrique</sp:title>
+			<sp:themeLycee>#chim-obscoulim-matcolo-loibeer-</sp:themeLycee>
+			<sp:themeLicence>#chim-chimexpetech-</sp:themeLicence>
+			<sp:level>1</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<!--<comment xmlns="scenari.eu:comment:1.0" type="thread"><comment author="camille.dufourg" creationTime="1573553548894">Il manque les mots-clés et la licence.</comment></comment>-->
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">Université Lille 1</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="ves" creationTime="1519045197193">Absorbance d'une solution et loi de Beer-Lambert.</comment></comment>-->
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			   D'après la loi de Beer-Lambert, l’absorbance, à la longueur d’onde <sc:textLeaf role="mathtex">\lambda</sc:textLeaf>, d’une solution colorée de concentration <sc:textLeaf role="mathtex">c</sc:textLeaf> introduite dans une cuve de largeur <sc:textLeaf role="mathtex">l</sc:textLeaf>
+		 est :</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			proportionnelle à <sc:textLeaf role="mathtex">\lambda</sc:textLeaf>.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			proportionnelle à <sc:textLeaf role="mathtex">c</sc:textLeaf>.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			une grandeur qui s’exprime en <sc:textLeaf role="mathtex">\textrm{mol.L}^{-1}</sc:textLeaf>.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			une grandeur sans unité.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<!--<comment xmlns="scenari.eu:comment:1.0" type="thread"><comment author="camille.dufourg" creationTime="1573553304978" updateTime="1573554430753">Quand je clique sur &lt;A&gt; et &lt;c&gt;, les formules latex ne s'affichent pas (dans l'énoncé, les réponses et l'explication globale), contrairement à &lt;l&gt; et &lt;\lambda&gt;, est-ce normal ?</comment></comment>-->
+			<op:res>
+				<sp:txt>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="mar" creationTime="1433060430463" updateTime="1433060514622">Ajouter le symbole l de la largueur de la cuve dans l'expression de A(λ) :
+A(λ) = ε(λ).l.c
+Dans la dernière phrase, ajouter "en cm," entre le symbole l et le symbole c.</comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">
+			<sc:inlineStyle role="emp">Compétence(s)</sc:inlineStyle>.  <sc:inlineStyle role="emp">Exprimer l'absorbance d'une solution selon la loi de Beer-Lambert.</sc:inlineStyle>
+		</sc:para>
+						<sc:para xml:space="preserve">
+			D'après la loi de Beer-Lambert, l’absorbance à la longueur d’onde <sc:textLeaf role="mathtex">\lambda</sc:textLeaf>, d’une solution colorée de concentration <sc:textLeaf role="mathtex">c</sc:textLeaf> introduite dans une cuve de largeur <sc:textLeaf role="mathtex">l</sc:textLeaf>
+		</sc:para>
+						<sc:para xml:space="preserve">
+			<sc:textLeaf role="mathtex">\textrm{A}(\lambda)=\epsilon(\lambda).l.c</sc:textLeaf>
+		</sc:para>
+						<sc:para xml:space="preserve">
+			où <sc:textLeaf role="mathtex">\epsilon(\lambda)</sc:textLeaf> est le coefficient d’absorption molaire de l’espèce colorée à la longueur d’onde <sc:textLeaf role="mathtex">\lambda</sc:textLeaf>.
+		</sc:para>
+						<sc:para xml:space="preserve">
+			<sc:textLeaf role="mathtex">\epsilon(\lambda)</sc:textLeaf> s'exprime en <sc:textLeaf role="mathtex">\textrm{mol}^{-1}.\textrm{L}.\textrm{cm}^{-1}</sc:textLeaf>, 
+<sc:textLeaf role="mathtex">l</sc:textLeaf>
+ en <sc:textLeaf role="mathtex">\textrm{cm}</sc:textLeaf> et <sc:textLeaf role="mathtex">c</sc:textLeaf> en <sc:textLeaf role="mathtex">\textrm{mol.L}^{-1}</sc:textLeaf>. Par conséquent, <sc:textLeaf role="mathtex">A</sc:textLeaf> est une grandeur sans unité.
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

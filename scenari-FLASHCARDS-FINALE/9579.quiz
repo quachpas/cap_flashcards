@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#phys-obs-coulvisim-lenminrel-</sp:themeLycee>
+			<sp:themeLicence>#phys-optigeom-</sp:themeLicence>
+			<sp:level>3</sp:level>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://univ-lille1.fr</sp:url>
+</op:urlM>univ-lille1.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Le grandissement pour un objet réel se trouvant à une distance égale à deux fois la distance focale d'une lentille mince vaut :
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			 -1.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			+2.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			+1.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			-2.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">L'énoncé nous dit que <sc:textLeaf role="mathtex">\overline{OA}=-2f'</sc:textLeaf>.
+</sc:para>
+						<sc:para xml:space="preserve">On injecte cette donnée dans la relation de conjugaison pour trouver une relation entre <sc:textLeaf role="mathtex">\overline{OA}</sc:textLeaf> et <sc:textLeaf role="mathtex">\overline{OA'}</sc:textLeaf> et on obtient :</sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\frac{1}{\overline{OA'}}-\frac{1}{\overline{OA}}=-\frac{2}{\overline{OA'}}</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">Ce qui permet de trouver <sc:textLeaf role="mathtex">\frac{\overline{OA}}{\overline{OA'}}=-1</sc:textLeaf>.
+</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

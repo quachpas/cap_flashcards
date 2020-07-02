@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#math-analyse-trigonom-</sp:themeLycee>
+			<sp:themeLicence>#math-trigonometrie-</sp:themeLicence>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://univ-angers.fr</sp:url>
+</op:urlM>univ-angers.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Les solutions de l'équation <sc:textLeaf role="mathtex">\cos x =-1</sc:textLeaf> sont </sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			<sc:textLeaf role="mathtex">x= \pi + 2k\pi</sc:textLeaf>, <sc:textLeaf role="mathtex">k\in\mathbb{Z} </sc:textLeaf>
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			<sc:textLeaf role="mathtex">x= \pi + k\pi</sc:textLeaf> ,<sc:textLeaf role="mathtex">k\in\mathbb{Z}</sc:textLeaf>
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			<sc:textLeaf role="mathtex">x= \pi/2 +2k\pi</sc:textLeaf> ,<sc:textLeaf role="mathtex">k\in\mathbb{Z}</sc:textLeaf>
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			<sc:textLeaf role="mathtex">x= -\pi/2 +2k\pi</sc:textLeaf> ,<sc:textLeaf role="mathtex">k\in\mathbb{Z}</sc:textLeaf>
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="1"/>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">Vous pouvez allez plus loin sur les formules de trigonométrie en consultant cette ressource : </sc:para>
+						<sc:itemizedList>
+							<sc:listItem>
+								<sc:para xml:space="preserve">
+<sc:phrase role="url">
+<op:urlM>
+<sp:url>http://www.canal-u.tv/video/tele2sciences/chapitre_lecons_de_choses_partie_4_formules_de_trigonometrie_sinus_cosinus_tangente.10095</sp:url>
+</op:urlM>"Leçons de choses" - Partie 4 : Formules de trigonométrie... </sc:phrase>
+</sc:para>
+							</sc:listItem>
+						</sc:itemizedList>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

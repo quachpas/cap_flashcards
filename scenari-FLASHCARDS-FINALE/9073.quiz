@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#chim-sante-medicam-reacchim-</sp:themeLycee>
+			<sp:themeLicence>#chim-chimsolu-</sp:themeLicence>
+			<sp:level>3</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<!--<comment xmlns="scenari.eu:comment:1.0" type="thread"><comment author="camille.dufourg" creationTime="1575022897836">Il manque les mots-clés et la licence.</comment></comment>-->
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">Université Nice-Sophia-Antipolis</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			On considère la réaction d'équation <sc:textLeaf role="mathtex">\mathrm{Cr_2O_3(s)  + 2 \, Al (s) \rightarrow Al_2O_3(s)+2\,Cr(s)}</sc:textLeaf>. On sait que <sc:textLeaf role="mathtex">n^0_{\mathrm{Cr_2O_3}}=0,7 \, \mathrm{mol}</sc:textLeaf> et que <sc:textLeaf role="mathtex">n^0_{\mathrm{Al}}=0,8 \, \mathrm{mol}</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Le réactif limitant est <sc:textLeaf role="mathtex">\mathrm{Cr_2O_3}</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Le réactif limitant est  <sc:textLeaf role="mathtex">\mathrm{Al}</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Il y a autant de  <sc:textLeaf role="mathtex">\mathrm{Cr_2O_3}</sc:textLeaf> que de  <sc:textLeaf role="mathtex">\mathrm{Al}</sc:textLeaf> à l'équilibre.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			L'oxyde d'aluminium est présent à l'état solide.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Toutes les propositions sont fausses.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			D'après l'équation de la réaction, l'avancement maximal <sc:textLeaf role="mathtex">x_{max}</sc:textLeaf> de la réaction vérifie soit  <sc:textLeaf role="mathtex">n^0_{\mathrm{Cr_2O_3}}-x_{max}=0</sc:textLeaf> soit  <sc:textLeaf role="mathtex">n^0_{\mathrm{Al}}-2\,x_{max}=0</sc:textLeaf>. On ne retient que la valeur la plus faible de l'avancement obtenue soit <sc:textLeaf role="mathtex">x_{max}=0,4 \, \mathrm{mol}</sc:textLeaf> avec <sc:textLeaf role="mathtex">\mathrm{Al}</sc:textLeaf>, réactif limitant. A l'état final, le système contient donc  <sc:textLeaf role="mathtex">n^f_{\mathrm{Al}}=0 \, \mathrm{mol}</sc:textLeaf> et  <sc:textLeaf role="mathtex">n^f_{\mathrm{Cr_2O_3}}=0,3 \, \mathrm{mol}</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">Un oxyde est un composé qui contient de l'oxygène. L'oxyde d'aluminium est donc le composé <sc:textLeaf role="mathtex">\mathrm{Al_2O_3}</sc:textLeaf> qui est  bien à l'état solide d'après la notation <sc:textLeaf role="mathtex">\mathrm{(s)}</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

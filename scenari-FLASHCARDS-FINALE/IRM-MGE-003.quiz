@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3">
+		<op:exeM>
+			<sp:themeLycee xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-geo-geomespace-geomvecto-</sp:themeLycee>
+			<sp:themeLicence xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-geo-</sp:themeLicence>
+			<sp:level xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">3</sp:level>
+			<sp:educationLevel xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">L0</sp:educationLevel>
+			<sp:info xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">ECRA – IREM – Strasbourg</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txtRes xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txtRes>
+						<op:txtResM>
+							<sp:pos>rgt</sp:pos>
+						</op:txtResM>
+						<sp:txt>
+							<op:txt>
+								<sc:para xml:space="preserve">Dans le cube <sc:textLeaf role="mathtex">ABCDEFGH</sc:textLeaf> d'arête <sc:textLeaf role="mathtex">a</sc:textLeaf>,</sc:para>
+							</op:txt>
+						</sp:txt>
+						<sp:img sc:refUri="Images/GVC_003_01.png"/>
+					</op:txtRes>
+				</sp:txtRes>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\overrightarrow{DF}.\overrightarrow{DC} =\vec{0} </sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:inlineImg role="ico" sc:refUri="Images/GVC_003_02.png"/>
+</sc:para>
+						<sc:para xml:space="preserve">Soient <sc:textLeaf role="mathtex">\vec{u}</sc:textLeaf> et <sc:textLeaf role="mathtex">\vec{v}</sc:textLeaf> deux vecteurs non nuls.</sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\vec{u}.\vec{v}=0 \Longleftrightarrow \vec{u} </sc:textLeaf> et <sc:textLeaf role="mathtex">\vec{v}</sc:textLeaf> sont orthogonaux entre eux.</sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">[DF]</sc:textLeaf> étant la diagonale du rectangle <sc:textLeaf role="mathtex">CDEF</sc:textLeaf>, les vecteurs <sc:textLeaf role="mathtex">\overrightarrow{DF}</sc:textLeaf> et <sc:textLeaf role="mathtex">\overrightarrow{DC}</sc:textLeaf> sont non nuls et non orthogonaux entre eux.</sc:para>
+						<sc:para xml:space="preserve">Donc, l'affirmation est fausse.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\overrightarrow{DF}.\overrightarrow{DC}=a^2</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:inlineImg role="ico" sc:refUri="Images/GVC_003_02.png"/>
+</sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">[DF]</sc:textLeaf> étant la diagonale du rectangle <sc:textLeaf role="mathtex">CDEF</sc:textLeaf>, <sc:textLeaf role="mathtex">C</sc:textLeaf> est le projeté orthogonal de <sc:textLeaf role="mathtex">F</sc:textLeaf> sur <sc:textLeaf role="mathtex">(DC)</sc:textLeaf>. Dans ce cas : <sc:textLeaf role="mathtex">\overrightarrow{DF}.\overrightarrow{DC}=\overrightarrow{DC}^2=a^2</sc:textLeaf>
+</sc:para>
+						<sc:para xml:space="preserve">Donc, l'affirmation est vraie.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">il existe un seul point <sc:textLeaf role="mathtex">I</sc:textLeaf> sur <sc:textLeaf role="mathtex">[CG]</sc:textLeaf> tel que <sc:textLeaf role="mathtex">\overrightarrow{AB}.\overrightarrow{AI}=a^2</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:inlineImg role="ico" sc:refUri="Images/GVC_003_04.png"/>
+</sc:para>
+						<sc:para xml:space="preserve">Comme <sc:textLeaf role="mathtex">ABCDEFGH</sc:textLeaf> est un cube, <sc:textLeaf role="mathtex">(CG)\perp (ABC)</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">D'où : <sc:textLeaf role="mathtex">(CG)\perp (AB)</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">Et : <sc:textLeaf role="mathtex">\overrightarrow{CG}.\overrightarrow{AB}=\vec{0} \Rightarrow \overrightarrow{AB}.\overrightarrow{CI}=\vec 0</sc:textLeaf>
+</sc:para>
+						<sc:para xml:space="preserve">D'autre part, <sc:textLeaf role="mathtex">ABCD</sc:textLeaf> étant un carré, <sc:textLeaf role="mathtex">(AB) \perp (BC) \Rightarrow \overrightarrow{AB}.\overrightarrow{BC}=\vec 0</sc:textLeaf>
+</sc:para>
+						<sc:para xml:space="preserve">Dans ce cas, pour tout point <sc:textLeaf role="mathtex">I \in (CG)</sc:textLeaf>,</sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\overrightarrow{AB}.\overrightarrow{AI}=\overrightarrow{AB}.\left(\overrightarrow{AB}+\overrightarrow{BC}+\overrightarrow{CI}\right)=\overrightarrow{AB}^2+\overrightarrow{AB}.\overrightarrow{BC}+\overrightarrow{AB}.\overrightarrow{CI}=a^2</sc:textLeaf>
+</sc:para>
+						<sc:para xml:space="preserve">(car <sc:textLeaf role="mathtex">\overrightarrow{AB}.\overrightarrow{CI}=\vec 0</sc:textLeaf> et <sc:textLeaf role="mathtex">\overrightarrow{AB}.\overrightarrow{BC}=\vec 0</sc:textLeaf>
+</sc:para>
+						<sc:para xml:space="preserve">Donc, l'affirmation est fausse.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">tout point <sc:textLeaf role="mathtex">I</sc:textLeaf> qui se trouve sur <sc:textLeaf role="mathtex">[CG]</sc:textLeaf> vérifie <sc:textLeaf role="mathtex">\overrightarrow{AB}.\overrightarrow{AI}=a^2</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:inlineImg role="ico" sc:refUri="Images/GVC_003_05.png"/>
+</sc:para>
+						<sc:para xml:space="preserve">Comme <sc:textLeaf role="mathtex">ABCDEFGH</sc:textLeaf> est un cube, <sc:textLeaf role="mathtex">(CG)\perp (ABC)</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">D'où : <sc:textLeaf role="mathtex">(CG)\perp (AB)</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">Et : <sc:textLeaf role="mathtex">\overrightarrow{CG}.\overrightarrow{AB}=\vec{0} \Rightarrow \overrightarrow{AB}.\overrightarrow{CI}=\vec 0</sc:textLeaf>
+</sc:para>
+						<sc:para xml:space="preserve">D'autre part, <sc:textLeaf role="mathtex">ABCD</sc:textLeaf> étant un carré, <sc:textLeaf role="mathtex">(AB) \perp (BC) \Rightarrow \overrightarrow{AB}.\overrightarrow{BC}=\vec 0</sc:textLeaf>
+</sc:para>
+						<sc:para xml:space="preserve">Dans ce cas, pour tout point <sc:textLeaf role="mathtex">I \in (CG)</sc:textLeaf>,</sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\overrightarrow{AB}.\overrightarrow{AI}=\overrightarrow{AB}.\left(\overrightarrow{AB}+\overrightarrow{BC}+\overrightarrow{CI}\right)=\overrightarrow{AB}^2+\overrightarrow{AB}.\overrightarrow{BC}+\overrightarrow{AB}.\overrightarrow{CI}=a^2</sc:textLeaf>
+</sc:para>
+						<sc:para xml:space="preserve">(car <sc:textLeaf role="mathtex">\overrightarrow{AB}.\overrightarrow{CI}=\vec 0</sc:textLeaf> et <sc:textLeaf role="mathtex">\overrightarrow{AB}.\overrightarrow{BC}=\vec 0</sc:textLeaf>
+</sc:para>
+						<sc:para xml:space="preserve">Donc, l'affirmation est vraie.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+		</sc:choices>
+	</op:mcqMur>
+</sc:item>

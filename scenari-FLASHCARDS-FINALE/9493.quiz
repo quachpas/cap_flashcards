@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3">
+		<op:exeM>
+			<sp:themeLycee xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-analyse-integration-primfonccont-</sp:themeLycee>
+			<sp:themeLicence xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-integration-</sp:themeLicence>
+			<sp:level xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">2</sp:level>
+			<sp:educationLevel xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">L0</sp:educationLevel>
+			<sp:info xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      Strasbourg<sc:phrase role="url">
+<op:urlM>
+<sp:url>http://utt.fr</sp:url>
+</op:urlM>
+</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Parmi les propositions ci-dessous, choisissez la bonne réponse.</sc:para>
+						<sc:para xml:space="preserve">Soient <sc:textLeaf role="mathtex">x</sc:textLeaf> et <sc:textLeaf role="mathtex">n</sc:textLeaf> des réels. On note <sc:textLeaf role="mathtex">I=\int_{x}^{x^2}~nt^3e^{-nt}~dt</sc:textLeaf>. Après calculs, l'intégrale <sc:textLeaf role="mathtex">I</sc:textLeaf>
+		 dépendra de :</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			<sc:textLeaf role="mathtex">n</sc:textLeaf> et <sc:textLeaf role="mathtex">x</sc:textLeaf>
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			<sc:textLeaf role="mathtex">n</sc:textLeaf> et <sc:textLeaf role="mathtex">t</sc:textLeaf>
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			<sc:textLeaf role="mathtex">t</sc:textLeaf> et <sc:textLeaf role="mathtex">x</sc:textLeaf>
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			uniquement <sc:textLeaf role="mathtex">n</sc:textLeaf>
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="1"/>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">La variable <sc:textLeaf role="mathtex">t</sc:textLeaf> est une variable muette, on aurait pu la remplacer par une autre lettre. Elle est amenée à disparaître à l'issue des calculs. Le résultat final sera fonction des nombres réels <sc:textLeaf role="mathtex">n</sc:textLeaf> et <sc:textLeaf role="mathtex">x</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

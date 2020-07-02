@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3">
+		<op:exeM>
+			<sp:themeLycee xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-analyse-equations-</sp:themeLycee>
+			<sp:themeLicence xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-equa-</sp:themeLicence>
+			<sp:level xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">4</sp:level>
+			<sp:educationLevel xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">L0</sp:educationLevel>
+			<sp:info xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">ECRA-IREM-Clermont-Ferrand</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">On considère la fraction rationnelle <sc:textLeaf role="mathtex">F(x)=\frac{x(x+3)^2}{x^2+6x+5}</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">La fraction <sc:textLeaf role="mathtex">F</sc:textLeaf> est définie pour tout <sc:textLeaf role="mathtex">x\ne-5</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">F(x)\leq0\Leftrightarrow x\in ]-\infty ;-5[\cup]-1 ;0]</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">Si <sc:textLeaf role="mathtex">x\in ]-5 ;-1[</sc:textLeaf> alors <sc:textLeaf role="mathtex">F(x)\geq0</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">L'équation <sc:textLeaf role="mathtex">F(x)=0</sc:textLeaf> admet deux solutions réelles distinctes.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">La fraction <sc:textLeaf role="mathtex">F</sc:textLeaf> est définie pour les réels <sc:textLeaf role="mathtex">x</sc:textLeaf> vérifiant<sc:textLeaf role="mathtex"> x^2+6x+5\neq 0</sc:textLeaf>. Or,</sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">x^2+6x+5=0\iff x=-1\;\mathrm{ou}\; x=-5</sc:textLeaf>
+</sc:para>
+						<sc:para xml:space="preserve">Ainsi la fraction <sc:textLeaf role="mathtex">F</sc:textLeaf> est définie sur <sc:textLeaf role="mathtex">\mathbb R\backslash\lbrace -5 ; -1\rbrace</sc:textLeaf>. <sc:inlineStyle role="emp">la Proposition "la fraction <sc:textLeaf role="mathtex">F</sc:textLeaf> est définie pour tout <sc:textLeaf role="mathtex">x\ne-5</sc:textLeaf>" est fausse</sc:inlineStyle>.</sc:para>
+						<sc:para xml:space="preserve">Cherchons maintenant à résoudre <sc:textLeaf role="mathtex">F(x)=0</sc:textLeaf>. Pour <sc:textLeaf role="mathtex">x\in\mathbb R\backslash\lbrace -5 ; -1\rbrace</sc:textLeaf>, on a</sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">F(x)=0\iff x(x+3)^2=0\iff x=0\;\mathrm{ou}\; (x+3)^2=0\iff x=0\;\mathrm{ou}\; x=-3</sc:textLeaf>
+</sc:para>
+						<sc:para xml:space="preserve">L'ensemble des solutions de l'équation <sc:textLeaf role="mathtex">F(x)=0</sc:textLeaf> est <sc:textLeaf role="mathtex">\lbrace -3 ; 0\rbrace</sc:textLeaf>. Ainsi, <sc:inlineStyle role="emp">la Proposition "l'équation <sc:textLeaf role="mathtex">F(x)=0</sc:textLeaf> admet deux solutions réelles distinctes" est vraie</sc:inlineStyle>.</sc:para>
+						<sc:para xml:space="preserve">Déterminons maintenant le signe de <sc:textLeaf role="mathtex">F(x)</sc:textLeaf> à l'aide d'un tableau de signes.</sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\begin{array}{|c|lcccccccccr|}\hline x &amp; -\infty &amp; &amp; -5 &amp; &amp; -3 &amp; &amp; -1 &amp; &amp; 0 &amp; &amp;+\infty\\\hline\ x &amp; &amp; - &amp;  &amp; - &amp; &amp;- &amp;  &amp; - &amp; 0 &amp; +&amp; \\\hline (x+3)^2 &amp; &amp; + &amp; &amp; + &amp; 0 &amp; + &amp; &amp;+&amp; &amp; +&amp;\\\hline x^2+6x+5 &amp; &amp; + &amp; 0 &amp; - &amp;  &amp; - &amp; 0 &amp; + &amp; &amp; + &amp;\\\hline F(x) &amp; &amp; - &amp; || &amp; + &amp; 0 &amp; + &amp; || &amp; - &amp; 0&amp; + &amp; \\\hline\end{array}</sc:textLeaf>
+</sc:para>
+						<sc:para xml:space="preserve">Par conséquent, <sc:inlineStyle role="emp">la Proposition "si <sc:textLeaf role="mathtex">x\in ]-5 ;-1[</sc:textLeaf> alors <sc:textLeaf role="mathtex">F(x)\geq0</sc:textLeaf>"</sc:inlineStyle> est vraie. En outre, on a</sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">F(x)\leq 0\iff x\in 2\left]-\infty ; -5\right [\bigcup\lbrace -3\rbrace\bigcup\left]-1 ; 0\right]</sc:textLeaf>
+</sc:para>
+						<sc:para xml:space="preserve">
+<sc:inlineStyle role="emp">La proposition "l'équation <sc:textLeaf role="mathtex">F(x)=0</sc:textLeaf> admet deux solutions réelles distinctes" est donc fausse</sc:inlineStyle>.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

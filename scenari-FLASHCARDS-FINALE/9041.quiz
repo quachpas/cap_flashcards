@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#chim-agir-convener-reacoxydo-</sp:themeLycee>
+			<sp:themeLicence>#chim-electrochim-</sp:themeLicence>
+			<sp:level>1</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<!--<comment xmlns="scenari.eu:comment:1.0" type="thread"><comment author="camille.dufourg" creationTime="1575019151883">Il manque les mots-clés et la licence.</comment></comment>-->
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">Université Nice-Sophia-Antipolis</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="etu02" creationTime="1430897934221">Vous dites "laquelle" alors que deux réponses sont correctes</comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Parmi les propositions suivantes, laquelle ou lesquelles sont associées à un phénomène de corrosion ?
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			La réduction d'un métal.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Un métal ne peut pas se réduire.
+		</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			L'oxydation d'un métal.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="mar" creationTime="1431885587434">Remplacer l'explication par :
+la corrosion est l'oxydation d'un métal le plus souvent par le dioxygène ou l'ion H+.
+Mettre le + en exposant.</comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">Un métal peut s'oxyder au contact d'une espèce oxydante.
+		La corrosion est l'oxydation d'un métal le plus souvent par le dioxygène ou l'ion H<sc:textLeaf role="exp">+</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			La déprotonation d'un acide.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="mar" creationTime="1431885646305">Remplacer l'explication par :
+la déprotonation est la perte d'un ou plusieurs protons par un acide.</comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">
+			La déprotonation est la perte d'un ou plusieurs protons par un acide et ne correspond pas au gain d'électrons que connaît l'oxydant réagissant avec le métal.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			L'oxydation du fer.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="mar" creationTime="1431885698465" updateTime="1431885839199">Remplacer l'explication par :
+l'oxydation du fer est un exemple de corrosion du fer en présence d'eau et de dioxygène, appelée communément rouille.</comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">
+			L'oxydation du fer est un exemple de corrosion du fer en présence d'eau et de dioxygène. On obtient ce que l'on appelle  communément la rouille.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Toutes les propositions sont fausses.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">Par définition la corrosion d'un matériau correspond à sa dégradation. Elle peut avoir des causes mécaniques comme des frottements ou des causes chimiques.</sc:para>
+						<sc:para xml:space="preserve">La corrosion des métaux et de leurs alliages est une réaction chimique dont l'équilibre sous l'action des agents atmosphériques tend vers la formation des oxydes, sulfures, carbonates... Le métal est oxydé.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

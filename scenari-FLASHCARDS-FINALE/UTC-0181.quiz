@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#phys-comploimod-cohetransmat-matdiffech-</sp:themeLycee>
+			<sp:themeLicence>#phys-mesinstrinc-</sp:themeLicence>
+			<sp:level>1</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">utc.fr</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">On dispose de 4 bouteilles identiques (même forme, même contenance) numérotées de 1 à 4 et remplies à ras bord avec les liquides suivants :</sc:para>
+						<sc:itemizedList>
+							<sc:listItem>
+								<sc:para xml:space="preserve">bouteille n°1 : huile d'olive</sc:para>
+							</sc:listItem>
+							<sc:listItem>
+								<sc:para xml:space="preserve">bouteille n°2 : eau pure</sc:para>
+							</sc:listItem>
+							<sc:listItem>
+								<sc:para xml:space="preserve">bouteille n°3 : vinaigre</sc:para>
+							</sc:listItem>
+							<sc:listItem>
+								<sc:para xml:space="preserve">bouteille n°4 : essence</sc:para>
+							</sc:listItem>
+						</sc:itemizedList>
+						<sc:para xml:space="preserve">A température ambiante (soit 20°), si on classe les bouteilles de la plus légère à la plus lourde, on obtient le chiffre :</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">1432.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">4132.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">4123.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">1342.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="3"/>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">Masses volumiques :</sc:para>
+						<sc:itemizedList>
+							<sc:listItem>
+								<sc:para xml:space="preserve">huile d'olive : <sc:textLeaf role="mathtex">0,9 kg/l</sc:textLeaf></sc:para>
+							</sc:listItem>
+							<sc:listItem>
+								<sc:para xml:space="preserve">eau pure : <sc:textLeaf role="mathtex">1 kg/l</sc:textLeaf></sc:para>
+							</sc:listItem>
+							<sc:listItem>
+								<sc:para xml:space="preserve">vinaigre : <sc:textLeaf role="mathtex">1,04 kg/l</sc:textLeaf></sc:para>
+							</sc:listItem>
+							<sc:listItem>
+								<sc:para xml:space="preserve">essence : <sc:textLeaf role="mathtex">0,7 kg/l</sc:textLeaf></sc:para>
+							</sc:listItem>
+						</sc:itemizedList>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:title>Photosynthèse</sp:title>
+			<sp:themeLycee>#scvie-plancont-solsourener-</sp:themeLycee>
+			<sp:themeLicence>#bio-bioveget-</sp:themeLicence>
+			<sp:level>2</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      <sc:phrase role="url"><op:urlM>
+<sp:url>http://univ-lemans.fr</sp:url>
+</op:urlM>
+Le Mans Université</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			La phase photochimique repose sur l'absorption de la lumière par des pigments. Dans les chloroplastes des feuilles, ces pigments sont :
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						des chlorophylles.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						la chlorophylle a et la chlorophylle b.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						la chlorophylle a et la chlorophylle b, les xanthophylles et les carotènes.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="3"/>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			L'analyse chromatographique d'un extrait de feuille (réalisé avec de l'éthanol) montre la présence de bandes colorées vertes et jaunes reflétant la présence de différents types de pigments. Les bandes vertes sont dues aux molécules de chlorophylle (chlorophylle b en bas et chlorophylle a en haut) tandis que les bandes jaunes sont dues aux caroténoïdes. Les bandes positionnées légèrement plus haut que celle correspondant à la bande de la chlorophylle a sont dues aux xanthophylles (caroténoïdes portant au moins un atome d'oxygène). La bande ayant migré avec le front du solvant est due aux carotènes (caroténoïdes sans atome d'oxygène). 
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

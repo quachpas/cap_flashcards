@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#chim-comploismod-strtran-phdefmes-</sp:themeLycee>
+			<sp:themeLicence>#chim-chimsolu-</sp:themeLicence>
+			<sp:level>1</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<!--<comment xmlns="scenari.eu:comment:1.0" type="thread"><comment author="camille.dufourg" creationTime="1573663880643">Il manque les mots-clés et la licence.</comment></comment>-->
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">Université Lille 1</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread"><comment author="camille.dufourg" creationTime="1573663923977">&lt;...&gt; est-il à sa place au début de l'énoncé ?
+</comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">
+			<sc:inlineStyle role="emp">Solutions acide, basique et neutre</sc:inlineStyle>.  Une solution aqueuse est :</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			acide si [H<sc:textLeaf role="ind">3</sc:textLeaf>O<sc:textLeaf role="exp">+</sc:textLeaf>] &lt; [HO<sc:textLeaf role="exp">-</sc:textLeaf>].
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			basique si [H<sc:textLeaf role="ind">3</sc:textLeaf>O<sc:textLeaf role="exp">+</sc:textLeaf>] &lt; [HO<sc:textLeaf role="exp">-</sc:textLeaf>].
+		</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			basique si [H<sc:textLeaf role="ind">3</sc:textLeaf>O<sc:textLeaf role="exp">+</sc:textLeaf>] &lt; [HO<sc:textLeaf role="exp">-</sc:textLeaf>].
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			neutre si [H<sc:textLeaf role="ind">3</sc:textLeaf>O<sc:textLeaf role="exp">+</sc:textLeaf>] = [HO<sc:textLeaf role="exp">-</sc:textLeaf>].
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="mar" creationTime="1433005139792">Ajouter à 25 °C après "7,0".</comment></comment>-->
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			acide si son pH est inférieur à 7,0 à 25 °C.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="mar" creationTime="1433005182584">Ajouter à 25 °C après "7,0" dans les 3 items.</comment></comment>-->
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="etu02" creationTime="1430817228823">Erreur pour la solution acide : "acide si (H3O+) &gt; (H0-)"</comment><comment author="mar" creationTime="1430983963015">exact</comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">
+			<sc:inlineStyle role="emp">Compétence(s)</sc:inlineStyle> : <sc:inlineStyle role="emp">définir des solutions acide, basique ou neutre.</sc:inlineStyle>
+		</sc:para>
+						<sc:para xml:space="preserve">
+			Une solution aqueuse est :
+		</sc:para>
+						<sc:itemizedList>
+							<sc:listItem>
+								<sc:para xml:space="preserve">
+			 acide si [H<sc:textLeaf role="ind">3</sc:textLeaf>O<sc:textLeaf role="exp">+</sc:textLeaf>] &gt; [HO<sc:textLeaf role="exp">-</sc:textLeaf>] ou si son pH est inférieur à 7,0 à 25 °C ;
+		</sc:para>
+							</sc:listItem>
+						</sc:itemizedList>
+						<sc:itemizedList>
+							<sc:listItem>
+								<sc:para xml:space="preserve">
+			neutre si [H<sc:textLeaf role="ind">3</sc:textLeaf>O<sc:textLeaf role="exp">+</sc:textLeaf>] = [HO<sc:textLeaf role="exp">-</sc:textLeaf>] ou si son pH est égal à 7,0 à 25 °C ;
+		</sc:para>
+							</sc:listItem>
+						</sc:itemizedList>
+						<sc:itemizedList>
+							<sc:listItem>
+								<sc:para xml:space="preserve">basique si [H<sc:textLeaf role="ind">3</sc:textLeaf>O<sc:textLeaf role="exp">+</sc:textLeaf>] &lt; [HO<sc:textLeaf role="exp">-</sc:textLeaf>] ou si son pH est supérieur à 7,0 à 25 °C.
+		</sc:para>
+							</sc:listItem>
+						</sc:itemizedList>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

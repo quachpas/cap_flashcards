@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#math-probastat-probabilites-loiproba-</sp:themeLycee>
+			<sp:themeLicence>#math-proba-</sp:themeLicence>
+			<sp:level>4</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      <sc:phrase role="url"><op:urlM xmlns:sc="http://www.utc.fr/ics/scenari/v3/core" xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive"><sp:url>www.parisdescartes.fr</sp:url></op:urlM>
+parisdescartes.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			En informatique, un nombre entier 
+  <sc:textLeaf role="mathtex">\textstyle{n}</sc:textLeaf>
+ est codé par une suite 
+  <sc:textLeaf role="mathtex">\textstyle{l_i}</sc:textLeaf>
+ de 
+  <sc:textLeaf role="mathtex">\textstyle{0}</sc:textLeaf>
+ et de 
+  <sc:textLeaf role="mathtex">\textstyle{1}</sc:textLeaf>
+ appelés bits de sorte que 
+  <sc:textLeaf role="mathtex">\textstyle{n=l_0+2l_1+2^2l_2+\cdots}</sc:textLeaf>
+. Par exemple, 
+  <sc:textLeaf role="mathtex">\textstyle{13}</sc:textLeaf>
+ est codé par 
+  <sc:textLeaf role="mathtex">\textstyle{(1,0,1,1)}</sc:textLeaf>
+ car 
+  <sc:textLeaf role="mathtex">\textstyle{13=1+0\times 2+2^2+2^3}</sc:textLeaf>.
+		</sc:para>
+						<sc:para xml:space="preserve">
+			On appelle octet un regroupement de 
+  <sc:textLeaf role="mathtex">\textstyle{8}</sc:textLeaf>
+ bits. En allumant un ordinateur, une case mémoire de la taille d'un octet est initialisée de telle sorte que chaque bit de cet octet prend la valeur 
+  <sc:textLeaf role="mathtex">\textstyle{1}</sc:textLeaf>
+ avec probabilité 
+  <sc:textLeaf role="mathtex">\textstyle{p}</sc:textLeaf>, où 
+  <sc:textLeaf role="mathtex">\textstyle{0&lt;p&lt;1}</sc:textLeaf>, et ce, de façon indépendante des autres bits. On note 
+  <sc:textLeaf role="mathtex">\textstyle{X}</sc:textLeaf>
+ la variable aléatoire donnant la valeur de l'entier dont cet octet est l'écriture en base 
+  <sc:textLeaf role="mathtex">\textstyle{2}</sc:textLeaf>.
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			L'ensemble des valeurs possibles prises par 
+  <sc:textLeaf role="mathtex">\textstyle{X}</sc:textLeaf>
+ est 
+  <sc:textLeaf role="mathtex">\textstyle{\{0, \ldots, 255\}}</sc:textLeaf>.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			La probabilité que 
+  <sc:textLeaf role="mathtex">\textstyle{X}</sc:textLeaf>
+ soit pair est de 
+  <sc:textLeaf role="mathtex">\textstyle{\frac{1}{2}}</sc:textLeaf>.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			La probabilité d'être pair est la probabilité que le dernier bit soit nul, i.e. 
+  <sc:textLeaf role="mathtex">\textstyle{1-p}</sc:textLeaf>.
+		</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			
+  <sc:textLeaf role="mathtex">\textstyle{\mathbb{P}(X&gt;3)=1-(1-p)^6}</sc:textLeaf>.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			
+  <sc:textLeaf role="mathtex">\textstyle{\mathbb{P}(X&gt;3)= 1- \left( \mathbb{P}(X=0) + \mathbb{P}(X=1) + \mathbb{P}(X=2) + \mathbb{P}(X=3)\right)= 1- \left((1-p)^8+ p(1-p)^7+ p(1-p)^7 + p^2(1-p)^6\right)= 1- (1-p)^6\left((1-p)^2+ 2p(1-p) + p^2\right)= 1- (1-p)^6}</sc:textLeaf>
+		</sc:para>
+						<sc:para xml:space="preserve">
+			Autre méthode : le complémentaire de l'événement en question correspond à l'événement 
+  <sc:textLeaf role="mathtex">\textstyle{X\leq 3}</sc:textLeaf>,
+ c'est-à-dire au fait que tous les bits au-delà du troisième sont nuls, i.e. 
+  <sc:textLeaf role="mathtex">\textstyle{(1-p)^6}</sc:textLeaf>.
+		</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+		</sc:choices>
+	</op:mcqMur>
+</sc:item>

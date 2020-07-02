@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#math-analyse-limsuit-</sp:themeLycee>
+			<sp:themeLicence>#math-suites-</sp:themeLicence>
+			<sp:level>4</sp:level>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://unistra.fr</sp:url>
+</op:urlM>unistra.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			  Soit une suite réelle <sc:textLeaf role="mathtex">\left(u_n\right)_{n\geq0}</sc:textLeaf>  qui, pour tout entier positif <sc:textLeaf role="mathtex">n</sc:textLeaf>, vérifie les relations</sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">0&lt;u_{n+1}\leq u_n\text{ et } u_{n+2}=\frac{n+1}{n+2}u_n</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">On en déduit</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			   que, pour tout entier positif n, <sc:textLeaf role="mathtex"> \frac{u_{n+1}}{u_n}\leq \frac{n+1}{n+2}</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">Pour <sc:textLeaf role="mathtex">n\geq 0</sc:textLeaf>, comme <sc:textLeaf role="mathtex">u_{n+1}\geq u_{n+2}</sc:textLeaf>, et que <sc:textLeaf role="mathtex">u_n&gt;0</sc:textLeaf>, on a <sc:textLeaf role="mathtex"> \frac{u_{n+1}}{u_n}\geq  \frac{u_{n+2}}{u_n}</sc:textLeaf> et donc <sc:textLeaf role="mathtex">\frac{u_{n+1}}{u_n}\geq \frac{n+1}{n+2}</sc:textLeaf>. Supposons que l'inégalité proposée, <sc:textLeaf role="mathtex">\frac{u_{n+1}}{u_n}\leq \frac{n+1}{n+2} 
+	</sc:textLeaf>, soit	vraie. On a alors l'égalité <sc:textLeaf role="mathtex">\frac{u_{n+1}}{u_n}=\frac{n+1}{n+2} 
+	</sc:textLeaf>. Mais alors, <sc:textLeaf role="mathtex">\frac{u_{n+2}}{u_n}=\frac{n+2}{n+3}\frac{n+1}{n+2}=\frac{n+1}{n+3}\neq\frac{n+1}{n+2}</sc:textLeaf>, contradiction.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			   que la suite <sc:textLeaf role="mathtex">\left(u_n\right)_{n\geq0}</sc:textLeaf> n'est pas bornée
+		.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">La suite <sc:textLeaf role="mathtex">(u_n)</sc:textLeaf> est bornée par <sc:textLeaf role="mathtex">u_0</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			  <sc:textLeaf role="mathtex">  \lim\limits_{n \to +\infty}\frac{u_{n+1}}{u_n}=1 </sc:textLeaf>.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">En effet, on a d'une part <sc:textLeaf role="mathtex">0&lt;u_{n+1}\leq u_n</sc:textLeaf>, d'où <sc:textLeaf role="mathtex">\frac {u_{n+1}}{u_n}\leq 1</sc:textLeaf>, d'autre part (comme on l'a montré précédemment)  <sc:textLeaf role="mathtex">\frac{u_{n+1}}{u_n}\geq \frac{n+1}{n+2}</sc:textLeaf>, ce qui tend vers <sc:textLeaf role="mathtex">1</sc:textLeaf>. Par le théorème des gendarmes, <sc:textLeaf role="mathtex">  \lim\limits_{n \to +\infty}\frac{u_{n+1}}{u_n}=1</sc:textLeaf>. </sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			  <sc:textLeaf role="mathtex">  \lim\limits_{n \to +\infty}\frac{u_{n+1}}{u_n}=0 </sc:textLeaf>
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">Voir l'explication de la réponse 3.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+		</sc:choices>
+	</op:mcqMur>
+</sc:item>

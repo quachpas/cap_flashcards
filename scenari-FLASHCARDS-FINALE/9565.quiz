@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#phys-obs-coulvisim-lenminrel-</sp:themeLycee>
+			<sp:themeLicence>#phys-optigeom-</sp:themeLicence>
+			<sp:level>1</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://univ-lille1.fr</sp:url>
+</op:urlM>univ-lille1.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Suivant sa nature, un objet/image aura un caractère réel ou virtuel. Suivant le sens de l'objet, l'image peut être droite ou inversée par rapport à l'objet.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Le grandissement 
+  
+  	<sc:textLeaf role="mathtex">\textstyle{\gamma}</sc:textLeaf>
+		 &gt;0 signifie que l'objet et l'image sont dans le même sens.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Le grandissement 
+  
+  	<sc:textLeaf role="mathtex">\textstyle{\gamma}</sc:textLeaf>
+		 &lt; 0 signifie que l'objet et l'image sont dans le même sens.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Si 
+  
+  	<sc:textLeaf role="mathtex">\textstyle{\gamma}</sc:textLeaf> &lt; 0, l'objet et l'image ne sont pas du même coté de la lentille.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Le grandissement 
+  
+  	<sc:textLeaf role="mathtex">\textstyle{\gamma}</sc:textLeaf> &gt; 0 signifie que l'image est plus grande que l'objet</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Le grandissement 
+  
+  	<sc:textLeaf role="mathtex">\textstyle{\gamma}</sc:textLeaf>
+&gt;  0 signifie que l'image est plus petite que l'objet</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+	</op:mcqMur>
+</sc:item>

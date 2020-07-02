@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#chim-sante-medicam-</sp:themeLycee>
+			<sp:themeLycee>#chim-sante-medicam-densmasvol-</sp:themeLycee>
+			<sp:themeLicence>#chim-chimsolu-</sp:themeLicence>
+			<sp:level><!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="ves" creationTime="1519381558618">niveau 3?</comment></comment>-->3</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<!--<comment xmlns="scenari.eu:comment:1.0" type="thread"><comment author="camille.dufourg" creationTime="1575296754097">Il manque les mots-clés et la licence.</comment></comment>-->
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      Université de technologie de Troyes, 
+      Baudrion, 
+      Verchier, 
+      01-06-2012, 
+      <sc:phrase role="url"><op:urlM>
+<sp:url>http://utt.fr</sp:url>
+</op:urlM>
+utt.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			La densité d'un composé liquide vaut 12. Que vaut sa masse volumique ?
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			12 kg.L<sc:textLeaf role="exp">-1</sc:textLeaf>.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			120 g.L<sc:textLeaf role="exp">-1</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			12 L.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			1200 g.L<sc:textLeaf role="exp">-1</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="1"/>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			La densité d'un liquide est le rapport de sa masse volumique sur la masse volumique de l'eau pure (que l'on considère, à température ambiante, voisine de 1 000 g/L).
+		</sc:para>
+						<sc:para xml:space="preserve">Par définition, <sc:textLeaf role="mathtex">d=\dfrac{\rho_\ell}{\rho_{eau}}</sc:textLeaf> d'où <sc:textLeaf role="mathtex">\rho_\ell =d \cdot \rho_{eau}=12 \times 1 \,000=12\,000 \,\mathrm{g\cdot L^{-1}}=12 \, \mathrm{kg\cdot L^{-1}}</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

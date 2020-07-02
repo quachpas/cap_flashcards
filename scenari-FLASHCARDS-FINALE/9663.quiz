@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#phys-comploimod-tempmvtevol-consquanmvtsys-</sp:themeLycee>
+			<sp:themeLicence>#phys-loiscons-</sp:themeLicence>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://utc.fr</sp:url>
+</op:urlM>utc.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Sur une table soufflante horizontale, un corps de masse 
+ 	<sc:textLeaf role="mathtex">\textstyle{m}</sc:textLeaf>
+  est lancé avec une vitesse 
+ 	<sc:textLeaf role="mathtex">\textstyle{\vec{V}}</sc:textLeaf>
+  contre un corps immobile, de même masse 
+ 	<sc:textLeaf role="mathtex">\textstyle{ m}</sc:textLeaf>
+		</sc:para>
+						<sc:para xml:space="preserve">
+			Après le choc, on constate que le premier corps s'immobilise. Quelle est alors la vitesse du second ?
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve"><sc:textLeaf role="mathtex">\textstyle{0}</sc:textLeaf>.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			
+ 	<sc:textLeaf role="mathtex">\textstyle{2V}</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			
+ 	<sc:textLeaf role="mathtex">\textstyle{V}</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			
+ 	<sc:textLeaf role="mathtex">\textstyle{\frac{V}2}</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="3"/>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">Il faut appliquer la loi de conservation de la quantité de mouvement entre l'instant avant le choc (première masse en mouvement, deuxième masse immobile) et l'instant après le choc (première masse immobile, deuxième masse en mouvement).</sc:para>
+						<sc:para xml:space="preserve">Vous pouvez consulter la ressource <sc:phrase role="url"><op:urlM>
+<sp:url>http://ressources.unisciel.fr/DAEU-mecanique/co/DAEU-Mecanique_11.html</sp:url>
+</op:urlM>
+Travail et énergie.</sc:phrase></sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

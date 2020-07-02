@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#phys-comploimod-tempmvtevol-loikepler-</sp:themeLycee>
+			<sp:themeLicence>#phys-loisnewton-</sp:themeLicence>
+			<sp:level>1</sp:level>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      UTT, 
+      Vezy, 
+      Vial, 
+      22-05-2012, 
+      <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://utt.fr</sp:url>
+</op:urlM>utt.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			La troisième loi de Kepler relie la période de révolution T d'un satellite autour d'un corps massif et la distance a entre ce corps et le satellite, grâce à une relation de la forme :
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			<sc:textLeaf role="mathtex">T/a</sc:textLeaf>.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			<sc:textLeaf role="mathtex">T^2/a^3</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			<sc:textLeaf role="mathtex">T^3/a^2</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			<sc:textLeaf role="mathtex">T^2/a</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="2"/>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">Vous pouvez revoir cela dans <sc:phrase role="url"><op:urlM>
+<sp:url>http://ressources.unisciel.fr/DAEU-mecanique/co/DAEU-Mecanique_9.html</sp:url>
+</op:urlM>
+Application des lois de Newton et Képler</sc:phrase>.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

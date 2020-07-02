@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#chim-agir-convener-oxydred-</sp:themeLycee>
+			<sp:themeLicence>#chim-electrochim-</sp:themeLicence>
+			<sp:level>1</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<!--<comment xmlns="scenari.eu:comment:1.0" type="thread"><comment author="camille.dufourg" creationTime="1574418368139">Il manque les mots-clés et la licence.</comment></comment>-->
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">Université Nice-Sophia-Antipolis</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Parmi les couples suivants, lesquelles sont des couples oxydant/réducteur ?
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="checked">
+				<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="etu02" creationTime="1430897779498">Les charges du Fe2+ sont en indice au lieu d'être en exposant</comment><comment author="mar" creationTime="1430987302522">exact.</comment><comment author="ext-lug" creationTime="1431941530156">Corrige</comment></comment>-->
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Fe<sc:textLeaf role="exp">2+</sc:textLeaf>/Fe
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="etu02" creationTime="1430897760743">La charge de l'électron à mettre en exposant</comment><comment author="mar" creationTime="1430987360001" updateTime="1431369537211">Remplacer l'explication par :
+c'est un couple redox car les deux espèces chimiques sont liées par la demi-réaction électronique : Fe2+ + 2 e- = Fe.
+Mettre 2+ et - après le symbole de l'électron en exposant.</comment><comment author="ext-lug" creationTime="1431941562748">Corrige</comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">
+			C'est un couple redox car les deux espèces chimiques sont liées par la demi-réaction électronique : Fe<sc:textLeaf role="exp">2+</sc:textLeaf> + 2e<sc:textLeaf role="exp">-</sc:textLeaf> = Fe.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Cu<sc:textLeaf role="exp">2+</sc:textLeaf>/Cu
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="mar" creationTime="1430990365369" updateTime="1431369528465">Remplacer l'explication par :
+c'est un couple redox car les deux espèces chimiques sont liées par la demi-réaction électronique : Cu2+ + 2 e- = Cu.
+Mettre 2+ et - après le symbole de l'électron en exposant. Ajouter un espace entre 2 et e-.</comment><comment author="ext-lug" creationTime="1431941744676">Corrigé</comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">
+			C'est un couple redox car les deux espèces chimiques sont liées par la demi-réaction électronique : Cu<sc:textLeaf role="exp">2+</sc:textLeaf> + 2e<sc:textLeaf role="exp">-</sc:textLeaf> = Cu.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			CH<sc:textLeaf role="ind">3</sc:textLeaf>COOH/CH<sc:textLeaf role="ind">3</sc:textLeaf>COO<sc:textLeaf role="exp">-</sc:textLeaf>
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="mar" creationTime="1430991264530" updateTime="1431369165448">Remplacer l'explication par :
+FAUX, c'est un couple acido-basique car les deux espèces chimiques sont liées par une demi-réaction d'échange de proton ;
+CH3COOH = CH3COO- + H+
+Mettre les 3 en indice, le - et le + en exposant</comment><comment author="ext-lug" creationTime="1431941791475">Corrige</comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">
+			C'est un couple acido-basique car les deux espèces chimiques sont liées par une demi-réaction d'échange de proton : CH<sc:textLeaf role="ind">3</sc:textLeaf>COOH = CH<sc:textLeaf role="ind">3</sc:textLeaf>COO<sc:textLeaf role="exp">-</sc:textLeaf> + H<sc:textLeaf role="exp">+</sc:textLeaf>.
+		</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Ca/K
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="mar" creationTime="1430991488876" updateTime="1430991535099">Remplacer l'explication par :
+FAUX, il faut que le couple implique des espèces chimiques possédant au moins un atome en commun ce qui n'est pas le cas ici. Par contre, Ca2+/Ca ou K+/K sont des couples oxydant/réducteur.</comment><comment author="map" creationTime="1431012907489">mettre les 2+ et + en exposant</comment><comment author="ext-lug" creationTime="1431941813698">Corrigé</comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">
+			 Il faut que le couple implique des espèces chimiques possédant au moins un atome en commun ce qui n'est pas le cas ici. Par contre, Ca<sc:textLeaf role="exp">2+</sc:textLeaf>/Ca ou K<sc:textLeaf role="exp">+</sc:textLeaf>/K sont des couples oxydant/réducteur.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Toutes les propositions sont fausses.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">Les couples oxydant/réducteur sont liés par une demi équation électronique (il y a un échange d'électrons : le réducteur cède des électrons et l'oxydant capte les électrons).</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

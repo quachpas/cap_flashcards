@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3">
+		<op:exeM>
+			<sp:themeLycee xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-geo-geomespace-geomvecto-</sp:themeLycee>
+			<sp:themeLicence xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-geo-</sp:themeLicence>
+			<sp:level xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">1</sp:level>
+			<sp:educationLevel xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">L0</sp:educationLevel>
+			<sp:info xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">ECRA – IREM – Strasbourg</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">Dans l'espace muni d'un repère d'origine O, l'ensemble E d'équation <sc:textLeaf role="mathtex">x−2y+7z−25=0</sc:textLeaf> est :</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">une droite de vecteur normal <sc:textLeaf role="mathtex">\begin{pmatrix} 1 \\ -2 \\ 7 \end{pmatrix}</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">un cercle de centre <sc:textLeaf role="mathtex">O</sc:textLeaf> et de rayon <sc:textLeaf role="mathtex">5</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">un plan de vecteur normal  <sc:textLeaf role="mathtex">\begin{pmatrix} 1 \\ -2 \\ 7 \end{pmatrix}</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">un plan de vecteur directeur  <sc:textLeaf role="mathtex">\begin{pmatrix} 1 \\ -2 \\ 7 \end{pmatrix}</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="3"/>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">L'ensemble de tous les points <sc:textLeaf role="mathtex">M(x ; y ; z)</sc:textLeaf> vérifiant l'équation <sc:textLeaf role="mathtex">ax+by+cz +d = 0</sc:textLeaf> est un plan de vecteur normal de coordonnées <sc:textLeaf role="mathtex">(a ; b ; c)</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">Donc, seule l'affirmation "un cercle de centre <sc:textLeaf role="mathtex">O</sc:textLeaf> et de rayon <sc:textLeaf role="mathtex">5</sc:textLeaf>" est vraie.</sc:para>
+					</op:txt>
+				</sp:txt>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:inlineStyle role="emp">Remarque :</sc:inlineStyle> Pour définir un plan, il nous faut un point du plan et deux vecteurs non colinéaires. Donc, il est insuffisant de parler « d'un plan de vecteur directeur <sc:textLeaf role="mathtex">\vec d</sc:textLeaf>». L'affirmation "Un plan de vecteur directeur  <sc:textLeaf role="mathtex">\begin{pmatrix} 1 \\ -2 \\ 7 \end{pmatrix}</sc:textLeaf>" est fausse.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

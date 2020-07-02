@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#chim-sante-diagmed-quantmatmole-</sp:themeLycee>
+			<sp:themeLicence>#chim-strucmat-</sp:themeLicence>
+			<sp:level>1</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<!--<comment xmlns="scenari.eu:comment:1.0" type="thread"><comment author="camille.dufourg" creationTime="1575018944112">Il manque les mots-clés et la licence.</comment></comment>-->
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">Université Nice-Sophia-Antipolis</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Parmi les propositions de formules en rapport avec la quantité de matière n, lesquelles sont justes ?
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			<sc:inlineStyle role="emp">n</sc:inlineStyle> = <sc:inlineStyle role="emp">m</sc:inlineStyle>/<sc:inlineStyle role="emp">M</sc:inlineStyle>. Sachant que <sc:inlineStyle role="emp">m</sc:inlineStyle> représente la masse et <sc:inlineStyle role="emp">M</sc:inlineStyle> la masse molaire.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			<sc:inlineStyle role="emp">m</sc:inlineStyle> s'exprime en g et <sc:inlineStyle role="emp">M</sc:inlineStyle> s'exprime en g/mol donc on obtient g/(g/mol) = mol. C'est la bonne unité. En effet, <sc:inlineStyle role="emp">n</sc:inlineStyle>  s'exprime en mol.
+		</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			<sc:inlineStyle role="emp">n</sc:inlineStyle> = <sc:inlineStyle role="emp">N</sc:inlineStyle>/<sc:inlineStyle role="emp">N</sc:inlineStyle><sc:textLeaf role="ind">a</sc:textLeaf>, <sc:inlineStyle role="emp">N</sc:inlineStyle><sc:textLeaf role="ind">a</sc:textLeaf> étant la constante d'Avogadro et <sc:inlineStyle role="emp">N</sc:inlineStyle> un nombre d'atomes ou de molécules.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			 <sc:inlineStyle role="emp">N</sc:inlineStyle> est le nombre d'atomes ou de molécules, il est donc sans unité. <sc:inlineStyle role="emp">N<sc:textLeaf role="ind">a</sc:textLeaf>
+</sc:inlineStyle> (la constante d'Avogadro) a pour unité mol<sc:textLeaf role="exp">-1</sc:textLeaf>. Dans la formule, la constante d'Avogadro étant au dénominateur, on obtient une unité en mol ce qui est cohérent avec <sc:inlineStyle role="emp">n</sc:inlineStyle> qui s'exprime en mol.
+		</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			<sc:inlineStyle role="emp">n</sc:inlineStyle> = <sc:inlineStyle role="emp">c</sc:inlineStyle>/<sc:inlineStyle role="emp">V</sc:inlineStyle> où <sc:inlineStyle role="emp">c</sc:inlineStyle> est la concentration molaire et <sc:inlineStyle role="emp">V</sc:inlineStyle> le volume.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="etu02" creationTime="1430828648649">faute de frappe après V : il manque un espace et le I est en trop</comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">
+			 <sc:inlineStyle role="emp">c</sc:inlineStyle> s'exprime en mol/L et <sc:inlineStyle role="emp">V</sc:inlineStyle> en L. En faisant une analyse d'unités, on obtient (mol/L)/L, soit des mol/L², ce qui ne correspond pas à l'unité de la quantité de matière.
+		</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="etu02" creationTime="1430828675443">Le V de la formule n'est pas en vert et gras</comment><comment author="map" creationTime="1430904461404">PB de formulation pas de formule LaTex à revoir équipe technique </comment><comment author="ext-lug" creationTime="1431351714293">Corrigé</comment></comment>-->
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			<sc:inlineStyle role="emp">n</sc:inlineStyle> = <sc:inlineStyle role="emp">c</sc:inlineStyle>.<sc:inlineStyle role="emp">V</sc:inlineStyle>. Avec <sc:inlineStyle role="emp">c</sc:inlineStyle>  la concentration molaire et <sc:inlineStyle role="emp">V</sc:inlineStyle> le volume.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			 La bonne relation est <sc:inlineStyle role="emp">n</sc:inlineStyle> = <sc:inlineStyle role="emp">c</sc:inlineStyle>.<sc:inlineStyle role="emp">V</sc:inlineStyle>. En effet, (mol/L).L = mol qui est bien l'unité de <sc:inlineStyle role="emp">n</sc:inlineStyle>.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Toutes les propositions sont fausses.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+	</op:mcqMur>
+</sc:item>

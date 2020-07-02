@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:title>La défense des arbres contre le froid</sp:title>
+			<sp:themeLycee>#scvie-plancont-nourrhuman-</sp:themeLycee>
+			<sp:themeLicence>#bio-bioveget-</sp:themeLicence>
+			<sp:level>1</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      <sc:phrase role="url"><op:urlM>
+<sp:url>http://univ-lemans.fr</sp:url>
+</op:urlM>
+Le Mans Université</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Comment les arbres des régions tempérées résistent-ils au froid hivernal ?
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">Par l'épaississement de leurs feuilles.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">Par la mise en dormance de leurs bourgeons.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">Par la chute de leurs feuilles.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">Par leur reproduction juste avant l'hiver.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Pour les arbres, l’hiver est une saison sèche. En effet, l'absorption d'eau par les racines a un coût énergétique élevé qui n'est généralement pas rentable en hiver. La perte des feuilles réduit la surface de l'arbre et donc sa déshydratation. C'est la production d'éthylène à l'automne qui provoque la sénescence et la chute des feuilles. La forme compacte des feuilles au sein des bourgeons ainsi que le ralentissement de leur activité cellulaire (ou dormance) leur permettent de ne pas subir les dégâts du froid jusqu'au printemps.</sc:para>
+						<sc:para xml:space="preserve">
+<sc:inlineStyle role="emp">Pour en savoir plus :</sc:inlineStyle>
+</sc:para>
+						<sc:itemizedList>
+							<sc:listItem>
+								<sc:para xml:space="preserve">
+<sc:phrase role="url"><op:urlM>
+<sp:url>http://ressources.unisciel.fr/DAEU-biologie/P1/co/P1_chap4_c3.html</sp:url>
+<sp:title>Les mécanismes de défense des plantes</sp:title>
+</op:urlM>
+Les mécanismes de défense des plantes</sc:phrase>
+</sc:para>
+							</sc:listItem>
+						</sc:itemizedList>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

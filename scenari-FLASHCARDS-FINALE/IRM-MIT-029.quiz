@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3">
+		<op:exeM>
+			<sp:themeLycee xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-analyse-integration-</sp:themeLycee>
+			<sp:themeLicence xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-integration-</sp:themeLicence>
+			<sp:level xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">2</sp:level>
+			<sp:educationLevel xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">L0</sp:educationLevel>
+			<sp:info xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">ECRA-IREM-Clermont-Ferrand</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">Soit <sc:textLeaf role="mathtex">f</sc:textLeaf> et <sc:textLeaf role="mathtex">g</sc:textLeaf> deux fonction continues sur <sc:textLeaf role="mathtex">\mathbb R</sc:textLeaf>, soit <sc:textLeaf role="mathtex">F</sc:textLeaf> une primitive de <sc:textLeaf role="mathtex">f</sc:textLeaf> et soit <sc:textLeaf role="mathtex">G</sc:textLeaf> une primitive de <sc:textLeaf role="mathtex">g</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">Si pour tout <sc:textLeaf role="mathtex">x \in \mathbb R</sc:textLeaf> on a <sc:textLeaf role="mathtex">f(x)=g(x)</sc:textLeaf>, alors pour tout <sc:textLeaf role="mathtex">x \in \mathbb R</sc:textLeaf> on a <sc:textLeaf role="mathtex">F(x) =G(x)</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">Si pour tout <sc:textLeaf role="mathtex">x \in \mathbb R</sc:textLeaf> on a <sc:textLeaf role="mathtex">F(x)=G(x)</sc:textLeaf>, alors pour tout <sc:textLeaf role="mathtex">x \in \mathbb R</sc:textLeaf> on a <sc:textLeaf role="mathtex">f(x) =g(x)</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">Si la fonction <sc:textLeaf role="mathtex">f-g</sc:textLeaf> est une fonction constante sur <sc:textLeaf role="mathtex">\mathbb R</sc:textLeaf>, alors  pour tout <sc:textLeaf role="mathtex">x \in \mathbb R</sc:textLeaf> on a <sc:textLeaf role="mathtex">F(x) =G(x)</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">Si la fonction <sc:textLeaf role="mathtex">F-G</sc:textLeaf> est une fonction constante sur <sc:textLeaf role="mathtex">\mathbb R</sc:textLeaf>, alors  pour tout <sc:textLeaf role="mathtex">x \in \mathbb R</sc:textLeaf> on a <sc:textLeaf role="mathtex">f(x) =g(x)</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">Pour résoudre cet exercice, on utilise le résultat suivant (attention à ne pas confondre les propriétés vérifiées par les primitives et celles vérifiées par les dérivées !) :</sc:para>
+					</op:txt>
+				</sp:txt>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:inlineStyle role="emp">Propriété :</sc:inlineStyle> Si <sc:textLeaf role="mathtex">f</sc:textLeaf> est une fonction continue sur un intervalle <sc:textLeaf role="mathtex">I</sc:textLeaf>, et si <sc:textLeaf role="mathtex">F_1</sc:textLeaf> et <sc:textLeaf role="mathtex">F_2</sc:textLeaf> désignent deux primitives de <sc:textLeaf role="mathtex">f</sc:textLeaf> sur <sc:textLeaf role="mathtex">I</sc:textLeaf>, alors il existe une constante réelle <sc:textLeaf role="mathtex">k</sc:textLeaf> telle que <sc:textLeaf role="mathtex">F_2(x) = F_1(x) + k</sc:textLeaf> pour tout <sc:textLeaf role="mathtex">x</sc:textLeaf> dans <sc:textLeaf role="mathtex">I</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sp:txt>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">L'affirmation "Si pour tout <sc:textLeaf role="mathtex">x \in\mathbb R</sc:textLeaf> on a <sc:textLeaf role="mathtex">f(x)=g(x)</sc:textLeaf>, alors pour tout <sc:textLeaf role="mathtex">x \in\mathbb R</sc:textLeaf> on a <sc:textLeaf role="mathtex">F(x) =G(x)</sc:textLeaf>" est ainsi fausse : si pour tout <sc:textLeaf role="mathtex">x\in\mathbb R</sc:textLeaf> on a <sc:textLeaf role="mathtex">f(x) = g(x)</sc:textLeaf>, alors on sait par la propriété précédente qu'il existe une constante <sc:textLeaf role="mathtex">k</sc:textLeaf> telle que pour tout <sc:textLeaf role="mathtex">x\in\mathbb R</sc:textLeaf> on a <sc:textLeaf role="mathtex">F(x) = G(x) + k</sc:textLeaf>, mais on n'a pas nécessairement <sc:textLeaf role="mathtex">F = G</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">L'affirmation "Si pour tout <sc:textLeaf role="mathtex">x\in\mathbb R</sc:textLeaf> on a <sc:textLeaf role="mathtex">F(x)=G(x)</sc:textLeaf>, alors pour tout <sc:textLeaf role="mathtex">x\in\mathbb R</sc:textLeaf> on a <sc:textLeaf role="mathtex">f(x) =g(x)</sc:textLeaf>" est elle correcte : Comme <sc:textLeaf role="mathtex">f=F'</sc:textLeaf> et <sc:textLeaf role="mathtex">g=G'</sc:textLeaf> par définition d'une primitive, si <sc:textLeaf role="mathtex">F</sc:textLeaf> et <sc:textLeaf role="mathtex">G</sc:textLeaf> sont égales alors leurs fonctions dérivées sont égales, et donc on en déduit que <sc:textLeaf role="mathtex">f=g</sc:textLeaf>, ce qui signifie <sc:textLeaf role="mathtex">f(x)=g(x)</sc:textLeaf> pour tout <sc:textLeaf role="mathtex">x\in\mathbb R</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">L'affirmation "Si la fonction <sc:textLeaf role="mathtex">f-g</sc:textLeaf> est une fonction constante sur <sc:textLeaf role="mathtex">\mathbb R</sc:textLeaf>, alors  pour tout <sc:textLeaf role="mathtex">x\in\mathbb R</sc:textLeaf> on a <sc:textLeaf role="mathtex">F(x)=G(x)</sc:textLeaf>" est fausse : comme on l'a vu ci-dessus, il est déjà faux d'affirmer que <sc:textLeaf role="mathtex">F=G</sc:textLeaf> lorsqu'on suppose <sc:textLeaf role="mathtex">f=g</sc:textLeaf>, donc si en plus on suppose que <sc:textLeaf role="mathtex">f-g</sc:textLeaf> est une fonction constante, on n'a en général pas du tout <sc:textLeaf role="mathtex">F=G</sc:textLeaf>. De façon générale, si on note <sc:textLeaf role="mathtex">a</sc:textLeaf> la constante à laquelle est égale <sc:textLeaf role="mathtex">f-g</sc:textLeaf>, alors <sc:textLeaf role="mathtex">F-G</sc:textLeaf> est une primitive de la fonction constante égale à <sc:textLeaf role="mathtex">a</sc:textLeaf>, donc on a, pour tout <sc:textLeaf role="mathtex">x\in\mathbb R</sc:textLeaf>, <sc:textLeaf role="mathtex">F(x)-G(x) = ax+b</sc:textLeaf>, où <sc:textLeaf role="mathtex">b</sc:textLeaf> est une constante réelle.</sc:para>
+						<sc:para xml:space="preserve">L'affirmation "Si la fonction <sc:textLeaf role="mathtex">F-G</sc:textLeaf> est une fonction constante sur <sc:textLeaf role="mathtex">\mathbb R</sc:textLeaf>, alors  pour tout <sc:textLeaf role="mathtex">x\in\mathbb R</sc:textLeaf> on a <sc:textLeaf role="mathtex">f(x)=g(x)</sc:textLeaf>", par contre, est exacte. Comme <sc:textLeaf role="mathtex">f=F'</sc:textLeaf> et <sc:textLeaf role="mathtex">g=G'</sc:textLeaf>, on a <sc:textLeaf role="mathtex">f-g=(F-G)'</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">Comme la fonction <sc:textLeaf role="mathtex">F-G</sc:textLeaf> est constante sur <sc:textLeaf role="mathtex">\mathbb R</sc:textLeaf>, sa dérivée est nulle sur <sc:textLeaf role="mathtex">\mathbb R</sc:textLeaf>, on en déduit donc que <sc:textLeaf role="mathtex">f-g</sc:textLeaf> est la fonction nulle, donc que pour tout <sc:textLeaf role="mathtex">x\in\mathbb R</sc:textLeaf>, on a <sc:textLeaf role="mathtex">f(x)-g(x)=0</sc:textLeaf>, d'où <sc:textLeaf role="mathtex">f(x)=g(x)</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

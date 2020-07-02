@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#chim-sante-medicam-groupcaract-</sp:themeLycee>
+			<sp:themeLicence>#chim-chimorga-</sp:themeLicence>
+			<sp:level>1</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<!--<comment xmlns="scenari.eu:comment:1.0" type="thread"><comment author="camille.dufourg" creationTime="1573815145962">Il manque les mots-clés et la licence.</comment></comment>-->
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">Université Nice-Sophia-Antipolis</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="ves" creationTime="1519131629054" updateTime="1523433778951">La figure apparaisait deux fois. J'ai supprimé celle qui était en imagette.</comment></comment>-->
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Identifiez la(es) proposition(s) juste(s) à propos de la molécule suivante :
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+				<sp:res sc:refUri="images/image.png">
+					<op:resInfoM/>
+				</sp:res>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="unchecked">
+				<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="etu02" creationTime="1430819023434">Éventuellement justifier pourquoi ce n'est pas une cétone ? Je trouve le piège attractif.</comment><comment author="mar" creationTime="1430985620864" updateTime="1430988225558">Proposition d'explication :
+Ce n'est pas une cétone car le carbone situé à gauche est lié par une double liaison à un oxygène et est aussi lié à un groupement hydroxyle OH. Cette molécule possède donc une fonction acide carboxylique COOH.
+La molécule serait une cétone si par exemple le groupement OH était remplacé par un groupement méthyle.</comment></comment>-->
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Il s'agit d'une cétone.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">Ce n'est pas une cétone. Le carbone le plus à gauche est bien lié par une double liaison à un oxygène, mais il est aussi lié à un groupement hydroxyle OH. Cette molécule possède donc une fonction acide carboxylique COOH.</sc:para>
+						<sc:para xml:space="preserve">La molécule serait une cétone si par exemple le groupement OH était remplacé par un groupement méthyle.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Il s'agit d'un acide carboxylique.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="etu02" creationTime="1430819072930">Idem, j'aurais bien vu une justification ici.</comment><comment author="mar" creationTime="1430986887149">Proposition d'explication :
+Ce n'est pas un aldéhyde car la molécule ne possède pas la fonction HCO caractéristique d'un aldéhyde c'est-à-dire un carbone lié à un hydrogène et lié à un oxygène par une double liaison.</comment></comment>-->
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Il s'agit d'un aldéhyde.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">Ce n'est pas un aldéhyde car la molécule ne possède pas la fonction HCO caractéristique d'un aldéhyde (c'est-à-dire un carbone lié à un hydrogène et lié à un oxygène par une double liaison).</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="paf" creationTime="1478090213753">Ce n'est pas une bonne réponse au vu de l'explication donnée</comment></comment>-->
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Il s'agit d'un alcool.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">Ce n'est pas un alcool car le carbone porteur de la fonction hydroxyle (OH) et aussi lié par une double liaison à un oxygène.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Toutes les propositions sont fausses.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Cette molécule possède une fonction –COOH, il s'agit donc d'un acide carboxylique.
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

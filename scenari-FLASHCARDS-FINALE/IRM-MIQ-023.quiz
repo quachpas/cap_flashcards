@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3">
+		<op:exeM>
+			<sp:themeLycee xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-analyse-equations-resolgraphequa-</sp:themeLycee>
+			<sp:themeLicence xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-equa-</sp:themeLicence>
+			<sp:level xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">2</sp:level>
+			<sp:educationLevel xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">L0</sp:educationLevel>
+			<sp:info xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">ECRA-IREM-Clermont-Ferrand</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">On considère <sc:textLeaf role="mathtex">D_1</sc:textLeaf> d'équation <sc:textLeaf role="mathtex">y=\frac 4 3 x-3</sc:textLeaf> et la droite <sc:textLeaf role="mathtex">D_2</sc:textLeaf> d'équation <sc:textLeaf role="mathtex">4x+3y-15=0</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">Les deux droites <sc:textLeaf role="mathtex">D_1</sc:textLeaf> et <sc:textLeaf role="mathtex">D_2</sc:textLeaf> sont parallèles.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">Le couple formé des coordonnées du point d'intersection de <sc:textLeaf role="mathtex">D_1</sc:textLeaf> et de <sc:textLeaf role="mathtex">D_2</sc:textLeaf> est solution du système</sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\left\{ \begin{array} {ll} 4x+3y=15 \\ 4x-3y=-9 \end{array} \right.</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">Le point d'intersection de <sc:textLeaf role="mathtex">D_1</sc:textLeaf> et de <sc:textLeaf role="mathtex">D_2</sc:textLeaf> peut-être déterminé à l'aide du graphique <sc:textLeaf role="mathtex">1</sc:textLeaf> ci-dessous.</sc:para>
+						<sc:para xml:space="preserve">
+<sc:inlineImg role="ico" sc:refUri="Ressources/E023_1.PNG"/>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">Le point d'intersection de <sc:textLeaf role="mathtex">D_1</sc:textLeaf> et de <sc:textLeaf role="mathtex">D_2</sc:textLeaf> peut-être déterminé à l'aide du graphique <sc:textLeaf role="mathtex">2</sc:textLeaf> ci-dessous.</sc:para>
+						<sc:para xml:space="preserve">
+<sc:inlineImg role="ico" sc:refUri="Ressources/E023_2.PNG"/>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="3"/>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">Si on représente les droites <sc:textLeaf role="mathtex">D_1</sc:textLeaf> et <sc:textLeaf role="mathtex">D_2</sc:textLeaf> sur un graphique, on obtient :</sc:para>
+					</op:txt>
+				</sp:txt>
+				<sp:res sc:refUri="Ressources/IRM_CLF_MIQ_023.PNG" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:resInfoM/>
+				</sp:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">Par conséquent, la <sc:inlineStyle role="emp">proposition &quot;Le point d'intersection de <sc:textLeaf role="mathtex">D_1</sc:textLeaf> et de <sc:textLeaf role="mathtex">D_2</sc:textLeaf> peut-être déterminé à l'aide du graphique <sc:textLeaf role="mathtex">1</sc:textLeaf> &quot; est vraie</sc:inlineStyle> tandis que les <sc:inlineStyle role="emp">propositions</sc:inlineStyle> <sc:inlineStyle role="emp">&quot;Les deux droites <sc:textLeaf role="mathtex">D_1</sc:textLeaf> et <sc:textLeaf role="mathtex">D_2</sc:textLeaf> sont parallèles.&quot; et &quot;Le point d'intersection de <sc:textLeaf role="mathtex">D_1</sc:textLeaf> et de <sc:textLeaf role="mathtex">D_2</sc:textLeaf> peut-être déterminé à l'aide du graphique <sc:textLeaf role="mathtex">2</sc:textLeaf> &quot;</sc:inlineStyle> <sc:inlineStyle role="emp">sont fausses</sc:inlineStyle>. Le couple formé des coordonnées du point d'intersection de <sc:textLeaf role="mathtex">D_1</sc:textLeaf> et <sc:textLeaf role="mathtex">D_2</sc:textLeaf> est solution du système :</sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\left\{ \begin{array}{ll} 4x+3y-15=0 \\ y=\frac43x-3 \end{array} \right. \Longleftrightarrow \left\{ \begin{array}{ll} 4x+3y=15 \\ 4x-3y=9 \end{array} \right.</sc:textLeaf>
+</sc:para>
+						<sc:para xml:space="preserve">Ainsi, la <sc:inlineStyle role="emp">proposition &quot;</sc:inlineStyle>
+<sc:inlineStyle role="emp">Le couple formé des coordonnées du point d'intersection de <sc:textLeaf role="mathtex">D_1</sc:textLeaf> et de <sc:textLeaf role="mathtex">D_2</sc:textLeaf> est solution du système</sc:inlineStyle> <sc:inlineStyle role="emp">
+<sc:textLeaf role="mathtex">\left\{ \begin{array} {ll} 4x+3y=15 \\ 4x-3y=-9 \end{array} \right.</sc:textLeaf>&quot;</sc:inlineStyle> <sc:inlineStyle role="emp">est fausse</sc:inlineStyle>.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

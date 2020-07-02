@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#phys-comploimod-chaforces-chaelecstat-</sp:themeLycee>
+			<sp:themeLicence>#phys-loisnewton-</sp:themeLicence>
+			<sp:level>3</sp:level>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      UTT, 
+      Vezy, 
+      Vial, 
+      21-05-2012, 
+      <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://utt.fr</sp:url>
+</op:urlM>utt.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Une charge <sc:textLeaf role="mathtex">q</sc:textLeaf> de vitesse <sc:textLeaf role="mathtex">v_0</sc:textLeaf> se déplace dans champ électrique uniforme <sc:textLeaf role="mathtex">E</sc:textLeaf>.
+		</sc:para>
+						<sc:para xml:space="preserve">
+			Si <sc:textLeaf role="mathtex">v_0</sc:textLeaf> n'est pas parallèle au ligne de champ, la trajectoire de la charge sera :
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			rectiligne uniforme.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			rectiligne accéléré.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			parabolique.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			circulaire.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			La force électrique induit une accélération selon son orientation (seconde loi de Newton<sc:textLeaf role="mathtex"> \vec F=m\vec a</sc:textLeaf>). Si la force est colinéaire à la vitesse, la trajectoire est une droite, si la force n'est pas colinéaire à la vitesse initiale, la trajectoire sera une parabole. La force électrique étant <sc:textLeaf role="mathtex">\vec F=q\vec E</sc:textLeaf>, elle est colinéaire au champ électrique, contrairement à la vitesse. Force et vitesse ne sont pas colinéaires, donc la trajectoire de la particule chargée est parabolique. Ce problème est analogue à celui d'une chute libre avec vitesse initiale dans le champ de pesanteur.</sc:para>
+						<sc:para xml:space="preserve">(Ce résultat fait partie du cours et doit être connu).</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

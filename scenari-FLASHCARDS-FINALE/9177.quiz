@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#chim-comploismod-strtran-</sp:themeLycee>
+			<sp:themeLycee>#chim-comploismod-strtran-phdefmes-</sp:themeLycee>
+			<sp:themeLicence>#chim-chimsolu-</sp:themeLicence>
+			<sp:level>1</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      Université de technologie de Troyes, 
+      Baudrion, 
+      Verchier, 
+      01-06-2012, 
+      <sc:phrase role="url"><op:urlM>
+<sp:url>http://utt.fr</sp:url>
+</op:urlM>
+utt.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Quelle est l'unité du pH ?
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						Le pH s'exprime en mol/L.							
+					</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						Le pH n'a pas d'unité. </sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						Le pH s'exprime en mL.							
+					</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						Le pH s'exprime en pH.							
+					</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="2"/>
+		<sc:globalExplanation>
+			<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="ves" creationTime="1521193972645">Changer lien pour rediger directement les étudiants à la réponse de la question (chapitre 4 de la section Chimie en solution aqueuse)</comment><comment author="ves" creationTime="1526030696191">fait</comment></comment>-->
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">Le pH n'a pas d'unité. Néanmoins, il se calcule à partir de la concentration <sc:textLeaf role="mathtex">\mathrm{[H_3O^+]}</sc:textLeaf> exprimée en mol/L via pH<sc:textLeaf role="mathtex">=-\mathrm{log[H_3O^+]}</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">Vous trouverez des éléments dans la ressource : <sc:phrase role="url"><op:urlM>
+<sp:url>http://uel.unisciel.fr/chimie/solutaque/solutaque_ch04/co/apprendre_ch4_01.html</sp:url>
+</op:urlM>chimie en solution aqueuse.</sc:phrase>
+</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

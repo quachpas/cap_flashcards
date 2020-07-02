@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3">
+		<op:exeM>
+			<sp:themeLycee xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-analyse-ineq-</sp:themeLycee>
+			<sp:themeLicence xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-equa-</sp:themeLicence>
+			<sp:level xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">4</sp:level>
+			<sp:educationLevel xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">L0</sp:educationLevel>
+			<sp:info xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">ECRA-IREM-Clermont-Ferrand</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">On considère trois réels <sc:textLeaf role="mathtex">x</sc:textLeaf>, <sc:textLeaf role="mathtex">y</sc:textLeaf> et <sc:textLeaf role="mathtex">z</sc:textLeaf> vérifiant respectivement</sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">-2x-1\leq3</sc:textLeaf>
+</sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">3y+2\geq5</sc:textLeaf>
+</sc:para>
+						<sc:para xml:space="preserve">et <sc:textLeaf role="mathtex">-5z+6\geq-4</sc:textLeaf>
+</sc:para>
+						<sc:para xml:space="preserve">Alors,</sc:para>
+					</op:txt>
+				</sp:txt>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:inlineStyle role="emp">Coup de pouce :</sc:inlineStyle> Il faut commencer par résoudre les inégalités en <sc:textLeaf role="mathtex">x</sc:textLeaf>, <sc:textLeaf role="mathtex">y</sc:textLeaf> et <sc:textLeaf role="mathtex">z</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">xy\geq-2</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">z-y\leq1</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">x+y\geq-1</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">x-y\geq-3</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">On commence par résoudre les inégalités en <sc:textLeaf role="mathtex">x</sc:textLeaf>, <sc:textLeaf role="mathtex">y</sc:textLeaf> et <sc:textLeaf role="mathtex">z</sc:textLeaf>. On a</sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">-2x-1\leq3 \Leftrightarrow -2x\leq4 \Leftrightarrow x\geq -2</sc:textLeaf>,</sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">3y+2\geq5 \Leftrightarrow 3y\geq3\Leftrightarrow y\geq1</sc:textLeaf>,</sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">-5z+6\geq-4 \Leftrightarrow -5z\geq-10\Leftrightarrow z\leq2</sc:textLeaf>
+</sc:para>
+						<sc:para xml:space="preserve">La proposition <sc:textLeaf role="mathtex">xy\geq-2</sc:textLeaf> est  fausse.</sc:para>
+						<sc:para xml:space="preserve">Si <sc:textLeaf role="mathtex">x</sc:textLeaf> et <sc:textLeaf role="mathtex">y</sc:textLeaf> sont deux réels vérifiant respectivement <sc:textLeaf role="mathtex">x\geq-2</sc:textLeaf> et <sc:textLeaf role="mathtex">y\geq 1</sc:textLeaf> alors le produit <sc:textLeaf role="mathtex">xy</sc:textLeaf> peut prendre aussi bien des valeurs supérieures ou égales à <sc:textLeaf role="mathtex">-2</sc:textLeaf> que des valeurs strictement inférieures à <sc:textLeaf role="mathtex">-2</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">Exemple : Les valeurs <sc:textLeaf role="mathtex">x_0=-1</sc:textLeaf> et <sc:textLeaf role="mathtex">y_0=5</sc:textLeaf> conduisent à <sc:textLeaf role="mathtex">x_0y_0=-5\leq-2</sc:textLeaf>. Au contraire, les valeurs <sc:textLeaf role="mathtex">x_1=1</sc:textLeaf> et <sc:textLeaf role="mathtex">y_1=2</sc:textLeaf> donnent <sc:textLeaf role="mathtex">x_1y_1=2&gt;-2</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">Les propositions <sc:textLeaf role="mathtex">z-y\leq1</sc:textLeaf> et <sc:textLeaf role="mathtex">x+y\geq-1</sc:textLeaf> sont vraies.</sc:para>
+						<sc:para xml:space="preserve">La proposition <sc:textLeaf role="mathtex">x-y\geq-3</sc:textLeaf> est fausse. Si <sc:textLeaf role="mathtex">x</sc:textLeaf> et <sc:textLeaf role="mathtex">y</sc:textLeaf> sont deux réels vérifiant respectivement <sc:textLeaf role="mathtex">x\geq -2</sc:textLeaf> et <sc:textLeaf role="mathtex">y\geq 1</sc:textLeaf> alors la différence <sc:textLeaf role="mathtex">x-y</sc:textLeaf> peut prendre aussi bien des valeurs supérieures ou égale à <sc:textLeaf role="mathtex">-3</sc:textLeaf> que des valeurs strictement inférieures à <sc:textLeaf role="mathtex">-3</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">Exemple : Les valeurs  <sc:textLeaf role="mathtex">x_0=-1</sc:textLeaf> et <sc:textLeaf role="mathtex">y_0=5</sc:textLeaf> conduisent à <sc:textLeaf role="mathtex">x_0-y_0=-6&lt;-3</sc:textLeaf>. Au contraire, les valeurs <sc:textLeaf role="mathtex">x_1=1</sc:textLeaf> et <sc:textLeaf role="mathtex">y_1=2</sc:textLeaf> donnent <sc:textLeaf role="mathtex">x_1-y_1=-1\geq-3</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

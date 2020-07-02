@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3">
+		<op:exeM>
+			<sp:themeLycee xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-analyse-integration-</sp:themeLycee>
+			<sp:themeLicence xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-integration-</sp:themeLicence>
+			<sp:level xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">4</sp:level>
+			<sp:educationLevel xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">L0</sp:educationLevel>
+			<sp:info xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">ECRA-IREM-Clermont-Ferrand</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">Soit <sc:textLeaf role="mathtex">a&gt;1</sc:textLeaf> un réel.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">On a <sc:textLeaf role="mathtex">\lim\limits_{x \rightarrow + \infty} \int_x^{x^2}\frac{\ln(a)}{a}dt=0</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">On a <sc:textLeaf role="mathtex">\lim\limits_{a \rightarrow + \infty} \int_x^{x^2}\frac{\ln(a)}{a}dt=0</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">On a <sc:textLeaf role="mathtex">\lim\limits_{x \rightarrow + \infty} \int_a^{a^2}\frac{\ln(x)}{x}dx=+\infty</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">On a <sc:textLeaf role="mathtex">\lim\limits_{a \rightarrow + \infty} \int_a^{a^2}\frac{\ln(x)}{x}dx=+\infty</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">Les bonnes réponses sont : <sc:textLeaf role="mathtex">\lim\limits_{a \rightarrow + \infty} \int_x^{x^2}\frac{\ln(a)}{a}dt=0</sc:textLeaf> et <sc:textLeaf role="mathtex">\lim\limits_{a \rightarrow + \infty} \int_a^{a^2}\frac{\ln(x)}{x}dx=+\infty</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">L'affirmation "On a <sc:textLeaf role="mathtex">\lim\limits_{x \rightarrow + \infty} \int_x^{x^2}\frac{\ln(a)}{a}dt=0</sc:textLeaf>" est fausse : en effet <sc:textLeaf role="mathtex">\lim\limits_{x \rightarrow + \infty} \int_x^{x^2}\frac{\ln(a)}{a}dt=(x²-x)\frac{\ln(a)}a</sc:textLeaf> (puisque la fonction que l'on intègre est constante par rapport à la variable <sc:textLeaf role="mathtex">t</sc:textLeaf>). Comme <sc:textLeaf role="mathtex">a&gt;1</sc:textLeaf>, la constante <sc:textLeaf role="mathtex">\frac{\ln(a)}a</sc:textLeaf> est strictement positive, et puisque <sc:textLeaf role="mathtex">\lim\limits_{x \rightarrow +\infty}x^2-x=\lim\limits_{x\rightarrow +\infty}x(x-1)=+\infty</sc:textLeaf>, on en déduit que <sc:textLeaf role="mathtex">\lim\limits_{x \rightarrow + \infty}\displaystyle\int_x^{x^2}\frac{\ln(a)}adt=+\infty</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">L'affirmation "On a <sc:textLeaf role="mathtex">\lim\limits_{a \rightarrow + \infty} \int_x^{x^2}\frac{\ln(a)}{a}dt=0</sc:textLeaf>" est juste : comme ci-dessus, on a<sc:textLeaf role="mathtex">\displaystyle\int_x^{x^2}\frac{\ln(a)}adt=(x^2-x)\frac{\ln(a)}a.</sc:textLeaf> Par croissance comparée, on sait que <sc:textLeaf role="mathtex">\lim\limits_{a\rightarrow +\infty}\frac{\ln(a)}a=0</sc:textLeaf>, donc à <sc:textLeaf role="mathtex">x</sc:textLeaf> fixé on a bien <sc:textLeaf role="mathtex">\lim\limits_{a\rightarrow +\infty}(x^2-x)\frac{\ln(a)}a=0</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">L'affirmation "On a <sc:textLeaf role="mathtex">\lim\limits_{x \rightarrow + \infty} \int_a^{a^2}\frac{\ln(x)}{x}dx=+\infty</sc:textLeaf>" est fausse, elle n'a d'ailleurs pas grand sens : en effet, la quantité <sc:textLeaf role="mathtex">\displaystyle\int_a^{a^2}\frac{\ln(x)}xdx</sc:textLeaf> est indépendante de la variable <sc:textLeaf role="mathtex">x</sc:textLeaf>. Pour <sc:textLeaf role="mathtex">a</sc:textLeaf> fixé, la quantité <sc:textLeaf role="mathtex">I(a)=\displaystyle\int_a^{a^2}\frac{\ln(x)}xdx,</sc:textLeaf> est un nombre réel, qui ne dépend pas de <sc:textLeaf role="mathtex">x</sc:textLeaf>, donc sa limite lorsque <sc:textLeaf role="mathtex">x</sc:textLeaf> tend vers <sc:textLeaf role="mathtex">+\infty</sc:textLeaf> est <sc:textLeaf role="mathtex">I(a)</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">L'affirmation "On a <sc:textLeaf role="mathtex">\lim\limits_{a \rightarrow + \infty} \int_a^{a^2}\frac{\ln(x)}{x}dx=+\infty</sc:textLeaf>" est juste : pour s'en convaincre, on va calculer à <sc:textLeaf role="mathtex">a</sc:textLeaf> fixé la valeur de <sc:textLeaf role="mathtex">I(a)=\displaystyle\int_a^{a^2}\frac{\ln(x)}xdx</sc:textLeaf>. Par le théorème fondamental de l'intégrale, on sait que si <sc:textLeaf role="mathtex">G</sc:textLeaf> est une primitive de la fonction <sc:textLeaf role="mathtex">g(x)=\frac{\ln(x)}x,</sc:textLeaf> on a <sc:textLeaf role="mathtex">I(a)=G(a^2)-G(a)</sc:textLeaf>. Or, comme la dérivée de la fonction <sc:textLeaf role="mathtex">u(x)=\ln(x)</sc:textLeaf> est <sc:textLeaf role="mathtex">u'(x)=\frac1x</sc:textLeaf>, on constate que <sc:textLeaf role="mathtex">g(x)=u'(x)u(x)</sc:textLeaf> est la dérivée de la fonction <sc:textLeaf role="mathtex">x\mapsto\frac12[u(x)]^2</sc:textLeaf>, donc <sc:textLeaf role="mathtex">G(x)=\frac12[\ln(x)]²</sc:textLeaf> est une primitive de <sc:textLeaf role="mathtex">g</sc:textLeaf>. On en déduit que <sc:textLeaf role="mathtex">I(a)=\frac12[(\ln(a^2))^2-(\ln(a))^2]=\frac12[(2\ln(a))^2-(\ln(a))^2]=\frac32(\ln(a))^2</sc:textLeaf>. On a alors <sc:textLeaf role="mathtex">\lim\limits_{a\rightarrow +\infty}I(a)=\lim\limits_{a\rightarrow +\infty}\frac32(\ln(a))^2=+\infty</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#chim-comploismod-strtran-</sp:themeLycee>
+			<sp:themeLicence>#chim-chimsolu-</sp:themeLicence>
+			<sp:level><!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="ves" creationTime="1519313543873">Niveau 2</comment></comment>-->2</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<!--<comment xmlns="scenari.eu:comment:1.0" type="thread"><comment author="camille.dufourg" creationTime="1575024687381">Il manque les mots-clés et la licence.</comment></comment>-->
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      Université de technologie de Troyes, 
+      Baudrion, 
+      Verchier, 
+      01-06-2012, 
+      <sc:phrase role="url"><op:urlM>
+<sp:url>http://utt.fr</sp:url>
+</op:urlM>
+utt.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Indiquer l'équation de la réaction qui traduit le caractère acide de l'espèce chimique CH<sc:textLeaf role="ind">3</sc:textLeaf>COOH dans l'eau :
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="ves" creationTime="1519313628455">Changer les = par des flèches d'équilibre</comment></comment>-->
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						CH<sc:textLeaf role="ind">3</sc:textLeaf>COOH(aq) + H<sc:textLeaf role="ind">2</sc:textLeaf>O(l) ⇄ CH<sc:textLeaf role="ind">3</sc:textLeaf>COO<sc:textLeaf role="exp">-</sc:textLeaf>(aq) + H<sc:textLeaf role="ind">3</sc:textLeaf>O<sc:textLeaf role="exp">+</sc:textLeaf>(aq).</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						CH<sc:textLeaf role="ind">3</sc:textLeaf>COOH(aq) + H<sc:textLeaf role="ind">2</sc:textLeaf>O(l) ⇄ CH<sc:textLeaf role="ind">3</sc:textLeaf>
+<sc:textLeaf role="exp">+</sc:textLeaf>(aq) + COO<sc:textLeaf role="exp">-</sc:textLeaf>(aq).</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						CH<sc:textLeaf role="ind">3</sc:textLeaf>COOH(aq) + HO<sc:textLeaf role="exp">-</sc:textLeaf>(aq) ⇄ CH<sc:textLeaf role="ind">3</sc:textLeaf>COO<sc:textLeaf role="exp">-</sc:textLeaf>(aq) + H<sc:textLeaf role="ind">3</sc:textLeaf>O<sc:textLeaf role="exp">+</sc:textLeaf>(aq).</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						CH<sc:textLeaf role="ind">3</sc:textLeaf>COOH(aq) + H<sc:textLeaf role="ind">2</sc:textLeaf>O(l) ⇄ CH<sc:textLeaf role="ind">3</sc:textLeaf>COO<sc:textLeaf role="exp">-</sc:textLeaf>(aq) + OH<sc:textLeaf role="exp">-</sc:textLeaf>(aq).</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="1"/>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			La mise en solution d'un acide fait apparaître sa base conjuguée et l'ion oxonium.
+		</sc:para>
+						<sc:para xml:space="preserve">Vous trouverez des éléments dans la ressource : <sc:phrase role="url"><op:urlM>
+<sp:url>http://uel.unisciel.fr/chimie/solutaque/solutaque/co/solutaque.html</sp:url>
+</op:urlM>chimie en solution aqueuse</sc:phrase>.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

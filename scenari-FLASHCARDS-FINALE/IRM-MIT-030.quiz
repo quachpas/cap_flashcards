@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3">
+		<op:exeM>
+			<sp:themeLycee xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-analyse-integration-</sp:themeLycee>
+			<sp:themeLicence xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-integration-</sp:themeLicence>
+			<sp:level xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">2</sp:level>
+			<sp:educationLevel xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">L0</sp:educationLevel>
+			<sp:info xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">ECRA-IREM-Clermont-Ferrand</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">Soit <sc:textLeaf role="mathtex">f</sc:textLeaf> et <sc:textLeaf role="mathtex">g</sc:textLeaf> deux fonctions continues sur <sc:textLeaf role="mathtex">\mathbb R</sc:textLeaf>? On suppose que pour tout  <sc:textLeaf role="mathtex">x\in\mathbb R</sc:textLeaf> on a <sc:textLeaf role="mathtex">f(x)\geq g(x)</sc:textLeaf>. Soit <sc:textLeaf role="mathtex">F</sc:textLeaf> une primitive de <sc:textLeaf role="mathtex">f</sc:textLeaf> et <sc:textLeaf role="mathtex">G</sc:textLeaf> une primitive de <sc:textLeaf role="mathtex">g</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">Pour tout <sc:textLeaf role="mathtex">x\geq0</sc:textLeaf>, on a <sc:textLeaf role="mathtex">\int_0^x f(t)dt \geq \int_0^xg(t)dt</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">Pour tout <sc:textLeaf role="mathtex">x\geq0</sc:textLeaf>, on a <sc:textLeaf role="mathtex">F(x) \geq G(x)</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">La fonction <sc:textLeaf role="mathtex">x\mapsto F(x)-G(x)</sc:textLeaf> est croissante sur <sc:textLeaf role="mathtex">\mathbb R</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">La fonction <sc:textLeaf role="mathtex">x\mapsto \int_0^x (f(t)-g(t))dt</sc:textLeaf> est croissante sur <sc:textLeaf role="mathtex">\mathbb R</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">La seule mauvaise réponse dans cette question est : "Pour tout <sc:textLeaf role="mathtex">x\geq 0</sc:textLeaf>, on a <sc:textLeaf role="mathtex">F(x)\geq G(x)</sc:textLeaf>".</sc:para>
+						<sc:para xml:space="preserve">Le résultat principal que l'on utilise dans cet exercice est le suivant :</sc:para>
+						<sc:para xml:space="preserve">
+<sc:inlineStyle role="emp">Proposition :</sc:inlineStyle> si la dérivée <sc:textLeaf role="mathtex">h'</sc:textLeaf> d'une fonction dérivable <sc:textLeaf role="mathtex">h</sc:textLeaf> est positive sur un intervalle <sc:textLeaf role="mathtex">I</sc:textLeaf>, alors la fonction <sc:textLeaf role="mathtex">h</sc:textLeaf> est croissante sur <sc:textLeaf role="mathtex">I</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">Comme on a <sc:textLeaf role="mathtex">F'=f</sc:textLeaf> et <sc:textLeaf role="mathtex">G'=g</sc:textLeaf>, on en déduit que <sc:textLeaf role="mathtex">f-g=F'-G'=(F-G)'</sc:textLeaf>. L'hypothèse <sc:textLeaf role="mathtex">f(x)\geq g(x)</sc:textLeaf> pour tout <sc:textLeaf role="mathtex">x\in\mathbb R</sc:textLeaf> est équivalente à <sc:textLeaf role="mathtex">(f-g)(x\geq 0</sc:textLeaf> pour tout <sc:textLeaf role="mathtex">x\in\mathbb R</sc:textLeaf>, ou encore à <sc:textLeaf role="mathtex">f-g</sc:textLeaf> est positive sur <sc:textLeaf role="mathtex">\mathbb R</sc:textLeaf>. On en déduit que la fonction <sc:textLeaf role="mathtex">F-G</sc:textLeaf> est croissante sur <sc:textLeaf role="mathtex">\mathbb R</sc:textLeaf>. Cela montre d'ores et déjà que l'affirmation "La fonction <sc:textLeaf role="mathtex">x\mapsto F(x)-G(x)</sc:textLeaf> est croissante sur <sc:textLeaf role="mathtex">\mathbb R</sc:textLeaf>" est vraie.</sc:para>
+						<sc:para xml:space="preserve">On rappelle aussi le théorème fondamental de l'intégration :</sc:para>
+						<sc:para xml:space="preserve">
+<sc:inlineStyle role="emp">Théorème :</sc:inlineStyle> Si <sc:textLeaf role="mathtex">f</sc:textLeaf> est une fonction continue sur un intervalle <sc:textLeaf role="mathtex">I</sc:textLeaf>, et si <sc:textLeaf role="mathtex">F</sc:textLeaf> est une primitive de <sc:textLeaf role="mathtex">f</sc:textLeaf> sur <sc:textLeaf role="mathtex">I</sc:textLeaf>, on a pour <sc:textLeaf role="mathtex">a</sc:textLeaf> et <sc:textLeaf role="mathtex">x</sc:textLeaf> éléments de <sc:textLeaf role="mathtex">I</sc:textLeaf> la relation <sc:textLeaf role="mathtex">\int_{a}^{x}f(t)dt = F(x)-F(a)</sc:textLeaf>:</sc:para>
+						<sc:para xml:space="preserve">L'affirmation "Pour tout <sc:textLeaf role="mathtex">x\geq0</sc:textLeaf>, on a <sc:textLeaf role="mathtex">\int_0^x f(t)dt \geq \int_0^xg(t)dt</sc:textLeaf>" est donc vraie, en utilisant ce théorème : en effet, on a <sc:textLeaf role="mathtex">\int_{0}^{x}f(t)dt = F(x)-F(0)</sc:textLeaf>, et <sc:textLeaf role="mathtex">\int_{0}^{x}g(t)dt = G(x)-G(0)</sc:textLeaf>. Comme la fonction <sc:textLeaf role="mathtex">F-G</sc:textLeaf> est par hypothèse croissante sur <sc:textLeaf role="mathtex">\mathbb R</sc:textLeaf>, on a pour tout <sc:textLeaf role="mathtex">x\geq 0</sc:textLeaf> l'inégalité <sc:textLeaf role="mathtex">F(x)-G(x)\geq F(0)-G(0)</sc:textLeaf>, qu'on peut reformuler sous la forme <sc:textLeaf role="mathtex">F(x)-F(0)\geq F(x)-G(0)</sc:textLeaf> (en ajoutant <sc:textLeaf role="mathtex">G(x)-F(0)</sc:textLeaf>  de chaque côté de l'inégalité). Ainsi on a bien <sc:textLeaf role="mathtex">\int_{0}^{x}f(t)dt\geq \int_{0}^{x}g(t)dt</sc:textLeaf> pour tout <sc:textLeaf role="mathtex">x\geq 0</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">L'affirmation"Pour tout <sc:textLeaf role="mathtex">x\geq0</sc:textLeaf>, on a <sc:textLeaf role="mathtex">F(x) \geq G(x)</sc:textLeaf>" n'est par contre pas forcément vraie : l'énoncé nous garantit que la fonction <sc:textLeaf role="mathtex">F-G</sc:textLeaf> est croissante sur <sc:textLeaf role="mathtex">\mathbb R</sc:textLeaf>, mais rien ne dit que cette fonction est positive sur <sc:textLeaf role="mathtex">[0;+\infty[</sc:textLeaf>. Donnons un contre-exemple : posons <sc:textLeaf role="mathtex">f(x)=1</sc:textLeaf> et <sc:textLeaf role="mathtex">g(x)=0</sc:textLeaf>, et prenons comme primitive de <sc:textLeaf role="mathtex">f</sc:textLeaf> la fonction <sc:textLeaf role="mathtex">F(x)=x</sc:textLeaf> et comme primitive de <sc:textLeaf role="mathtex">g</sc:textLeaf> la fonction (constante) <sc:textLeaf role="mathtex">G(x)=50</sc:textLeaf>. Alors comme <sc:textLeaf role="mathtex">f(x)\geq g(x)</sc:textLeaf> pour tout <sc:textLeaf role="mathtex">x\in\mathbb R</sc:textLeaf>, on sait que la fonction <sc:textLeaf role="mathtex">F-G</sc:textLeaf> est croissante sur <sc:textLeaf role="mathtex">\mathbb R</sc:textLeaf>. Or ici, comme <sc:textLeaf role="mathtex">F(0)=0 &lt; G(0)=50</sc:textLeaf>, on n'aura pas l'inégalité <sc:textLeaf role="mathtex">F(x)-G(x)\geq 0</sc:textLeaf> pour tout <sc:textLeaf role="mathtex">x\geq 0</sc:textLeaf> (dans cet exemple, dès que <sc:textLeaf role="mathtex">x&lt;50</sc:textLeaf> on a <sc:textLeaf role="mathtex">F(x)&lt;G(x)</sc:textLeaf>).</sc:para>
+						<sc:para xml:space="preserve">Enfin, l'affirmation "La fonction <sc:textLeaf role="mathtex">x\mapsto \int_0^x (f(t)-g(t))dt</sc:textLeaf> est croissante sur <sc:textLeaf role="mathtex">\mathbb R</sc:textLeaf>" est vraie également, en utilisant le théorème fondamental de l'intégration : <sc:textLeaf role="mathtex">F-G</sc:textLeaf> est une primitive de <sc:textLeaf role="mathtex">f-g</sc:textLeaf>, donc on a <sc:textLeaf role="mathtex">\int_{0}^{x}(f(t)-g(t))dt = (F-G)(x)-(F-G)(0)=F(x)-G(x)-(F(0)-G(0))</sc:textLeaf>. La fonction <sc:textLeaf role="mathtex">F-G</sc:textLeaf> est croissante d'après les données de l'énoncé, donc la fonction <sc:textLeaf role="mathtex">x\mapsto F(x)-G(x)-(F(0)-G(0))</sc:textLeaf> est également croissante (puisque <sc:textLeaf role="mathtex">F(0)-G(0)</sc:textLeaf> est ici une constante, et ajouter une constante à une fonction ne change rien à son sens de variation).</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

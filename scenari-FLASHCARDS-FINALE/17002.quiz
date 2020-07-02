@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3">
+		<op:exeM>
+			<sp:themeLycee xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-probastat-notloidens-theomoivr-</sp:themeLycee>
+			<sp:themeLicence xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-stat-</sp:themeLicence>
+			<sp:level xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">4</sp:level>
+			<sp:info xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://parisdescartes.fr</sp:url>
+</op:urlM>parisdescartes.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Soit 
+  <sc:textLeaf role="mathtex">\textstyle{p\in]0,1[}</sc:textLeaf>
+. Pour tout 
+  <sc:textLeaf role="mathtex">\textstyle{n\in\mathbb N}</sc:textLeaf>
+, on note 
+  <sc:textLeaf role="mathtex">\textstyle{X_n}</sc:textLeaf>
+ une variable aléatoire de loi binomiale 
+  <sc:textLeaf role="mathtex">\textstyle{\mathcal B(n,p)}</sc:textLeaf>
+. Soit 
+  <sc:textLeaf role="mathtex">\textstyle{X}</sc:textLeaf>  une variable aléatoire normale centrée réduite.
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			
+  <sc:textLeaf role="mathtex">\textstyle{\lim_{n\rightarrow+\infty}\mathbb P\left(a&lt;\frac{X_n-np}{\sqrt n}&lt;b\right)=\mathbb P(a&lt;X&lt;b)}</sc:textLeaf>
+ pour tout 
+  <sc:textLeaf role="mathtex">\textstyle{a&lt;b}</sc:textLeaf>
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			
+  <sc:textLeaf role="mathtex">\textstyle{\lim_{n\rightarrow+\infty}\mathbb P\left(\frac1{\sqrt{p(1-p)}}\left\vert\frac{X_n}n-p\right\vert\leq\frac\varepsilon{\sqrt n}\right)=\mathbb P\left(\left\vert X\right\vert\leq\varepsilon\right)}</sc:textLeaf>
+ pour tout 
+  <sc:textLeaf role="mathtex">\textstyle{\varepsilon&gt;0}</sc:textLeaf>
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Aucune des autres réponses n'est juste.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\lim\limits_{n\to +\infty}P\left( a&lt;\dfrac{X_n-np}{\sqrt{np(1-p)}}&lt;b\right)=P(a&lt;X&lt;b)</sc:textLeaf> pour tout <sc:textLeaf role="mathtex">a&lt;b</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Le théorème de Moivre-Laplace énonce que 
+		</sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\lim_{n\rightarrow+\infty}\mathbb P\left(a&lt;\frac{X_n-np}{\sqrt{np(1-p)}}&lt;b\right)=\mathbb P(a&lt;X&lt;b)</sc:textLeaf>
+</sc:para>
+						<sc:para xml:space="preserve">
+			 pour tout 
+  <sc:textLeaf role="mathtex">\textstyle{a&lt;b}</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">Cela exclut les réponses  </sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\lim_{n\rightarrow+\infty}\mathbb P\left(\left\vert\frac{X_n}n-p\right\vert\leq\frac\varepsilon{\sqrt n}\right)=\mathbb P\left(\left\vert X\right\vert\leq\varepsilon\right)</sc:textLeaf>
+</sc:para>
+						<sc:para xml:space="preserve">
+			et
+		</sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\lim_{n\rightarrow+\infty}\mathbb P\left(a&lt;\frac{X_n-np}{\sqrt n}&lt;b \right)=\mathbb P(a&lt;X&lt;b)</sc:textLeaf>
+</sc:para>
+						<sc:para xml:space="preserve">
+			où il manque le facteur 
+  <sc:textLeaf role="mathtex">\textstyle{\sqrt{p(1-p)}}</sc:textLeaf>
+</sc:para>
+						<sc:para xml:space="preserve"> D'autre part : </sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\begin{eqnarray*}\frac{X_n}{\sqrt n(\sqrt n-1)}\geq p&amp;&amp; \Longleftrightarrow X_n\geq np-p\sqrt n\\ \Longleftrightarrow \frac{X_n-np}{\sqrt {np(1-p)}}\geq -\sqrt{\frac p{1-p}}\end{eqnarray*}</sc:textLeaf>
+</sc:para>
+						<sc:para xml:space="preserve">
+			D'après le théorème de Moivre-Laplace :
+		</sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\lim_{n\rightarrow+\infty}\mathbb P\left(\frac{X_n}{\sqrt n(\sqrt n-1)}\geq p\right)=\lim_{n\rightarrow+\infty}\mathbb P\left(\frac{X_n-np}{\sqrt {np(1-p)}}\geq -\sqrt{\frac p{1-p}}\right)=\mathbb P\left(X\geq -\sqrt{\frac p{1-p}}\right)</sc:textLeaf>
+</sc:para>
+						<sc:para xml:space="preserve">
+			De même :
+		</sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\lim_{n\rightarrow+\infty}\mathbb P\left(\frac{X_n}{\sqrt n(\sqrt n+1)}\leq p\right)=\lim_{n\rightarrow+\infty}\mathbb P\left(\frac{X_n-np}{\sqrt {np(1-p)}}\leq \sqrt{\frac p{1-p}}\right)=\mathbb P\left(X\leq \sqrt{\frac p{1-p}}\right)</sc:textLeaf>
+</sc:para>
+						<sc:para xml:space="preserve">
+			La symétrie de la loi normale centrée réduite implique 
+  <sc:textLeaf role="mathtex">\textstyle{\mathbb P\left(X\geq -\sqrt{\frac p{1-p}}\right)}</sc:textLeaf>
+
+  <sc:textLeaf role="mathtex">\textstyle{=\mathbb P\left(X\leq \sqrt{\frac p{1-p}}\right)}</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">On en déduit : </sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\lim_{n\rightarrow+\infty}\mathbb P\left(\frac{X_n}{\sqrt n(\sqrt n-1)}\geq p\right)=\lim_{n\rightarrow+\infty}\mathbb P\left(\frac{X_n}{\sqrt n(\sqrt n+1)}\leq p\right)</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#math-logique-</sp:themeLycee>
+			<sp:themeLicence>#math-lograis-</sp:themeLicence>
+			<sp:level>3</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">ECRA-IREM-Limoges</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">On sait que  le symbole <sc:textLeaf role="mathtex">\exists</sc:textLeaf> signifie et se lit <sc:inlineStyle role="quote">il existe</sc:inlineStyle> et que le symbole <sc:textLeaf role="mathtex">\forall</sc:textLeaf> signifie et se lit <sc:inlineStyle role="quote">pour tout</sc:inlineStyle>.</sc:para>
+						<sc:para xml:space="preserve">Soit <sc:textLeaf role="mathtex">f</sc:textLeaf> la fonction définie sur <sc:textLeaf role="mathtex">\mathbb R</sc:textLeaf> par <sc:textLeaf role="mathtex">f(x)=e^x</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">Soit <sc:textLeaf role="mathtex">P</sc:textLeaf> la proposition "<sc:textLeaf role="mathtex">\exists x\in \mathbb R, \;\forall y\in \mathbb R\; ; \;f(x)\leq y</sc:textLeaf>".</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">P est vraie.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">P est fausse.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="2"/>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">Un argument possible est que pour tout <sc:textLeaf role="mathtex">x\in\mathbb R,\;e^x&gt;0</sc:textLeaf> et donc pour <sc:textLeaf role="mathtex">y=-20</sc:textLeaf> par exemple, <sc:textLeaf role="mathtex">y&lt;e^x</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

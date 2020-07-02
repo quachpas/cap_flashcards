@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3">
+		<op:exeM>
+			<sp:themeLycee xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-geo-nbcomplex-</sp:themeLycee>
+			<sp:themeLicence xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-nbreelscompl-</sp:themeLicence>
+			<sp:level xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">1</sp:level>
+			<sp:educationLevel xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">L0</sp:educationLevel>
+			<sp:info xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">ECRA - IREM - Strasbourg</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">Pour tout nombre complexe <sc:textLeaf role="mathtex">z</sc:textLeaf>,</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">|z|=z</sc:textLeaf>, si, et seulement si <sc:textLeaf role="mathtex">z</sc:textLeaf> est un nombre réel positif</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">Pour tout nombre complexe <sc:textLeaf role="mathtex">z=x+iy, \ x,y\in \mathbb{R}, \ |z| =\sqrt{x^2+y^2}</sc:textLeaf>
+</sc:para>
+						<sc:itemizedList>
+							<sc:listItem>
+								<sc:para xml:space="preserve">Rappelons que si <sc:textLeaf role="mathtex">z</sc:textLeaf> est un nombre réel, <sc:textLeaf role="mathtex">|z|</sc:textLeaf> est aussi la valeur absolue de <sc:textLeaf role="mathtex">z</sc:textLeaf>.</sc:para>
+							</sc:listItem>
+						</sc:itemizedList>
+						<sc:para xml:space="preserve">Donc, si <sc:textLeaf role="mathtex">z</sc:textLeaf> est un nombre réel positif, alors il est clair que <sc:textLeaf role="mathtex">|z|=z</sc:textLeaf>.</sc:para>
+						<sc:itemizedList>
+							<sc:listItem>
+								<sc:para xml:space="preserve">Inversement, si <sc:textLeaf role="mathtex">|z|=z</sc:textLeaf>, comme <sc:textLeaf role="mathtex">|z|</sc:textLeaf> est un nombre réel positif, la partie imaginaire de <sc:textLeaf role="mathtex">z</sc:textLeaf> doit être nulle et sa partie réelle (est égale à <sc:textLeaf role="mathtex">|z|</sc:textLeaf>) est un nombre positif.</sc:para>
+							</sc:listItem>
+						</sc:itemizedList>
+						<sc:para xml:space="preserve">Donc, pour tout nombre complexe <sc:textLeaf role="mathtex">z, |z|=z</sc:textLeaf> si, et seulement si <sc:textLeaf role="mathtex">z</sc:textLeaf> est un nombre réel positif.</sc:para>
+						<sc:para xml:space="preserve">L'affirmation est vraie.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">|z^2|=|z|^2</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">L'affirmation est vraie d'après l'une des propriétés du module d'un complexe :</sc:para>
+						<sc:para xml:space="preserve">Pour tout entier <sc:textLeaf role="mathtex">n</sc:textLeaf>, <sc:textLeaf role="mathtex">|z^n|=|z|^n</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">|z^2|=z^2</sc:textLeaf> si, et seulement si <sc:textLeaf role="mathtex">z</sc:textLeaf> est un nombre réel</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:itemizedList>
+							<sc:listItem>
+								<sc:para xml:space="preserve">Si <sc:textLeaf role="mathtex">z</sc:textLeaf> est un nombre réel, on sait que <sc:textLeaf role="mathtex">|z|</sc:textLeaf> est aussi la valeur absolue de <sc:textLeaf role="mathtex">z</sc:textLeaf>, et dans ce cas, <sc:textLeaf role="mathtex">|z^2|=|z|^2=z^2</sc:textLeaf>.</sc:para>
+							</sc:listItem>
+						</sc:itemizedList>
+						<sc:itemizedList>
+							<sc:listItem>
+								<sc:para xml:space="preserve">Inversement, si <sc:textLeaf role="mathtex">|z^2|=z^2</sc:textLeaf>, alors : <sc:textLeaf role="mathtex">z = |z|</sc:textLeaf> ou <sc:textLeaf role="mathtex">z = - |z|</sc:textLeaf>.</sc:para>
+								<sc:para xml:space="preserve">Ceci implique que z est un nombre réel (puisque <sc:textLeaf role="mathtex">|z|</sc:textLeaf> est un nombre réel (positif)).</sc:para>
+							</sc:listItem>
+						</sc:itemizedList>
+						<sc:para xml:space="preserve">Donc, pour tout nombre complexe z, <sc:textLeaf role="mathtex">|z^2|=z^2</sc:textLeaf> si, et seulement si <sc:textLeaf role="mathtex">z</sc:textLeaf> est un nombre réel</sc:para>
+						<sc:para xml:space="preserve">L'affirmation est vraie.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">|z^2|=|z|^2</sc:textLeaf> si, et seulement si <sc:textLeaf role="mathtex">z</sc:textLeaf> est un nombre réel.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">Si <sc:textLeaf role="mathtex">z = i</sc:textLeaf>, <sc:textLeaf role="mathtex">|z^2|=1=|z|^2</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">Donc, l'affirmation « <sc:textLeaf role="mathtex">|z^2|=|z|^2</sc:textLeaf> si, et seulement si <sc:textLeaf role="mathtex">z</sc:textLeaf> est un nombre réel» est fausse.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+		</sc:choices>
+	</op:mcqMur>
+</sc:item>

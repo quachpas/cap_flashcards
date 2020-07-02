@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="isr" creationTime="1487021535797">Cette question sur la structure électronique des atomes ne devrait pas figurer dans "Chimie des solutions" mais dans "Structure de la matière".</comment></comment>-->
+		<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="isr" creationTime="1487021535643">Cette question sur la structure électronique des atomes ne devrait pas figurer dans "Chimie des solutions" mais dans "Structure de la matière".</comment></comment>-->
+		<op:exeM>
+			<sp:title>Structure électronique des atomes</sp:title>
+			<sp:themeLycee>#chim-sante-diagmed-</sp:themeLycee>
+			<sp:themeLycee>#chim-comploismod-strtran-</sp:themeLycee>
+			<sp:themeLicence>#chim-strucmat-</sp:themeLicence>
+			<sp:themeLicence>#chim-chimsolu-</sp:themeLicence>
+			<sp:level>3</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<!--<comment xmlns="scenari.eu:comment:1.0" type="thread"><comment author="camille.dufourg" creationTime="1573660430985">Il manque les mots-clés et la licence.</comment></comment>-->
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">Université Lille 1</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<!--<comment xmlns="scenari.eu:comment:1.0" type="thread"><comment author="camille.dufourg" creationTime="1573660464876">"&lt;...&gt;" est-il à sa place au début de l'énoncé ?</comment></comment>-->
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			<sc:inlineStyle role="emp">Application de la règle de l'octet</sc:inlineStyle>.  La structure électronique du soufre S (<sc:inlineStyle role="emp">Z</sc:inlineStyle> = 16) est (<sc:inlineStyle role="emp">K</sc:inlineStyle>)<sc:textLeaf role="exp">2</sc:textLeaf>(<sc:inlineStyle role="emp">L</sc:inlineStyle>)<sc:textLeaf role="exp">8</sc:textLeaf>(<sc:inlineStyle role="emp">M</sc:inlineStyle>)<sc:textLeaf role="exp">6</sc:textLeaf>.
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Le soufre forme un ion monoatomique possédant 16 électrons externes.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Le soufre forme un ion monoatomique possédant 8 électrons externes.
+		</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Le soufre forme un ion monoatomique de structure électronique (<sc:inlineStyle role="emp">K</sc:inlineStyle>)<sc:textLeaf role="exp">2</sc:textLeaf>(<sc:inlineStyle role="emp">L</sc:inlineStyle>)<sc:textLeaf role="exp">8</sc:textLeaf>.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Le soufre forme un ion monoatomique de structure électronique (<sc:inlineStyle role="emp">K</sc:inlineStyle>)<sc:textLeaf role="exp">2</sc:textLeaf>(<sc:inlineStyle role="emp">L</sc:inlineStyle>)<sc:textLeaf role="exp">8</sc:textLeaf>(<sc:inlineStyle role="emp">M</sc:inlineStyle>)<sc:textLeaf role="exp">8</sc:textLeaf>.
+		</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Le soufre forme un ion monoatomique de structure électronique (<sc:inlineStyle role="emp">K</sc:inlineStyle>)<sc:textLeaf role="exp">2</sc:textLeaf>(<sc:inlineStyle role="emp">L</sc:inlineStyle>)<sc:textLeaf role="exp">8</sc:textLeaf>(<sc:inlineStyle role="emp">M</sc:inlineStyle>)<sc:textLeaf role="exp">8</sc:textLeaf>.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Le soufre forme un ion monoatomique possédant 8 électrons externes.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="cee" creationTime="1478530507440">Préciser qu'il doit gagner deux électrons pour atteindre une couche externe contenant 8 électrons, et permettant ainsi de satisfaire la règle de l'octet.</comment></comment>-->
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="mar" creationTime="1433002578573" updateTime="1433147845019">Dans l'intitulé de la compétence, remplacer "d'un élément chimiques et de la charge électrique." par "d'un élément chimique."
+
+Après la phrase d'explication, insérer un saut de ligne puis ajouter les phrases suivantes :
+La couche externe du soufre étant la couche M remplie avec 6 électrons, l'ion monoatomique du soufre possède une couche M remplie avec 8 électrons externes d'après la règle de l'octet. Sa structure électronique est donc (K)^2(L)^8(M)^8.
+^ signifie qu'il faut mettre le chiffre suivant en exposant.</comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">
+			<sc:inlineStyle role="emp">Compétence(s)</sc:inlineStyle> : <sc:inlineStyle role="emp">appliquer la règle de l'octet pour déterminer l'ion monoatomique d'un élément chimique.</sc:inlineStyle>
+		</sc:para>
+						<sc:para xml:space="preserve">
+			D'après la règle de l'octet, les éléments tels que 5 ≤ <sc:inlineStyle role="emp">Z</sc:inlineStyle> ≤ 20 forment un ion monoatomique possédant 8 électrons externes.
+		</sc:para>
+						<sc:para xml:space="preserve">La couche externe du soufre étant la couche M remplie avec 6 électrons, l'ion monoatomique du soufre possède une couche M remplie avec 8 électrons externes d'après la règle de l'octet. Sa structure électronique est donc (K)<sc:textLeaf role="exp">2</sc:textLeaf>(L)<sc:textLeaf role="exp">8</sc:textLeaf>(M)<sc:textLeaf role="exp">8</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

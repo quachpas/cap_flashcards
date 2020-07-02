@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#chim-agir-convener-reacoxydo-</sp:themeLycee>
+			<sp:themeLicence>#chim-electrochim-</sp:themeLicence>
+			<sp:level>3</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<!--<comment xmlns="scenari.eu:comment:1.0" type="thread"><comment author="camille.dufourg" creationTime="1574415476855">Il manque les mots-clés et la licence.</comment></comment>-->
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">Université Nice-Sophia-Antipolis</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="mar" creationTime="1431417983261" updateTime="1431419464634">Supprimer les s à oxydant et réducteur dans oxydants/réducteurs.
+Supprimer l'espace entre 4 et - dans MnO4-.</comment></comment>-->
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="mar" creationTime="1431417958229" updateTime="1431418080964">Dans les propositions de réponse 1 à 3 , ajouter un espace entre le nombre stœchiométrique et le symbole de l'espace pour améliorer la lisibilité : par exemple 5 Fe2+ ; 5 Fe3+ ; 4 H2O.
+Dans les propositions de réponse 1 à 3, remplacer équation-bilan par équation.</comment></comment>-->
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="etu02" creationTime="1430897513300" updateTime="1430897543780">Dans toutes les propositions de réponse, les nombres et les charges ne sont pas en indice ou en exposant, c'est difficilement lisible</comment><comment author="map" creationTime="1430907587072">PB d'écriture scientifique  à revoir équipe technique </comment><comment author="ext-lug" creationTime="1431941353013" updateTime="1431944195754">corrige</comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Les couples Fe<sc:textLeaf role="exp">3+</sc:textLeaf>/Fe<sc:textLeaf role="exp">2+</sc:textLeaf> et MnO<sc:textLeaf role="ind">4</sc:textLeaf>
+<sc:textLeaf role="exp">-</sc:textLeaf>/Mn<sc:textLeaf role="exp">2+</sc:textLeaf> sont des couples oxydant/réducteur.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="unchecked">
+				<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="mar" creationTime="1431422073109" updateTime="1431881515254">Remplacer la réponse par :
+5 Fe2+ + MnO4- = 5 Fe3+ + Mn2+ est l'équation de la réaction d'oxydoréduction entre l'ion Fe2+ et l'ion MnO4-.
+Mettre les charges en exposant.</comment><comment author="ext-lug" creationTime="1431940396157">Corrigé (sans passer par Latex)</comment></comment>-->
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			5Fe<sc:textLeaf role="ind">2</sc:textLeaf><sc:textLeaf role="exp">+</sc:textLeaf> + MnO<sc:textLeaf role="ind">4</sc:textLeaf><sc:textLeaf role="exp">-</sc:textLeaf> = 5Fe<sc:textLeaf role="ind">3</sc:textLeaf><sc:textLeaf role="exp">+</sc:textLeaf> + Mn<sc:textLeaf role="ind">2</sc:textLeaf><sc:textLeaf role="exp">+</sc:textLeaf> 
+		 est l'équation de la réaction d'oxydoréduction entre l'ion Fe<sc:textLeaf role="ind">2</sc:textLeaf><sc:textLeaf role="exp">+</sc:textLeaf>  et l'ion MnO<sc:textLeaf role="ind">4</sc:textLeaf><sc:textLeaf role="exp">-</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="mar" creationTime="1431418984207" updateTime="1431812732206">Aucune information dans l'intitulé de la question ne permet de considérer cette équation comme fausse. Elle est correcte du point de vue de l'équilibrage des éléments et de la charge.
+Je propose de remplacer cette réponse par :
+MnO4- est un oxydant.
+C'est une bonne réponse.
+Explication : par convention dans l'écriture d'un couple redox l'oxydant est mentionné en premier.</comment><comment author="ext-lug" creationTime="1431940487149">Ajout</comment></comment>-->
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="exp"/>MnO<sc:textLeaf role="ind">4</sc:textLeaf><sc:textLeaf role="exp">-</sc:textLeaf> est un oxydant.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve"> Par convention dans l'écriture d'un couple redox l'oxydant est mentionné en premier.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="mar" creationTime="1431422121477" updateTime="1431422135619">5 Fe2+ + MnO4- + 8 H+ = Mn2+ + 5 Fe3+ + 4 H2O est l'équation de la réaction d'oxydoréduction entre l'ion Fe2+ et l'ion MnO4-.
+Mettre les charges en exposant.</comment><comment author="ext-lug" creationTime="1431940443725">Corrigé</comment></comment>-->
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			5Fe<sc:textLeaf role="ind">2</sc:textLeaf><sc:textLeaf role="exp">+</sc:textLeaf> + MnO<sc:textLeaf role="ind">4</sc:textLeaf><sc:textLeaf role="exp">-</sc:textLeaf> + 8H<sc:textLeaf role="exp">+</sc:textLeaf> = Mn<sc:textLeaf role="ind">2</sc:textLeaf><sc:textLeaf role="exp">+</sc:textLeaf> + 5Fe<sc:textLeaf role="ind">3</sc:textLeaf><sc:textLeaf role="exp">+</sc:textLeaf> + 4H<sc:textLeaf role="ind">2</sc:textLeaf>O est l'équation-bilan de leur réaction.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="mar" creationTime="1431422223371" updateTime="1431422303820">Ajouter l'explication :
+Par convention dans l'écriture d'un couple redox le réducteur est mentionné en second.</comment><comment author="ext-lug" creationTime="1431940460493">Ajout</comment></comment>-->
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Fe<sc:textLeaf role="ind">2</sc:textLeaf>
+<sc:textLeaf role="exp">+</sc:textLeaf> est un réducteur.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">Par convention dans l'écriture d'un couple redox le réducteur est mentionné en second.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Toutes les propositions sont fausses.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread"><comment author="pac" creationTime="1455828649896">Je pense que la méthode n'est pas très claire. Il faut tout d'abord pour un élève du secondaire écrire les deux demi équations. Pour cela il suit différentes étapes : 1- équilibrer l'espèce commune chez l'oxydant et le réducteur. 2- équilibrer les oxygènes avec des H2O. 3-équilibrer les H avec des H+.4- équilibrer les charges avec des électrons.
+Puis, il lui faut multiplier chacune des demi équations de telle sorte que le nombre d'électrons échangés soit le même dans chaque demi équation. 
+Enfin il lui reste à écrire l'équatioin de la réaction en combinant les deux demi équations : Ox1 + Red2 = Red1 + Ox2</comment></comment>-->
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread"><comment author="mar" creationTime="1431418670388" updateTime="1431881745376">La méthode présentée pour équilibrer l'équation d'une réaction d'oxydoréduction n'est pas celle enseignée usuellement et ce n'est surtout pas celle utilisée dans le secondaire. La méthode usuelle consiste à équilibrer d'abord les demi-réactions électroniques de chaque couple redox puis à les combiner pour obtenir la réaction d'oxydoréduction. Je supprimerai cette explication générale.</comment></comment>-->
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread"><comment author="etu02" creationTime="1430897630877">La charge de l'électron dans la toute dernière phrase n'est pas en exposant</comment><comment author="ext-lug" creationTime="1431941404316">Explication a supprimer ?</comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Une réaction d’oxydoréduction est une réaction entre l'oxydant d'un couple et le réducteur d'un autre. Par convention les couples sont donnés de la sorte : oxydant/réducteur. Dans l'exemple utilisé ici Fe<sc:textLeaf role="exp">2+</sc:textLeaf> est le réducteur tandis que Fe<sc:textLeaf role="exp">3+</sc:textLeaf> est l'oxydant pour le premier couple. De même, MnO<sc:textLeaf role="ind">4</sc:textLeaf><sc:textLeaf role="exp">-</sc:textLeaf> est l'oxydant et Mn<sc:textLeaf role="exp">2+</sc:textLeaf> le réducteur pour le second couple.</sc:para>
+						<sc:para xml:space="preserve">Pour écrire l'équation bilan correspondante, on peut suivre la méthode suivante :</sc:para>
+						<sc:para xml:space="preserve">1- Écrire les deux demi équations : a- équilibrer l'espèce commune chez l'oxydant et le réducteur, b- équilibrer les oxygènes à l'aide de molécules d'H<sc:textLeaf role="ind">2</sc:textLeaf>O, c- équilibrer les H avec des H<sc:textLeaf role="exp">+</sc:textLeaf>, d- équilibrer les charges avec des électrons.</sc:para>
+						<sc:para xml:space="preserve">a'- MnO<sc:textLeaf role="ind">4</sc:textLeaf><sc:textLeaf role="exp">-</sc:textLeaf> → Mn<sc:textLeaf role="exp">2+</sc:textLeaf>
+</sc:para>
+						<sc:para xml:space="preserve">b'- MnO<sc:textLeaf role="ind">4</sc:textLeaf><sc:textLeaf role="exp">-</sc:textLeaf> → Mn<sc:textLeaf role="exp">2+</sc:textLeaf> + 4H<sc:textLeaf role="ind">2</sc:textLeaf>O</sc:para>
+						<sc:para xml:space="preserve">c'-  MnO<sc:textLeaf role="ind">4</sc:textLeaf><sc:textLeaf role="exp">-</sc:textLeaf> + 8H<sc:textLeaf role="exp">+</sc:textLeaf>→ Mn<sc:textLeaf role="exp">2+</sc:textLeaf> + 4H<sc:textLeaf role="ind">2</sc:textLeaf>O</sc:para>
+						<sc:para xml:space="preserve">d'- MnO<sc:textLeaf role="ind">4</sc:textLeaf><sc:textLeaf role="exp">-</sc:textLeaf> + 8H<sc:textLeaf role="exp">+ </sc:textLeaf>+ 5e<sc:textLeaf role="exp">-</sc:textLeaf>→ Mn<sc:textLeaf role="exp">2+</sc:textLeaf> + 4H<sc:textLeaf role="ind">2</sc:textLeaf>O</sc:para>
+						<sc:para xml:space="preserve">(pour le couple  Fe<sc:textLeaf role="exp">2+</sc:textLeaf>/Fe<sc:textLeaf role="exp">3+</sc:textLeaf> ,seule l'étape d- est nécessaire : Fe<sc:textLeaf role="exp">3+</sc:textLeaf> + e<sc:textLeaf role="exp">-</sc:textLeaf>  → Fe<sc:textLeaf role="exp">2+</sc:textLeaf>).</sc:para>
+						<sc:para xml:space="preserve">2- Chaque demi-équation doit être multipliée par le nombre d'électron de l'autre demi-équation.</sc:para>
+						<sc:para xml:space="preserve">5 × (Fe<sc:textLeaf role="exp">3+</sc:textLeaf> + e<sc:textLeaf role="exp">-</sc:textLeaf>  → Fe<sc:textLeaf role="exp">2+</sc:textLeaf>)</sc:para>
+						<sc:para xml:space="preserve">1 × (MnO<sc:textLeaf role="ind">4</sc:textLeaf><sc:textLeaf role="exp">-</sc:textLeaf> + 8H<sc:textLeaf role="exp">+ </sc:textLeaf>+ 5e<sc:textLeaf role="exp">-</sc:textLeaf>→ Mn<sc:textLeaf role="exp">2+</sc:textLeaf> +4H<sc:textLeaf role="ind">2</sc:textLeaf>O<sc:textLeaf role="exp"/>)</sc:para>
+						<sc:para xml:space="preserve">3- Équation bilan : on fait réagir un oxydant avec un réducteur, ce qui revient à multiplier une des deux équations précédentes par -1.</sc:para>
+						<sc:para xml:space="preserve">5Fe<sc:textLeaf role="exp">2+</sc:textLeaf> + MnO<sc:textLeaf role="ind">4</sc:textLeaf><sc:textLeaf role="exp">-</sc:textLeaf> + 8H<sc:textLeaf role="exp">+</sc:textLeaf> → 5Fe<sc:textLeaf role="exp">3+</sc:textLeaf> + Mn<sc:textLeaf role="exp">2+</sc:textLeaf> + 4H<sc:textLeaf role="ind">2</sc:textLeaf>O</sc:para>
+						<sc:para xml:space="preserve">NB : il ne doit pas y avoir d'électrons dans l'équation bilan.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

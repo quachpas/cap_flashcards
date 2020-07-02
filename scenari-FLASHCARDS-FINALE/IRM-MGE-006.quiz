@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3">
+		<op:exeM>
+			<sp:themeLycee xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-geo-geomespace-geomvecto-</sp:themeLycee>
+			<sp:themeLicence xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-geo-</sp:themeLicence>
+			<sp:level xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">2</sp:level>
+			<sp:educationLevel xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">L0</sp:educationLevel>
+			<sp:info xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">ECRA – IREM – Strasbourg</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">On considère les points <sc:textLeaf role="mathtex">A(1 ; 2 ; 0)</sc:textLeaf>, <sc:textLeaf role="mathtex">B(0 ; 3 ; 1)</sc:textLeaf>, <sc:textLeaf role="mathtex">C(-1 ; 1 ; 1)</sc:textLeaf>, <sc:textLeaf role="mathtex">D(–1 ; 4 ; 2)</sc:textLeaf> et <sc:textLeaf role="mathtex">E(1 ; 5 ; – 1)</sc:textLeaf> et on désigne par <sc:textLeaf role="mathtex">(P)</sc:textLeaf> le plan d'équation cartésienne <sc:textLeaf role="mathtex">2x-y+3z=0</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">Les points <sc:textLeaf role="mathtex">A</sc:textLeaf>, <sc:textLeaf role="mathtex">B</sc:textLeaf>, <sc:textLeaf role="mathtex">D</sc:textLeaf> définissent le plan <sc:textLeaf role="mathtex">(P)</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">Les points <sc:textLeaf role="mathtex">A</sc:textLeaf>, <sc:textLeaf role="mathtex">B</sc:textLeaf>, <sc:textLeaf role="mathtex">C</sc:textLeaf> définissent le plan <sc:textLeaf role="mathtex">(P)</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">Les points <sc:textLeaf role="mathtex">A</sc:textLeaf>, <sc:textLeaf role="mathtex">B</sc:textLeaf>, <sc:textLeaf role="mathtex">E</sc:textLeaf> définissent le plan <sc:textLeaf role="mathtex">(P)</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">Les points <sc:textLeaf role="mathtex">B</sc:textLeaf>, <sc:textLeaf role="mathtex">C</sc:textLeaf>, <sc:textLeaf role="mathtex">D</sc:textLeaf> définissent le plan <sc:textLeaf role="mathtex">(P)</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="2"/>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">Pour que trois points <sc:textLeaf role="mathtex">M</sc:textLeaf>, <sc:textLeaf role="mathtex">N</sc:textLeaf> et <sc:textLeaf role="mathtex">R</sc:textLeaf> définissent un plan <sc:textLeaf role="mathtex">(P)</sc:textLeaf>, il faut qu'ils soient dans ce plan et que les vecteurs <sc:textLeaf role="mathtex">\overrightarrow{MN}</sc:textLeaf> et <sc:textLeaf role="mathtex">\overrightarrow{MR}</sc:textLeaf> ne soient pas colinéaires entre eux.</sc:para>
+						<sc:para xml:space="preserve">Les points <sc:textLeaf role="mathtex">A</sc:textLeaf>, <sc:textLeaf role="mathtex">B</sc:textLeaf>, <sc:textLeaf role="mathtex">C</sc:textLeaf> et <sc:textLeaf role="mathtex">D</sc:textLeaf> appartiennent au plan <sc:textLeaf role="mathtex">(P)</sc:textLeaf> car leurs coordonnées vérifient l'équation cartésienne du plan.</sc:para>
+						<sc:para xml:space="preserve">Mais <sc:textLeaf role="mathtex">\overrightarrow{AB}</sc:textLeaf> a pour coordonnées <sc:textLeaf role="mathtex">\begin{pmatrix} -1 \\ 1 \\ 1 \end{pmatrix}</sc:textLeaf> et <sc:textLeaf role="mathtex">\overrightarrow{AD}</sc:textLeaf> a pour coordonnées <sc:textLeaf role="mathtex">\begin{pmatrix} -2 \\ 2 \\ 2 \end{pmatrix}</sc:textLeaf>. Les deux vecteurs <sc:textLeaf role="mathtex">\overrightarrow{AB} </sc:textLeaf>et <sc:textLeaf role="mathtex">\overrightarrow{AD}</sc:textLeaf> sont donc colinéaire et ne peuvent pas définir le plan <sc:textLeaf role="mathtex">(P)</sc:textLeaf>. Par ailleurs <sc:textLeaf role="mathtex">\overrightarrow{AC}</sc:textLeaf> a pour coordonnées <sc:textLeaf role="mathtex">\begin{pmatrix} -2 \\ -1 \\1 \end{pmatrix}</sc:textLeaf> donc <sc:textLeaf role="mathtex">\overrightarrow{AB}</sc:textLeaf> et <sc:textLeaf role="mathtex">\overrightarrow{AC}</sc:textLeaf> ne sont pas colinéaires et ne peuvent pas définir le plan <sc:textLeaf role="mathtex">(P)</sc:textLeaf>. On peut conclure que les points <sc:textLeaf role="mathtex">A</sc:textLeaf>,<sc:textLeaf role="mathtex">B</sc:textLeaf>, <sc:textLeaf role="mathtex">C</sc:textLeaf> définissent le plan <sc:textLeaf role="mathtex">(P)</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

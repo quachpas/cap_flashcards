@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#math-probastat-statdesc-moyenne-</sp:themeLycee>
+			<sp:themeLicence>#math-stat-</sp:themeLicence>
+			<sp:level>3</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      <sc:phrase role="url"><op:urlM xmlns:sc="http://www.utc.fr/ics/scenari/v3/core" xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive"><sp:url>www.parisdescartes.fr</sp:url></op:urlM>
+parisdescartes.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			À la dernière épreuve de géographie, un groupe de neuf élèves a obtenu 10 de moyenne avec une variance égale à 10. Les rejoint le meilleur élève de la classe qui a obtenu 20. Calculer à une décimale près la variance des notes de ce groupe de dix élèves. 
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			14,1
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			16,6
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			18,0
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="3"/>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="hur" creationTime="1460401565015">(resp. t1 et t2)
+... est égale à 10.</comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Notons 
+  <sc:textLeaf role="mathtex">\textstyle{s_1}</sc:textLeaf>
+ et 
+  <sc:textLeaf role="mathtex">\textstyle{s_2}</sc:textLeaf>
+ (resp. 
+  <sc:textLeaf role="mathtex">\textstyle{t_1}</sc:textLeaf>
+ et 
+  <sc:textLeaf role="mathtex">\textstyle{t_2}</sc:textLeaf>
+		</sc:para>
+						<sc:itemizedList>
+							<sc:listItem>
+								<sc:para xml:space="preserve">
+			
+  <sc:textLeaf role="mathtex">\textstyle{s_1=9\times 10=90}</sc:textLeaf>
+		</sc:para>
+							</sc:listItem>
+							<sc:listItem>
+								<sc:para xml:space="preserve">
+			
+  <sc:textLeaf role="mathtex">\textstyle{t_1=s_1+20=110}</sc:textLeaf>
+		</sc:para>
+							</sc:listItem>
+						</sc:itemizedList>
+						<sc:para xml:space="preserve">
+			Rappelons la variance du groupe de 9 élèves est égale à 
+		10</sc:para>
+						<sc:para xml:space="preserve">
+			On en déduit :
+		</sc:para>
+						<sc:itemizedList>
+							<sc:listItem>
+								<sc:para xml:space="preserve">
+			
+  <sc:textLeaf role="mathtex">\textstyle{s_2=(10+100)*9=990}</sc:textLeaf>
+		</sc:para>
+							</sc:listItem>
+							<sc:listItem>
+								<sc:para xml:space="preserve">
+			
+  <sc:textLeaf role="mathtex">\textstyle{t_2=s_2+20^2=1390}</sc:textLeaf>
+		</sc:para>
+							</sc:listItem>
+						</sc:itemizedList>
+						<sc:para xml:space="preserve">
+			Le calcul de la variance du groupe de 10 élèves s'en déduit :
+		</sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\frac{t_2}{10}-\left(\frac{t_1}{10}\right)^2=139-11^2=18</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

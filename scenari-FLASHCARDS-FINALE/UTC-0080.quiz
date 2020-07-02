@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#math-analyse-equations-resolalgequa-</sp:themeLycee>
+			<sp:themeLicence>#math-equa-</sp:themeLicence>
+			<sp:level>3</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">utc.fr</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">Dans <sc:textLeaf role="mathtex">\mathbb{C}</sc:textLeaf>, l'équation :</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">z^2=-1</sc:textLeaf> n'a pas de solution.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">z^2+z+1=0</sc:textLeaf> admet deux solutions <sc:textLeaf role="mathtex">z_1=-1+i\sqrt{3}</sc:textLeaf> et <sc:textLeaf role="mathtex">z_2=-1-i\sqrt{3}</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">z^2+az+b=0</sc:textLeaf> admet deux solutions conjuguées <sc:textLeaf role="mathtex">z_1=\overline{z_2}</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">z^2+az+b=0</sc:textLeaf> admet deux solutions conjuguées <sc:textLeaf role="mathtex">z_1=\overline{z_2}</sc:textLeaf> pourvu que <sc:textLeaf role="mathtex">a</sc:textLeaf> et <sc:textLeaf role="mathtex">b</sc:textLeaf> soient réels.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">z^3=-1</sc:textLeaf> admet trois solutions dont les affixes respectives sont les sommets d'un triangle équilatéral inscrit dans un cercle de centre l'origine et de rayon <sc:textLeaf role="mathtex">1</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">On a <sc:textLeaf role="mathtex">\overline{z^2+az+b}=\overline{z}^2+\overline{a}\overline{z}+\overline{b}</sc:textLeaf>. Comme <sc:textLeaf role="mathtex">a</sc:textLeaf> et <sc:textLeaf role="mathtex">b</sc:textLeaf> sont réels, on a <sc:textLeaf role="mathtex">\overline{z^2+az+b}=\overline{z}^2+a\overline{z}+b</sc:textLeaf> et donc <sc:textLeaf role="mathtex">z^2+az+b=0\Rightarrow \overline{z^2+az+b}=0\Rightarrow \overline{z}^2+a\overline{z}+b=0</sc:textLeaf>. Ceci montre que, si <sc:textLeaf role="mathtex">z</sc:textLeaf> est une racine alors son conjugué est aussi une racine.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

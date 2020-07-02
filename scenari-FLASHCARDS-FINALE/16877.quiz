@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#math-probastat-statdesc-caracposdisp-</sp:themeLycee>
+			<sp:themeLicence>#math-stat-</sp:themeLicence>
+			<sp:level>2</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://parisdescartes.fr</sp:url>
+</op:urlM>parisdescartes.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="hur" creationTime="1460391317254" updateTime="1460391472145">La courbe des fréquences cumulées croissantes n'est jamais faite comme ca, au lycée (ce que je regrette d'ailleurs et ce qui me fait adopter la courbe en escalier avec mes élèves). L'unique représentation graphique que l'on voit dans les manuels est une courbe en segments de droites reliant les fréquences images des bornes supérieures des intervalles de la variable.</comment></comment>-->
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread"><comment author="hur" creationTime="1460384143175">Je dirais plutôt "Lequel des graphiques suivant PEUT correspondre à .....</comment></comment>-->
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread"><comment author="ext-lug" creationTime="1459512987365">NB : Dans le questionnaire sur Faq2sciences, les images seront agrandies.</comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">
+			On considère une série statistique à 13 éléments décrite par le diagramme en boîte suivant :</sc:para>
+					</op:txt>
+				</sp:txt>
+				<sp:res sc:refUri="images/Boite-0.png">
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread"><comment author="pascal.quach" creationTime="1575046619457">Image de basse qualité.</comment></comment>-->
+					<op:resInfoM/>
+				</sp:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Lequel des dessins suivants  correspond à la courbe de ses fréquences cumulées croissantes ?
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+				<sp:res sc:refUri="images/FCC-703.png">
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread"><comment author="pascal.quach" creationTime="1575046680685">Image de basse qualité</comment></comment>-->
+					<op:resInfoM/>
+				</sp:res>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Dessin de gauche
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Dessin du milieu
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Dessin de droite
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="2"/>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Notons 
+  <sc:textLeaf role="mathtex">\textstyle{x_1\leq x_2\leq\cdots\leq x_{13}}</sc:textLeaf>
+ les 13 éléments de la série rangés par ordre croissant. Le minimum de la série est 
+  <sc:textLeaf role="mathtex">\textstyle{x_1}</sc:textLeaf>
+, le premier quartile est 
+  <sc:textLeaf role="mathtex">\textstyle{x_4}</sc:textLeaf>, la médiane est 
+  <sc:textLeaf role="mathtex">\textstyle{x_7}</sc:textLeaf>, le troisième quartile est 
+  <sc:textLeaf role="mathtex">\textstyle{x_{10}}</sc:textLeaf>
+ et le maximum est 
+  <sc:textLeaf role="mathtex">\textstyle{x_{13}}</sc:textLeaf>.
+		</sc:para>
+						<sc:para xml:space="preserve">
+			D'après le diagramme en boîte, 
+  <sc:textLeaf role="mathtex">\textstyle{x_1}</sc:textLeaf>
+ est proche de 
+  <sc:textLeaf role="mathtex">\textstyle{0}</sc:textLeaf>, 
+  <sc:textLeaf role="mathtex">\textstyle{x_4}</sc:textLeaf>
+ est proche de 5, 
+  <sc:textLeaf role="mathtex">\textstyle{x_7}</sc:textLeaf>
+ est proche de 6, 
+  <sc:textLeaf role="mathtex">\textstyle{x_{10}}</sc:textLeaf>
+ est proche de 7 et 
+  <sc:textLeaf role="mathtex">\textstyle{x_{13}}</sc:textLeaf> est proche de 9.
+		</sc:para>
+						<sc:para xml:space="preserve">
+			Le minimum de la série associée au dessin de gauche est supérieur à 2, ce ne peut donc pas être la bonne réponse.
+		</sc:para>
+						<sc:para xml:space="preserve">
+			Le premier quartile de la série associée au dessin de droite est proche de 0, ce ne peut donc pas être la bonne réponse.
+		</sc:para>
+						<sc:para xml:space="preserve">
+			Le dessin du milieu correspond à la série initiale.
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

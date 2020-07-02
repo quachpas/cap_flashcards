@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:title>La méiose</sp:title>
+			<sp:themeLycee>#scvie-terunivers-natvivant-</sp:themeLycee>
+			<sp:themeLicence>#bio-angenome-</sp:themeLicence>
+			<sp:level>1</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<op:info>
+					<sp:keywds>
+						<op:keywds>
+							<sp:keywd>cellule</sp:keywd>
+							<sp:keywd>méiose</sp:keywd>
+							<sp:keywd>reproduction</sp:keywd>
+						</op:keywds>
+					</sp:keywds>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      Université Lille 1
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">La méiose :</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						n'est pas nécessaire, car n'importe quelle cellule de l'organisme peut jouer le rôle de gamète, mais a été conservée au cours de l'évolution.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						est obligatoire pour qu'un organisme puisse se reproduire par voie sexuée.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						favorise le brassage chromosomique.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						permet de cloner un individu à l'identique.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Les gamètes mâles et femelles sont des cellules haploïdes donc nécessairement issues de la méiose d'une cellule mère diploïde. Ils apparaissent dans les lignées cellulaires germinales. Avec la fécondation, la méiose permet le brassage chromosomique qui est à l'origine de l'unicité de l'individu issu de la reproduction sexuée.
+		</sc:para>
+						<sc:para xml:space="preserve">
+			Ressources à consulter : 
+		</sc:para>
+						<sc:itemizedList>
+							<sc:listItem>
+								<sc:para xml:space="preserve">
+			
+  
+  <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://www.snv.jussieu.fr/bmedia/Mitose/index.htm</sp:url>
+</op:urlM>La mitose 1</sc:phrase>
+  
+  
+		</sc:para>
+							</sc:listItem>
+							<sc:listItem>
+								<sc:para xml:space="preserve">
+			
+  
+  <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://uel.unisciel.fr/biologie/introgen/introgen_ch04/co/simuler_ch4_01.html</sp:url>
+</op:urlM>La mitose 2</sc:phrase>
+  
+  
+		</sc:para>
+							</sc:listItem>
+							<sc:listItem>
+								<sc:para xml:space="preserve">
+			
+  
+  <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://www.snv.jussieu.fr/vie/dossiers/mitoseveg/mitose-veg.html?width=80%&amp;height=80%&amp;jqmRefresh=false</sp:url>
+</op:urlM>Spécificités de la mitose végétale</sc:phrase>
+  
+  
+		</sc:para>
+							</sc:listItem>
+							<sc:listItem>
+								<sc:para xml:space="preserve">
+			
+  
+  <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://www.snv.jussieu.fr/bmedia/Meiose/Meiose.htm</sp:url>
+</op:urlM>Les conséquences génétiques de la méiose</sc:phrase>
+  
+  
+		</sc:para>
+							</sc:listItem>
+							<sc:listItem>
+								<sc:para xml:space="preserve">
+			
+  
+  <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://www.snv.jussieu.fr/vie/dossiers/meioseprep/meiose.htm?width=80%&amp;height=80%&amp;jqmRefresh=false</sp:url>
+</op:urlM>La méiose chez une plante à fleurs</sc:phrase>
+  
+  
+		</sc:para>
+							</sc:listItem>
+							<sc:listItem>
+								<sc:para xml:space="preserve">
+			
+  
+  <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://uel.unisciel.fr/biologie/introgen/introgen_ch04/co/simuler_ch4_02.html</sp:url>
+</op:urlM>La méiose (film animation 2D)</sc:phrase>
+  
+  
+		</sc:para>
+							</sc:listItem>
+						</sc:itemizedList>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

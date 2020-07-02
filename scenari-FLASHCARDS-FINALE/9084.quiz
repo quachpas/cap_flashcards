@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#math-analyse-fonctions-</sp:themeLycee>
+			<sp:themeLicence>#math-fonctions-</sp:themeLicence>
+			<sp:level>4</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<op:info>
+					<sp:keywds>
+						<!--<comment xmlns="scenari.eu:comment:1.0" type="thread"><comment author="ariane.lozon" creationTime="1574413654329">Pas de mots-clefs et licence</comment></comment>-->
+						<op:keywds/>
+					</sp:keywds>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://univ-angers.fr</sp:url>
+</op:urlM>univ-angers.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread"><comment author="fav" creationTime="1488381470112" updateTime="1488381561105">Le domaine de définition de la fonction f de la variable réelle définie par f(x)=...
+Niveau 4</comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Le domaine de définition de la fonction <sc:textLeaf role="mathtex">f</sc:textLeaf> de la variable réelle définie par <sc:textLeaf role="mathtex">f:x\mapsto\ln(\sqrt{x}-\sqrt{2-x})</sc:textLeaf>
+		est</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			<sc:textLeaf role="mathtex">\mathbb{R}_+</sc:textLeaf>
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			<sc:textLeaf role="mathtex">]1,2]</sc:textLeaf>
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			<sc:textLeaf role="mathtex">[1,2]</sc:textLeaf>
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			<sc:textLeaf role="mathtex">[0,2]</sc:textLeaf>
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="2"/>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread"><comment author="fav" creationTime="1488382004598">On note D le domaine de définition.
+La fonction racine étant définie sur R+, il faut x \geq 0 et 2-x \geq 0, c'est à dire x \geq 0 et x \leq 2, d'où D inclus dans [0,2]
+Ln est définie sur R+*, il faut \sqrt(x)-\sqrt(2-x)&gt;0, ce qui équivaut à ...
+Essayer de bien rédiger !!
+</comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">On note <sc:textLeaf role="mathtex">D</sc:textLeaf> le domaine de définition.</sc:para>
+						<sc:para xml:space="preserve">On a <sc:textLeaf role="mathtex">x \geq 0</sc:textLeaf> et <sc:textLeaf role="mathtex">2-x \geq 0</sc:textLeaf>, c'est-à-dire <sc:textLeaf role="mathtex">x \leq 2</sc:textLeaf> car la fonction racine est définie sur <sc:textLeaf role="mathtex">\mathbb R_+</sc:textLeaf>, d'où <sc:textLeaf role="mathtex">D</sc:textLeaf> inclus dans <sc:textLeaf role="mathtex">[0,2]</sc:textLeaf>
+</sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\ln</sc:textLeaf> est définie sur <sc:textLeaf role="mathtex">\mathbb R_+^*</sc:textLeaf> , d'où on a <sc:textLeaf role="mathtex">\sqrt(x)-\sqrt(2-x)&gt;0</sc:textLeaf>, ce qui équivaut à  <sc:textLeaf role="mathtex">x&gt;2-x</sc:textLeaf> (car <sc:textLeaf role="mathtex">x</sc:textLeaf> et <sc:textLeaf role="mathtex">2-x</sc:textLeaf> sont positifs), soit <sc:textLeaf role="mathtex">x&gt;1</sc:textLeaf>. Ainsi <sc:textLeaf role="mathtex">D\subset]1,2]</sc:textLeaf>. On a bien pour tout <sc:textLeaf role="mathtex">x\in]1,2]</sc:textLeaf> , <sc:textLeaf role="mathtex">f(x)</sc:textLeaf> défini sur : <sc:textLeaf role="mathtex">D=]1,2]</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

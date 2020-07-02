@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3">
+		<op:exeM>
+			<sp:themeLycee xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-analyse-equations-</sp:themeLycee>
+			<sp:themeLicence xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-equa-</sp:themeLicence>
+			<sp:level xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">3</sp:level>
+			<sp:educationLevel xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">L1</sp:educationLevel>
+			<sp:info xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">ECRA-IREM-Clermont-Ferrand</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">Soit <sc:textLeaf role="mathtex">x</sc:textLeaf> un réel dans <sc:textLeaf role="mathtex">\left[0 ;\frac {\pi}{2}\right]</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">l'équation <sc:textLeaf role="mathtex">2\sin(2x)-1=0</sc:textLeaf> admet une solution unique</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">l'équation <sc:textLeaf role="mathtex">2\sin (2x)-1=0</sc:textLeaf> a pour solutions <sc:textLeaf role="mathtex">x=\frac {\pi}{12}</sc:textLeaf> ou <sc:textLeaf role="mathtex">\frac{5\pi}{12}</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">l'inéquation <sc:textLeaf role="mathtex">2\sin(2x)-1\leq0</sc:textLeaf> a pour ensemble de solutions  <sc:textLeaf role="mathtex">\left[0 ; \frac {\pi}{6}\right]</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">l'inéquation <sc:textLeaf role="mathtex">2\sin(2x)-1\leq0</sc:textLeaf> a pour ensemble de solutions  <sc:textLeaf role="mathtex">\left[\frac{\pi}{12} ;\frac {5\pi}{12}\right]</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="2"/>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">Pour résoudre une équation trigonométrique de la forme <sc:textLeaf role="mathtex">\cos X=a</sc:textLeaf> ou<sc:textLeaf role="mathtex">\sin X=a</sc:textLeaf>, <sc:textLeaf role="mathtex">a</sc:textLeaf> réel, on peut utiliser un cercle trigonométrique</sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">2\sin (2x)-1=0 \Leftrightarrow \sin(2x)=\frac 1 2</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">En posant <sc:textLeaf role="mathtex">X=2x</sc:textLeaf> , cette équation s'écrit <sc:textLeaf role="mathtex">\sin X=\frac 1 2</sc:textLeaf>, <sc:textLeaf role="mathtex">X \in [0 ;\pi]</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sp:txt>
+				<sp:txtRes xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txtRes>
+						<op:txtResM>
+							<sp:pos>lft</sp:pos>
+						</op:txtResM>
+						<sp:txt>
+							<op:txt>
+								<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\sin X=\frac 1 2</sc:textLeaf>, <sc:textLeaf role="mathtex">X \in [0 ;\pi]\Leftrightarrow X=\frac {\pi}{6}</sc:textLeaf> ou <sc:textLeaf role="mathtex">X=\frac {5\pi}6</sc:textLeaf>
+</sc:para>
+							</op:txt>
+						</sp:txt>
+						<sp:img sc:refUri="Ressources/E011_1.PNG"/>
+					</op:txtRes>
+				</sp:txtRes>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">Donc <sc:textLeaf role="mathtex">x=\frac {\pi}{12}</sc:textLeaf> ou <sc:textLeaf role="mathtex">x=\frac {5\pi}{12}</sc:textLeaf>
+</sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">S=\left\{\frac {\pi}{12} ;\frac{5\pi}{12}\right\}</sc:textLeaf>
+</sc:para>
+						<sc:para xml:space="preserve">On procède de la même manière pour une inéquation.</sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">2\sin(2x)-1\leq0\Leftrightarrow\sin(2x)\leq\frac 1 2</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">En posant <sc:textLeaf role="mathtex">X=2x</sc:textLeaf>, cette inéquation s'écrit <sc:textLeaf role="mathtex">\sin X\leq \frac 1 2</sc:textLeaf>, <sc:textLeaf role="mathtex">X\in [0 ;\pi]</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sp:txt>
+				<sp:txtRes xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txtRes>
+						<op:txtResM>
+							<sp:pos>lft</sp:pos>
+						</op:txtResM>
+						<sp:txt>
+							<op:txt>
+								<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\sin X\leq\frac 1 2</sc:textLeaf>, <sc:textLeaf role="mathtex">X \in [0 ;\pi]\Leftrightarrow X\leq\frac {\pi}{6}</sc:textLeaf> ou <sc:textLeaf role="mathtex">\frac {5\pi}6\leq X\leq \pi</sc:textLeaf>
+</sc:para>
+							</op:txt>
+						</sp:txt>
+						<sp:img sc:refUri="Ressources/E011_2.PNG"/>
+					</op:txtRes>
+				</sp:txtRes>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">Donc <sc:textLeaf role="mathtex">0\leq x\leq\frac {\pi}{12}</sc:textLeaf> ou <sc:textLeaf role="mathtex">\frac {5\pi}{12}\leq x\leq\frac {\pi}{2}</sc:textLeaf>
+</sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">S=\Bigg[0 ;\frac{\pi}{12}\Bigg]\cup \Bigg[\frac {5\pi}{12} ;\frac{\pi}{2}\Bigg]</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

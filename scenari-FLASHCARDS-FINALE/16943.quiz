@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#math-probastat-modrepetexp-</sp:themeLycee>
+			<sp:themeLicence>#math-stat-</sp:themeLicence>
+			<sp:level>2</sp:level>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      <sc:phrase role="url"><op:urlM xmlns:sc="http://www.utc.fr/ics/scenari/v3/core" xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive"><sp:url>www.parisdescartes.fr</sp:url></op:urlM>
+parisdescartes.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="hur" creationTime="1460412476705">... au cours de 7 lancer est :</comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Un jeu de fête foraine consiste à lancer des balles dans 
+  <sc:textLeaf role="mathtex">\textstyle{2}</sc:textLeaf>
+ cibles, l'une rouge, la seconde jaune. La probabilité d'atteindre la cible rouge est égale à 
+  <sc:textLeaf role="mathtex">\textstyle{\frac{1}{20}}</sc:textLeaf>, et celle d'atteindre la jaune est 
+  <sc:textLeaf role="mathtex">\textstyle{\frac{1}{10}}</sc:textLeaf>. La probabilité d'atteindre la cible jaune au moins 
+  <sc:textLeaf role="mathtex">\textstyle{2}</sc:textLeaf>
+ fois au cours de 7 lancers est :
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			
+  <sc:textLeaf role="mathtex">\textstyle{\left(\frac{9}{10}\right)^6 \frac{8}{5}}</sc:textLeaf>
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			
+  <sc:textLeaf role="mathtex">\textstyle{1-\left(\frac{9}{10}\right)^6 \frac{8}{5}}</sc:textLeaf>
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			
+  <sc:textLeaf role="mathtex">\textstyle{\left(\frac{8}{5}\right)^6 \frac{9}{10}}</sc:textLeaf>
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			
+  <sc:textLeaf role="mathtex">\textstyle{1- \left(\frac{8}{5}\right)^6 \frac{9}{10}}</sc:textLeaf>
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="2"/>
+	</op:mcqSur>
+</sc:item>

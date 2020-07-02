@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:title>Les acides nucléiques</sp:title>
+			<sp:themeLycee>#scvie-terunivers-natvivant-</sp:themeLycee>
+			<sp:themeLicence>#bio-angenome-</sp:themeLicence>
+			<sp:level>1</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<op:info>
+					<sp:keywds>
+						<op:keywds>
+							<sp:keywd>biochimie</sp:keywd>
+							<sp:keywd>biologie moléculaire</sp:keywd>
+							<sp:keywd>ADN</sp:keywd>
+						</op:keywds>
+					</sp:keywds>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      Université Lille 1
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">Dans une molécule d'ADN, il y a :</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">autant de thymine que d'adénine.							
+					</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						autant de thymine que de guanine.							
+					</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">autant de thymine que d'uracile.							
+					</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">autant de ribose que de désoxyribose.							
+					</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="1"/>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			L'ADN est constitué de deux brins d'ADN. Les deux chaînes de nucléotides sont liées par des liaisons hydrogènes entre chaque paire de bases azotées complémentaires : adénine avec thymine et guanine avec cytosine. On dit que les deux brins d'ADN sont complémentaires : si on a un A au niveau du premier brin, on aura un T au niveau du deuxième brin. Il y a donc autant de thymine que d'adénine et autant de guanine que de cytosine dans la molécule d'ADN.
+		</sc:para>
+						<sc:para xml:space="preserve">Les quatre bases azotées que l'on retrouve au niveau de l'ADN sont : Adénine, Thymine,
+		Guanine et Cytosine. On ne trouve l'Uracile qu'au niveau de l'ARN (à la place de la Thymine).</sc:para>
+						<sc:para xml:space="preserve">Le sucre constitutif des nucléotides au niveau de l'ADN est uniquement le désoxyribose (le ribose se retrouve au niveau de l'ARN).</sc:para>
+						<sc:para xml:space="preserve">
+			Ressources à consulter : 
+		</sc:para>
+						<sc:itemizedList>
+							<sc:listItem>
+								<sc:para xml:space="preserve">
+			
+  
+  <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://www.snv.jussieu.fr/vie/documents/decouverteadn/index.htm</sp:url>
+</op:urlM>ADN</sc:phrase>
+</sc:para>
+							</sc:listItem>
+						</sc:itemizedList>
+						<sc:itemizedList>
+							<sc:listItem>
+								<sc:para xml:space="preserve">
+			
+  
+  <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://www.snv.jussieu.fr/vie/dossiers/m&amp;s/m&amp;s.html</sp:url>
+</op:urlM>ARN et ADN</sc:phrase>
+  
+  
+		</sc:para>
+							</sc:listItem>
+						</sc:itemizedList>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

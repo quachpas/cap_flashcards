@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:title>La pollinisation</sp:title>
+			<sp:themeLycee>#scvie-terunivers-exemviefix-</sp:themeLycee>
+			<sp:themeLicence>#bio-bioveget-</sp:themeLicence>
+			<sp:level>1</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      <sc:phrase role="url"><op:urlM>
+<sp:url>http://univ-lemans.fr</sp:url>
+</op:urlM>
+Le Mans Université</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Les insectes pollinisateurs sont attirés par :
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						la couleur des pétales.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						la forme des feuilles.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						l'odeur des fleurs.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Les fleurs entomogames dont la pollinisation est assurée par les insectes ont développé différentes stratégies pour les attirer (couleur, parfum, nectar). Par exemple, pour attirer certaines espèces d'insectes, les pétales et l'odeur de certaines orchidées miment la forme et l'odeur des femelles de ces espèces. Trompés, les insectes mâles cherchent à s'accoupler avec la fleur et la pollinisent par la même occasion.</sc:para>
+						<sc:para xml:space="preserve">
+<sc:inlineStyle role="emp">Pour en savoir plus :</sc:inlineStyle>
+</sc:para>
+						<sc:para xml:space="preserve">
+<sc:phrase role="url"><op:urlM>
+<sp:url>http://www.snv.jussieu.fr/bmedia/Pollinisation/index.htm</sp:url>
+<sp:title>La pollinisation</sp:title>
+</op:urlM>
+La pollinisation</sc:phrase>
+</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

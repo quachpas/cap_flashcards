@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#phys-obs-coulvisim-oeilmodred-</sp:themeLycee>
+			<sp:themeLicence>#phys-optigeom-</sp:themeLicence>
+			<sp:level><!--<comment xmlns="scenari.eu:comment:1.0" type="thread"><comment author="ves" creationTime="1520848508451">niveau 3</comment></comment>-->2</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://univ-lille1.fr</sp:url>
+</op:urlM>univ-lille1.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">Une montgolfière circulaire, de 10 m de diamètre,  est observée par un œil réduit (modèle de l’œil constitué d'une lentille convergente et d'un écran). La distance focale de la lentille qui constitue l'œil réduit est égale à 16 mm. 
+		La montgolfière est à une distance de 100 m de l’œil réduit.</sc:para>
+						<sc:para xml:space="preserve">
+			Le diamètre de l'image qui se forme sur la rétine du modèle de l’œil (=écran) vaut :</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			<sc:textLeaf role="mathtex">0,16 \textrm{ mm}</sc:textLeaf></sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			<sc:textLeaf role="mathtex">0,8 \textrm{ mm}</sc:textLeaf></sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			<sc:textLeaf role="mathtex">1,6 \textrm{ mm}</sc:textLeaf></sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			<sc:textLeaf role="mathtex">16 \textrm{ mm}</sc:textLeaf></sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">On cherche à connaître la taille de l'image <sc:textLeaf role="mathtex">\overline{A'B'}</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">On sait que  <sc:textLeaf role="mathtex">\overline{OA}=-100 \textrm{ m}</sc:textLeaf>, <sc:textLeaf role="mathtex">f'=16\times 10^{-3} \textrm{ m}</sc:textLeaf> et on va utiliser les formules du grandissement : <sc:textLeaf role="mathtex">\gamma=\frac{\overline{A'B'}}{\overline{AB}}=\frac{\overline{OA'}}{\overline{OA}}</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">Pour utiliser la formule du grandissement pour trouver <sc:textLeaf role="mathtex">\overline{A'B'}</sc:textLeaf>, il faut la taille de l'objet (<sc:textLeaf role="mathtex">\overline{AB}</sc:textLeaf>, donnée de l'énoncé), la position de l'objet (<sc:textLeaf role="mathtex">\overline{OA}</sc:textLeaf>, donnée de l'énoncé) et la position de l'image (<sc:textLeaf role="mathtex">\overline{OA'}</sc:textLeaf>). L'énoncé dit que l'image se forme sur la rétine, donc <sc:textLeaf role="mathtex">\overline{OA'}=f'</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">Ensuite, on utilise la formule du grandissement : <sc:textLeaf role="mathtex">\gamma=\frac{\overline{OA'}}{\overline{OA}}=\frac{16\times 10^{-3}}{-100}=-1,6\times 10^{-4}</sc:textLeaf>.
+</sc:para>
+						<sc:para xml:space="preserve">Le grandissement est aussi défini par <sc:textLeaf role="mathtex">\gamma=\frac{\overline{A'B'}}{\overline{AB}}</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">Donc <sc:textLeaf role="mathtex">A'B'=1,6\times 10^{-4}\times 10=1,6 \textrm{ mm}</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">Vous pouvez revoir <sc:phrase role="url"><op:urlM>
+<sp:url>http://uel.unisciel.fr/physique/optigeo/optigeo_ch08/co/apprendre_ch08_01.html</sp:url>
+</op:urlM>Lentilles minces</sc:phrase>.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

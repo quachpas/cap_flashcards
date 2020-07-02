@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#math-analyse-derivation-nbrderivfonc-</sp:themeLycee>
+			<sp:themeLicence>#math-derivation-</sp:themeLicence>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      UTT, 
+      Lacresse, 
+      Visca, 
+      30-05-2012, 
+      <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://utt.fr</sp:url>
+</op:urlM>utt.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			La fonction définie sur <sc:textLeaf role="mathtex">[0;+\infty[</sc:textLeaf> par <sc:textLeaf role="mathtex">f(x)=x^2\ln x</sc:textLeaf> et <sc:textLeaf role="mathtex">f(0)=0</sc:textLeaf> est
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			dérivable en <sc:textLeaf role="mathtex">0</sc:textLeaf> et <sc:textLeaf role="mathtex">f'(0)=0</sc:textLeaf>.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			non dérivable en <sc:textLeaf role="mathtex">0</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			dérivable en <sc:textLeaf role="mathtex">0</sc:textLeaf> et <sc:textLeaf role="mathtex">f'(0)=1</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="1"/>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			On peut écrire l'expression du taux d'accroissement de cette fonction en <sc:textLeaf role="mathtex">x=0</sc:textLeaf> et déterminer la limite de l'expression <sc:textLeaf role="mathtex">x\ln x</sc:textLeaf> en <sc:textLeaf role="mathtex">0</sc:textLeaf>, déduite de la limite de référence <sc:textLeaf role="mathtex">\frac{\ln X}{X}</sc:textLeaf> lorsque <sc:textLeaf role="mathtex">X=\frac{1}{x}</sc:textLeaf> tend vers <sc:textLeaf role="mathtex">+\infty</sc:textLeaf>.
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

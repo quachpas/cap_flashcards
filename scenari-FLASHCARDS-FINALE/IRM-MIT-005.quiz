@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3">
+		<op:exeM>
+			<sp:themeLycee xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-analyse-integration-</sp:themeLycee>
+			<sp:themeLicence xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-integration-</sp:themeLicence>
+			<sp:level xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">3</sp:level>
+			<sp:educationLevel xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">L0</sp:educationLevel>
+			<sp:info xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">ECRA-IREM-Clermont-Ferrand</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">Une primitive de <sc:textLeaf role="mathtex">\frac {\ln x}x</sc:textLeaf> sur <sc:textLeaf role="mathtex">]0 ;+\infty [</sc:textLeaf> est :</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\ln(\ln x)</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\frac1{x^2}</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\frac{1}{2}(\ln x)^2</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\frac12 (\ln x)^2 + \frac 43</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:inlineStyle role="emp">Définition :</sc:inlineStyle>
+</sc:para>
+						<sc:para xml:space="preserve">Soit <sc:textLeaf role="mathtex">f</sc:textLeaf> une fonction définie et continue sur un intervalle <sc:textLeaf role="mathtex">I</sc:textLeaf> de <sc:textLeaf role="mathtex">\mathbb R</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">La fonction <sc:textLeaf role="mathtex">F</sc:textLeaf> est <sc:inlineStyle role="emp">une primitive</sc:inlineStyle> de <sc:textLeaf role="mathtex">f</sc:textLeaf> sur <sc:textLeaf role="mathtex">I</sc:textLeaf> si pour tout <sc:textLeaf role="mathtex">x</sc:textLeaf> de <sc:textLeaf role="mathtex">I</sc:textLeaf>, on a <sc:textLeaf role="mathtex">F'(x)=f(x)</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sp:txt>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:inlineStyle role="emp">Propriété :</sc:inlineStyle>
+</sc:para>
+						<sc:para xml:space="preserve">Pour toute fonction dérivable <sc:textLeaf role="mathtex">u</sc:textLeaf>, on a :</sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\left(u^n\right)'=nu'u^{n-1}</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sp:txt>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:inlineStyle role="emp">Propriété :</sc:inlineStyle>
+</sc:para>
+						<sc:para xml:space="preserve">Si <sc:textLeaf role="mathtex">F</sc:textLeaf> est une primitive de <sc:textLeaf role="mathtex">f</sc:textLeaf> sur un intervalle <sc:textLeaf role="mathtex">I</sc:textLeaf> alors l'ensemble des primitives de <sc:textLeaf role="mathtex">f</sc:textLeaf> sur <sc:textLeaf role="mathtex">I</sc:textLeaf> est l'ensemble des fonctions de la forme <sc:textLeaf role="mathtex">F+k</sc:textLeaf>, avec <sc:textLeaf role="mathtex">k</sc:textLeaf> réel quelconque.</sc:para>
+					</op:txt>
+				</sp:txt>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">On remarque que <sc:textLeaf role="mathtex">\frac{\ln x}{x}=\frac1x\times\ln x=u'u^n</sc:textLeaf> avec <sc:textLeaf role="mathtex">u(x)=\ln x\;\mathrm{et}\; n=1</sc:textLeaf>
+</sc:para>
+						<sc:para xml:space="preserve">Or une primitive de <sc:textLeaf role="mathtex">u'u^n\; , n\neq1,\;\;\mathrm{est}\;\;\frac{1}{n+1}u^{n+1}</sc:textLeaf>
+</sc:para>
+						<sc:para xml:space="preserve">Donc une primitive de <sc:textLeaf role="mathtex">\frac{\ln x}{x}\;\;\mathrm{est}\;\;\frac12(\ln x)^2</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

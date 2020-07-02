@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#math-analyse-limfonc-limsomprod-</sp:themeLycee>
+			<sp:themeLicence>#math-fonctions-</sp:themeLicence>
+			<sp:level>3</sp:level>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      UTT, 
+      Lacresse, 
+      Visca, 
+      30-05-2012, 
+      <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://utt.fr</sp:url>
+</op:urlM>utt.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="fav" creationTime="1467381452102">cf commentaire 9405, uniformiser.</comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Déterminer, si elle existe, <sc:textLeaf role="mathtex">\lim\limits_{x\to+\infty}\frac{x^3}{\ln x}</sc:textLeaf>.
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			<sc:textLeaf role="mathtex">0</sc:textLeaf></sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">+\infty</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			<sc:textLeaf role="mathtex">2</sc:textLeaf></sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">-\infty</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Elle n'existe pas.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="2"/>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="fav" creationTime="1467381494181" updateTime="1467381667126">cf question précédente.
+On remarque que x^3/lnx = x^2*(x/lnx).</comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">
+			On remarque que <sc:textLeaf role="mathtex">\frac{x^3}{\ln x}= x^2\times\left(\frac{x}{\ln x}\right)</sc:textLeaf>. On s'appuie sur la limite connue  <sc:textLeaf role="mathtex">\lim\limits_{x\to +\infty}\frac{\ln x}{x}=0</sc:textLeaf>. De plus, pour <sc:textLeaf role="mathtex">x&gt;1</sc:textLeaf>, <sc:textLeaf role="mathtex">\frac{\ln x}{x}&gt;0</sc:textLeaf>, et donc  <sc:textLeaf role="mathtex">\lim\limits_{x\to +\infty}\frac{x}{\ln x}=\lim\limits_{x\to +\infty}\frac{1}{\frac{\ln x}{x}}=\lim\limits_{X\to 0^+}\frac{1}{X}=+\infty</sc:textLeaf>. A fortiori, la limite recherchée vaut <sc:textLeaf role="mathtex">+\infty</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

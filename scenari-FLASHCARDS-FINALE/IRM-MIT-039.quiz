@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3">
+		<op:exeM>
+			<sp:themeLycee xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-analyse-integration-</sp:themeLycee>
+			<sp:themeLicence xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-integration-</sp:themeLicence>
+			<sp:level xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">4</sp:level>
+			<sp:educationLevel xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">L0</sp:educationLevel>
+			<sp:info xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">ECRA-IREM-Clermont-Ferrand</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">Soit <sc:textLeaf role="mathtex">a&gt;0</sc:textLeaf>, <sc:textLeaf role="mathtex">a\neq1</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">On a <sc:textLeaf role="mathtex">\lim\limits_{x \rightarrow + \infty}\displaystyle \int_a^{a^2}xe^{-x^2}dx=0</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">On a <sc:textLeaf role="mathtex">\lim\limits_{a \rightarrow + \infty} \displaystyle\int_a^{a^2}xe^{-x^2}dx=0</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">On a <sc:textLeaf role="mathtex">\lim\limits_{x \rightarrow + \infty}\displaystyle \int_a^{a^2}xe^{-x^2}dt=0</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">On a <sc:textLeaf role="mathtex">\lim\limits_{a \rightarrow + \infty} \displaystyle\int_a^{a^2}xe^{-x^2}dt=+\infty</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">Les bonnes réponses sont <sc:textLeaf role="mathtex">\lim\limits_{a \rightarrow + \infty} \displaystyle\int_a^{a^2}xe^{-x^2}dx=0</sc:textLeaf> et <sc:textLeaf role="mathtex">\lim\limits_{x \rightarrow + \infty}\displaystyle \int_a^{a^2}xe^{-x^2}dt=0</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">L'affirmation "On a <sc:textLeaf role="mathtex">\lim\limits_{x \rightarrow + \infty}\displaystyle \int_a^{a^2}xe^{-x^2}dx=0</sc:textLeaf>" est fausse (et n'a pas grand sens) : en effet, l'intégrale <sc:textLeaf role="mathtex">\displaystyle \int_a^{a^2}xe^{-x^2}dx</sc:textLeaf> ne dépend pas de la variable muette <sc:textLeaf role="mathtex">x</sc:textLeaf>, donc à <sc:textLeaf role="mathtex">a</sc:textLeaf> fixé cette quantité est constante et non nulle (puisque <sc:textLeaf role="mathtex">a^2\neq a</sc:textLeaf> car <sc:textLeaf role="mathtex">a\neq 0</sc:textLeaf> et <sc:textLeaf role="mathtex">a \neq 1</sc:textLeaf>, et que la fonction <sc:textLeaf role="mathtex">x\mapsto xe^{-x^2}</sc:textLeaf> est strictement positive sur <sc:textLeaf role="mathtex">\mathbb{R}</sc:textLeaf>).</sc:para>
+						<sc:para xml:space="preserve">L'affirmation "On a <sc:textLeaf role="mathtex">\lim\limits_{a \rightarrow + \infty} \displaystyle\int_a^{a^2}xe^{-x^2}dx=0</sc:textLeaf>" est juste : notons <sc:textLeaf role="mathtex">f(x)=xe^{-x^2}.</sc:textLeaf> On constate que <sc:textLeaf role="mathtex">f(x)=-\frac12u'(x)e^{u(x)},</sc:textLeaf> où <sc:textLeaf role="mathtex">u(x)=-x^2.</sc:textLeaf> On peut donc choisir comme primitive de <sc:textLeaf role="mathtex">f</sc:textLeaf> la fonction <sc:textLeaf role="mathtex">F(x)=-\frac12e^{u(x)}=-\frac12e^{-x^2}</sc:textLeaf>. On a alors, par le théorème fondamentale de l'intégration, l'égalité <sc:textLeaf role="mathtex">\displaystyle \int_a^{a^2}xe^{-x^2}dx=F(a^2)-F(a)=-\frac12(e^{-a^{4}}-e^{-a^2}).</sc:textLeaf> Comme <sc:textLeaf role="mathtex">\lim\limits_{a \rightarrow + \infty} e^{-a^{4}}=\lim\limits_{a \rightarrow + \infty} e^{-a^2}=0</sc:textLeaf>, on a bien <sc:textLeaf role="mathtex">\lim\limits_{a \rightarrow + \infty} \displaystyle\int_a^{a^2}xe^{-x^2}dx=0</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">L'affirmation "On a <sc:textLeaf role="mathtex">\lim\limits_{x \rightarrow + \infty}\displaystyle \int_a^{a^2}xe^{-x^2}dt=0</sc:textLeaf>" est juste : ici l'intégrale <sc:textLeaf role="mathtex">\displaystyle \int_a^{a^2}xe^{-x^2}dt</sc:textLeaf> est facile à calculer, car la fonction <sc:textLeaf role="mathtex">t\mapsto xe^{-x^2}</sc:textLeaf> ne dépend pas de la variable d'intégration <sc:textLeaf role="mathtex">t</sc:textLeaf>. Cette intégrale vaut donc <sc:textLeaf role="mathtex">xe^{-x^2}(a^{2}-a)</sc:textLeaf>. Comme, par croissance comparée, on a <sc:textLeaf role="mathtex">\lim\limits_{x\rightarrow+\infty}xe^{-x^2}=0</sc:textLeaf>, on en déduit que <sc:textLeaf role="mathtex">\lim\limits_{x\rightarrow+\infty}xe^{-x^2}(a^2-a)=0</sc:textLeaf>, et donc que <sc:textLeaf role="mathtex">\lim\limits_{x \rightarrow + \infty}\displaystyle \int_a^{a^2}xe^{-x^2}dt=0</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">L'affirmation "On a <sc:textLeaf role="mathtex">\lim\limits_{a \rightarrow + \infty} \displaystyle\int_a^{a^2}xe^{-x^2}dt=+\infty</sc:textLeaf>" n'est pas juste en général (cela dépend du signe de <sc:textLeaf role="mathtex">x</sc:textLeaf>, qui n'est pas précisé ici). En effet, comme on l'a vu précédemment, on a <sc:textLeaf role="mathtex">\displaystyle \int_{a}^{a^{2}}xe^{-x^2}dt=xe^{-x^2}(a^2-a).</sc:textLeaf> On a <sc:textLeaf role="mathtex">\lim\limits_{a\rightarrow+\infty}a^2-a=\lim\limits_{a\rightarrow+\infty}a(a-1)=+\infty.</sc:textLeaf> Ainsi, si <sc:textLeaf role="mathtex">x&gt;0</sc:textLeaf>, on obtient <sc:textLeaf role="mathtex">\lim \limits_{a\rightarrow+\infty}xe^{-x^2}(a^2-a)=+\infty</sc:textLeaf>, et si <sc:textLeaf role="mathtex">x&lt;0</sc:textLeaf> on obtient <sc:textLeaf role="mathtex">\lim \limits_{a\rightarrow+\infty}xe^{-x^2}(a^2-a)=-\infty</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

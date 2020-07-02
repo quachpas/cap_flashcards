@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3">
+		<op:exeM>
+			<sp:themeLycee xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-analyse-integration-</sp:themeLycee>
+			<sp:themeLicence xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-integration-</sp:themeLicence>
+			<sp:level xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">3</sp:level>
+			<sp:educationLevel xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">L0</sp:educationLevel>
+			<sp:info xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">ECRA-IREM-Clermont-Ferrand</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">On donne l'intégrale <sc:textLeaf role="mathtex">I=\displaystyle\int_{-1}^3 |x| dx</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sp:txt>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:inlineStyle role="emp">Coup de pouce</sc:inlineStyle>
+</sc:para>
+						<sc:para xml:space="preserve">Penser à utiliser la relation de Chasles sur l'intervalle <sc:textLeaf role="mathtex">[-1 ;3]</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">I=4</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">I=\frac92</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">I=5</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">On ne peut calculer <sc:textLeaf role="mathtex">I</sc:textLeaf> car on ne connaît pas de primitive de <sc:textLeaf role="mathtex">|x|</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="3"/>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:inlineStyle role="emp">Définition</sc:inlineStyle>
+</sc:para>
+						<sc:para xml:space="preserve">La valeur absolue d'un réel <sc:textLeaf role="mathtex">x</sc:textLeaf>, notée <sc:textLeaf role="mathtex">|x|</sc:textLeaf>, est définie par : <sc:textLeaf role="mathtex">|x|=\left\lbrace\begin{array}{lll} x\quad \mathrm{si} \; x\geq 0 \\ -x \quad \mathrm{si}\; x&lt;0  \end{array}\right.</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sp:txt>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:inlineStyle role="emp">Relation de Chasles</sc:inlineStyle>
+</sc:para>
+						<sc:para xml:space="preserve">Soit <sc:textLeaf role="mathtex">f</sc:textLeaf> une fonction définie et continue sur un intervalle <sc:textLeaf role="mathtex">I</sc:textLeaf> de <sc:textLeaf role="mathtex">\mathbb R</sc:textLeaf> et soient <sc:textLeaf role="mathtex">a</sc:textLeaf>,<sc:textLeaf role="mathtex">b</sc:textLeaf> et <sc:textLeaf role="mathtex">c</sc:textLeaf> trois réels de <sc:textLeaf role="mathtex">I</sc:textLeaf>. On a l'égalité suivante : <sc:textLeaf role="mathtex">\displaystyle{\int_a^bf(x)dx=\int_a^cf(x)dx+\int_c^bf(x)dx}</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sp:txt>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">Pour déterminer une primitive de <sc:textLeaf role="mathtex">|x|</sc:textLeaf> sur <sc:textLeaf role="mathtex">[-1 ;3]</sc:textLeaf>, il faut utiliser l'écriture de <sc:textLeaf role="mathtex">|x|</sc:textLeaf>  sur <sc:textLeaf role="mathtex">[-1 ;0]</sc:textLeaf> et sur <sc:textLeaf role="mathtex">[0 ;3]</sc:textLeaf> et appliquer la relation de Chasles.</sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">I=\displaystyle{\int_{-1}^3|x|dx=\int_{-1}^0|x|dx+\int_0^3|x|dx=\int_{-1}^0-xdx+\int_0^3xdx=\left[-\frac{x^2}2\right]^0_{-1}+\left[\frac{x^2}2\right]^3_0=\frac12+\frac92=5}</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sp:txt>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">Remarque :</sc:para>
+						<sc:para xml:space="preserve">On peut aussi utiliser la représentation graphique de <sc:textLeaf role="mathtex">|x|</sc:textLeaf> sur <sc:textLeaf role="mathtex">[-1 ;3]</sc:textLeaf> et calculer graphiquement l'aire demandée.</sc:para>
+					</op:txt>
+				</sp:txt>
+				<sp:txtRes xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txtRes>
+						<op:txtResM>
+							<sp:pos>lft</sp:pos>
+						</op:txtResM>
+						<sp:txt>
+							<op:txt>
+								<sc:para xml:space="preserve">L'aire demandée est égale à <sc:textLeaf role="mathtex">0,5+4,5=5 u.a.</sc:textLeaf>
+</sc:para>
+							</op:txt>
+						</sp:txt>
+						<sp:img sc:refUri="illustrations/irm_clf_mit_014-1.PNG"/>
+					</op:txtRes>
+				</sp:txtRes>
+				<sp:txtRes xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txtRes>
+						<op:txtResM>
+							<sp:pos>rgt</sp:pos>
+						</op:txtResM>
+						<sp:txt>
+							<op:txt>
+								<sc:para xml:space="preserve">Pour ce calcul, on a utilisé la propriété suivante :</sc:para>
+								<sc:para xml:space="preserve">Soit <sc:textLeaf role="mathtex">f</sc:textLeaf> une fonction définie, continue et positive sur <sc:textLeaf role="mathtex"> [a ; b]</sc:textLeaf> (avec <sc:textLeaf role="mathtex">a &lt; b</sc:textLeaf>).</sc:para>
+								<sc:para xml:space="preserve">L'intégrale de <sc:textLeaf role="mathtex">f</sc:textLeaf> entre <sc:textLeaf role="mathtex">a</sc:textLeaf> et <sc:textLeaf role="mathtex">b</sc:textLeaf> est égale à l'aire « sous la courbe » de la fonction <sc:textLeaf role="mathtex">f</sc:textLeaf>, c'est-à-dire l'aire de la partie du plan délimitée par la courbe de <sc:textLeaf role="mathtex">f</sc:textLeaf>, l'axe des abscisses et les deux droites d'équation<sc:textLeaf role="mathtex"> x = a</sc:textLeaf> et <sc:textLeaf role="mathtex">x = b</sc:textLeaf>.</sc:para>
+								<sc:para xml:space="preserve">Cette aire est exprimée en <sc:textLeaf role="mathtex">u.a.</sc:textLeaf> (unité d'aire).</sc:para>
+							</op:txt>
+						</sp:txt>
+						<sp:img sc:refUri="illustrations/irm_clf_mit_014-2.PNG"/>
+					</op:txtRes>
+				</sp:txtRes>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

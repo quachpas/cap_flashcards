@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#math-analyse-suites-suitarithgeom-</sp:themeLycee>
+			<sp:themeLicence>#math-suites-</sp:themeLicence>
+			<sp:level>4</sp:level>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://unistra.fr</sp:url>
+</op:urlM>unistra.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">  Soient <sc:textLeaf role="mathtex">(v_n)_{n\ge 0}</sc:textLeaf> et <sc:textLeaf role="mathtex">(w_n)_{n\ge 0}</sc:textLeaf> deux suites de réels définies par <sc:textLeaf role="mathtex">v_0</sc:textLeaf>, <sc:textLeaf role="mathtex">w_0</sc:textLeaf> et les relations de récurrence <sc:textLeaf role="mathtex">\begin{cases} v_{n+1}\ = &amp;\ w_n\\ w_{n+1}\ =&amp; -2v_n+3 w_n\\ \end{cases}</sc:textLeaf>   pour <sc:textLeaf role="mathtex">n\in\mathbb N</sc:textLeaf>. </sc:para>
+						<sc:para xml:space="preserve">On définit les suites <sc:textLeaf role="mathtex">(x_n)_{n\ge 0}</sc:textLeaf> et <sc:textLeaf role="mathtex">(y_n)_{n\ge 0}</sc:textLeaf> en posant <sc:textLeaf role="mathtex">\begin{cases} x_{n}\ &amp;= \ -v_n+w_n\\ y_{n}\ &amp; =\ 2v_n- w_n\\ \end{cases}</sc:textLeaf> pour <sc:textLeaf role="mathtex">n\in\mathbb N</sc:textLeaf>. </sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			   Les suites <sc:textLeaf role="mathtex">(x_n)</sc:textLeaf> et <sc:textLeaf role="mathtex">(y_n)</sc:textLeaf> sont des suites géométriques.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">On s'intéresse aux relations de récurrences satisfaites par ces suites. Pour <sc:textLeaf role="mathtex">n\geq 0</sc:textLeaf>, <sc:textLeaf role="mathtex">x_{n+1}=-v_{n+1}+w_{n+1}=-w_n-2v_n+3w_n=2x_n</sc:textLeaf> : <sc:textLeaf role="mathtex">(x_n)</sc:textLeaf> est une suite géométrique de raison <sc:textLeaf role="mathtex">2</sc:textLeaf>. Pour <sc:textLeaf role="mathtex">n\geq 0</sc:textLeaf>, <sc:textLeaf role="mathtex">y_{n+1}=2v_{n+1}-w{n+1}=2w_n+2v_n-3w_n=y_n</sc:textLeaf> : <sc:textLeaf role="mathtex">(y_n)</sc:textLeaf> est géométrique de raison <sc:textLeaf role="mathtex">1</sc:textLeaf> (autrement dit, constante).</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			   On a <sc:textLeaf role="mathtex">v_n=2^n(w_0-v_0)+2v_0-w_0</sc:textLeaf> pour tout <sc:textLeaf role="mathtex">n\in\mathbb N</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">On a, d'après l'explication de la réponse 1 : <sc:textLeaf role="mathtex">2v_n-w_n=y_n=y_0=2v_0-w_0</sc:textLeaf> et <sc:textLeaf role="mathtex">x_n=-v_n+w_n=x_0 2^n=(-v_0+w_0)2^n</sc:textLeaf>. En sommant ces deux relations, on obtient <sc:textLeaf role="mathtex">v_n=2v_0-w_0+(w_0-v_0)2^n</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			   On a <sc:textLeaf role="mathtex">v_n=w_0</sc:textLeaf> pour tout <sc:textLeaf role="mathtex">n\in\mathbb N</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			   On a <sc:textLeaf role="mathtex"> y_{n+1}=  2v_n+w_n</sc:textLeaf> pour tout <sc:textLeaf role="mathtex">n\in\mathbb N</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">On a <sc:textLeaf role="mathtex">y_{n+1}=2v_{n+1}n-w_{n+1}=2w_n-(-2v_n+3w_n)=2v_n-w_n</sc:textLeaf>. Si par exemple <sc:textLeaf role="mathtex">w_0\neq 0</sc:textLeaf>, la propriété proposée est fausse pour <sc:textLeaf role="mathtex">n=0</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+		</sc:choices>
+	</op:mcqMur>
+</sc:item>

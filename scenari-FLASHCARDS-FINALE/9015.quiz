@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:title>La loi de Boyle-Mariotte</sp:title>
+			<sp:themeLycee>#chim-pratspor-pression-loiboymar-</sp:themeLycee>
+			<sp:themeLicence>#chim-thermochim-</sp:themeLicence>
+			<sp:level><!--<comment xmlns="scenari.eu:comment:1.0" type="thread"><comment author="ves" creationTime="1519288518516">Niveau 2?</comment></comment>-->1</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<!--<comment xmlns="scenari.eu:comment:1.0" type="thread"><comment author="camille.dufourg" creationTime="1574414731407">Il manque les mots-clés et la licence.</comment></comment>-->
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">Université Nice-Sophia-Antipolis</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<!--<comment xmlns="scenari.eu:comment:1.0" type="thread"><comment author="ves" creationTime="1519289076092">Faudra revoir l'enoncé car les conditions n'ont pas été donnés donc la réponse 4 peut être consideré comme correcte.</comment></comment>-->
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			En notant P la pression, V le volume, n la quantité de matière et T la température du gaz considéré, la loi de Boyle-Mariotte s'énonce : </sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			P / V = constante.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			P + V = constante.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			P - V = constante.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="false"><comment author="cee" creationTime="1480344748065">Réponse qui porte à confusion puisque partiellement correcte (il suffit de préciser les conditions de la transformation).</comment></comment>-->
+				<!--<comment xmlns="scenari.eu:comment:1.0" type="thread"><comment author="mar" creationTime="1430988988176" updateTime="1430989086029">Je suggère de remplacer cette proposition par : PV^2 = constante. (le 2 est en exposant)
+En effet, la proposition de réponse est une formulation fausse de la loi du gaz parfait PV = nRT qui ne figure plus dans le programme du secondaire.
+Dans ce cas, il faut remplacer l'intitulé de la question par :
+En notant P la pression et V le volume du gaz considéré, la loi de Boyle-Mariotte s'énonce :</comment><comment author="map" creationTime="1431012298669" updateTime="1431012443791">^ = exposant. A revoir une question où toutes les propositions sont fausses. 
+On peut remplacer par PV=constante qui est la bonne remplacer. chercher dans la base si d'autres questions ne proposent aucune bonne réponse</comment></comment>-->
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			 P . V = constante.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Toutes les propositions sont fausses.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">Vous pouvez regarder la <sc:phrase role="url"><op:urlM>
+<sp:url>http://uel.unisciel.fr/chimie/strucmic/strucmic_ch10/co/apprendre_ch10_03.html</sp:url>
+</op:urlM>
+ressource.</sc:phrase></sc:para>
+						<sc:para xml:space="preserve">Transformations P, T, V. La loi stipule P1.V1 = P2.V2 lors de la détente ou de la pression isotherme d'un gaz d'un état 1 vers un état 2.
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

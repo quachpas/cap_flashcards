@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#math-probastat-condindep-indepeven-</sp:themeLycee>
+			<sp:themeLicence>#math-stat-</sp:themeLicence>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      indep, 
+      <sc:phrase role="url"><op:urlM xmlns:sc="http://www.utc.fr/ics/scenari/v3/core" xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive"><sp:url>www.parisdescartes.fr</sp:url></op:urlM>
+parisdescartes.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Si 
+  <sc:textLeaf role="mathtex">\textstyle{A}</sc:textLeaf>
+ est indépendant de 
+  <sc:textLeaf role="mathtex">\textstyle{B}</sc:textLeaf>
+ et si 
+  <sc:textLeaf role="mathtex">\textstyle{A}</sc:textLeaf>
+ est indépendant de 
+  <sc:textLeaf role="mathtex">\textstyle{C}</sc:textLeaf> alors  
+  <sc:textLeaf role="mathtex">\textstyle{A}</sc:textLeaf>
+ est indépendant de 
+  <sc:textLeaf role="mathtex">\textstyle{B\cap C}</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Vrai
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Faux
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="2"/>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Contre-exemple : on lance un dé tétraédrique équilibré avec quatre faces numérotées de 
+  <sc:textLeaf role="mathtex">\textstyle{1}</sc:textLeaf>
+ à 
+  <sc:textLeaf role="mathtex">\textstyle{4}</sc:textLeaf>. On note 
+  <sc:textLeaf role="mathtex">\textstyle{A=\{1, 2\}}</sc:textLeaf>
+, 
+  <sc:textLeaf role="mathtex">\textstyle{B=\{1, 3\}}</sc:textLeaf>, 
+  <sc:textLeaf role="mathtex">\textstyle{C=\{2, 3\}}</sc:textLeaf>. Alors 
+  <sc:textLeaf role="mathtex">\textstyle{A}</sc:textLeaf>
+ est indépendant de 
+  <sc:textLeaf role="mathtex">\textstyle{B}</sc:textLeaf>
+ et 
+  <sc:textLeaf role="mathtex">\textstyle{A}</sc:textLeaf>
+ est indépendant de 
+  <sc:textLeaf role="mathtex">\textstyle{C}</sc:textLeaf>, mais 
+  <sc:textLeaf role="mathtex">\textstyle{\mathbb{P}(A \cap B\cap C)= \mathbb{P}(\emptyset)= 0 \neq \frac{1}{4}= \mathbb{P}(A)\mathbb{P}(B\cap C)}</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

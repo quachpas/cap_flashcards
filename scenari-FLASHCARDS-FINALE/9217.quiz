@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#math-geo-droites-</sp:themeLycee>
+			<sp:themeLicence>#math-geo-</sp:themeLicence>
+			<sp:level>1</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://unistra.fr</sp:url>
+</op:urlM>unistra.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			  Dans le plan muni d'un repère orthonormal :</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			   Toutes les droites ont une équation de la forme <sc:textLeaf role="mathtex">y=ax+b</sc:textLeaf>, où a et b sont des réels.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">Non, il y a aussi des droites <sc:textLeaf role="mathtex">x=a</sc:textLeaf></sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			  Si une droite <sc:textLeaf role="mathtex">d</sc:textLeaf>  a une équation de la forme <sc:textLeaf role="mathtex">y=ax+b</sc:textLeaf> alors le vecteur <sc:textLeaf role="mathtex">\overrightarrow{u}</sc:textLeaf> de coordonnées (1; a) est un vecteur directeur de <sc:textLeaf role="mathtex">d</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">Oui, regarder la ressource dans l'explication globale.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">Si une droite a pour équation <sc:textLeaf role="mathtex">ax + by + c = 0</sc:textLeaf>, alors toute équation de la forme <sc:textLeaf role="mathtex">kax + kby + kc = 0</sc:textLeaf>, <sc:textLeaf role="mathtex">k</sc:textLeaf> étant un nombre réel non nul, reste une équation de cette droite.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">Oui, si k est un réel non nul, on peut simplifier la deuxième équation par k et donc obtenir l'équation de départ.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			   Si une droite <sc:textLeaf role="mathtex">d</sc:textLeaf> a une équation de la forme <sc:textLeaf role="mathtex">ax+by+c=0</sc:textLeaf> alors le vecteur <sc:textLeaf role="mathtex"> \overrightarrow{u}</sc:textLeaf> de coordonnées (a; b) est un vecteur directeur de <sc:textLeaf role="mathtex">d</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">Non, c'est un vecteur normal. Comparer avec la réponse 2.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="fam" creationTime="1464081364903">Si k est un réel non nul, on peut simplifier la deuxième équation par k et donc obtenir l'équation de départ. </comment><comment author="lam" creationTime="1484931960411">Choisir la (ou les) bonne(s) réponse(s).
+Préciser k non nul dans 3
+
+Explication
+Réponse 3 : Oui
+
+Niveau 1</comment><comment author="ves" creationTime="1524744165369">Ce qui a été enlevé après modifications demandés par "fam": Réponse 3 : non. Cette équation n'est pas unique. (on spécifie 3 nombres, alors que 2 suffisent pour décrire une droite : il y a donc un paramètre libre. )"</comment></comment>-->
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="qns" creationTime="1459932742787">Réponse 3 : "Si une droite a pour équation ax + by + c = 0, alors toute équation de la forme kax + kby + kc = 0, k est un nombre réel, reste une équation de cette droite"
+
+Réponse 4 : Au lycée, nous utilisons le terme "vecteur normal"</comment><comment author="pij" creationTime="1460357616841">Ludovic : d'accord</comment><comment author="ext-lug" creationTime="1460463813780">done</comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">Voici une ressource en lien avec le sujet : Géométrie dans l'espace: <sc:phrase role="url"><op:urlM>
+<sp:url>http://ressources.unisciel.fr/ramses/514-113a-produit-scalaire/co/514-113a_webUnisciel.html</sp:url>
+</op:urlM>
+Produits scalaire dans l'espace – Droites et plans dans l'espace</sc:phrase>
+</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

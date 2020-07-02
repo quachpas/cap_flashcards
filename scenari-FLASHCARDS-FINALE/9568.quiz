@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:title>Un prisme rectangle isocèle :</sp:title>
+			<sp:themeLycee>#phys-sante-diagmedic-refrrefl-</sp:themeLycee>
+			<sp:themeLicence>#phys-optigeom-</sp:themeLicence>
+			<sp:level><!--<comment xmlns="scenari.eu:comment:1.0" type="thread"><comment author="ves" creationTime="1520849831759">niveau 3?</comment></comment>-->2</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://univ-lille1.fr</sp:url>
+</op:urlM>univ-lille1.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			
+  
+   La section droite d'un prisme est un triangle rectangle isocèle. Il est en verre d'indice de réfraction égal à 1,500. Un rayon lumineux monochromatique arrive perpendiculairement à la face AB. 
+		</sc:para>
+						<sc:para xml:space="preserve">
+			En examinant la façon dont se propage le rayon lumineux à chaque fois qu'il rencontre un milieu matériel différent (face AB puis BC et enfin peut être AC), établir le parcours complet de ce rayon lumineux quand il sort du prisme.
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+				<sp:res sc:refUri="images/qcm_11_a.png">
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread"><comment author="stp" creationTime="1507120343255">Image assez basse résolution. Penser à faire des images plus haute résolution, surtout si publication papier.</comment></comment>-->
+					<op:resInfoM/>
+				</sp:res>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Propagation A.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Propagation B.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="false"><comment author="cee" creationTime="1481552071197">On parle d'un point J mais il n'apparait pas sur l'image</comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">
+			
+  
+   Si l'indice du verre était inférieur à 1,414 (n_air = 1), la propagation B serait correcte mais il faut ajouter le rayon partiellement réfléchi en J qui est le même que dans A.
+		</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Propagation C.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			
+  
+  On doit se rappeler que le rayon arrive en incidence normale (le rayon réfracté au passage de AB ne sera pas dévié) et on comprend que le rayon lumineux ne peut en aucun cas émerger de cette manière de la face BC. 
+		</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Propagation D.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			
+  
+   Si on se rappelle que le rayon arrive en incidence normale (le rayon réfracté au passage de AB ne sera pas dévié) et qu'il y a obligatoirement réflexion totale (application de la loi de Snell-Descartes) sur la face BC (interface verre-air), le rayon lumineux ne peut en aucun cas émerger de cette manière de la face AC.
+		</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:res sc:refUri="images/qcm_11_b.png">
+					<op:resInfoM/>
+				</sp:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">La propagation réelle à l'intérieur du prisme. Le rayon lumineux initial arrivant perpendiculairement à AB n'est pas dévié et arrive en J sur la face BC. Il fait un angle de 45° avec la normale à cette surface. Si on applique la loi de Snell-Descartes on trouve 
+  
+  	<sc:textLeaf role="mathtex">\textstyle{\sin{(i_{2})} &gt;1}</sc:textLeaf>.
+		</sc:para>
+						<sc:para xml:space="preserve">
+			Il y a donc réflexion totale de ce rayon en J. Il n'y a pas de rayon qui sort du prisme en J. En appliquant la loi de Snell-Descartes pour la réflexion en J, on trouve facilement que le rayon réfléchi, JK, fait un angle de 90° avec le rayon IJ et donc qu'il arrive en K sous l'incidence normale (angle d'incidence sur AC = 0°). 
+		</sc:para>
+						<sc:para xml:space="preserve">
+			Il ressort alors du prisme sans déviation. 
+		</sc:para>
+						<sc:para xml:space="preserve">
+			Revoir les <sc:phrase role="url"><op:urlM>
+<sp:url>http://uel.unisciel.fr/physique/optigeo/optigeo_ch02/co/sexercer_ch02_AO_06.html</sp:url>
+</op:urlM>
+lois de Snell et Descartes</sc:phrase>. Revoir les règles essentielles de la Trigonométrie et la géométrie dans le plan.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

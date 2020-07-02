@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:title>Calcul et incertitude</sp:title>
+			<sp:themeLycee>#chim-agir-econres-</sp:themeLycee>
+			<sp:themeLycee>#chim-mesinc-</sp:themeLycee>
+			<sp:themeLicence>#chim-chimexpetech-</sp:themeLicence>
+			<sp:level>2</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      Université de technologie de Troyes, 
+      Baudrion, 
+      Verchier, 
+      01-06-2012, 
+      <sc:phrase role="url"><op:urlM>
+<sp:url>http://utt.fr</sp:url>
+</op:urlM>
+utt.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Une balance présente l'affichage suivant : 1,020 grammes. Quelle est l'incertitude sur le résultat ?
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve"><sc:textLeaf role="mathtex">
+						0,001 \mathrm{g}							
+				</sc:textLeaf>.	</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						Aucune.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve"><sc:textLeaf role="mathtex">
+						0,0001 \mathrm{g}							
+				</sc:textLeaf>.	</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve"><sc:textLeaf role="mathtex">
+						0,01 \mathrm{g}</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="1"/>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="ves" creationTime="1520346064445">Vous pouvez regarder les vidéos Vidéochem pour plus d'informations-~-&gt; ceci a été supprimé de l'explication globale car Vidéochem n'a pas de vidéo qui explique l'expresion de l'incertidude sur un résultat</comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">Le dernier chiffre significatif conservé pour l'expression d'un résultat de mesure doit être à la même position décimale que le dernier chiffre significatif de l'incertitude.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#math-probastat-notloidens-loiunifab-</sp:themeLycee>
+			<sp:themeLicence>#math-stat-</sp:themeLicence>
+			<sp:level>2</sp:level>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      <sc:phrase role="url"><op:urlM xmlns:sc="http://www.utc.fr/ics/scenari/v3/core" xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive"><sp:url>www.parisdescartes.fr</sp:url></op:urlM>
+parisdescartes.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="hur" creationTime="1460414075142">.... vaut :</comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Soit 
+  <sc:textLeaf role="mathtex">\textstyle{a}</sc:textLeaf>
+ un nombre réel positif et 
+  <sc:textLeaf role="mathtex">\textstyle{X}</sc:textLeaf>
+ une variable aléatoire de loi uniforme sur 
+  <sc:textLeaf role="mathtex">\textstyle{[-1, a]}</sc:textLeaf>. La valeur de 
+  <sc:textLeaf role="mathtex">\textstyle{a}</sc:textLeaf>
+ telle que 
+  <sc:textLeaf role="mathtex">\textstyle{\mathbb P\left(X\leq \frac14\right)=\frac12}</sc:textLeaf>
+ vaut		 :</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			
+  <sc:textLeaf role="mathtex">\textstyle{\frac{3}{2}}</sc:textLeaf>
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">On doit nécessairement avoir <sc:textLeaf role="mathtex">a\geq \frac{1}{4}</sc:textLeaf>. On a alors
+<sc:textLeaf role="mathtex">P(X\leq \frac{1}{4}) = \frac{5}{4}\times \frac{1}{a+1}</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">On résout alors <sc:textLeaf role="mathtex">\frac{5}{4}\times \frac{1}{a+1} = \frac{1}{2}</sc:textLeaf> et on obtient <sc:textLeaf role="mathtex">a=\frac{3}{2}</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			
+  <sc:textLeaf role="mathtex">\textstyle{-\frac{1}{2}}</sc:textLeaf>
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			
+  <sc:textLeaf role="mathtex">\textstyle{\frac{1}{2}}</sc:textLeaf>
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			
+  <sc:textLeaf role="mathtex">\textstyle{-\frac{3}{2}}</sc:textLeaf>
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			C'est impossible.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="1"/>
+	</op:mcqSur>
+</sc:item>

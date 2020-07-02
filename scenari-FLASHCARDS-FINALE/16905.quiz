@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#math-probastat-echantil-utilloibinom-</sp:themeLycee>
+			<sp:themeLicence>#math-stat-</sp:themeLicence>
+			<sp:level>3</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      <sc:phrase role="url"><op:urlM xmlns:sc="http://www.utc.fr/ics/scenari/v3/core" xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive"><sp:url>www.parisdescartes.fr</sp:url></op:urlM>
+parisdescartes.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread"><comment author="hur" creationTime="1460405280968">... échantillon aléatoire et simple de 100 personnes ...
+Un échantillon aléatoire est représentatif.
+
+Problème de décalage des valeurs dans le tableau.</comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">
+			La publicité pour une lotion capillaire anti-chute annonce 80% de résultats positifs. Après un essai sur un échantillon aléatoire et simple de 100 personnes que l'on peut considérer comme un tirage avec remise, 74 ont observé un effet positif. Sélectionner parmi les seuils suivants le(s) seuil(s) pour le(s)quel(s) on peut considérer la publicité comme mensongère.</sc:para>
+						<sc:para xml:space="preserve">Pour le(s) déterminer, on ne considérera que des intervalles de fluctuation symétriques et on pourra s'aider du tableau ci-dessous où <sc:textLeaf role="mathtex">X</sc:textLeaf> est une variable aléatoire qui suit une loi normale centrée réduite.</sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\begin{array}{|c||c|c|c|c|}\hline \\x &amp; 0.84 &amp; 1.28 &amp; 1.64 &amp; 1.96\\\hline\\\mathbb{P}(-x\leq X\leq x) &amp; 0.60 &amp; 0.80 &amp; 0.90 &amp; 0.95 \\\hline\end{array}</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			60%
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			80%
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			90%
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			95%
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="sod" creationTime="1479819167830">dernière phrase : "on peut supposer que la publicité ment"</comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Si la publicité ne ment pas, le nombre 
+  <sc:textLeaf role="mathtex">\textstyle{N}</sc:textLeaf>
+ de personnes de l'échantillon ayant observé un effet positif suit une loi binomiale de paramètres 
+  <sc:textLeaf role="mathtex">\textstyle{100}</sc:textLeaf>
+ et 
+  <sc:textLeaf role="mathtex">\textstyle{0.8}</sc:textLeaf>
+. Les conditions  <sc:textLeaf role="mathtex">\textstyle{100\geq 30}</sc:textLeaf>
+, 
+  <sc:textLeaf role="mathtex">\textstyle{100\times 0.8\geq 5}</sc:textLeaf>
+, 
+  <sc:textLeaf role="mathtex">\textstyle{100\times 0.2\geq 5}</sc:textLeaf> sont vérifiées pour permettre de construire un intervalle de fluctuation à partir des quantiles de la loi normale. On a donc :
+		</sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex"> \mathbb P\left(\frac N{100}\in\left[0.8-0.04u_\alpha,0.8+0.04u_\alpha\right]\right)\simeq1-\alpha</sc:textLeaf>
+</sc:para>
+						<sc:para xml:space="preserve">avec 
+  <sc:textLeaf role="mathtex">\textstyle{0.04=\sqrt{\frac{0.8\times0.2}{100}}}</sc:textLeaf>
+ et 
+  <sc:textLeaf role="mathtex">\textstyle{u_\alpha}</sc:textLeaf>
+ tel que 
+  <sc:textLeaf role="mathtex">\textstyle{\mathbb P(-u_\alpha\leq X\leq u_\alpha)=1-\alpha}</sc:textLeaf>
+ où 
+  <sc:textLeaf role="mathtex">\textstyle{X}</sc:textLeaf>
+ suit une loi 
+  <sc:textLeaf role="mathtex">\textstyle{\mathcal N(0,1)}</sc:textLeaf>
+		</sc:para>
+						<sc:para xml:space="preserve">
+			Dans le cas présent, 
+  <sc:textLeaf role="mathtex">\textstyle{\frac N{100}}</sc:textLeaf>
+ prend la valeur 
+  <sc:textLeaf role="mathtex">\textstyle{0.74}</sc:textLeaf>
+		</sc:para>
+						<sc:itemizedList>
+							<sc:listItem>
+								<sc:para xml:space="preserve">
+			
+  <sc:textLeaf role="mathtex">\textstyle{u_\alpha=1.96}</sc:textLeaf>
+ : 
+  <sc:textLeaf role="mathtex">\textstyle{1-\alpha}</sc:textLeaf>
+ vaut alors 
+  <sc:textLeaf role="mathtex">\textstyle{0.95}</sc:textLeaf>
+ ; l'intervalle de fluctuation au seuil 
+  <sc:textLeaf role="mathtex">\textstyle{0.95}</sc:textLeaf>
+ vaut 
+  <sc:textLeaf role="mathtex">\textstyle{[0.72,0.88]}</sc:textLeaf>
+ ; la fréquence observée est dans l'intervalle de fluctuation, on ne peut pas remettre en cause l'annonce de la publicité. C'est vrai aussi au seuil 
+  <sc:textLeaf role="mathtex">\textstyle{0.975}</sc:textLeaf>
+		</sc:para>
+							</sc:listItem>
+							<sc:listItem>
+								<sc:para xml:space="preserve">
+			
+  <sc:textLeaf role="mathtex">\textstyle{u_\alpha=1.64}</sc:textLeaf>
+ : 
+  <sc:textLeaf role="mathtex">\textstyle{1-\alpha}</sc:textLeaf>
+ vaut alors 
+  <sc:textLeaf role="mathtex">\textstyle{0.90}</sc:textLeaf>
+ ; l'intervalle de fluctuation au seuil 
+  <sc:textLeaf role="mathtex">\textstyle{0.90}</sc:textLeaf>
+ vaut 
+  <sc:textLeaf role="mathtex">\textstyle{[0.73,0.87]}</sc:textLeaf>
+		</sc:para>
+							</sc:listItem>
+							<sc:listItem>
+								<sc:para xml:space="preserve">
+			
+  <sc:textLeaf role="mathtex">\textstyle{u_\alpha=1.28}</sc:textLeaf>
+ : 
+  <sc:textLeaf role="mathtex">\textstyle{1-\alpha}</sc:textLeaf>
+ vaut alors 
+  <sc:textLeaf role="mathtex">\textstyle{0.80}</sc:textLeaf>
+ ; l'intervalle de fluctuation au seuil 
+  <sc:textLeaf role="mathtex">\textstyle{0.80}</sc:textLeaf>
+ vaut 
+  <sc:textLeaf role="mathtex">\textstyle{[0.75,0.85]}</sc:textLeaf> ; la fréquence observée n'est pas dans l'intervalle de fluctuation, on peut supposer que la publicité ment.</sc:para>
+							</sc:listItem>
+							<sc:listItem>
+								<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">u_{\alpha}=0.84</sc:textLeaf> : <sc:textLeaf role="mathtex">1-\alpha</sc:textLeaf> vaut alors 0.60 ; l'intervalle de fluctuation au seuil  
+  <sc:textLeaf role="mathtex">\textstyle{0.60}</sc:textLeaf> vaut 
+  <sc:textLeaf role="mathtex">\textstyle{[0.765,0.835]}</sc:textLeaf> ; la fréquence observée n'est pas dans l'intervalle de fluctuation, on peut supposer que la publicité ment.</sc:para>
+							</sc:listItem>
+						</sc:itemizedList>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

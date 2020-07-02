@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#phys-obs-coulvisim-lenminrel-</sp:themeLycee>
+			<sp:themeLicence>#phys-optigeom-</sp:themeLicence>
+			<sp:level>3</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://univ-lille1.fr</sp:url>
+</op:urlM>univ-lille1.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Si un objet réel est très éloigné d'une lentille convergente, c'est à dire, si sa distance à la lentille est très grande devant la distance focale de la lentille, alors son image par la lentille se formera :
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			au foyer objet.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Sule une image d'un objet virtuel pourra se former avant la lentille. Là la question concerne un objet réel situé avant la lentille.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			entre les foyers objet et image.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">Seul un objet virtuel peut former une image avant le foyer image de la lentille.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			au foyer image.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">C'est la définition du foyer image.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			après le foyer image.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">Si l'objet est éloigné de la lentille d'une distance de l'ordre de grandeur de la distance focale de la lentille, alors l'image se fait après le foyer image. Dans le cas de cette question, l'objet est très éloigné. </sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">Ici il s'agit de comprendre que très loin dans le monde réel est modélisé par l'infini en optique. En fait ceci est justifié quand la distance entre l'objet et la lentille est très grande devant la distance focale de la lentille.</sc:para>
+						<sc:para xml:space="preserve">Le foyer image d'une lentille est défini expérimentalement comme le lieu où l'image d'un objet très éloigné (à l'infini), sur l'axe optique de la lentille, se forme.</sc:para>
+						<sc:para xml:space="preserve">On retrouve cette définition dans la relation de conjugaison. Si l'objet est très éloigné, 
+  
+  	<sc:textLeaf role="mathtex">\textstyle{\overline{OA}}</sc:textLeaf>
+  
+   est très grand , donc 
+  
+  	<sc:textLeaf role="mathtex">\textstyle{\frac{1}{\overline{OA}}}</sc:textLeaf>
+		 est très très petit et totalement négligeable devant <sc:textLeaf role="mathtex">1/f'</sc:textLeaf>. Pour vous en convaincre, faites l'application numérique avec <sc:textLeaf role="mathtex">OA=100\times f'</sc:textLeaf>. On considère donc que l'image se fait au foyer image de la lentille même quand l'objet n'est pas à l'infini.</sc:para>
+						<sc:para xml:space="preserve">Vous pouvez aussi consulter ce <sc:phrase role="url"><op:urlM>
+<sp:url>http://uel.unisciel.fr/physique/optigeo/optigeo_ch08/co/apprendre_ch08_05.html</sp:url>
+</op:urlM>
+cours</sc:phrase> et cette <sc:phrase role="url"><op:urlM>
+<sp:url>http://uel.unisciel.fr/physique/optigeo/optigeo_ch08/co/simuler_ch08_01.html</sp:url>
+</op:urlM>
+simulation</sc:phrase> pour comprendre.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#chim-sante-diagmed-masmolmol-</sp:themeLycee>
+			<sp:themeLicence>#chim-strucmat-</sp:themeLicence>
+			<sp:level><!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="ves" creationTime="1519130021521">niveau 3</comment></comment>-->3</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<!--<comment xmlns="scenari.eu:comment:1.0" type="thread"><comment author="camille.dufourg" creationTime="1573814956422">Il manque les mots-clés et la licence.</comment></comment>-->
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">Université Nice-Sophia-Antipolis</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			En sachant que <sc:textLeaf role="mathtex">M(\mathrm{S}) = 32,0 \,\mathrm{g.mol}^{-1}</sc:textLeaf>, <sc:textLeaf role="mathtex">M(\mathrm{H}) = 1,0\, \mathrm{g.mol}^{-1}</sc:textLeaf> et <sc:textLeaf role="mathtex">M(\mathrm{O}) = 16,0\, \mathrm{g.mol}^{-1}</sc:textLeaf>, quelle est la masse molaire de H<sc:textLeaf role="ind">2</sc:textLeaf>SO<sc:textLeaf role="ind">4</sc:textLeaf> ?
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">
+			49,0  \,\mathrm{g.mol}^{-1}</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">
+			98,0  \,\mathrm{g.mol}^{-1}</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">
+			50,0  \,\mathrm{g.mol}^{-1}</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">
+			98,0  \,\mathrm{g.mol}^{-1}</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Toutes les propositions sont fausses.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			La masse molaire d'une molécule se calcule en additionnant toutes les masses molaires des atomes qui constituent la molécule.
+		</sc:para>
+						<sc:para xml:space="preserve">
+			Ici, <sc:textLeaf role="mathtex">M( \mathrm{H}_2\mathrm{SO}_4) = 2M(\mathrm{H}) + M(\mathrm{S}) + 4M(\mathrm{O}) = 2\times1,0 + 32,0 + 4\times16,0 = 98  \,\mathrm{g.mol}^{-1}</sc:textLeaf>.
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

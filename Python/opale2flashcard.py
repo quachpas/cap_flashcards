@@ -104,7 +104,7 @@ parser.add_argument('--force', action = 'store_true', help = """
 Force the output - Ignores transcripts errors
 """)
 parser.add_argument('--compile', action = 'store_true', help = """
-Compile output tex file - Automatically compiles out.tex file after the script and cleans the auxiliary files. Minimal console output.
+Compile output tex file - If this option is used, the script must be launched from the output directory. Automatically compiles out.tex file after the script and cleans the auxiliary files. Minimal console output.
 """)
 parser.add_argument('--verbose', action = 'store_true', help = """
 Verbose ouput - Details missing metadata errors
@@ -294,7 +294,7 @@ def get_output_directory():
             "Current working directory is neither cap_flashcards nor Python",
             "Current working directory is neither cap_flashcards nor Python"
         )
-        sys.exit(1)
+        
 
 def get_headers_directory():
     if (os.path.basename(os.getcwd()) == 'cap_flashcards'):
@@ -1167,14 +1167,17 @@ def write_flashcards(flashcard_list):
     accepted = {}
     rejected = {}
     output = []
+    previous_subject = ''
+    
     if (args.a4paper == False):
         question_count = 0
         for flashcard in flashcard_list:
             # Background parameters
             if (args.force is True
-            or ((flashcard.overflow_flag is False and flashcard.err_flag is False) and 
-                (question_count == 0 or flashcard_list[question_count-1].subject.lower() != flashcard_list[question_count].subject.lower()))):
-                write_background_parameter(flashcard)
+            or (flashcard.overflow_flag is False and flashcard.err_flag is False)):
+                if (flashcard.subject != previous_subject):
+                    previous_subject = flashcard.subject
+                    write_background_parameter(flashcard)
             # Create a standard output only if the flashcard's errors flags are not set (or force option has been set)
             # OR if any debug "only-options" are used
             if ((flashcard.err_flag is False and flashcard.overflow_flag is False and flashcard.relevant is True) 
@@ -1267,10 +1270,16 @@ def parse_files(args, question_count, err_count, parser, licence_theme, subject)
     return (flashcard_list, subject_list, question_count, err_count)
 
 def compile_tex(args):
-    if (args.compile == True):
+    if (os.path.basename(os.getcwd()) != 'output'):
         os.chdir(get_output_directory())
+        # write_logs(
+        #     "Current working directory is not the output directory. Please change directory.",
+        #     "Current working directory is not the output directory. Please change directory."
+        # )
+    if (args.compile == True):
         os.system("xelatex --synctex=1 --interaction=batchmode --file-line-error --shell-escape out.tex")
         os.system("xelatex --synctex=1 --interaction=batchmode --file-line-error --shell-escape out.tex")
+        
 
 def clean_tex(args):
         

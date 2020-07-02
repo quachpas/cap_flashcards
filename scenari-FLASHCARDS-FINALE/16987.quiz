@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3">
+		<op:exeM>
+			<sp:themeLycee xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-probastat-espvarecar-loibinom-</sp:themeLycee>
+			<sp:themeLicence xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-stat-</sp:themeLicence>
+			<sp:level xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">3</sp:level>
+			<sp:info xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://parisdescartes.fr</sp:url>
+</op:urlM>parisdescartes.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Alice joue au tiercé une fois par semaine. Ayant une bonne connaissance du milieu hippique, elle estime qu'elle a à chaque fois une probabilité 
+  <sc:textLeaf role="mathtex">\textstyle{p=0.1}</sc:textLeaf>
+ de gagner et que les résultats de chaque semaine sont indépendants. Si Alice gagne, elle empoche 
+  <sc:textLeaf role="mathtex">\textstyle{100}</sc:textLeaf>
+ euros ; dans le cas contraire, elle perd 
+  <sc:textLeaf role="mathtex">\textstyle{10}</sc:textLeaf> euros.
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Le gain moyen chaque semaine est négatif.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Faux : le gain moyen vaut 
+  <sc:textLeaf role="mathtex">\textstyle{100p-10(1-p)=1}</sc:textLeaf>
+		</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Alice a plus de chances d'être bénéficiaire au bout de <sc:textLeaf role="mathtex">\textstyle{6}</sc:textLeaf> semaines que déficitaire.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Faux : Alice est déficitaire au bout de 
+  <sc:textLeaf role="mathtex">\textstyle{6}</sc:textLeaf> semaines si elle n'a eu aucun succès (gain :
+  <sc:textLeaf role="mathtex">\textstyle{-60}</sc:textLeaf>
+) et bénéficiaire si elle a eu au moins un succès (gain au moins 
+  <sc:textLeaf role="mathtex">\textstyle{50}</sc:textLeaf>
+). La probabilité de n'avoir aucun succès en 
+  <sc:textLeaf role="mathtex">\textstyle{6}</sc:textLeaf>
+ tentatives est égale à 
+  <sc:textLeaf role="mathtex">\textstyle{(1-p)^6\approx 0.53&gt;\frac{1}{2}}</sc:textLeaf>
+		</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Alice peut espérer 
+  <sc:textLeaf role="mathtex">\textstyle{2}</sc:textLeaf>
+ succès en 
+  <sc:textLeaf role="mathtex">\textstyle{20}</sc:textLeaf> semaines
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">le nombre de succès en <sc:textLeaf role="mathtex">\textstyle{20}</sc:textLeaf> semaines suit une loi binomiale de paramètres (20;0,1)</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+		</sc:choices>
+	</op:mcqMur>
+</sc:item>

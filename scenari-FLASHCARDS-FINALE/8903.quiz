@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:title>Dosage spectrophotométrique</sp:title>
+			<sp:themeLycee>#chim-obscoulim-matcolo-dossolcolo-</sp:themeLycee>
+			<sp:themeLicence>#chim-chimexpetech-</sp:themeLicence>
+			<sp:level>1</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<!--<comment xmlns="scenari.eu:comment:1.0" type="thread"><comment author="camille.dufourg" creationTime="1573553125141">Il manque les mots-clés et la licence.</comment></comment>-->
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">Université Lille 1</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="ves" creationTime="1519045282329">Tracé d'une droite d'étalonnage pour un dosage spectrophotométrique.</comment></comment>-->
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			   Pour tracer une droite d’étalonnage pour un dosage spectrophotométrique d'une espèce chimique, il faut mesurer l’absorbance de solutions :
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			d’espèces chimiques différentes de celle que l'on veut doser.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			de cette espèce chimique à des longueurs d’ondes différentes.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			de concentrations différentes de cette espèce chimique à la même longueur d'onde.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			dont les concentrations sont inconnues.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			<sc:inlineStyle role="emp">Compétence(s)</sc:inlineStyle> :<sc:inlineStyle role="emp"> t</sc:inlineStyle><sc:inlineStyle role="emp">racer une droite d’étalonnage pour un dosage spectrophotométrique.</sc:inlineStyle>
+		</sc:para>
+						<sc:para xml:space="preserve">
+			Pour tracer une droite d’étalonnage pour un dosage spectrophotométrique d'une espèce chimique, il faut :
+		</sc:para>
+						<sc:itemizedList>
+							<sc:listItem>
+								<sc:para xml:space="preserve">
+						choisir la longueur d’onde de travail λ :							
+					l'absorbance doit être mesurée à la même longueur d'onde pour toutes les solutions. Les incertitudes de mesure seront les plus faibles en utilisant la longueur d'onde correspondant au maximum d'absorption.</sc:para>
+							</sc:listItem>
+							<sc:listItem>
+								<sc:para xml:space="preserve">
+						préparer une gamme de solutions de cette espèce chimique de concentrations connues <sc:inlineStyle role="emp">c</sc:inlineStyle><sc:textLeaf role="ind">i</sc:textLeaf> : La droite d'étalonnage est réalisée à partir d'étalons c'est-à-dire à partir de solutions de concentrations connues.</sc:para>
+							</sc:listItem>
+							<sc:listItem>
+								<sc:para xml:space="preserve">
+						mesurer leur absorbance <sc:inlineStyle role="emp">A</sc:inlineStyle><sc:textLeaf role="ind">λ,i</sc:textLeaf> à la longueur d’onde λ.							
+					</sc:para>
+							</sc:listItem>
+							<sc:listItem>
+								<sc:para xml:space="preserve">
+						placer les points de coordonnées (<sc:inlineStyle role="emp">c</sc:inlineStyle><sc:textLeaf role="ind">i</sc:textLeaf> ; <sc:inlineStyle role="emp">A</sc:inlineStyle><sc:textLeaf role="ind">λ,i</sc:textLeaf>) sur un graphique et tracer la droite passant "au plus près" de ces points et par l’origine.							
+					</sc:para>
+							</sc:listItem>
+						</sc:itemizedList>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

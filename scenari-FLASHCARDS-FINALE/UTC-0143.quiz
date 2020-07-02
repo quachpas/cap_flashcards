@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#phys-comploimod-chaforces-chapesloc-</sp:themeLycee>
+			<sp:themeLicence>#phys-forcemvt-</sp:themeLicence>
+			<sp:level>3</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">utc.fr</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">Du haut d'un pont, qui surplombe une rivière d'environ 5 mètres, deux boules d'acier de même diamètre sont lâchées, sans vitesse initiale. L'une des boules est creuse et deux fois plus légère que l'autre qui est pleine. Laquelle des deux boules arrive en premier dans la rivière ?</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">Les deux boules arrivent pratiquement en même temps dans la rivière.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">La boule la plus lourde arrive deux fois plus vite que l'autre.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">Du fait des frottements de l'air, qui affectent moins la boule la plus légère, c'est la boule la plus légère qui arrive bien avant la boule la plus lourde.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="1"/>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">L'accélération des deux boules est  sensiblement égale à l'accélération de la pesanteur et est la même quelle que soit la masse des boules mises en jeu : les deux boules vont donc arriver en même temps.</sc:para>
+						<sc:para xml:space="preserve">Pour le démontrer, on peut appliquer la seconde loi de Newton à chaque boule en chute libre (c'est-à-dire sur lesquelles seul le poids <sc:textLeaf role="mathtex">\vec{P}</sc:textLeaf> s'applique) :</sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">m \, \vec{a}=\vec{P}</sc:textLeaf>,
+</sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">m \, \vec{a}=m\,\vec{g} </sc:textLeaf>.
+</sc:para>
+						<sc:para xml:space="preserve">Soit en simplifiant par <sc:textLeaf role="mathtex">m</sc:textLeaf>,</sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\vec{a}=\vec{g}</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">L'accélération du mouvement est indépendante de la masse des boules en chute libre.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

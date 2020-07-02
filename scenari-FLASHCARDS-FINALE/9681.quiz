@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#phys-sante-diagmedic-vitlumvideair-</sp:themeLycee>
+			<sp:themeLicence>#phys-ondes-</sp:themeLicence>
+			<sp:level>1</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      UTT, 
+      Vezy, 
+      Vial, 
+      22-05-2012, 
+      <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://utt.fr</sp:url>
+</op:urlM>utt.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			La vitesse de la lumière dans le vide dépend :
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			de la vitesse de la source.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			de la vitesse du détecteur.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			de la longueur d'onde.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			de rien.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="bec" creationTime="1457254388036">rajouter documentation ondes</comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">La vitesse de la lumière dans le vide est une constante qui ne dépend de rien ! </sc:para>
+						<sc:para xml:space="preserve">Le nom de cette constante est c pour "célérité" et sa valeur a été fixée à environ <sc:textLeaf role="mathtex">3*10^8 m.s^{-1}</sc:textLeaf>
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">Vous pouvez trouver des éléments de réponse dans la ressource suivante : <sc:phrase role="url"><op:urlM>
+<sp:url>http://ressources.unisciel.fr/DAEU-ondes</sp:url>
+</op:urlM>
+Les ondes</sc:phrase>.
+</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

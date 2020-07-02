@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#math-geo-droites-</sp:themeLycee>
+			<sp:themeLicence>#math-geo-</sp:themeLicence>
+			<sp:level>2</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://univ-angers.fr</sp:url>
+</op:urlM>univ-angers.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Les deux droites d'équations <sc:textLeaf role="mathtex">y=2x+1</sc:textLeaf> et <sc:textLeaf role="mathtex">y=-2x+1</sc:textLeaf> sont</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			perpendiculaires.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			sécantes mais non perpendiculaires.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			parallèles.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			confondues.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="2"/>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread"><comment author="qns" creationTime="1459932078068">Première phrase : "Représenter graphiquement les deux droites"</comment><comment author="pij" creationTime="1460357459541" updateTime="1460357528001">Ludovic : oui (sans oublier les ; ce qui est valable dans toute la section)</comment><comment author="ext-lug" creationTime="1460463483862">Done</comment><comment author="fam" creationTime="1464081688475">Juste un petit commentaire: les deux droites d'équations y=ax+b et y=cx+d sont perpendiculaires si et seulement si ac=-1</comment><comment author="lam" creationTime="1484931489157" updateTime="1484931700426">Ajouter : 
+- "Choisir la (ou les) bonne(s) réponse(s)"
+- un verbe "sont"
+Explications :
+Représenter graphiquement les deux droites.
+On donne les vecteurs directeurs de chacune des droites et on refait un point sur l'orthogonalité.
+
+Niveau 2</comment><comment author="ves" creationTime="1524736250686">Ceci a été enlevée suoite au commentaire de lam le 20/01/2017 : "Les droites passent par le point (0 ;1), et l'une par (1 ;3), l'autre par (1 ;-1). Avec un dessin et le théorème de Pythagore, on arrive à la solution."
+Il n'est pas logique d'ajouter "choisir la (ou les) bonne(s) réponses(s)" car c'est une questions à choix unique, les étudiant peuvent chosir qu'une seule réponse.</comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">Représenter graphiquement les deux droites.</sc:para>
+						<sc:para xml:space="preserve">Donner les vecteurs directeurs de chacune et refaire un point sur l'orthogonalité.</sc:para>
+						<sc:para xml:space="preserve">Vous trouverez des éléments de réponse dans la ressource <sc:phrase role="url"><op:urlM>
+<sp:url>http://ressources.unisciel.fr/ramses/514-113a-produit-scalaire/co/514-113a_webUnisciel.html</sp:url>
+</op:urlM>
+Géométrie dans l'espace: Produits scalaire dans l'espace – Droites et plans dans l'espace</sc:phrase>
+</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

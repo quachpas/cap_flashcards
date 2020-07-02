@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#phys-comploimod-forprinconener-princconsener-</sp:themeLycee>
+			<sp:themeLicence>#phys-loiscons-</sp:themeLicence>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://utc.fr</sp:url>
+</op:urlM>utc.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Un corps de masse 
+ 	<sc:textLeaf role="mathtex">\textstyle{m}</sc:textLeaf>
+  est placé à une hauteur 
+ 	<sc:textLeaf role="mathtex">z=\textstyle{h}</sc:textLeaf>, dans un champ de pesanteur d'intensité 
+ 	<sc:textLeaf role="mathtex">\textstyle{g}</sc:textLeaf>
+		. Il est lâché sans vitesse initiale.</sc:para>
+						<sc:para xml:space="preserve">
+			Quelle est sa vitesse lorsqu'il atteint le sol (<sc:textLeaf role="mathtex">z=0</sc:textLeaf>)?
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			
+ 	<sc:textLeaf role="mathtex">\textstyle{mgh}</sc:textLeaf>.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			
+ 	<sc:textLeaf role="mathtex">\textstyle{gh}</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			
+ 	<sc:textLeaf role="mathtex">\textstyle{\sqrt{gh}}</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			
+ 	<sc:textLeaf role="mathtex">\textstyle{\sqrt{2gh}}</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="4"/>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">Il faut appliquer la conservation de l'énergie entre le lâcher (<sc:textLeaf role="mathtex">v=0</sc:textLeaf>, <sc:textLeaf role="mathtex">z=h</sc:textLeaf>) et le moment où l'objet touche le sol (<sc:textLeaf role="mathtex">v=v_{inconnue}</sc:textLeaf>, <sc:textLeaf role="mathtex">z=0</sc:textLeaf>) et on trouve : <sc:textLeaf role="mathtex">v=\sqrt{2gh}</sc:textLeaf>
+</sc:para>
+						<sc:para xml:space="preserve">Vous pouvez consulter la ressource <sc:phrase role="url"><op:urlM>
+<sp:url>http://ressources.unisciel.fr/DAEU-mecanique/co/DAEU-Mecanique_11.html</sp:url>
+</op:urlM>
+Travail et énergie.</sc:phrase>
+</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

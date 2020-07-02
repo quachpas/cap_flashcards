@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#chim-sante-diagmed-identions-</sp:themeLycee>
+			<sp:themeLicence>#chim-chimsolu-</sp:themeLicence>
+			<sp:level>1</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">Université Nice-Sophia-Antipolis</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="etu02" creationTime="1430819232881" updateTime="1430819245377">Pour une meilleure lisibilité, mettre correctement les indices et exposants dans les propositions de réponse.</comment><comment author="ext-lug" creationTime="1431940225446">Transformation latex (question et réposne) notamment le 1/2 en 0.5. A valider</comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">
+			L'éthanol réagit avec le sodium selon la réaction :</sc:para>
+						<sc:para xml:space="preserve">
+		
+		<sc:textLeaf role="mathtex">\mathrm{2 \, C_2H_5OH +2\,Na {\rightarrow} \, 2\, C_2H_5O^-+ 2\,Na^+ +  H_2}</sc:textLeaf>.
+</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			L'ion  <sc:textLeaf role="mathtex">\mathrm{C_2H_5O^-}</sc:textLeaf> est appelé ion éthanoate.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">L'ion éthanoate <sc:textLeaf role="mathtex">\mathrm{CH_3COO^-}</sc:textLeaf> est la base conjuguée de l'acide éthanoïque <sc:textLeaf role="mathtex">\mathrm{CH_3COOH}</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			L'ion   <sc:textLeaf role="mathtex">\mathrm{C_2H_5O^-}</sc:textLeaf> est appelé ion éthanolate.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">La base conjuguée de tout alcool porte la dénomination alcoolate : dans le cas de l'éthanol, on parle naturellement d'éthanolate.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			L'ion  <sc:textLeaf role="mathtex">\mathrm{C_2H_5O^-}</sc:textLeaf> est un cation.		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">Un cation est un ion chargé positivement ce qui n'est pas le cas de   <sc:textLeaf role="mathtex">\mathrm{C_2H_5O^-}</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			L'ion  <sc:textLeaf role="mathtex">\mathrm{C_2H_5O^-}</sc:textLeaf>  est un anion.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">Un anion est un ion chargé négativement ce qui est le cas de <sc:textLeaf role="mathtex">\mathrm{C_2H_5O^-}</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Toutes les propositions sont fausses.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			L'ion   <sc:textLeaf role="mathtex">\mathrm{C_2H_5O^-}</sc:textLeaf>  porte une charge négative ce qui en fait un  anion. On l'appelle ion éthanolate, l'ion éthanoate étant <sc:textLeaf role="mathtex">\mathrm{CH_3COO^-}</sc:textLeaf>, base conjuguée de l'acide éthanoïque.
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#phys-comploimod-tempmvtevol-descmvtpttps-</sp:themeLycee>
+			<sp:themeLicence>#phys-forcemvt-</sp:themeLicence>
+			<sp:level>4</sp:level>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://utc.fr</sp:url>
+</op:urlM>utc.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Un mobile est soumis à une accélération constante 
+ 	<sc:textLeaf role="mathtex">\textstyle{\vec{\gamma}}</sc:textLeaf>
+ , avec 
+ 	<sc:textLeaf role="mathtex">\textstyle{\Vert\vec{\gamma}\Vert=1\:\textrm{m.s}^{-2}}</sc:textLeaf>.
+		</sc:para>
+						<sc:para xml:space="preserve">
+			 A l'instant initial, sa vitesse est nulle. Quelle est la vitesse du mobile lorsque celui-ci a parcouru 
+ 	<sc:textLeaf role="mathtex">\textstyle{3\, \textrm{m}}</sc:textLeaf> ?
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			<sc:textLeaf role="mathtex">v=3m/s</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve"><sc:textLeaf role="mathtex">
+			v=
+ 	\textstyle{\sqrt{3}}
+\mathrm{m\cdot s^{-1}}</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve"><sc:textLeaf role="mathtex">
+			v=
+ 	\textstyle{\sqrt{6}}
+		 \mathrm{m\cdot s^{-1}}</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve"><sc:textLeaf role="mathtex">
+			v=
+ 	\textstyle{2\sqrt{3}}
+\mathrm{m\cdot s^{-1}}</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="3"/>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">Par définition de l’accélération <sc:textLeaf role="mathtex">\vec{a}</sc:textLeaf>, <sc:textLeaf role="mathtex">\vec{a}=\dfrac{\mathrm{d} \vec{v}}{\mathrm{d} t}</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">Or l'accélération dans le cas présent est constante et égale à <sc:textLeaf role="mathtex">\vec{\gamma}</sc:textLeaf>, d'où <sc:textLeaf role="mathtex">\dfrac{\mathrm{d} \vec{v}}{\mathrm{d} t}=\vec{\gamma}</sc:textLeaf>. En intégrant cette équation, on obtient <sc:textLeaf role="mathtex">\vec{v}(t)=\vec{\gamma}\cdot t+\vec{v_0}</sc:textLeaf> où <sc:textLeaf role="mathtex">\vec{v_0}</sc:textLeaf> est un vecteur constant. Sachant qu'à l'état initial, la vitesse est nulle ; on en déduit que <sc:textLeaf role="mathtex">\vec{v_0}=\vec{0}</sc:textLeaf> et ainsi <sc:textLeaf role="mathtex">\vec{v}(t)=\vec{\gamma}\cdot t</sc:textLeaf>. En projetant cette expression, on a également <sc:textLeaf role="mathtex">v(t)=\gamma \cdot t</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">En raisonnant de même et par définition, <sc:textLeaf role="mathtex">v=\dfrac{\mathrm{d}x}{\mathrm{d}t}=\gamma \cdot t</sc:textLeaf>. En intégrant à nouveau, on a <sc:textLeaf role="mathtex">x(t)=\dfrac{1}{2}\gamma \cdot t^2+x_0</sc:textLeaf> où <sc:textLeaf role="mathtex">x_0</sc:textLeaf> est une constante. On peut supposer qu'à <sc:textLeaf role="mathtex">t=0</sc:textLeaf>, <sc:textLeaf role="mathtex">x=0</sc:textLeaf> d'où <sc:textLeaf role="mathtex">x_0=0</sc:textLeaf> et <sc:textLeaf role="mathtex">x(t)=\dfrac{1}{2}\gamma \cdot t^2</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">Cherchons <sc:textLeaf role="mathtex">t_1</sc:textLeaf> tel que le mobile ait parcouru une distance <sc:textLeaf role="mathtex">x=3 \, \mathrm{m}</sc:textLeaf> : <sc:textLeaf role="mathtex">3=\dfrac{1}{2}\cdot 1 \cdot t_1^2</sc:textLeaf> d'où <sc:textLeaf role="mathtex">t_1=\sqrt{6}</sc:textLeaf>. Ainsi <sc:textLeaf role="mathtex">v(t_1)=\gamma \cdot t_1=\sqrt{6} \, \mathrm{m\cdot s^{-1}}</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">Vous pouvez trouver des éléments de réponse dans la ressource suivante : <sc:phrase role="url"><op:urlM>
+<sp:url>http://ressources.unisciel.fr/DAEU-mecanique/co/DAEU-Mecanique.html</sp:url>
+</op:urlM>
+Cinématique et dynamique newtoniennes.</sc:phrase>
+</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

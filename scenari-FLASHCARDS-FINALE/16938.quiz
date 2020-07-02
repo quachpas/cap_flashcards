@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#math-probastat-modrepetexp-</sp:themeLycee>
+			<sp:themeLicence>#math-stat-</sp:themeLicence>
+			<sp:level>3</sp:level>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      <sc:phrase role="url"><op:urlM xmlns:sc="http://www.utc.fr/ics/scenari/v3/core" xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive"><sp:url>www.parisdescartes.fr</sp:url></op:urlM>
+parisdescartes.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Un professeur veut montrer à ses 
+  <sc:textLeaf role="mathtex">\textstyle{35}</sc:textLeaf>
+ élèves (<sc:textLeaf role="mathtex">\textstyle{20}</sc:textLeaf>
+ filles et 
+  <sc:textLeaf role="mathtex">\textstyle{15}</sc:textLeaf>
+ garçons) le fonctionnement de la commande 
+  « random »
+ de son logiciel de statistique. Il attribue à chaque élève un nombre entier compris entre 
+  <sc:textLeaf role="mathtex">\textstyle{1}</sc:textLeaf>
+ et 
+  <sc:textLeaf role="mathtex">\textstyle{35}</sc:textLeaf>. Il interroge durant 
+  <sc:textLeaf role="mathtex">\textstyle{20}</sc:textLeaf>
+ séances un élève de la classe dont le numéro est déterminé à chaque séance aléatoirement et uniformément par le logiciel. L'espérance du nombre de filles interrogées est inférieure à 
+  <sc:textLeaf role="mathtex">\textstyle{12}</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Vrai</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Faux</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="1"/>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Pour chaque séance, on appelle succès l'événement 
+  <sc:textLeaf role="mathtex">\textstyle{S}</sc:textLeaf>  : « choisir une fille ». <sc:textLeaf role="mathtex">\mathbb P(S)={\dfrac{20}{35}}=\dfrac47</sc:textLeaf>.
+		</sc:para>
+						<sc:para xml:space="preserve">
+			Soit 
+  <sc:textLeaf role="mathtex">\textstyle{X}</sc:textLeaf>
+ la variable aléatoire qui compte le nombre de succès sur les 
+  <sc:textLeaf role="mathtex">\textstyle{20}</sc:textLeaf>
+ séances. 
+  <sc:textLeaf role="mathtex">\textstyle{X}</sc:textLeaf>
+ suit la loi binomiale de paramètres 
+  <sc:textLeaf role="mathtex">\textstyle{\left(20;\dfrac47\right)}</sc:textLeaf>
+. Le nombre moyen de filles interrogées est l'espérance de 
+  <sc:textLeaf role="mathtex">\textstyle{X}</sc:textLeaf> :</sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\mathbb E[X]=np=20\times\dfrac47&lt;12</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

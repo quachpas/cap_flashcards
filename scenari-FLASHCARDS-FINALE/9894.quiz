@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:title>ADN et mitose</sp:title>
+			<sp:themeLycee>#scvie-terunivers-natvivant-</sp:themeLycee>
+			<sp:themeLicence>#bio-angenome-</sp:themeLicence>
+			<sp:level>1</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<op:info>
+					<sp:keywds>
+						<op:keywds>
+							<sp:keywd>cellule</sp:keywd>
+							<sp:keywd>cycle celluraie</sp:keywd>
+							<sp:keywd>ADN</sp:keywd>
+							<sp:keywd>réplication</sp:keywd>
+						</op:keywds>
+					</sp:keywds>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      Université Lille 1</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">La réplication de l'ADN :</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						est préalable à la mitose.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						fait passer le nombre de chromosomes de n à 2n.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						fait passer le nombre de chromatides des chromosomes de 1 à 2.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						aboutit à la formation de 2 stocks d'ADN identiques							
+					</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">permet l'obtention de chromosomes doubles à partir de chromosomes simples.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			La réplication de l'ADN permet de copier chaque molécule d'ADN (aux erreurs de réplication près) et donc de doubler le stock d'ADN au sein de la cellule.</sc:para>
+						<sc:para xml:space="preserve">Chaque chromosome avant la réplication est constitué d'une seule chromatide qui est composée d'une molécule d'ADN. La réplication va permettre d'obtenir pour chaque chromosome une deuxième chromatide en recopiant la molécule d'ADN. On passe de chromosomes simples (une seule chromatide) à chromosomes doubles (deux chromatides).</sc:para>
+						<sc:para xml:space="preserve"> Au cours de la mitose, la séparation des deux chromatides identiques permet aux deux cellules filles d'avoir le même ADN. </sc:para>
+						<sc:para xml:space="preserve">
+			Ressources à consulter : 
+		</sc:para>
+						<sc:itemizedList>
+							<sc:listItem>
+								<sc:para xml:space="preserve">
+<sc:phrase role="url">
+<op:urlM>
+<sp:url>http://www.snv.jussieu.fr/bmedia/Mitose/index.htm</sp:url>
+</op:urlM>La mitose 1</sc:phrase>
+  
+  
+		</sc:para>
+							</sc:listItem>
+						</sc:itemizedList>
+						<sc:itemizedList>
+							<sc:listItem>
+								<sc:para xml:space="preserve">
+<sc:phrase role="url">
+<op:urlM>
+<sp:url>http://uel.unisciel.fr/biologie/introgen/introgen_ch04/co/simuler_ch4_01.html</sp:url>
+</op:urlM>La mitose 2</sc:phrase>
+  
+  
+		</sc:para>
+							</sc:listItem>
+							<sc:listItem>
+								<sc:para xml:space="preserve">
+			
+  
+  <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://www.snv.jussieu.fr/vie/dossiers/mitoseveg/mitose-veg.html?width=80%&amp;height=80%&amp;jqmRefresh=false</sp:url>
+</op:urlM>Spécificités de la mitose végétale</sc:phrase>
+  
+  
+		</sc:para>
+							</sc:listItem>
+							<sc:listItem>
+								<sc:para xml:space="preserve">
+			
+  
+  <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://www.snv.jussieu.fr/bmedia/Meiose/Meiose.htm</sp:url>
+</op:urlM>Les conséquences génétiques de la méiose</sc:phrase>
+  
+  
+		</sc:para>
+							</sc:listItem>
+							<sc:listItem>
+								<sc:para xml:space="preserve">
+			
+  
+  <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://www.snv.jussieu.fr/vie/dossiers/meioseprep/meiose.htm?width=80%&amp;height=80%&amp;jqmRefresh=false</sp:url>
+</op:urlM>La méiose chez une plante à fleurs</sc:phrase>
+  
+  
+		</sc:para>
+							</sc:listItem>
+							<sc:listItem>
+								<sc:para xml:space="preserve">
+			
+  
+  <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://uel.unisciel.fr/biologie/introgen/introgen_ch04/co/simuler_ch4_02.html</sp:url>
+</op:urlM>La méiose (film animation 2D)</sc:phrase>
+  
+  
+		</sc:para>
+							</sc:listItem>
+						</sc:itemizedList>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

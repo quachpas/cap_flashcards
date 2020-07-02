@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:title>Calcul et incertitude</sp:title>
+			<sp:themeLycee>#chim-mesinc-</sp:themeLycee>
+			<sp:themeLicence>#chim-chimexpetech-</sp:themeLicence>
+			<sp:level>2</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<op:info>
+					<sp:keywds>
+						<op:keywds>
+							<sp:keywd>Application</sp:keywd>
+						</op:keywds>
+					</sp:keywds>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">utc.fr</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">Valider les propositions suivantes : </sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">265 <sc:textLeaf role="mathtex">dm^3</sc:textLeaf> = 265 <sc:textLeaf role="mathtex">dL</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">265 <sc:textLeaf role="mathtex">dm^3</sc:textLeaf> = 265 <sc:textLeaf role="mathtex">L</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">54 <sc:textLeaf role="mathtex">mL</sc:textLeaf> = 54 000 <sc:textLeaf role="mathtex">mm^3</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">7 000 <sc:textLeaf role="mathtex">cm^3</sc:textLeaf> = 7 <sc:textLeaf role="mathtex">L</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">7 000 <sc:textLeaf role="mathtex">cm^3</sc:textLeaf> = 7 000 <sc:textLeaf role="mathtex">mL</sc:textLeaf> = 7 <sc:textLeaf role="mathtex">L</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">265 <sc:textLeaf role="mathtex">mL</sc:textLeaf> = 0.265 <sc:textLeaf role="mathtex">dm^3</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">265 <sc:textLeaf role="mathtex">mL</sc:textLeaf> = 265 <sc:textLeaf role="mathtex">cm^3</sc:textLeaf> = 0.265 <sc:textLeaf role="mathtex">dm^3</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">10 <sc:textLeaf role="mathtex">L</sc:textLeaf> = 10 <sc:textLeaf role="mathtex">m^3</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">10 <sc:textLeaf role="mathtex">L</sc:textLeaf> = 10 <sc:textLeaf role="mathtex">dm^3</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:res sc:refUri="Ressources/Images/tab_conversion.jpg">
+					<op:resInfoM/>
+				</sp:res>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

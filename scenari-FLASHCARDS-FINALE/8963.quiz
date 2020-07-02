@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#chim-comploismod-strtran-coupacbas-</sp:themeLycee>
+			<sp:themeLicence>#chim-chimsolu-</sp:themeLicence>
+			<sp:level>2</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<!--<comment xmlns="scenari.eu:comment:1.0" type="thread"><comment author="camille.dufourg" creationTime="1573664235970">Il manque les mots-clés et la licence.</comment></comment>-->
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">Université Lille 1</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<!--<comment xmlns="scenari.eu:comment:1.0" type="thread"><comment author="camille.dufourg" creationTime="1573664254025">Enoncé à ajouter, par exemple : "Cocher les bonnes réponses."</comment></comment>-->
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			<sc:inlineStyle role="emp">Identification d'espèces acido-basiques conjuguées.</sc:inlineStyle>
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			L'espèce CH<sc:textLeaf role="ind">3</sc:textLeaf>CO<sc:textLeaf role="ind">2</sc:textLeaf>
+<sc:textLeaf role="exp">-</sc:textLeaf> est la base conjuguée de l'espèce HCOOH.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			L'espèce CH<sc:textLeaf role="ind">3</sc:textLeaf>CO<sc:textLeaf role="ind">2</sc:textLeaf>
+<sc:textLeaf role="exp">-</sc:textLeaf> est la base conjuguée de l'acide CH<sc:textLeaf role="ind">3</sc:textLeaf>COOH. Ces deux espèces sont liées par la réaction :   CH<sc:textLeaf role="ind">3</sc:textLeaf>COOH <sc:textLeaf role="mathtex">\rightleftharpoons</sc:textLeaf> CH<sc:textLeaf role="ind">3</sc:textLeaf>CO<sc:textLeaf role="ind">2</sc:textLeaf><sc:textLeaf role="exp">-</sc:textLeaf> + H<sc:textLeaf role="exp">+</sc:textLeaf>.
+		</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			L'espèce NH<sc:textLeaf role="ind">4</sc:textLeaf><sc:textLeaf role="exp">+</sc:textLeaf> est l'acide conjugué de l'espèce NH<sc:textLeaf role="ind">3</sc:textLeaf>.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			L'espèce HNO<sc:textLeaf role="ind">3</sc:textLeaf> est l'acide conjugué de l'espèce NO<sc:textLeaf role="ind">3</sc:textLeaf><sc:textLeaf role="exp">-</sc:textLeaf>.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			L'espèce Cl<sc:textLeaf role="exp">-</sc:textLeaf> est la base conjuguée de l'espèce NaCl.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			L'espèce Cl<sc:textLeaf role="exp">-</sc:textLeaf> est la base conjuguée de l'acide HCl.
+		</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="mar" creationTime="1433005801824">Remplacer :. par :
+Remplacer la double flèche par deux flèches positionnées l'une au dessus de l'autre.</comment><comment author="ext-lug" creationTime="1433248735550">ok</comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">
+			<sc:inlineStyle role="emp">Compétence(s)</sc:inlineStyle> : <sc:inlineStyle role="emp">identifier des espèces acido-basiques conjuguées usuelles.</sc:inlineStyle>
+		</sc:para>
+						<sc:para xml:space="preserve">
+			L'acide AH et la base A<sc:textLeaf role="exp">-</sc:textLeaf> sont conjuguées (ils constituent un couple acido-basique) s'ils sont liés par la réaction :   AH <sc:textLeaf role="mathtex">\rightleftarrows</sc:textLeaf> A<sc:textLeaf role="exp">-</sc:textLeaf> + H<sc:textLeaf role="exp">+</sc:textLeaf>.
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

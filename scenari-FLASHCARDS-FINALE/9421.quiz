@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#math-analyse-integration-</sp:themeLycee>
+			<sp:themeLicence>#math-integration-</sp:themeLicence>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      Starsbourg
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			On considère la fonction <sc:textLeaf role="mathtex">f</sc:textLeaf> définie sur <sc:textLeaf role="mathtex">\mathbb{R}</sc:textLeaf> par <sc:textLeaf role="mathtex">f(x)=e^{-x²}</sc:textLeaf>.
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			La fonction <sc:textLeaf role="mathtex">g:x\mapsto -\frac{1}{2x}e^{-x²}</sc:textLeaf> est une primitive de <sc:textLeaf role="mathtex">f</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Les primitives de <sc:textLeaf role="mathtex">f</sc:textLeaf> sont toutes des fonctions croissantes.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			La fonction <sc:textLeaf role="mathtex">f</sc:textLeaf> n'admet pas de primitive.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">La fonction <sc:textLeaf role="mathtex">h:x\mapsto -2xe^{-x²}</sc:textLeaf> est une primitive de f.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="2"/>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">La fonction <sc:textLeaf role="mathtex">f</sc:textLeaf> intervient dans la définition de la fonction de Gauss, très utile en probabilités. Elle est continue et admet donc des primitives. Malheureusement, on ne sait pas les déterminer explicitement et c'est pour cela qu'on se contente en général d'intégrer cette fonction de manière numérique approchée (à l'aide de la calculatrice. On peut tout de même déterminer des propriétés de ses primitives. Par exemple, comme leur dérivée <sc:textLeaf role="mathtex">f</sc:textLeaf> est une fonction positive, elles sont toutes croissantes.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

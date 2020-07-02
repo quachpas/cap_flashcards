@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#phys-obs-coulvisim-lenminrel-</sp:themeLycee>
+			<sp:themeLicence>#phys-optigeom-</sp:themeLicence>
+			<sp:level>2</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://univ-lille1.fr</sp:url>
+</op:urlM>univ-lille1.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Étant donné le sens de propagation de la lumière choisi et indiqué sur le schéma, si A est la position de l'objet, A' celle de l'image et O le centre de la lentille convergente, alors :</sc:para>
+					</op:txt>
+				</sp:txt>
+				<sp:res sc:refUri="images/q001_lentilles_convergentes.jpg">
+					<op:resInfoM/>
+				</sp:res>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			
+  
+  
+  
+  	<sc:textLeaf role="mathtex">\textstyle{\overline{OA}}</sc:textLeaf>
+  
+   est positif et 
+  
+  	<sc:textLeaf role="mathtex">\textstyle{\overline{OA'}}</sc:textLeaf>
+		 est négatif.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			
+  
+  
+  
+  	<sc:textLeaf role="mathtex">\textstyle{\overline{OA}}</sc:textLeaf>
+  
+   est négatif et 
+  
+  	<sc:textLeaf role="mathtex">\textstyle{\overline{OA'}}</sc:textLeaf>
+		 positif.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			
+  
+  
+  
+  	<sc:textLeaf role="mathtex">\textstyle{\overline{OA}}</sc:textLeaf>
+  
+   et 
+  
+  	<sc:textLeaf role="mathtex">\textstyle{\overline{OA'}}</sc:textLeaf>
+		  sont négatifs.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			
+  
+  
+  
+  	<sc:textLeaf role="mathtex">\textstyle{\overline{OA}}</sc:textLeaf>
+  
+   et 
+  
+  	<sc:textLeaf role="mathtex">\textstyle{\overline{OA'}}</sc:textLeaf>
+		 sont positifs.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">Attention, ici on utilise les mesures algébriques, dont le signe dépend du point initial (ici O) et du point final (A ou A'). Ici le sens allant de la gauche vers la droite est pris comme positif.</sc:para>
+						<sc:para xml:space="preserve">
+			
+  
+  Vous pouvez revoir <sc:phrase role="url"><op:urlM>
+<sp:url>http://uel.unisciel.fr/physique/optigeo/optigeo_ch08/co/apprendre_ch08_01.html</sp:url>
+</op:urlM>
+Lentilles minces.</sc:phrase>
+</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

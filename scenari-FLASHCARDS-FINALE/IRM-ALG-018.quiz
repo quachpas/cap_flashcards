@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3">
+		<op:exeM>
+			<sp:title xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">Lecture d'un algorithme</sp:title>
+			<sp:themeLycee xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-algorith-</sp:themeLycee>
+			<sp:themeLicence xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-algo-</sp:themeLicence>
+			<sp:level xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">3</sp:level>
+			<sp:educationLevel xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">L1</sp:educationLevel>
+			<sp:info xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">ECRA-IREM-Strasbourg</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">Parmi les algorithmes suivants, un seul ne retourne pas le même résultat que les trois autres. Lequel ?</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">Algorithme 1</sc:para>
+						<sc:para xml:space="preserve">
+<sc:inlineStyle role="spec">Lire <sc:textLeaf role="mathtex">n</sc:textLeaf>
+</sc:inlineStyle>
+</sc:para>
+						<sc:para xml:space="preserve">
+<sc:inlineStyle role="spec">Pour <sc:textLeaf role="mathtex">k</sc:textLeaf> allant de <sc:textLeaf role="mathtex">1</sc:textLeaf> à <sc:textLeaf role="mathtex">n</sc:textLeaf> faire</sc:inlineStyle>
+</sc:para>
+						<sc:para xml:space="preserve">  |<sc:inlineStyle role="spec"> Afficher <sc:textLeaf role="mathtex">k</sc:textLeaf>
+</sc:inlineStyle>
+</sc:para>
+						<sc:para xml:space="preserve">
+<sc:inlineStyle role="spec">Fin Pour</sc:inlineStyle>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">Algorithme 2</sc:para>
+						<sc:para xml:space="preserve">
+<sc:inlineStyle role="spec">Saisir un entier <sc:textLeaf role="mathtex">n</sc:textLeaf>
+</sc:inlineStyle>
+</sc:para>
+						<sc:para xml:space="preserve">
+<sc:inlineStyle role="spec">Afficher les valeurs d'un entier variant de 1 à <sc:textLeaf role="mathtex">n</sc:textLeaf>
+</sc:inlineStyle>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">Algorithme 3</sc:para>
+						<sc:para xml:space="preserve">
+<sc:inlineStyle role="spec">:Prompt <sc:textLeaf role="mathtex">N</sc:textLeaf>
+</sc:inlineStyle>
+</sc:para>
+						<sc:para xml:space="preserve">
+<sc:inlineStyle role="spec">:For(<sc:textLeaf role="mathtex">K,1,N</sc:textLeaf>)</sc:inlineStyle>
+</sc:para>
+						<sc:para xml:space="preserve">
+<sc:inlineStyle role="spec">:Disp <sc:textLeaf role="mathtex">K</sc:textLeaf>
+</sc:inlineStyle>
+</sc:para>
+						<sc:para xml:space="preserve">
+<sc:inlineStyle role="spec">:End</sc:inlineStyle>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">Algorithme 4</sc:para>
+						<sc:para xml:space="preserve">
+<sc:inlineStyle role="spec">Lire <sc:textLeaf role="mathtex">n</sc:textLeaf>
+</sc:inlineStyle>
+</sc:para>
+						<sc:para xml:space="preserve">
+<sc:inlineStyle role="spec">Pour <sc:textLeaf role="mathtex">k</sc:textLeaf> de <sc:textLeaf role="mathtex">1</sc:textLeaf> à <sc:textLeaf role="mathtex">n</sc:textLeaf> faire</sc:inlineStyle>
+</sc:para>
+						<sc:para xml:space="preserve">  |<sc:inlineStyle role="spec"> Afficher <sc:textLeaf role="mathtex">n</sc:textLeaf>
+</sc:inlineStyle>
+</sc:para>
+						<sc:para xml:space="preserve">
+<sc:inlineStyle role="spec">Fin Pour</sc:inlineStyle>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="4"/>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">Par exemple, si l'on saisit <sc:textLeaf role="mathtex">n=5</sc:textLeaf>,</sc:para>
+						<sc:orderedList>
+							<sc:listItem>
+								<sc:para xml:space="preserve">L'algorithme 1 affiche <sc:textLeaf role="mathtex">1\quad2\quad3\quad4\quad5</sc:textLeaf>
+</sc:para>
+							</sc:listItem>
+							<sc:listItem>
+								<sc:para xml:space="preserve">L'algorithme 2 affiche <sc:textLeaf role="mathtex">1\quad2\quad3\quad4\quad5</sc:textLeaf>
+</sc:para>
+							</sc:listItem>
+							<sc:listItem>
+								<sc:para xml:space="preserve">L'algorithme 3 affiche <sc:textLeaf role="mathtex">1\quad2\quad3\quad4\quad5</sc:textLeaf>
+</sc:para>
+							</sc:listItem>
+							<sc:listItem>
+								<sc:para xml:space="preserve">L'algorithme 4 affiche <sc:textLeaf role="mathtex">5\quad5\quad5\quad5\quad5</sc:textLeaf>
+</sc:para>
+							</sc:listItem>
+						</sc:orderedList>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

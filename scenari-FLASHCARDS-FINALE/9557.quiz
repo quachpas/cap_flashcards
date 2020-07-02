@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#phys-comploimod-tempmvtevol-descmvtpttps-</sp:themeLycee>
+			<sp:themeLicence>#phys-loisnewton-</sp:themeLicence>
+			<sp:level>3</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://univ-lille1.fr</sp:url>
+</op:urlM>univ-lille1.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			2 planètes, A de masse 
+  
+  	<sc:textLeaf role="mathtex">\textstyle{m_{A}}</sc:textLeaf>
+  
+   et B de masse 
+  
+  	<sc:textLeaf role="mathtex">\textstyle{m_{B}}</sc:textLeaf>
+  
+  , orbitent autour d'une même étoile. Les masses 
+  
+  	<sc:textLeaf role="mathtex">\textstyle{m_{A}}</sc:textLeaf>
+  
+   et 
+  
+  	<sc:textLeaf role="mathtex">\textstyle{m_{B}}</sc:textLeaf>
+  
+   sont négligeables devant celle de l'étoile ; 
+  
+  	<sc:textLeaf role="mathtex">\textstyle{m_{A}}</sc:textLeaf>
+  
+   est deux fois plus petite que 
+  
+  	<sc:textLeaf role="mathtex">\textstyle{m_{B}}</sc:textLeaf>
+		 ; la planète B est à une distance de l'étoile 4 fois supérieure à celle de la planète A (<sc:textLeaf role="mathtex">d_A=d_B/4</sc:textLeaf>).</sc:para>
+						<sc:para xml:space="preserve">Les planètes sont observées dans un référentiel galiléen.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			La norme de l'accélération de A est 4 fois plus grande que celle de B.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			La norme de l'accélération de A est 8 fois plus grande que celle de B.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">L'accélération (en norme) de A est 16 fois plus grande que celle de B.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			La norme de l'accélération de A est 16 fois plus petite que celle de B.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			La norme de l'accélération de A est nulle car le mouvement d'une planète en orbite circulaire est uniforme.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			 L'accélération d'une planète en orbite circulaire est proportionnelle à l'inverse du carré de la distance de la planète au centre de l'étoile. Elle est centripète.
+		</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">Il faut utiliser la seconde loi de Newton (en simplifiant de chaque côté du signe égal par la masse du satellite) : <sc:textLeaf role="mathtex">a_A=\frac{MG}{d_A^2}</sc:textLeaf>.
+</sc:para>
+						<sc:para xml:space="preserve">Comme <sc:textLeaf role="mathtex"> d_A=d_B/4</sc:textLeaf>, on trouve <sc:textLeaf role="mathtex">a_A=16a_B</sc:textLeaf>.
+</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

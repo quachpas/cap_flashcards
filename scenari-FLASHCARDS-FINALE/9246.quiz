@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3">
+		<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="sod" creationTime="1478614690083">La réponse qui est la bonne n'est pas indiquée (réponse 1)</comment></comment>-->
+		<op:exeM>
+			<sp:themeLycee xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-analyse-fonctions-courbrepres-</sp:themeLycee>
+			<sp:themeLicence xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-fonctions-</sp:themeLicence>
+			<sp:level xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">2</sp:level>
+			<sp:educationLevel xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">L0</sp:educationLevel>
+			<sp:info xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://unistra.fr</sp:url>
+</op:urlM>unistra.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">
+			    La courbe représentative de la fonction <sc:textLeaf role="mathtex">f:x \mapsto \frac{\ln(x)}{x}</sc:textLeaf> a l'allure</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="checked">
+				<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="qns" creationTime="1455278627487">C'est celle-ci la bonne réponse !</comment><comment author="pij" creationTime="1460361143983">Ludovic : d'accord c'est çà la bonne réponse (et la suivante ne l'est pas)</comment><comment author="ext-lug" creationTime="1460457259554">corrige</comment></comment>-->
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			<sc:inlineImg role="ico" sc:refUri="images/FonE3-1.png"/>
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			<sc:inlineImg role="ico" sc:refUri="images/FonE3-2.png"/>
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			<sc:inlineImg role="ico" sc:refUri="images/FonE3-3.png"/>
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			<sc:inlineImg role="ico" sc:refUri="images/FonE3-4.png"/>
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">Voici deux ressources pour revoir quelques notions :</sc:para>
+						<sc:itemizedList>
+							<sc:listItem>
+								<sc:para xml:space="preserve">
+<sc:phrase role="url">
+<op:urlM>
+<sp:url>http://www.canal-u.tv/video/tele2sciences/fonctions_usuelles_partie_1_logarithme_et_exponentielle.13162</sp:url>
+</op:urlM>Fonctions usuelles : Logarithme et exponentielle</sc:phrase>
+</sc:para>
+							</sc:listItem>
+							<sc:listItem>
+								<sc:para xml:space="preserve">
+<sc:phrase role="url">
+<op:urlM>
+<sp:url>http://ressources.unisciel.fr/ramses/517-17-fonctions-num/co/517-17_webUnisciel.html</sp:url>
+</op:urlM>Fonctions numériques : Limites, continuité, dérivée, sens de variation</sc:phrase>
+</sc:para>
+							</sc:listItem>
+						</sc:itemizedList>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

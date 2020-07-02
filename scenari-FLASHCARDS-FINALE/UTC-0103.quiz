@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#math-analyse-etufonc-</sp:themeLycee>
+			<sp:themeLicence>#math-fonctions-</sp:themeLicence>
+			<sp:level>4</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">utc.fr</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">Un théorème d'analyse complexe s'énonce ainsi : si une fonction est holomorphe sur <sc:textLeaf role="mathtex">\mathbb{C}</sc:textLeaf>, alors elle est analytique sur <sc:textLeaf role="mathtex">\mathbb{C}</sc:textLeaf>. Même sans comprendre le sens du théorème, on peut logiquement en déduire :</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">Si la fonction <sc:textLeaf role="mathtex">f</sc:textLeaf> est analytique sur <sc:textLeaf role="mathtex">\mathbb{C}</sc:textLeaf>, elle est aussi holomorphe sur <sc:textLeaf role="mathtex">\mathbb{C}</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">Il existe des fonctions holomorphes sur <sc:textLeaf role="mathtex">\mathbb{C}</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">Une fonction <sc:textLeaf role="mathtex">g</sc:textLeaf> qui n'est pas analytique n'est pas holomorphe sur <sc:textLeaf role="mathtex">\mathbb{C}</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">Certaines fonctions sont analytiques sur <sc:textLeaf role="mathtex">\mathbb{C}</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="3"/>
+		<sc:globalExplanation>
+			<!--<comment xmlns="scenari.eu:comment:1.0" type="thread"><comment author="pascal.quach" creationTime="1576239899312">Les références aux réponses sont-elles correctes ? Peut-être remplacer par "réponse n°1" ?</comment></comment>-->
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">Le théorème ne nous permet pas de conclure sur l'existence de fonctions holomorphes, d'où l'impossibilité d'affirmer <sc:textLeaf role="mathtex">(b)</sc:textLeaf></sc:para>
+						<sc:para xml:space="preserve">et <sc:textLeaf role="mathtex">(d)</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">Il nous dit par ailleurs que toute fonction holomorphe est analytique mais nous ne savons rien de la réciproque, d'où l'impossibilité de répondre par l'affirmative à la réponse<sc:textLeaf role="mathtex">(a)</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">Pour la réponse <sc:textLeaf role="mathtex">(c)</sc:textLeaf>, toute fonction holomorphe étant analytique, une fonction non analytique ne peut être holomorphe (c'est la contraposée du théorème).</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#chim-sante-medicam-reacchim-</sp:themeLycee>
+			<sp:themeLicence>#chim-chimsolu-</sp:themeLicence>
+			<sp:level>1</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<!--<comment xmlns="scenari.eu:comment:1.0" type="thread"><comment author="camille.dufourg" creationTime="1574416467807">Il manque des mots-clés et la licence.</comment></comment>-->
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">Université Nice-Sophia-Antipolis</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Lorsqu'on écrit le bilan d'une réaction chimique avec le symbole <sc:textLeaf role="mathtex">\rightarrow</sc:textLeaf>, il convient :</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">d'écrire les produits à gauche et les réactifs à droite du symbole <sc:textLeaf role="mathtex">\rightarrow</sc:textLeaf>.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">d'écrire les produits à droite et les réactifs à gauche du symbole <sc:textLeaf role="mathtex">\rightarrow</sc:textLeaf>.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">d'écrire tous les nombres stœchiométriques sous forme de fractions.	</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">de respecter la stœchiométrie de la réaction.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Toutes les propositions sont fausses.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Dans l'équation de réaction <sc:textLeaf role="mathtex">\mathrm{aA+bB \rightarrow cC + dD}</sc:textLeaf>, les réactifs <sc:textLeaf role="mathtex">\mathrm{A}</sc:textLeaf> et <sc:textLeaf role="mathtex">\mathrm{B}</sc:textLeaf> sont placés à gauche du signe <sc:textLeaf role="mathtex">\rightarrow</sc:textLeaf> et les produits <sc:textLeaf role="mathtex">\mathrm{C}</sc:textLeaf> et <sc:textLeaf role="mathtex">\mathrm{D}</sc:textLeaf> à droite. Il convient d'écrire les nombres stœchiométriques <sc:textLeaf role="mathtex">\mathrm{a, \, b, \, c}</sc:textLeaf> et <sc:textLeaf role="mathtex">\mathrm{d}</sc:textLeaf> sous la forme d'entiers et de respecter la stœchiométrie de la réaction (conservation des atomes).
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

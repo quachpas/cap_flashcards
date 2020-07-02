@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:title>Structure des organismes</sp:title>
+			<sp:themeLycee>#scvie-terunivers-natvivant-</sp:themeLycee>
+			<sp:themeLicence>#bio-cellule-</sp:themeLicence>
+			<sp:level>1</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<op:info>
+					<sp:keywds>
+						<op:keywds>
+							<sp:keywd>cellule</sp:keywd>
+							<sp:keywd>biochimie</sp:keywd>
+						</op:keywds>
+					</sp:keywds>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      Université Lille 1</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Classer ces éléments, du plus petit au plus grand : feuille, atome de carbone, cellule chlorophyllienne, membrane plasmique, adénosine triphosphate ATP, électron.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						Électron &lt; Atome de carbone &lt; ATP &lt; membrane plasmique &lt; cellule chlorophyllienne &lt; feuille.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						Électron &lt; ATP &lt; Atome de carbone &lt; membrane plasmique &lt; cellule chlorophyllienne &lt; feuille.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						Électron &lt; Atome de carbone &lt; ATP &lt; cellule chlorophyllienne &lt; membrane plasmique &lt; feuille.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						Électron &lt; Atome de carbone &lt; membrane plasmique &lt; ATP &lt; cellule chlorophyllienne &lt; feuille.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="1"/>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">		 La feuille est constituée de plusieurs cellules chlorophylliennes. Celles-ci sont bordées d'une membrane plasmique constituée de grosses molécules et hébergent de nombreuses petites molécules d'ATP permettant de réaliser divers travaux cellulaires. De très nombreuses molécules de ces cellules sont constituées d'atomes de carbone, eux-mêmes composés d'un noyau et d'électrons.</sc:para>
+						<sc:para xml:space="preserve"> Vous devez impérativement savoir classer ces éléments dans le bon ordre d'une part, et les interclasser entre eux, d'autre part. Vous pouvez vous aider des tableaux comparatifs de taille (du nanomètre au centimètre) disponibles dans certains manuels. </sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

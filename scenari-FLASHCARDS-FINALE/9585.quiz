@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#phys-comploimod-tempmvtevol-loinewton-</sp:themeLycee>
+			<sp:themeLicence>#phys-loisnewton-</sp:themeLicence>
+			<sp:level>3</sp:level>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://univ-lille1.fr</sp:url>
+</op:urlM>univ-lille1.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Un cheval tire un chariot sur un sol horizontal. Arthur essaie d'analyser le mouvement à la lumière des lois de Newton.
+		</sc:para>
+						<sc:para xml:space="preserve">Quelle est la réflexion correcte du point de vue de la physique ?</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			L'ensemble ne peut pas avancer car la force exercée par le cheval sur le chariot est opposée à la force exercée par le chariot sur le cheval.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			 Si on prend le système {cheval + chariot}, il faut considérer (pour appliquer les première et deuxième lois de Newton) les forces extérieures qui s'appliquent à ce système.</sc:para>
+						<sc:itemizedList>
+							<sc:listItem>
+								<sc:para xml:space="preserve">Poids de l'ensemble</sc:para>
+							</sc:listItem>
+							<sc:listItem>
+								<sc:para xml:space="preserve">Réaction du sol</sc:para>
+							</sc:listItem>
+						</sc:itemizedList>
+						<sc:para xml:space="preserve">C'est la réaction tangentielle du sol (frottements) qui s'oppose à la force exercée par les sabots du cheval sur le sol, qui permet la mise en mouvement du chariot.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			L'ensemble ne peut se mettre en mouvement que si le cheval tire le chariot avec une force supérieure au poids du chariot.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			 La force qui s'oppose à la mise en mouvement du chariot par le cheval est la force de frottement entre le chariot et le sol. (Le poids est une force verticale, or c'est horizontalement que le cheval tire le chariot)</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			L'ensemble ne peut se mettre en mouvement que si le cheval tire le chariot avec une force supérieure à la somme du poids du chariot et de son propre poids.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			 La force qui s'oppose à la mise en mouvement de l'ensemble {chariot + cheval} par le cheval est la force de frottement entre le chariot et le sol. Le poids est une force verticale, or c'est horizontalement que le cheval tire le chariot.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			L'ensemble ne peut se mettre en mouvement que si le cheval tire le chariot avec une force supérieure aux frottements entre le sol et le chariot.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Si le sol est sans frottement, c'est plus facile pour le cheval d'avancer en tirant le chariot. </sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">Cela n'a pas de sens de parler de "sol sans frottement". La force est toujours une interaction entre deux objets.</sc:para>
+						<sc:para xml:space="preserve">La force de frottement du sol sur les roues du chariot rend plus difficile l'effort du cheval.</sc:para>
+						<sc:para xml:space="preserve">Si le sol n'exerçait pas une force de frottement sur les sabots du cheval, ce dernier ne pourrait pas avancer (imaginez le sur une patinoire).</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">Dans cette question il faut bien voir quel est le système étudié. Pour répondre aux questions sur le mouvement du chariot, on étudie le système = chariot soumis à 3 forces :</sc:para>
+						<sc:itemizedList>
+							<sc:listItem>
+								<sc:para xml:space="preserve">la traction par le cheval</sc:para>
+							</sc:listItem>
+							<sc:listItem>
+								<sc:para xml:space="preserve">son poids</sc:para>
+							</sc:listItem>
+							<sc:listItem>
+								<sc:para xml:space="preserve">la réaction du sol (normale (= s'oppose au poids) et tangentielle (= frottements))</sc:para>
+							</sc:listItem>
+						</sc:itemizedList>
+						<sc:para xml:space="preserve">Pour que l'ensemble avance, il faut que la force exercée par le cheval sur le chariot soit supérieure aux frottements exercés par le sol sur le chariot.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

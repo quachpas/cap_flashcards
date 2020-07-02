@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#chim-sante-diagmed-</sp:themeLycee>
+			<sp:themeLycee>#chim-sante-diagmed-quantmatmole-</sp:themeLycee>
+			<sp:themeLicence>#chim-chimsolu-</sp:themeLicence>
+			<sp:level>3</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      Université de technologie de Troyes, 
+      Baudrion, 
+      Verchier, 
+      01-06-2012, 
+      <sc:phrase role="url"><op:urlM>
+<sp:url>http://utt.fr</sp:url>
+</op:urlM>
+utt.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			On dispose d'une solution de concentration égale à <sc:textLeaf role="mathtex">1,5.10-2 \mathrm{mol.L^{-1}}</sc:textLeaf>.  Quelle est la quantité de matière contenue dans 50 <sc:textLeaf role="mathtex">\mathrm{mL}</sc:textLeaf> ?</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						33,3.10<sc:textLeaf role="exp">-3</sc:textLeaf> <sc:textLeaf role="mathtex">\mathrm{mol}</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						7,5.10<sc:textLeaf role="exp">-4</sc:textLeaf> <sc:textLeaf role="mathtex">\mathrm{mol}</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						3,3.10<sc:textLeaf role="exp">-4</sc:textLeaf> <sc:textLeaf role="mathtex">\mathrm{mol}</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						0,75 <sc:textLeaf role="mathtex">\mathrm{mol}</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="2"/>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Par définition de la concentration molaire <sc:textLeaf role="mathtex">C=\dfrac{n}{V}</sc:textLeaf>, on en déduit <sc:textLeaf role="mathtex">n=C \cdot V=1,5 \cdot 10^{-2} \times 50 \cdot 10^{-3}= 7,5 \cdot 10^{-4} \, \mathrm{mol}</sc:textLeaf>.	</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

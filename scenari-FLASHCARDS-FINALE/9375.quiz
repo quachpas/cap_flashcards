@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="chm" creationTime="1464089833053">Le terme "uniquement" est-il indispensable ? En effet même si ceci n'est plus vu au lycée, la courbe représentative admet aussi une asymptote oblique d'équation y=x+1.</comment><comment author="fav" creationTime="1467379918199">Les commentaires doivent être neutres. Pas de bien entendu, de supposé connu, de point d'exclamation. </comment></comment>-->
+		<op:exeM>
+			<sp:themeLycee>#math-analyse-limfonc-asympra-</sp:themeLycee>
+			<sp:themeLicence>#math-fonctions-</sp:themeLicence>
+			<sp:level>3</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      UTT, 
+      Lacresse, 
+      Visca, 
+      30-05-2012, 
+      <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://utt.fr</sp:url>
+</op:urlM>utt.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			On donne <sc:textLeaf role="mathtex">f</sc:textLeaf> la fonction définie sur <sc:textLeaf role="mathtex">]0;+\infty[</sc:textLeaf> par <sc:textLeaf role="mathtex"> f(x)=x+1-\frac{\ln x}{x}</sc:textLeaf>. Sa courbe représentative admet</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			une asymptote verticale.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			une asymptote horizontale.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			une asymptote horizontale et une asymptote verticale.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="1"/>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Les limites à considérer sont en <sc:textLeaf role="mathtex">0</sc:textLeaf> et <sc:textLeaf role="mathtex">+\infty</sc:textLeaf>, bien entendu. En <sc:textLeaf role="mathtex">+\infty</sc:textLeaf>, on se sert de la limite supposée connue de <sc:textLeaf role="mathtex">\frac{\ln x}{x}</sc:textLeaf> (zéro) et en <sc:textLeaf role="mathtex">0</sc:textLeaf>, <sc:textLeaf role="mathtex">\frac{\ln x}{x}</sc:textLeaf> tend vers moins l'infini. La limite en <sc:textLeaf role="mathtex">0</sc:textLeaf> est infinie et aussi celle en <sc:textLeaf role="mathtex">+\infty</sc:textLeaf>. 
+		 Elle admet donc une asymptote verticale, mais pas horizontale !</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

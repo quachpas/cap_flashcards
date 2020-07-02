@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3">
+		<op:exeM>
+			<sp:themeLycee xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-analyse-equations-</sp:themeLycee>
+			<sp:themeLicence xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-equa-</sp:themeLicence>
+			<sp:level xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">2</sp:level>
+			<sp:educationLevel xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">L1</sp:educationLevel>
+			<sp:info xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">ECRA-IREM-Clermont-Ferrand</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">On donne le tableau de variations d'une fonction <sc:textLeaf role="mathtex">f</sc:textLeaf> continue sur <sc:textLeaf role="mathtex">\mathbb R</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sp:txt>
+				<sp:res sc:refUri="Ressources/E018.PNG" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:resInfoM/>
+				</sp:res>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">L'inéquation <sc:textLeaf role="mathtex">f(x)&lt;0</sc:textLeaf> est vérifiée sur <sc:textLeaf role="mathtex">\mathbb R</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">L'équation <sc:textLeaf role="mathtex">f(x)=0</sc:textLeaf> a deux solutions</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">L'équation <sc:textLeaf role="mathtex">f(x)=-1</sc:textLeaf> a deux solutions</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">Si <sc:textLeaf role="mathtex">x&lt;0</sc:textLeaf>, on peut affirmer que <sc:textLeaf role="mathtex">f(x)\in[-5 ;-1]</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:res sc:refUri="Ressources/E018_2.png" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:resInfoM/>
+				</sp:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:inlineStyle role="emp">Théorème des valeurs intermédiaires :</sc:inlineStyle> Si <sc:textLeaf role="mathtex">f</sc:textLeaf> est une fonction définie et continue sur un intervalle <sc:textLeaf role="mathtex">[a ; b]</sc:textLeaf> de <sc:textLeaf role="mathtex">\mathbb R</sc:textLeaf>, alors pour tout réel <sc:textLeaf role="mathtex">k</sc:textLeaf> compris entre <sc:textLeaf role="mathtex">f(a)</sc:textLeaf> et <sc:textLeaf role="mathtex">f(b)</sc:textLeaf>, il existe au moins un réel <sc:textLeaf role="mathtex">c</sc:textLeaf> dans<sc:textLeaf role="mathtex"> [a ; b]</sc:textLeaf> tel que <sc:textLeaf role="mathtex">f(c)=k</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">
+<sc:inlineStyle role="emp">Corollaire :</sc:inlineStyle> Si <sc:textLeaf role="mathtex">f</sc:textLeaf> est une fonction continue et strictement monotone sur un intervalle <sc:textLeaf role="mathtex">[a ; b]</sc:textLeaf> de <sc:textLeaf role="mathtex">\mathbb R</sc:textLeaf>, alors pour tout réel <sc:textLeaf role="mathtex">k</sc:textLeaf> compris entre <sc:textLeaf role="mathtex">f(a)</sc:textLeaf> et <sc:textLeaf role="mathtex">f(b)</sc:textLeaf>, l'équation <sc:textLeaf role="mathtex">f(x)=k</sc:textLeaf> a une solution unique dans <sc:textLeaf role="mathtex">[a ; b]</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sp:txt>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:itemizedList>
+							<sc:listItem>
+								<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">f(2/3)=e^{-1}\approx 0,37</sc:textLeaf> : <sc:textLeaf role="mathtex">f</sc:textLeaf> admet donc des valeurs positives.</sc:para>
+							</sc:listItem>
+							<sc:listItem>
+								<sc:para xml:space="preserve">Sur <sc:textLeaf role="mathtex">]-\infty ; \ln 0,5]</sc:textLeaf>, <sc:textLeaf role="mathtex">f</sc:textLeaf> est continue et décroissante de -1 à -5 : <sc:textLeaf role="mathtex">f(x)=0</sc:textLeaf> n'admet pas de solution dans <sc:textLeaf role="mathtex">]-\infty ; \ln 0,5]</sc:textLeaf>.</sc:para>
+								<sc:para xml:space="preserve">Sur <sc:textLeaf role="mathtex">[\ln 0,5 ; 2/3]</sc:textLeaf>, <sc:textLeaf role="mathtex">f</sc:textLeaf> est continue et strictement croissante de <sc:textLeaf role="mathtex">-5\;\mathrm{\grave{a}}\; e^{-1}\approx 0,37&gt;0</sc:textLeaf>.</sc:para>
+								<sc:para xml:space="preserve">Il existe donc un unique réel <sc:textLeaf role="mathtex">\alpha\in [\ln 0,5 ; 2/3]\;\mathrm{tel\; que}\; f(\alpha)=0</sc:textLeaf>.</sc:para>
+								<sc:para xml:space="preserve">Sur <sc:textLeaf role="mathtex">[2/3 ; +\infty[</sc:textLeaf>, <sc:textLeaf role="mathtex">f</sc:textLeaf> est continue et strictement décroissante de <sc:textLeaf role="mathtex">e^{-1}\approx 0,37\;\mathrm{\grave{a}} -\infty</sc:textLeaf>.</sc:para>
+								<sc:para xml:space="preserve">Il existe donc un unique réel <sc:textLeaf role="mathtex">\beta\in [2/3 ; +\infty[\;\mathrm{tel\; que}\; f(\beta)=0</sc:textLeaf>.</sc:para>
+								<sc:para xml:space="preserve">On en déduit donc que l'équation <sc:textLeaf role="mathtex">f(x)= 0</sc:textLeaf> admet exactement deux solutions dans <sc:textLeaf role="mathtex">\mathbb R</sc:textLeaf>.</sc:para>
+							</sc:listItem>
+							<sc:listItem>
+								<sc:para xml:space="preserve">Sur <sc:textLeaf role="mathtex">]-\infty ; \ln 0,5]</sc:textLeaf>, <sc:textLeaf role="mathtex">f</sc:textLeaf> est continue et décroissante de -1 à -5 : <sc:textLeaf role="mathtex">f(x)=-1</sc:textLeaf> n'admet pas de solution dans <sc:textLeaf role="mathtex">]-\infty ; \ln 0,5]</sc:textLeaf>.</sc:para>
+								<sc:para xml:space="preserve">
+<sc:inlineStyle role="emp">Attention :</sc:inlineStyle> on a <sc:textLeaf role="mathtex">\lim\limits_{x\rightarrow-\infty} f(x)=-1</sc:textLeaf>, ce qui signifie que la droite d'équation <sc:textLeaf role="mathtex">y=-1</sc:textLeaf> est une asymptote à la courbe représentative de <sc:textLeaf role="mathtex">f</sc:textLeaf> en <sc:textLeaf role="mathtex">\-infty</sc:textLeaf> et que par conséquent la valeur –1 n'est pas atteinte.</sc:para>
+								<sc:para xml:space="preserve">Sur <sc:textLeaf role="mathtex">[\ln 0,5 ; 2/3]</sc:textLeaf>, <sc:textLeaf role="mathtex">f</sc:textLeaf> est continue et strictement croissante de <sc:textLeaf role="mathtex">-5\;\mathrm{\grave{a}}\; e^{-1}\approx 0,37&gt;0</sc:textLeaf>.</sc:para>
+								<sc:para xml:space="preserve">Il existe donc un unique réel <sc:textLeaf role="mathtex">\gamma\in [\ln 0,5 ; 2/3]\;\mathrm{tel\; que}\; f(\gamma)=-1</sc:textLeaf>.</sc:para>
+								<sc:para xml:space="preserve">Sur <sc:textLeaf role="mathtex">[2/3 ; +\infty[</sc:textLeaf>, <sc:textLeaf role="mathtex">f</sc:textLeaf> est continue et strictement décroissante de <sc:textLeaf role="mathtex">e^{-1}\approx 0,37\;\mathrm{\grave{a}} -\infty</sc:textLeaf>.</sc:para>
+								<sc:para xml:space="preserve">Il existe donc un unique réel <sc:textLeaf role="mathtex">\delta\in [2/3 ; +\infty[\;\mathrm{tel\; que}\; f(\delta)=-1</sc:textLeaf>.</sc:para>
+								<sc:para xml:space="preserve">On en déduit donc que l'équation <sc:textLeaf role="mathtex">f(x)=-1</sc:textLeaf> admet exactement deux solutions dans <sc:textLeaf role="mathtex">\mathbb R</sc:textLeaf>.</sc:para>
+							</sc:listItem>
+							<sc:listItem>
+								<sc:para xml:space="preserve">Sur <sc:textLeaf role="mathtex">]-\infty ; \ln 0,5]</sc:textLeaf>, <sc:textLeaf role="mathtex">f</sc:textLeaf> est négative. Mais <sc:textLeaf role="mathtex">f</sc:textLeaf> peut changer de signe sur <sc:textLeaf role="mathtex">[\ln 0,5 ; 0]</sc:textLeaf> car on ne connaît pas la valeur de <sc:textLeaf role="mathtex">f(0)</sc:textLeaf>.</sc:para>
+							</sc:listItem>
+						</sc:itemizedList>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

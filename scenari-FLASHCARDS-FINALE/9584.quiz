@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#phys-comploimod-tempmvtevol-descmvtpttps-</sp:themeLycee>
+			<sp:themeLicence>#phys-mathphys-</sp:themeLicence>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://univ-lille1.fr</sp:url>
+</op:urlM>univ-lille1.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<!--<comment xmlns="scenari.eu:comment:1.0" type="thread"><comment author="auc" creationTime="1461856764026">Lecture d'un graphe : position de voiture au cours du temps</comment></comment>-->
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Deux voitures sont sur la même route et leur position est repérée le long de l'axe <sc:textLeaf role="mathtex">Ox</sc:textLeaf>. Une horloge permet de mesurer le temps <sc:textLeaf role="mathtex">t</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">Le graphe ci-dessous représente la position <sc:textLeaf role="mathtex">x</sc:textLeaf> de deux voitures A et B au cours du temps.</sc:para>
+					</op:txt>
+				</sp:txt>
+				<sp:res sc:refUri="images/q013_etude_mouv.jpg">
+					<op:resInfoM/>
+				</sp:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">D'après les graphes, quelles sont les propositions avec lesquelles vous êtes d'accord ?</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Une seule chose est lisible sur le graphe : les voitures se croisent puisqu'il y a un point d'intersection des graphes. 
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			 Le graphe donne beaucoup plus d'informations : les voitures vont en sens contraire, à vitesse constante, A va plus vite que B, elles se croisent.
+		</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Les 2 voitures vont dans le même sens, à vitesse constante, mais l'une va plus vite que l'autre, et à un certain instant elles se croisent.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">Les voitures vont en sens contraire.
+		</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			La voiture B va plus vite que la voiture A, et à un moment donné B dépasse A.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			 A va plus vite que B, les voitures se croisent à un instant donné.
+		</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Les voitures vont en sens contraire, et la voiture A va plus vite que la voiture B.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+	</op:mcqMur>
+</sc:item>

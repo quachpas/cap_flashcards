@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3">
+		<op:exeM>
+			<sp:themeLycee xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-geo-nbcomplex-</sp:themeLycee>
+			<sp:themeLicence xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-nbreelscompl-</sp:themeLicence>
+			<sp:level xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">3</sp:level>
+			<sp:educationLevel xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">L0</sp:educationLevel>
+			<sp:info xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">ECRA – IREM – Strasbourg</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">L'équation <sc:textLeaf role="mathtex">(E) : (z-3+4i)(z-3-4i)=25</sc:textLeaf> a deux solutions :</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">z_1=8+4i</sc:textLeaf> et <sc:textLeaf role="mathtex">z_2=8-4i</sc:textLeaf> ;</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">z_1=-2+4i</sc:textLeaf> et <sc:textLeaf role="mathtex">z_2=-2-4i</sc:textLeaf> ;</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">z_1=-2+4i</sc:textLeaf> et <sc:textLeaf role="mathtex">z_2=8+4i</sc:textLeaf> ;</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">z_1=0</sc:textLeaf> et <sc:textLeaf role="mathtex">z_2=6</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="4"/>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">Une équation de type produit est une équation de la forme <sc:textLeaf role="mathtex">A\times B=\textcolor{red}{0}</sc:textLeaf> . Donc, notre équation <sc:inlineStyle role="emp">n'est pas une équation de type produit</sc:inlineStyle>.</sc:para>
+						<sc:para xml:space="preserve">Ramenons notre équation à une équation du second degré :</sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">(E) : (z-3+4i)(z-3-4i)=25</sc:textLeaf>
+</sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\Leftrightarrow (z-3)^2+16=25</sc:textLeaf>
+</sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\Leftrightarrow (z-3)^2=9</sc:textLeaf>
+</sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\Leftrightarrow (z-3=3)</sc:textLeaf> ou <sc:textLeaf role="mathtex">(z-3=-3)</sc:textLeaf>
+</sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\Leftrightarrow (z=6)</sc:textLeaf> ou <sc:textLeaf role="mathtex">(z=0)</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#math-logique-</sp:themeLycee>
+			<sp:themeLicence>#math-lograis-</sp:themeLicence>
+			<sp:level>2</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">ECRA-IREM-Limoges</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">On sait que le symbole <sc:textLeaf role="mathtex">\exists</sc:textLeaf> signifie et se lit <sc:inlineStyle role="quote">il existe</sc:inlineStyle> et que le symbole <sc:textLeaf role="mathtex">\forall</sc:textLeaf> signifie et se lit <sc:inlineStyle role="quote">pour tout</sc:inlineStyle>.</sc:para>
+						<sc:para xml:space="preserve">Soient les suites <sc:textLeaf role="mathtex">(u_n)</sc:textLeaf> et <sc:textLeaf role="mathtex">(v_n)</sc:textLeaf> définies par <sc:textLeaf role="mathtex">\forall n\in\mathbb N^*,\;u_n=1+\frac2n\;\;\text{et}\;\;v_n=1+\frac1{2n}</sc:textLeaf>.
+</sc:para>
+						<sc:para xml:space="preserve">Soit <sc:textLeaf role="mathtex">Q</sc:textLeaf> la proposition "<sc:textLeaf role="mathtex">\exists n\in\mathbb N^*, \;u_n&gt;v_n</sc:textLeaf>".</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">Q est vraie.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">Q est fausse.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="1"/>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">Pour <sc:textLeaf role="mathtex">n=1</sc:textLeaf>, on a <sc:textLeaf role="mathtex">u_1=3\; \text{et}\;v_1=\frac32</sc:textLeaf> et <sc:textLeaf role="mathtex">3&gt;\frac32</sc:textLeaf>. Il existe bien un entier non nul <sc:textLeaf role="mathtex">n</sc:textLeaf> tel que <sc:textLeaf role="mathtex">u_n&gt;v_n</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

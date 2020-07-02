@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#math-analyse-integration-</sp:themeLycee>
+			<sp:themeLicence>#math-integration-</sp:themeLicence>
+			<sp:level>2</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">ECRA-IREM-Clermont-Ferrand</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">L'intégrale <sc:textLeaf role="mathtex">\displaystyle\int_0^1 dt</sc:textLeaf> est égale à :</sc:para>
+					</op:txt>
+				</sp:txt>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:inlineStyle role="emp">Coup de pouce</sc:inlineStyle>
+</sc:para>
+						<sc:para xml:space="preserve">L'intégrale <sc:textLeaf role="mathtex">\displaystyle\int_0^1dt</sc:textLeaf> peut s'écrire  <sc:textLeaf role="mathtex">\displaystyle\int_0^1 1dt</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">Il faut donc trouver une primitive sur <sc:textLeaf role="mathtex">[0 ;1]</sc:textLeaf> de la fonction constante <sc:textLeaf role="mathtex">f : t\mapsto1</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">0</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">1</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\frac 12</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">l'aire d'un carré de côté <sc:textLeaf role="mathtex">1</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:inlineStyle role="emp">Théroème</sc:inlineStyle>
+</sc:para>
+						<sc:para xml:space="preserve">Soit <sc:textLeaf role="mathtex">f</sc:textLeaf> une fonction définie et continue sur un intervalle <sc:textLeaf role="mathtex">[a ;b]</sc:textLeaf> de <sc:textLeaf role="mathtex">\mathbb R</sc:textLeaf> et soit <sc:textLeaf role="mathtex">F</sc:textLeaf> une primitive de <sc:textLeaf role="mathtex">f</sc:textLeaf> sur <sc:textLeaf role="mathtex">[a ;b]</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">L'intégrale de <sc:textLeaf role="mathtex">f</sc:textLeaf> entre <sc:textLeaf role="mathtex">a</sc:textLeaf> et <sc:textLeaf role="mathtex">b</sc:textLeaf> est égale au nombre : <sc:textLeaf role="mathtex">\displaystyle\int_a^b f(x)dx= \bigg[F(x) \bigg]^b_a =F(b)-F(a)</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sp:txt>
+				<sp:txtRes>
+					<op:txtRes>
+						<op:txtResM>
+							<sp:pos>rgt</sp:pos>
+						</op:txtResM>
+						<sp:txt>
+							<op:txt>
+								<sc:para xml:space="preserve">
+<sc:inlineStyle role="emp">Propriété</sc:inlineStyle>
+</sc:para>
+								<sc:para xml:space="preserve">Soit <sc:textLeaf role="mathtex">f</sc:textLeaf> une fonction définie, continue et <sc:inlineStyle role="emp">positive</sc:inlineStyle> sur <sc:textLeaf role="mathtex">[a ;b]</sc:textLeaf> (avec <sc:textLeaf role="mathtex">a&lt;b</sc:textLeaf>). L'intégrale de <sc:textLeaf role="mathtex">f</sc:textLeaf> entre <sc:textLeaf role="mathtex">a</sc:textLeaf> et <sc:textLeaf role="mathtex">b</sc:textLeaf> est égale à l'aire &quot;sous la courbe&quot; de la fonction <sc:textLeaf role="mathtex">f</sc:textLeaf>, c'est-à-dire l'aire de la partie du plan délimitée par la courbe de <sc:textLeaf role="mathtex">f</sc:textLeaf>, l'axe des abscisses et les deux droites d'équation <sc:textLeaf role="mathtex">x=a</sc:textLeaf> et <sc:textLeaf role="mathtex">x=b</sc:textLeaf>. Cette aire est exprimée en <sc:textLeaf role="mathtex">u.a.</sc:textLeaf> (unité d'aire).</sc:para>
+							</op:txt>
+						</sp:txt>
+						<sp:img sc:refUri="illustrations/irm_clf_mit_012-1.PNG"/>
+					</op:txtRes>
+				</sp:txtRes>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">L'intégrale <sc:textLeaf role="mathtex">\displaystyle\int_0^1 dt</sc:textLeaf> peut s'écrire <sc:textLeaf role="mathtex">\displaystyle\int_0^11dt</sc:textLeaf>. On est donc amené à déterminer une primitive sur <sc:textLeaf role="mathtex">[0 ;1]</sc:textLeaf> de la fonction constante <sc:textLeaf role="mathtex">f : t\mapsto 1</sc:textLeaf>, soit par exemple <sc:textLeaf role="mathtex">F : t\mapsto t</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">On obtient alors : <sc:textLeaf role="mathtex">\displaystyle\int_0^1 dt =\bigg[t\bigg]^1_0=1-0=1</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">On peut aussi utiliser la représentation graphique de la fonction constante <sc:textLeaf role="mathtex">f :t\mapsto1</sc:textLeaf> sur <sc:textLeaf role="mathtex">[0 ;1]</sc:textLeaf> et calculer graphiquement l'aire demandée.</sc:para>
+					</op:txt>
+				</sp:txt>
+				<sp:txtRes>
+					<op:txtRes>
+						<op:txtResM>
+							<sp:pos>lft</sp:pos>
+						</op:txtResM>
+						<sp:txt>
+							<op:txt>
+								<sc:para xml:space="preserve">L'aire demandée est l'aire d'un carré de côté <sc:textLeaf role="mathtex">1</sc:textLeaf> et est donc égale à <sc:textLeaf role="mathtex">1 u.a.</sc:textLeaf>.</sc:para>
+							</op:txt>
+						</sp:txt>
+						<sp:img sc:refUri="illustrations/irm_clf_mit_012-2.PNG"/>
+					</op:txtRes>
+				</sp:txtRes>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#chim-agir-convener-oxydred-</sp:themeLycee>
+			<sp:themeLicence>#chim-chimsolu-</sp:themeLicence>
+			<sp:level>2</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">utc.fr</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="false"><comment author="vaw" creationTime="1483457551381" updateTime="1483457592042">Dans les propositions, remplacer le signe &quot;=&quot; par une flèche &quot;→&quot;
+Préférez le mot &quot;Pondérée&quot; à &quot;équilibrée&quot;</comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">Les couples <sc:textLeaf role="mathtex">Fe^{3+}/Fe^{2+}</sc:textLeaf> et <sc:textLeaf role="mathtex">MnO_4^- / Mn^{2+}</sc:textLeaf> sont des couples oxydants/réducteurs.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">{5Fe^{2+}} + {MnO_4^-}→ {5Fe^{3+}} + {Mn^{2+}}</sc:textLeaf> est l'équation bilan de leur réaction.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">La réaction n'est pas pondérée.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="sod" creationTime="1477643345491">"5Fe2+" -&gt; "2+" n'est pas mis en exposant</comment></comment>-->
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">5Fe^{3+} + Mn^{2+} +4H_2O → 5Fe^{2+}+ MnO_4^- + 8H^+</sc:textLeaf> est l'équation bilan de leur réaction.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">L'oxydant du couple ayant le potentiel le plus élevé (ici : <sc:textLeaf role="mathtex">MnO_4^- / Mn^{2+}</sc:textLeaf>) réagit avec le réducteur du couple ayant le plus faible potentiel (ici : <sc:textLeaf role="mathtex">Fe^{3+}/Fe^{2+}</sc:textLeaf>).</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">{5Fe^{2+}} + {MnO_4^-} + {8H^+} → {5Fe^{3+}} + {Mn^{2+}} +{4H_2O}</sc:textLeaf> est l'équation bilan de leur réaction.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="sod" creationTime="1477643414293">"Demi-équations redox :"</comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">Demi-équations redox :</sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">{MnO_4^-} + {8H^+} + 5e = {Mn^{2+}}+ {4H_2O}</sc:textLeaf>.
+</sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">{Fe^{3+}} + 1 e = {Fe^{2+}}</sc:textLeaf>.
+</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">Fe^{2+}</sc:textLeaf> est un réducteur.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">Fe^{2+}</sc:textLeaf> est le réducteur du couple <sc:textLeaf role="mathtex">Fe^{3+}/Fe^{2+}</sc:textLeaf>.
+</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">Toutes les propositions sont fausses.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="false"><comment author="sod" creationTime="1477643443992">Image manquante</comment></comment>-->
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">{5Fe^{2+}} + {MnO_4^-} + {8H^+} = {5Fe^{3+}} + {Mn^{2+}} +{4H_2O}</sc:textLeaf> est une réaction redox dans laquelle les réactions sont équilibrées.</sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">Fe^{2+}</sc:textLeaf> est le réducteur du couple <sc:textLeaf role="mathtex">Fe^{3+}/Fe^{2+}</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

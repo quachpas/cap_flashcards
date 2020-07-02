@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3">
+		<op:exeM>
+			<sp:themeLycee xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-analyse-integration-</sp:themeLycee>
+			<sp:themeLicence xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-integration-</sp:themeLicence>
+			<sp:level xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">3</sp:level>
+			<sp:educationLevel xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">L0</sp:educationLevel>
+			<sp:info xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">ECRA-IREM-Clermont-Ferrand</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">On donne l'intégrale <sc:textLeaf role="mathtex">I=\displaystyle\int_0^1 e^{x^2}dx</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">I= e^{1/3}-1</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">I=e-1</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">Pour calculer <sc:textLeaf role="mathtex">I</sc:textLeaf>, on utilise une primitive de <sc:textLeaf role="mathtex">e^{x^2}</sc:textLeaf> qui est <sc:textLeaf role="mathtex">\frac {1}{2x} e^{x^2}</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">On sait que <sc:textLeaf role="mathtex">I</sc:textLeaf> existe mais on peut pas en calculer la valeur exacte</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="4"/>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:inlineStyle role="emp">Théorème</sc:inlineStyle>
+</sc:para>
+						<sc:para xml:space="preserve">Soit <sc:textLeaf role="mathtex">f</sc:textLeaf> une fonction définie et continue sur un intervalle <sc:textLeaf role="mathtex">[a ; b]</sc:textLeaf> de <sc:textLeaf role="mathtex">\mathbb R</sc:textLeaf> et soit <sc:textLeaf role="mathtex">F</sc:textLeaf> une primitive de <sc:textLeaf role="mathtex">f</sc:textLeaf> sur <sc:textLeaf role="mathtex">[a ; b]</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">L'intégrale de <sc:textLeaf role="mathtex">f</sc:textLeaf> entre <sc:textLeaf role="mathtex">a</sc:textLeaf> et <sc:textLeaf role="mathtex">b</sc:textLeaf> est égale au nombre : <sc:textLeaf role="mathtex">\int_a^b f(x)dx= \left[F(x) \right]^b_a =F(b)-F(a)</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sp:txt>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">Pour calculer l'intégrale <sc:textLeaf role="mathtex">\displaystyle\int_0^1e^{x^2}dx</sc:textLeaf>, il faut déterminer une primitive de <sc:textLeaf role="mathtex">e^{x^2}</sc:textLeaf> sur <sc:textLeaf role="mathtex">[0 ; 1]</sc:textLeaf>. Avec les fonctions de référence, on sait qu'une primitive des fonctions de la forme <sc:textLeaf role="mathtex">k\times u'e^u</sc:textLeaf> <sc:inlineStyle role="emp">(avec <sc:textLeaf role="mathtex">k</sc:textLeaf> réel)</sc:inlineStyle> est <sc:textLeaf role="mathtex">k\times e^u</sc:textLeaf>. Or, dans le cas présent, il est impossible d'écrire <sc:textLeaf role="mathtex">e^{x^2}</sc:textLeaf> sous cette forme. Cependant, cette fonction étant continue, on sait qu'elle admet des primitives mais celles-ci ne peuvent pas s'écrire avec des fonctions de référence. Par conséquent, I existe mais on ne sait pas calculer la valeur exacte de l'intégrale.</sc:para>
+					</op:txt>
+				</sp:txt>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:inlineStyle role="emp">Remarque</sc:inlineStyle> :</sc:para>
+						<sc:para xml:space="preserve">On pourrait en donner une valeur approchée en utilisant la représentation graphique de <sc:textLeaf role="mathtex">e^{x^2}</sc:textLeaf> sur <sc:textLeaf role="mathtex">[0 ;1]</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sp:txt>
+				<sp:txtRes xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txtRes>
+						<op:txtResM>
+							<sp:pos>lft</sp:pos>
+						</op:txtResM>
+						<sp:txt>
+							<op:txt>
+								<sc:para xml:space="preserve">Graphiquement, avec une calculatrice, on obtient <sc:textLeaf role="mathtex">\displaystyle\int_0^1e^{x^2}dx \approx 1,46 \; u.a.</sc:textLeaf>
+</sc:para>
+							</op:txt>
+						</sp:txt>
+						<sp:img sc:refUri="illustrations/irm_clf_mit_015.PNG"/>
+					</op:txtRes>
+				</sp:txtRes>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

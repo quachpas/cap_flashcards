@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#math-probastat-probfin-probeven-</sp:themeLycee>
+			<sp:themeLicence>#math-proba-</sp:themeLicence>
+			<sp:level>3</sp:level>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      <sc:phrase role="url"><op:urlM><sp:url>www.parisdescartes.fr</sp:url></op:urlM>
+parisdescartes.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			 On lance successivement 
+  <sc:textLeaf role="mathtex">\textstyle{2}</sc:textLeaf>
+ dés équilibrés et l'on note la somme obtenue. La probabilité d'obtenir la somme 
+  <sc:textLeaf role="mathtex">\textstyle{6}</sc:textLeaf> est</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			égale à celle d'obtenir 
+  <sc:textLeaf role="mathtex">\textstyle{8}</sc:textLeaf>.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			supérieure à celle d'obtenir 
+  <sc:textLeaf role="mathtex">\textstyle{7}</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Le 
+  <sc:textLeaf role="mathtex">\textstyle{7}</sc:textLeaf>
+ apparaît 
+  <sc:textLeaf role="mathtex">\textstyle{6}</sc:textLeaf>
+ fois et le 
+  <sc:textLeaf role="mathtex">\textstyle{6}</sc:textLeaf>
+ apparaît 
+  <sc:textLeaf role="mathtex">\textstyle{5}</sc:textLeaf> fois.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			
+  <sc:textLeaf role="mathtex">\textstyle{\dfrac7{36}}</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			 Le nombre de couples possibles est 
+  <sc:textLeaf role="mathtex">\textstyle{36}</sc:textLeaf>, il y a équiprobabilité et il y a 
+  <sc:textLeaf role="mathtex">\textstyle{5}</sc:textLeaf>
+ couples donnant pour somme 
+  <sc:textLeaf role="mathtex">\textstyle{6}</sc:textLeaf>.
+		</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="1"/>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			On peut représenter les résultats possibles dans un tableau à double entrée où l'on note les sommes obtenues. La somme 
+  <sc:textLeaf role="mathtex">\textstyle{6}</sc:textLeaf>
+ apparaît autant de fois que la somme 
+  <sc:textLeaf role="mathtex">\textstyle{8}</sc:textLeaf>, c'est-à-dire qu'il y a autant de couples de nombres dont la somme est 
+  <sc:textLeaf role="mathtex">\textstyle{6}</sc:textLeaf>
+ que de couples de nombres dont la somme est 
+  <sc:textLeaf role="mathtex">\textstyle{8}</sc:textLeaf>. L'univers est l'ensemble des couples et il y a équiprobabilité, d'où le résultat. La probabilité d'obtenir la somme 
+  <sc:textLeaf role="mathtex">\textstyle{6}</sc:textLeaf>
+ est égale à celle d'obtenir 
+  <sc:textLeaf role="mathtex">\textstyle{8}</sc:textLeaf>.
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+				<sp:res sc:refUri="images/tableau-4.gif">
+					<op:resInfoM/>
+				</sp:res>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

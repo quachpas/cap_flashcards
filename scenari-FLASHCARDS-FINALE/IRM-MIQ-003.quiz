@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3">
+		<op:exeM>
+			<sp:themeLycee xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-analyse-ineq-</sp:themeLycee>
+			<sp:themeLicence xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-equa-</sp:themeLicence>
+			<sp:level xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">3</sp:level>
+			<sp:educationLevel xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">L0</sp:educationLevel>
+			<sp:info xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">ECRA-IREM-Clermont-Ferrand</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">Soit <sc:textLeaf role="mathtex">x</sc:textLeaf> un réel.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">si <sc:textLeaf role="mathtex">x^2\geq 4</sc:textLeaf>, alors <sc:textLeaf role="mathtex">x\geq 2</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">si <sc:textLeaf role="mathtex">x=-5</sc:textLeaf>, l'hypothèse est vérifiée <sc:textLeaf role="mathtex">(x^2=25\geq 4)</sc:textLeaf> mais la conclusion est incorrecte.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">si <sc:textLeaf role="mathtex">\frac 1 x \geq -1</sc:textLeaf> et <sc:textLeaf role="mathtex">x\ne 0</sc:textLeaf>, alors <sc:textLeaf role="mathtex">x\leq -1</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">si <sc:textLeaf role="mathtex">x=2</sc:textLeaf>, l'hypothèse est vérifiée <sc:textLeaf role="mathtex">\Bigg(\frac 1 x =0,5\geq -1\Bigg)</sc:textLeaf> mais la conclusion est incorrecte.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">si <sc:textLeaf role="mathtex">1\leq \sqrt x \leq3</sc:textLeaf>, alors <sc:textLeaf role="mathtex">1\leq x \leq 9</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">si <sc:textLeaf role="mathtex">1\leq |x| \leq3</sc:textLeaf>, alors <sc:textLeaf role="mathtex">1\leq x \leq 3</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">si <sc:textLeaf role="mathtex">x=-2</sc:textLeaf>, l'hypothèse est vérifiée <sc:textLeaf role="mathtex">(1\leq|x|\leq3)</sc:textLeaf> mais la conclusion est incorrecte.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="3"/>
+	</op:mcqSur>
+</sc:item>

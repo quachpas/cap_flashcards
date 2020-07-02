@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:title>maths_1_33</sp:title>
+			<sp:themeLycee>#math-analyse-suites-raisrecurr-</sp:themeLycee>
+			<sp:themeLicence>#math-lograis-</sp:themeLicence>
+			<sp:level>1</sp:level>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">On considère la suite <sc:textLeaf role="mathtex">(u_{n})</sc:textLeaf> définie par
+<sc:textLeaf role="mathtex">\left\{\begin{array}{l}u_{0}=0\\u_{n+1}=2+\sqrt{u_{n}}\;.\end{array}\right</sc:textLeaf>.
+</sc:para>
+						<sc:para xml:space="preserve">On souhaite démontrer par récurrence que pour tout entier naturel <sc:textLeaf role="mathtex">n</sc:textLeaf>, on a <sc:textLeaf role="mathtex">0\leq u_{n}\leq4</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">Que faut-il démontrer exactement lors de l'initialisation ?</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">u_{1}=2</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">0\leq u_{n+1}\leq 4</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">0\leq u_{0}\leq4</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">u_{0}=0</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="3"/>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">Il faut vérifier que la propriété "pour tout entier naturel <sc:textLeaf role="mathtex">n</sc:textLeaf>, on a <sc:textLeaf role="mathtex">0\leq u_{n}\leq4</sc:textLeaf>" est vraie au rang <sc:textLeaf role="mathtex">n = 0</sc:textLeaf>.
+</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

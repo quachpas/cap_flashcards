@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#math-probastat-modrepetexp-</sp:themeLycee>
+			<sp:themeLicence>#math-stat-</sp:themeLicence>
+			<sp:level>4</sp:level>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      <sc:phrase role="url"><op:urlM xmlns:sc="http://www.utc.fr/ics/scenari/v3/core" xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive"><sp:url>www.parisdescartes.fr</sp:url></op:urlM>
+parisdescartes.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Une cible circulaire est composée de trois zones numérotées 
+  <sc:textLeaf role="mathtex">\textstyle{1}</sc:textLeaf>
+, 
+  <sc:textLeaf role="mathtex">\textstyle{2}</sc:textLeaf>
+, et 
+  <sc:textLeaf role="mathtex">\textstyle{3}</sc:textLeaf>. La probabilité d'atteindre l'une des zones est proportionnelle au numéro de la zone. On admet que les résultats de plusieurs tirs successifs sont indépendants. La probabilité d'atteindre au moins trois fois la zone numéro 
+  <sc:textLeaf role="mathtex">\textstyle{2}</sc:textLeaf>
+ au cours de cinq tirs successifs est 
+  <sc:textLeaf role="mathtex">\textstyle{\dfrac{40}{243}}</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Vrai</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Faux</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="2"/>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			L'expérience aléatoire est de tirer une fois sur la cible. On appelle succès 
+  <sc:textLeaf role="mathtex">\textstyle{S}</sc:textLeaf>
+ l'événement : « tirer dans la zone 
+  <sc:textLeaf role="mathtex">\textstyle{2}</sc:textLeaf>
+ ». Cherchons 
+  <sc:textLeaf role="mathtex">\textstyle{\mathbb P(S)}</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">
+			Soit 
+  <sc:textLeaf role="mathtex">\textstyle{p}</sc:textLeaf>
+ la probabilité de tirer dans la zone 
+  <sc:textLeaf role="mathtex">\textstyle{1}</sc:textLeaf>. Alors la probabilité de tirer dans la zone 
+  <sc:textLeaf role="mathtex">\textstyle{2}</sc:textLeaf>
+ est 
+  <sc:textLeaf role="mathtex">\textstyle{2p}</sc:textLeaf>
+ et celle de tirer dans la zone 
+  <sc:textLeaf role="mathtex">\textstyle{3}</sc:textLeaf>
+ est 
+  <sc:textLeaf role="mathtex">\textstyle{3p}</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">
+			La somme des probabilité est 
+  <sc:textLeaf role="mathtex">\textstyle{1}</sc:textLeaf>
+ d'où 
+  <sc:textLeaf role="mathtex">\textstyle{p+2p+3p=1}</sc:textLeaf>
+, soit 
+  <sc:textLeaf role="mathtex">\textstyle{p=\dfrac16}</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">
+			D'où 
+  <sc:textLeaf role="mathtex">\textstyle{\mathbb P(S)=\dfrac13}</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">
+			
+<sc:inlineStyle role="emp">Remarque</sc:inlineStyle> :
+		</sc:para>
+						<sc:para xml:space="preserve">
+			On peut aussi écrire la proportionnalité sous la forme : 
+  <sc:textLeaf role="mathtex">\textstyle{\dfrac{\mathbb P(1)}1=\dfrac{\mathbb P(2)}2=\dfrac{\mathbb P(3)}3=\dfrac{\mathbb P(1)+\mathbb P(2)+\mathbb P(3)}{1+2+3}=\dfrac16}</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">
+			Soit 
+  <sc:textLeaf role="mathtex">\textstyle{X}</sc:textLeaf>
+ la variable aléatoire égale au nombre de succès sur 
+  <sc:textLeaf role="mathtex">\textstyle{5}</sc:textLeaf>
+ tirs. 
+  <sc:textLeaf role="mathtex">\textstyle{X}</sc:textLeaf>
+ suit la loi binomiale de paramètres 
+  <sc:textLeaf role="mathtex">\textstyle{\left(5;\dfrac13\right)}</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">
+			La probabilité cherchée est 
+  <sc:textLeaf role="mathtex">\textstyle{\mathbb P(X\geq3)=\mathbb P(X=3)+\mathbb P(X=4)+\mathbb P(X=5)}</sc:textLeaf>. D'où
+		 <sc:textLeaf role="mathtex">\mathbb P(X\geq3)=\left(\begin{array}{c}5\\3\end{array}\right)\left(\dfrac13\right)^3\left(\dfrac23\right)^2+\left(\begin{array}{c}5\\4\end{array}\right)\left(\dfrac13\right)^4\left(\dfrac23\right)+\left(\begin{array}{c}5\\5\end{array}\right)\left(\dfrac13\right)^5=\dfrac{51}{243}=\dfrac{17}{81}</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

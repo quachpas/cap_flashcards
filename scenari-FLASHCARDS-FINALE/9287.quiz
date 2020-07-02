@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#math-analyse-expalg-transfexpalg-</sp:themeLycee>
+			<sp:themeLicence>#math-proba-</sp:themeLicence>
+			<sp:level>3</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://unistra.fr</sp:url>
+</op:urlM>unistra.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve"> Lors d'une épidémie, 10% d'une population est atteinte d'une maladie. On pratique un test sur chaque personne de cette population. On constate que 90% des personnes malades ont un test positif et que 80% des personnes en bonne santé ont un test négatif.</sc:para>
+						<sc:para xml:space="preserve">La proportion de personnes malades parmi celles dont le résultat du test est négatif est de</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			  <sc:textLeaf role="mathtex">  \frac{1}{10} </sc:textLeaf>
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			  <sc:textLeaf role="mathtex">  \frac{1}{36}</sc:textLeaf>
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<!--<comment xmlns="scenari.eu:comment:1.0" type="thread"><comment author="sod" creationTime="1478619662099">1/73 -&gt; voir explication en dessous</comment></comment>-->
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			  <sc:textLeaf role="mathtex">  \frac{1}{73} </sc:textLeaf>
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			  <sc:textLeaf role="mathtex">  \frac{1}{100} </sc:textLeaf>
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="sod" creationTime="1478619624441">Erreur : on cherche effectif(MN)/(effectif(MN)+effectif(SN)) comme indiqué dans l'explication. Or pour le calcul, effectif(MN) au dénominateur n'est plus pris en compte : on devrait avoir : (1/100)/(1/1OO+72/100)=(1/100)/(73/100)=1/73 </comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">La population est divisée en quatre groupes disjoints : les personnes malades avec un test positif (MP), les personnes malades avec un test négatif (MN), les personnes saines avec un test positif (SP) et les personnes saines avec un test négatif (SN). On a toutes les données, on peut calculer en pourcentage l'effectif de chacune de ces populations. La question est de calculer le nombre de personnes malades avec un test négatif divisé par le nombre de personnes avec un test négatif, c'est-à-dire <sc:textLeaf role="mathtex">\frac{\text{effectif }(\text{MN})}{\text{effectif }(\text{MN})+\text{effectif }(\text{SN})}</sc:textLeaf>. On sait que <sc:textLeaf role="mathtex">\text{effectif }(\text{MN})=\frac{1}{10}\left(1-\frac{9}{10}\right)=\frac{1}{100}</sc:textLeaf> et <sc:textLeaf role="mathtex">\text{effectif }(\text{SN})=\frac{9}{10}\frac{8}{10}=\frac{72}{100}</sc:textLeaf>. La proportion recherchée est donc <sc:textLeaf role="mathtex">\frac{\frac{1}{100}}{\frac{1}{100}+\frac{72}{100}}=\frac{1}{73}</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

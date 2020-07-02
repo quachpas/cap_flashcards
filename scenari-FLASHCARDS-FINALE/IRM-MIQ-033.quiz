@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3">
+		<op:exeM>
+			<sp:themeLycee xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-analyse-equations-</sp:themeLycee>
+			<sp:themeLicence xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-equa-</sp:themeLicence>
+			<sp:level xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">4</sp:level>
+			<sp:educationLevel xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">L0</sp:educationLevel>
+			<sp:info xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">ECRA-IREM-Clermont-Ferrand</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">On considère <sc:textLeaf role="mathtex">P(x)=x^4+7x^2+10</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sp:txt>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:inlineStyle role="emp">Coup de pouce :</sc:inlineStyle> Pour résoudre <sc:textLeaf role="mathtex">P(x)=0</sc:textLeaf>, il faut penser à effectuer le changement de variables <sc:textLeaf role="mathtex">X=x^2</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">On peut écrire <sc:textLeaf role="mathtex">P(x)</sc:textLeaf> comme le produit de deux polynômes de degré 2 à coefficients réels.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">L'équation <sc:textLeaf role="mathtex">P(x)=0</sc:textLeaf> admet quatre solutions réelles distinctes.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">L'équation <sc:textLeaf role="mathtex">P(x)=0</sc:textLeaf> admet quatre solutions complexes distinctes.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">On peut écrire <sc:textLeaf role="mathtex">P(x)</sc:textLeaf> comme le produit de quatre polynômes de degré 1 à coefficients réels.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">On a<sc:textLeaf role="mathtex"> x^4+7x^2+10=0</sc:textLeaf> <sc:textLeaf role="mathtex">\begin{array}{lll} \Leftrightarrow X^2+7X+10=0\quad et \quad X=x^2 \\ \Leftrightarrow (X=-2 \quad ou \quad =-5) \quad et \quad X=x^2 \\ \Leftrightarrow x^2=-2\quad ou\quad x^2=5\\ \Leftrightarrow x=i\sqrt2 \quad ou \quad x=-i\sqrt2 \quad ou \quad x=i\sqrt5 \quad ou \quad x=-i\sqrt5 \end{array}</sc:textLeaf>
+</sc:para>
+						<sc:para xml:space="preserve">Ainsi la proposition "l'équation <sc:textLeaf role="mathtex">P(x)=0</sc:textLeaf> admet quatre solutions complexes distinctes" est vraie et la proposition "l'équation <sc:textLeaf role="mathtex">P(x)=0</sc:textLeaf> admet quatre solutions réelles distinctes" est fausse.</sc:para>
+						<sc:para xml:space="preserve">De plus, on a l'égalité <sc:textLeaf role="mathtex">X^2+7X+10=\Big(X+2\Big)\Big(X+5\Big)</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">D'où la factorisation <sc:textLeaf role="mathtex">P(x)=\big(x^2+2\big)\big(x^2+5\big)\quad \quad \quad(1)</sc:textLeaf>
+</sc:para>
+						<sc:para xml:space="preserve">D'où la factorisation <sc:textLeaf role="mathtex">X=x^2</sc:textLeaf> dans l'égalité ci-dessus. La proposition "on peut écrire <sc:textLeaf role="mathtex">P(x)</sc:textLeaf> comme le produit de deux polynômes de degré 2 à coefficients réel" est vraie. Les racines de <sc:textLeaf role="mathtex">P</sc:textLeaf> ne sont pas réelles donc on ne peut pas écrire <sc:textLeaf role="mathtex">P</sc:textLeaf> comme le produit de quatre polynômes de degré 1 à coefficients réels. La proposition '"on peut écrire <sc:textLeaf role="mathtex">P(x)</sc:textLeaf> comme le produit de quatre polynômes de degré 1 à coefficients réels" est fausse.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

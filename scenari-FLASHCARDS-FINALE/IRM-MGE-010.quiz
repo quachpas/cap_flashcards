@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3">
+		<op:exeM>
+			<sp:themeLycee xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-geo-geomespace-geomvecto-</sp:themeLycee>
+			<sp:themeLicence xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-geo-</sp:themeLicence>
+			<sp:level xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">2</sp:level>
+			<sp:educationLevel xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">L0</sp:educationLevel>
+			<sp:info xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">ECRA – IREM – Strasbourg</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">Dans l'espace muni d'un repère orthonormé, on considère les droites <sc:textLeaf role="mathtex">(d)</sc:textLeaf> et <sc:textLeaf role="mathtex">(d')</sc:textLeaf> suivantes :</sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">(d) : \left\{ \begin{array}{ll} x=-2t \\ y=-1-6t &amp; \text{avec } t\in\mathbb{R} \\ z=-5+4t \end{array} \right. </sc:textLeaf> et <sc:textLeaf role="mathtex">(d') : \left\{ \begin{array}{ll} x= 1-s\\ y=2-3s &amp; \text{avec } s\in\mathbb{R} \\ z=7+s \end{array} \right.</sc:textLeaf>
+</sc:para>
+						<sc:para xml:space="preserve">Ces droites sont :</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">confondues.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">parallèles mais non confondues.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">sécantes.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">non coplanaires.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="3"/>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\begin{pmatrix} -2\\ -6 \\ 4 \end{pmatrix}</sc:textLeaf> et <sc:textLeaf role="mathtex">\begin{pmatrix}-1 \\ -3 \\ 1 \end{pmatrix}</sc:textLeaf> sont les vecteurs directeurs de <sc:textLeaf role="mathtex">(d)</sc:textLeaf> et de <sc:textLeaf role="mathtex">(d')</sc:textLeaf> respectivement et ils ne sont pas colinéaires, donc, ces deux droites sont sécantes ou non coplanaires.</sc:para>
+						<sc:para xml:space="preserve">On résout alors le système <sc:textLeaf role="mathtex">\left\{ \begin{array}{cc} -2t=1-s \\ -1-6t=2-3s \\ -5+4t=7+s \end{array} \right. </sc:textLeaf>, ce qui donne <sc:textLeaf role="mathtex">t=\frac{13}{2}</sc:textLeaf> et <sc:textLeaf role="mathtex">s=14</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">Ce système admet une seule solution, les droites <sc:textLeaf role="mathtex">(d)</sc:textLeaf> et <sc:textLeaf role="mathtex">(d')</sc:textLeaf> sont donc sécantes.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

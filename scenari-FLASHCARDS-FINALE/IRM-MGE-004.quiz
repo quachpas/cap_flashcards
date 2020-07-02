@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3">
+		<op:exeM>
+			<sp:themeLycee xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-geo-geomespace-geomvecto-</sp:themeLycee>
+			<sp:themeLicence xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-geo-</sp:themeLicence>
+			<sp:level xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">3</sp:level>
+			<sp:educationLevel xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">L0</sp:educationLevel>
+			<sp:info xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">ECRA – IREM – Strasbourg</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txtRes xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txtRes>
+						<op:txtResM>
+							<sp:pos>rgt</sp:pos>
+						</op:txtResM>
+						<sp:txt>
+							<op:txt>
+								<sc:para xml:space="preserve">Dans un parallélépipède de base rectangle <sc:textLeaf role="mathtex">ABCDEFGH</sc:textLeaf>,</sc:para>
+							</op:txt>
+						</sp:txt>
+						<sp:img sc:refUri="Images/GVC_004_01.png"/>
+					</op:txtRes>
+				</sp:txtRes>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\overrightarrow{AD}</sc:textLeaf> est un vecteur normal du plan <sc:textLeaf role="mathtex">(AGH)</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:inlineImg role="ico" sc:refUri="Images/GVC_004_02.png"/>
+</sc:para>
+						<sc:para xml:space="preserve">Remarquons que <sc:textLeaf role="mathtex">(AH)</sc:textLeaf> se trouve dans le plan <sc:textLeaf role="mathtex">(AGH)</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">Dans ce cas, comme <sc:textLeaf role="mathtex">(AD)</sc:textLeaf> n'est pas perpendiculaire à <sc:textLeaf role="mathtex">(AH)</sc:textLeaf>, <sc:textLeaf role="mathtex">\overrightarrow{AD}</sc:textLeaf> ne peut être un vecteur normal du plan <sc:textLeaf role="mathtex">(AGH)</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">L'affirmation &quot;<sc:textLeaf role="mathtex">\overrightarrow{AD}</sc:textLeaf> est un vecteur normal du plan <sc:textLeaf role="mathtex">(AGH)</sc:textLeaf>&quot; est fausse.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">les vecteurs <sc:textLeaf role="mathtex">\overrightarrow{BC}, \overrightarrow{CF}</sc:textLeaf> et <sc:textLeaf role="mathtex">\overrightarrow{AH}</sc:textLeaf> sont non coplanaires.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:inlineImg role="ico" sc:refUri="Images/GVC_004_03.png"/>
+</sc:para>
+						<sc:para xml:space="preserve">Remarquons que <sc:textLeaf role="mathtex">\overrightarrow{AH}=\overrightarrow{BG}</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">Donc, comme les vecteurs <sc:textLeaf role="mathtex">\overrightarrow{BC},\overrightarrow{CF}</sc:textLeaf> et <sc:textLeaf role="mathtex">\overrightarrow{BG}</sc:textLeaf> se trouvent dans le plan <sc:textLeaf role="mathtex">(BCF)</sc:textLeaf>, les vecteurs <sc:textLeaf role="mathtex">\overrightarrow{BC},\overrightarrow{CF}</sc:textLeaf> et <sc:textLeaf role="mathtex">\overrightarrow{AH}</sc:textLeaf> sont coplanaires.</sc:para>
+						<sc:para xml:space="preserve">L'affirmation &quot;Les vecteurs <sc:textLeaf role="mathtex">\overrightarrow{BC}, \overrightarrow{CF}</sc:textLeaf> et <sc:textLeaf role="mathtex">\overrightarrow{AH}</sc:textLeaf> sont non coplanaires&quot; est fausse.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">la droite <sc:textLeaf role="mathtex">(GH)</sc:textLeaf> est orthogonale au plan <sc:textLeaf role="mathtex">(BCF)</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:inlineImg role="ico" sc:refUri="Images/GVC_004_04.png"/>
+</sc:para>
+						<sc:para xml:space="preserve">Remarquons que <sc:textLeaf role="mathtex">(GH) \perp (GF)</sc:textLeaf> et <sc:textLeaf role="mathtex">(GH) \perp (CG)</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">Dans ce cas, la droite <sc:textLeaf role="mathtex">(GH)</sc:textLeaf> est orthogonale au plan <sc:textLeaf role="mathtex">(BCF)</sc:textLeaf>
+</sc:para>
+						<sc:para xml:space="preserve">L'affirmation &quot;La droite <sc:textLeaf role="mathtex">(GH)</sc:textLeaf> est orthogonale au plan <sc:textLeaf role="mathtex">(BCF)</sc:textLeaf>&quot; est vraie.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\overrightarrow{AC}.\overrightarrow{AG}=AC^2</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:inlineImg role="ico" sc:refUri="Images/GVC_004_05.png"/>
+</sc:para>
+						<sc:para xml:space="preserve">Le triangle <sc:textLeaf role="mathtex">ACG</sc:textLeaf> est rectangle en <sc:textLeaf role="mathtex">C</sc:textLeaf>. Donc, <sc:textLeaf role="mathtex">C</sc:textLeaf> est le projeté orthogonal de <sc:textLeaf role="mathtex">G</sc:textLeaf> sur <sc:textLeaf role="mathtex">(AC)</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">L'affirmation &quot;<sc:textLeaf role="mathtex">\overrightarrow{AC}.\overrightarrow{AG}=AC^2</sc:textLeaf>&quot;est vraie.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+		</sc:choices>
+	</op:mcqMur>
+</sc:item>

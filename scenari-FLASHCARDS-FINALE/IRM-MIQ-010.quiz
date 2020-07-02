@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3">
+		<op:exeM>
+			<sp:themeLycee xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-analyse-equations-</sp:themeLycee>
+			<sp:themeLicence xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-equa-</sp:themeLicence>
+			<sp:level xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">2</sp:level>
+			<sp:educationLevel xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">L1</sp:educationLevel>
+			<sp:info xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">ECRA-IREM-Clermont-Ferrand</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">Soit <sc:textLeaf role="mathtex">x</sc:textLeaf> un réel dans <sc:textLeaf role="mathtex">[0 ;2\pi]</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">si <sc:textLeaf role="mathtex">\sin x=-\frac 1 2</sc:textLeaf>, alors<sc:textLeaf role="mathtex"> x =-\frac{5\pi} 6</sc:textLeaf> ou <sc:textLeaf role="mathtex">x=-\frac \pi 6</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">si <sc:textLeaf role="mathtex">\cos x=\frac{\sqrt2} 2</sc:textLeaf>, alors <sc:textLeaf role="mathtex">x = \frac{\pi} 4</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">si <sc:textLeaf role="mathtex">\sin x\leq -\frac {\sqrt3}2</sc:textLeaf>, alors<sc:textLeaf role="mathtex">\frac {4\pi} 3 \leq x \leq \frac{5\pi} 3</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">si <sc:textLeaf role="mathtex">\cos x\geq 0</sc:textLeaf>, alors<sc:textLeaf role="mathtex">-\frac {\pi} 2 \leq x \leq \frac{\pi} 2</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="3"/>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">Pour résoudre une équation trigonométrique de la forme <sc:textLeaf role="mathtex">\cos x=a</sc:textLeaf> ou <sc:textLeaf role="mathtex">\sin x=a</sc:textLeaf> , <sc:textLeaf role="mathtex">a</sc:textLeaf> réel, on peut utiliser un cercle trigonométrique. On ne doit pas perdre de vue dans quel intervalle varie <sc:textLeaf role="mathtex">x</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">Pour les questions successives, on a :</sc:para>
+					</op:txt>
+				</sp:txt>
+				<sp:txtRes xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txtRes>
+						<op:txtResM>
+							<sp:pos>rgt</sp:pos>
+						</op:txtResM>
+						<sp:txt>
+							<op:txt>
+								<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\sin x=-\frac 1 2</sc:textLeaf> et <sc:textLeaf role="mathtex">x</sc:textLeaf> est un réel dans <sc:textLeaf role="mathtex">[0 ;2\pi]</sc:textLeaf>
+</sc:para>
+								<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\iff x=\frac{7\pi}{6}\;\mathrm{ou}\; x=\frac{11\pi}{6}</sc:textLeaf>
+</sc:para>
+							</op:txt>
+						</sp:txt>
+						<sp:img sc:refUri="Ressources/E010.png"/>
+					</op:txtRes>
+				</sp:txtRes>
+				<sp:txtRes xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txtRes>
+						<op:txtResM>
+							<sp:pos>lft</sp:pos>
+						</op:txtResM>
+						<sp:txt>
+							<op:txt>
+								<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\cos x=\frac{\sqrt2} 2</sc:textLeaf> et <sc:textLeaf role="mathtex">x</sc:textLeaf> est un réel dans <sc:textLeaf role="mathtex">[0 ;2\pi]</sc:textLeaf>
+</sc:para>
+								<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\iff x=\frac{\pi}{4}\;\mathrm{ou}\; x=\frac{7\pi}{4}</sc:textLeaf>
+</sc:para>
+							</op:txt>
+						</sp:txt>
+						<sp:img sc:refUri="Ressources/E010_2.png"/>
+					</op:txtRes>
+				</sp:txtRes>
+				<sp:txtRes xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txtRes>
+						<op:txtResM>
+							<sp:pos>rgt</sp:pos>
+						</op:txtResM>
+						<sp:txt>
+							<op:txt>
+								<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\sin x\leq -\frac {\sqrt3}2</sc:textLeaf> et <sc:textLeaf role="mathtex">x</sc:textLeaf> est un réel dans <sc:textLeaf role="mathtex">[0 ;2\pi]</sc:textLeaf>
+</sc:para>
+								<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\iff \frac{4\pi}{3}\leq x \leq \frac{5\pi}{3}</sc:textLeaf>
+</sc:para>
+							</op:txt>
+						</sp:txt>
+						<sp:img sc:refUri="Ressources/E010_3.png"/>
+					</op:txtRes>
+				</sp:txtRes>
+				<sp:txtRes xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txtRes>
+						<op:txtResM>
+							<sp:pos>lft</sp:pos>
+						</op:txtResM>
+						<sp:txt>
+							<op:txt>
+								<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\cos x\geq 0</sc:textLeaf> et <sc:textLeaf role="mathtex">x</sc:textLeaf> est un réel dans <sc:textLeaf role="mathtex">[0 ;2\pi]</sc:textLeaf>
+</sc:para>
+								<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\iff 0\leq x \leq\frac{\pi}{2}\;\mathrm{ou}\;\frac{3\pi}{2}\leq x \leq 2\pi</sc:textLeaf>
+</sc:para>
+							</op:txt>
+						</sp:txt>
+						<sp:img sc:refUri="Ressources/E010_4.png"/>
+					</op:txtRes>
+				</sp:txtRes>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3">
+		<op:exeM>
+			<sp:themeLycee xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-analyse-equations-resolalgequa-</sp:themeLycee>
+			<sp:themeLicence xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-equa-</sp:themeLicence>
+			<sp:level xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">3</sp:level>
+			<sp:educationLevel xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">L1</sp:educationLevel>
+			<sp:info xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">ECRA-IREM-Clermont-Ferrand</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">Soit <sc:textLeaf role="mathtex">m</sc:textLeaf> un réel. On considère dans <sc:textLeaf role="mathtex">\mathbb R</sc:textLeaf> l'équation <sc:textLeaf role="mathtex">(E): x^2+mx+1=0</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">(E)</sc:textLeaf> admet deux solutions réelles distinctes si et seulement si <sc:textLeaf role="mathtex">m&gt;2</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">(E)</sc:textLeaf> admet 0, 1 ou 2 solutions selon les valeurs de <sc:textLeaf role="mathtex">m</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">(E)</sc:textLeaf> n'admet aucune solution qu'elle que soit la valeur de <sc:textLeaf role="mathtex">m</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">Il existe une seule valeur de <sc:textLeaf role="mathtex">m</sc:textLeaf> pour laquelle <sc:textLeaf role="mathtex">(E)</sc:textLeaf> admet une unique solution</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="2"/>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:inlineStyle role="emp">Théorème :</sc:inlineStyle> Pour résoudre dans <sc:textLeaf role="mathtex">\mathbb R</sc:textLeaf> une équation du second degré : <sc:textLeaf role="mathtex">ax^2+bx+c=0</sc:textLeaf>, on calcule le discriminant <sc:textLeaf role="mathtex">\Delta=b^2-4ac</sc:textLeaf>
+</sc:para>
+						<sc:para xml:space="preserve">Si <sc:textLeaf role="mathtex">\Delta&gt;0</sc:textLeaf>, alors l'équation a deux solutions réelles distinctes.</sc:para>
+						<sc:para xml:space="preserve">Si <sc:textLeaf role="mathtex">\Delta=0</sc:textLeaf>, alors l'équation a une solution réelle unique</sc:para>
+						<sc:para xml:space="preserve">Si <sc:textLeaf role="mathtex">\Delta&lt;0</sc:textLeaf>, alors l'équation n'a pas de solutions réelles (mais elle a deux solutions complexes)</sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">x^2+mx+1=0</sc:textLeaf>: pour résoudre cette équation du second degré, on calcule le discriminant <sc:textLeaf role="mathtex">\Delta=m^2-4</sc:textLeaf>
+</sc:para>
+						<sc:para xml:space="preserve">1<sc:textLeaf role="exp">er</sc:textLeaf> cas : <sc:textLeaf role="mathtex">\Delta&gt;0\iff m^2&gt;4\;\mathrm{ou}\; m&lt;-2</sc:textLeaf>, alors <sc:textLeaf role="mathtex">(E)</sc:textLeaf> admet deux solutions réelles distinctes.</sc:para>
+						<sc:para xml:space="preserve">2<sc:textLeaf role="exp">ème</sc:textLeaf> cas : <sc:textLeaf role="mathtex">\Delta=0\iff m^2=4\iff m=2\;\mathrm{ou}\; m-2</sc:textLeaf>, alors <sc:textLeaf role="mathtex">(E)</sc:textLeaf> admet une solution réelle unique.</sc:para>
+						<sc:para xml:space="preserve">3<sc:textLeaf role="exp">ème</sc:textLeaf> cas : <sc:textLeaf role="mathtex">\Delta&lt;0\iff m^2&lt;4\iff -2&lt;m&lt;2</sc:textLeaf>, alors <sc:textLeaf role="mathtex">(E)</sc:textLeaf> n'admet aucune solution réelle.</sc:para>
+						<sc:para xml:space="preserve">Attention : Dans l'équation <sc:textLeaf role="mathtex">(E)</sc:textLeaf>, les lettres x et m n'ont pas le même statut : <sc:textLeaf role="mathtex">x</sc:textLeaf> est l'inconnu qu'il faut chercher ; <sc:textLeaf role="mathtex">m</sc:textLeaf> est un paramètre réel fixé.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

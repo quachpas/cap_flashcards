@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="lam" creationTime="1486143032638">Détailler la correction, surtout qu'il y a un paramètre a priori arbitraire.
+
+</comment></comment>-->
+		<op:exeM>
+			<sp:themeLycee>#math-geo-geopltran-condcolvect-</sp:themeLycee>
+			<sp:themeLicence>#math-geo-</sp:themeLicence>
+			<sp:level>2</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://unistra.fr</sp:url>
+</op:urlM>unistra.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="sod" creationTime="1479718842056">"avec leurs coordonnées"</comment><comment author="lam" creationTime="1486142859023" updateTime="1486143020820">Niveau 2
+
+Corriger "quelque" en "quel que"</comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">
+			  Soient quatre points du plan donnés avec leur coordonnées dans un repère orthonormé:  <sc:textLeaf role="mathtex">A\,( 1;1)</sc:textLeaf>, <sc:textLeaf role="mathtex">B\,( 5;-2)</sc:textLeaf>, <sc:textLeaf role="mathtex">C\,( 0;1)</sc:textLeaf>, et <sc:textLeaf role="mathtex">D\,( a;0)</sc:textLeaf> où <sc:textLeaf role="mathtex">a</sc:textLeaf> est un réel
+		 :</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			   Les droites (AB) et (CD) sont parallèles si  <sc:textLeaf role="mathtex">a=4/3</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			   Les droites (AB) et (CD) ne sont pas parallèles quel que soit  <sc:textLeaf role="mathtex">a</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			   Les droites (AC) et (BD) ne sont pas perpendiculaires quel que soit  <sc:textLeaf role="mathtex">a</sc:textLeaf>.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			   Les droites (AC) et (BD) sont perpendiculaires si  <sc:textLeaf role="mathtex">a=1/3</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">Représenter graphiquement le problème.</sc:para>
+						<sc:para xml:space="preserve">Voici une ressource en lien avec le sujet : Géométrie dans l'espace: <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://ressources.unisciel.fr/ramses/514-113a-produit-scalaire/co/514-113a_webUnisciel.html</sp:url>
+</op:urlM>Produits scalaire dans l'espace – Droites et plans dans l'espace</sc:phrase>
+</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

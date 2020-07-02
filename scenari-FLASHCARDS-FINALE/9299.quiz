@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLicence>#math-nbreelscompl-</sp:themeLicence>
+			<sp:themeLicence>#math-equa-</sp:themeLicence>
+			<sp:level>3</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://unistra.fr</sp:url>
+</op:urlM>unistra.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			  Soit l'équation<sc:textLeaf role="mathtex"> x(x^2-3x+2)(x^2+1)=0
+	</sc:textLeaf>	</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			   Les solutions réelles de l'équation sont 1 et 2.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			   Les réels -1, 0 et 1 sont solutions de l'équation.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			   La seule solution complexe de l'équation est i.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			   Les solutions réelles de l'équation sont 0, 1 et 2.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="false"><comment author="qns" creationTime="1454916407018">Donnez les vraies ressources ou les explications directes </comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">Vous pouvez regarder l'onglet Systèmes d'équations linéaires de cette <sc:phrase role="url"><op:urlM>
+<sp:url>http://ressources.unisciel.fr/sillages/mathematiques/cours_1a_ecs/res/17_Systemes_equations_lineaires.pdf</sp:url>
+</op:urlM>
+ressource</sc:phrase>
+</sc:para>
+						<sc:para xml:space="preserve">et en vidéo :</sc:para>
+						<sc:para xml:space="preserve">
+<sc:phrase role="url"><op:urlM>
+<sp:url>http://www.canal-u.tv/video/tele2sciences/nombres_reels_partie_1_nombres_rationnels.12074</sp:url>
+</op:urlM>
+Nombres réels – Partie 1 : nombres rationnels</sc:phrase>
+</sc:para>
+						<sc:para xml:space="preserve">
+<sc:phrase role="url"><op:urlM>
+<sp:url>http://www.canal-u.tv/video/tele2sciences/nombres_reels_partie_2_proprietes_des_reels.12076</sp:url>
+</op:urlM>
+Nombres réels – Partie 2 : Propriété des réels</sc:phrase>
+</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

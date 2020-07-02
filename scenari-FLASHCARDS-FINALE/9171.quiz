@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#chim-pratspor-matmolsport-</sp:themeLycee>
+			<sp:themeLicence>#chim-plymmat-</sp:themeLicence>
+			<sp:themeLicence>#chim-chimsolu-</sp:themeLicence>
+			<sp:level>1</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">Université de technologie de Troyes</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="mar" creationTime="1431886939976">Remplacer "Choisissez le nom associé au" par "Choisir le nom du".</comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">Quel est le nom du composé HClO<sc:textLeaf role="ind">4</sc:textLeaf> ?</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						Acide chlorhydrique.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						Acide éthanoïque (ou acide acétique).</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						Acide méthanoïque.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						Acide perchlorique.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="4">
+			<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="mab" creationTime="1433151355918">Marie: la reponse 7 n'existe pas</comment></comment>-->
+		</sc:solution>
+		<sc:globalExplanation>
+			<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="ves" creationTime="1521193261646" updateTime="1526030537182">Attention! la ressource ne correspond pas. La nomenclature simplifiée est pour la chimie organique, donner le nom du HClO4 ne fait pas appel aux connaissances de la chimie organique.
+Je propose:
+Il s'agit de l'acide perchlorique.
+L'acide chlorhydrique a pour formule : HCl
+L'acide éthanoïque a pour formule : CH3COOH
+et la formule de l'acide méthanoïque est : HCOOH</comment></comment>-->
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">Il s'agit de l'acide perchlorique.</sc:para>
+						<sc:para xml:space="preserve">L'acide chlorhydrique a pour formule : HCl.</sc:para>
+						<sc:para xml:space="preserve">L'acide éthanoïque a pour formule : CH<sc:textLeaf role="ind">3</sc:textLeaf>COOH.</sc:para>
+						<sc:para xml:space="preserve">et la formule de l'acide méthanoïque est : HCOOH.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

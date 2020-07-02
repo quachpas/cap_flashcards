@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#math-analyse-etufonc-</sp:themeLycee>
+			<sp:themeLicence>#math-fonctions-</sp:themeLicence>
+			<sp:level>4</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">utc.fr</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">Soit une fonction <sc:textLeaf role="mathtex">f:\mathbb{R}\to \mathbb{R}</sc:textLeaf>. Si <sc:textLeaf role="mathtex">f(-x)= f(x)</sc:textLeaf> pour tout <sc:textLeaf role="mathtex">x\in\mathbb{R}</sc:textLeaf>, la fonction est appelée fonction paire. Si <sc:textLeaf role="mathtex">f(-x)= -f(x)</sc:textLeaf> pour tout <sc:textLeaf role="mathtex">x\in\mathbb{R}</sc:textLeaf>, elle est appelée fonction impaire. On énonce le théorème : pour toute fonction <sc:textLeaf role="mathtex">f:\mathbb{R}\to \mathbb{R}</sc:textLeaf>, il existe une unique fonction paire <sc:textLeaf role="mathtex">f_p:\mathbb{R}\to \mathbb{R}</sc:textLeaf> et une unique fonction impaire <sc:textLeaf role="mathtex">f_i:\mathbb{R}\to \mathbb{R}</sc:textLeaf> telles que <sc:textLeaf role="mathtex">f(x)= f_p(x)+f_i(x)</sc:textLeaf> pour tout <sc:textLeaf role="mathtex">x\in\mathbb{R}</sc:textLeaf>. De ce théorème, on peut déduire</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">que les fonctions impaires sont notées <sc:textLeaf role="mathtex">f_i</sc:textLeaf>.
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">Dire qu'il existe une fonction impaire notée <sc:textLeaf role="mathtex">f_i</sc:textLeaf> ne veut pas dire que toutes les fonctions impaires sont notées <sc:textLeaf role="mathtex">f_i</sc:textLeaf>.
+</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">que, si une fonction <sc:textLeaf role="mathtex">f</sc:textLeaf> est paire, alors la fonction <sc:textLeaf role="mathtex">f_i</sc:textLeaf> qui lui est associée par le théorème est la fonction nulle.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">Dans le théorème, l'unicité des fonctions <sc:textLeaf role="mathtex">f_p</sc:textLeaf> et <sc:textLeaf role="mathtex">f_i</sc:textLeaf> impose que <sc:textLeaf role="mathtex">f_i</sc:textLeaf> est nulle si <sc:textLeaf role="mathtex">f</sc:textLeaf> est paire car, dans ce cas, <sc:textLeaf role="mathtex">f = f_p</sc:textLeaf>.
+</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">que la somme d'une fonction paire et d'une fonction impaire est une fonction.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">Le théorème ne nous permet pas de conclure sur la réciproque (même si ici elle est clairement vraie, elle ne découle pas du théorème).</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">qu'il existe une fonction paire <sc:textLeaf role="mathtex">g</sc:textLeaf> et une fonction impaire <sc:textLeaf role="mathtex">h</sc:textLeaf> telles que, pour tout <sc:textLeaf role="mathtex">x\in\mathbb{R}</sc:textLeaf> on ait <sc:textLeaf role="mathtex">g(x) + h(x) = e^{x}</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">L'exponentielle étant une fonction, le théorème peut s'appliquer.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+		</sc:choices>
+	</op:mcqMur>
+</sc:item>

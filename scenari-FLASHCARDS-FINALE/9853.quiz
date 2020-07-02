@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:title>Caractéristiques des cellules végétales</sp:title>
+			<sp:themeLycee>#scvie-terunivers-natvivant-</sp:themeLycee>
+			<sp:themeLicence>#bio-cellule-</sp:themeLicence>
+			<sp:themeLicence>#bio-bioveget-</sp:themeLicence>
+			<sp:level>1</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<op:info>
+					<sp:keywds>
+						<op:keywds>
+							<sp:keywd>cellule</sp:keywd>
+							<sp:keywd>ultrastructure</sp:keywd>
+							<sp:keywd>végétale</sp:keywd>
+						</op:keywds>
+					</sp:keywds>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">Université Lille 1</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">Seules les cellules végétales :</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						possèdent une paroi commune à deux cellules jointives.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						sont délimitées par une membrane plasmique.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						possèdent des chromosomes.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						possèdent des mitochondries.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="1"/>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">De par la formation même des cellules lors de la mitose, deux cellules  végétales jointives partagent une paroi commune. La paroi est une spécificité des cellules végétales qui isole ces dernières de l'environnement. Ce n'est pas le cas des autres organismes, en revanche toutes les cellules sont délimitées par une membrane plasmique.</sc:para>
+						<sc:para xml:space="preserve">La paroi végétale remplit de nombreuse fonctions comme la cohésion des tissus ou encore le soutien du végétal.</sc:para>
+						<sc:para xml:space="preserve">Remarque : certaines bactéries sont entourées d'une paroi, mais celle-ci n'est pas partagée par plusieurs cellules (les bactéries sont des organismes unicellulaires).</sc:para>
+						<sc:para xml:space="preserve">
+			Ressources à consulter : 
+		</sc:para>
+						<sc:itemizedList>
+							<sc:listItem>
+								<sc:para xml:space="preserve">
+			
+  
+  <sc:phrase role="url"><op:urlM>
+<sp:url>http://www.snv.jussieu.fr/bmedia/cyclecellBM/index.htm</sp:url>
+</op:urlM>
+La mitose</sc:phrase>
+  
+  
+		</sc:para>
+							</sc:listItem>
+							<sc:listItem>
+								<sc:para xml:space="preserve">
+			
+  
+  <sc:phrase role="url"><op:urlM>
+<sp:url>http://www.snv.jussieu.fr/bmedia/paroi/morphologie.htm</sp:url>
+</op:urlM>
+La paroi des cellules végétales</sc:phrase>
+  
+  
+		</sc:para>
+							</sc:listItem>
+							<sc:listItem>
+								<sc:para xml:space="preserve">
+			
+  
+  <sc:phrase role="url"><op:urlM>
+<sp:url>http://www.canal-u.tv/video/science_en_cours/les_organites_cellulaires_1991.38</sp:url>
+</op:urlM>
+Les organites des cellules animales et végétales (film)</sc:phrase>
+  
+  
+		</sc:para>
+							</sc:listItem>
+							<sc:listItem>
+								<sc:para xml:space="preserve">
+			
+  
+  <sc:phrase role="url"><op:urlM>
+<sp:url>http://www.canal-u.tv/video/science_en_cours/la_cellule_2002.47</sp:url>
+</op:urlM>
+Les cellules animales et les particularités des cellules végétales (film)</sc:phrase>
+  
+  
+		</sc:para>
+							</sc:listItem>
+						</sc:itemizedList>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

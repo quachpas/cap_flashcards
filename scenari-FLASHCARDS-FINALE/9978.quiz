@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:title>La photosynthèse</sp:title>
+			<sp:themeLycee>#scvie-plancont-solsourener-</sp:themeLycee>
+			<sp:themeLicence>#bio-biomol-</sp:themeLicence>
+			<sp:themeLicence>#bio-bioveget-</sp:themeLicence>
+			<sp:level>1</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      Université Lille 1</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">L'oxygène dégagé par les végétaux :</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						est un déchet de la photosynthèse.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						est un gaz utilisé avec le <sc:textLeaf role="mathtex">CO_2</sc:textLeaf>, pour débuter la photosynthèse.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						est un gaz provenant de la décomposition de la matière organique fabriquée lors de la photosynthèse.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						est indispensable au déroulement de la photosynthèse.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="1"/>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Au cours de la photosynthèse, l'eau est dégradée en oxygène qui est rejeté, et en <sc:textLeaf role="mathtex">H^+</sc:textLeaf>. L'<sc:textLeaf role="mathtex">O_2</sc:textLeaf> est donc effectivement un déchet de la photosynthèse. 
+		</sc:para>
+						<sc:para xml:space="preserve">
+			Ressources à consulter : 
+		</sc:para>
+						<sc:itemizedList>
+							<sc:listItem>
+								<sc:para xml:space="preserve">
+			
+  
+  <sc:phrase role="url"><op:urlM>
+<sp:url>http://www.snv.jussieu.fr/bmedia/Chloroplaste/index.html</sp:url>
+</op:urlM>
+Chloroplaste</sc:phrase>
+  
+  
+		</sc:para>
+							</sc:listItem>
+							<sc:listItem>
+								<sc:para xml:space="preserve">
+			
+  
+  <sc:phrase role="url"><op:urlM>
+<sp:url>http://www.snv.jussieu.fr/bmedia/Photosynthese/exp12.html</sp:url>
+</op:urlM>
+Mise en évidence de l'utilisation du CO2 et du rejet d'O2</sc:phrase>
+</sc:para>
+							</sc:listItem>
+							<sc:listItem>
+								<sc:para xml:space="preserve">
+			
+  
+  <sc:phrase role="url"><op:urlM>
+<sp:url>http://www.snv.jussieu.fr/bmedia/Photosynthese-cours/01-organismes.htm</sp:url>
+</op:urlM>
+Photosynthèse, éléments minéraux</sc:phrase>
+  
+  
+		</sc:para>
+							</sc:listItem>
+							<sc:listItem>
+								<sc:para xml:space="preserve">
+			
+  
+  <sc:phrase role="url"><op:urlM>
+<sp:url>http://www.snv.jussieu.fr/bmedia/Photosynthese-cours/07-doublereaction.htm</sp:url>
+</op:urlM>
+Phase claire et phase sombre de la photosynthèse</sc:phrase>
+  
+  
+		</sc:para>
+							</sc:listItem>
+						</sc:itemizedList>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

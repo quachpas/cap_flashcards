@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#chim-comploismod-strtran-coupacbas-</sp:themeLycee>
+			<sp:themeLicence>#chim-chimsolu-</sp:themeLicence>
+			<sp:level>3</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<!--<comment xmlns="scenari.eu:comment:1.0" type="thread"><comment author="camille.dufourg" creationTime="1573811069011">Il manque les mots-clés et la licence.</comment></comment>-->
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">Université Lille 1</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread"><comment author="camille.dufourg" creationTime="1573811104606">&lt;...&gt; est-il à sa place au début de l'énoncé ?
+</comment></comment>-->
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="mar" creationTime="1433006029457" updateTime="1433062740144">Remplacer a-aminé par α-aminé (lettre grecque alpha) dans le titre et l'intitulé de la question.
+Ajouter "à 25 °C" à la fin de la phrase.</comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">
+			<sc:inlineStyle role="emp">Domaines de prédominance : cas d'un acide α-aminé.  </sc:inlineStyle>La glycine est un acide α-aminé de formule HOOC-CH<sc:textLeaf role="ind">2</sc:textLeaf>-NH<sc:textLeaf role="ind">2</sc:textLeaf> dont les pK<sc:textLeaf role="ind">a</sc:textLeaf> sont pK<sc:textLeaf role="ind">a1</sc:textLeaf> = 2,3 et pK<sc:textLeaf role="ind">a2</sc:textLeaf> = 9,7  à 25 °C.
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="checked">
+				<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="mar" creationTime="1433062753715">Ajouter "à 25 °C" à la fin de la phrase.</comment></comment>-->
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			La forme <sc:textLeaf role="exp">+</sc:textLeaf>H<sc:textLeaf role="ind">3</sc:textLeaf>N-CH<sc:textLeaf role="ind">2</sc:textLeaf>-COOH prédomine à pH &lt; 2,3 à 25 °C.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="mar" creationTime="1433062760871">Ajouter "à 25 °C" à la fin de la phrase.</comment></comment>-->
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			La forme H<sc:textLeaf role="ind">2</sc:textLeaf>N-CH<sc:textLeaf role="ind">2</sc:textLeaf>-COOH prédomine à 2,3 &lt; pH &lt; 9,7 à 25 °C.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="mar" creationTime="1433062691598" updateTime="1433062779099">Supprimer "la forme" qui est en doublon.
+Ajouter "à 25 °C" à la fin de la phrase.</comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">
+			La forme H<sc:textLeaf role="ind">2</sc:textLeaf>N-CH<sc:textLeaf role="ind">2</sc:textLeaf>-COOH n'existe pas en solution, c'est  la forme neutre à charges séparées ou zwitterion ou amphion, <sc:textLeaf role="exp">+</sc:textLeaf>H<sc:textLeaf role="ind">3</sc:textLeaf>N-CH<sc:textLeaf role="ind">2</sc:textLeaf>-COO<sc:textLeaf role="exp">-</sc:textLeaf>, qui existe et prédomine à 2,3 &lt; pH &lt; 9,7  à 25 °C.
+		</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="mar" creationTime="1433062786322">Ajouter "à 25 °C" à la fin de la phrase.</comment></comment>-->
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			La forme H<sc:textLeaf role="ind">2</sc:textLeaf>N-CH<sc:textLeaf role="ind">2</sc:textLeaf>-COO<sc:textLeaf role="exp">-</sc:textLeaf> prédomine à pH &gt; 9,7 à 25 °C.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="mar" creationTime="1433062793487">Ajouter "à 25 °C" à la fin de la phrase.</comment></comment>-->
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			La forme <sc:textLeaf role="exp">+</sc:textLeaf>H<sc:textLeaf role="ind">3</sc:textLeaf>N-CH<sc:textLeaf role="ind">2</sc:textLeaf>-COO<sc:textLeaf role="exp">-</sc:textLeaf> prédomine à pH &lt; 9,7 à 25 °C.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="mar" creationTime="1433062802230">Ajouter "à 25 °C" à la fin de la phrase.</comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">
+			La forme <sc:textLeaf role="exp">+</sc:textLeaf>H<sc:textLeaf role="ind">3</sc:textLeaf>N-CH<sc:textLeaf role="ind">2</sc:textLeaf>-COO<sc:textLeaf role="exp">-</sc:textLeaf> prédomine à 2,3 &lt; pH &lt; 9,7 à 25 °C.
+		</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="mar" creationTime="1433006132131" updateTime="1433062857727">La taille de la figure est petite mais peut-être qu'on peut l'agrandir lorsqu'on visionne la question. Si ce n'est pas le cas, il faut l'agrandir de manière à ce que les charges des trois formes soient bien visibles.</comment><comment author="ext-lug" creationTime="1433248380072">ok</comment></comment>-->
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="etu02" creationTime="1430817975091">La phrase est écrite sous forme de tirets, mais sans retour à la ligne. Il faudrait soit faire une simple énumération, soit introduire des retours à la ligne.</comment><comment author="ext-lug" creationTime="1433248376783"/></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">
+			<sc:inlineStyle role="emp">Compétence(s)</sc:inlineStyle>. : <sc:inlineStyle role="emp">déterminer les domaines de prédominances dans le cas d'un acide α-aminé.</sc:inlineStyle>
+		</sc:para>
+						<sc:para xml:space="preserve">
+			En solution la glycine existe sous trois formes :</sc:para>
+						<sc:itemizedList>
+							<sc:listItem>
+								<sc:para xml:space="preserve"> la forme cationique ou cation <sc:textLeaf role="exp">+</sc:textLeaf>H<sc:textLeaf role="ind">3</sc:textLeaf>N-CH<sc:textLeaf role="ind">2</sc:textLeaf>-COOH ;</sc:para>
+							</sc:listItem>
+							<sc:listItem>
+								<sc:para xml:space="preserve"> la forme anionique ou anion H<sc:textLeaf role="ind">2</sc:textLeaf>N-CH<sc:textLeaf role="ind">2</sc:textLeaf>-COO<sc:textLeaf role="exp">-</sc:textLeaf> ;</sc:para>
+							</sc:listItem>
+							<sc:listItem>
+								<sc:para xml:space="preserve">la forme neutre à charges séparées ou zwitterion ou amphion <sc:textLeaf role="exp">+</sc:textLeaf>H<sc:textLeaf role="ind">3</sc:textLeaf>N-CH<sc:textLeaf role="ind">2</sc:textLeaf>-COO<sc:textLeaf role="exp">-</sc:textLeaf>.
+		</sc:para>
+							</sc:listItem>
+						</sc:itemizedList>
+						<sc:para xml:space="preserve">
+			Le diagramme de prédominance des formes de la glycine est représenté ci-dessous.
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+				<sp:res sc:refUri="images/tle_q14_diagramme_predominance_glycine.png">
+					<op:resInfoM/>
+				</sp:res>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

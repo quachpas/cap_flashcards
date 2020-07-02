@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3">
+		<op:exeM>
+			<sp:themeLycee xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-geo-geomespace-geomvecto-</sp:themeLycee>
+			<sp:themeLicence xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-geo-</sp:themeLicence>
+			<sp:level xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">2</sp:level>
+			<sp:educationLevel xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">L0</sp:educationLevel>
+			<sp:info xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">ECRA – IREM – Strasbourg</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">On désigne par <sc:textLeaf role="mathtex">(P)</sc:textLeaf> le plan d'équation cartésienne <sc:textLeaf role="mathtex">2x-y+3z=0</sc:textLeaf> et par <sc:textLeaf role="mathtex">(d)</sc:textLeaf> la droite de représentation paramétrique <sc:textLeaf role="mathtex">\left\{ \begin{array}{ll} x=1-n \\ y=n \quad ,&amp; \text{avec } n\in \mathbb{R} \\ z=2+n \end{array} \right.</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">La droite <sc:textLeaf role="mathtex">(d)</sc:textLeaf> est perpendiculaire au plan <sc:textLeaf role="mathtex">(P)</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">La droite <sc:textLeaf role="mathtex">(d)</sc:textLeaf> est strictement parallèle au plan <sc:textLeaf role="mathtex">(P)</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">La droite <sc:textLeaf role="mathtex">(d)</sc:textLeaf> est incluse dans le plan <sc:textLeaf role="mathtex">(P)</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">(d)</sc:textLeaf> n'est pas une droite puisque le paramètre <sc:textLeaf role="mathtex">n</sc:textLeaf> est un nombre entier.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="2"/>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:itemizedList>
+							<sc:listItem>
+								<sc:para xml:space="preserve">Un plan <sc:textLeaf role="mathtex">(P)</sc:textLeaf> d'équation <sc:textLeaf role="mathtex">ax + by + cz + d = 0</sc:textLeaf> possède un vecteur normal de coordonnées <sc:textLeaf role="mathtex">(a ; b ; c)</sc:textLeaf>.</sc:para>
+							</sc:listItem>
+							<sc:listItem>
+								<sc:para xml:space="preserve">Une représentation paramétrique de la droite passant par un point <sc:textLeaf role="mathtex">A(x_0 ; y_0 ; z_0)</sc:textLeaf> et de vecteur directeur <sc:textLeaf role="mathtex">\begin{pmatrix} a' \\ b' \\ c' \end{pmatrix}</sc:textLeaf> est :</sc:para>
+								<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\left\{ \begin{array}{ll} x=x_0 + a't \\ y=y_0 + b't &amp; \text{avec } t\in \mathbb{R} \\ z=z_0+c't \end{array} \right.</sc:textLeaf>
+</sc:para>
+							</sc:listItem>
+						</sc:itemizedList>
+						<sc:para xml:space="preserve">Donc, pour déterminer la relation entre un plan et une droite, on peut commencer par étudier la position entre le vecteur normal de <sc:textLeaf role="mathtex">(P)</sc:textLeaf> et le vecteur directeur de <sc:textLeaf role="mathtex">(d)</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">Ici, ils sont orthogonaux, cela signifie que la droite et le plan sont parallèles. Il nous reste à vérifier si le point <sc:textLeaf role="mathtex">A(1,0,2)</sc:textLeaf> appartient au plan <sc:textLeaf role="mathtex">(P)</sc:textLeaf> pour savoir si la droite est incluse dans le plan ou strictement parallèle.</sc:para>
+						<sc:para xml:space="preserve">Remarquons que le paramètre <sc:textLeaf role="mathtex">n</sc:textLeaf> dans la représentation paramétrique de la droite <sc:textLeaf role="mathtex">(d)</sc:textLeaf> est un nombre réel. Sa notation « <sc:textLeaf role="mathtex">n</sc:textLeaf> » ne signifie pas forcément qu'il est entier.</sc:para>
+						<sc:para xml:space="preserve">Donc, seule l'affirmation "La droite <sc:textLeaf role="mathtex">(d)</sc:textLeaf> est strictement parallèle au plan <sc:textLeaf role="mathtex">(P)</sc:textLeaf>" est vraie.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

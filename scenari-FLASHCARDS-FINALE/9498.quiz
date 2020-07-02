@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#phys-pratsport-etumouv-effforcmvt-</sp:themeLycee>
+			<sp:themeLicence>#phys-loisnewton-</sp:themeLicence>
+			<sp:level>3</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://univ-lille1.fr</sp:url>
+</op:urlM>univ-lille1.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Parmi les affirmations suivantes la(les)quelle(s) vous semble(nt) juste(s) :
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			pour qu'un corps soit en mouvement, il faut qu'une force s'exerce sur le corps (il faut qu'il soit tiré ou poussé).
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">Le principe d'inertie stipule qu'un corps peut être en mouvement rectiligne uniforme s'il n'est soumis à aucune force.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			la vitesse d'un corps ne peut varier que si une force s'exerce sur lui.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			on ne peut pas mettre un corps en mouvement à partir du repos sans exercer une force sur ce corps. 
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			si la somme des forces extérieures qui s'exerce sur un solide est nulle, sa vitesse peut varier.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">Si les forces auxquelles un corps est soumis se compensent, le corps est soit au repos (immobile) soit en mouvement rectiligne uniforme. Sa vitesse ne varie donc pas.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">Le principe d'inertie fut énoncé par Isaac Newton et on l'appelle aussi "première loi de Newton " :</sc:para>
+						<sc:para xml:space="preserve">Lorsqu'un corps est soumis à des forces qui se compensent ou à aucune force alors il est soit au repos soit animé d'un mouvement rectiligne uniforme.</sc:para>
+						<sc:para xml:space="preserve">Réciproquement si un corps est au repos ou en mouvement rectiligne uniforme alors il n'est soumis à aucune force ou à des forces qui se compensent.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

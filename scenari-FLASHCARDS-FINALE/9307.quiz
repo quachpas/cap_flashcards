@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#math-analyse-suites-suitmajminbor-</sp:themeLycee>
+			<sp:themeLicence>#math-suites-</sp:themeLicence>
+			<sp:level>4</sp:level>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://unistra.fr</sp:url>
+</op:urlM>unistra.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">On considère la suite de réels <sc:textLeaf role="mathtex">(u_n)_{n\ge 0}</sc:textLeaf> définie par <sc:textLeaf role="mathtex">u_0=5</sc:textLeaf> et  <sc:textLeaf role="mathtex">u_{n+1}= \frac {u_n}2</sc:textLeaf> si <sc:textLeaf role="mathtex">u_n</sc:textLeaf> est pair  et <sc:textLeaf role="mathtex">u_{n+1}=3u_n+1</sc:textLeaf> sinon.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			   La suite <sc:textLeaf role="mathtex">(u_n)</sc:textLeaf> est croissante.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			   On a <sc:textLeaf role="mathtex">u_5=1</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			   La suite <sc:textLeaf role="mathtex">(u_n)</sc:textLeaf> est convergente.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			   La suite<sc:textLeaf role="mathtex"> (u_n)</sc:textLeaf> est bornée.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">On peut calculer les premiers termes : <sc:textLeaf role="mathtex">u_0=5</sc:textLeaf>, <sc:textLeaf role="mathtex">u_1=3\times 5+1=16</sc:textLeaf> car <sc:textLeaf role="mathtex">5</sc:textLeaf> est impair, <sc:textLeaf role="mathtex">u_2=16/2=8</sc:textLeaf> car <sc:textLeaf role="mathtex">16</sc:textLeaf> est pair, <sc:textLeaf role="mathtex">u_3=4</sc:textLeaf>, <sc:textLeaf role="mathtex">u_4=2</sc:textLeaf>, <sc:textLeaf role="mathtex">u_5=1</sc:textLeaf>. On a ensuite <sc:textLeaf role="mathtex">u_6=4</sc:textLeaf>, <sc:textLeaf role="mathtex">u_7=2</sc:textLeaf>, <sc:textLeaf role="mathtex">u_8=1</sc:textLeaf>, et ainsi de suite : par récurrence, on montre que <sc:textLeaf role="mathtex">u_{3n}=4, u_{3n+1}=2, u_{3n+2}=1</sc:textLeaf> pour tout <sc:textLeaf role="mathtex">n\geq 1</sc:textLeaf>. Cela permet de cocher les bonnes réponses.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

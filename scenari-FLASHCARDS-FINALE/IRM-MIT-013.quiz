@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3">
+		<op:exeM>
+			<sp:themeLycee xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-analyse-integration-</sp:themeLycee>
+			<sp:themeLicence xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-integration-</sp:themeLicence>
+			<sp:level xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">3</sp:level>
+			<sp:educationLevel xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">L0</sp:educationLevel>
+			<sp:info xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">ECRA-IREM-Clermont-Ferrand</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">L'intégrale <sc:textLeaf role="mathtex">\displaystyle\int_1^{e}\frac {2x^2+1}x dx</sc:textLeaf> est égale à :</sc:para>
+					</op:txt>
+				</sp:txt>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:inlineStyle role="emp">Coup de pouce</sc:inlineStyle>
+</sc:para>
+						<sc:para xml:space="preserve">Pour trouver une primitive de <sc:textLeaf role="mathtex">\frac{2x^2+1}x</sc:textLeaf> sur <sc:textLeaf role="mathtex">[1 ;e]</sc:textLeaf>, il faut peser à écrire cette fonction comme une somme de deux fractions.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">e^2</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">e^2 +e-2</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">-e^2</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\frac {2e^2+1} e -3</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="1"/>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:inlineStyle role="emp">Théroème</sc:inlineStyle>
+</sc:para>
+						<sc:para xml:space="preserve">Soit <sc:textLeaf role="mathtex">f</sc:textLeaf> une fonction définie et continue sur un intervalle <sc:textLeaf role="mathtex">[a ;b]</sc:textLeaf> de <sc:textLeaf role="mathtex">\mathbb R</sc:textLeaf> et soit <sc:textLeaf role="mathtex">F</sc:textLeaf> une primitive de <sc:textLeaf role="mathtex">f</sc:textLeaf> sur <sc:textLeaf role="mathtex">[a ;b]</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">L'intégrale de <sc:textLeaf role="mathtex">f</sc:textLeaf> entre <sc:textLeaf role="mathtex">a</sc:textLeaf> et <sc:textLeaf role="mathtex">b</sc:textLeaf> est égale au nombre : <sc:textLeaf role="mathtex">\displaystyle\int_a^b f(x)dx= \bigg[F(x) \bigg]^b_a =F(b)-F(a)</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sp:txt>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">Il faut commencer par déterminer une primitive de <sc:textLeaf role="mathtex">\frac{2x^2+1}x</sc:textLeaf> sur <sc:textLeaf role="mathtex">[1 ;e]</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">Or <sc:textLeaf role="mathtex">\frac{2x^2+1}x=\frac{2x^2}x+\frac1x=2x+\frac1x</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">Comme on a <sc:textLeaf role="mathtex">x&gt;0</sc:textLeaf> sur <sc:textLeaf role="mathtex">[1 ;e]</sc:textLeaf>, <sc:textLeaf role="mathtex">x^2+\ln x</sc:textLeaf> est une primitive de <sc:textLeaf role="mathtex">\frac{2x^2+1}x</sc:textLeaf> sur <sc:textLeaf role="mathtex">[1 ;e]</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">D'où : <sc:textLeaf role="mathtex">I=\left[x^2+\ln x\right]^e_1=e^2+\ln e-1-\ln1=e^2</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">
+<sc:inlineStyle role="emp">Rappel</sc:inlineStyle> : <sc:textLeaf role="mathtex">\ln1=0</sc:textLeaf> et <sc:textLeaf role="mathtex">\ln e=1</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

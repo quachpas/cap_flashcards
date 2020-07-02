@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:title>Photosynthèse</sp:title>
+			<sp:themeLycee>#scvie-plancont-solsourener-</sp:themeLycee>
+			<sp:themeLycee>#scvie-terunivers-natvivant-</sp:themeLycee>
+			<sp:themeLicence>#bio-bioveget-</sp:themeLicence>
+			<sp:themeLicence>#bio-cellule-</sp:themeLicence>
+			<sp:level>1</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<op:info>
+					<sp:keywds>
+						<op:keywds>
+							<sp:keywd>cellule</sp:keywd>
+							<sp:keywd>biochimie</sp:keywd>
+							<sp:keywd>photosynthèse</sp:keywd>
+							<sp:keywd>végétale</sp:keywd>
+						</op:keywds>
+					</sp:keywds>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      Université Lille 1
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">Au cours de la photosynthèse, la plante :</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						absorbe de l'<sc:textLeaf role="mathtex">O_2</sc:textLeaf> et rejette du <sc:textLeaf role="mathtex">CO_2</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						absorbe du <sc:textLeaf role="mathtex">CO_2</sc:textLeaf> et rejette de l'<sc:textLeaf role="mathtex">O_2</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						rejette de l'eau.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						rejette 2 molécules de <sc:textLeaf role="mathtex">CO_2</sc:textLeaf>  par destruction de 4 molécules de glucose.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="2"/>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">Le bilan général de la photosynthèse est le suivant : <sc:textLeaf role="mathtex">n H_2O + n C_O2 \rightarrow (CH_2O)_n</sc:textLeaf> sucres <sc:textLeaf role="mathtex">+ n O_2</sc:textLeaf> en présence de lumière. La plante absorbe donc de l'eau et du <sc:textLeaf role="mathtex">CO_2</sc:textLeaf> et rejette de l'<sc:textLeaf role="mathtex">O_2</sc:textLeaf> lors de la photosynthèse.
+		</sc:para>
+						<sc:para xml:space="preserve">
+			Ressources à consulter : 
+		</sc:para>
+						<sc:para xml:space="preserve">
+			
+  
+  <sc:phrase role="url"><op:urlM xmlns:op="utc.fr:ics/opale3">
+<sp:url xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">http://www.snv.jussieu.fr/bmedia/Photosynthese/exp11.html</sp:url>
+</op:urlM>
+Mise en évidence de la photosynthèse</sc:phrase>
+  
+  
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

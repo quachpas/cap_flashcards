@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3">
+		<op:exeM>
+			<sp:themeLycee xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-geo-nbcomplex-</sp:themeLycee>
+			<sp:themeLicence xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-nbreelscompl-</sp:themeLicence>
+			<sp:level xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">3</sp:level>
+			<sp:educationLevel xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">L0</sp:educationLevel>
+			<sp:info xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">ECRA – IREM – Strasbourg</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">Le plan complexe est muni d'un repère orthonormé <sc:textLeaf role="mathtex">(O ; \vec u ; \vec v)</sc:textLeaf>
+</sc:para>
+						<sc:para xml:space="preserve">Si un point <sc:textLeaf role="mathtex">M</sc:textLeaf> d'affixe <sc:textLeaf role="mathtex">z</sc:textLeaf> est un point du cercle de centre <sc:textLeaf role="mathtex">\Omega</sc:textLeaf>, d'affixe <sc:textLeaf role="mathtex">3i</sc:textLeaf>, et de rayon <sc:textLeaf role="mathtex">4</sc:textLeaf>, alors le point <sc:textLeaf role="mathtex">M'</sc:textLeaf> d'affixe <sc:textLeaf role="mathtex">z'=\frac{2}{5(z-3i)}</sc:textLeaf> est un point ...</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">du cercle de centre <sc:textLeaf role="mathtex">O</sc:textLeaf> et de rayon <sc:textLeaf role="mathtex">\frac{2}{5}</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">Comme <sc:textLeaf role="mathtex">M</sc:textLeaf> est un point du cercle de centre <sc:textLeaf role="mathtex">\Omega</sc:textLeaf>, d'affixe <sc:textLeaf role="mathtex">3i</sc:textLeaf>, et de rayon <sc:textLeaf role="mathtex">4</sc:textLeaf>, <sc:textLeaf role="mathtex">|z-3i|=4</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">Et dans ce cas :</sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">OM'=|z'|=\left| \frac{2}{5(z-3i)} \right| = \frac{2}{5|z-3i|}=\frac{1}{10}</sc:textLeaf>
+</sc:para>
+						<sc:para xml:space="preserve">Donc, l'affirmation est fausse.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">du cercle de centre <sc:textLeaf role="mathtex">O</sc:textLeaf> et de rayon <sc:textLeaf role="mathtex">\frac{1}{10}</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">Comme <sc:textLeaf role="mathtex">M</sc:textLeaf> est un point du cercle de centre <sc:textLeaf role="mathtex">\Omega</sc:textLeaf>, d'affixe <sc:textLeaf role="mathtex">3i</sc:textLeaf>, et de rayon <sc:textLeaf role="mathtex">4</sc:textLeaf>, <sc:textLeaf role="mathtex">|z-3i|=4</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">Et dans ce cas :</sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">OM'=|z'|=\left| \frac{2}{5(z-3i)} \right| = \frac{2}{5|z-3i|}=\frac{1}{10}</sc:textLeaf>
+</sc:para>
+						<sc:para xml:space="preserve">Donc, l'affirmation est vraie.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">du cercle de centre <sc:textLeaf role="mathtex">\Omega</sc:textLeaf> et de rayon <sc:textLeaf role="mathtex">\frac{31}{10}</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">Remarquons que le point <sc:textLeaf role="mathtex">M</sc:textLeaf> d'affixe <sc:textLeaf role="mathtex">z=-i</sc:textLeaf>, est un point du cercle de centre <sc:textLeaf role="mathtex">\Omega</sc:textLeaf>, d'affixe <sc:textLeaf role="mathtex">3i</sc:textLeaf>, et de rayon <sc:textLeaf role="mathtex">4</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">On vérifie facilement que <sc:textLeaf role="mathtex">M'</sc:textLeaf> est le point d'affixe <sc:textLeaf role="mathtex">z'=\frac{1}{10}i</sc:textLeaf>. Et dans ce cas :</sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\Omega M'=\left| \frac{1}{10}i-3i \right| = \frac{29}{10}</sc:textLeaf>
+</sc:para>
+						<sc:para xml:space="preserve">Donc, l'affirmation est fausse.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">du cercle de centre <sc:textLeaf role="mathtex">\Omega</sc:textLeaf> et de rayon <sc:textLeaf role="mathtex">\frac{8}{5}</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">Remarquons que le point <sc:textLeaf role="mathtex">M</sc:textLeaf> d'affixe <sc:textLeaf role="mathtex">z=-i</sc:textLeaf>, est un point du cercle de centre <sc:textLeaf role="mathtex">\Omega</sc:textLeaf>, d'affixe <sc:textLeaf role="mathtex">3i</sc:textLeaf>, et de rayon <sc:textLeaf role="mathtex">4</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">On vérifie facilement que <sc:textLeaf role="mathtex">M'</sc:textLeaf> est le point d'affixe <sc:textLeaf role="mathtex">z'=\frac{1}{10}i</sc:textLeaf>. Et dans ce cas :</sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\Omega M'=\left| \frac{1}{10}i-3i \right| = \frac{29}{10}</sc:textLeaf>
+</sc:para>
+						<sc:para xml:space="preserve">Donc, l'affirmation est fausse.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="2"/>
+	</op:mcqSur>
+</sc:item>

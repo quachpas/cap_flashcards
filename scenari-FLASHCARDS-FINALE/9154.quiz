@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#chim-pratspor-matmolsport-</sp:themeLycee>
+			<sp:themeLycee>#chim-sante-medicam-espchim-</sp:themeLycee>
+			<sp:themeLicence>#chim-plymmat-</sp:themeLicence>
+			<sp:themeLicence>#chim-chimsolu-</sp:themeLicence>
+			<sp:themeLicence>#chim-strucmat-</sp:themeLicence>
+			<sp:level>1</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<!--<comment xmlns="scenari.eu:comment:1.0" type="thread"><comment author="camille.dufourg" creationTime="1575299019808">Il manque les mots-clés et la licence.</comment></comment>-->
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      Université de technologie de Troyes, 
+      Baudrion, 
+      Verchier, 
+      01-06-2012, 
+      <sc:phrase role="url"><op:urlM>
+<sp:url>http://utt.fr</sp:url>
+</op:urlM>
+utt.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Quelle est la formule chimique du dioxyde d'azote ?
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						NO<sc:textLeaf role="ind">2</sc:textLeaf>.							
+					</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						N<sc:textLeaf role="ind">2</sc:textLeaf>O.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						NO.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						N<sc:textLeaf role="ind">2</sc:textLeaf>O<sc:textLeaf role="ind">3</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="1"/>
+		<sc:globalExplanation>
+			<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="ves" creationTime="1521192812887">Attention! la ressource ne correspond pas. La nomenclature simplifiée est pour la chimie organique, donner la formule du dioxyde d'azote ne fait pas appel aux connaissances de la chimie organique.</comment></comment>-->
+			<op:res>
+				<sp:txt>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="cee" creationTime="1480342856574">Préciser pour NO qu'on peut également dire "Monoxyde d'Azote"</comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">Le dioxyde d'azote a pour formule NO<sc:textLeaf role="ind">2</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">N<sc:textLeaf role="ind">2</sc:textLeaf>O							
+					est le protoxyde d'azote, également appelé oxyde nitreux (utilisé en anesthésie).</sc:para>
+						<sc:para xml:space="preserve">NO est la formule brute de l'oxyde nitrique, également nommé "Monoxyde d'Azote".</sc:para>
+						<sc:para xml:space="preserve">N<sc:textLeaf role="ind">2</sc:textLeaf>O<sc:textLeaf role="ind">3</sc:textLeaf> est le trioxyde d'azote.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

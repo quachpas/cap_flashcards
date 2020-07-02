@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3">
+		<op:exeM>
+			<sp:themeLycee xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-logique-</sp:themeLycee>
+			<sp:themeLicence xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-lograis-</sp:themeLicence>
+			<sp:level xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">3</sp:level>
+			<sp:educationLevel xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">L0</sp:educationLevel>
+			<sp:info xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">ECRA-IREM-Limoges</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">Soit <sc:textLeaf role="mathtex">f</sc:textLeaf> une fonction numérique définie sur <sc:textLeaf role="mathtex">\mathbb R</sc:textLeaf> et soit <sc:textLeaf role="mathtex">P</sc:textLeaf> la proposition "Si pour tous <sc:textLeaf role="mathtex">a</sc:textLeaf> et <sc:textLeaf role="mathtex">b</sc:textLeaf> réels distincts on a : <sc:textLeaf role="mathtex">\frac {f(b)-f(a)}{b-a}&gt;0</sc:textLeaf>, alors <sc:textLeaf role="mathtex">f</sc:textLeaf> est croissante sur <sc:textLeaf role="mathtex">\mathbb R</sc:textLeaf>."</sc:para>
+						<sc:para xml:space="preserve">Cette proposition étant vraie en particulier pour la fonction donnée par <sc:textLeaf role="mathtex">f(x)=-4x-1</sc:textLeaf>, Alexandre calcule <sc:textLeaf role="mathtex">f(2)=-9</sc:textLeaf> et <sc:textLeaf role="mathtex">f(0)=-1</sc:textLeaf> puis <sc:textLeaf role="mathtex">\frac{f(2)-f(0)}2=-4</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">Il en déduit que la fonction <sc:textLeaf role="mathtex">f</sc:textLeaf> n'est pas croissante sur <sc:textLeaf role="mathtex">\mathbb R</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">Ce raisonnement est un raisonnement par</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">Récurrence</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">Disjonction des cas</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">Contraposée</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">L'absurde</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="3"/>
+	</op:mcqSur>
+</sc:item>

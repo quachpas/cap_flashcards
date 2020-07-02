@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#math-probastat-echantil-intechant-</sp:themeLycee>
+			<sp:themeLicence>#math-stat-</sp:themeLicence>
+			<sp:level>1</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      <sc:phrase role="url"><op:urlM xmlns:sc="http://www.utc.fr/ics/scenari/v3/core" xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive"><sp:url>www.parisdescartes.fr</sp:url></op:urlM>
+parisdescartes.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="hur" creationTime="1460406958316" updateTime="1460407192921">Il ne serait pas inutile de préciser de quelle population l'on parle. Ou au moins dire qu'on suppose qu'elle existe.
+... d'un échantillon aléatoire et simple de 400 individus.
+Un intervalle de fluctuation de la variable proportion d'individus ayant les yeux vert dans la population ...</comment><comment author="ves" creationTime="1524815018046">Question originale: On admet que la proportion des individus ayant les yeux verts est de  \textstyle{20\%}. On note la couleur des yeux de \textstyle{n=400} individus. Un intervalle de fluctuation asymptotique  au seuil de  \textstyle{0,95}</comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">
+			On admet que dans une population la proportion des individus ayant les yeux verts est de <sc:textLeaf role="mathtex">\textstyle{20\%}</sc:textLeaf>. On note la couleur des yeux de 400 individus de cette population. Un intervalle de fluctuation asymptotique de la fréquence des personnes ayant les yeux verts dans cet échantillon, au seuil de <sc:textLeaf role="mathtex">\textstyle{0,95}</sc:textLeaf>, est :</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			 
+  <sc:textLeaf role="mathtex">\textstyle{\left[ 0,06; 0,34\right]}</sc:textLeaf>
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			 
+  <sc:textLeaf role="mathtex">\textstyle{\left[ 0,16; 0,24 \right]}</sc:textLeaf>
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			 
+  <sc:textLeaf role="mathtex">\textstyle{\left[ 0,15; 0,25\right]}</sc:textLeaf>
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="2"/>
+	</op:mcqSur>
+</sc:item>

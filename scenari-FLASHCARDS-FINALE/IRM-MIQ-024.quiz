@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3">
+		<op:exeM>
+			<sp:themeLycee xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-analyse-equations-resolalgequa-</sp:themeLycee>
+			<sp:themeLicence xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-equa-</sp:themeLicence>
+			<sp:level xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">3</sp:level>
+			<sp:educationLevel xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">L0</sp:educationLevel>
+			<sp:info xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">ECRA-IREM-Clermont-Ferrand</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">Si <sc:textLeaf role="mathtex">x</sc:textLeaf>, <sc:textLeaf role="mathtex">y</sc:textLeaf> et <sc:textLeaf role="mathtex">z</sc:textLeaf> sont trois réels vérifiant   <sc:textLeaf role="mathtex">\left\{ \begin{array}{ll} 2x+y\quad \quad=23 \\ \quad \;\; 3y+2z=39 \quad \mathrm{alors \; que \; vaut} \; x+y+z \\ x+2y \quad \quad=19\end{array} \right.</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">26</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">16</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">62</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">36</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="1"/>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">On commence par résoudre le système. La variable <sc:textLeaf role="mathtex">z</sc:textLeaf> n'intervient que sur la deuxième ligne. Il suffit de travailler sur la première et la troisième ligne pour trouver les valeurs de <sc:textLeaf role="mathtex">x</sc:textLeaf> et de <sc:textLeaf role="mathtex">y</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">La solution est</sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">x=9,\qquad y=5,\qquad z=12</sc:textLeaf>:</sc:para>
+						<sc:para xml:space="preserve">Par conséquent, la somme <sc:textLeaf role="mathtex">x + y + z</sc:textLeaf> vaut <sc:textLeaf role="mathtex">26</sc:textLeaf>. <sc:inlineStyle role="emp">La Proposition <sc:textLeaf role="mathtex">26</sc:textLeaf> est vraie</sc:inlineStyle> tandis que les <sc:inlineStyle role="emp">Propositions <sc:textLeaf role="mathtex">16</sc:textLeaf>, <sc:textLeaf role="mathtex">62</sc:textLeaf> et <sc:textLeaf role="mathtex">36</sc:textLeaf> sont fausses</sc:inlineStyle>.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

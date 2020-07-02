@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#math-analyse-fonderef-foncaffin-</sp:themeLycee>
+			<sp:themeLicence>#math-fonctions-</sp:themeLicence>
+			<sp:level>3</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">utc.fr</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">Soit <sc:textLeaf role="mathtex">f</sc:textLeaf> une fonction affine par morceaux définie sur <sc:textLeaf role="mathtex">\mathbb{R}</sc:textLeaf> dont la courbe représentative est donnée ci-dessous.</sc:para>
+					</op:txt>
+				</sp:txt>
+				<sp:res sc:refUri="Ressources/Images/mt_Derivabilite.jpg">
+					<op:resInfoM/>
+				</sp:res>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\lim\limits_{x\to2^-}f'(x)=0</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\lim\limits_{x\to1^+}f'(x)=0</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\lim\limits_{x\to-1^+}f'(x)=0</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\lim\limits_{x\to-2^-}f'(x)=0</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="3"/>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">La fonction <sc:textLeaf role="mathtex">f</sc:textLeaf> étant affine par morceaux, on sait que sur chaque morceau sa fonction dérivée est constante et égale au coefficient directeur du segment correspondant. Un coefficient directeur nul correspond à une droite horizontale. Le segment situé à gauche de <sc:textLeaf role="mathtex">x = 2</sc:textLeaf> n'est pas horizontal, donc <sc:textLeaf role="mathtex">\lim\limits_{x\to2^-}f'(x)\not=0</sc:textLeaf>. Le segment situé à droite de <sc:textLeaf role="mathtex">x = 1</sc:textLeaf> n'est pas horizontal, donc <sc:textLeaf role="mathtex">\lim\limits_{x\to1^+}f'(x)\not=0</sc:textLeaf>. Le segment situé à droite de <sc:textLeaf role="mathtex">x = −1</sc:textLeaf> est horizontal, donc <sc:textLeaf role="mathtex">\lim\limits_{x\to-1^+}f'(x)=0</sc:textLeaf> et le segment situé à gauche de <sc:textLeaf role="mathtex">x = −2</sc:textLeaf> n'est pas horizontal, donc <sc:textLeaf role="mathtex">\lim\limits_{x\to-2^-}f'(x)\not=0</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

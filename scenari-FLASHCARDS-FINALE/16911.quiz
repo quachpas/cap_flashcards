@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#math-probastat-echantil-intechant-</sp:themeLycee>
+			<sp:themeLicence>#math-stat-</sp:themeLicence>
+			<sp:level>2</sp:level>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      <sc:phrase role="url"><op:urlM xmlns:sc="http://www.utc.fr/ics/scenari/v3/core" xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive"><sp:url>www.parisdescartes.fr</sp:url></op:urlM>
+parisdescartes.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Les personnes de groupe sanguin A+ constituent 38% de la population française. Donner un intervalle de fluctuation au seuil 90% pour le nombre de personnes de ce groupe sanguin parmi 10 français choisis au hasard, en s'aidant de la table de la loi binomiale de paramètres 
+  <sc:textLeaf role="mathtex">\textstyle{n=10}</sc:textLeaf>
+ et 
+  <sc:textLeaf role="mathtex">\textstyle{p=0.38}</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\begin{array}{|c||c|c|c|c|c|c|c|c|c|c|c|}\hline x&amp;0&amp;1&amp;2&amp;3&amp;4&amp;5&amp;6&amp;7&amp;8&amp;9&amp;10\\\hline\mathbb{P}(X=x)&amp;0.008&amp;0.051&amp;0.142&amp;0.232&amp;0.249&amp;0.183&amp;0.093&amp;0.033&amp;0.008&amp;0.001&amp;0.000\\\hline\end{array}</sc:textLeaf></sc:para>
+						<sc:para xml:space="preserve">avec 
+  <sc:textLeaf role="mathtex">\textstyle{X\sim\mathcal{B}(10,0.38)}</sc:textLeaf></sc:para>
+						<sc:para xml:space="preserve">Rappelons que 
+  <sc:textLeaf role="mathtex">\textstyle{[a;b]}</sc:textLeaf>
+ est un intervalle de fluctuation au seuil 90% pour 
+  <sc:textLeaf role="mathtex">\textstyle{N}</sc:textLeaf>
+ si 
+  <sc:textLeaf role="mathtex">\textstyle{\mathbb P(N\in [a;b])\geq0.9}</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			
+  <sc:textLeaf role="mathtex">\textstyle{[1 ;6]}</sc:textLeaf>
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			
+  <sc:textLeaf role="mathtex">\textstyle{[1;7]}</sc:textLeaf>
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			
+  <sc:textLeaf role="mathtex">\textstyle{[1;8]}</sc:textLeaf>
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			
+  <sc:textLeaf role="mathtex">\textstyle{[2;6]}</sc:textLeaf>
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			
+  <sc:textLeaf role="mathtex">\textstyle{[2;7]}</sc:textLeaf>
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			
+  <sc:textLeaf role="mathtex">\textstyle{[2;8]}</sc:textLeaf>
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Soit 
+  <sc:textLeaf role="mathtex">\textstyle{N}</sc:textLeaf>
+ le nombre de personnes du groupe sanguin A+ parmi les 10 personnes tirées au hasard. Rappelons que 
+  <sc:textLeaf role="mathtex">\textstyle{[a;b]}</sc:textLeaf>
+ est un intervalle de fluctuation au seuil 90% pour 
+  <sc:textLeaf role="mathtex">\textstyle{N}</sc:textLeaf>
+ si 
+  <sc:textLeaf role="mathtex">\textstyle{\mathbb P(N\in [a;b])\geq0.9}</sc:textLeaf>
+		</sc:para>
+						<sc:para xml:space="preserve">
+			Comme les 10 personnes sont tirées au hasard dans une grande population, on peut considérer qu'elles forment un échantillon. Chaque personne ayant la probabilité 
+  <sc:textLeaf role="mathtex">\textstyle{0.38}</sc:textLeaf>
+ d'être du groupe A+, 
+  <sc:textLeaf role="mathtex">\textstyle{N}</sc:textLeaf>
+ suit une loi binomiale de paramètres 
+  <sc:textLeaf role="mathtex">\textstyle{10}</sc:textLeaf>
+ et 
+  <sc:textLeaf role="mathtex">\textstyle{0.38}</sc:textLeaf>
+		</sc:para>
+						<sc:para xml:space="preserve">
+			Calculons 
+  <sc:textLeaf role="mathtex">\textstyle{\mathbb P(N\in[1;6])}</sc:textLeaf>
+</sc:para>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">\begin{eqnarray*}\mathbb P(N\in[1;6])&amp;=&amp;1-\mathbb P(N\notin[1;6])\\&amp;=&amp;1-\mathbb P(N=0)-\mathbb P(N=7)-\cdots-\mathbb P(N=10)\\ &amp;=&amp;1-0.008-0.033-0.008-0.001\\&amp;=&amp;0.95\geq0.9\end{eqnarray*}</sc:textLeaf>
+</sc:para>
+						<sc:para xml:space="preserve">
+			Il s'agit donc d'un intervalle de fluctuation au seuil 
+  <sc:textLeaf role="mathtex">\textstyle{0.90}</sc:textLeaf>
+		</sc:para>
+						<sc:itemizedList>
+							<sc:listItem>
+								<sc:para xml:space="preserve">
+			
+  <sc:textLeaf role="mathtex">\textstyle{\mathbb P(N\in[1;7])=0.983\geq0.9}</sc:textLeaf>
+		</sc:para>
+							</sc:listItem>
+							<sc:listItem>
+								<sc:para xml:space="preserve">
+			
+  <sc:textLeaf role="mathtex">\textstyle{\mathbb P(N\in[1;8])=0.991\geq0.9}</sc:textLeaf>
+		</sc:para>
+							</sc:listItem>
+							<sc:listItem>
+								<sc:para xml:space="preserve">
+			
+  <sc:textLeaf role="mathtex">\textstyle{\mathbb P(N\in[2;6])=0.899&lt;0.9}</sc:textLeaf>
+ ; ce n'est pas un intervalle de fluctuation au seuil 
+  <sc:textLeaf role="mathtex">\textstyle{0.9}</sc:textLeaf>
+		</sc:para>
+							</sc:listItem>
+							<sc:listItem>
+								<sc:para xml:space="preserve">
+			
+  <sc:textLeaf role="mathtex">\textstyle{\mathbb P(N\in[2;7])=0.932\geq0.9}</sc:textLeaf>
+		</sc:para>
+							</sc:listItem>
+							<sc:listItem>
+								<sc:para xml:space="preserve">
+			
+  <sc:textLeaf role="mathtex">\textstyle{\mathbb P(N\in[2;8])=0.94\geq0.9}</sc:textLeaf>
+		</sc:para>
+							</sc:listItem>
+						</sc:itemizedList>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

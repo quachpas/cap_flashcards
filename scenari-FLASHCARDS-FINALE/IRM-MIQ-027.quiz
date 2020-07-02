@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3">
+		<op:exeM>
+			<sp:themeLycee xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-analyse-ineq-resolalgineq-</sp:themeLycee>
+			<sp:themeLicence xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-equa-</sp:themeLicence>
+			<sp:level xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">2</sp:level>
+			<sp:educationLevel xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">L0</sp:educationLevel>
+			<sp:info xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">ECRA-IREM-Clermont-Ferrand</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">Si <sc:textLeaf role="mathtex">9&lt;x&lt;20</sc:textLeaf> et <sc:textLeaf role="mathtex">3&lt;y&lt;4</sc:textLeaf> alors</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">12&lt;x+y&lt;24</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">6&lt;x-y&lt;16</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">Si <sc:textLeaf role="mathtex">x</sc:textLeaf> et <sc:textLeaf role="mathtex">y</sc:textLeaf> sont deux réels vérifiant respectivement <sc:textLeaf role="mathtex">9&lt;x&lt;20</sc:textLeaf> et <sc:textLeaf role="mathtex">3&lt;y&lt;5</sc:textLeaf> alors la différence <sc:textLeaf role="mathtex">x-y</sc:textLeaf> peut prendre aussi bien des valeurs supérieures ou égales à <sc:textLeaf role="mathtex">15</sc:textLeaf> que des valeurs inférieures ou égales à <sc:textLeaf role="mathtex">6</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">3&lt;\frac x y&lt;5</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">Si <sc:textLeaf role="mathtex">x</sc:textLeaf> et <sc:textLeaf role="mathtex">y</sc:textLeaf> sont deux réels vérifiant respectivement <sc:textLeaf role="mathtex">9&lt;x&lt;20</sc:textLeaf> et <sc:textLeaf role="mathtex">3&lt;y&lt;5</sc:textLeaf> alors le quotient <sc:textLeaf role="mathtex">\frac xy</sc:textLeaf> peut prendre aussi bien des valeurs supérieures ou égales à <sc:textLeaf role="mathtex">4</sc:textLeaf> que des valeurs inférieures ou égales à <sc:textLeaf role="mathtex">3</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+<sc:textLeaf role="mathtex">27&lt;xy&lt;80</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+	</op:mcqMur>
+</sc:item>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="paf" creationTime="1478098945790">Complément / explication ? : 
+
+Un acide fort est un acide qui, en solution aqueuse, se dissocie totalement en ions H+ et en une base très faible dite base conjuguée de l'acide. 
+La réaction de dissociation d'un acide fort HA dans l'eau est la suivante (le signe « → » indique qu'il s'agit d'une réaction totale) :
+HA(aq) → H+(aq) + A−(aq),
+l'anion A− étant la base conjuguée de l'acide HA.
+</comment></comment>-->
+		<op:exeM>
+			<sp:themeLycee>#chim-comploismod-strtran-acbas-</sp:themeLycee>
+			<sp:themeLicence>#chim-chimsolu-</sp:themeLicence>
+			<sp:level>1</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">utc.fr</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">Comment réagit un acide fort dans l'eau ?</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">Il se dissocie partiellement.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">Il se dissocie totalement.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">Il y a un dégagement gazeux.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">Il ne réagit pas.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">Un acide fort est un acide qui, en solution aqueuse, se dissocie totalement en ions <sc:textLeaf role="mathtex">H^{+}</sc:textLeaf> et en une base très faible dite base conjuguée de l'acide.</sc:para>
+						<sc:para xml:space="preserve">La réaction de dissociation d'un acide fort HA dans l'eau est la suivante (le signe « → » indique qu'il s'agit d'une réaction totale) :</sc:para>
+						<sc:para xml:space="preserve">HA(aq) → <sc:textLeaf role="mathtex">H^{+}</sc:textLeaf>(aq) + <sc:textLeaf role="mathtex">A^{−}</sc:textLeaf>(aq), l'anion <sc:textLeaf role="mathtex">A^{−}</sc:textLeaf> étant la base conjuguée de l'acide HA.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

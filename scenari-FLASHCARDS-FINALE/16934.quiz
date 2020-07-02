@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#math-probastat-probfin-probeven-</sp:themeLycee>
+			<sp:themeLicence>#math-proba-</sp:themeLicence>
+			<sp:level>4</sp:level>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      <sc:phrase role="url"><op:urlM><sp:url>www.parisdescartes.fr</sp:url></op:urlM>
+parisdescartes.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+						
+
+					On dispose d'un cube en bois de 
+  <sc:textLeaf role="mathtex">\textstyle{3}</sc:textLeaf>
+ cm d'arête, peint en bleu. On le découpe parallèlement aux faces, en 
+  <sc:textLeaf role="mathtex">\textstyle{27}</sc:textLeaf>
+ cubes de 
+  <sc:textLeaf role="mathtex">\textstyle{1}</sc:textLeaf>
+ cm d'arête. On place ces 
+  <sc:textLeaf role="mathtex">\textstyle{27}</sc:textLeaf> cubes dans un sac.</sc:para>
+					</op:txt>
+				</sp:txt>
+				<sp:res sc:refUri="images/05_fq_901.gif">
+					<op:resInfoM/>
+				</sp:res>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			On tire au hasard un cube du sac. La probabilité qu'au moins une de ses faces soit bleue est 
+  <sc:textLeaf role="mathtex">\textstyle{\dfrac6{27}}</sc:textLeaf>.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Le résultat énoncé correspond à la probabilité qu'exactement une face soit bleue. Le résultat est 
+  <sc:textLeaf role="mathtex">\textstyle{1-\dfrac1{27}=\dfrac{26}{27}}</sc:textLeaf>  car il n'y a qu'un cube non peint.
+		</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			On tire au hasard et sans remise deux cubes du sac. La probabilité d'avoir au total 
+  <sc:textLeaf role="mathtex">\textstyle{6}</sc:textLeaf>
+ faces peintes est 
+  <sc:textLeaf role="mathtex">\textstyle{\dfrac{28}{351}}</sc:textLeaf>.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Le nombre de cas possibles est 
+  <sc:textLeaf role="mathtex">\textstyle{27\times26}</sc:textLeaf>
+ et le nombre de cas favorables, 
+  <sc:textLeaf role="mathtex">\textstyle{8\times7}</sc:textLeaf>.
+</sc:para>
+						<sc:para xml:space="preserve">Un petit cube a au maximum 3 faces peintes, pour que l'événement se réalise il faut tirer 2 petits cubes ayant 3 faces peintes. C'est-à-dire 2 petits cubes venant des coins du gros cube.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+		</sc:choices>
+	</op:mcqMur>
+</sc:item>

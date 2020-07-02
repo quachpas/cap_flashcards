@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3">
+		<op:exeM>
+			<sp:themeLycee xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-geo-nbcomplex-</sp:themeLycee>
+			<sp:themeLicence xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-nbreelscompl-</sp:themeLicence>
+			<sp:level xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">4</sp:level>
+			<sp:educationLevel xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">L0</sp:educationLevel>
+			<sp:info xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">ECRA – IREM – Strasbourg</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">Le plan est muni d'un repère orthonormé d'origine <sc:textLeaf role="mathtex">O</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">Soit <sc:textLeaf role="mathtex">A</sc:textLeaf> le point d'affixe <sc:textLeaf role="mathtex">1 + 3i</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">A tout point <sc:textLeaf role="mathtex">M</sc:textLeaf> qui se trouve sur la droite <sc:textLeaf role="mathtex">(OA)</sc:textLeaf>, soit <sc:textLeaf role="mathtex">M'</sc:textLeaf> le point d'affixe <sc:textLeaf role="mathtex">z_{M'} = z_M − 2i</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">Les points <sc:textLeaf role="mathtex">M'</sc:textLeaf> se trouvent sur :</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">la droite d'équation <sc:textLeaf role="mathtex">y = 3x + 2i</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">Dans le plan, les équations de droites /cercles ainsi que les coordonnées des points ou des vecteurs ne contiennent pas le nombre imaginaire i dans leur expression.</sc:para>
+						<sc:para xml:space="preserve">Donc, l'affirmation est fausse.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">la droite parallèle à <sc:textLeaf role="mathtex">(OA)</sc:textLeaf> passant par le point d'affixe <sc:textLeaf role="mathtex">- 2i</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">Soit <sc:textLeaf role="mathtex">B</sc:textLeaf> le point d'affixe –<sc:textLeaf role="mathtex"> 2i</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">Remarquons que : <sc:textLeaf role="mathtex">z_{M'} - z_B = z_M - 2i + 2i = z_M</sc:textLeaf>
+</sc:para>
+						<sc:para xml:space="preserve">Donc : <sc:textLeaf role="mathtex">\overrightarrow{BM'}=\overrightarrow{OM}</sc:textLeaf>
+</sc:para>
+						<sc:para xml:space="preserve">Dans ce cas, si <sc:textLeaf role="mathtex">M</sc:textLeaf> se trouve sur <sc:textLeaf role="mathtex">(OA)</sc:textLeaf>, les vecteurs <sc:textLeaf role="mathtex">\overrightarrow{BM'}</sc:textLeaf> et <sc:textLeaf role="mathtex">\overrightarrow{OA}</sc:textLeaf> sont colinéaires, et les droites <sc:textLeaf role="mathtex">(BM')</sc:textLeaf> et <sc:textLeaf role="mathtex">(OA)</sc:textLeaf> sont parallèles.</sc:para>
+						<sc:para xml:space="preserve">L'affirmation est vraie.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">le cercle de centre <sc:textLeaf role="mathtex">C</sc:textLeaf> et d'affixe <sc:textLeaf role="mathtex">2i</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">On a : <sc:textLeaf role="mathtex">z_{O'}=-2i</sc:textLeaf> et <sc:textLeaf role="mathtex">z_{A'}=1+3i-2i=1+i</sc:textLeaf>
+</sc:para>
+						<sc:para xml:space="preserve">Dans ce cas : <sc:textLeaf role="mathtex">CO' = |z_{O'} − 2i| = 4</sc:textLeaf> et <sc:textLeaf role="mathtex">CA' = |z_{A'}-2i|=|i-1|=\sqrt{2}</sc:textLeaf>
+</sc:para>
+						<sc:para xml:space="preserve">Donc, les points <sc:textLeaf role="mathtex">O'</sc:textLeaf> et <sc:textLeaf role="mathtex">A'</sc:textLeaf> ne se trouvent pas sur le même cercle de centre <sc:textLeaf role="mathtex">C</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">L'affirmation est fausse.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">une droite de vecteur normal d'affixe <sc:textLeaf role="mathtex">3-i</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">Remarquons que le vecteur de coordonnées <sc:textLeaf role="mathtex">(3 ;-1)</sc:textLeaf> (donc d'affixe <sc:textLeaf role="mathtex">3-i</sc:textLeaf>) est orthogonal au vecteur <sc:textLeaf role="mathtex">\overrightarrow{OA}</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">D'autre part, pour tous points <sc:textLeaf role="mathtex">M</sc:textLeaf> et <sc:textLeaf role="mathtex">N</sc:textLeaf> appartenant à la droite <sc:textLeaf role="mathtex">(OA)</sc:textLeaf>, on a : <sc:textLeaf role="mathtex">z_{M'}-z_{N'}=z_M-z_N</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">Les vecteurs <sc:textLeaf role="mathtex">\overrightarrow{N'M'}=\overrightarrow{NM}</sc:textLeaf> et <sc:textLeaf role="mathtex">\overrightarrow{OA}</sc:textLeaf> sont colinéaires, et dans ce cas, l'affirmation est vraie.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+		</sc:choices>
+	</op:mcqMur>
+</sc:item>

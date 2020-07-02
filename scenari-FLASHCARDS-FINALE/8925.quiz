@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#chim-agir-convener-pilesaccu-</sp:themeLycee>
+			<sp:themeLicence>#chim-electrochim-</sp:themeLicence>
+			<sp:level>1</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<!--<comment xmlns="scenari.eu:comment:1.0" type="thread"><comment author="camille.dufourg" creationTime="1573576507499">Il manque les mots-clés et la licence.</comment></comment>-->
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">Université Lille 1</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<!--<comment xmlns="scenari.eu:comment:1.0" type="thread"><comment author="camille.dufourg" creationTime="1573576560256">"&lt;Principe de fonctionnement de la pile Daniell. &gt;" est-il à sa place au début de la question ?</comment></comment>-->
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			<sc:inlineStyle role="emp">Principe de fonctionnement de la pile Daniell.  </sc:inlineStyle>La pile Daniell met en jeu les couples oxydant/réducteur Cu<sc:textLeaf role="exp">2+</sc:textLeaf>(aq)/Cu(s) et Zn<sc:textLeaf role="exp">2+</sc:textLeaf>(aq)/Zn(s). Le pôle + est la lame de cuivre, le pôle – est la lame de zinc. Les deux lames sont reliées par un conducteur électrique. Les deux compartiments de la pile sont reliés par un pont salin. Lors du fonctionnement de la pile :
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			des électrons arrivent au pôle –.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Les électrons arrivent au pôle +.
+		</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			des électrons circulent dans le conducteur électrique.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">Le conducteur électrique est généralement un fil reliant les deux lames métalliques.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			des échanges d'électrons s'effectuent à la surface des lames de zinc et de cuivre entre l'oxydant et le réducteur de chaque couple.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			A la lame de zinc se produit la demi-réaction électronique Zn(s) = Zn<sc:textLeaf role="exp">2+</sc:textLeaf>(aq) + 2 e<sc:textLeaf role="exp">-</sc:textLeaf>.
+		 Il y a oxydation.</sc:para>
+						<sc:para xml:space="preserve">
+			A la lame de cuivre se produit la demi-réaction électronique Cu<sc:textLeaf role="exp">2+</sc:textLeaf>(aq) + 2 e<sc:textLeaf role="exp">-</sc:textLeaf> = Cu(s). Il y a réduction.</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			des électrons circulent dans le pont salin.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Ce sont des ions qui circulent dans le pont salin.
+		</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="mar" creationTime="1433059459623">Ajouter une virgule après "une pile".</comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">
+			<sc:inlineStyle role="emp">Compétence(s)</sc:inlineStyle> : <sc:inlineStyle role="emp">décrire le principe de fonctionnement de la pile Daniell.</sc:inlineStyle>
+		</sc:para>
+						<sc:para xml:space="preserve">
+			Dans une pile, les échanges d'électrons entre les espèces des deux couples s'effectuent de manière indirecte par l'intermédiaire du circuit électrique extérieur. Les électrons y circulent du pôle – vers le pôle +.
+		</sc:para>
+						<sc:para xml:space="preserve">Au pôle + se déroule une réaction de réduction : c'est la cathode.</sc:para>
+						<sc:para xml:space="preserve">Au pôle - se déroule une réaction d'oxydation : c'est l'anode.</sc:para>
+						<sc:para xml:space="preserve">Le pont salin ferme le circuit électrique ce qui permet la circulation du courant.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

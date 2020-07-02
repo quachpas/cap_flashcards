@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3">
+		<op:exeM>
+			<sp:themeLycee xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-analyse-limfonc-limsomprod-</sp:themeLycee>
+			<sp:themeLicence xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-fonctions-</sp:themeLicence>
+			<sp:level xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">3</sp:level>
+			<sp:educationLevel xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">L0</sp:educationLevel>
+			<sp:info xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://unistra.fr</sp:url>
+</op:urlM>unistra.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">
+			  Soit f la fonction définie par <sc:textLeaf role="mathtex">f(x)=\frac{\ln(x)}{x^2}</sc:textLeaf> pour tout x réel strictement positif. La fonction <sc:textLeaf role="mathtex">f</sc:textLeaf> vérifie</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			  <sc:textLeaf role="mathtex"> \lim\limits_{x \to 0+}f(x)=0</sc:textLeaf>
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			  <sc:textLeaf role="mathtex"> \lim\limits_{x \to 0+}f(x)=+\infty</sc:textLeaf>
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			  <sc:textLeaf role="mathtex"> \lim\limits_{x \to +\infty}f(x)=0</sc:textLeaf>
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			  <sc:textLeaf role="mathtex"> \lim\limits_{x \to +\infty}f(x)=+\infty</sc:textLeaf>
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="fav" creationTime="1467378378285">Faire plutôt appel aux théorèmes de croissance comparée pour expliquer la réponse.</comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">On a <sc:textLeaf role="mathtex"> \lim\limits_{x \to 0+}\ln(x)=-\infty</sc:textLeaf> et  <sc:textLeaf role="mathtex"> \lim\limits_{x \to 0+}\frac{1}{x^2}=+\infty</sc:textLeaf> d'où <sc:textLeaf role="mathtex"> \lim\limits_{x \to 0+}f(x)=-\infty</sc:textLeaf>. Par ailleurs, <sc:textLeaf role="mathtex">\ln</sc:textLeaf> croît "très doucement" devant la fonction carré : <sc:textLeaf role="mathtex"> \lim\limits_{x \to +\infty}f(x)=0</sc:textLeaf>.</sc:para>
+						<sc:para xml:space="preserve">Voici une ressource pour revoir quelques notions :</sc:para>
+						<sc:itemizedList>
+							<sc:listItem>
+								<sc:para xml:space="preserve">
+<sc:phrase role="url">
+<op:urlM>
+<sp:url>http://www.canal-u.tv/video/tele2sciences/fonctions_usuelles_partie_1_logarithme_et_exponentielle.13162</sp:url>
+</op:urlM>Fonctions usuelles : Logarithme et exponentielle</sc:phrase>
+</sc:para>
+							</sc:listItem>
+						</sc:itemizedList>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

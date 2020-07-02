@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3">
+		<op:exeM>
+			<sp:themeLycee xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-analyse-integration-</sp:themeLycee>
+			<sp:themeLicence xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">#math-integration-</sp:themeLicence>
+			<sp:level xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">1</sp:level>
+			<sp:educationLevel xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">L0</sp:educationLevel>
+			<sp:info xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">ECRA-IREM-Clermont-Ferrand</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">Soit <sc:textLeaf role="mathtex">f</sc:textLeaf> une fonction continue sur un intervalle <sc:textLeaf role="mathtex">I</sc:textLeaf> de <sc:textLeaf role="mathtex">\mathbb{R}</sc:textLeaf>, et <sc:textLeaf role="mathtex">a\in I</sc:textLeaf>. la fonction <sc:textLeaf role="mathtex">F : I \rightarrow \mathbb{R}</sc:textLeaf>, définie par <sc:textLeaf role="mathtex">F(x)=\int_a^xf(t)dt</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">est l'unique primitive de <sc:textLeaf role="mathtex">f</sc:textLeaf> sur <sc:textLeaf role="mathtex">I</sc:textLeaf> qui s'annule en <sc:textLeaf role="mathtex">a</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">est dérivable, et sa dérivée vaut <sc:textLeaf role="mathtex">f(x)-f(a)</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">est une primitive de <sc:textLeaf role="mathtex">f</sc:textLeaf> sur <sc:textLeaf role="mathtex">I</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">est égale à <sc:textLeaf role="mathtex">G(x)-G(a)</sc:textLeaf>, où <sc:textLeaf role="mathtex">G</sc:textLeaf> est une primitive de <sc:textLeaf role="mathtex">f</sc:textLeaf> sur <sc:textLeaf role="mathtex">I</sc:textLeaf>.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">La fonction <sc:textLeaf role="mathtex">F</sc:textLeaf>, par le théorème fondamental de l'intégration, est une fonction dérivable sur <sc:textLeaf role="mathtex">I</sc:textLeaf> dont la dérivée vaut <sc:textLeaf role="mathtex">f</sc:textLeaf>. Ainsi, la réponse "est une primitive de <sc:textLeaf role="mathtex">f</sc:textLeaf> sur <sc:textLeaf role="mathtex">I</sc:textLeaf> est juste, et la réponse "est dérivable, et sa dérivée vaut <sc:textLeaf role="mathtex">f(x)-f(a)</sc:textLeaf>" est fausse (sauf, bien sûr, dans le cas particulier où <sc:textLeaf role="mathtex">f(a) = 0</sc:textLeaf>).</sc:para>
+						<sc:para xml:space="preserve">De plus, <sc:textLeaf role="mathtex">F</sc:textLeaf> s'annule en a car <sc:textLeaf role="mathtex">\int_{a}^{a}f(t)dt = 0</sc:textLeaf> .</sc:para>
+						<sc:para xml:space="preserve">Soit <sc:textLeaf role="mathtex">G</sc:textLeaf> une primitive quelconque de <sc:textLeaf role="mathtex">f</sc:textLeaf> sur <sc:textLeaf role="mathtex">I</sc:textLeaf>. Il existe une constante réelle <sc:textLeaf role="mathtex">k</sc:textLeaf> telle que pour tout <sc:textLeaf role="mathtex">x</sc:textLeaf> appartenant à <sc:textLeaf role="mathtex">I</sc:textLeaf> on a <sc:textLeaf role="mathtex">G(x) = F(x) + k</sc:textLeaf>. Si <sc:textLeaf role="mathtex">G</sc:textLeaf> s'annule également en <sc:textLeaf role="mathtex">a</sc:textLeaf>, on doit avoir <sc:textLeaf role="mathtex">G(a) = F(a)+k</sc:textLeaf> donc <sc:textLeaf role="mathtex">0 = 0+k,</sc:textLeaf> puis <sc:textLeaf role="mathtex">k = 0</sc:textLeaf> et <sc:textLeaf role="mathtex">G = F</sc:textLeaf>. Ainsi, la fonction <sc:textLeaf role="mathtex">F</sc:textLeaf> est bien l'unique primitive de <sc:textLeaf role="mathtex">f</sc:textLeaf> qui s'annule en <sc:textLeaf role="mathtex">a</sc:textLeaf>, la réponse "est l'unique primitive de <sc:textLeaf role="mathtex">f</sc:textLeaf> sur <sc:textLeaf role="mathtex">I</sc:textLeaf> qui s'annule en <sc:textLeaf role="mathtex">a</sc:textLeaf>" est correcte.</sc:para>
+						<sc:para xml:space="preserve">Enfin, on a <sc:textLeaf role="mathtex">G(x)-G(a) = F(x)+k-(F(a)+k) = F(x)-F(a) = F(x)</sc:textLeaf> puisque <sc:textLeaf role="mathtex">F</sc:textLeaf> s'annule en <sc:textLeaf role="mathtex">a</sc:textLeaf>. La réponse "est égale à <sc:textLeaf role="mathtex">G(x)-G(a)</sc:textLeaf>, où <sc:textLeaf role="mathtex">G</sc:textLeaf> est une primitive de <sc:textLeaf role="mathtex">f</sc:textLeaf> sur <sc:textLeaf role="mathtex">I</sc:textLeaf>" est donc juste.</sc:para>
+					</op:txt>
+				</sp:txt>
+				<sp:txt xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+					<op:txt>
+						<sc:para xml:space="preserve">La fonction <sc:textLeaf role="mathtex">F</sc:textLeaf> est donc effectivement une fonction dérivable sur <sc:textLeaf role="mathtex">I</sc:textLeaf>, mais sa dérivée, par le théorème fondamental de l'intégration, est égale à la fonction <sc:textLeaf role="mathtex">f</sc:textLeaf>, et non pas à la fonction <sc:textLeaf role="mathtex">x\mapsto f(x)-f(a)</sc:textLeaf> (sauf bien sûr, mais ce n'est pas spécifié dans l'énoncé, si <sc:textLeaf role="mathtex">f</sc:textLeaf> s'annule en <sc:textLeaf role="mathtex">a</sc:textLeaf> auquel cas les deux fonctions sont les mêmes).</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

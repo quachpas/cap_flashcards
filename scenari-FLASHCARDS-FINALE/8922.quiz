@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#chim-agir-convener-oxydred-</sp:themeLycee>
+			<sp:themeLicence>#chim-electrochim-</sp:themeLicence>
+			<sp:level>1</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<!--<comment xmlns="scenari.eu:comment:1.0" type="thread"><comment author="camille.dufourg" creationTime="1573575531705">Il manque les mots-clés et la licence.</comment></comment>-->
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">Université Lille 1</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<!--<comment xmlns="scenari.eu:comment:1.0" type="thread"><comment author="camille.dufourg" creationTime="1573575591983">Enoncé valable ?</comment></comment>-->
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			<sc:inlineStyle role="emp">Définition d'un oxydant et d'un réducteur.</sc:inlineStyle>
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Un oxydant est une espèce chimique capable de céder un ou plusieurs électrons.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Un oxydant est une espèce chimique capable de capter un ou plusieurs électrons.
+		</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Un oxydant est une espèce chimique capable de capter un ou plusieurs électrons.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Un réducteur est une espèce chimique capable de capter un ou plusieurs électrons.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+				<sc:choiceExplanation>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Un réducteur est une espèce chimique capable de céder un ou plusieurs électrons.
+		</sc:para>
+					</op:txt>
+				</sc:choiceExplanation>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			Un réducteur est une espèce chimique capable de céder un ou plusieurs protons.
+		</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="true"><comment author="mar" creationTime="1433240650013">Remplacer la phrase "Vous pouvez consulter..." par :
+Vous trouverez des informations complémentaires dans la ressource L'oxydo-réduction.</comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">
+			<sc:inlineStyle role="emp">Compétence(s)</sc:inlineStyle> : <sc:inlineStyle role="emp">définir un oxydant, un réducteur.</sc:inlineStyle>
+</sc:para>
+						<sc:para xml:space="preserve">Par définition, un oxydant va oxyder une autre espèce en captant un ou plusieurs électrons (il est réduit) tandis qu'un réducteur va réduire un autre espèce en cédant un ou plusieurs électrons (il est oxydé).</sc:para>
+						<sc:para xml:space="preserve">Vous trouverez des informations complémentaires dans la ressource  : <sc:phrase role="url"><op:urlM>
+<sp:url>http://uel.unisciel.fr/chimie/solutaque/solutaque_ch06/co/apprendre_ch6_01.html</sp:url>
+</op:urlM>
+l'oxydo-réduction</sc:phrase>
+			 
+		</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

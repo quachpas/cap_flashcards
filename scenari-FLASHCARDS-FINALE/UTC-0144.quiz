@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqSur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#phys-comploimod-chaforces-chapesloc-</sp:themeLycee>
+			<sp:themeLicence>#phys-forcemvt-</sp:themeLicence>
+			<sp:level>3</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">utc.fr</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">L'expérience suivante a été réalisée aux États-Unis (dans l'Ohio). Dans une très grande enceinte mise sous vide, c'est-à-dire vidée de son air, une boule de bowling de <sc:textLeaf role="mathtex">5 kg</sc:textLeaf> et une plume d'autruche de <sc:textLeaf role="mathtex">80 g</sc:textLeaf> sont lâchées au même moment d'une hauteur de <sc:textLeaf role="mathtex">12 m</sc:textLeaf>. Qu'a-t-on pu observer ?</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">La boule de bowling percute le sol en premier, bien avant la plume, car sa masse est plus grande. </sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">La boule et la plume touchent le sol en même temps car les deux possèdent exactement la même accélération.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">Du fait de l'absence des frottements de l'air, c'est la plume, mieux profilée, qui arrive bien avant la boule de bowling.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice>
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">Le vide ayant été réalisé parfaitement, la boule de bowling et la plume ne se dirigent pas forcément vers le sol mais donnent le sentiment de « flotter » et de se mouvoir aléatoirement dans l'enceinte.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:solution choice="2"/>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">En l'absence des frottements de l'air, la boule de bowling et la plume ne sont soumis qu'à leur poids : leur accélération est alors donnée par l'accélération de la pesanteur : le champ de pesanteur n'est pas supprimé par réalisation du vide. Ainsi, boule et plume touchent le sol en même temps du fait d'une accélération identique et des conditions initiales identiques.</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqSur>
+</sc:item>

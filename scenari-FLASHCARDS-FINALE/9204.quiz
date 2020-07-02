@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#math-geo-nbcomplex-formtrigomod-</sp:themeLycee>
+			<sp:themeLicence>#math-nbreelscompl-</sp:themeLicence>
+			<sp:level>2</sp:level>
+			<sp:educationLevel>L0</sp:educationLevel>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://unistra.fr</sp:url>
+</op:urlM>unistra.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="false"><comment author="fav" creationTime="1455875323748" updateTime="1458742820990">Nous proposons de demander plutôt la forme exponentielle de ce complexe. Dans ce cas le b ne correspond pas aux attentes. On pourrait proposer alpha=2 e^{-7i*pi/6} si on souhaite avoir plusieurs bonnes réponses.</comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">
+			 On note <sc:textLeaf role="mathtex">\alpha</sc:textLeaf> le nombre complexe <sc:textLeaf role="mathtex">\alpha=-\sqrt{3}+i</sc:textLeaf>. On a
+		 :</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			  <sc:textLeaf role="mathtex"> \alpha= -2e^{\frac{5\pi}{6} i}</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			  <sc:textLeaf role="mathtex"> \alpha= - 2e^{-\frac{\pi}{6} i}</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			   <sc:textLeaf role="mathtex">\alpha= 2e^{-\frac{\pi}{3} i}</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			   <sc:textLeaf role="mathtex">\alpha= 2e^{\frac{5\pi}{6} i}</sc:textLeaf>
+</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<!--<comment xmlns="scenari.eu:comment:1.0" type="thread" threadClosed="false"><comment author="qns" creationTime="1454915081923" updateTime="1454915659541">Il faut vraiment revoir les vidéos proposés : on ne peut pas donner les notions de cours en vrac !
+Ici, il suffit de donner le lien entre la forme algébrique et la forme exponentielle !</comment></comment>-->
+					<op:txt>
+						<sc:para xml:space="preserve">Vous pouvez regarder les ressources suivantes</sc:para>
+						<sc:para xml:space="preserve">
+<sc:phrase role="url">
+<op:urlM>
+<sp:url>http://ressources.unisciel.fr/ramses/511-14-nbr-complexes/co/511-14_webUnisciel.html</sp:url>
+</op:urlM>Nombres complexes</sc:phrase> </sc:para>
+						<sc:para xml:space="preserve">et en vidéo</sc:para>
+						<sc:para xml:space="preserve">
+<sc:phrase role="url">
+<op:urlM>
+<sp:url>http://www.canal-u.tv/video/tele2sciences/nombres_reels_partie_1_nombres_rationnels.12074</sp:url>
+</op:urlM>Nombres réels – Partie 1 : nombres rationnels</sc:phrase>
+</sc:para>
+						<sc:para xml:space="preserve">
+<sc:phrase role="url">
+<op:urlM>
+<sp:url>http://www.canal-u.tv/video/tele2sciences/nombres_reels_partie_2_proprietes_des_reels.12076</sp:url>
+</op:urlM>Nombres réels – Partie 2 : Propriété des réels</sc:phrase> </sc:para>
+						<sc:para xml:space="preserve">
+<sc:phrase role="url">
+<op:urlM>
+<sp:url>http://www.canal-u.tv/video/tele2sciences/chapitre_nombres_complexes_partie_1_definitions_et_operations.10077</sp:url>
+</op:urlM>Chapitre « Nombres complexes » - Partie 1 définitions et opérations</sc:phrase>
+</sc:para>
+						<sc:para xml:space="preserve">
+<sc:phrase role="url">
+<op:urlM>
+<sp:url>http://www.canal-u.tv/video/tele2sciences/chapitre_nombres_complexes_partie_2_racines_carrees_equations_du_second_degre.10078</sp:url>
+</op:urlM>Chapitre « Nombres complexes » - Partie 2 : racines carrées, équations du second degré</sc:phrase> </sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>

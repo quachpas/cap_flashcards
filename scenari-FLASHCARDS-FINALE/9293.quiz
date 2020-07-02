@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:item xmlns:sc="http://www.utc.fr/ics/scenari/v3/core">
+	<op:mcqMur xmlns:op="utc.fr:ics/opale3" xmlns:sp="http://www.utc.fr/ics/scenari/v3/primitive">
+		<op:exeM>
+			<sp:themeLycee>#math-analyse-expalg-transfexpalg-</sp:themeLycee>
+			<sp:themeLicence>#math-fonctions-</sp:themeLicence>
+			<sp:level>4</sp:level>
+			<sp:info>
+				<op:info>
+					<sp:cpyrgt>
+						<op:sPara>
+							<sc:para xml:space="preserve">
+							
+      <sc:phrase role="url">
+<op:urlM>
+<sp:url>http://unistra.fr</sp:url>
+</op:urlM>unistra.fr</sc:phrase>
+    						
+						</sc:para>
+						</op:sPara>
+					</sp:cpyrgt>
+				</op:info>
+			</sp:info>
+		</op:exeM>
+		<sc:question>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			 Le TGV (Train à grande vitesse) partant de Strasbourg atteint Saverne en 20 minutes. Le TER (Train express régional) parcourt le trajet Strasbourg-Saverne en 40 minutes. Sachant qu'un TER part de Strasbourg en direction de Saverne à 8h et qu'un TGV part un peu plus tard,	</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:question>
+		<sc:choices>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			   le TGV ne peut pas rattraper le TER avant Saverne s'il ne part pas avant 8h10.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="unchecked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			  le TGV et le TER ne peuvent pas arriver à Saverne en même temps.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			   le TGV  peut  rattraper le TER avant Saverne s'il  part avant 8h15.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+			<sc:choice solution="checked">
+				<sc:choiceLabel>
+					<op:txt>
+						<sc:para xml:space="preserve">
+			  si le TGV part à 8h05, il rattrape le TER à 8h10.</sc:para>
+					</op:txt>
+				</sc:choiceLabel>
+			</sc:choice>
+		</sc:choices>
+		<sc:globalExplanation>
+			<op:res>
+				<sp:txt>
+					<op:txt>
+						<sc:para xml:space="preserve">La réponse 1) est fausse : si le TGV part à 8h15, il rattrape le TER à 8h30. En effet, à ce moment là, le TER aura roulé deux fois plus longtemps que le TGV, donc aura effectué la même distance que le TGV.</sc:para>
+						<sc:para xml:space="preserve">La réponse 2) est fausse : si le TGV part à 8h20, il rattrape le TER à 8h40.</sc:para>
+						<sc:para xml:space="preserve">La réponse 3) est vraie : si le TGV part avec 8h15, il rattrapera le TER avant 8h30 donc avant Saverne. Il lui suffit en fait de partir avant 8h20.</sc:para>
+						<sc:para xml:space="preserve">La réponse 4) est vraie (à 8h10, le TER aura roulé deux fois plus longtemps que le TGV, donc effectué la même distance).</sc:para>
+					</op:txt>
+				</sp:txt>
+			</op:res>
+		</sc:globalExplanation>
+	</op:mcqMur>
+</sc:item>
