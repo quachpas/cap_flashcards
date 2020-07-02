@@ -294,7 +294,7 @@ def get_output_directory():
             "Current working directory is neither cap_flashcards nor Python",
             "Current working directory is neither cap_flashcards nor Python"
         )
-        return None
+        sys.exit(1)
 
 def get_headers_directory():
     if (os.path.basename(os.getcwd()) == 'cap_flashcards'):
@@ -948,7 +948,7 @@ def process_write_outfile(flashcard, output, accepted, rejected):
         if (flashcard.subject.lower() in accepted):
             accepted[flashcard.subject.lower()] += 1
         else:
-            accepted[flashcard.subject.lower()] = 0
+            accepted[flashcard.subject.lower()] = 1
             
         write_outfile(output, flashcard.subject.lower())
         write_outfile(output, None)
@@ -957,7 +957,7 @@ def process_write_outfile(flashcard, output, accepted, rejected):
         if (flashcard.subject.lower() in rejected):
             rejected[flashcard.subject.lower()] += 1
         else:
-            rejected[flashcard.subject.lower()] = 0
+            rejected[flashcard.subject.lower()] = 1
         
         if (flashcard.subject.lower() == ''):
             write_outfile(output, 'unclassifiable-rejected')
@@ -1121,7 +1121,7 @@ def write_header(output_dir, outfile_path):
         if ('% Graphicspath' not in line):
             outfile.write(line)
         else:
-            outfile.write('\graphicspath{{' + output_dir + '/images/' + '}' + '}\n')
+            outfile.write('\graphicspath{{./images/}}\n')
     outfile.write('\n\n')
     header.close
 
@@ -1268,7 +1268,6 @@ def parse_files(args, question_count, err_count, parser, licence_theme, subject)
 
 def compile_tex(args):
     if (args.compile == True):
-        
         os.chdir(get_output_directory())
         os.system("xelatex --synctex=1 --interaction=batchmode --file-line-error --shell-escape out.tex")
         os.system("xelatex --synctex=1 --interaction=batchmode --file-line-error --shell-escape out.tex")

@@ -1,22 +1,4 @@
-- [Introduction](#introduction)
-  - [SCENARIchain and Opale](#scenarichain-and-opale)
-    - [What is SCENARIchain ?](#what-is-scenarichain-)
-    - [What is Opale?](#what-is-opale)
-    - [Documentation](#documentation)
-  - [Why this script?](#why-this-script)
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-    - [Linux systems](#linux-systems)
-    - [Windows](#windows)
-    - [macOS](#macos)
-  - [Installing and first test run](#installing-and-first-test-run)
-- [How to use the script?](#how-to-use-the-script)
-  - [General instructions](#general-instructions)
-- [Contributing](#contributing)
-- [Author](#author)
-- [License](#license)
-- [Acknowledgments](#acknowledgments)
-# Converting Opale XML to LaTeX flashcards <!-- omit in toc -->
+# Converting Opale Quizzes (XML) to LaTeX flashcards
 ## Introduction
 >**If you are already familiar with the Scenari software suite, you can skip the following introduction.**
 
@@ -99,7 +81,8 @@ The script calls that tool **twice** and it can take up to a few minutes to prod
 #### Linux systems
 Install `python3` if needed and `inkscape` ([Installation guide](https://wiki.inkscape.org/wiki/index.php/Installing_Inkscape#Installing_on_Linux)), these are required packages.
 
-I use `latexmk`to compile my `.tex` files. The following packages are optional : `latexmk` ([Installation guide](https://mg.readthedocs.io/latexmk.html))(necessary to use the `--compile` option). Perl often comes preinstalled, if it's not the case, please refer to the [perl official website](https://www.perl.org/get.html#unix_like).
+I use `xelatex`to compile my `.tex` files.
+
 You may need to update your packages.
 
 ```bash
@@ -113,16 +96,12 @@ apt install texlive-xetex
 #### Windows
 Install `python3` ([Installation guide](https://docs.python.org/3/using/windows.html)) and `inkscape` ([Installation guide](https://wiki.inkscape.org/wiki/index.php/Installing_Inkscape#Installing_on_a_Windows_system)).
 
-Optional : You can install `latexmk` through MikTex on Windows. If MikTex is not already installed, please follow this [link](https://miktex.org/download). `latemxk` needs Perl, you can install [Strawberry Perl](http://strawberryperl.com/).
-
 > It hasn't been tested yet. 
 
 #### macOS
 MacOS comes with Python 2.7 pre-installed. Since this script has been tested on Python 3, please update your version of Python if it's already not up-to-date. You can find an installation guide here : [MacPython](https://docs.python.org/3/using/mac.html).
 
 Inkscape is used to include `.svg` files. Here is an installation guide, and a faq : [installation guide and faq](https://wiki.inkscape.org/wiki/index.php/Installing_Inkscape#Installing_on_a_Mac).
-
-Optional : `latexmk` is probably already installed. If not, follow instructions [here](https://miktex.org/howto/install-miktex-mac).
 
 > It hasn't been tested yet.
 
@@ -134,10 +113,11 @@ Clone the repository where you want it to be and set it as your current working 
 git clone https://gitlab.utc.fr/quachpas/cap_flashcards/
 cd  ./cap_flashcards
 ```
+
 At this point, if you want to run the script, you need source files. There is a sample provided in the folder [Example files](/Example-files/).
 
 Open a terminal and run the script.
-> For now, you need an XML files with all themes. There is one provided in the repository for example's sake. Please adjust as necessary. 
+> You need an XML file describing all themes. There is one provided in the repository for example's sake. Please adjust as necessary. 
 
 ```
 python3 ./Python/opale2flashcard.py ./Examples-files ./Examples-files/themeLicence.xml
