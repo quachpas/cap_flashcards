@@ -14,13 +14,13 @@ La référence des matières, thèmes est celle de <a href="https://www.faq2scie
 <h2> Exemple </h2>
 <img src="recto-flash-cards.png"
      alt="Recto d'une flashcard imprimable"
-     width=500px
+     width=auto
      height=500px>
 <img src="verso-flash-cards.png"
      alt="Recto d'une flashcard imprimable"
-     width=500px
+     width=auto
      height=500px>
-
+</br>
 Une fois imprimée et ajustée selon les repères de coupe, le produit final devrait ressembler aux images ci-dessus.
 
 <h2> Pré-requis </h2>
