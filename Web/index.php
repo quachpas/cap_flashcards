@@ -32,7 +32,7 @@ function printlogs($cmdout) {
 }
 
 if (!empty($_FILES)) {
-     $legalSize = 102400000;
+     $legalSize = 262144000;
      $legalExtensions = array_map("strtolower", FILES_EXTENSIONS);
      
      $newName = bin2hex(random_bytes(16));
@@ -145,7 +145,7 @@ Une fois imprimée et ajustée selon les repères de coupe, le produit final dev
     <li>Chargez l'archive .scar sur le site et envoyez la
           <form action="?" method="post" enctype="multipart/form-data">
                <label for="file">.scar Opale:</label>
-               <input type="hidden" name="MAX_FILE_SIZE" value="102400000"/>
+               <input type="hidden" name="MAX_FILE_SIZE" value="262144000"/>
                <input type="file" id="file" name="file"/>
                <input type="submit" value="Envoyer" name="submit" id="submit"/>
           </form>
