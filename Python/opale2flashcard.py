@@ -365,6 +365,17 @@ def check_overflow(flashcard):
                 'opale2flashcard.py(' + flashcard.file + '): WARNING ! There is at least one table in the question. Content might overflow',
                 'opale2flashcard.py(' + flashcard.file + '): WARNING ! There is at least one table in the question. Content might overflow', 
             )
+        choice_overflow = False
+        for choice in flashcard.choices:
+            if (len(choice) > 15 and len(flashcard.choices) >= 4):
+                choice_overflow = True
+        if (choice_overflow is True):
+            flashcard.overflow_flag = True
+            write_logs(
+                'opale2flashcard.py(' + flashcard.file + '): WARNING ! There is at least one long choice and at least 4 choices. Content might overflow',
+                'opale2flashcard.py(' + flashcard.file + '): WARNING ! There is at least one long choice and at least 4 choices. Content might overflow', 
+            )
+            
     if (args.debug_mode == True):
         print('opale2flashcard.py(' + flashcard.file +  ')(Debug): Image - Length (Q, C, A): ' + str(flashcard.question_length) + ' ' + str(flashcard.choices_length) + ' ' + str(flashcard.answer_length) + " ")
 
@@ -383,6 +394,9 @@ def check_content(flashcard):
         flashcard.err_flag = True
         flashcard.err_message += 'opale2flashcard.py(' + flashcard.file + "): Flashcard has empty content."
 
+    if (flashcard.licence_theme == 'Algorithmique'):
+        flashcard.relevant = False
+        flashcard.err_message += 'opale2flashcard.py(' + flashcard.file + "): Subject is algorithm."
 
 def check_output(output, err_count):
     if (args.file_name is True and output.count("\\begin{flashcard}") != 1):
@@ -603,11 +617,11 @@ def output_cleanup(output):
 def texfilter(text):
     # text = text.replace('~','\\textasciitilde')
     # text = text.replace('^','\\textasciicircum')
-    text = text.replace('&','\\&')
-    text = text.replace('%','\\%')
+    # text = text.replace('&','\\&')
+    # text = text.replace('%','\\%')
     text = text.replace('ˉ', '$^{-}$')
     # text = text.replace('$','\\$')
-    text = text.replace('#','\\#')
+    # text = text.replace('#','\\#')
     # text = text.replace('_','\\_')
     # text = output_cleanup(text)
     text = text.replace('α', '$\\alpha$')
@@ -850,12 +864,14 @@ def fetch_choices(file, root):
             output = ''
         else:
             output += '\n'
+            output = texfilter(output)
             output_arr.append(output)
             output = ''
             i += 1
     
     if (args.file_name == file and args.debug_mode is True):
         print('CHOICES\n' + ''.join(output_arr))
+    
     return (output_arr, text_length)
 
 def fetch_answer(file, root):
@@ -1050,10 +1066,25 @@ def write_output(flashcard, question_count):
     
     # Image is square, 1x2 grid
     if (flashcard.image_rectangular is False):
-        output.append('\\begin{enumerate}\n')
-        for choice in flashcard.choices:
-            output.append(choice)
-        output.append('\\end{enumerate}\n')
+        if (len(flashcard.choices) >= 6):
+            if (len(flashcard.choices) % 2 == 0):
+                minipage_length = str(0.90/(len(flashcard.choices)//2))
+            else:
+                minipage_length = str(0.90/(len(flashcard.choices)//2+1))
+            output.append('\\begin{minipage}[l]{' + minipage_length + '\\linewidth}\n\\begin{enumerate}\n')
+            i = 0
+            for choice in flashcard.choices:
+                if (i % 2 == 0 and i != 0):
+                    output.append('\\end{enumerate}\n\\end{minipage}\n\\hfill\n')
+                    output.append('\\begin{minipage}[l]{' + minipage_length + '\\linewidth}\n\\begin{enumerate}\n')
+                output.append(choice)
+                i += 1
+            output.append('\\end{enumerate}\n\\end{minipage}\n\\hfill\n')
+        else:
+            output.append('\\begin{enumerate}\n')
+            for choice in flashcard.choices:
+                output.append(choice)
+            output.append('\\end{enumerate}\n')
 
     if (flashcard.image is not None):
         output.append('\\end{minipage}\n')
@@ -1075,6 +1106,8 @@ def write_output(flashcard, question_count):
             i += 1
         output.append('\\end{enumerate}\n\\end{minipage}\n\\hfill\n')
 
+    
+    
     output.append('}\n')
     output.append('\\vspace*{\\stretch{1}}\n\\color{white}\n')
     # Answer/Solution
