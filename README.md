@@ -70,6 +70,7 @@ There are three folders in this repository : Example files, LaTeX and Python.
 * The LaTeX folder is a playground for templating flashcards using the script. It contains basic examples and the models used for creating flashcards.
 * The Python folder contains the script, two headers for two distinct ouput format and one footer. It also has some basic icons.
 * The Example files folder contains `themeLicence.xml`, `9047.quiz`, and `8983.quiz` and folders leading to the image resource used by `9047.quiz`. 
+* The Web folder contains all elements necessary to deploy a front to this script.
 
 ### Prerequisites
 The script has only been tested on a linux system so far (Ubuntu 18.04.4 LTS). If all dependencies are installed, it should probably work seamlessly. You might need to tweak a few settings for `inkscape` to work properly.
@@ -142,7 +143,7 @@ You will need the following:
 ## Contributing
 
 I'm open to any contributions. I am a complete beginner in regards to coding, and I am aware that my code has several design issues.
-Some parts might need to be completely refactored. 
+Some parts might need to be completely refactored.
 
 ## Author
 

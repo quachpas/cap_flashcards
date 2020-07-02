@@ -95,7 +95,7 @@ parser.add_argument('themefile', help = """
 Themes list file path - Path to an xml file containing all theme codes.
 """)
 parser.add_argument('--a4paper', action = 'store_true', help  ="""
-Output format - (defaults to printing 10x8cm flashcards)
+Output format - Currently unusable (defaults to printing 10x8cm flashcards)
 """)
 parser.add_argument('--noclean', action = 'store_true', help  ="""
 Clean output folder - Cleanse by default
@@ -711,7 +711,7 @@ def markup_content(file, element):
                     text = output_cleanup(text[0])
                 # element.text = texfilter(element.text)
             else:
-                role_markup = None        
+                role_markup = None
     else:
         role_markup = None
     if url is not None:
