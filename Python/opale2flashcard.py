@@ -1031,7 +1031,7 @@ def write_output(flashcard, question_count):
     output.append('\\vspace*{\\stretch{1}}\n\\color{white}\n')
     # Answer/Solution
     output.append(write_solution(flashcard.question_type, flashcard.solution_list, flashcard.choice_number, question_count))
-    output.append('\\vspace{' + str(vspace_answer) + '\\textheight}\n\\RaggedRight\n')
+    output.append('\\vspace{' + str(vspace_answer) + '\\textheight}\n\\RaggedRight\n\n')
     
     output.append(flashcard.answer + '\n')
     output.append('\\vspace*{\\stretch{1}}\n\\end{flashcard}\n\n')
