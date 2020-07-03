@@ -67,33 +67,33 @@ if (!empty($_FILES)) {
 	$fileout = $pathroot . "latex.zip";
 
 	// Create file
-	echo ("Création de " . $pathroot);
+	echo ("Création de " . $pathroot."\n");
 	if (!file_exists($pathroot)) {
 		mkdir($pathroot, 0700, true);
 	}
-	echo ("Création de " . $pathin);
+	echo ("Création de " . $pathin."\n");
 	if (!file_exists($pathin)); {
 		mkdir($pathin, 0700, true);
 	}
-	echo ("Création de " . $pathfinal);
+	echo ("Création de " . $pathfinal."\n");
 	if (!file_exists($pathfinal)) {
 		mkdir($pathfinal, 0700, true);
 	}
 
 	// Moving file
-	echo ("Téléchargement du fichier...");
+	echo ("Téléchargement du fichier...\n");
 	if (!move_uploaded_file($actualName, $filein)) {
 		error("Erreur interne : le fichier envoyé n'a pas pu être chargé correctement.");
 	}
 
 	// unzip the uploaded file
 	$zip = new ZipArchive;
-	echo("Ouverture de l'archive...");
+	echo("Ouverture de l'archive...\n");
 	$res = $zip->open($filein);
 	if ($res === TRUE) {
-		echo("Extraction de l'archive...");
+		echo("Extraction de l'archive...\n");
 		$zip->extractTo($pathin);
-		echo("Fermeture de l'archive...");
+		echo("Fermeture de l'archive...\n");
 		$zip->close();
 	} else {
 		error("Erreur interne : le fichier envoyé n'a pas pu être dézippé.");
