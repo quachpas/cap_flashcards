@@ -1098,14 +1098,26 @@ def write_output(flashcard, question_count, customqr_valid):
     output.append('% (Q, C, A) : ' + str(flashcard.question_length) + ', ' + str(flashcard.choices_length) + ', ' + str(flashcard.answer_length) + '\n')
 
     if (args.add_complexity_level is True and flashcard.complexity_level is not None):
-        output.append('\\cardbackground\n{' + flashcard.complexity_level + '}\n{' + flashcard.subject + '}\n{' + flashcard.licence_theme + '}\n')
+        complexity_level = flashcard.complexity_level
     else:
-        output.append('\\cardbackground\n{}\n{' + flashcard.subject + '}\n{' + flashcard.licence_theme + '}\n')
+        complexity_level = ''
+    
+    if (flashcard.subject is not None):
+        subject = flashcard.subject
+    else:
+        subject = ''
+    
+    if (flashcard.licence_theme is not None):
+        licence_theme = flashcard.licence_theme
+    else:
+        licence_theme = ''
     
     if (customqr_valid is True):
-        output.append('{custom_qrcode.png}\n')
+        qrcode = '{custom_qrcode.png}\n'
     else:
-        output.append('{icons/\subjecticon}\n')
+        qrcode = '{icons/\subjecticon}\n'
+                          
+    output.append('\\cardbackground\n{' + complexity_level + '}\n{' + subject + '}\n{' + licence_theme + '}\n{' + qrcode + '}')
     # TODO : Qrcode ici, hardcoded. HARDCODED
 
     output.append('\\begin{flashcard}[]{\n\\color{black}\n')
