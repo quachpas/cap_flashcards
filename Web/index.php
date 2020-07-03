@@ -96,9 +96,9 @@ if (!empty($_FILES)) {
 	exec("python3 opale2flashcard.py $pathin themeLicence.xml", $cmdout_python, $errcode);
 	if ($errcode === 0 && file_exists('output/out.tex')) {
 		echo "<br><b>Conversion terminée !</b><br>";
-		printlogs($cmdout);
+		printlogs($cmdout_python);
 	} else {
-		printlogs($cmdout);
+		printlogs($cmdout_python);
 		error("<br><b>Erreur lors de la conversion !</b><br>");
 	}
 	
@@ -106,23 +106,23 @@ if (!empty($_FILES)) {
 
 	exec("zip -r latex.zip .", $cmdout_zip, $errcode);
 	if ($errcode === 0 && file_exists('latex.zip')) {
-		rename($pathroot . 'latex.zip', $pathfinal . 'latex.zip');
+		rename('latex.zip', $pathfinal . 'latex.zip');
 		echo "<p><a href=\"./upload/$id/latex.zip\">Téléchargez vos fichiers LaTeX</a></p>";
 	} else {
 		echo '<pre>';
 		printlogs($cmdout_zip);
-		error("erreur dans la production du fichier zip de contenus");
+		error("Erreur interne : la production du fichier zip des fichiers tex a échouée");
 		echo '</pre>';
 	}
 
-	exec("xelatex -synctex=1 --file-line-error --interaction=batchmode --shell-escape out.tex 2>&1", $cmdout, $errcode);
+	exec("xelatex -synctex=1 --file-line-error --interaction=batchmode --shell-escape out.tex", $cmdout_latex, $errcode);
 	if ($errcode === 0 && file_exists('out.pdf') && filesize('out.pdf') > 2048) {
 		rename($pathroot . 'out/out.pdf', $pathfinal . 'out.pdf');
 		echo "<p>Prévisualisation : <br><iframe width=\"800\" height=\"900\" src=\"./upload/$id/out.pdf\"><a href=\"./upload/$id/out.pdf\">Lien de prévisualisation PDF</a></iframe></p>";
-		printlogs($cmdout);
+		printlogs($cmdout_latex);
 	} else {
-		printlogs($cmdout);
-		error("erreur dans la production de la prévisualisation");
+		printlogs($cmdout_latex);
+		error("Erreur interne : la prévisualisation a échoué ");
 	}
 }
 require_once('header.php');
