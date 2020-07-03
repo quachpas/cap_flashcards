@@ -93,7 +93,7 @@ if (!empty($_FILES)) {
 
 	echo "Fichier accepté... Traitement en cours...</br>";
 	chdir("./Python");
-	exec("python3 opale2flashcard.py $pathin themeLicence.xml", $cmdout, $errcode);
+	exec("python3 opale2flashcard.py $pathin themeLicence.xml", $cmdout_python, $errcode);
 	if ($errcode === 0 && file_exists('output/out.tex')) {
 		echo "<br><b>Conversion terminée !</b><br>";
 		printlogs($cmdout);
@@ -101,14 +101,16 @@ if (!empty($_FILES)) {
 		printlogs($cmdout);
 		error("<br><b>Erreur lors de la conversion !</b><br>");
 	}
+	
 	chdir("./output");
-	exec("zip -r latex.zip out 2>&1", $cmdout, $errcode);
+
+	exec("zip -r latex.zip .", $cmdout_zip, $errcode);
 	if ($errcode === 0 && file_exists('latex.zip')) {
 		rename($pathroot . 'latex.zip', $pathfinal . 'latex.zip');
 		echo "<p><a href=\"./upload/$id/latex.zip\">Téléchargez vos fichiers LaTeX</a></p>";
 	} else {
 		echo '<pre>';
-		printlogs($cmdout);
+		printlogs($cmdout_zip);
 		error("erreur dans la production du fichier zip de contenus");
 		echo '</pre>';
 	}
