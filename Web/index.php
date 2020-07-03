@@ -67,15 +67,12 @@ if (!empty($_FILES)) {
 
 	// Create file
 	if (!file_exists($pathroot)) {
-		error ("Création de " . $pathroot." a échouée</br>");
 		mkdir($pathroot, 0700, true);
 	}
 	if (!file_exists($pathin)); {
-		error ("Création de " . $pathin." a échouée</br>");
 		mkdir($pathin, 0700, true);
 	}
 	if (!file_exists($pathfinal)) {
-		error ("Création de " . $pathin." a échouée</br>");
 		mkdir($pathfinal, 0700, true);
 	}
 
