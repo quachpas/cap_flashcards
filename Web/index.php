@@ -1,5 +1,5 @@
 <?php
-const FILES_EXTENSIONS = ['SCAR'];
+const FILES_EXTENSIONS = ['scar'];
 
 function error($text)
 {
@@ -42,8 +42,6 @@ if (!empty($_FILES)) {
 	$actualName = $_FILES['file']['tmp_name'];
 	$actualSize = $_FILES['file']['size'];
 	$extension = strtolower(pathinfo($_FILES["file"]["name"], PATHINFO_EXTENSION));
-	echo(pathinfo($_FILES["file"]["name"], PATHINFO_EXTENSION)."</br>");
-	echo(strtolower(pathinfo($_FILES["file"]["name"], PATHINFO_EXTENSION))."</br>");
 
 	$pathroot = '/tmp/upload/' . $id . '/';
 	$pathin = $pathroot . 'in/';
@@ -64,7 +62,7 @@ if (!empty($_FILES)) {
 		error("Erreur interne : le fichier est trop volumineux");
 
 	// Allowed extension 
-	if (in_array($extension, $legalExtensions))
+	if (!in_array($extension, $legalExtensions))
 		error("Erreur interne : Seuls les fichiers .scar sont valides");
 
 	// Create file
