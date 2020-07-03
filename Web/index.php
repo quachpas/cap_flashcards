@@ -66,33 +66,29 @@ if (!empty($_FILES)) {
 		error("Erreur interne : Seuls les fichiers .scar sont valides");
 
 	// Create file
-	echo ("Création de " . $pathroot."</br>");
 	if (!file_exists($pathroot)) {
+		error ("Création de " . $pathroot." a échouée</br>");
 		mkdir($pathroot, 0700, true);
 	}
-	echo ("Création de " . $pathin."</br>");
 	if (!file_exists($pathin)); {
+		error ("Création de " . $pathin." a échouée</br>");
 		mkdir($pathin, 0700, true);
 	}
-	echo ("Création de " . $pathfinal."</br>");
 	if (!file_exists($pathfinal)) {
+		error ("Création de " . $pathin." a échouée</br>");
 		mkdir($pathfinal, 0700, true);
 	}
 
 	// Moving file
-	echo ("Téléchargement du fichier...</br>");
 	if (!move_uploaded_file($actualName, $filein)) {
 		error("Erreur interne : le fichier envoyé n'a pas pu être chargé correctement.");
 	}
 
 	// unzip the uploaded file
 	$zip = new ZipArchive;
-	echo("Ouverture de l'archive...</br>");
 	$res = $zip->open($filein);
 	if ($res === TRUE) {
-		echo("Extraction de l'archive...</br>");
 		$zip->extractTo($pathin);
-		echo("Fermeture de l'archive...</br>");
 		$zip->close();
 	} else {
 		error("Erreur interne : le fichier envoyé n'a pas pu être dézippé.");
@@ -101,12 +97,6 @@ if (!empty($_FILES)) {
 	echo "Fichier accepté... Traitement en cours...</br>";
 
 	chdir("./Python");
-	echo "Exécution en cours ...</br>";
-	echo "python3 opale2flashcard.py $pathin themeLicence.xml</br>";
-	exec("python3 opale2flashcard.py $pathin themeLicence.xml", $cmdout, $errcode);
-	echo "\$cmdout empty ? >".empty($cmdoutline)."</br>";
-	print_r($cmdout);
-	echo "Code d'erreur : ".$errcode."</br>";
 	if ($errcode === 0 && file_exists('output/out.tex')) {
 		echo "<br><b>Conversion terminée !</b><br>";
 		printlogs($cmdout);
