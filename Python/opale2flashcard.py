@@ -374,7 +374,7 @@ def check_overflow(flashcard):
             )
         choice_overflow = False
         for choice in flashcard.choices:
-            if (len(choice) > 15 and len(flashcard.choices) >= 4):
+            if (len(choice) > 25 and len(flashcard.choices) >= 4):
                 choice_overflow = True
         if (choice_overflow is True):
             flashcard.overflow_flag = True
@@ -1200,6 +1200,16 @@ def write_out_a4paper(flashcard_list):
 
     return error_count
 
+
+def write_background_parameter(flashcard):
+    backgroundparam = ['\\backgroundparam\n{' + flashcard.subject.lower() + '}\n{' + flashcard.subject.lower() + '-front-header}\n{' + flashcard.subject.lower() + '-front-footer}\n{' + flashcard.subject.lower() + '-back-background}\n{' + flashcard.subject.lower() + '-back-header}\n{' + flashcard.subject.lower() + '-back-footer}\n{front-university-logo}\n{back-university-logo}\n']
+    if (flashcard.err_flag is False and flashcard.overflow_flag is False and flashcard.relevant is True):
+        write_outfile(backgroundparam, flashcard.subject.lower())
+        write_outfile(backgroundparam, None)
+    else:
+        write_outfile(backgroundparam, flashcard.subject.lower() + '-rejected')
+        write_outfile(backgroundparam, 'rejected')
+    
 def write_outfile(output, subject):
     # Get output directory
     output_dir = get_output_directory()
@@ -1217,15 +1227,23 @@ def write_outfile_header(subject_set, customqr_valid):
     # Get output directory
     output_dir = get_output_directory()
     if ('' in subject_set):
-        subject_set.remove('')
+        outfile_path = os.path.join(output_dir, 'out-unclassifiable.tex')
+        write_header(output_dir, outfile_path, customqr_valid)
+        outfile_path = os.path.join(output_dir, 'out-unclassifiable-rejected.tex')
+        write_header(output_dir, outfile_path, customqr_valid)
+        
     for subject in subject_set:
         outfile_path = os.path.join(output_dir, 'out-' + subject.lower() + '.tex')
-        
-        write_header(output_dir, outfile_path, customqr_valid)    
+        write_header(output_dir, outfile_path, customqr_valid)
+        outfile_path = os.path.join(output_dir, 'out-' + subject.lower() + '-rejected.tex')
+        write_header(output_dir, outfile_path, customqr_valid)
 
     outfile_path = os.path.join(output_dir, 'out.tex')
-    write_header(output_dir, outfile_path, customqr_valid)  
+    write_header(output_dir, outfile_path, customqr_valid)
 
+    outfile_path = os.path.join(output_dir, 'out-rejected.tex')
+    write_header(output_dir, outfile_path, customqr_valid)
+    
 def write_header(output_dir, outfile_path, customqr_valid):
     # Get headers' directory
     headers_dir = get_headers_directory()
@@ -1267,15 +1285,24 @@ def write_outfile_footer(subject_set):
     # Get output directory
     output_dir = get_output_directory()
     if ('' in subject_set):
+        outfile_path = os.path.join(output_dir, 'out-unclassifiable.tex')
+        write_footer(output_dir, outfile_path)
+        outfile_path = os.path.join(output_dir, 'out-unclassifiable-rejected.tex')
+        write_footer(output_dir, outfile_path)
         subject_set.remove('')
+        
     for subject in subject_set:
         outfile_path = os.path.join(output_dir, 'out-' + subject.lower() + '.tex')
-
+        write_footer(output_dir, outfile_path)
+        outfile_path = os.path.join(output_dir, 'out-' + subject.lower() + '-rejected.tex')
         write_footer(output_dir, outfile_path)
 
     outfile_path = os.path.join(output_dir, 'out.tex')
     write_footer(output_dir, outfile_path)
 
+    outfile_path = os.path.join(output_dir, 'out-rejected.tex')
+    write_footer(output_dir, outfile_path)
+    
 def write_footer(output_dir, outfile_path):
     # Get headers' directory
     headers_dir = get_headers_directory()
@@ -1292,10 +1319,6 @@ def write_footer(output_dir, outfile_path):
     
     footer.close
 
-def write_background_parameter(flashcard):
-    backgroundparam = ['\\backgroundparam\n{' + flashcard.subject.lower() + '}\n{' + flashcard.subject.lower() + '-front-header}\n{' + flashcard.subject.lower() + '-front-footer}\n{' + flashcard.subject.lower() + '-back-background}\n{' + flashcard.subject.lower() + '-back-header}\n{' + flashcard.subject.lower() + '-back-footer}\n{front-university-logo}\n{back-university-logo}\n']
-    write_outfile(backgroundparam, flashcard.subject.lower())
-    write_outfile(backgroundparam, None)
 
 def write_flashcards(flashcard_list, customqr_valid):
 # Write output string and write in outfile
@@ -1309,20 +1332,15 @@ def write_flashcards(flashcard_list, customqr_valid):
         question_count = 0
         for flashcard in flashcard_list:
             # Background parameters
-            if (args.force is True
-            or (flashcard.overflow_flag is False and flashcard.err_flag is False)):
-                if (flashcard.subject != previous_subject):
-                    previous_subject = flashcard.subject
-                    write_background_parameter(flashcard)
-            # Create a standard output only if the flashcard's errors flags are not set (or force option has been set)
-            # OR if any debug "only-options" are used
-            if ((flashcard.err_flag is False and flashcard.overflow_flag is False and flashcard.relevant is True) 
-            or (args.image_only is True or args.overflow_only is True or args.non_relevant_only is True)
-            or args.force is True):
-                for out in write_output(flashcard, None, customqr_valid):
-                    output.append(out)
+            if (flashcard.subject != previous_subject):
+                previous_subject = flashcard.subject
+                write_background_parameter(flashcard)
             
-            # Write in the outfile only the valid files
+            # Create a standard output
+            for out in write_output(flashcard, None, customqr_valid):
+                output.append(out)
+            
+            # Separate output according to flashcard validity
             (accepted, rejected) = process_write_outfile(flashcard, output, accepted, rejected)
             output = []
             question_count += 1
