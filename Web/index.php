@@ -92,8 +92,8 @@ if (!empty($_FILES)) {
 	}
 
 	echo "Fichier accepté... Traitement en cours...</br>";
-	exec("python3 opale2flashcard.py $pathin themeLicence.xml", $cmdout, $errcode);
 	chdir("./Python");
+	exec("python3 opale2flashcard.py $pathin themeLicence.xml", $cmdout, $errcode);
 	if ($errcode === 0 && file_exists('output/out.tex')) {
 		echo "<br><b>Conversion terminée !</b><br>";
 		printlogs($cmdout);
