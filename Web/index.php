@@ -42,7 +42,7 @@ if (!empty($_FILES)) {
 
      // No empty file
      if(empty($actualName) || $actualSize <= 0)
-          error("Erreur interne : le fichier n'existe pas, ou le fichier est vide.");
+			error("Erreur interne : le fichier n'existe pas, ou le fichier est vide.");
 
      // Check if the name is not already used
      if(file_exists($path.'/'.$newName.".".$extension))
@@ -60,14 +60,14 @@ if (!empty($_FILES)) {
      $pathroot = '/tmp/upload/'.$newName.'/';
      $pathin = $pathroot . 'in/';
      $pathfinal = __DIR__.'/upload'.$newName.'/';
-     $filein = $pathroot."scenari.scar";
+     $filein = $pathin."scenari.scar";
      
      // Create file
-     if (!file_exists($pathfinal))
-          mkdir($pathfinal, 0700, true);
+     if (!file_exists($pathin))
+          mkdir($pathin, 0700, true);
 
      // Moving file
-     if(!move_uploaded_file($actualName, $filein))
+     if(!move_uploaded_file($actualName, $pathin))
           error("Erreur interne : le fichier envoyé n'a pas pu être chargé correctement.");
 
      // unzip the uploaded file
