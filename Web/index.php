@@ -100,10 +100,10 @@ if (!empty($_FILES)) {
 
 	echo "Fichier accepté... Traitement en cours...</br>";
 
-	chdir("./Python/output");
-	exec("python3 /Python/opale2flashcard.py $pathin ./themeLicence.xml", $cmdout, $errcode);
-
-	if ($errcode === 0 && file_exists('out/out.tex') && filesize('out/out.tex') > 128) {
+	chdir("./Python");
+	exec("python3 opale2flashcard.py $pathin themeLicence.xml", $cmdout, $errcode);
+	
+	if ($errcode === 0 && file_exists('output/out.tex') && filesize('output/out.tex') > 128) {
 		echo "<br><b>Conversion terminée !</b><br>";
 		printlogs($cmdout);
 	} else {
