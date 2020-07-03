@@ -14,6 +14,7 @@ import time
 import timeit
 from lxml import etree
 from itertools import zip_longest
+import qrcode
 
 parser = argparse.ArgumentParser(description="""
 === Conversion from mcqMur/mcqSur (Opale-XML) to LaTeX (flashcard class) ===
@@ -46,7 +47,7 @@ The script will write in the './output/out.tex' file.
 The front is always output before the back of the flashcard. 
 There are two output formats : 
     - default, the page's dimensions are 10x8 cm. 
-    - a4paper, the output's format is an A4 page.
+    - a4paper, the output's format is an A4 page. NON USABLE
     Every page contains 6 flashcards (10x8 cm).
     A grid outlines the borders. 
     This is the preferred format for printing at home.
@@ -132,6 +133,9 @@ Question with image - Stops replacing "ci-dessous" with "ci-contre" for files wi
 """)
 parser.add_argument('--add_url', action = 'store_true', help = """
 Links to material - DOES NOT WORK. Adds urls to flashcards. Script won't output any links by default.
+""")
+parser.add_argument('--add_qrcode', action = 'store', help = """
+Generates a qrcode - Generating a qrcode from the url passed as an argument
 """)
 # XML namespaces
 namespace = {
@@ -1048,7 +1052,7 @@ def process_write_outfile(flashcard, output, accepted, rejected):
         
     return (accepted, rejected)
 
-def write_output(flashcard, question_count):
+def write_output(flashcard, question_count, customqr_valid):
     # Variables
     output = []
     (vspace_question, vspace_answer) = calc_vspace_parameters(flashcard)
@@ -1057,7 +1061,11 @@ def write_output(flashcard, question_count):
     output.append('% Flashcard : ' + flashcard.file + '/' + flashcard.question_type + '\n')
     output.append('% (Q, C, A) : ' + str(flashcard.question_length) + ', ' + str(flashcard.choices_length) + ', ' + str(flashcard.answer_length) + '\n')
 
-    output.append('\\cardbackground\n{' + flashcard.complexity_level + '}\n{' + flashcard.subject + '}\n{' + flashcard.licence_theme + '}\n{' + 'qrcode}\n')
+    output.append('\\cardbackground\n{' + flashcard.complexity_level + '}\n{' + flashcard.subject + '}\n{' + flashcard.licence_theme + '}\n')
+    if (customqr_valid is True):
+        output.append('{custom_qrcode.png}\n')
+    else:
+        output.append('{icons/\subjecticon}\n')
     # TODO : Qrcode ici, hardcoded. HARDCODED
 
     output.append('\\begin{flashcard}[]{\n\\color{black}\n')
@@ -1181,7 +1189,7 @@ def write_outfile(output, subject):
     outfile.write(''.join(output))
     outfile.close
 
-def write_outfile_header(subject_set):
+def write_outfile_header(subject_set, customqr_valid):
     # Get output directory
     output_dir = get_output_directory()
     if ('' in subject_set):
@@ -1189,12 +1197,12 @@ def write_outfile_header(subject_set):
     for subject in subject_set:
         outfile_path = os.path.join(output_dir, 'out-' + subject.lower() + '.tex')
         
-        write_header(output_dir, outfile_path)    
+        write_header(output_dir, outfile_path, customqr_valid)    
 
     outfile_path = os.path.join(output_dir, 'out.tex')
-    write_header(output_dir, outfile_path)  
+    write_header(output_dir, outfile_path, customqr_valid)  
 
-def write_header(output_dir, outfile_path):
+def write_header(output_dir, outfile_path, customqr_valid):
     # Get headers' directory
     headers_dir = get_headers_directory()
     header_default_path = os.path.join(headers_dir, 'header_default.tex')
@@ -1215,10 +1223,17 @@ def write_header(output_dir, outfile_path):
     else:
         header = open(header_default_path,'r', encoding="utf-8")
     for line in header.readlines():
-        if ('% Graphicspath' not in line):
+        if ('% Graphicspath' not in line and '% QRCODE' not in line):
             outfile.write(line)
-        else:
+        elif('% Graphicspath' in line):
             outfile.write('\graphicspath{{./images/}}\n')
+        elif('% QRCODE' in line):
+            if (customqr_valid is True):
+                outfile.write('                        \includegraphics[width = 0.150\\textwidth, keepaspectratio]{#4}\n')
+            else:
+                outfile.write('                        \includesvg[height = 0.175\\textheight]{#4}\n')
+            
+            
     outfile.write('\n\n')
     header.close
 
@@ -1258,7 +1273,7 @@ def write_background_parameter(flashcard):
     write_outfile(backgroundparam, flashcard.subject.lower())
     write_outfile(backgroundparam, None)
 
-def write_flashcards(flashcard_list):
+def write_flashcards(flashcard_list, customqr_valid):
 # Write output string and write in outfile
 ## Default output format
     accepted = {}
@@ -1280,7 +1295,7 @@ def write_flashcards(flashcard_list):
             if ((flashcard.err_flag is False and flashcard.overflow_flag is False and flashcard.relevant is True) 
             or (args.image_only is True or args.overflow_only is True or args.non_relevant_only is True)
             or args.force is True):
-                for out in write_output(flashcard, None):
+                for out in write_output(flashcard, None, customqr_valid):
                     output.append(out)
             
             # Write in the outfile only the valid files
@@ -1395,6 +1410,29 @@ def opale_to_tex(args):
         if (not os.path.isfile(os.path.realpath(args.sourcedir + "/" + args.file_name))):
             sys.stderr.write('Error: ' + args.file_name +' is not a file or does not exist.\n')
             sys.exit(1)
+            
+    customqr_valid = False
+    if (args.add_qrcode is not None):
+        regex = re.compile(
+        r'^(?:http|ftp)s?://' # http:// or https://
+        r'(?:(?:[A-Z0-9](?:[A-Z0-9-]{0,61}[A-Z0-9])?\.)+(?:[A-Z]{2,6}\.?|[A-Z0-9-]{2,}\.?)|' #domain...
+        r'localhost|' #localhost...
+        r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})' # ...or ip
+        r'(?::\d+)?' # optional port
+        r'(?:/?|[/?]\S+)$', re.IGNORECASE)
+        if (re.match(regex, args.add_qrcode)):
+            qr = qrcode.QRCode(
+                version=1,
+                error_correction=qrcode.constants.ERROR_CORRECT_L,
+                box_size=10,
+                border=4,
+            )
+            qr.add_data(args.add_qrcode)
+            img = qr.make_image(fill_color="#4e3b7b", back_color="white")
+            print(os.path.join(get_output_directory(), 'images/custom_qrcode.png'))
+            img.save(os.path.join(get_output_directory(), 'images/custom_qrcode.png'))
+            customqr_valid = True
+    
     
     # Parser settings
     parser = etree.XMLParser(remove_blank_text=True, remove_comments=True)
@@ -1422,8 +1460,8 @@ def opale_to_tex(args):
     (flashcard_list, subject_list, question_count, err_count) = parse_files(args, question_count, err_count, parser, licence_theme, subject)
     
     sorted_list = sort_flashcards_by_subject(flashcard_list, set(subject_list))
-    write_outfile_header(set(subject_list))
-    (accepted, rejected) = write_flashcards(sorted_list)
+    write_outfile_header(set(subject_list), customqr_valid)
+    (accepted, rejected) = write_flashcards(sorted_list, customqr_valid)
     write_outfile_footer(set(subject_list))
 
     # Check out.tex
