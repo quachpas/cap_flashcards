@@ -101,6 +101,8 @@ if (!empty($_FILES)) {
 	echo "Fichier accepté... Traitement en cours...</br>";
 
 	chdir("./Python");
+	echo "Exécution en cours ...";
+	echo "python3 opale2flashcard.py .$pathin. themeLicence.xml";
 	exec("python3 opale2flashcard.py $pathin themeLicence.xml", $cmdout, $errcode);
 	
 	if ($errcode === 0 && file_exists('output/out.tex')) {
@@ -121,7 +123,7 @@ if (!empty($_FILES)) {
 		error("erreur dans la production du fichier zip de contenus");
 		echo '</pre>';
 	}
-	
+
 	exec("xelatex -synctex=1 --file-line-error --interaction=batchmode --shell-escape out.tex 2>&1", $cmdout, $errcode);
 	if ($errcode === 0 && file_exists('out.pdf') && filesize('out.pdf') > 2048) {
 		rename($pathroot . 'out/out.pdf', $pathfinal . 'out.pdf');
