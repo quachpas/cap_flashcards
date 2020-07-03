@@ -404,9 +404,9 @@ def check_content(flashcard):
     # Remove flashcard if not pertinent
     if ('http://' in flashcard.answer or 'https://' in flashcard.answer):
         flashcard.relevant = False
-        for text in flashcard.answer:
-            if (re.match(url_regex, text)):
-                text.replace('_', '\\_')
+        
+    for url in re.findall(r"(?P<url>https?://[^\s]+)", flashcard.answer):
+        flashcard.answer = flashcard.answer.replace(url, url.replace('_', '\\_'))
         flashcard.err_message += 'opale2flashcard.py(' + flashcard.file + "): Answer contains an URL."
     
     if (not flashcard.choices):
