@@ -147,6 +147,8 @@ The web part has been tested using php7.4-fpm + nginx on Ubuntu 20.04 LTS server
 Script dependencies :
 ```
 sudo apt update
+apt install texlive-xetex
+apt install inkscape
 sudo apt install python3
 sudo apt install python3-pip
 pip3 install lxml

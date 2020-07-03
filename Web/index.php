@@ -116,7 +116,7 @@ if (!empty($_FILES)) {
 	}
 
 	exec("xelatex -synctex=1 --file-line-error --interaction=batchmode --shell-escape out.tex", $cmdout_latex, $errcode);
-	if ($errcode === 0 && file_exists('out.pdf') && filesize('out.pdf') > 2048) {
+	if ($errcode === 0 && file_exists('out.pdf')) {
 		rename($pathroot . 'out/out.pdf', $pathfinal . 'out.pdf');
 		echo "<p>Prévisualisation : <br><iframe width=\"800\" height=\"900\" src=\"./upload/$id/out.pdf\"><a href=\"./upload/$id/out.pdf\">Lien de prévisualisation PDF</a></iframe></p>";
 		printlogs($cmdout_latex);
