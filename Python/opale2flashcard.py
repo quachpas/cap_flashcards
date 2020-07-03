@@ -998,12 +998,12 @@ def process_error(flashcard):
                     flashcard.err_message,
                     flashcard.err_message
                 ) 
-            if (flashcard.overflow_flag is True and args.overflow_only is True):
+            elif (flashcard.overflow_flag is True and args.overflow_only is True):
                 write_logs(
                     flashcard.err_message,
                     flashcard.err_message
                 )
-            if (flashcard.relevant is False and args.non_relevant_only is True):
+            elif (flashcard.relevant is False and args.non_relevant_only is True):
                 write_logs(
                     flashcard.err_message,
                     flashcard.err_message
@@ -1014,44 +1014,61 @@ def process_error(flashcard):
             flashcard.err_message,
             flashcard.err_message
         ) 
+        
+def write_rejected(flashcard, output, rejected):
+    if (flashcard.subject.lower() in rejected):
+        rejected[flashcard.subject.lower()] += 1
+    else:
+        rejected[flashcard.subject.lower()] = 1
+    
+    if (flashcard.subject.lower() == ''):
+        write_outfile(output, 'unclassifiable-rejected')
+    else:
+        write_outfile(output, flashcard.subject.lower() + '-rejected')
+        
+    write_outfile(output, 'rejected')
+    
+    return rejected    
+
+def write_accepted(flashcard, output, accepted):
+    if (flashcard.subject.lower() in accepted):
+        accepted[flashcard.subject.lower()] += 1
+    else:
+        accepted[flashcard.subject.lower()] = 1
+        
+    write_outfile(output, flashcard.subject.lower())
+    write_outfile(output, None)
+    
+    return accepted
+    
+def write_flashcard(flashcard, output, accepted, rejected):
+    if (flashcard.err_flag is False and flashcard.overflow_flag is False and flashcard.relevant is True or args.force == True):
+        accepted = write_accepted(flashcard, output, accepted)
+        
+    else:
+        rejected = write_rejected(flashcard, output, rejected)
+        
+    return (accepted, rejected)
+        
 def process_write_outfile(flashcard, output, accepted, rejected):
     # If any output options have been declared
     if (args.file_name is not None or args.image_only is True or args.overflow_only is True or args.non_relevant_only is True):
         # Treat each `option`
         if (args.file_name == flashcard.file and args.file_name is not None):
-            write_outfile(output, flashcard.subject.lower())
-            write_outfile(output, None)
-        if (flashcard.image is not None and args.image_only is True):
-            write_outfile(output, flashcard.subject.lower())
-            write_outfile(output, None)
-        if (flashcard.overflow_flag is True and args.overflow_only is True):
-            write_outfile(output, flashcard.subject.lower())
-            write_outfile(output, None)
-        if (flashcard.relevant is False and args.non_relevant_only is True):
-            write_outfile(output, flashcard.subject.lower())
-            write_outfile(output, None)
+            (accepted, rejected) = write_flashcard(flashcard, output, accepted, rejected)
+            
+        elif (flashcard.image is not None and args.image_only is True):
+            (accepted, rejected) = write_flashcard(flashcard, output, accepted, rejected)
+            
+        elif (flashcard.overflow_flag is True and args.overflow_only is True):
+            (accepted, rejected) = write_flashcard(flashcard, output, accepted, rejected)
+            
+        elif (flashcard.relevant is False and args.non_relevant_only is True):
+            (accepted, rejected) = write_flashcard(flashcard, output, accepted, rejected)
+            
     # Else, just write the output if the flashcard is valid, or force option has been set
-    elif (flashcard.err_flag is False and flashcard.overflow_flag is False and flashcard.relevant is True or args.force == True):
-        if (flashcard.subject.lower() in accepted):
-            accepted[flashcard.subject.lower()] += 1
-        else:
-            accepted[flashcard.subject.lower()] = 1
-            
-        write_outfile(output, flashcard.subject.lower())
-        write_outfile(output, None)
-        
     else:
-        if (flashcard.subject.lower() in rejected):
-            rejected[flashcard.subject.lower()] += 1
-        else:
-            rejected[flashcard.subject.lower()] = 1
-        
-        if (flashcard.subject.lower() == ''):
-            write_outfile(output, 'unclassifiable-rejected')
-        else:
-            write_outfile(output, flashcard.subject.lower() + '-rejected')
-            
-        write_outfile(output, 'rejected')
+        (accepted, rejected) = write_flashcard(flashcard, output, accepted, rejected)
         
     return (accepted, rejected)
 
@@ -1343,7 +1360,6 @@ def parse_files(args, question_count, err_count, parser, licence_theme, subject)
             
             # Create Flashcard instance
             flashcard = fetch_content(file, root, licence_theme, subject)
-            subject_list.append(flashcard.subject)
             
             # Check overflow
             check_overflow(flashcard)
@@ -1354,14 +1370,17 @@ def parse_files(args, question_count, err_count, parser, licence_theme, subject)
             # Check non-pertinent content (URLs)
             check_content(flashcard)
             
-            # Process errors, ignore flashcards not concerned
+            # Process filters, ignore flashcards not concerned
             if (args.image_only is True and flashcard.image is None):
                 continue
-            elif (args.overflow_only is True and flashcard.overflow_flag is False):
+            if (args.overflow_only is True and flashcard.overflow_flag is False):
                 continue
-            elif (args.non_relevant_only is True and flashcard.relevant is True):
+            if (args.non_relevant_only is True and flashcard.relevant is True):
                 continue
 
+            # Append to subject list
+            subject_list.append(flashcard.subject)
+            
             # If --force option has been declared, put in dummy text to avoid compilation errors
             if (args.force == True):
                 if (flashcard.complexity_level is None and args.add_complexity_level is True):
@@ -1377,7 +1396,7 @@ def parse_files(args, question_count, err_count, parser, licence_theme, subject)
                 process_error(flashcard) 
             
             # If a flashcard has been forcibly output, and its error message is not null
-            if (args.force == True and flashcard.err_message != ''):
+            elif (args.force == True and flashcard.err_message != ''):
                 err_count += 1
                 process_error(flashcard)
 
