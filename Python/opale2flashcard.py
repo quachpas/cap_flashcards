@@ -137,6 +137,9 @@ Links to material - DOES NOT WORK. Adds urls to flashcards. Script won't output 
 parser.add_argument('--add_qrcode', action = 'store', help = """
 Generates a qrcode - Generating a qrcode from the url passed as an argument
 """)
+parser.add_argument('--add_complexity_level', action = 'store_true', help = """
+Add the complexity level - Adds the complexity level to the flashcard. By default, does not display.
+""")
 # XML namespaces
 namespace = {
     "sm" : "http://www.utc.fr/ics/scenari/v3/modeling",
@@ -313,7 +316,7 @@ def get_headers_directory():
         return None
 
 def check_metadata(flashcard):
-    if (flashcard.complexity_level is None or flashcard.complexity_level == "Missing Complexity Level" 
+    if (flashcard.complexity_level is None or flashcard.complexity_level == "Missing Complexity Level" and args.add_complexity_level is True 
             # or flashcard.education_level is None or flashcard.education_level == "Missing Education Level" 
             or flashcard.licence_theme is None or flashcard.licence_theme == "Missing Licence Theme"
             or flashcard.subject is None or flashcard.subject == "Missing Subject"):
@@ -1061,7 +1064,11 @@ def write_output(flashcard, question_count, customqr_valid):
     output.append('% Flashcard : ' + flashcard.file + '/' + flashcard.question_type + '\n')
     output.append('% (Q, C, A) : ' + str(flashcard.question_length) + ', ' + str(flashcard.choices_length) + ', ' + str(flashcard.answer_length) + '\n')
 
-    output.append('\\cardbackground\n{' + flashcard.complexity_level + '}\n{' + flashcard.subject + '}\n{' + flashcard.licence_theme + '}\n')
+    if (args.add_complexity_level is True):
+        output.append('\\cardbackground\n{' + flashcard.complexity_level + '}\n{' + flashcard.subject + '}\n{' + flashcard.licence_theme + '}\n')
+    else:
+        output.append('\\cardbackground\n{}\n{' + flashcard.subject + '}\n{' + flashcard.licence_theme + '}\n')
+    
     if (customqr_valid is True):
         output.append('{custom_qrcode.png}\n')
     else:
@@ -1357,7 +1364,7 @@ def parse_files(args, question_count, err_count, parser, licence_theme, subject)
 
             # If --force option has been declared, put in dummy text to avoid compilation errors
             if (args.force == True):
-                if (flashcard.complexity_level is None):
+                if (flashcard.complexity_level is None and args.add_complexity_level is True):
                     flashcard.complexity_level = "Missing Complexity Level"
                 if (flashcard.licence_theme is None):
                     flashcard.licence_theme = "Missing Licence Theme"
