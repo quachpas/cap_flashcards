@@ -146,9 +146,10 @@ The web part has been tested using php7.4-fpm + nginx on Ubuntu 20.04 LTS server
 
 Script dependencies :
 ```
+sudo add-apt-repository ppa:inkscape.dev/stable
 sudo apt update
+sudo apt install inkscape
 apt install texlive-xetex
-apt install inkscape
 sudo apt install python3
 sudo apt install python3-pip
 pip3 install lxml
