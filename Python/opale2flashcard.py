@@ -1231,7 +1231,7 @@ def write_header(output_dir, outfile_path, customqr_valid):
             if (customqr_valid is True):
                 outfile.write('                        \includegraphics[width = 0.150\\textwidth, keepaspectratio]{#4}\n')
             else:
-                outfile.write('                        \includesvg[height = 0.175\\textheight]{#4}\n')
+                outfile.write('                        \includesvg[height = 0.175\\textheight]{#4-inverted}\n')
             
             
     outfile.write('\n\n')
