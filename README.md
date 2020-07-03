@@ -140,6 +140,20 @@ You will need the following:
 
 **You will find more details on how to obtain a scar archive in the wiki. This particular page is written in French.**
 
+## Web
+
+The web part has been tested using php7.4-fpm + nginx on Ubuntu 20.04 LTS server.
+
+Script dependencies :
+```
+sudo apt update
+sudo apt install python3
+sudo apt install python3-pip
+pip3 install lxml
+pip3 install Pillow
+pip3 install qrcode
+```
+
 ## Contributing
 
 I'm open to any contributions. I am a complete beginner in regards to coding, and I am aware that my code has several design issues.

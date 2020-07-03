@@ -104,8 +104,8 @@ if (!empty($_FILES)) {
 	echo "Exécution en cours ...</br>";
 	echo "python3 opale2flashcard.py $pathin themeLicence.xml</br>";
 	exec("python3 opale2flashcard.py $pathin themeLicence.xml", $cmdout, $errcode);
-	foreach ($cmdout as $cmdoutline)
-		echo $cmdoutline."</br>";
+	echo "\$cmdout empty ? >".empty($cmdoutline)."</br>";
+	print_r($cmdout);
 	echo "Code d'erreur : ".$errcode."</br>";
 	if ($errcode === 0 && file_exists('output/out.tex')) {
 		echo "<br><b>Conversion terminée !</b><br>";
