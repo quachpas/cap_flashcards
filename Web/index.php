@@ -66,39 +66,39 @@ if (!empty($_FILES)) {
 		error("Erreur interne : Seuls les fichiers .scar sont valides");
 
 	// Create file
-	echo ("Création de " . $pathroot."\r\n");
+	echo ("Création de " . $pathroot."</br>");
 	if (!file_exists($pathroot)) {
 		mkdir($pathroot, 0700, true);
 	}
-	echo ("Création de " . $pathin."\r\n");
+	echo ("Création de " . $pathin."</br>");
 	if (!file_exists($pathin)); {
 		mkdir($pathin, 0700, true);
 	}
-	echo ("Création de " . $pathfinal."\r\n");
+	echo ("Création de " . $pathfinal."</br>");
 	if (!file_exists($pathfinal)) {
 		mkdir($pathfinal, 0700, true);
 	}
 
 	// Moving file
-	echo ("Téléchargement du fichier...\r\n");
+	echo ("Téléchargement du fichier...</br>");
 	if (!move_uploaded_file($actualName, $filein)) {
 		error("Erreur interne : le fichier envoyé n'a pas pu être chargé correctement.");
 	}
 
 	// unzip the uploaded file
 	$zip = new ZipArchive;
-	echo("Ouverture de l'archive...\r\n");
+	echo("Ouverture de l'archive...</br>");
 	$res = $zip->open($filein);
 	if ($res === TRUE) {
-		echo("Extraction de l'archive...\r\n");
+		echo("Extraction de l'archive...</br>");
 		$zip->extractTo($pathin);
-		echo("Fermeture de l'archive...\r\n");
+		echo("Fermeture de l'archive...</br>");
 		$zip->close();
 	} else {
 		error("Erreur interne : le fichier envoyé n'a pas pu être dézippé.");
 	}
 
-	echo "Fichier accepté... Traitement en cours...\r\n";
+	echo "Fichier accepté... Traitement en cours...</br>";
 
 	chdir("./Python/output");
 	exec("python3 /Python/opale2flashcard.py $pathin ./themeLicence.xml", $cmdout, $errcode);
