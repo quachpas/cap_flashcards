@@ -41,14 +41,20 @@ if (!empty($_FILES)) {
 	$id = bin2hex(random_bytes(16));
 	$actualName = $_FILES['file']['tmp_name'];
 	$actualSize = $_FILES['file']['size'];
-	$extension = strtolower(pathinfo($_FILES["name"], PATHINFO_EXTENSION));
+	$extension = strtolower(pathinfo($_FILES["file"], PATHINFO_EXTENSION));
+
+	$pathroot = '/tmp/upload/' . $id . '/';
+	$pathin = $pathroot . 'in/';
+	$pathfinal = __DIR__ . '/upload/' . $id . '/';
+	$filein = $pathroot . "scenari.scar";
+	$fileout = $pathroot . "latex.zip";
 
 	// No empty file
 	if (empty($actualName) || $actualSize <= 0)
 		error("Erreur interne : le fichier n'existe pas, ou le fichier est vide.");
 
 	// Check if the name is not already used
-	if (file_exists($path . '/' . $id . "." . $extension))
+	if (file_exists($filein))
 		error("Erreur interne : le nom a déjà été utilisé.");
 
 	// Size checks
@@ -59,47 +65,40 @@ if (!empty($_FILES)) {
 	if (in_array($extension, $legalExtensions))
 		error("Erreur interne : Seuls les fichiers .scar sont valides");
 
-
-	$pathroot = '/tmp/upload/' . $id . '/';
-	$pathin = $pathroot . 'in/';
-	$pathfinal = __DIR__ . '/upload/' . $id . '/';
-	$filein = $pathroot . "scenari.scar";
-	$fileout = $pathroot . "latex.zip";
-
 	// Create file
-	echo ("Création de " . $pathroot."\n\n");
+	echo ("Création de " . $pathroot."\r\n");
 	if (!file_exists($pathroot)) {
 		mkdir($pathroot, 0700, true);
 	}
-	echo ("Création de " . $pathin."\n\n");
+	echo ("Création de " . $pathin."\r\n");
 	if (!file_exists($pathin)); {
 		mkdir($pathin, 0700, true);
 	}
-	echo ("Création de " . $pathfinal."\n\n");
+	echo ("Création de " . $pathfinal."\r\n");
 	if (!file_exists($pathfinal)) {
 		mkdir($pathfinal, 0700, true);
 	}
 
 	// Moving file
-	echo ("Téléchargement du fichier...\n\n");
+	echo ("Téléchargement du fichier...\r\n");
 	if (!move_uploaded_file($actualName, $filein)) {
 		error("Erreur interne : le fichier envoyé n'a pas pu être chargé correctement.");
 	}
 
 	// unzip the uploaded file
 	$zip = new ZipArchive;
-	echo("Ouverture de l'archive...\n\n");
+	echo("Ouverture de l'archive...\r\n");
 	$res = $zip->open($filein);
 	if ($res === TRUE) {
-		echo("Extraction de l'archive...\n\n");
+		echo("Extraction de l'archive...\r\n");
 		$zip->extractTo($pathin);
-		echo("Fermeture de l'archive...\n\n");
+		echo("Fermeture de l'archive...\r\n");
 		$zip->close();
 	} else {
 		error("Erreur interne : le fichier envoyé n'a pas pu être dézippé.");
 	}
 
-	echo "Fichier accepté... Traitement en cours...\n\n";
+	echo "Fichier accepté... Traitement en cours...\r\n";
 
 	chdir("./Python/output");
 	exec("python3 /Python/opale2flashcard.py $pathin ./themeLicence.xml", $cmdout, $errcode);
