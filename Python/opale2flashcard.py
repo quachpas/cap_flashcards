@@ -174,6 +174,14 @@ tags_markup = {
     "phrase" : ("\href{", "}"),
 }
 
+url_regex = re.compile(
+        r'^(?:http|ftp)s?://' # http:// or https://
+        r'(?:(?:[A-Z0-9](?:[A-Z0-9-]{0,61}[A-Z0-9])?\.)+(?:[A-Z]{2,6}\.?|[A-Z0-9-]{2,}\.?)|' #domain...
+        r'localhost|' #localhost...
+        r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})' # ...or ip
+        r'(?::\d+)?' # optional port
+        r'(?:/?|[/?]\S+)$', re.IGNORECASE)
+
 class Flashcard:
     def __init__(self, file, question_type, complexity_level, subject, education_level, licence_theme, question, image, image_square, image_rectangular, choices, answer, solution_list, choice_number,subject_length, licence_theme_length, question_length, choices_length, answer_length):
         self.file = file
@@ -270,7 +278,7 @@ def cleantheme(text):
 
 def calc_vspace_parameters(flashcard):
     if (flashcard.image is not None):
-        vspace_question = 0.10
+        vspace_question = 0.12
         vspace_answer = 0.09
     else:
         vspace_question = 0.15
@@ -373,9 +381,14 @@ def check_overflow(flashcard):
                 'opale2flashcard.py(' + flashcard.file + '): WARNING ! There is at least one table in the question. Content might overflow', 
             )
         choice_overflow = False
+        long_choice_counter = 0
         for choice in flashcard.choices:
-            if (len(choice) > 25 and len(flashcard.choices) >= 4):
-                choice_overflow = True
+            if (len(choice) > 40):
+                long_choice_counter += 1
+                
+        if (long_choice_counter > 1 and len(flashcard.choices) >= 4):
+            choice_overflow = True
+            
         if (choice_overflow is True):
             flashcard.overflow_flag = True
             write_logs(
@@ -391,6 +404,9 @@ def check_content(flashcard):
     # Remove flashcard if not pertinent
     if ('http://' in flashcard.answer or 'https://' in flashcard.answer):
         flashcard.relevant = False
+        for text in flashcard.answer:
+            if (re.match(url_regex, text)):
+                text.replace('_', '\\_')
         flashcard.err_message += 'opale2flashcard.py(' + flashcard.file + "): Answer contains an URL."
     
     if (not flashcard.choices):
@@ -722,7 +738,7 @@ def markup_content(file, element):
     else:
         role_markup = None
     if url is not None:
-        output.append(url)
+        output.append(texfilter(url))
     if (role_markup is not None):
         output.append(role_markup[0])
     if url is None:
@@ -1081,7 +1097,7 @@ def write_output(flashcard, question_count, customqr_valid):
     output.append('% Flashcard : ' + flashcard.file + '/' + flashcard.question_type + '\n')
     output.append('% (Q, C, A) : ' + str(flashcard.question_length) + ', ' + str(flashcard.choices_length) + ', ' + str(flashcard.answer_length) + '\n')
 
-    if (args.add_complexity_level is True):
+    if (args.add_complexity_level is True and flashcard.complexity_level is not None):
         output.append('\\cardbackground\n{' + flashcard.complexity_level + '}\n{' + flashcard.subject + '}\n{' + flashcard.licence_theme + '}\n')
     else:
         output.append('\\cardbackground\n{}\n{' + flashcard.subject + '}\n{' + flashcard.licence_theme + '}\n')
@@ -1203,7 +1219,7 @@ def write_out_a4paper(flashcard_list):
 
 def write_background_parameter(flashcard):
     backgroundparam = ['\\backgroundparam\n{' + flashcard.subject.lower() + '}\n{' + flashcard.subject.lower() + '-front-header}\n{' + flashcard.subject.lower() + '-front-footer}\n{' + flashcard.subject.lower() + '-back-background}\n{' + flashcard.subject.lower() + '-back-header}\n{' + flashcard.subject.lower() + '-back-footer}\n{front-university-logo}\n{back-university-logo}\n']
-    if (flashcard.err_flag is False and flashcard.overflow_flag is False and flashcard.relevant is True):
+    if (flashcard.err_flag is False and flashcard.overflow_flag is False and flashcard.relevant is True or args.force is True):
         write_outfile(backgroundparam, flashcard.subject.lower())
         write_outfile(backgroundparam, None)
     else:
@@ -1273,7 +1289,8 @@ def write_header(output_dir, outfile_path, customqr_valid):
             if (customqr_valid is True):
                 outfile.write('                        \includegraphics[width = 0.150\\textwidth, keepaspectratio]{#4}\n')
             else:
-                outfile.write('                        \includesvg[height = 0.175\\textheight]{#4-inverted}\n')
+                outfile.write('                        \includesvg[height = 0.175\\textheight]{#4}\n')
+                # TODO : inverted logo ? #4 -> #4-inverted
             
             
     outfile.write('\n\n')
@@ -1333,7 +1350,8 @@ def write_flashcards(flashcard_list, customqr_valid):
         for flashcard in flashcard_list:
             # Background parameters
             if (flashcard.subject != previous_subject):
-                previous_subject = flashcard.subject
+                if (flashcard.err_flag is False and flashcard.overflow_flag is False and flashcard.relevant is True):
+                    previous_subject = flashcard.subject
                 write_background_parameter(flashcard)
             
             # Create a standard output
@@ -1457,14 +1475,7 @@ def opale_to_tex(args):
             
     customqr_valid = False
     if (args.add_qrcode is not None):
-        regex = re.compile(
-        r'^(?:http|ftp)s?://' # http:// or https://
-        r'(?:(?:[A-Z0-9](?:[A-Z0-9-]{0,61}[A-Z0-9])?\.)+(?:[A-Z]{2,6}\.?|[A-Z0-9-]{2,}\.?)|' #domain...
-        r'localhost|' #localhost...
-        r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})' # ...or ip
-        r'(?::\d+)?' # optional port
-        r'(?:/?|[/?]\S+)$', re.IGNORECASE)
-        if (re.match(regex, args.add_qrcode)):
+        if (re.match(url_regex, args.add_qrcode)):
             qr = qrcode.QRCode(
                 version=1,
                 error_correction=qrcode.constants.ERROR_CORRECT_L,
@@ -1473,7 +1484,6 @@ def opale_to_tex(args):
             )
             qr.add_data(args.add_qrcode)
             img = qr.make_image(fill_color="#4e3b7b", back_color="white")
-            print(os.path.join(get_output_directory(), 'images/custom_qrcode.png'))
             img.save(os.path.join(get_output_directory(), 'images/custom_qrcode.png'))
             customqr_valid = True
     
