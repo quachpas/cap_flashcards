@@ -103,16 +103,16 @@ if (!empty($_FILES)) {
 	chdir("./Python");
 	exec("python3 opale2flashcard.py $pathin themeLicence.xml", $cmdout, $errcode);
 	
-	if ($errcode === 0 && file_exists('output/out.tex') && filesize('output/out.tex') > 128) {
+	if ($errcode === 0 && file_exists('output/out.tex')) {
 		echo "<br><b>Conversion terminée !</b><br>";
 		printlogs($cmdout);
 	} else {
 		printlogs($cmdout);
 		error("<br><b>Erreur lors de la conversion !</b><br>");
 	}
-
+	chdir("./output");
 	exec("zip -r latex.zip out 2>&1", $cmdout, $errcode);
-	if ($errcode === 0 && file_exists('latex.zip') && filesize('latex.zip') > 128) {
+	if ($errcode === 0 && file_exists('latex.zip')) {
 		rename($pathroot . 'latex.zip', $pathfinal . 'latex.zip');
 		echo "<p><a href=\"./upload/$id/latex.zip\">Téléchargez vos fichiers LaTeX</a></p>";
 	} else {
@@ -121,7 +121,7 @@ if (!empty($_FILES)) {
 		error("erreur dans la production du fichier zip de contenus");
 		echo '</pre>';
 	}
-
+	
 	exec("xelatex -synctex=1 --file-line-error --interaction=batchmode --shell-escape out.tex 2>&1", $cmdout, $errcode);
 	if ($errcode === 0 && file_exists('out.pdf') && filesize('out.pdf') > 2048) {
 		rename($pathroot . 'out/out.pdf', $pathfinal . 'out.pdf');
