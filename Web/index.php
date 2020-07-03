@@ -102,7 +102,7 @@ if (!empty($_FILES)) {
 
 	chdir("./Python");
 	echo "Exécution en cours ...";
-	echo "python3 opale2flashcard.py .$pathin. themeLicence.xml";
+	echo "python3 opale2flashcard.py $pathin themeLicence.xml";
 	exec("python3 opale2flashcard.py $pathin themeLicence.xml", $cmdout, $errcode);
 	
 	if ($errcode === 0 && file_exists('output/out.tex')) {
