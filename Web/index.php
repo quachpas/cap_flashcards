@@ -116,19 +116,15 @@ if (!empty($_FILES)) {
 	}
 
 
-	exec("sudo xelatex -synctex=1 --file-line-error --interaction=batchmode --shell-escape out.tex", $cmdout_latex, $errcode);
-	exec("sudo xelatex -synctex=1 --file-line-error --interaction=batchmode --shell-escape out.tex", $cmdout_latex, $errcode);
-	echo $errcode;
-	print_r($cmdout_latex);
+	exec("xelatex -synctex=1 --file-line-error --interaction=batchmode --shell-escape out.tex", $cmdout_latex, $errcode);
+	exec("xelatex -synctex=1 --file-line-error --interaction=batchmode --shell-escape out.tex", $cmdout_latex, $errcode);
 	if ($errcode === 0 && file_exists('out.pdf')) {
 		echo "<p>Prévisualisation : <br><iframe width=\"800\" height=\"900\" src=\"./upload/$id/out.pdf\"><a href=\"./upload/$id/out.pdf\">Lien de prévisualisation PDF</a></iframe></p>";
 		printlogs($cmdout_latex);
 	} else {
 		printlogs($cmdout_latex);
 		error("Erreur interne : la prévisualisation a échoué ");
-	}
-
-	
+	}	
 }
 require_once('header.php');
 
