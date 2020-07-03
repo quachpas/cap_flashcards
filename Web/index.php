@@ -41,7 +41,7 @@ if (!empty($_FILES)) {
 	$id = bin2hex(random_bytes(16));
 	$actualName = $_FILES['file']['tmp_name'];
 	$actualSize = $_FILES['file']['size'];
-	$extension = strtolower(pathinfo($_FILES["file"], PATHINFO_EXTENSION));
+	$extension = strtolower(pathinfo($_FILES["file"]["name"], PATHINFO_EXTENSION));
 
 	$pathroot = '/tmp/upload/' . $id . '/';
 	$pathin = $pathroot . 'in/';
