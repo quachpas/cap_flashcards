@@ -62,38 +62,38 @@ if (!empty($_FILES)) {
 
 	$pathroot = '/tmp/upload/' . $id . '/';
 	$pathin = $pathroot . 'in/';
-	$pathfinal = __DIR__ . '/upload' . $id . '/';
+	$pathfinal = __DIR__ . '/upload/' . $id . '/';
 	$filein = $pathroot . "scenari.scar";
 	$fileout = $pathroot . "latex.zip";
 
 	// Create file
-	echo ("Création de " . $pathroot."\n");
+	echo ("Création de " . $pathroot."\n\n");
 	if (!file_exists($pathroot)) {
 		mkdir($pathroot, 0700, true);
 	}
-	echo ("Création de " . $pathin."\n");
+	echo ("Création de " . $pathin."\n\n");
 	if (!file_exists($pathin)); {
 		mkdir($pathin, 0700, true);
 	}
-	echo ("Création de " . $pathfinal."\n");
+	echo ("Création de " . $pathfinal."\n\n");
 	if (!file_exists($pathfinal)) {
 		mkdir($pathfinal, 0700, true);
 	}
 
 	// Moving file
-	echo ("Téléchargement du fichier...\n");
+	echo ("Téléchargement du fichier...\n\n");
 	if (!move_uploaded_file($actualName, $filein)) {
 		error("Erreur interne : le fichier envoyé n'a pas pu être chargé correctement.");
 	}
 
 	// unzip the uploaded file
 	$zip = new ZipArchive;
-	echo("Ouverture de l'archive...\n");
+	echo("Ouverture de l'archive...\n\n");
 	$res = $zip->open($filein);
 	if ($res === TRUE) {
-		echo("Extraction de l'archive...\n");
+		echo("Extraction de l'archive...\n\n");
 		$zip->extractTo($pathin);
-		echo("Fermeture de l'archive...\n");
+		echo("Fermeture de l'archive...\n\n");
 		$zip->close();
 	} else {
 		error("Erreur interne : le fichier envoyé n'a pas pu être dézippé.");
