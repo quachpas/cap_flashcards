@@ -196,7 +196,6 @@ class Flashcard:
         self.question_length = question_length
         self.choices_length = choices_length
         self.answer_length = answer_length
-        self.customqr_valid = False
 
 def remove_namespace(element):
     return etree.QName(element)
@@ -1053,7 +1052,7 @@ def process_write_outfile(flashcard, output, accepted, rejected):
         
     return (accepted, rejected)
 
-def write_output(flashcard, question_count):
+def write_output(flashcard, question_count, customqr_valid):
     # Variables
     output = []
     (vspace_question, vspace_answer) = calc_vspace_parameters(flashcard)
@@ -1063,10 +1062,10 @@ def write_output(flashcard, question_count):
     output.append('% (Q, C, A) : ' + str(flashcard.question_length) + ', ' + str(flashcard.choices_length) + ', ' + str(flashcard.answer_length) + '\n')
 
     output.append('\\cardbackground\n{' + flashcard.complexity_level + '}\n{' + flashcard.subject + '}\n{' + flashcard.licence_theme + '}\n')
-    if (flashcard.customqr_valid is True):
+    if (customqr_valid is True):
         output.append('{custom_qrcode.png}\n')
     else:
-        output.append('{qrcode}\n')
+        output.append('{icons/\subjecticon}\n')
     # TODO : Qrcode ici, hardcoded. HARDCODED
 
     output.append('\\begin{flashcard}[]{\n\\color{black}\n')
@@ -1190,7 +1189,7 @@ def write_outfile(output, subject):
     outfile.write(''.join(output))
     outfile.close
 
-def write_outfile_header(subject_set):
+def write_outfile_header(subject_set, customqr_valid):
     # Get output directory
     output_dir = get_output_directory()
     if ('' in subject_set):
@@ -1198,12 +1197,12 @@ def write_outfile_header(subject_set):
     for subject in subject_set:
         outfile_path = os.path.join(output_dir, 'out-' + subject.lower() + '.tex')
         
-        write_header(output_dir, outfile_path)    
+        write_header(output_dir, outfile_path, customqr_valid)    
 
     outfile_path = os.path.join(output_dir, 'out.tex')
-    write_header(output_dir, outfile_path)  
+    write_header(output_dir, outfile_path, customqr_valid)  
 
-def write_header(output_dir, outfile_path):
+def write_header(output_dir, outfile_path, customqr_valid):
     # Get headers' directory
     headers_dir = get_headers_directory()
     header_default_path = os.path.join(headers_dir, 'header_default.tex')
@@ -1224,10 +1223,17 @@ def write_header(output_dir, outfile_path):
     else:
         header = open(header_default_path,'r', encoding="utf-8")
     for line in header.readlines():
-        if ('% Graphicspath' not in line):
+        if ('% Graphicspath' not in line and '% QRCODE' not in line):
             outfile.write(line)
-        else:
+        elif('% Graphicspath' in line):
             outfile.write('\graphicspath{{./images/}}\n')
+        elif('% QRCODE' in line):
+            if (customqr_valid is True):
+                outfile.write('                        \includegraphics[width = 0.150\\textwidth, keepaspectratio]{#4}\n')
+            else:
+                outfile.write('                        \includesvg[height = 0.175\\textheight]{#4}\n')
+            
+            
     outfile.write('\n\n')
     header.close
 
@@ -1267,7 +1273,7 @@ def write_background_parameter(flashcard):
     write_outfile(backgroundparam, flashcard.subject.lower())
     write_outfile(backgroundparam, None)
 
-def write_flashcards(flashcard_list):
+def write_flashcards(flashcard_list, customqr_valid):
 # Write output string and write in outfile
 ## Default output format
     accepted = {}
@@ -1289,7 +1295,7 @@ def write_flashcards(flashcard_list):
             if ((flashcard.err_flag is False and flashcard.overflow_flag is False and flashcard.relevant is True) 
             or (args.image_only is True or args.overflow_only is True or args.non_relevant_only is True)
             or args.force is True):
-                for out in write_output(flashcard, None):
+                for out in write_output(flashcard, None, customqr_valid):
                     output.append(out)
             
             # Write in the outfile only the valid files
@@ -1309,7 +1315,7 @@ def sort_flashcards_by_subject(flashcard_list, subject_set):
         
     return sorted_list
 
-def parse_files(args, question_count, err_count, parser, licence_theme, subject, customqr_valid): # Copy all files in sourcedir/Prettified and prettify XML
+def parse_files(args, question_count, err_count, parser, licence_theme, subject): # Copy all files in sourcedir/Prettified and prettify XML
     sourcedir = os.path.abspath(args.sourcedir)
     subject_list = []
     flashcard_list = []
@@ -1332,10 +1338,6 @@ def parse_files(args, question_count, err_count, parser, licence_theme, subject,
             flashcard = fetch_content(file, root, licence_theme, subject)
             subject_list.append(flashcard.subject)
             
-            # Custom qrcode
-            if (customqr_valid is True):
-                flashcard.customqr_valid = True
-                
             # Check overflow
             check_overflow(flashcard)
                         
@@ -1455,11 +1457,11 @@ def opale_to_tex(args):
     # Variables
     (question_count, err_count) = (0,0)
     
-    (flashcard_list, subject_list, question_count, err_count) = parse_files(args, question_count, err_count, parser, licence_theme, subject, customqr_valid)
+    (flashcard_list, subject_list, question_count, err_count) = parse_files(args, question_count, err_count, parser, licence_theme, subject)
     
     sorted_list = sort_flashcards_by_subject(flashcard_list, set(subject_list))
-    write_outfile_header(set(subject_list))
-    (accepted, rejected) = write_flashcards(sorted_list)
+    write_outfile_header(set(subject_list), customqr_valid)
+    (accepted, rejected) = write_flashcards(sorted_list, customqr_valid)
     write_outfile_footer(set(subject_list))
 
     # Check out.tex
