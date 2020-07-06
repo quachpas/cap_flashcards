@@ -4,7 +4,7 @@ function error($text)
 {
 	require_once("header.php");
 	echo ($text);
-	echo "Retour dans 1 seconde...";
+	echo "</br>Retour dans 1 seconde...";
 	header("refresh:1;url=?");
 	require_once("footer.php");
 	exit(1);
