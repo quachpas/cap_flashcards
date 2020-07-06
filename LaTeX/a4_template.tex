@@ -1,6 +1,6 @@
 \RequirePackage{atbegshi} % Background stuff below trim marks
 \AtBeginShipoutInit
-\documentclass[avery5371, frame]{flashcards}
+\documentclass[avery5371]{flashcards}
 
 %%% PACKAGES
 \usepackage{xkeyval}% kvp
@@ -33,14 +33,14 @@
 
 %%% GEOMETRY AND BLEED MARKS %%%
 \geometry{
-    papersize = {210 truemm, 297 truemm},
+    papersize = {200 truemm, 297 truemm},
     margin = 0 truemm,
     % marginparwidth = 0 truemm,
     % marginparsep = 0 truemm
 }
 
 \usepackage[
-width = 210 truemm,
+width = 200 truemm,
 height =  297 truemm,
 noinfo,
 center
@@ -53,7 +53,6 @@ center
 \renewcommand{\cardcolumns}{2}
 \setlength{\cardwidth}{10 cm}
 \setlength{\cardheight}{8 cm}
-
 \setlength{\cardmargin}{3 mm}
 \setlength{\topoffset}{0 mm}
 \setlength{\oddoffset}{0 mm}
@@ -67,7 +66,7 @@ center
 % \SetBgPosition{current page.north west}   % Select location
 
 % Card styles and fonts
-\cardfrontstyle[\small]{plain}
+\cardfrontstyle[\footnotesize]{plain}
 \cardbackstyle[\footnotesize]{plain}
 
 %%% CUSTOM COMMANDS %%%
@@ -156,21 +155,21 @@ center
                         \includesvg[width = 0.8\cardwidth]{\frontheader}
                     };
                     % Subject front footer
-                    \node at ([xshift = 6 cm, yshift = -7.5 cm]current page.north west) {
+                    \node at ([xshift = 5.25 cm, yshift = -7.5 cm]current page.north west) {
                         \includesvg[width = 0.8\cardwidth]{\frontfooter}
                     };
                     % Subject icon
-                    \node [opacity = 1] at ([xshift = 1.25 cm, yshift = -1 cm]current page.north west) {
+                    \node [opacity = 1] at ([xshift = 1.5 cm, yshift = -1.125 cm]current page.north west) {
                         \includesvg[height = 0.15\cardheight]{icons/\subjecticon}
                     };
                     % Subject text
-                    \node [opacity = 1] at ([xshift = 3 cm, yshift = -0.85 cm]current page.north west) {
+                    \node [opacity = 1] at ([xshift = 3.5 cm, yshift = -0.85 cm]current page.north west) {
                         \color{white}
                         \huge
                         \textsf{\FCone@subject}
                     };
                     % Theme
-                    \node [opacity = 1] at ([xshift = 7.5 cm, yshift = -2.25 cm]current page.north west) {
+                    \node [opacity = 1] at ([xshift = 7 cm, yshift = -2.25 cm]current page.north west) {
                         \begin{varwidth}{0.5\cardwidth}
                             \setlength{\parskip}{0 cm}
                             \color{uniscielblue}
@@ -184,7 +183,7 @@ center
                         \includegraphics[max height = 0.135\cardheight, center, keepaspectratio]{\frontuniversitylogo}
                     };
                     % Complexity level
-                    \node [opacity=1] at ([xshift = 2 cm, yshift = -7 cm]current page.north west) {
+                    \node [opacity=1] at ([xshift = 2.75 cm, yshift = -7 cm]current page.north west) {
                         \color{uniscielpink}
                         \textit{\FCone@complexityLevel}
                     };
@@ -283,11 +282,11 @@ center
 
 \backgroundparam
 {physique} % subject icon
-{physics-front-header}% Front header filename
-{physics-front-footer}% Front footer filename
-{physics-back-background}% Back background filename
-{physics-back-header}% Back header filename
-{physics-back-footer}% Back footer filename
+{physique-front-header}% Front header filename
+{physique-front-footer}% Front footer filename
+{physique-back-background}% Back background filename
+{physique-back-header}% Back header filename
+{physique-back-footer}% Back footer filename
 {front_university_logo}% Front university logo
 {back_university_logo}% Back university logo
 
@@ -330,8 +329,9 @@ center
 \begin{flashcard}[]{
 %%% QUESTION %%% 
 \color{black}
-\vspace{0.30\cardheight} % Adjust that parameter from 0.1 to 0.3 according to the size of the text
+\vspace{0.05\textheight}
 \RaggedRight
+
 % Topic
 \'Enoncé
 % Choices
@@ -364,6 +364,8 @@ center
 
 % Explanations
 \RaggedRight
+% \vspace{0.09\textheight}
+
 \lipsum[100]
 
 %%% ANSWER %%% 
@@ -375,7 +377,7 @@ center
 \begin{flashcard}[]{
 %%% QUESTION %%% 
 \color{black}
-\vspace{0.15\cardheight} % Adjust that parameter from 0.1 to 0.3 according to the size of the text
+% \vspace{0.12\textheight}
 \RaggedRight
 % Topic
 \begin{minipage}[t]{0.6\linewidth}
@@ -418,6 +420,8 @@ center
 
 % Explanations
 \RaggedRight
+% \vspace{0.09\textheight}
+
 \lipsum[100]
 
 %%% ANSWER %%% 
@@ -429,7 +433,7 @@ center
 \begin{flashcard}[]{
 %%% QUESTION %%% 
 \color{black}
-\vspace{0.20\cardheight}
+% \vspace{0.15\textheight}
 \RaggedRight
 % Topic
 Pour un point matériel en mouvement uniforme (c'est-à-dire un mouvement au cours duquel la norme de la vitesse est constante) :
@@ -462,7 +466,9 @@ Pour un point matériel en mouvement uniforme (c'est-à-dire un mouvement au cou
 \end{tikzpicture}
 
 % Explanations
+% \vspace{0.09\textheight}
 \RaggedRight
+
 Principe d'inertie : Dans un référentiel galiléen, si un système assimilé à un point matériel n'est soumis à aucune force – système isolé – ou s'il est soumis à un ensemble de forces de résultante nulle ($\Sigma\vec{F}_{ext}=\vec{0}$) – système pseudo-isolé – alors il est immobile ou animé d'un mouvement rectiligne uniforme.
 
 Dans cette question, il s'agit de faire la distinction entre mouvement uniforme (la norme de la vitesse est constante, on ne sait rien de la trajectoire) et mouvement rectiligne uniforme ou mouvement circulaire uniforme (norme de la vitesse constante et trajectoire fixée).
@@ -476,7 +482,7 @@ Dans cette question, il s'agit de faire la distinction entre mouvement uniforme 
 \begin{flashcard}[]{
 %%% QUESTION %%% 
 \color{black}
-\vspace{0.15\cardheight}
+% \vspace{0.12\cardheight}
 \RaggedRight
 % Topic
 \begin{minipage}[t]{0.6\linewidth}
@@ -519,6 +525,8 @@ Dans cette question, il s'agit de faire la distinction entre mouvement uniforme 
 
 % Explanations
 \RaggedRight
+% \vspace{0.09\textheight}
+
 Principe d'inertie : Dans un référentiel galiléen, si un système assimilé à un point matériel n'est soumis à aucune force – système isolé – ou s'il est soumis à un ensemble de forces de résultante nulle ($\Sigma\vec{F}_{ext}=\vec{0}$) – système pseudo-isolé – alors il est immobile ou animé d'un mouvement rectiligne uniforme.
 
 Dans cette question, il s'agit de faire la distinction entre mouvement uniforme (la norme de la vitesse est constante, on ne sait rien de la trajectoire) et mouvement rectiligne uniforme ou mouvement circulaire uniforme (norme de la vitesse constante et trajectoire fixée).
@@ -531,7 +539,7 @@ Dans cette question, il s'agit de faire la distinction entre mouvement uniforme 
 \begin{flashcard}[]{
 %%% QUESTION %%% 
 \color{black}
-\vspace{0.15\cardheight}
+% \vspace{0.12\textheight}
 \RaggedRight
 % Topic
 \begin{minipage}[t]{0.6\linewidth}
@@ -574,6 +582,8 @@ Dans cette question, il s'agit de faire la distinction entre mouvement uniforme 
 
 % Explanations
 \RaggedRight
+% \vspace{0.09\textheight}
+
 Principe d'inertie : Dans un référentiel galiléen, si un système assimilé à un point matériel n'est soumis à aucune force – système isolé – ou s'il est soumis à un ensemble de forces de résultante nulle ($\Sigma\vec{F}_{ext}=\vec{0}$) – système pseudo-isolé – alors il est immobile ou animé d'un mouvement rectiligne uniforme.
 
 Dans cette question, il s'agit de faire la distinction entre mouvement uniforme (la norme de la vitesse est constante, on ne sait rien de la trajectoire) et mouvement rectiligne uniforme ou mouvement circulaire uniforme (norme de la vitesse constante et trajectoire fixée).
@@ -586,7 +596,7 @@ Dans cette question, il s'agit de faire la distinction entre mouvement uniforme 
 \begin{flashcard}[]{
 %%% QUESTION %%% 
 \color{black}
-\vspace{0.15\cardheight}
+% \vspace{0.12\textheight}
 \RaggedRight
 % Topic
 \begin{minipage}[t]{0.6\linewidth}
@@ -629,6 +639,8 @@ Dans cette question, il s'agit de faire la distinction entre mouvement uniforme 
 
 % Explanations
 \RaggedRight
+% \vspace{0.09\textheight}
+
 Principe d'inertie : Dans un référentiel galiléen, si un système assimilé à un point matériel n'est soumis à aucune force – système isolé – ou s'il est soumis à un ensemble de forces de résultante nulle ($\Sigma\vec{F}_{ext}=\vec{0}$) – système pseudo-isolé – alors il est immobile ou animé d'un mouvement rectiligne uniforme.
 
 Dans cette question, il s'agit de faire la distinction entre mouvement uniforme (la norme de la vitesse est constante, on ne sait rien de la trajectoire) et mouvement rectiligne uniforme ou mouvement circulaire uniforme (norme de la vitesse constante et trajectoire fixée).
@@ -650,7 +662,7 @@ Dans cette question, il s'agit de faire la distinction entre mouvement uniforme 
 \begin{flashcard}[]{
 %%% QUESTION %%% 
 \color{black}
-\vspace{0.15\cardheight}
+% \vspace{0.12\textheight}
 \RaggedRight
 % Topic
 \begin{minipage}[t]{0.6\linewidth}
@@ -692,7 +704,9 @@ Dans cette question, il s'agit de faire la distinction entre mouvement uniforme 
 \end{tikzpicture}
 
 % Explanations
+% \vspace{0.09\textheight}
 \RaggedRight
+
 Principe d'inertie : Dans un référentiel galiléen, si un système assimilé à un point matériel n'est soumis à aucune force – système isolé – ou s'il est soumis à un ensemble de forces de résultante nulle ($\Sigma\vec{F}_{ext}=\vec{0}$) – système pseudo-isolé – alors il est immobile ou animé d'un mouvement rectiligne uniforme.
 
 Dans cette question, il s'agit de faire la distinction entre mouvement uniforme (la norme de la vitesse est constante, on ne sait rien de la trajectoire) et mouvement rectiligne uniforme ou mouvement circulaire uniforme (norme de la vitesse constante et trajectoire fixée).

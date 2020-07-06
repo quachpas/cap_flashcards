@@ -172,11 +172,11 @@ center,
 
 \backgroundparam
 {physique} % subject icon
-{physics-front-header}% Front header filename
-{physics-front-footer}% Front footer filename
-{physics-back-background}% Back background filename
-{physics-back-header}% Back header filename
-{physics-back-footer}% Back footer filename
+{physique-front-header}% Front header filename
+{physique-front-footer}% Front footer filename
+{physique-back-background}% Back background filename
+{physique-back-header}% Back header filename
+{physique-back-footer}% Back footer filename
 {front_university_logo}% Front university logo
 {back_university_logo}% Back university logo
 
@@ -193,7 +193,7 @@ center,
 \vspace{0.15\textheight}
 \RaggedRight
 % Topic
-\'Enoncé\'Enoncé
+\'Enoncé
 % Choices
 \begin{enumerate}
     \item Réponse 1
@@ -202,66 +202,6 @@ center,
     \item Réponse 4
 \end{enumerate}
 }
-%%% QUESTION %%% 
-\vspace*{\stretch{1}}
-%%% ANSWER %%% 
-\color{white}
-
-% Correct answer boxes
-\begin{tikzpicture}[remember picture, overlay]
-    \node [align=left, opacity=1] at ([xshift = -0.25 cm, yshift = 2.25 cm]current page.center) {
-                \color{white}
-                \normals0ize
-                \textsf{\textit{Réponses}}
-            };
-    \node [align=left, opacity=1] at ([xshift = 2.75 cm, yshift = 2.25 cm]current page.center) {
-                \color{white}
-                $1:\boxtimes\qquad2:\square\qquad3:\square\qquad4:\square\qquad$\\
-                \color{white}
-                $5:\square\qquad6:\square\qquad$
-            };
-\end{tikzpicture}
-
-% Explanations
-\vspace{0.05\textheight}
-\RaggedRight
-\lipsum[100]
-
-%%% ANSWER %%% 
-\vspace*{\stretch{1}}
-\end{flashcard}
-%%%%%%%%%%%%%%% STANDARD TEMPLATE %%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%% STANDARD TEMPLATE WITH IMAGE %%%%%%%%%%%%%%%%
-\cardbackground
-{Niveau de complexité}% Complexity level
-{Physique}% Subject
-{Lois de Kepler et Newton et leurs applications}% Theme
-{qrcode}% qrcode path
-
-\begin{flashcard}[]{
-%%% QUESTION %%% 
-\color{black}
-\vspace{0.10\textheight}
-\RaggedRight
-% Topic
-\begin{minipage}[t]{0.6\linewidth}
-    Word Word Word Word Word Word Word Word Word Word Word 
-    % Choices
-    \begin{enumerate}
-        \item Word Word Word Word Word Word Word Word Word Word Word
-        \item Word Word Word Word Word Word Word Word Word Word Word
-        \item Word Word Word Word Word Word Word Word Word Word Word
-        \item Word Word Word Word Word Word Word Word Word Word Word
-    \end{enumerate}
-\end{minipage}% 
-\hfill
-% Image
-\begin{minipage}[t]{0.3\linewidth}
-    \strut\vspace*{-\baselineskip}\newline
-    \includegraphics[max size={\textwidth}{0.9\textheight}, center, keepaspectratio]{QCM/MATIERE/ID_QUESTION/placeholder_150.png}
-\end{minipage}
-}
-
 %%% QUESTION %%% 
 \vspace*{\stretch{1}}
 %%% ANSWER %%% 
@@ -290,6 +230,66 @@ center,
 %%% ANSWER %%% 
 \vspace*{\stretch{1}}
 \end{flashcard}
+%%%%%%%%%%%%%%% STANDARD TEMPLATE %%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%% STANDARD TEMPLATE WITH IMAGE %%%%%%%%%%%%%%%%
+\cardbackground
+{Niveau de complexité}% Complexity level
+{Physique}% Subject
+{Lois de Kepler et Newton et leurs applications}% Theme
+{qrcode}% qrcode path
+
+\begin{flashcard}[]{
+%%% QUESTION %%% 
+\color{black}
+\vspace{0.15\textheight}
+\RaggedRight
+% Topic
+\begin{minipage}[t]{0.55\linewidth}
+    Word Word Word Word 
+    % Choices
+    \begin{enumerate}
+        \item Word 1
+        \item Word 2
+        \item Word 3
+        \item Word 4
+    \end{enumerate}
+\end{minipage}% 
+\hfill
+% Image
+\begin{minipage}[t]{0.4\linewidth}
+    \strut\vspace*{-\baselineskip}\newline
+    \includegraphics[max size={\textwidth}{0.9\textheight}, center, keepaspectratio]{QCM/MATIERE/ID_QUESTION/placeholder_150.png}
+\end{minipage}
+}
+
+%%% QUESTION %%% 
+\vspace*{\stretch{1}}
+%%% ANSWER %%% 
+\color{white}
+
+% Correct answer boxes
+\begin{tikzpicture}[remember picture, overlay]
+    \node [align=left, opacity=1] at ([xshift = -0.25 cm, yshift = 2.25 cm]current page.center) {
+                \color{white}
+                \normalsize
+                \textsf{\textit{Réponses}}
+            };
+    \node [align=left, opacity=1] at ([xshift = 2.75 cm, yshift = 2.25 cm]current page.center) {
+                \color{white}
+                $1:\boxtimes\qquad2:\square\qquad3:\square\qquad4:\square\qquad$\\
+                \color{white}
+                $5:\square\qquad6:\square\qquad$
+            };
+\end{tikzpicture}
+
+% Explanations
+\vspace{0.09\textheight}
+\RaggedRight
+\lipsum[100]
+
+%%% ANSWER %%% 
+\vspace*{\stretch{1}}
+\end{flashcard}
 %%%%%%%%%%%%%%% STANDARD TEMPLATE WITH IMAGE %%%%%%%%%%%%%%%%
 
 % Test flashcard n°1
@@ -305,8 +305,6 @@ center,
 \vspace{0.15\textheight}
 % Topic
 Pour un point matériel en mouvement uniforme (c'est-à-dire un mouvement au cours duquel la norme de la vitesse est constante) :
-Pour un point matériel en mouvement uniforme (c'est-à-dire un mouvement au cours duquel la norme de la vitesse est constante) :
-Pour un point matériel en mouvement uniforme (c'est-à-dire un mouvement au cours
 % Choices
 \begin{enumerate}
     \item le principe d'inertie est vérifié.
@@ -336,13 +334,11 @@ Pour un point matériel en mouvement uniforme (c'est-à-dire un mouvement au cou
 \end{tikzpicture}
 
 % Explanations
-\vspace{0.05\textheight}
+\vspace{0.09\textheight}
 \RaggedRight
 Principe d'inertie : Dans un référentiel galiléen, si un système assimilé à un point matériel n'est soumis à aucune force – système isolé – ou s'il est soumis à un ensemble de forces de résultante nulle ($\Sigma\vec{F}_{ext}=\vec{0}$) – système pseudo-isolé – alors il est immobile ou animé d'un mouvement rectiligne uniforme.
 
 Dans cette question, il s'agit de faire la distinction entre mouvement uniforme (la norme de la vitesse est constante, on ne sait rien de la trajectoire) et mouvement rectiligne uniforme ou mouvement circulaire uniforme (norme de la vitesse constante et trajectoire fixée).
-trajectoire) et mouvement rectiligne uniforme ou mouvement circulaire uniforme (norme de la vitesse constante et trajectoire fixée).
-trajectoire) et mouvement rectiligne uniforme ou mouvement circulaire uniforme
 
 %%% ANSWER %%% 
 \vspace*{\stretch{1}}
@@ -358,13 +354,12 @@ trajectoire) et mouvement rectiligne uniforme ou mouvement circulaire uniforme
 \begin{flashcard}[]{
 %%% QUESTION %%% 
 \color{black}
-\vspace{0.10\textheight}
+\vspace{0.12\textheight}
 \RaggedRight
 % Topic
 \begin{minipage}[t]{0.55\linewidth}
 \RaggedRight
 Étant donné le sens de propagation de la lumière choisi et indiqué sur le schéma, si $A$ est la position de l'objet, $A'$ celle de l'image et $O$ le centre de la lentille convergente, alors :
-Étant donné le sens de propagation de la lumière choisi et indiqué sur le schéma, si $A$ est la position
 \end{minipage}% 
 \hfill
 % Image
@@ -376,8 +371,8 @@ trajectoire) et mouvement rectiligne uniforme ou mouvement circulaire uniforme
 % Choices
 \begin{minipage}[l]{0.45\linewidth}
     \begin{enumerate}
-        \item $\overline{OA}$ est positif et $\overline{OA'}$ est négatif.$\overline{OA}$ est positif
-        \item $\overline{OA}$ est négatif et $\overline{OA'}$ est positif.$\overline{OA}$ est positif
+        \item $\overline{OA}$ est positif et $\overline{OA'}$ est négatif.
+        \item $\overline{OA}$ est négatif et $\overline{OA'}$ est positif.
     \end{enumerate}
 \end{minipage}
 \hfill
@@ -411,7 +406,7 @@ trajectoire) et mouvement rectiligne uniforme ou mouvement circulaire uniforme
 \end{tikzpicture}
 
 % Explanations
-\vspace{0.05\textheight}
+\vspace{0.09\textheight}
 \RaggedRight
 Principe d'inertie : Dans un référentiel galiléen, si un système assimilé à un point matériel n'est soumis à aucune force – système isolé – ou s'il est soumis à un ensemble de forces de résultante nulle ($\Sigma\vec{F}_{ext}=\vec{0}$) – système pseudo-isolé – alors il est immobile ou animé d'un mouvement rectiligne uniforme.
 
