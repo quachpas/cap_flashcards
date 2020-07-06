@@ -75,14 +75,13 @@ There are three folders in this repository : Example files, LaTeX and Python.
 ### Prerequisites
 The script has only been tested on a linux system so far (Ubuntu 18.04.4 LTS). If all dependencies are installed, it should probably work seamlessly. You might need to tweak a few settings for `inkscape` to work properly.
 
-Please check that you have all necessary latex packages installed. If not, use `tlmgr` to install the missing packages. You can find an exhaustive list in the wiki. The ones you probably won't have already installed are : `svg`, `background`, `eso-pic`, `changepage`.
+**TeX Live 2019 has been used to compile all documents**. Please check that you have all necessary latex packages installed. You can find an exhaustive list in the wiki.
 
 The script calls that tool **twice** and it can take up to a few minutes to produce a complete pdf of a few hundreds flashcards.
 
 #### Linux systems
 Install `python3` if needed and `inkscape` ([Installation guide](https://wiki.inkscape.org/wiki/index.php/Installing_Inkscape#Installing_on_Linux)), these are required packages.
 
-If possible, We installed TeX Live 2020 from the [official documentation](https://www.tug.org/texlive/quickinstall.html). to TeX Live 2020.
 I use `xelatex`to compile my `.tex` files.
 
 You may need to update your packages.
@@ -92,12 +91,13 @@ apt update
 apt install libcanberra-gtk-module libcanberra-gtk3-module
 apt install inkscape
 apt install latexmk
+apt install texlive-xetex
 ```
 
 #### Windows
 Install `python3` ([Installation guide](https://docs.python.org/3/using/windows.html)) and `inkscape` ([Installation guide](https://wiki.inkscape.org/wiki/index.php/Installing_Inkscape#Installing_on_a_Windows_system)).
 
-> It hasn't been tested yet.
+> It hasn't been tested yet. 
 
 #### macOS
 MacOS comes with Python 2.7 pre-installed. Since this script has been tested on Python 3, please update your version of Python if it's already not up-to-date. You can find an installation guide here : [MacPython](https://docs.python.org/3/using/mac.html).
@@ -135,21 +135,21 @@ You will need the following:
 - Media resources: 
   - Compulsory resources are the subject logo (upper left) and university's logo (bottom right on the front). 
     > Both of these **must be** SVG files.
-  - an icon and a logo are provided by default in [Python/output/images](./Python/output/images).
+  - an icon and a logo are provided by default in [Python/output/images](./Python/output/images). 
 > The script uses some tags that are present in Opale's document models **mcqSur** and **mcqMur**. Please find Opale's documentation [here](https://download.scenari.software/Opale@3.7/).
 
-**You will find more details on how to obtain a scar archive in the wiki (French).**
+**You will find more details on how to obtain a scar archive in the wiki. This particular page is written in French.**
 
 ## Web
 
-The web part has been tested using php7.4-fpm + nginx on an Ubuntu 20.04 LTS server.
-We installed TeX Live 2020 from the [official documentation](https://www.tug.org/texlive/quickinstall.html).
+The web part has been tested using php7.4-fpm + nginx on Ubuntu 20.04 LTS server.
 
 Script dependencies :
 ```
 sudo add-apt-repository ppa:inkscape.dev/stable
 sudo apt update
 sudo apt install inkscape
+apt install texlive-xetex
 sudo apt install python3
 sudo apt install python3-pip
 pip3 install lxml
