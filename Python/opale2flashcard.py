@@ -1246,7 +1246,7 @@ def write_outfile(output, subject):
     else:
         outfile_path = os.path.join(output_dir, 'out.tex')
     # Open outfile
-    outfile = open(outfile_path, 'a', encoding = 'utf-8')
+    outfile = open(os.open(outfile_path, os.O_WRONLY | os.O_CREAT, 0o700), 'a', encoding = 'utf-8')
     # Write content
     outfile.write(''.join(output))
     outfile.close
@@ -1285,7 +1285,7 @@ def write_header(output_dir, outfile_path, customqr_valid):
         os.remove(outfile_path)
 
     # Open outfile 
-    outfile = open(outfile_path, 'a', encoding = 'utf-8')
+    outfile = open(os.open(outfile_path, os.O_WRONLY | os.O_CREAT, 0o700), 'a', encoding = 'utf-8')
 
     # Write header
     if (args.a4paper == True):
@@ -1338,7 +1338,7 @@ def write_footer(output_dir, outfile_path):
     footer_path = os.path.join(headers_dir, 'footer.tex')
     
     # Open outfile 
-    outfile = open(outfile_path, 'a', encoding = 'utf-8')
+    outfile = open(os.open(outfile_path, os.O_WRONLY | os.O_CREAT, 0o700), 'a', encoding = 'utf-8')
 
     # Write footer
     outfile.write('\n\n')
