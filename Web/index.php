@@ -93,7 +93,7 @@ if (!empty($_FILES)) {
 
 	echo "Fichier accepté... Traitement en cours...</br>";
 	chdir("./Python");
-	exec("python3 opale2flashcard.py $pathin themeLicence.xml --comp", $cmdout_python, $errcode);
+	exec("python3 opale2flashcard.py $pathin themeLicence.xml --compile", $cmdout_python, $errcode);
 	if ($errcode === 0 && file_exists('output/out.tex')) {
 		echo "<br><b>Conversion terminée !</b><br>";
 		printlogs($cmdout_python);
@@ -115,12 +115,9 @@ if (!empty($_FILES)) {
 		echo '</pre>';
 	}
 
-
-	if ($errcode === 0 && file_exists('out.pdf')) {
+	if (file_exists('out.pdf')) {
 		echo "<p>Prévisualisation : <br><iframe width=\"800\" height=\"900\" src=\"./Python/output/out.pdf\"><a href=\"./Python/output/out.pdf\">Lien de prévisualisation PDF</a></iframe></p>";
-		printlogs($cmdout_latex);
 	} else {
-		printlogs($cmdout_latex);
 		error("Erreur interne : la prévisualisation a échoué ");
 	}
 }
