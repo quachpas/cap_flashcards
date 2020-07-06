@@ -75,12 +75,12 @@ There are three folders in this repository : Example files, LaTeX and Python.
 ### Prerequisites
 The script has only been tested on a linux system so far (Ubuntu 18.04.4 LTS). If all dependencies are installed, it should probably work seamlessly. You might need to tweak a few settings for `inkscape` to work properly.
 
-Please check that you have all necessary latex packages installed. If not, use `tlmgr` to install the missing packages. You can find an exhaustive list in the wiki. The ones you probably won't have already installed are : `svg`, `background`, `eso-pic`, `changepage`.
+**TeX Live 2019 has been used to compile all documents**. Please check that you have all necessary latex packages installed. You can find an exhaustive list in the wiki.
 
 The script calls that tool **twice** and it can take up to a few minutes to produce a complete pdf of a few hundreds flashcards.
 
 #### Linux systems
-Install `python3` if needed and `inkscape` ([Installation guide](https://wiki.inkscape.org/wiki/index.php/Installing_Inkscape#Installing_on_Linux)), these are required packages.
+Install `python3` if needed and `inkscape` 0.92 ([Installation guide](https://wiki.inkscape.org/wiki/index.php/Installing_Inkscape#Installing_on_Linux)), these are required packages.
 
 I use `xelatex`to compile my `.tex` files.
 
@@ -89,6 +89,8 @@ You may need to update your packages.
 ```bash
 apt update
 apt install libcanberra-gtk-module libcanberra-gtk3-module
+add-apt-repository ppa:inkscape.dev/stable-0.92
+apt update
 apt install inkscape
 apt install latexmk
 apt install texlive-xetex
@@ -133,16 +135,42 @@ You will need the following:
 - Source files: the sources files **must be mcqSur or mcqMur quizzes** XML files, which you can download from your SCENARIchain server using the export option or export from your SCENARIchain desktop app. Find more details in the [Getting started](#getting-started) section.
 - Licence theme file: as seen above, the flashcards each have a **subject** and a **theme**. As these are stored in the form of a code (#subj-them) in the source file, we need to produce a dictionary with all valid associations. This dictionary can be hard-coded in the script in the `opale_to_tex` function.
 - Media resources: 
-  - Compulsory resources are the subject logo (upper left) and university's logo (bottom right on the front). 
-    > Both of these **must be** SVG files.
-  - an icon and a logo are provided by default in [Python/output/images](./Python/output/images). 
-> The script uses some tags that are present in Opale's document models **mcqSur** and **mcqMur**. Please find Opale's documentation [here](https://download.scenari.software/Opale@3.7/).
+  - Assets for different subjects are provided.
+
+> The script uses Opale's document models **mcqSur** and **mcqMur**. Please find Opale's documentation [here](https://download.scenari.software/Opale@3.7/).
 
 **You will find more details on how to obtain a scar archive in the wiki. This particular page is written in French.**
 
+## Web
+
+The web part has been tested using php7.4-fpm + nginx on Ubuntu 20.04 LTS server.
+
+Script dependencies :
+```
+add-apt-repository ppa:inkscape.dev/stable-0.92
+apt update
+apt install inkscape
+apt install texlive-xetex
+apt install python3
+apt install python3-pip
+pip3 install lxml
+pip3 install Pillow
+pip3 install qrcode
+```
+
+> Inkscape will try to create /var/www/.config/inkscape, so the user running the webserver needs the appropriate permissions on this folder.
+
+How to install :
+1. Move everything in the Web folder to your webserver root folder. 
+2. Give appropriate ownerhships/permissions recursively to the user.
+
+## TeX Live and Inkscape
+
+Using another TeX Live version other than 2019 might create issues. Using inkscape 0.92 is also on purpose, since the `svg` package given with TeX Live 2019 does not recognises the newer version of inkscape. Upgrading to TeX Live 2020 and inkscape 1.0 is undefined behaviour, do so at your own risk.
+
 ## Contributing
 
-I'm open to any contributions. I am a complete beginner in regards to coding, and I am aware that my code has several design issues.
+I'm open to any contributions. I am a complete beginner in regards to coding, and I am aware that my code has several issues.
 Some parts might need to be completely refactored.
 
 ## Author

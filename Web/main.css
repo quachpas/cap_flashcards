@@ -1,0 +1,7 @@
+.logs {
+	position: relative;
+	max-height: 400px;
+	width: 90%;
+	overflow: scroll;
+	border: 1px solid #CCC;
+}

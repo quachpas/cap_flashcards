@@ -24,7 +24,7 @@
         <sm:option key="#math-series-" name="￼;    Séries￼" />
         <sm:option key="#math-fonctions-" name="￼;    Fonctions￼" />
         <sm:option key="#math-derivation-" name="￼;    Dérivation￼" />
-        <sm:option key="#math-equa-" name="￼;    Equations/Inéquations￼" />
+        <sm:option key="#math-equa-" name="￼;    Equations, Inéquations￼" />
         <sm:option key="#math-nbreelscompl-" name="￼;    Nombres réels et complexes￼" />
         <sm:option key="#math-integration-" name="￼;    Intégration￼" />
         <sm:option key="#math-polyno-" name="￼;    Polynomes￼" />

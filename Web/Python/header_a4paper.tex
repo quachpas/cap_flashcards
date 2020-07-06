@@ -1,0 +1,399 @@
+\documentclass[avery5371, grid]{flashcards}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{datetime}
+\usepackage{hyperref}
+\usepackage{ragged2e}
+\hypersetup{
+    colorlinks=false,
+}
+\usepackage{ifthen}
+\usepackage{transparent}
+\usepackage{graphicx}
+% Graphicspath
+\usepackage[export]{adjustbox}
+\usepackage{lipsum}
+\usepackage{svg}
+\usepackage{tikz}
+\usepackage[top]{background}
+\usepackage{xcolor}
+\definecolor{uniscielblue}{RGB}{4,146,191}
+\definecolor{uniscielpink}{RGB}{231,33,90}
+\definecolor{uniscielgrey}{RGB}{103,104,104}
+% Bleu : #0492bf
+% Rose : #e7215a
+% Gris : #676868
+
+\usepackage{fontspec}
+%ITC Avant Garde Gothic 
+\setsansfont{ITC Avant Garde Gothic}[
+    UprightFont={* Book},
+    ItalicFont={* Book Oblique},
+    BoldFont = {* Demi},
+    BoldItalicFont = {* Demi Oblique}
+]
+% --- FONT SIZE --- %
+\cardfrontstyle[\footnotesize\raggedright]{headings}
+\cardbackstyle[\footnotesize\raggedright]{plain}
+
+%%%% COMMANDES CUSTOMS %%%%%
+
+\newcommand{\cardfrontfooter}[6]{
+    \SetBgContents{\bgimage{0.15}{0.8}{#1}{#2}{#3}{#4}{#5}{#6}}    
+}
+
+\newcommand{\cardfrontheader}[3]{    
+    \begin{center}
+        \vspace{\baselineskip}
+        \begin{minipage}[c]{0.17\linewidth}
+            \vspace{-0.85\baselineskip}
+            \includesvg[height=1.1\linewidth]{output/images/icons/physique}
+        \end{minipage}%
+        \hspace{1.5\baselineskip}
+        \begin{minipage}[c]{0.74\linewidth}
+            \vspace{-\baselineskip}
+            \color{uniscielblue}
+            \textbf{\textsf{#1}} -- \textsf{\textbf{#2}}\\
+            \color{uniscielgrey}
+            \rule[1.1mm]{2cm}{0.3mm}\\
+            \color{uniscielpink}
+            \raggedright
+            \textsf{#3}\\
+        \end{minipage}
+    \end{center}
+}
+
+
+% ------ CUSTOM PATTERN ------- %
+% defining the new dimensions
+\newlength{\starsize}
+\newlength{\starspread}
+% declaring the keys in tikz
+\tikzset{starsize/.code={\setlength{\starsize}{#1}},
+    starspread/.code={\setlength{\starspread}{#1}}}
+% setting the default values
+\tikzset{starsize=1mm,starspread=3mm}
+% declaring the pattern
+\pgfdeclarepatternformonly[\starspread,\starsize]% variables
+    {custom fivepointed stars}% name
+    {\pgfpointorigin}% lower left corner
+    {\pgfqpoint{\starspread}{\starspread}}% upper right corner
+    {\pgfqpoint{\starspread}{\starspread}}% tilesize
+    {% shape description
+    \pgftransformshift{\pgfqpoint{\starsize}{\starsize}}
+    \pgfpathmoveto{\pgfqpointpolar{18}{\starsize}}
+    \pgfpathlineto{\pgfqpointpolar{162}{\starsize}}
+    \pgfpathlineto{\pgfqpointpolar{306}{\starsize}}
+    \pgfpathlineto{\pgfqpointpolar{90}{\starsize}}
+    \pgfpathlineto{\pgfqpointpolar{234}{\starsize}}
+    \pgfpathclose%
+    \pgfusepath{fill}
+    }
+% defining the new dimensions
+\newlength{\dotsize}
+\newlength{\dotspread}
+% declaring the keys in tikz
+\tikzset{dotsize/.code={\setlength{\dotsize}{#1}},
+    dotspread/.code={\setlength{\dotspread}{#1}}}
+% setting the default values
+\tikzset{dotsize=1mm,dotspread=1mm}
+\pgfdeclarepatternformonly[\dotsize,\dotspread]%
+    {custom dots}% name
+    {\pgfqpoint{-\dotsize}{-\dotsize}} % lower left
+    {\pgfqpoint{\dotsize}{\dotsize}} % upper right corner
+    {\pgfqpoint{\dotspread}{\dotspread}}% tilesize
+    {% shape description
+      \pgfpathcircle{\pgfpoint{0}{0}}{\dotsize}
+      \pgfusepath{fill}
+    }
+
+% ------ CUSTOM PATTERN ------- %
+
+\usepackage{changepage}
+\strictpagecheck
+\usepackage[outline]{contour}
+\contourlength{1pt}
+\usetikzlibrary{patterns,calc}
+
+\usepackage{geometry}
+ % --- PAPER SIZE --- %
+ \geometry{
+    % showframe,
+    a4paper,
+    marginparsep=0cm,
+    footskip=0cm,
+    hmargin=2mm,
+    vmargin=2mm,
+ }
+% --- CARD SIZE --- %
+\def\pageheight{297mm}
+\def\pagewidth{210mm}
+\renewcommand{\cardpapermode}{portrait}
+\renewcommand{\cardrows}{3}
+\renewcommand{\cardcolumns}{2}
+\setlength{\cardheight}{8cm}
+\setlength{\cardwidth}{10.2cm}
+
+\setlength{\cardmargin}{3mm}
+\setlength{\topoffset}{0mm}
+\setlength{\oddoffset}{0mm}
+\setlength{\evenoffset}{0mm}
+ 
+\newlength{\enoncevspace}
+\setlength{\enoncevspace}{-2\baselineskip}
+\newlength{\reponsevspace}
+\setlength{\reponsevspace}{0cm}
+
+% FOOTER, complexity level (left), unisciel logo (right)
+% x_shift left or right
+\newlength{\westleft}
+\newlength{\westright}
+\newlength{\eastleft}
+\newlength{\eastright}
+% y_shift upper (north), middle (middle), lower (south), left or right
+\newlength{\northleft}
+\newlength{\northright}
+
+\newlength{\middleleft}
+\newlength{\middleright}
+
+\newlength{\southleft}
+\newlength{\southright}
+
+% ICON (nw)
+% x_shift, nw position within card, left or right
+\newlength{\backnwleft}
+\newlength{\backnwright}
+% y_shift upper, middle, lower; north, upper part of the card.
+\newlength{\backuppernorth}
+\newlength{\backmiddlenorth}
+\newlength{\backlowernorth}
+
+% Text (left) and QR Code (right)
+% x_shift
+\newlength{\backeastright}
+\newlength{\backwestright}
+\newlength{\backeastleft}
+\newlength{\backwestleft}
+% y_shift upper (north), middle (middle), lower (south), left or right
+\newlength{\backnorthleft}
+\newlength{\backnorthright}
+
+\newlength{\backmiddleleft}
+\newlength{\backmiddleright}
+
+\newlength{\backsouthleft}
+\newlength{\backsouthright}
+
+% FRONT, complexity level (left), unisciel logo (right)
+% x_shift 
+\setlength{\westleft}{-8.1cm}
+\setlength{\westright}{-2cm}
+\setlength{\eastleft}{2.2cm}
+\setlength{\eastright}{8.3cm}
+% y_shift
+\setlength{\northleft}{-7.8cm}
+\setlength{\northright}{-7.2cm}
+\setlength{\middleleft}{-15.8cm}
+\setlength{\middleright}{-15.2cm}
+\setlength{\southleft}{-23.8cm}
+\setlength{\southright}{-23.2cm}
+
+% BACK 
+% Icon x_shift
+\setlength{\backnwleft}{9.15cm}
+\setlength{\backnwright}{1.1cm}
+% Icon y_shift
+\setlength{\backuppernorth}{-0.9cm}
+\setlength{\backmiddlenorth}{-8.9cm}
+\setlength{\backlowernorth}{-16.9cm}
+
+% Text (left), QR Code (right)
+\setlength{\backeastleft}{3.7cm}
+\setlength{\backeastright}{9.3cm}
+\setlength{\backwestleft}{6.5cm}
+\setlength{\backwestright}{0.9cm}
+\setlength{\backnorthleft}{-7.6cm}
+\setlength{\backnorthright}{-7.3cm}
+\setlength{\backmiddleleft}{-15.6cm}
+\setlength{\backmiddleright}{-15.3cm}
+\setlength{\backsouthleft}{-23.6cm}
+\setlength{\backsouthright}{-23.3cm}
+
+%%%% IMAGE DE FOND %%%%%
+\newcommand{\bgimage}[8]{
+    \begin{tikzpicture}[remember picture, overlay]
+        \checkoddpage
+        \ifoddpage  
+            \filigrane{#1}{#2}
+            % NORTH WEST
+            \node [opacity=1] at ([xshift=\westleft, yshift=\northleft]0,0) {
+                \color{uniscielpink}
+                #3
+            };
+            \node [opacity=1] at ([xshift=\westright, yshift=\northright]0,0) {
+                \includesvg[height=10mm]{output/images/university_logo}
+            };
+            % NORTH EAST
+            \node [opacity=1] at ([xshift=\eastleft, yshift=\northleft]0,0) {
+                \color{uniscielpink}
+                #3
+            };
+            \node [opacity=1] at ([xshift=\eastright, yshift=\northright]0,0) {
+                \includesvg[height=10mm]{output/images/university_logo}
+            };
+            % CENTER WEST
+            \node [opacity=1] at ([xshift=\westleft, yshift=\middleleft]0,0) {
+                \color{uniscielpink}
+                #3
+            };
+            \node [opacity=1] at ([xshift=\westright, yshift=\middleright]0,0) {
+                \includesvg[height=10mm]{output/images/university_logo}
+            };
+            % CENTER EAST
+            \node [opacity=1] at ([xshift=\eastleft, yshift=\middleleft]0,0) {
+                \color{uniscielpink}
+                #3
+            };
+            \node [opacity=1] at ([xshift=\eastright, yshift=\middleright]0,0) {
+                \includesvg[height=10mm]{output/images/university_logo}
+            };
+            % SOUTH WEST
+            \node [opacity=1] at ([xshift=\westleft, yshift=\southleft]0,0) {
+                \color{uniscielpink}
+                #3
+            };
+            \node [opacity=1] at ([xshift=\westright, yshift=\southright]0,0) {
+                \includesvg[height=10mm]{output/images/university_logo}
+            };
+            % SOUTH EAST
+            \node [opacity=1] at ([xshift=\eastleft, yshift=\southleft]0,0) {
+                \color{uniscielpink}
+                #3
+            };
+            \node [opacity=1] at ([xshift=\eastright, yshift=\southright]0,0) {
+                \includesvg[height=10mm]{output/images/university_logo}
+            };
+        \else
+            \filigrane{#1}{#2}
+            % NORTH WEST
+            \node [opacity=1] at ([xshift=-\backnwleft, yshift=\backuppernorth]0,0) {
+                \includesvg[height=0.085\linewidth]{output/images/icons/physique}
+            };
+            \node [align=left, opacity=1] at ([xshift=-\backwestleft, yshift=\backnorthleft]0,0) {
+                \small
+                \color{uniscielpink}
+                \textsf{\textit{Vous pouvez revoir le cours en suivant le lien}}\\
+                \small
+                \color{uniscielpink}
+                \textsf{\textit{donnée par le QR Code ci-contre.}}
+            };
+            \node [opacity=1] at ([xshift=-\backwestright, yshift=\backnorthright]0,0) {
+                \includegraphics[max size={0.05\textwidth}{0.1\textheight}, center, keepaspectratio]{output/images/qrcode.png}
+            };
+            % NORTH EAST
+            \node [opacity=1] at ([xshift=\backnwright, yshift=\backuppernorth]0,0) {
+                \includesvg[height=0.085\linewidth]{output/images/icons/physique}
+
+            };
+            \node [align=left, opacity=1] at ([xshift=\backeastleft, yshift=\backnorthleft]0,0) {
+                \small
+                \color{uniscielpink}
+                \textsf{\textit{Vous pouvez revoir le cours en suivant le lien}}\\
+                \small
+                \color{uniscielpink}
+                \textsf{\textit{donnée par le QR Code ci-contre.}}
+            };
+            \node [opacity=1] at ([xshift=\backeastright, yshift=\backnorthright]0,0) {
+                \includegraphics[max size={0.05\textwidth}{0.1\textheight}, center, keepaspectratio]{output/images/qrcode.png}
+            };
+            % CENTER WEST
+            \node [opacity=1] at ([xshift=-\backnwleft, yshift=\backmiddlenorth]0,0) {
+                \includesvg[height=0.085\linewidth]{output/images/icons/physique}
+
+            };
+            \node [align=left, opacity=1] at ([xshift=-\backwestleft, yshift=\backmiddleleft]0,0) {
+                \small
+                \color{uniscielpink}
+                \textsf{\textit{Vous pouvez revoir le cours en suivant le lien}}\\
+                \small
+                \color{uniscielpink}
+                \textsf{\textit{donnée par le QR Code ci-contre.}}\small
+            };
+            \node [opacity=1] at ([xshift=-\backwestright, yshift=\backmiddleright]0,0) {
+                \includegraphics[max size={0.05\textwidth}{0.1\textheight}, center, keepaspectratio]{output/images/qrcode.png}
+            };
+            % CENTER EAST
+            \node [opacity=1] at ([xshift=\backnwright, yshift=\backmiddlenorth]0,0) {
+                \includesvg[height=0.085\linewidth]{output/images/icons/physique}
+
+            };
+            \node [align=left, opacity=1] at ([xshift=\backeastleft, yshift=\backmiddleleft]0,0) {
+                \small
+                \color{uniscielpink}
+                \textsf{\textit{Vous pouvez revoir le cours en suivant le lien}}\\
+                \small
+                \color{uniscielpink}
+                \textsf{\textit{donnée par le QR Code ci-contre.}}
+            };
+            \node [opacity=1] at ([xshift=\backeastright, yshift=\backmiddleright]0,0) {
+                \includegraphics[max size={0.05\textwidth}{0.1\textheight}, center, keepaspectratio]{output/images/qrcode.png}
+            };
+            % SOUTH WEST
+            \node [opacity=1] at ([xshift=-\backnwleft, yshift=\backlowernorth]0,0) {
+                \includesvg[height=0.085\linewidth]{output/images/icons/physique}
+
+            };
+            \node [align=left, opacity=1] at ([xshift=-\backwestleft, yshift=\backsouthleft]0,0) {
+                \small
+                \color{uniscielpink}
+                \textsf{\textit{Vous pouvez revoir le cours en suivant le lien}}\\
+                \small
+                \color{uniscielpink}
+                \textsf{\textit{donnée par le QR Code ci-contre.}}
+            };
+            \node [opacity=1] at ([xshift=-\backwestright, yshift=\backsouthright]0,0) {
+                \includegraphics[max size={0.05\textwidth}{0.1\textheight}, center, keepaspectratio]{output/images/qrcode.png}
+            };
+            % SOUTH EAST
+            \node [opacity=1] at ([xshift=\backnwright, yshift=\backlowernorth]0,0) {
+                \includesvg[height=0.085\linewidth]{output/images/icons/physique}
+
+            };
+            \node [align=left, opacity=1] at ([xshift=\backeastleft, yshift=\backsouthleft]0,0) {
+                \small
+                \color{uniscielpink}
+                \textsf{\textit{Vous pouvez revoir le cours en suivant le lien}}\\
+                \small
+                \color{uniscielpink}
+                \textsf{\textit{donnée par le QR Code ci-contre.}}
+            };
+            \node [opacity=1] at ([xshift=\backeastright, yshift=\backsouthright]0,0) {
+                \includegraphics[max size={0.05\textwidth}{0.1\textheight}, center, keepaspectratio]{output/images/qrcode.png}
+            };
+        \fi
+    \end{tikzpicture}
+}
+\newcommand{\filigrane}[2]{
+    %\fill[opacity=0.1,pattern=custom fivepointed stars, starspread=3mm, starsize=0.75mm] (-0.49\paperwidth,-0.49\paperheight) rectangle (0.49\paperwidth,0.49\paperheight);
+    \fill[
+        color = uniscielgrey,
+        opacity=0.1,
+        pattern=custom dots,
+        dotsize=#1mm, 
+        dotspread=#2mm
+        ](-1\paperwidth,-1\paperheight) rectangle (0.5\paperwidth,0.5\paperheight);
+}
+\SetBgScale{1.0}% Select scale factor of logo
+\SetBgAngle{0.0}% Select roation of logo
+%\SetBgOpacity{0.5}% Select opacity
+% \SetBgContents{\bgimage{0.15}{0.8}}% Set tikz picture
+%\SetBgPosition{current page.north west}% Select location
+% Cadre Rajouté à l'impression
+
+
+
+\begin{document}
+% Output generation
+% \scrollmode

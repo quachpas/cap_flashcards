@@ -1113,11 +1113,11 @@ def write_output(flashcard, question_count, customqr_valid):
         licence_theme = ''
     
     if (customqr_valid is True):
-        qrcode = '{custom_qrcode.png}\n'
+        qrcode = 'custom_qrcode.png'
     else:
-        qrcode = '{icons/\subjecticon}\n'
+        qrcode = 'icons/\subjecticon'
                           
-    output.append('\\cardbackground\n{' + complexity_level + '}\n{' + subject + '}\n{' + licence_theme + '}\n{' + qrcode + '}')
+    output.append('\\cardbackground\n{' + complexity_level + '}\n{' + subject + '}\n{' + licence_theme + '}\n{' + qrcode + '}\n')
     # TODO : Qrcode ici, hardcoded. HARDCODED
 
     output.append('\\begin{flashcard}[]{\n\\color{black}\n')
@@ -1246,7 +1246,7 @@ def write_outfile(output, subject):
     else:
         outfile_path = os.path.join(output_dir, 'out.tex')
     # Open outfile
-    outfile = open(outfile_path, 'a', encoding = 'utf-8')
+    outfile = open(os.open(outfile_path, os.O_WRONLY | os.O_CREAT, 0o700), 'a', encoding = 'utf-8')
     # Write content
     outfile.write(''.join(output))
     outfile.close
@@ -1285,7 +1285,7 @@ def write_header(output_dir, outfile_path, customqr_valid):
         os.remove(outfile_path)
 
     # Open outfile 
-    outfile = open(outfile_path, 'a', encoding = 'utf-8')
+    outfile = open(os.open(outfile_path, os.O_WRONLY | os.O_CREAT, 0o700), 'a', encoding = 'utf-8')
 
     # Write header
     if (args.a4paper == True):
@@ -1338,7 +1338,7 @@ def write_footer(output_dir, outfile_path):
     footer_path = os.path.join(headers_dir, 'footer.tex')
     
     # Open outfile 
-    outfile = open(outfile_path, 'a', encoding = 'utf-8')
+    outfile = open(os.open(outfile_path, os.O_WRONLY | os.O_CREAT, 0o700), 'a', encoding = 'utf-8')
 
     # Write footer
     outfile.write('\n\n')

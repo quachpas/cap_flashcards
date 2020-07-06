@@ -14,6 +14,7 @@ import time
 import timeit
 from lxml import etree
 from itertools import zip_longest
+import qrcode
 
 parser = argparse.ArgumentParser(description="""
 === Conversion from mcqMur/mcqSur (Opale-XML) to LaTeX (flashcard class) ===
@@ -46,7 +47,7 @@ The script will write in the './output/out.tex' file.
 The front is always output before the back of the flashcard. 
 There are two output formats : 
     - default, the page's dimensions are 10x8 cm. 
-    - a4paper, the output's format is an A4 page.
+    - a4paper, the output's format is an A4 page. NON USABLE
     Every page contains 6 flashcards (10x8 cm).
     A grid outlines the borders. 
     This is the preferred format for printing at home.
@@ -95,7 +96,7 @@ parser.add_argument('themefile', help = """
 Themes list file path - Path to an xml file containing all theme codes.
 """)
 parser.add_argument('--a4paper', action = 'store_true', help  ="""
-Output format - (defaults to printing 10x8cm flashcards)
+Output format - Currently unusable (defaults to printing 10x8cm flashcards)
 """)
 parser.add_argument('--noclean', action = 'store_true', help  ="""
 Clean output folder - Cleanse by default
@@ -133,6 +134,12 @@ Question with image - Stops replacing "ci-dessous" with "ci-contre" for files wi
 parser.add_argument('--add_url', action = 'store_true', help = """
 Links to material - DOES NOT WORK. Adds urls to flashcards. Script won't output any links by default.
 """)
+parser.add_argument('--add_qrcode', action = 'store', help = """
+Generates a qrcode - Generating a qrcode from the url passed as an argument
+""")
+parser.add_argument('--add_complexity_level', action = 'store_true', help = """
+Add the complexity level - Adds the complexity level to the flashcard. By default, does not display.
+""")
 # XML namespaces
 namespace = {
     "sm" : "http://www.utc.fr/ics/scenari/v3/modeling",
@@ -166,6 +173,14 @@ tags_markup = {
     "para" : None,
     "phrase" : ("\href{", "}"),
 }
+
+url_regex = re.compile(
+        r'^(?:http|ftp)s?://' # http:// or https://
+        r'(?:(?:[A-Z0-9](?:[A-Z0-9-]{0,61}[A-Z0-9])?\.)+(?:[A-Z]{2,6}\.?|[A-Z0-9-]{2,}\.?)|' #domain...
+        r'localhost|' #localhost...
+        r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})' # ...or ip
+        r'(?::\d+)?' # optional port
+        r'(?:/?|[/?]\S+)$', re.IGNORECASE)
 
 class Flashcard:
     def __init__(self, file, question_type, complexity_level, subject, education_level, licence_theme, question, image, image_square, image_rectangular, choices, answer, solution_list, choice_number,subject_length, licence_theme_length, question_length, choices_length, answer_length):
@@ -263,7 +278,7 @@ def cleantheme(text):
 
 def calc_vspace_parameters(flashcard):
     if (flashcard.image is not None):
-        vspace_question = 0.10
+        vspace_question = 0.12
         vspace_answer = 0.09
     else:
         vspace_question = 0.15
@@ -309,7 +324,7 @@ def get_headers_directory():
         return None
 
 def check_metadata(flashcard):
-    if (flashcard.complexity_level is None or flashcard.complexity_level == "Missing Complexity Level" 
+    if (flashcard.complexity_level is None or flashcard.complexity_level == "Missing Complexity Level" and args.add_complexity_level is True 
             # or flashcard.education_level is None or flashcard.education_level == "Missing Education Level" 
             or flashcard.licence_theme is None or flashcard.licence_theme == "Missing Licence Theme"
             or flashcard.subject is None or flashcard.subject == "Missing Subject"):
@@ -366,9 +381,14 @@ def check_overflow(flashcard):
                 'opale2flashcard.py(' + flashcard.file + '): WARNING ! There is at least one table in the question. Content might overflow', 
             )
         choice_overflow = False
+        long_choice_counter = 0
         for choice in flashcard.choices:
-            if (len(choice) > 15 and len(flashcard.choices) >= 4):
-                choice_overflow = True
+            if (len(choice) > 40):
+                long_choice_counter += 1
+                
+        if (long_choice_counter > 1 and len(flashcard.choices) >= 4):
+            choice_overflow = True
+            
         if (choice_overflow is True):
             flashcard.overflow_flag = True
             write_logs(
@@ -384,6 +404,9 @@ def check_content(flashcard):
     # Remove flashcard if not pertinent
     if ('http://' in flashcard.answer or 'https://' in flashcard.answer):
         flashcard.relevant = False
+        
+    for url in re.findall(r"(?P<url>https?://[^\s]+)", flashcard.answer):
+        flashcard.answer = flashcard.answer.replace(url, url.replace('_', '\\_'))
         flashcard.err_message += 'opale2flashcard.py(' + flashcard.file + "): Answer contains an URL."
     
     if (not flashcard.choices):
@@ -711,11 +734,11 @@ def markup_content(file, element):
                     text = output_cleanup(text[0])
                 # element.text = texfilter(element.text)
             else:
-                role_markup = None        
+                role_markup = None
     else:
         role_markup = None
     if url is not None:
-        output.append(url)
+        output.append(texfilter(url))
     if (role_markup is not None):
         output.append(role_markup[0])
     if url is None:
@@ -991,12 +1014,12 @@ def process_error(flashcard):
                     flashcard.err_message,
                     flashcard.err_message
                 ) 
-            if (flashcard.overflow_flag is True and args.overflow_only is True):
+            elif (flashcard.overflow_flag is True and args.overflow_only is True):
                 write_logs(
                     flashcard.err_message,
                     flashcard.err_message
                 )
-            if (flashcard.relevant is False and args.non_relevant_only is True):
+            elif (flashcard.relevant is False and args.non_relevant_only is True):
                 write_logs(
                     flashcard.err_message,
                     flashcard.err_message
@@ -1007,48 +1030,65 @@ def process_error(flashcard):
             flashcard.err_message,
             flashcard.err_message
         ) 
+        
+def write_rejected(flashcard, output, rejected):
+    if (flashcard.subject.lower() in rejected):
+        rejected[flashcard.subject.lower()] += 1
+    else:
+        rejected[flashcard.subject.lower()] = 1
+    
+    if (flashcard.subject.lower() == ''):
+        write_outfile(output, 'unclassifiable-rejected')
+    else:
+        write_outfile(output, flashcard.subject.lower() + '-rejected')
+        
+    write_outfile(output, 'rejected')
+    
+    return rejected    
+
+def write_accepted(flashcard, output, accepted):
+    if (flashcard.subject.lower() in accepted):
+        accepted[flashcard.subject.lower()] += 1
+    else:
+        accepted[flashcard.subject.lower()] = 1
+        
+    write_outfile(output, flashcard.subject.lower())
+    write_outfile(output, None)
+    
+    return accepted
+    
+def write_flashcard(flashcard, output, accepted, rejected):
+    if (flashcard.err_flag is False and flashcard.overflow_flag is False and flashcard.relevant is True or args.force == True):
+        accepted = write_accepted(flashcard, output, accepted)
+        
+    else:
+        rejected = write_rejected(flashcard, output, rejected)
+        
+    return (accepted, rejected)
+        
 def process_write_outfile(flashcard, output, accepted, rejected):
     # If any output options have been declared
     if (args.file_name is not None or args.image_only is True or args.overflow_only is True or args.non_relevant_only is True):
         # Treat each `option`
         if (args.file_name == flashcard.file and args.file_name is not None):
-            write_outfile(output, flashcard.subject.lower())
-            write_outfile(output, None)
-        if (flashcard.image is not None and args.image_only is True):
-            write_outfile(output, flashcard.subject.lower())
-            write_outfile(output, None)
-        if (flashcard.overflow_flag is True and args.overflow_only is True):
-            write_outfile(output, flashcard.subject.lower())
-            write_outfile(output, None)
-        if (flashcard.relevant is False and args.non_relevant_only is True):
-            write_outfile(output, flashcard.subject.lower())
-            write_outfile(output, None)
+            (accepted, rejected) = write_flashcard(flashcard, output, accepted, rejected)
+            
+        elif (flashcard.image is not None and args.image_only is True):
+            (accepted, rejected) = write_flashcard(flashcard, output, accepted, rejected)
+            
+        elif (flashcard.overflow_flag is True and args.overflow_only is True):
+            (accepted, rejected) = write_flashcard(flashcard, output, accepted, rejected)
+            
+        elif (flashcard.relevant is False and args.non_relevant_only is True):
+            (accepted, rejected) = write_flashcard(flashcard, output, accepted, rejected)
+            
     # Else, just write the output if the flashcard is valid, or force option has been set
-    elif (flashcard.err_flag is False and flashcard.overflow_flag is False and flashcard.relevant is True or args.force == True):
-        if (flashcard.subject.lower() in accepted):
-            accepted[flashcard.subject.lower()] += 1
-        else:
-            accepted[flashcard.subject.lower()] = 1
-            
-        write_outfile(output, flashcard.subject.lower())
-        write_outfile(output, None)
-        
     else:
-        if (flashcard.subject.lower() in rejected):
-            rejected[flashcard.subject.lower()] += 1
-        else:
-            rejected[flashcard.subject.lower()] = 1
-        
-        if (flashcard.subject.lower() == ''):
-            write_outfile(output, 'unclassifiable-rejected')
-        else:
-            write_outfile(output, flashcard.subject.lower() + '-rejected')
-            
-        write_outfile(output, 'rejected')
+        (accepted, rejected) = write_flashcard(flashcard, output, accepted, rejected)
         
     return (accepted, rejected)
 
-def write_output(flashcard, question_count):
+def write_output(flashcard, question_count, customqr_valid):
     # Variables
     output = []
     (vspace_question, vspace_answer) = calc_vspace_parameters(flashcard)
@@ -1057,7 +1097,27 @@ def write_output(flashcard, question_count):
     output.append('% Flashcard : ' + flashcard.file + '/' + flashcard.question_type + '\n')
     output.append('% (Q, C, A) : ' + str(flashcard.question_length) + ', ' + str(flashcard.choices_length) + ', ' + str(flashcard.answer_length) + '\n')
 
-    output.append('\\cardbackground\n{' + flashcard.complexity_level + '}\n{' + flashcard.subject + '}\n{' + flashcard.licence_theme + '}\n{' + 'qrcode}\n')
+    if (args.add_complexity_level is True and flashcard.complexity_level is not None):
+        complexity_level = flashcard.complexity_level
+    else:
+        complexity_level = ''
+    
+    if (flashcard.subject is not None):
+        subject = flashcard.subject
+    else:
+        subject = ''
+    
+    if (flashcard.licence_theme is not None):
+        licence_theme = flashcard.licence_theme
+    else:
+        licence_theme = ''
+    
+    if (customqr_valid is True):
+        qrcode = 'custom_qrcode.png'
+    else:
+        qrcode = 'icons/\subjecticon'
+                          
+    output.append('\\cardbackground\n{' + complexity_level + '}\n{' + subject + '}\n{' + licence_theme + '}\n{' + qrcode + '}\n')
     # TODO : Qrcode ici, hardcoded. HARDCODED
 
     output.append('\\begin{flashcard}[]{\n\\color{black}\n')
@@ -1168,6 +1228,16 @@ def write_out_a4paper(flashcard_list):
 
     return error_count
 
+
+def write_background_parameter(flashcard):
+    backgroundparam = ['\\backgroundparam\n{' + flashcard.subject.lower() + '}\n{' + flashcard.subject.lower() + '-front-header}\n{' + flashcard.subject.lower() + '-front-footer}\n{' + flashcard.subject.lower() + '-back-background}\n{' + flashcard.subject.lower() + '-back-header}\n{' + flashcard.subject.lower() + '-back-footer}\n{front-university-logo}\n{back-university-logo}\n']
+    if (flashcard.err_flag is False and flashcard.overflow_flag is False and flashcard.relevant is True or args.force is True):
+        write_outfile(backgroundparam, flashcard.subject.lower())
+        write_outfile(backgroundparam, None)
+    else:
+        write_outfile(backgroundparam, flashcard.subject.lower() + '-rejected')
+        write_outfile(backgroundparam, 'rejected')
+    
 def write_outfile(output, subject):
     # Get output directory
     output_dir = get_output_directory()
@@ -1176,25 +1246,33 @@ def write_outfile(output, subject):
     else:
         outfile_path = os.path.join(output_dir, 'out.tex')
     # Open outfile
-    outfile = open(outfile_path, 'a', encoding = 'utf-8')
+    outfile = open(os.open(outfile_path, os.O_WRONLY | os.O_CREAT, 0o700), 'a', encoding = 'utf-8')
     # Write content
     outfile.write(''.join(output))
     outfile.close
 
-def write_outfile_header(subject_set):
+def write_outfile_header(subject_set, customqr_valid):
     # Get output directory
     output_dir = get_output_directory()
     if ('' in subject_set):
-        subject_set.remove('')
+        outfile_path = os.path.join(output_dir, 'out-unclassifiable.tex')
+        write_header(output_dir, outfile_path, customqr_valid)
+        outfile_path = os.path.join(output_dir, 'out-unclassifiable-rejected.tex')
+        write_header(output_dir, outfile_path, customqr_valid)
+        
     for subject in subject_set:
         outfile_path = os.path.join(output_dir, 'out-' + subject.lower() + '.tex')
-        
-        write_header(output_dir, outfile_path)    
+        write_header(output_dir, outfile_path, customqr_valid)
+        outfile_path = os.path.join(output_dir, 'out-' + subject.lower() + '-rejected.tex')
+        write_header(output_dir, outfile_path, customqr_valid)
 
     outfile_path = os.path.join(output_dir, 'out.tex')
-    write_header(output_dir, outfile_path)  
+    write_header(output_dir, outfile_path, customqr_valid)
 
-def write_header(output_dir, outfile_path):
+    outfile_path = os.path.join(output_dir, 'out-rejected.tex')
+    write_header(output_dir, outfile_path, customqr_valid)
+    
+def write_header(output_dir, outfile_path, customqr_valid):
     # Get headers' directory
     headers_dir = get_headers_directory()
     header_default_path = os.path.join(headers_dir, 'header_default.tex')
@@ -1207,7 +1285,7 @@ def write_header(output_dir, outfile_path):
         os.remove(outfile_path)
 
     # Open outfile 
-    outfile = open(outfile_path, 'a', encoding = 'utf-8')
+    outfile = open(os.open(outfile_path, os.O_WRONLY | os.O_CREAT, 0o700), 'a', encoding = 'utf-8')
 
     # Write header
     if (args.a4paper == True):
@@ -1215,10 +1293,18 @@ def write_header(output_dir, outfile_path):
     else:
         header = open(header_default_path,'r', encoding="utf-8")
     for line in header.readlines():
-        if ('% Graphicspath' not in line):
+        if ('% Graphicspath' not in line and '% QRCODE' not in line):
             outfile.write(line)
-        else:
+        elif('% Graphicspath' in line):
             outfile.write('\graphicspath{{./images/}}\n')
+        elif('% QRCODE' in line):
+            if (customqr_valid is True):
+                outfile.write('                        \includegraphics[width = 0.150\\textwidth, keepaspectratio]{#4}\n')
+            else:
+                outfile.write('                        \includesvg[height = 0.175\\textheight]{#4}\n')
+                # TODO : inverted logo ? #4 -> #4-inverted
+            
+            
     outfile.write('\n\n')
     header.close
 
@@ -1228,22 +1314,31 @@ def write_outfile_footer(subject_set):
     # Get output directory
     output_dir = get_output_directory()
     if ('' in subject_set):
+        outfile_path = os.path.join(output_dir, 'out-unclassifiable.tex')
+        write_footer(output_dir, outfile_path)
+        outfile_path = os.path.join(output_dir, 'out-unclassifiable-rejected.tex')
+        write_footer(output_dir, outfile_path)
         subject_set.remove('')
+        
     for subject in subject_set:
         outfile_path = os.path.join(output_dir, 'out-' + subject.lower() + '.tex')
-
+        write_footer(output_dir, outfile_path)
+        outfile_path = os.path.join(output_dir, 'out-' + subject.lower() + '-rejected.tex')
         write_footer(output_dir, outfile_path)
 
     outfile_path = os.path.join(output_dir, 'out.tex')
     write_footer(output_dir, outfile_path)
 
+    outfile_path = os.path.join(output_dir, 'out-rejected.tex')
+    write_footer(output_dir, outfile_path)
+    
 def write_footer(output_dir, outfile_path):
     # Get headers' directory
     headers_dir = get_headers_directory()
     footer_path = os.path.join(headers_dir, 'footer.tex')
     
     # Open outfile 
-    outfile = open(outfile_path, 'a', encoding = 'utf-8')
+    outfile = open(os.open(outfile_path, os.O_WRONLY | os.O_CREAT, 0o700), 'a', encoding = 'utf-8')
 
     # Write footer
     outfile.write('\n\n')
@@ -1253,12 +1348,8 @@ def write_footer(output_dir, outfile_path):
     
     footer.close
 
-def write_background_parameter(flashcard):
-    backgroundparam = ['\\backgroundparam\n{' + flashcard.subject.lower() + '}\n{' + flashcard.subject.lower() + '-front-header}\n{' + flashcard.subject.lower() + '-front-footer}\n{' + flashcard.subject.lower() + '-back-background}\n{' + flashcard.subject.lower() + '-back-header}\n{' + flashcard.subject.lower() + '-back-footer}\n{front-university-logo}\n{back-university-logo}\n']
-    write_outfile(backgroundparam, flashcard.subject.lower())
-    write_outfile(backgroundparam, None)
 
-def write_flashcards(flashcard_list):
+def write_flashcards(flashcard_list, customqr_valid):
 # Write output string and write in outfile
 ## Default output format
     accepted = {}
@@ -1270,20 +1361,16 @@ def write_flashcards(flashcard_list):
         question_count = 0
         for flashcard in flashcard_list:
             # Background parameters
-            if (args.force is True
-            or (flashcard.overflow_flag is False and flashcard.err_flag is False)):
-                if (flashcard.subject != previous_subject):
+            if (flashcard.subject != previous_subject):
+                if (flashcard.err_flag is False and flashcard.overflow_flag is False and flashcard.relevant is True):
                     previous_subject = flashcard.subject
-                    write_background_parameter(flashcard)
-            # Create a standard output only if the flashcard's errors flags are not set (or force option has been set)
-            # OR if any debug "only-options" are used
-            if ((flashcard.err_flag is False and flashcard.overflow_flag is False and flashcard.relevant is True) 
-            or (args.image_only is True or args.overflow_only is True or args.non_relevant_only is True)
-            or args.force is True):
-                for out in write_output(flashcard, None):
-                    output.append(out)
+                write_background_parameter(flashcard)
             
-            # Write in the outfile only the valid files
+            # Create a standard output
+            for out in write_output(flashcard, None, customqr_valid):
+                output.append(out)
+            
+            # Separate output according to flashcard validity
             (accepted, rejected) = process_write_outfile(flashcard, output, accepted, rejected)
             output = []
             question_count += 1
@@ -1321,7 +1408,6 @@ def parse_files(args, question_count, err_count, parser, licence_theme, subject)
             
             # Create Flashcard instance
             flashcard = fetch_content(file, root, licence_theme, subject)
-            subject_list.append(flashcard.subject)
             
             # Check overflow
             check_overflow(flashcard)
@@ -1332,17 +1418,20 @@ def parse_files(args, question_count, err_count, parser, licence_theme, subject)
             # Check non-pertinent content (URLs)
             check_content(flashcard)
             
-            # Process errors, ignore flashcards not concerned
+            # Process filters, ignore flashcards not concerned
             if (args.image_only is True and flashcard.image is None):
                 continue
-            elif (args.overflow_only is True and flashcard.overflow_flag is False):
+            if (args.overflow_only is True and flashcard.overflow_flag is False):
                 continue
-            elif (args.non_relevant_only is True and flashcard.relevant is True):
+            if (args.non_relevant_only is True and flashcard.relevant is True):
                 continue
 
+            # Append to subject list
+            subject_list.append(flashcard.subject)
+            
             # If --force option has been declared, put in dummy text to avoid compilation errors
             if (args.force == True):
-                if (flashcard.complexity_level is None):
+                if (flashcard.complexity_level is None and args.add_complexity_level is True):
                     flashcard.complexity_level = "Missing Complexity Level"
                 if (flashcard.licence_theme is None):
                     flashcard.licence_theme = "Missing Licence Theme"
@@ -1355,7 +1444,7 @@ def parse_files(args, question_count, err_count, parser, licence_theme, subject)
                 process_error(flashcard) 
             
             # If a flashcard has been forcibly output, and its error message is not null
-            if (args.force == True and flashcard.err_message != ''):
+            elif (args.force == True and flashcard.err_message != ''):
                 err_count += 1
                 process_error(flashcard)
 
@@ -1395,6 +1484,21 @@ def opale_to_tex(args):
         if (not os.path.isfile(os.path.realpath(args.sourcedir + "/" + args.file_name))):
             sys.stderr.write('Error: ' + args.file_name +' is not a file or does not exist.\n')
             sys.exit(1)
+            
+    customqr_valid = False
+    if (args.add_qrcode is not None):
+        if (re.match(url_regex, args.add_qrcode)):
+            qr = qrcode.QRCode(
+                version=1,
+                error_correction=qrcode.constants.ERROR_CORRECT_L,
+                box_size=10,
+                border=4,
+            )
+            qr.add_data(args.add_qrcode)
+            img = qr.make_image(fill_color="#4e3b7b", back_color="white")
+            img.save(os.path.join(get_output_directory(), 'images/custom_qrcode.png'))
+            customqr_valid = True
+    
     
     # Parser settings
     parser = etree.XMLParser(remove_blank_text=True, remove_comments=True)
@@ -1422,8 +1526,8 @@ def opale_to_tex(args):
     (flashcard_list, subject_list, question_count, err_count) = parse_files(args, question_count, err_count, parser, licence_theme, subject)
     
     sorted_list = sort_flashcards_by_subject(flashcard_list, set(subject_list))
-    write_outfile_header(set(subject_list))
-    (accepted, rejected) = write_flashcards(sorted_list)
+    write_outfile_header(set(subject_list), customqr_valid)
+    (accepted, rejected) = write_flashcards(sorted_list, customqr_valid)
     write_outfile_footer(set(subject_list))
 
     # Check out.tex
