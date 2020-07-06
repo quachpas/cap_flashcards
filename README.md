@@ -135,10 +135,9 @@ You will need the following:
 - Source files: the sources files **must be mcqSur or mcqMur quizzes** XML files, which you can download from your SCENARIchain server using the export option or export from your SCENARIchain desktop app. Find more details in the [Getting started](#getting-started) section.
 - Licence theme file: as seen above, the flashcards each have a **subject** and a **theme**. As these are stored in the form of a code (#subj-them) in the source file, we need to produce a dictionary with all valid associations. This dictionary can be hard-coded in the script in the `opale_to_tex` function.
 - Media resources: 
-  - Compulsory resources are the subject logo (upper left) and university's logo (bottom right on the front). 
-    > Both of these **must be** SVG files.
-  - an icon and a logo are provided by default in [Python/output/images](./Python/output/images). 
-> The script uses some tags that are present in Opale's document models **mcqSur** and **mcqMur**. Please find Opale's documentation [here](https://download.scenari.software/Opale@3.7/).
+  - Assets for different subjects are provided.
+
+> The script uses Opale's document models **mcqSur** and **mcqMur**. Please find Opale's documentation [here](https://download.scenari.software/Opale@3.7/).
 
 **You will find more details on how to obtain a scar archive in the wiki. This particular page is written in French.**
 
@@ -159,14 +158,19 @@ pip3 install Pillow
 pip3 install qrcode
 ```
 
-> Inkscape will try to create /var/www/.config/inkscape
+> Inkscape will try to create /var/www/.config/inkscape, so the user running the webserver needs the appropriate permissions on this folder.
+
+How to install :
+1. Move everything in the Web folder to your webserver root folder. 
+2. Give appropriate ownerhships/permissions recursively to the user.
+
 ## TeX Live and Inkscape
 
 Using another TeX Live version other than 2019 might create issues. Using inkscape 0.92 is also on purpose, since the `svg` package given with TeX Live 2019 does not recognises the newer version of inkscape. Upgrading to TeX Live 2020 and inkscape 1.0 is undefined behaviour, do so at your own risk.
 
 ## Contributing
 
-I'm open to any contributions. I am a complete beginner in regards to coding, and I am aware that my code has several design issues.
+I'm open to any contributions. I am a complete beginner in regards to coding, and I am aware that my code has several issues.
 Some parts might need to be completely refactored.
 
 ## Author

@@ -3,7 +3,7 @@ const FILES_EXTENSIONS = ['scar'];
 function error($text)
 {
 	require_once("header.php");
-	echo ($text);
+	echo ($text."</br><form><input type='button' value ='Retour' onclick'history.back()'></form>");
 	require_once("footer.php");
 	exit(1);
 }
@@ -107,6 +107,7 @@ if (!empty($_FILES)) {
 	if ($errcode === 0 && file_exists('latex.zip')) {
 		rename('latex.zip', $pathfinal . 'latex.zip');
 		echo "<p><a href=\"./upload/$id/latex.zip\">Téléchargez vos fichiers LaTeX</a></p>";
+		echo "<p><b>Attention, si le nombre de flashcards est important, la prévisualisation peut prendre du temps ... Jusqu'à 10~15 min pour 300+ flashcards.</b></p>";
 	} else {
 		echo '<pre>';
 		printlogs($cmdout_zip);
@@ -118,7 +119,7 @@ if (!empty($_FILES)) {
 	printlogs($cmdout_compile);
 
 	if (file_exists('out.pdf')) {
-		echo "<h2>Prévisualisation</h2></br><p><br><iframe width=\"800\" height=\"900\" src=\"./Python/output/out.pdf\"><a href=\"./Python/output/out.pdf\">Lien de prévisualisation PDF</a></iframe></p>";
+		echo "<h2>Prévisualisation</h2><p><br><iframe width=\"800\" height=\"900\" src=\"./Python/output/out.pdf\"><a href=\"./Python/output/out.pdf\">Lien de prévisualisation PDF</a></iframe></p>";
 	} else {
 		error("Erreur interne : la prévisualisation a échoué ");
 	}
@@ -144,7 +145,7 @@ Une fois imprimée et ajustée selon les repères de coupe, le produit final dev
 
 <ul>
 	<li>Exportez une archive .scar de vos contenus selon <a href="https://gitlab.utc.fr/quachpas/cap_flashcards/-/wikis/Rechercher-des-questions-sur-Sc%C3%A9nari">ce guide</a>. Faites attention à bien inclure le réseau descendant. La procédure d'export est importante, les fichiers .quiz doivent se trouver à la racine de l'archive, et non pas enfouis dans des dossiers. Il est possible de réorganiser une archive .scar par vos propres moyens en renommant le fichier en .zip.</li>
-	<li>Chargez l'archive .scar sur le site et envoyez la
+	<li>Chargez l'archive .scar sur le site et cliquez sur envoyez. Attention, si le nombre de flashcards est important, le compilation peut prendre du temps !
 		<form action="?" method="post" enctype="multipart/form-data">
 			<label for="file">.scar Opale:</label>
 			<input type="hidden" name="MAX_FILE_SIZE" value="262144000" />
