@@ -116,8 +116,10 @@ if (!empty($_FILES)) {
 	}
 
 
-	exec("xelatex -synctex=1 --file-line-error --interaction=batchmode --shell-escape out.tex", $cmdout_latex, $errcode);
-	exec("xelatex -synctex=1 --file-line-error --interaction=batchmode --shell-escape out.tex", $cmdout_latex, $errcode);
+	exec("xelatex -synctex=1 --file-line-error --shell-escape out.tex", $cmdout_latex, $errcode);
+	print_r($cmdout_latex)."</br>";
+	echo $errcode."</br>";
+	exec("xelatex -synctex=1 --file-line-error --shell-escape out.tex", $cmdout_latex, $errcode);
 	print_r($cmdout_latex)."</br>";
 	echo $errcode;
 	if ($errcode === 0 && file_exists('out.pdf')) {
