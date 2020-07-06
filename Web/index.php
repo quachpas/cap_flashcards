@@ -116,13 +116,9 @@ if (!empty($_FILES)) {
 	}
 
 
-	exec("xelatex -synctex=1 --file-line-error --shell-escape out.tex", $cmdout_latex, $errcode);
-	print_r($cmdout_latex)."</br>";
-	echo $errcode."</br>";
-	exec("xelatex -synctex=1 --file-line-error --shell-escape out.tex", $cmdout_latex, $errcode);
-	print_r($cmdout_latex)."</br>";
-	echo $errcode;
-	if ($errcode === 0 && file_exists('out.pdf')) {
+	exec("xelatex -synctex=1 --file-line-error --shell-escape out.tex", $cmdout_latex);
+	exec("xelatex -synctex=1 --file-line-error --shell-escape out.tex", $cmdout_latex);
+	if (file_exists('out.pdf')) {
 		echo "<p>Prévisualisation : <br><iframe width=\"800\" height=\"900\" src=\"./upload/$id/out.pdf\"><a href=\"./upload/$id/out.pdf\">Lien de prévisualisation PDF</a></iframe></p>";
 		printlogs($cmdout_latex);
 	} else {

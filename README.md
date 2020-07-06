@@ -159,6 +159,7 @@ pip3 install Pillow
 pip3 install qrcode
 ```
 
+> Inkscape will try to create /var/www/.config/inkscape
 ## TeX Live and Inkscape
 
 Using another TeX Live version other than 2019 might create issues. Using inkscape 0.92 is also on purpose, since the `svg` package given with TeX Live 2019 does not recognises the newer version of inkscape. Upgrading to TeX Live 2020 and inkscape 1.0 is undefined behaviour, do so at your own risk.
