@@ -92,7 +92,7 @@ if (!empty($_FILES)) {
 
 	echo "Fichier accepté... Traitement en cours...</br>";
 	chdir("./Python");
-	exec("python3 opale2flashcard.py $pathin themeLicence.xml", $cmdout_python, $errcode);
+	exec("python3 opale2flashcard.py $pathin themeLicence.xml 2>&1", $cmdout_python, $errcode);
 	if ($errcode === 0 && file_exists('output/out.tex')) {
 		echo "<br><b>Conversion terminée !</b><br>";
 		printlogs($cmdout_python);
@@ -103,7 +103,7 @@ if (!empty($_FILES)) {
 	
 	chdir("./output");
 
-	exec("zip -r latex.zip .", $cmdout_zip, $errcode);
+	exec("zip -r latex.zip . 2>&1", $cmdout_zip, $errcode);
 	if ($errcode === 0 && file_exists('latex.zip')) {
 		rename('latex.zip', $pathfinal . 'latex.zip');
 		echo "<p><a href=\"./upload/$id/latex.zip\">Téléchargez vos fichiers LaTeX</a></p>";
@@ -114,8 +114,9 @@ if (!empty($_FILES)) {
 		echo '</pre>';
 	}
 
-	exec("sh ./compile.sh", $cmdout_compile, $errcode_compile);
+	exec("sh ./compile.sh 2>&1", $cmdout_compile, $errcode_compile);
 	printlogs($cmdout_compile);
+	echo $errcode_compile;
 
 	if (file_exists('out.pdf')) {
 		echo "<p>Prévisualisation : <br><iframe width=\"800\" height=\"900\" src=\"./Python/output/out.pdf\"><a href=\"./Python/output/out.pdf\">Lien de prévisualisation PDF</a></iframe></p>";
