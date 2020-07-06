@@ -80,7 +80,7 @@ The script has only been tested on a linux system so far (Ubuntu 18.04.4 LTS). I
 The script calls that tool **twice** and it can take up to a few minutes to produce a complete pdf of a few hundreds flashcards.
 
 #### Linux systems
-Install `python3` if needed and `inkscape` ([Installation guide](https://wiki.inkscape.org/wiki/index.php/Installing_Inkscape#Installing_on_Linux)), these are required packages.
+Install `python3` if needed and `inkscape` 0.92 ([Installation guide](https://wiki.inkscape.org/wiki/index.php/Installing_Inkscape#Installing_on_Linux)), these are required packages.
 
 I use `xelatex`to compile my `.tex` files.
 
@@ -89,6 +89,8 @@ You may need to update your packages.
 ```bash
 apt update
 apt install libcanberra-gtk-module libcanberra-gtk3-module
+add-apt-repository ppa:inkscape.dev/stable-0.92
+apt update
 apt install inkscape
 apt install latexmk
 apt install texlive-xetex
@@ -146,16 +148,20 @@ The web part has been tested using php7.4-fpm + nginx on Ubuntu 20.04 LTS server
 
 Script dependencies :
 ```
-sudo add-apt-repository ppa:inkscape.dev/stable
-sudo apt update
-sudo apt install inkscape
+add-apt-repository ppa:inkscape.dev/stable-0.92
+apt update
+apt install inkscape
 apt install texlive-xetex
-sudo apt install python3
-sudo apt install python3-pip
+apt install python3
+apt install python3-pip
 pip3 install lxml
 pip3 install Pillow
 pip3 install qrcode
 ```
+
+## TeX Live and Inkscape
+
+Using another TeX Live version other than 2019 might create issues. Using inkscape 0.92 is also on purpose, since the `svg` package given with TeX Live 2019 does not recognises the newer version of inkscape. Upgrading to TeX Live 2020 and inkscape 1.0 is undefined behaviour, do so at your own risk.
 
 ## Contributing
 
