@@ -114,7 +114,7 @@ if (!empty($_FILES)) {
 		echo '</pre>';
 	}
 
-	exec("sh ./compile.sh 2>&1", $cmdout_compile, $errcode_compile);
+	exec("sh compile.sh 2>&1", $cmdout_compile, $errcode_compile);
 	printlogs($cmdout_compile);
 	echo $errcode_compile;
 
