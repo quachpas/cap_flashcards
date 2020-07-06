@@ -1,5 +1,4 @@
 <?php
-ini_set("error_log", "/var/log/cap_flashcards.log");
 const FILES_EXTENSIONS = ['scar'];
 function error($text)
 {
@@ -93,7 +92,7 @@ if (!empty($_FILES)) {
 
 	echo "Fichier accepté... Traitement en cours...</br>";
 	chdir("./Python");
-	exec("python3 opale2flashcard.py $pathin themeLicence.xml --compile", $cmdout_python, $errcode);
+	exec("python3 opale2flashcard.py $pathin themeLicence.xml", $cmdout_python, $errcode);
 	if ($errcode === 0 && file_exists('output/out.tex')) {
 		echo "<br><b>Conversion terminée !</b><br>";
 		printlogs($cmdout_python);
@@ -107,13 +106,15 @@ if (!empty($_FILES)) {
 	exec("zip -r latex.zip .", $cmdout_zip, $errcode);
 	if ($errcode === 0 && file_exists('latex.zip')) {
 		rename('latex.zip', $pathfinal . 'latex.zip');
-		echo "<p><a href=\"./upload/$id/latex.zip\">Téléchargez vos fichiers</a></p>";
+		echo "<p><a href=\"./upload/$id/latex.zip\">Téléchargez vos fichiers LaTeX</a></p>";
 	} else {
 		echo '<pre>';
 		printlogs($cmdout_zip);
 		error("Erreur interne : la production du fichier zip des fichiers tex a échouée");
 		echo '</pre>';
 	}
+
+	shell_exec("sh ./compile.sh");
 
 	if (file_exists('out.pdf')) {
 		echo "<p>Prévisualisation : <br><iframe width=\"800\" height=\"900\" src=\"./Python/output/out.pdf\"><a href=\"./Python/output/out.pdf\">Lien de prévisualisation PDF</a></iframe></p>";
