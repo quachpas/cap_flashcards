@@ -116,10 +116,9 @@ if (!empty($_FILES)) {
 
 	exec("sh compile.sh 2>&1", $cmdout_compile, $errcode_compile);
 	printlogs($cmdout_compile);
-	echo $errcode_compile;
 
 	if (file_exists('out.pdf')) {
-		echo "<p>Prévisualisation : <br><iframe width=\"800\" height=\"900\" src=\"./Python/output/out.pdf\"><a href=\"./Python/output/out.pdf\">Lien de prévisualisation PDF</a></iframe></p>";
+		echo "<h2>Prévisualisation</h2></br><p><br><iframe width=\"800\" height=\"900\" src=\"./Python/output/out.pdf\"><a href=\"./Python/output/out.pdf\">Lien de prévisualisation PDF</a></iframe></p>";
 	} else {
 		error("Erreur interne : la prévisualisation a échoué ");
 	}
