@@ -1,5 +1,5 @@
 <?php
-ini_set("error_log", "/var/log/cap_flashcards.log")
+ini_set("error_log", "/var/log/cap_flashcards.log");
 const FILES_EXTENSIONS = ['scar'];
 function error($text)
 {
