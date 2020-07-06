@@ -1113,11 +1113,11 @@ def write_output(flashcard, question_count, customqr_valid):
         licence_theme = ''
     
     if (customqr_valid is True):
-        qrcode = '{custom_qrcode.png}\n'
+        qrcode = 'custom_qrcode.png'
     else:
-        qrcode = '{icons/\subjecticon}\n'
+        qrcode = 'icons/\subjecticon'
                           
-    output.append('\\cardbackground\n{' + complexity_level + '}\n{' + subject + '}\n{' + licence_theme + '}\n{' + qrcode + '}')
+    output.append('\\cardbackground\n{' + complexity_level + '}\n{' + subject + '}\n{' + licence_theme + '}\n{' + qrcode + '}\n')
     # TODO : Qrcode ici, hardcoded. HARDCODED
 
     output.append('\\begin{flashcard}[]{\n\\color{black}\n')
