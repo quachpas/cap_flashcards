@@ -469,7 +469,6 @@ def write_solution(question_type, solution_list, choice_number, question_count):
         (x_shift_1, x_shift_2, y_shift_1, y_shift_2) = solution_positions_a4paper(question_count)
     elif (args.a4paper == False):
         (x_shift_1, x_shift_2, y_shift_1, y_shift_2) = ('-0.25cm', '2.75cm', '2.25cm', '2.25cm')
-
     
     choice_number += 1
 
@@ -511,25 +510,25 @@ def solution_positions_a4paper(question_count):
     # Positions are "reversed"
     if (question_count % 2 == 1):
         # Right side
-        x_shift_1 = '3.1cm'
-        x_shift_2 = '6.6cm'
+        x_shift_1 = '14.75cm'
+        x_shift_2 = '17.75cm'
     else :
         # Left side 
-        x_shift_1 = '-7cm'
-        x_shift_2 = '-3.5cm'
+        x_shift_1 = '4.75cm'
+        x_shift_2 = '7.75cm'
 
     if (question_count <= 2):
         # Upper
-        y_shift_1 = '13.05cm'
-        y_shift_2 = '13.06cm'
+        y_shift_1 = '-1.75cm'
+        y_shift_2 = y_shift_1
     elif (question_count <= 4):
         # Middle
-        y_shift_1 = '5.05cm'
-        y_shift_2 = '5.06cm'
+        y_shift_1 = '-9.85cm'
+        y_shift_2 = y_shift_1
     else:
         # Lower
-        y_shift_1 = '-2.97cm'
-        y_shift_2 = '-2.96cm'
+        y_shift_1 = '-17.95cm'
+        y_shift_2 = y_shift_1
     
     return (x_shift_1, x_shift_2, y_shift_1, y_shift_2)
 
@@ -1287,23 +1286,47 @@ def write_header(output_dir, outfile_path, customqr_valid):
     # Open outfile
     outfile = open(os.open(outfile_path, os.O_WRONLY | os.O_CREAT, 0o700), 'a', encoding = 'utf-8')
 
-    # Write header
+    # Select header
     if (args.a4paper == True):
         header = open(header_a4paper_path,'r', encoding="utf-8")
+        # Write header
+        for line in header.readlines():
+            if ('% Graphicspath' not in line
+             and '% QRCODE 1' not in line
+             and '% QRCODE 2' not in line
+             and '% QRCODE 3' not in line
+             and '% QRCODE 4' not in line
+             and '% QRCODE 5' not in line
+             and '% QRCODE 6' not in line):
+                outfile.write(line)
+            elif('% Graphicspath' in line):
+                outfile.write('\graphicspath{{./images/}}\n')
+            elif('% QRCODE 1' in line):
+                outfile.write('                        \includegraphics[width = 0.120\cardwidth, keepaspectratio]{\FCone@qrcode}\n')
+            elif('% QRCODE 2' in line):
+                outfile.write('                        \includegraphics[width = 0.120\cardwidth, keepaspectratio]{\FCtwo@qrcode}\n')
+            elif('% QRCODE 3' in line):
+                outfile.write('                        \includegraphics[width = 0.120\cardwidth, keepaspectratio]{\FCthree@qrcode}\n')
+            elif('% QRCODE 4' in line):
+                outfile.write('                        \includegraphics[width = 0.120\cardwidth, keepaspectratio]{\FCfour@qrcode}\n')
+            elif('% QRCODE 5' in line):
+                outfile.write('                        \includegraphics[width = 0.120\cardwidth, keepaspectratio]{\FCfive@qrcode}\n')
+            elif('% QRCODE 6' in line):
+                outfile.write('                        \includegraphics[width = 0.120\cardwidth, keepaspectratio]{\FCsix@qrcode}\n')
     else:
         header = open(header_default_path,'r', encoding="utf-8")
-    for line in header.readlines():
-        if ('% Graphicspath' not in line and '% QRCODE' not in line):
-            outfile.write(line)
-        elif('% Graphicspath' in line):
-            outfile.write('\graphicspath{{./images/}}\n')
-        elif('% QRCODE' in line):
-            if (customqr_valid is True):
-                outfile.write('                        \\includegraphics[width = 0.150\\textwidth, keepaspectratio]{#4}\n')
-            else:
-                outfile.write('                        \\includesvg[height = 0.175\\textheight]{#4}\n')
-                # TODO : inverted logo ? #4 -> #4-inverted
-            
+        # Write header
+        for line in header.readlines():
+            if ('% Graphicspath' not in line and '% QRCODE' not in line):
+                outfile.write(line)
+            elif('% Graphicspath' in line):
+                outfile.write('\graphicspath{{./images/}}\n')
+            elif('% QRCODE' in line):
+                if (customqr_valid is True):
+                    outfile.write('                        \\includegraphics[width = 0.150\\textwidth, keepaspectratio]{#4}\n')
+                else:
+                    outfile.write('                        \\includesvg[height = 0.175\\textheight]{#4}\n')
+                    # TODO : inverted logo ? #4 -> #4-inverted
             
     outfile.write('\n\n')
     header.close
