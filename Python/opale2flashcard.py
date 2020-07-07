@@ -465,9 +465,9 @@ def write_logs(err_message, verb_err_message):
 
 def write_solution(question_type, solution_list, choice_number, question_count):
     output = ''
-    if (question_count is not None and args.a4paper == True):
+    if (args.a4paper is True):
         (x_shift_1, x_shift_2, y_shift_1, y_shift_2) = solution_positions_a4paper(question_count)
-    elif (args.a4paper == False):
+    else:
         (x_shift_1, x_shift_2, y_shift_1, y_shift_2) = ('-0.25cm', '2.75cm', '2.25cm', '2.25cm')
     
     choice_number += 1
@@ -1030,60 +1030,76 @@ def process_error(flashcard):
             flashcard.err_message
         ) 
         
-def write_rejected(flashcard, output, rejected):
+def write_rejected(flashcard, output, rejected, flashcard_list, current_index, customqr_valid):
     if (flashcard.subject.lower() in rejected):
         rejected[flashcard.subject.lower()] += 1
     else:
         rejected[flashcard.subject.lower()] = 1
     
-    if (flashcard.subject.lower() == ''):
-        write_outfile(output, 'unclassifiable-rejected')
+    if (args.a4paper is True and current_index % 6 == 0):
+        (kvp_settings_all, kvp_settings_by_subject) = write_kvp(flashcard_list, current_index, False, customqr_valid)
+        output_subj = kvp_settings_by_subject[flashcard.subject.lower()] + output
+        output_all = kvp_settings_all + output
     else:
-        write_outfile(output, flashcard.subject.lower() + '-rejected')
+        output_subj = output
+        output_all = output
         
-    write_outfile(output, 'rejected')
+    if (flashcard.subject.lower() == ''):
+        write_outfile(output_subj, 'unclassifiable-rejected')
+    else:
+        write_outfile(output_subj, flashcard.subject.lower() + '-rejected')
+        
+    write_outfile(output_all, 'rejected')
     
     return rejected    
 
-def write_accepted(flashcard, output, accepted):
+def write_accepted(flashcard, output, accepted, flashcard_list, current_index, customqr_valid):
     if (flashcard.subject.lower() in accepted):
         accepted[flashcard.subject.lower()] += 1
     else:
         accepted[flashcard.subject.lower()] = 1
         
-    write_outfile(output, flashcard.subject.lower())
-    write_outfile(output, None)
+    if (args.a4paper is True and current_index % 6 == 0):
+        (kvp_settings_all, kvp_settings_by_subject) = write_kvp(flashcard_list, current_index, True, customqr_valid)
+        output_subj = kvp_settings_by_subject[flashcard.subject.lower()] + output        
+        output_all = kvp_settings_all + output
+    else:
+        output_subj = output
+        output_all = output
+
+    write_outfile(output_subj, flashcard.subject.lower())
+    write_outfile(output_all, None)
     
     return accepted
     
-def write_flashcard(flashcard, output, accepted, rejected):
+def write_flashcard(flashcard, output, accepted, rejected, flashcard_list, current_index, customqr_valid):
     if (flashcard.err_flag is False and flashcard.overflow_flag is False and flashcard.relevant is True or args.force == True):
-        accepted = write_accepted(flashcard, output, accepted)
+        accepted = write_accepted(flashcard, output, accepted, flashcard_list, current_index, customqr_valid)
         
     else:
-        rejected = write_rejected(flashcard, output, rejected)
+        rejected = write_rejected(flashcard, output, rejected, flashcard_list, current_index, customqr_valid)
         
     return (accepted, rejected)
         
-def process_write_outfile(flashcard, output, accepted, rejected):
+def process_write_outfile(flashcard, output, accepted, rejected, flashcard_list, current_index, customqr_valid):
     # If any output options have been declared
     if (args.file_name is not None or args.image_only is True or args.overflow_only is True or args.non_relevant_only is True):
         # Treat each `option`
         if (args.file_name == flashcard.file and args.file_name is not None):
-            (accepted, rejected) = write_flashcard(flashcard, output, accepted, rejected)
+            (accepted, rejected) = write_flashcard(flashcard, output, accepted, rejected, flashcard_list, current_index, customqr_valid)
             
         elif (flashcard.image is not None and args.image_only is True):
-            (accepted, rejected) = write_flashcard(flashcard, output, accepted, rejected)
+            (accepted, rejected) = write_flashcard(flashcard, output, accepted, rejected, flashcard_list, current_index, customqr_valid)
             
         elif (flashcard.overflow_flag is True and args.overflow_only is True):
-            (accepted, rejected) = write_flashcard(flashcard, output, accepted, rejected)
+            (accepted, rejected) = write_flashcard(flashcard, output, accepted, rejected, flashcard_list, current_index, customqr_valid)
             
         elif (flashcard.relevant is False and args.non_relevant_only is True):
-            (accepted, rejected) = write_flashcard(flashcard, output, accepted, rejected)
+            (accepted, rejected) = write_flashcard(flashcard, output, accepted, rejected, flashcard_list, current_index, customqr_valid)
             
     # Else, just write the output if the flashcard is valid, or force option has been set
     else:
-        (accepted, rejected) = write_flashcard(flashcard, output, accepted, rejected)
+        (accepted, rejected) = write_flashcard(flashcard, output, accepted, rejected, flashcard_list, current_index, customqr_valid)
         
     return (accepted, rejected)
 
@@ -1181,51 +1197,6 @@ def write_output(flashcard, question_count, customqr_valid):
     output.append('\\vspace*{\\stretch{1}}\n\\end{flashcard}\n\n')
     
     return output
-   
-def write_out_a4paper(flashcard_list):
-    output_list = []
-    footer = ['\\cardfrontfooter']
-    question_count = 0 # Keeps track which question we're processing on a page [0-6]
-    question_number = 0 # Keeps track of which question we're processing in flashcard_list [0-len(flashcard_list)]
-    error_count = 0 # Tracking number of questions with missing metadata
-
-    # Main Loop
-    for fc in flashcard_list:
-        question_number += 1
-        question_count += 1
-        output_list.append(write_output(fc, question_count))
-        if (question_count != 6 and len(flashcard_list) - question_number >= 1):
-            # If len(flashcard_list) - question_number is between 6 and 1, then we're processing the last page of flashcards
-            # The number of remaining flashcards will not be sufficient to do another loop
-            # So we treat the last flashcard separately 
-            footer.append('{' + fc.complexity_level + '}\n')
-        elif (len(flashcard_list) - question_number == 0 ):
-            footer.append(fc.complexity_level + '}\n')
-        else:
-            question_count = 0
-            footer.append('{' + fc.complexity_level + '}\n')
-            output = ''.join(footer)
-            for fc in output_list:
-                output += ''.join(fc)
-            write_outfile(output, fc.subject.lower())
-            output = ''
-            output_list = []
-            footer = ['\cardfrontfooter']
-
-    # Writing "\cardfrontfooter{.}{.}{.}{.}{.}{.}"
-    output = ''.join(footer)
-
-    # Adding the missing empty parameters to \cardfrontfooter
-    for _ in range(0, 6 - question_count):
-        output += '{}\n'
-
-    # Writing output string
-    for fc in output_list:
-        output += ''.join(fc)
-    
-    write_outfile(output, fc.subject.lower())
-
-    return error_count
 
 
 def write_background_parameter(flashcard):
@@ -1375,6 +1346,68 @@ def write_footer(output_dir, outfile_path):
     
     footer.close
 
+def kvp_full(dict):
+    for values in list(dict.values()):
+        if (len(values) != 6):
+            return False
+    if (not dict):
+        return False
+    return True
+
+def write_kvp(flashcard_list, current_index, status, customqr_valid):
+    # Status = accepted/rejected.
+    kvp_settings_by_subject = {}
+    kvp_settings_all = []
+    families = ["One", "Two", "Three", "Four", "Five", "Six"]
+    families_indexes = {}
+    i = current_index
+
+    while not kvp_full(kvp_settings_by_subject):
+        flashcard_validity = flashcard_list[current_index].err_flag is False and flashcard_list[current_index].overflow_flag is False and flashcard_list[current_index].relevant is True or args.force is True
+        flashcard_subject = flashcard_list[current_index].subject
+        if (status is False):
+            # Only accept rejected flashcards
+            flashcard_validity = not flashcard_validity
+
+        if (flashcard_validity):
+            if (flashcard_subject.lower() in families_indexes):
+                families_indexes[flashcard_subject.lower()] += 1
+            else:
+                families_indexes[flashcard_subject.lower()] = 0
+
+            if (args.add_complexity_level is True and flashcard_list[current_index].complexity_level is not None):
+                complexity_level = flashcard_list[current_index].complexity_level
+            else:
+                complexity_level = ''
+            
+            if (flashcard_list[current_index].subject is not None):
+                subject = flashcard_list[current_index].subject
+            else:
+                subject = ''
+            
+            if (flashcard_list[current_index].licence_theme is not None):
+                licence_theme = flashcard_list[current_index].licence_theme
+            else:
+                licence_theme = ''
+            
+            if (customqr_valid is True):
+                qrcode = 'custom_qrcode.png'
+            else:
+                qrcode = 'icons/\subjecticon'
+            
+            if (len(kvp_settings_all) < 6):
+                kvp_settings_all += ["\setkeys{" + families[len(kvp_settings_all)] + "}{\ncomplexityLevel = {" + complexity_level + "},\nsubject = {" + subject + "},\ntheme = {" + licence_theme + "},\nqrcode = {" + qrcode + "}\n}\n"]
+
+            if (flashcard_subject.lower() in kvp_settings_by_subject):
+                kvp_settings_by_subject[flashcard_subject.lower()] += ["\setkeys{" + families[families_indexes[flashcard_subject.lower()]] + "}{\ncomplexityLevel = {" + complexity_level + "},\nsubject = {" + subject + "},\ntheme = {" + licence_theme + "},\nqrcode = {" + qrcode + "}\n}\n"]
+            else:
+                kvp_settings_by_subject[flashcard_subject.lower()] = ["\setkeys{" + families[families_indexes[flashcard_subject.lower()]] + "}{\ncomplexityLevel = {" + complexity_level + "},\nsubject = {" + subject + "},\ntheme = {" + licence_theme + "},\nqrcode = {" + qrcode + "}\n}\n"]
+
+        i += 1
+        
+
+    return (kvp_settings_all, kvp_settings_by_subject)
+
 
 def write_flashcards(flashcard_list, customqr_valid):
 # Write output string and write in outfile
@@ -1384,7 +1417,9 @@ def write_flashcards(flashcard_list, customqr_valid):
     output = []
     previous_subject = ''
     question_count = len(flashcard_list)
+    current_index = 0
     
+
     for flashcard in flashcard_list:
         # Background parameters
         if (flashcard.subject != previous_subject):
@@ -1393,16 +1428,13 @@ def write_flashcards(flashcard_list, customqr_valid):
             write_background_parameter(flashcard)
         
         # Create a standard output
-        if (args.a4paper is False):
-            for out in write_output(flashcard, None, customqr_valid):
-                output.append(out)
-        else:
-            for out in write_output(flashcard, question_count, customqr_valid):
-                output.append(out)
+        for out in write_output(flashcard, question_count, customqr_valid):
+            output.append(out)
 
         # Separate output according to flashcard validity
-        (accepted, rejected) = process_write_outfile(flashcard, output, accepted, rejected)
+        (accepted, rejected) = process_write_outfile(flashcard, output, accepted, rejected, flashcard_list, current_index, customqr_valid)
         output = []
+        current_index += 1
 
     return (accepted, rejected)
 
