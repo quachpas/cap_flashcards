@@ -1284,7 +1284,7 @@ def write_header(output_dir, outfile_path, customqr_valid):
     if os.path.isfile(outfile_path):
         os.remove(outfile_path)
 
-    # Open outfile 
+    # Open outfile
     outfile = open(os.open(outfile_path, os.O_WRONLY | os.O_CREAT, 0o700), 'a', encoding = 'utf-8')
 
     # Write header
@@ -1299,9 +1299,9 @@ def write_header(output_dir, outfile_path, customqr_valid):
             outfile.write('\graphicspath{{./images/}}\n')
         elif('% QRCODE' in line):
             if (customqr_valid is True):
-                outfile.write('                        \includegraphics[width = 0.150\\textwidth, keepaspectratio]{#4}\n')
+                outfile.write('                        \\includegraphics[width = 0.150\\textwidth, keepaspectratio]{#4}\n')
             else:
-                outfile.write('                        \includesvg[height = 0.175\\textheight]{#4}\n')
+                outfile.write('                        \\includesvg[height = 0.175\\textheight]{#4}\n')
                 # TODO : inverted logo ? #4 -> #4-inverted
             
             
@@ -1374,7 +1374,7 @@ def write_flashcards(flashcard_list, customqr_valid):
             (accepted, rejected) = process_write_outfile(flashcard, output, accepted, rejected)
             output = []
             question_count += 1
-            
+    
     return (accepted, rejected)
 
 def sort_flashcards_by_subject(flashcard_list, subject_set):
@@ -1387,7 +1387,8 @@ def sort_flashcards_by_subject(flashcard_list, subject_set):
         
     return sorted_list
 
-def parse_files(args, question_count, err_count, parser, licence_theme, subject): # Copy all files in sourcedir/Prettified and prettify XML
+def parse_files(args, question_count, err_count, parser, licence_theme, subject): 
+    # Copy all files in sourcedir
     sourcedir = os.path.abspath(args.sourcedir)
     subject_list = []
     flashcard_list = []
@@ -1499,7 +1500,6 @@ def opale_to_tex(args):
             img.save(os.path.join(get_output_directory(), 'images/custom_qrcode.png'))
             customqr_valid = True
     
-    
     # Parser settings
     parser = etree.XMLParser(remove_blank_text=True, remove_comments=True)
     # Theme tree
@@ -1532,7 +1532,6 @@ def opale_to_tex(args):
 
     # Check out.tex
 
-
     # Compile out.tex if option --compile has been declared
     compile_tex(args)
 
@@ -1548,6 +1547,7 @@ def opale_to_tex(args):
         print("WARNING : Mode debug has been declared. The filename will be written next to the theme level.")
     if (args.overflow_only == True):
         print("WARNING : Only potentially overflowing cards have been written in out.tex")
+
     ## Display number of errors / number of questions
     print('opale2flashcard.py: ' +str(err_count) + '/' + str(question_count) + ' flashcards errors, either metadata or overflowing content.\n These files will not be transcripted. Use option "--force" to ignore.\n')
     
@@ -1573,7 +1573,7 @@ def opale_to_tex(args):
     else:
         print("The .tex file has been compiled. The output pdf is in ./output directory. Please refer to output.log for eventual compilation errors.")
 
-start_time = time.time()                
+start_time = time.time()
 args = parser.parse_args()
 opale_to_tex(args)
 print("The script took {0:0.3f} seconds to complete.".format(time.time() - start_time))
