@@ -104,7 +104,6 @@ center
 \define@cmdkey{Six}[FCsix@]{theme}{}
 \define@cmdkey{Six}[FCsix@]{qrcode}{}
 
-
 \presetkeys{Two}{
     complexityLevel = none,
     subject = none,
@@ -135,14 +134,7 @@ center
     theme = none,
     qrcode = none
 }{}
-\newcommand{\setFCkeys}[6]{
-    \setkeys{One}{#1}
-    \setkeys{Two}{#2}
-    \setkeys{Three}{#3}
-    \setkeys{Four}{#4}
-    \setkeys{Five}{#5}
-    \setkeys{Six}{#6}
-}
+    
 \newcommand{\cardbackground}[1]{
     \SetBgContents{
         \AddToShipoutPictureBG*{
@@ -605,32 +597,37 @@ center
 {back_university_logo}% Back university logo
 
 % For 6 flashcards
-\setFCkeys{
+\setkeys{One}{
     complexityLevel = {Niveau de complexité},
     subject = {Physique},
     theme = {Lois de Kepler et Newton et leurs applications},
     qrcode = {qrcode}
-}{
+}
+\setkeys{Two}{
     complexityLevel = {Niveau de complexité},
     subject = {Physique},
     theme = {Lois de Newton et Kepler et leurs applications},
     qrcode = {qrcode}
-}{
+}
+\setkeys{Three}{
     complexityLevel = {Comprendre, appliquer},
     subject = {Physique},
     theme = {Lois de Newton et Kepler et leurs applications},
     qrcode = {qrcode}
-}{
+}
+\setkeys{Four}{
     complexityLevel = {Changement de langage},
     subject = {Physique},
     theme = {Optique géométrique},
     qrcode = {qrcode}
-}{
+}
+\setkeys{Five}{
     complexityLevel = {Changement de langage},
     subject = {Physique},
     theme = {Optique géométrique},
     qrcode = {qrcode}
-}{
+}
+\setkeys{Six}{
     complexityLevel = {Changement de langage},
     subject = {Physique},
     theme = {Optique géométrique},

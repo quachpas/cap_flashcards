@@ -1096,28 +1096,28 @@ def write_output(flashcard, question_count, customqr_valid):
     output.append('% Flashcard : ' + flashcard.file + '/' + flashcard.question_type + '\n')
     output.append('% (Q, C, A) : ' + str(flashcard.question_length) + ', ' + str(flashcard.choices_length) + ', ' + str(flashcard.answer_length) + '\n')
 
-    if (args.add_complexity_level is True and flashcard.complexity_level is not None):
-        complexity_level = flashcard.complexity_level
-    else:
-        complexity_level = ''
+    if (args.a4paper is False):
+        if (args.add_complexity_level is True and flashcard.complexity_level is not None):
+            complexity_level = flashcard.complexity_level
+        else:
+            complexity_level = ''
+        
+        if (flashcard.subject is not None):
+            subject = flashcard.subject
+        else:
+            subject = ''
+        
+        if (flashcard.licence_theme is not None):
+            licence_theme = flashcard.licence_theme
+        else:
+            licence_theme = ''
+        
+        if (customqr_valid is True):
+            qrcode = 'custom_qrcode.png'
+        else:
+            qrcode = 'icons/\subjecticon'
     
-    if (flashcard.subject is not None):
-        subject = flashcard.subject
-    else:
-        subject = ''
-    
-    if (flashcard.licence_theme is not None):
-        licence_theme = flashcard.licence_theme
-    else:
-        licence_theme = ''
-    
-    if (customqr_valid is True):
-        qrcode = 'custom_qrcode.png'
-    else:
-        qrcode = 'icons/\subjecticon'
-                          
-    output.append('\\cardbackground\n{' + complexity_level + '}\n{' + subject + '}\n{' + licence_theme + '}\n{' + qrcode + '}\n')
-    # TODO : Qrcode ici, hardcoded. HARDCODED
+        output.append('\\cardbackground\n{' + complexity_level + '}\n{' + subject + '}\n{' + licence_theme + '}\n{' + qrcode + '}\n')
 
     output.append('\\begin{flashcard}[]{\n\\color{black}\n')
     output.append('\\vspace{' + str(vspace_question) + '\\textheight}\n\\RaggedRight\n')
@@ -1229,7 +1229,11 @@ def write_out_a4paper(flashcard_list):
 
 
 def write_background_parameter(flashcard):
-    backgroundparam = ['\\backgroundparam\n{' + flashcard.subject.lower() + '}\n{' + flashcard.subject.lower() + '-front-header}\n{' + flashcard.subject.lower() + '-front-footer}\n{' + flashcard.subject.lower() + '-back-background}\n{' + flashcard.subject.lower() + '-back-header}\n{' + flashcard.subject.lower() + '-back-footer}\n{front-university-logo}\n{back-university-logo}\n']
+    if (args.a4paper is False):
+        backgroundparam = ['\\backgroundparam\n{' + flashcard.subject.lower() + '}\n{' + flashcard.subject.lower() + '-front-header}\n{' + flashcard.subject.lower() + '-front-footer}\n{' + flashcard.subject.lower() + '-back-background}\n{' + flashcard.subject.lower() + '-back-header}\n{' + flashcard.subject.lower() + '-back-footer}\n{front-university-logo}\n{back-university-logo}\n']
+    else:
+        backgroundparam = ['\\backgroundparam\n{' + flashcard.subject.lower() + '}\n{' + flashcard.subject.lower() + '-precropped-front-header}\n{' + flashcard.subject.lower() + '-precropped-front-footer}\n{' + flashcard.subject.lower() + '-precropped-back-background}\n{' + flashcard.subject.lower() + '-precropped-back-header}\n{' + flashcard.subject.lower() + '-precropped-back-footer}\n{front-university-logo}\n{back-university-logo}\n']
+
     if (flashcard.err_flag is False and flashcard.overflow_flag is False and flashcard.relevant is True or args.force is True):
         write_outfile(backgroundparam, flashcard.subject.lower())
         write_outfile(backgroundparam, None)
@@ -1379,25 +1383,27 @@ def write_flashcards(flashcard_list, customqr_valid):
     rejected = {}
     output = []
     previous_subject = ''
+    question_count = len(flashcard_list)
     
-    if (args.a4paper == False):
-        question_count = 0
-        for flashcard in flashcard_list:
-            # Background parameters
-            if (flashcard.subject != previous_subject):
-                if (flashcard.err_flag is False and flashcard.overflow_flag is False and flashcard.relevant is True):
-                    previous_subject = flashcard.subject
-                write_background_parameter(flashcard)
-            
-            # Create a standard output
+    for flashcard in flashcard_list:
+        # Background parameters
+        if (flashcard.subject != previous_subject):
+            if (flashcard.err_flag is False and flashcard.overflow_flag is False and flashcard.relevant is True):
+                previous_subject = flashcard.subject
+            write_background_parameter(flashcard)
+        
+        # Create a standard output
+        if (args.a4paper is False):
             for out in write_output(flashcard, None, customqr_valid):
                 output.append(out)
-            
-            # Separate output according to flashcard validity
-            (accepted, rejected) = process_write_outfile(flashcard, output, accepted, rejected)
-            output = []
-            question_count += 1
-    
+        else:
+            for out in write_output(flashcard, question_count, customqr_valid):
+                output.append(out)
+
+        # Separate output according to flashcard validity
+        (accepted, rejected) = process_write_outfile(flashcard, output, accepted, rejected)
+        output = []
+
     return (accepted, rejected)
 
 def sort_flashcards_by_subject(flashcard_list, subject_set):
