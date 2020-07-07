@@ -142,64 +142,263 @@ center
     \setkeys{Five}{#5}
     \setkeys{Six}{#6}
 }
-\newcommand{\cardbackground}{
+\newcommand{\cardbackground}[1]{
     \SetBgContents{
-        \AddToShipoutPictureBG*{    
+        \AddToShipoutPictureBG*{
             \begin{tikzpicture}[remember picture, overlay]
-                
+                % Front + 8.1 cm
+                % Back + 8.1 cm
                 \checkoddpage
                 \ifoddpage
                 %%%%%% FC ONE
+                \ifnum#1>0
                     % Subject front header
-                    \node at ([xshift = 4 cm, yshift = -1 cm]current page.north west) {
+                    \node at ([xshift = 4 cm, yshift = -1.13 cm]current page.north west) {
                         \includesvg[width = 0.8\cardwidth]{\frontheader}
                     };
                     % Subject front footer
-                    \node at ([xshift = 5.25 cm, yshift = -7.5 cm]current page.north west) {
+                    \node at ([xshift = 6 cm, yshift = -7.45 cm]current page.north west) {
                         \includesvg[width = 0.8\cardwidth]{\frontfooter}
                     };
                     % Subject icon
-                    \node [opacity = 1] at ([xshift = 1.5 cm, yshift = -1.125 cm]current page.north west) {
-                        \includesvg[height = 0.15\cardheight]{icons/\subjecticon}
+                    \node [opacity = 1] at ([xshift = 1 cm, yshift = -1.1 cm]current page.north west) {
+                        \includesvg[height = 0.160\cardheight]{icons/\subjecticon}
                     };
                     % Subject text
-                    \node [opacity = 1] at ([xshift = 3.5 cm, yshift = -0.85 cm]current page.north west) {
+                    \node [opacity = 1] at ([xshift = 2.85 cm, yshift = -0.85 cm]current page.north west) {
                         \color{white}
                         \huge
                         \textsf{\FCone@subject}
                     };
                     % Theme
-                    \node [opacity = 1] at ([xshift = 7 cm, yshift = -2.25 cm]current page.north west) {
+                    \node [opacity = 1] at ([xshift = 7 cm, yshift = -2.1 cm]current page.north west) {
                         \begin{varwidth}{0.5\cardwidth}
                             \setlength{\parskip}{0 cm}
                             \color{uniscielblue}
                             \RaggedLeft
                             \LARGE
-                            \textsf{\FCone@theme}    
+                            \textsf{\FCone@theme}
                         \end{varwidth}
                     };
                     % University front logo
-                    \node [opacity=1] at ([xshift = 8.25 cm, yshift = -7.5 cm]current page.north west) {                    
-                        \includegraphics[max height = 0.135\cardheight, center, keepaspectratio]{\frontuniversitylogo}
+                    \node [opacity=1] at ([xshift = 8.25 cm, yshift = -7.45 cm]current page.north west) {                    
+                        \includegraphics[max height = 0.125\cardheight, center, keepaspectratio]{\frontuniversitylogo}
                     };
                     % Complexity level
-                    \node [opacity=1] at ([xshift = 2.75 cm, yshift = -7 cm]current page.north west) {
+                    \node [opacity=1] at ([xshift = 2.5 cm, yshift = -7.05 cm]current page.north west) {
                         \color{uniscielpink}
                         \textit{\FCone@complexityLevel}
                     };
+                \fi
                 %%%%%% FC TWO
+                \ifnum #1>1
+                % Subject front header
+                    \node at ([xshift = 14 cm, yshift = -1.13 cm]current page.north west) {
+                        \includesvg[width = 0.8\cardwidth]{\frontheader}
+                    };
+                    % Subject front footer
+                    \node at ([xshift = 16 cm, yshift = -7.45 cm]current page.north west) {
+                        \includesvg[width = 0.8\cardwidth]{\frontfooter}
+                    };
+                    % Subject icon
+                    \node [opacity = 1] at ([xshift = 11 cm, yshift = -1.1 cm]current page.north west) {
+                        \includesvg[height = 0.160\cardheight]{icons/\subjecticon}
+                    };
+                    % Subject text
+                    \node [opacity = 1] at ([xshift = 12.85 cm, yshift = -0.85 cm]current page.north west) {
+                        \color{white}
+                        \huge
+                        \textsf{\FCone@subject}
+                    };
+                    % Theme
+                    \node [opacity = 1] at ([xshift = 17 cm, yshift = -2.1 cm]current page.north west) {
+                        \begin{varwidth}{0.5\cardwidth}
+                            \setlength{\parskip}{0 cm}
+                            \color{uniscielblue}
+                            \RaggedLeft
+                            \LARGE
+                            \textsf{\FCone@theme}
+                        \end{varwidth}
+                    };
+                    % University front logo
+                    \node [opacity=1] at ([xshift = 18.25 cm, yshift = -7.45 cm]current page.north west) {                    
+                        \includegraphics[max height = 0.125\cardheight, center, keepaspectratio]{\frontuniversitylogo}
+                    };
+                    % Complexity level
+                    \node [opacity=1] at ([xshift = 12.5 cm, yshift = -7.05 cm]current page.north west) {
+                        \color{uniscielpink}
+                        \textit{\FCone@complexityLevel}
+                    };
+                \fi
                 %%%%%% FC THREE
+                \ifnum #1>2
+                    % Subject front header
+                    \node at ([xshift = 4 cm, yshift = -9.23 cm]current page.north west) {
+                        \includesvg[width = 0.8\cardwidth]{\frontheader}
+                    };
+                    % Subject front footer
+                    \node at ([xshift = 6 cm, yshift = -15.55 cm]current page.north west) {
+                        \includesvg[width = 0.8\cardwidth]{\frontfooter}
+                    };
+                    % Subject icon
+                    \node [opacity = 1] at ([xshift = 1 cm, yshift = -9.2 cm]current page.north west) {
+                        \includesvg[height = 0.160\cardheight]{icons/\subjecticon}
+                    };
+                    % Subject text
+                    \node [opacity = 1] at ([xshift = 2.85 cm, yshift = -8.95 cm]current page.north west) {
+                        \color{white}
+                        \huge
+                        \textsf{\FCone@subject}
+                    };
+                    % Theme
+                    \node [opacity = 1] at ([xshift = 7 cm, yshift = -10.2 cm]current page.north west) {
+                        \begin{varwidth}{0.5\cardwidth}
+                            \setlength{\parskip}{0 cm}
+                            \color{uniscielblue}
+                            \RaggedLeft
+                            \LARGE
+                            \textsf{\FCone@theme}
+                        \end{varwidth}
+                    };
+                    % University front logo
+                    \node [opacity=1] at ([xshift = 8.25 cm, yshift = -15.45 cm]current page.north west) {                    
+                        \includegraphics[max height = 0.125\cardheight, center, keepaspectratio]{\frontuniversitylogo}
+                    };
+                    % Complexity level
+                    \node [opacity=1] at ([xshift = 2.5 cm, yshift = -15.15 cm]current page.north west) {
+                        \color{uniscielpink}
+                        \textit{\FCone@complexityLevel}
+                    };
+                \fi
                 %%%%%% FC FOUR
+                \ifnum #1>3
+                    % Subject front header
+                    \node at ([xshift = 14 cm, yshift = -9.23 cm]current page.north west) {
+                        \includesvg[width = 0.8\cardwidth]{\frontheader}
+                    };
+                    % Subject front footer
+                    \node at ([xshift = 16 cm, yshift = -15.55 cm]current page.north west) {
+                        \includesvg[width = 0.8\cardwidth]{\frontfooter}
+                    };
+                    % Subject icon
+                    \node [opacity = 1] at ([xshift = 11 cm, yshift = -9.2 cm]current page.north west) {
+                        \includesvg[height = 0.160\cardheight]{icons/\subjecticon}
+                    };
+                    % Subject text
+                    \node [opacity = 1] at ([xshift = 12.85 cm, yshift = -8.95 cm]current page.north west) {
+                        \color{white}
+                        \huge
+                        \textsf{\FCone@subject}
+                    };
+                    % Theme
+                    \node [opacity = 1] at ([xshift = 17 cm, yshift = -10.2 cm]current page.north west) {
+                        \begin{varwidth}{0.5\cardwidth}
+                            \setlength{\parskip}{0 cm}
+                            \color{uniscielblue}
+                            \RaggedLeft
+                            \LARGE
+                            \textsf{\FCone@theme}
+                        \end{varwidth}
+                    };
+                    % University front logo
+                    \node [opacity=1] at ([xshift = 18.25 cm, yshift = -15.45 cm]current page.north west) {                    
+                        \includegraphics[max height = 0.125\cardheight, center, keepaspectratio]{\frontuniversitylogo}
+                    };
+                    % Complexity level
+                    \node [opacity=1] at ([xshift = 12.5 cm, yshift = -15.15 cm]current page.north west) {
+                        \color{uniscielpink}
+                        \textit{\FCone@complexityLevel}
+                    };
+                \fi
                 %%%%%% FC FIVE
+                \ifnum #1>4
+                    % Subject front header
+                    \node at ([xshift = 4 cm, yshift = -17.33 cm]current page.north west) {
+                        \includesvg[width = 0.8\cardwidth]{\frontheader}
+                    };
+                    % Subject front footer
+                    \node at ([xshift = 6 cm, yshift = -23.65 cm]current page.north west) {
+                        \includesvg[width = 0.8\cardwidth]{\frontfooter}
+                    };
+                    % Subject icon
+                    \node [opacity = 1] at ([xshift = 1 cm, yshift = -17.3 cm]current page.north west) {
+                        \includesvg[height = 0.160\cardheight]{icons/\subjecticon}
+                    };
+                    % Subject text
+                    \node [opacity = 1] at ([xshift = 2.85 cm, yshift = -17.05 cm]current page.north west) {
+                        \color{white}
+                        \huge
+                        \textsf{\FCone@subject}
+                    };
+                    % Theme
+                    \node [opacity = 1] at ([xshift = 7 cm, yshift = -18.3 cm]current page.north west) {
+                        \begin{varwidth}{0.5\cardwidth}
+                            \setlength{\parskip}{0 cm}
+                            \color{uniscielblue}
+                            \RaggedLeft
+                            \LARGE
+                            \textsf{\FCone@theme}
+                        \end{varwidth}
+                    };
+                    % University front logo
+                    \node [opacity=1] at ([xshift = 8.25 cm, yshift = -23.55 cm]current page.north west) {
+                        \includegraphics[max height = 0.125\cardheight, center, keepaspectratio]{\frontuniversitylogo}
+                    };
+                    % Complexity level
+                    \node [opacity=1] at ([xshift = 2.5 cm, yshift = -23.25 cm]current page.north west) {
+                        \color{uniscielpink}
+                        \textit{\FCone@complexityLevel}
+                    };
+                \fi
                 %%%%%% FC SIX
+                \ifnum #1>5
+                    % Subject front header
+                    \node at ([xshift = 14 cm, yshift = -17.33 cm]current page.north west) {
+                        \includesvg[width = 0.8\cardwidth]{\frontheader}
+                    };
+                    % Subject front footer
+                    \node at ([xshift = 16 cm, yshift = -23.65 cm]current page.north west) {
+                        \includesvg[width = 0.8\cardwidth]{\frontfooter}
+                    };
+                    % Subject icon
+                    \node [opacity = 1] at ([xshift = 11 cm, yshift = -17.3 cm]current page.north west) {
+                        \includesvg[height = 0.160\cardheight]{icons/\subjecticon}
+                    };
+                    % Subject text
+                    \node [opacity = 1] at ([xshift = 12.85 cm, yshift = -17.05 cm]current page.north west) {
+                        \color{white}
+                        \huge
+                        \textsf{\FCone@subject}
+                    };
+                    % Theme
+                    \node [opacity = 1] at ([xshift = 17 cm, yshift = -18.3 cm]current page.north west) {
+                        \begin{varwidth}{0.5\cardwidth}
+                            \setlength{\parskip}{0 cm}
+                            \color{uniscielblue}
+                            \RaggedLeft
+                            \LARGE
+                            \textsf{\FCone@theme}
+                        \end{varwidth}
+                    };
+                    % University front logo
+                    \node [opacity=1] at ([xshift = 18.25 cm, yshift = -23.55 cm]current page.north west) {                    
+                        \includegraphics[max height = 0.125\cardheight, center, keepaspectratio]{\frontuniversitylogo}
+                    };
+                    % Complexity level
+                    \node [opacity=1] at ([xshift = 12.5 cm, yshift = -23.25 cm]current page.north west) {
+                        \color{uniscielpink}
+                        \textit{\FCone@complexityLevel}
+                    };
+                \fi
                 \else
                 %%%%%% FC ONE
+                \ifnum #1>0
                     % Back background
-                    \node at ([xshift = 15 cm, yshift = -4.25 cm]current page.north west) {
+                    \node at ([xshift = 15 cm, yshift = -4.1 cm]current page.north west) {
                         \includesvg[width = 1\cardwidth]{\backbackground}
                     };
                     % Subject back header
-                    \node at ([xshift = 14 cm, yshift = -1 cm]current page.north west) {
+                    \node at ([xshift = 14 cm, yshift = -1.13 cm]current page.north west) {
                         \includesvg[width = 0.8\cardwidth]{\backheader}
                     };
                     % Subject back footer
@@ -207,52 +406,166 @@ center
                         \includesvg[width = 0.8\cardwidth]{\backfooter}
                     };
                     % QR Code
-                    \node at ([xshift = 11.25 cm, yshift = -1 cm]current page.north west) {
-                        \includegraphics[width = 0.150\cardwidth, keepaspectratio]{\FCone@qrcode}
+                    \node at ([xshift = 11 cm, yshift = -1.1 cm]current page.north west) {
+                        \includegraphics[width = 0.120\cardwidth, keepaspectratio]{\FCone@qrcode}
                     };
                     % Subject text
-                    \node [opacity = 1] at ([xshift = 13 cm, yshift = -0.85 cm]current page.north west) {
+                    \node [opacity = 1] at ([xshift = 12.85 cm, yshift = -0.85 cm]current page.north west) {
                         \color{physicsviolet}
                         \huge
                         \textsf{\FCone@subject}
                     };
                     % University back logo
-                    \node [opacity=1] at ([xshift = 18.25 cm, yshift = -7.5 cm]current page.north west) {                    
-                        \includesvg[height = 0.135\cardheight]{\backuniversitylogo}
+                    \node [opacity=1] at ([xshift = 18.25 cm, yshift = -7.5 cm]current page.north west) {
+                        \includesvg[height = 0.110\cardheight]{\backuniversitylogo}
                     };
-                %%%%%% FC TWO
-                    % % Back background
-                    % \node at ([xshift = 5 cm, yshift = -4.25 cm]current page.north west) {
-                    %     \includesvg[width = 1\cardwidth]{\backbackground}
-                    % };
-                    % % Subject back header
-                    % \node at ([xshift = 4 cm, yshift = -1 cm]current page.north west) {
-                    %     \includesvg[width = 0.8\cardwidth]{\backheader}
-                    % };
-                    % % Subject back footer
-                    % \node at ([xshift = 6 cm, yshift = -7.5 cm]current page.north west) {
-                    %     \includesvg[width = 0.8\cardwidth]{\backfooter}
-                    % };
-                    % % QR Code
-                    % \node at ([xshift = 1.25 cm, yshift = -1 cm]current page.north west) {
-                    %     \includegraphics[width = 0.150\cardwidth, keepaspectratio]{\FCone@qrcode}
-                    % };
-                    % % Subject text
-                    % \node [opacity = 1] at ([xshift = 3 cm, yshift = -0.85 cm]current page.north west) {
-                    %     \color{physicsviolet}
-                    %     \huge
-                    %     \textsf{\FCone@subject}
-                    % };
-                    % % University back logo
-                    % \node [opacity=1] at ([xshift = 8.25 cm, yshift = -7.5 cm]current page.north west) {                    
-                    %     \includesvg[height = 0.135\cardheight]{\backuniversitylogo}
-                    % };
-                %%%%%% FC THREE
-                %%%%%% FC FOUR
-                %%%%%% FC FIVE
-                %%%%%% FC SIX
                 \fi
-                
+                %%%%%% FC TWO
+                \ifnum #1>1
+                    % Back background
+                    \node at ([xshift = 5 cm, yshift = -4.1 cm]current page.north west) {
+                        \includesvg[width = 1\cardwidth]{\backbackground}
+                    };
+                    % Subject back header
+                    \node at ([xshift = 4 cm, yshift = -1.13 cm]current page.north west) {
+                        \includesvg[width = 0.8\cardwidth]{\backheader}
+                    };
+                    % Subject back footer
+                    \node at ([xshift = 6 cm, yshift = -7.5 cm]current page.north west) {
+                        \includesvg[width = 0.8\cardwidth]{\backfooter}
+                    };
+                    % QR Code
+                    \node at ([xshift = 1 cm, yshift = -1.1 cm]current page.north west) {
+                        \includegraphics[width = 0.120\cardwidth, keepaspectratio]{\FCone@qrcode}
+                    };
+                    % Subject text
+                    \node [opacity = 1] at ([xshift = 2.85 cm, yshift = -0.85 cm]current page.north west) {
+                        \color{physicsviolet}
+                        \huge
+                        \textsf{\FCone@subject}
+                    };
+                    % University back logo
+                    \node [opacity=1] at ([xshift = 8.25 cm, yshift = -7.5 cm]current page.north west) {
+                        \includesvg[height = 0.110\cardheight]{\backuniversitylogo}
+                    };
+                \fi
+                %%%%%% FC THREE
+                \ifnum #1>2
+                    % Back background
+                    \node at ([xshift = 15 cm, yshift = -12.2 cm]current page.north west) {
+                        \includesvg[width = 1\cardwidth]{\backbackground}
+                    };
+                    % Subject back header
+                    \node at ([xshift = 14 cm, yshift = -9.23 cm]current page.north west) {
+                        \includesvg[width = 0.8\cardwidth]{\backheader}
+                    };
+                    % Subject back footer
+                    \node at ([xshift = 16 cm, yshift = -15.6 cm]current page.north west) {
+                        \includesvg[width = 0.8\cardwidth]{\backfooter}
+                    };
+                    % QR Code
+                    \node at ([xshift = 11 cm, yshift = -9.2 cm]current page.north west) {
+                        \includegraphics[width = 0.120\cardwidth, keepaspectratio]{\FCone@qrcode}
+                    };
+                    % Subject text
+                    \node [opacity = 1] at ([xshift = 12.85 cm, yshift = -8.95 cm]current page.north west) {
+                        \color{physicsviolet}
+                        \huge
+                        \textsf{\FCone@subject}
+                    };
+                    % University back logo
+                    \node [opacity=1] at ([xshift = 18.25 cm, yshift = -15.6 cm]current page.north west) {
+                        \includesvg[height = 0.110\cardheight]{\backuniversitylogo}
+                    };
+                \fi
+                %%%%%% FC FOUR
+                \ifnum #1>3
+                    % Back background
+                    \node at ([xshift = 5 cm, yshift = -12.2 cm]current page.north west) {
+                        \includesvg[width = 1\cardwidth]{\backbackground}
+                    };
+                    % Subject back header
+                    \node at ([xshift = 4 cm, yshift = -9.23 cm]current page.north west) {
+                        \includesvg[width = 0.8\cardwidth]{\backheader}
+                    };
+                    % Subject back footer
+                    \node at ([xshift = 6 cm, yshift = -15.6 cm]current page.north west) {
+                        \includesvg[width = 0.8\cardwidth]{\backfooter}
+                    };
+                    % QR Code
+                    \node at ([xshift = 1 cm, yshift = -9.2 cm]current page.north west) {
+                        \includegraphics[width = 0.120\cardwidth, keepaspectratio]{\FCone@qrcode}
+                    };
+                    % Subject text
+                    \node [opacity = 1] at ([xshift = 2.85 cm, yshift = -8.95 cm]current page.north west) {
+                        \color{physicsviolet}
+                        \huge
+                        \textsf{\FCone@subject}
+                    };
+                    % University back logo
+                    \node [opacity=1] at ([xshift = 8.25 cm, yshift = -15.6 cm]current page.north west) {
+                        \includesvg[height = 0.110\cardheight]{\backuniversitylogo}
+                    };
+                \fi
+                %%%%%% FC FIVE
+                \ifnum #1>4
+                    % Back background
+                    \node at ([xshift = 15 cm, yshift = -20.3 cm]current page.north west) {
+                        \includesvg[width = 1\cardwidth]{\backbackground}
+                    };
+                    % Subject back header
+                    \node at ([xshift = 14 cm, yshift = -17.33 cm]current page.north west) {
+                        \includesvg[width = 0.8\cardwidth]{\backheader}
+                    };
+                    % Subject back footer
+                    \node at ([xshift = 16 cm, yshift = -23.7 cm]current page.north west) {
+                        \includesvg[width = 0.8\cardwidth]{\backfooter}
+                    };
+                    % QR Code
+                    \node at ([xshift = 11 cm, yshift = -17.3 cm]current page.north west) {
+                        \includegraphics[width = 0.120\cardwidth, keepaspectratio]{\FCone@qrcode}
+                    };
+                    % Subject text
+                    \node [opacity = 1] at ([xshift = 12.85 cm, yshift = -17.05 cm]current page.north west) {
+                        \color{physicsviolet}
+                        \huge
+                        \textsf{\FCone@subject}
+                    };
+                    % University back logo
+                    \node [opacity=1] at ([xshift = 18.25 cm, yshift = -23.7 cm]current page.north west) {
+                        \includesvg[height = 0.110\cardheight]{\backuniversitylogo}
+                    };
+                \fi
+                %%%%%% FC SIX
+                \ifnum #1>5
+                    % Back background
+                    \node at ([xshift = 5 cm, yshift = -20.3 cm]current page.north west) {
+                        \includesvg[width = 1\cardwidth]{\backbackground}
+                    };
+                    % Subject back header
+                    \node at ([xshift = 4 cm, yshift = --17.33 cm]current page.north west) {
+                        \includesvg[width = 0.8\cardwidth]{\backheader}
+                    };
+                    % Subject back footer
+                    \node at ([xshift = 6 cm, yshift = -23.7 cm]current page.north west) {
+                        \includesvg[width = 0.8\cardwidth]{\backfooter}
+                    };
+                    % QR Code
+                    \node at ([xshift = 1 cm, yshift = -17.3 cm]current page.north west) {
+                        \includegraphics[width = 0.120\cardwidth, keepaspectratio]{\FCone@qrcode}
+                    };
+                    % Subject text
+                    \node [opacity = 1] at ([xshift = 2.85 cm, yshift = --17.05 cm]current page.north west) {
+                        \color{physicsviolet}
+                        \huge
+                        \textsf{\FCone@subject}
+                    };
+                    % University back logo
+                    \node [opacity=1] at ([xshift = 8.25 cm, yshift = -23.7 cm]current page.north west) {
+                        \includesvg[height = 0.110\cardheight]{\backuniversitylogo}
+                    };
+                \fi
+                \fi
             \end{tikzpicture}
         }           
     }
@@ -282,11 +595,11 @@ center
 
 \backgroundparam
 {physique} % subject icon
-{physique-front-header}% Front header filename
-{physique-front-footer}% Front footer filename
-{physique-back-background}% Back background filename
-{physique-back-header}% Back header filename
-{physique-back-footer}% Back footer filename
+{physique-precropped-front-header}% Front header filename
+{physique-precropped-front-footer}% Front footer filename
+{physique-precropped-back-background}% Back background filename
+{physique-precropped-back-header}% Back header filename
+{physique-precropped-back-footer}% Back footer filename
 {front_university_logo}% Front university logo
 {back_university_logo}% Back university logo
 
@@ -323,13 +636,13 @@ center
     qrcode = {qrcode}
 }
 
-\cardbackground
+\cardbackground{6}
 
 %%%%%%%%%%%%%%% STANDARD TEMPLATE %%%%%%%%%%%%%%%%
 \begin{flashcard}[]{
 %%% QUESTION %%% 
 \color{black}
-\vspace{0.05\textheight}
+\vspace{0.15\cardheight}
 \RaggedRight
 
 % Topic
@@ -349,12 +662,12 @@ center
 
 % Correct answer boxes
 \begin{tikzpicture}[remember picture, overlay]
-    \node [align=left, opacity=1] at ([xshift = -0.25 cm, yshift = 2.25 cm]current page.center) {
+    \node [align=left, opacity=1] at ([xshift = 7 cm, yshift = -2.1 cm]current page.north west) {
                 \color{white}
                 \normalsize
                 \textsf{\textit{Réponses}}
             };
-    \node [align=left, opacity=1] at ([xshift = 2.75 cm, yshift = 2.25 cm]current page.center) {
+    \node [align=left, opacity=1] at ([xshift = 7.5 cm, yshift = -2.1 cm]current page.north west) {
                 \color{white}
                 $1:\boxtimes\qquad2:\square\qquad3:\square\qquad4:\square\qquad$\\
                 \color{white}
@@ -364,7 +677,7 @@ center
 
 % Explanations
 \RaggedRight
-% \vspace{0.09\textheight}
+\vspace{0.09\cardheight}
 
 \lipsum[100]
 
@@ -377,7 +690,7 @@ center
 \begin{flashcard}[]{
 %%% QUESTION %%% 
 \color{black}
-% \vspace{0.12\textheight}
+\vspace{0.12\cardheight}
 \RaggedRight
 % Topic
 \begin{minipage}[t]{0.6\linewidth}
@@ -420,7 +733,7 @@ center
 
 % Explanations
 \RaggedRight
-% \vspace{0.09\textheight}
+\vspace{0.09\cardheight}
 
 \lipsum[100]
 
@@ -433,7 +746,7 @@ center
 \begin{flashcard}[]{
 %%% QUESTION %%% 
 \color{black}
-% \vspace{0.15\textheight}
+\vspace{0.15\cardheight}
 \RaggedRight
 % Topic
 Pour un point matériel en mouvement uniforme (c'est-à-dire un mouvement au cours duquel la norme de la vitesse est constante) :
@@ -466,7 +779,7 @@ Pour un point matériel en mouvement uniforme (c'est-à-dire un mouvement au cou
 \end{tikzpicture}
 
 % Explanations
-% \vspace{0.09\textheight}
+\vspace{0.09\cardheight}
 \RaggedRight
 
 Principe d'inertie : Dans un référentiel galiléen, si un système assimilé à un point matériel n'est soumis à aucune force – système isolé – ou s'il est soumis à un ensemble de forces de résultante nulle ($\Sigma\vec{F}_{ext}=\vec{0}$) – système pseudo-isolé – alors il est immobile ou animé d'un mouvement rectiligne uniforme.
@@ -482,7 +795,7 @@ Dans cette question, il s'agit de faire la distinction entre mouvement uniforme 
 \begin{flashcard}[]{
 %%% QUESTION %%% 
 \color{black}
-% \vspace{0.12\cardheight}
+\vspace{0.12\cardheight}
 \RaggedRight
 % Topic
 \begin{minipage}[t]{0.6\linewidth}
@@ -525,7 +838,7 @@ Dans cette question, il s'agit de faire la distinction entre mouvement uniforme 
 
 % Explanations
 \RaggedRight
-% \vspace{0.09\textheight}
+\vspace{0.09\cardheight}
 
 Principe d'inertie : Dans un référentiel galiléen, si un système assimilé à un point matériel n'est soumis à aucune force – système isolé – ou s'il est soumis à un ensemble de forces de résultante nulle ($\Sigma\vec{F}_{ext}=\vec{0}$) – système pseudo-isolé – alors il est immobile ou animé d'un mouvement rectiligne uniforme.
 
@@ -539,7 +852,7 @@ Dans cette question, il s'agit de faire la distinction entre mouvement uniforme 
 \begin{flashcard}[]{
 %%% QUESTION %%% 
 \color{black}
-% \vspace{0.12\textheight}
+\vspace{0.12\cardheight}
 \RaggedRight
 % Topic
 \begin{minipage}[t]{0.6\linewidth}
@@ -582,7 +895,7 @@ Dans cette question, il s'agit de faire la distinction entre mouvement uniforme 
 
 % Explanations
 \RaggedRight
-% \vspace{0.09\textheight}
+\vspace{0.09\cardheight}
 
 Principe d'inertie : Dans un référentiel galiléen, si un système assimilé à un point matériel n'est soumis à aucune force – système isolé – ou s'il est soumis à un ensemble de forces de résultante nulle ($\Sigma\vec{F}_{ext}=\vec{0}$) – système pseudo-isolé – alors il est immobile ou animé d'un mouvement rectiligne uniforme.
 
@@ -596,7 +909,7 @@ Dans cette question, il s'agit de faire la distinction entre mouvement uniforme 
 \begin{flashcard}[]{
 %%% QUESTION %%% 
 \color{black}
-% \vspace{0.12\textheight}
+\vspace{0.12\cardheight}
 \RaggedRight
 % Topic
 \begin{minipage}[t]{0.6\linewidth}
@@ -639,7 +952,7 @@ Dans cette question, il s'agit de faire la distinction entre mouvement uniforme 
 
 % Explanations
 \RaggedRight
-% \vspace{0.09\textheight}
+\vspace{0.09\cardheight}
 
 Principe d'inertie : Dans un référentiel galiléen, si un système assimilé à un point matériel n'est soumis à aucune force – système isolé – ou s'il est soumis à un ensemble de forces de résultante nulle ($\Sigma\vec{F}_{ext}=\vec{0}$) – système pseudo-isolé – alors il est immobile ou animé d'un mouvement rectiligne uniforme.
 
@@ -656,13 +969,13 @@ Dans cette question, il s'agit de faire la distinction entre mouvement uniforme 
     theme = {Optique géométrique},
     qrcode = {qrcode}
 }{}{}{}{}{}
-
+\cardbackground{1}
 % Test flashcard n°2d
 
 \begin{flashcard}[]{
 %%% QUESTION %%% 
 \color{black}
-% \vspace{0.12\textheight}
+\vspace{0.12\cardheight}
 \RaggedRight
 % Topic
 \begin{minipage}[t]{0.6\linewidth}
@@ -704,7 +1017,7 @@ Dans cette question, il s'agit de faire la distinction entre mouvement uniforme 
 \end{tikzpicture}
 
 % Explanations
-% \vspace{0.09\textheight}
+\vspace{0.09\cardheight}
 \RaggedRight
 
 Principe d'inertie : Dans un référentiel galiléen, si un système assimilé à un point matériel n'est soumis à aucune force – système isolé – ou s'il est soumis à un ensemble de forces de résultante nulle ($\Sigma\vec{F}_{ext}=\vec{0}$) – système pseudo-isolé – alors il est immobile ou animé d'un mouvement rectiligne uniforme.
