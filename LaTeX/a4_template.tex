@@ -30,6 +30,7 @@
 %%% FONTS %%%%
 \usepackage{fontspec}
 \setsansfont{Eufoniem One}
+\setmainfont{DejaVu Sans}
 
 %%% GEOMETRY AND BLEED MARKS %%%
 \geometry{
@@ -543,7 +544,7 @@ center
                         \includesvg[width = 1\cardwidth]{\backbackground}
                     };
                     % Subject back header
-                    \node at ([xshift = 4 cm, yshift = --17.33 cm]current page.north west) {
+                    \node at ([xshift = 4 cm, yshift = -17.33 cm]current page.north west) {
                         \includesvg[width = 0.8\cardwidth]{\backheader}
                     };
                     % Subject back footer
@@ -555,7 +556,7 @@ center
                         \includegraphics[width = 0.120\cardwidth, keepaspectratio]{\FCone@qrcode}
                     };
                     % Subject text
-                    \node [opacity = 1] at ([xshift = 2.85 cm, yshift = --17.05 cm]current page.north west) {
+                    \node [opacity = 1] at ([xshift = 2.85 cm, yshift = -17.05 cm]current page.north west) {
                         \color{physicsviolet}
                         \huge
                         \textsf{\FCone@subject}
@@ -662,12 +663,12 @@ center
 
 % Correct answer boxes
 \begin{tikzpicture}[remember picture, overlay]
-    \node [align=left, opacity=1] at ([xshift = 7 cm, yshift = -2.1 cm]current page.north west) {
+    \node [align=left, opacity=1] at ([xshift = 14.75 cm, yshift = -1.75 cm]current page.north west) {
                 \color{white}
                 \normalsize
                 \textsf{\textit{Réponses}}
             };
-    \node [align=left, opacity=1] at ([xshift = 7.5 cm, yshift = -2.1 cm]current page.north west) {
+    \node [align=left, opacity=1] at ([xshift = 17.75 cm, yshift = -1.75 cm]current page.north west) {
                 \color{white}
                 $1:\boxtimes\qquad2:\square\qquad3:\square\qquad4:\square\qquad$\\
                 \color{white}
@@ -718,12 +719,12 @@ center
 
 % Correct answer boxes
 \begin{tikzpicture}[remember picture, overlay]
-    \node [align=left, opacity=1] at ([xshift = -0.25 cm, yshift = 2.25 cm]current page.center) {
+    \node [align=left, opacity=1] at ([xshift = 4.75 cm, yshift = -1.75 cm]current page.north west) {
                 \color{white}
                 \normalsize
                 \textsf{\textit{Réponses}}
             };
-    \node [align=left, opacity=1] at ([xshift = 2.75 cm, yshift = 2.25 cm]current page.center) {
+    \node [align=left, opacity=1] at ([xshift = 7.75 cm, yshift = -1.75 cm]current page.north west) {
                 \color{white}
                 $1:\boxtimes\qquad2:\square\qquad3:\square\qquad4:\square\qquad$\\
                 \color{white}
@@ -765,12 +766,12 @@ Pour un point matériel en mouvement uniforme (c'est-à-dire un mouvement au cou
 
 % Correct answer boxes
 \begin{tikzpicture}[remember picture, overlay]
-    \node [align=left, opacity=1] at ([xshift = -0.25 cm, yshift = 2.25 cm]current page.center) {
+    \node [align=left, opacity=1] at ([xshift = 14.75 cm, yshift = -9.85 cm]current page.north west) {
                 \color{white}
                 \normalsize
                 \textsf{\textit{Réponses}}
             };
-    \node [align=left, opacity=1] at ([xshift = 2.75 cm, yshift = 2.25 cm]current page.center) {
+    \node [align=left, opacity=1] at ([xshift = 17.75 cm, yshift = -9.85 cm]current page.north west) {
                 \color{white}
                 $1:\boxtimes\qquad2:\square\qquad3:\square\qquad4:\square\qquad$\\
                 \color{white}
@@ -823,12 +824,12 @@ Dans cette question, il s'agit de faire la distinction entre mouvement uniforme 
 
 % Correct answer boxes
 \begin{tikzpicture}[remember picture, overlay]
-    \node [align=left, opacity=1] at ([xshift = -0.25 cm, yshift = 2.25 cm]current page.center) {
+    \node [align=left, opacity=1] at ([xshift = 4.75 cm, yshift = -9.85 cm]current page.north west) {
                 \color{white}
                 \normalsize
                 \textsf{\textit{Réponses}}
             };
-    \node [align=left, opacity=1] at ([xshift = 2.75 cm, yshift = 2.25 cm]current page.center) {
+    \node [align=left, opacity=1] at ([xshift = 7.75 cm, yshift = -9.85 cm]current page.north west) {
                 \color{white}
                 $1:\boxtimes\qquad2:\square\qquad3:\square\qquad4:\square\qquad$\\
                 \color{white}
@@ -880,12 +881,12 @@ Dans cette question, il s'agit de faire la distinction entre mouvement uniforme 
 
 % Correct answer boxes
 \begin{tikzpicture}[remember picture, overlay]
-    \node [align=left, opacity=1] at ([xshift = -0.25 cm, yshift = 2.25 cm]current page.center) {
+    \node [align=left, opacity=1] at ([xshift = 14.75 cm, yshift = -17.85 cm]current page.north west) {
                 \color{white}
                 \normalsize
                 \textsf{\textit{Réponses}}
             };
-    \node [align=left, opacity=1] at ([xshift = 2.75 cm, yshift = 2.25 cm]current page.center) {
+    \node [align=left, opacity=1] at ([xshift = 17.75 cm, yshift = -17.85 cm]current page.north west) {
                 \color{white}
                 $1:\boxtimes\qquad2:\square\qquad3:\square\qquad4:\square\qquad$\\
                 \color{white}
@@ -937,12 +938,12 @@ Dans cette question, il s'agit de faire la distinction entre mouvement uniforme 
 
 % Correct answer boxes
 \begin{tikzpicture}[remember picture, overlay]
-    \node [align=left, opacity=1] at ([xshift = -0.25 cm, yshift = 2.25 cm]current page.center) {
+    \node [align=left, opacity=1] at ([xshift = 4.75 cm, yshift = -17.85 cm]current page.north west) {
                 \color{white}
                 \normalsize
                 \textsf{\textit{Réponses}}
             };
-    \node [align=left, opacity=1] at ([xshift = 2.75 cm, yshift = 2.25 cm]current page.center) {
+    \node [align=left, opacity=1] at ([xshift = 7.75 cm, yshift = -17.85 cm]current page.north west) {
                 \color{white}
                 $1:\boxtimes\qquad2:\square\qquad3:\square\qquad4:\square\qquad$\\
                 \color{white}
@@ -1003,12 +1004,12 @@ Dans cette question, il s'agit de faire la distinction entre mouvement uniforme 
 
 % Correct answer boxes
 \begin{tikzpicture}[remember picture, overlay]
-    \node [align=left, opacity=1] at ([xshift = -0.25 cm, yshift = 2.25 cm]current page.center) {
+    \node [align=left, opacity=1] at ([xshift = 14.75 cm, yshift = -1.75 cm]current page.north west) {
                 \color{white}
                 \normalsize
                 \textsf{\textit{Réponses}}
             };
-    \node [align=left, opacity=1] at ([xshift = 2.75 cm, yshift = 2.25 cm]current page.center) {
+    \node [align=left, opacity=1] at ([xshift = 17.75 cm, yshift = -1.75 cm]current page.north west) {
                 \color{white}
                 $1:\boxtimes\qquad2:\square\qquad3:\square\qquad4:\square\qquad$\\
                 \color{white}
