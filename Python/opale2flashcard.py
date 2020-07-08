@@ -1035,11 +1035,9 @@ def write_rejected(flashcard, output, rejected, flashcard_list, current_index, a
         rejected[flashcard.subject.lower()] += 1
     else:
         rejected[flashcard.subject.lower()] = 1
-    
     if (args.a4paper is True and (current_index == next_rejected_index and len(flashcard_list) - rejected_kvp_last_index > 6 or rejected_kvp_last_index == -1)):
         rejected_kvp_last_index = current_index
         (kvp_settings_all, kvp_settings_by_subject, next_rejected_index) = write_kvp(flashcard_list, current_index, False, customqr_valid)
-        print("WRITE R>", kvp_settings_all, "\nWRITE R>", kvp_settings_by_subject)
         output_subj = kvp_settings_by_subject[flashcard.subject.lower()] + output
         output_all = kvp_settings_all + output
     else:
@@ -1060,11 +1058,10 @@ def write_accepted(flashcard, output, accepted, flashcard_list, current_index, a
         accepted[flashcard.subject.lower()] += 1
     else:
         accepted[flashcard.subject.lower()] = 1
-        
+    
     if (args.a4paper is True and (current_index == next_accepted_index and len(flashcard_list) - accepted_kvp_last_index > 6 or accepted_kvp_last_index == -1)):
         accepted_kvp_last_index = current_index
         (kvp_settings_all, kvp_settings_by_subject, next_accepted_index) = write_kvp(flashcard_list, current_index, True, customqr_valid)
-        print("WRITE A>", kvp_settings_all, "\nWRITE A>", kvp_settings_by_subject)
         output_subj = kvp_settings_by_subject[flashcard.subject.lower()] + output
         output_all = kvp_settings_all + output
     else:
@@ -1369,7 +1366,6 @@ def write_kvp(flashcard_list, current_index, status, customqr_valid):
         
         flashcard_validity = flashcard_list[i].err_flag is False and flashcard_list[i].overflow_flag is False and flashcard_list[i].relevant is True or args.force is True
         flashcard_subject = flashcard_list[i].subject
-        print(i, '//', len(flashcard_list), ": ", flashcard_list[i].file, flashcard_validity)
         if (status is False):
             # Only accept rejected flashcards
             flashcard_validity = not flashcard_validity
@@ -1409,8 +1405,20 @@ def write_kvp(flashcard_list, current_index, status, customqr_valid):
                 kvp_settings_by_subject[flashcard_subject.lower()] = ["\setkeys{" + families[families_indexes[flashcard_subject.lower()]] + "}{\ncomplexityLevel = {" + complexity_level + "},\nsubject = {" + subject + "},\ntheme = {" + licence_theme + "},\nqrcode = {" + qrcode + "}\n}\n"]
 
         i += 1
-        
-    return (kvp_settings_all, kvp_settings_by_subject, i)
+
+    # Search next index
+    if (i != len(flashcard_list)):
+        flashcard_validity = flashcard_list[i].err_flag is False and flashcard_list[i].overflow_flag is False and flashcard_list[i].relevant is True or args.force is True
+        if (status is False):
+            flashcard_validity = not flashcard_validity
+
+        while(i < len(flashcard_list) and flashcard_validity is False):
+            flashcard_validity = flashcard_list[i].err_flag is False and flashcard_list[i].overflow_flag is False and flashcard_list[i].relevant is True or args.force is True
+            if (status is False):
+                flashcard_validity = not flashcard_validity
+            i += 1
+            
+    return (kvp_settings_all, kvp_settings_by_subject, i-1)
 
 
 def write_flashcards(flashcard_list, customqr_valid):
