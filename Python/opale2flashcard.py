@@ -1035,10 +1035,11 @@ def write_rejected(flashcard, output, rejected, flashcard_list, current_index, a
         rejected[flashcard.subject.lower()] += 1
     else:
         rejected[flashcard.subject.lower()] = 1
-    if (args.a4paper is True and (current_index == next_rejected_index and len(flashcard_list) - rejected_kvp_last_index > 6 or rejected_kvp_last_index == -1)):
+    if (args.a4paper is True and (current_index == next_rejected_index or rejected_kvp_last_index == -1)):
         rejected_kvp_last_index = current_index
-        (kvp_settings_all, kvp_settings_by_subject, next_rejected_index) = write_kvp(flashcard_list, current_index, False, customqr_valid)
-        output_subj = kvp_settings_by_subject[flashcard.subject.lower()] + output
+        (kvp_settings_all, next_rejected_index) = write_kvp(flashcard_list, current_index, False, customqr_valid)
+        output_subj = output
+        # output_subj = kvp_settings_by_subject[flashcard.subject.lower()] + output
         output_all = kvp_settings_all + output
     else:
         output_subj = output
@@ -1059,10 +1060,11 @@ def write_accepted(flashcard, output, accepted, flashcard_list, current_index, a
     else:
         accepted[flashcard.subject.lower()] = 1
     
-    if (args.a4paper is True and (current_index == next_accepted_index and len(flashcard_list) - accepted_kvp_last_index > 6 or accepted_kvp_last_index == -1)):
+    if (args.a4paper is True and (current_index == next_accepted_index or accepted_kvp_last_index == -1)):
         accepted_kvp_last_index = current_index
-        (kvp_settings_all, kvp_settings_by_subject, next_accepted_index) = write_kvp(flashcard_list, current_index, True, customqr_valid)
-        output_subj = kvp_settings_by_subject[flashcard.subject.lower()] + output
+        (kvp_settings_all, next_accepted_index) = write_kvp(flashcard_list, current_index, True, customqr_valid)
+        output_subj = output
+        # output_subj = kvp_settings_by_subject[flashcard.subject.lower()] + output
         output_all = kvp_settings_all + output
     else:
         output_subj = output
@@ -1346,24 +1348,13 @@ def write_footer(output_dir, outfile_path):
     
     footer.close
 
-def kvp_full(dict):
-    for values in list(dict.values()):
-        if (len(values) != 6):
-            return False
-    if (not dict):
-        return False
-    return True
-
 def write_kvp(flashcard_list, current_index, status, customqr_valid):
     # Status = accepted/rejected.
-    kvp_settings_by_subject = {}
     kvp_settings_all = []
     families = ["One", "Two", "Three", "Four", "Five", "Six"]
-    families_indexes = {}
     i = current_index
     
-    while not kvp_full(kvp_settings_by_subject) and i < len(flashcard_list):
-        
+    while len(kvp_settings_all) < 6 and i < len(flashcard_list):
         flashcard_validity = flashcard_list[i].err_flag is False and flashcard_list[i].overflow_flag is False and flashcard_list[i].relevant is True or args.force is True
         flashcard_subject = flashcard_list[i].subject
         if (status is False):
@@ -1371,10 +1362,6 @@ def write_kvp(flashcard_list, current_index, status, customqr_valid):
             flashcard_validity = not flashcard_validity
 
         if (flashcard_validity):
-            if (flashcard_subject.lower() in families_indexes):
-                families_indexes[flashcard_subject.lower()] += 1
-            else:
-                families_indexes[flashcard_subject.lower()] = 0
 
             if (args.add_complexity_level is True and flashcard_list[i].complexity_level is not None):
                 complexity_level = flashcard_list[i].complexity_level
@@ -1396,16 +1383,11 @@ def write_kvp(flashcard_list, current_index, status, customqr_valid):
             else:
                 qrcode = 'icons/\subjecticon'
             
-            if (len(kvp_settings_all) < 6):
-                kvp_settings_all += ["\setkeys{" + families[len(kvp_settings_all)] + "}{\ncomplexityLevel = {" + complexity_level + "},\nsubject = {" + subject + "},\ntheme = {" + licence_theme + "},\nqrcode = {" + qrcode + "}\n}\n"]
-
-            if (flashcard_subject.lower() in kvp_settings_by_subject):
-                kvp_settings_by_subject[flashcard_subject.lower()] += ["\setkeys{" + families[families_indexes[flashcard_subject.lower()]] + "}{\ncomplexityLevel = {" + complexity_level + "},\nsubject = {" + subject + "},\ntheme = {" + licence_theme + "},\nqrcode = {" + qrcode + "}\n}\n"]
-            else:
-                kvp_settings_by_subject[flashcard_subject.lower()] = ["\setkeys{" + families[families_indexes[flashcard_subject.lower()]] + "}{\ncomplexityLevel = {" + complexity_level + "},\nsubject = {" + subject + "},\ntheme = {" + licence_theme + "},\nqrcode = {" + qrcode + "}\n}\n"]
+            kvp_settings_all += ["\setkeys{" + families[len(kvp_settings_all)] + "}{%" + flashcard_list[i].file + "\ncomplexityLevel = {" + complexity_level + "},\nsubject = {" + subject + "},\ntheme = {" + licence_theme + "},\nqrcode = {" + qrcode + "}\n}\n"]
 
         i += 1
-
+    
+    
     # Search next index
     if (i != len(flashcard_list)):
         flashcard_validity = flashcard_list[i].err_flag is False and flashcard_list[i].overflow_flag is False and flashcard_list[i].relevant is True or args.force is True
@@ -1413,12 +1395,12 @@ def write_kvp(flashcard_list, current_index, status, customqr_valid):
             flashcard_validity = not flashcard_validity
 
         while(i < len(flashcard_list) and flashcard_validity is False):
+            i += 1
             flashcard_validity = flashcard_list[i].err_flag is False and flashcard_list[i].overflow_flag is False and flashcard_list[i].relevant is True or args.force is True
             if (status is False):
                 flashcard_validity = not flashcard_validity
-            i += 1
             
-    return (kvp_settings_all, kvp_settings_by_subject, i-1)
+    return (kvp_settings_all, i)
 
 
 def write_flashcards(flashcard_list, customqr_valid):
