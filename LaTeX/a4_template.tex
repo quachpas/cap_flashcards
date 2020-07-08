@@ -28,9 +28,9 @@
 % Violet : #463374
 
 %%% FONTS %%%%
-\usepackage{fontspec}
-\setsansfont{Eufoniem One}
-\setmainfont{DejaVu Sans}
+\usepackage[no-math]{fontspec}
+\setsansfont{Dancing Script}
+\setmainfont{Roboto Condensed}
 
 %%% GEOMETRY AND BLEED MARKS %%%
 \geometry{
@@ -158,9 +158,9 @@ center
                         \includesvg[height = 0.160\cardheight]{icons/\subjecticon}
                     };
                     % Subject text
-                    \node [opacity = 1] at ([xshift = 2.85 cm, yshift = -0.85 cm]current page.north west) {
+                    \node [opacity = 1] at ([xshift = 3 cm, yshift = -0.85 cm]current page.north west) {
                         \color{white}
-                        \huge
+                        \LARGE
                         \textsf{\FCone@subject}
                     };
                     % Theme
@@ -169,7 +169,7 @@ center
                             \setlength{\parskip}{0 cm}
                             \color{uniscielblue}
                             \RaggedLeft
-                            \LARGE
+                            \large
                             \textsf{\FCone@theme}
                         \end{varwidth}
                     };
@@ -180,7 +180,7 @@ center
                     % Complexity level
                     \node [opacity=1] at ([xshift = 2.5 cm, yshift = -7.05 cm]current page.north west) {
                         \color{uniscielpink}
-                        \textit{\FCone@complexityLevel}
+                        \textsf{\textit{\FCone@complexityLevel}}
                     };
                 \fi
                 %%%%%% FC TWO
@@ -198,9 +198,9 @@ center
                         \includesvg[height = 0.160\cardheight]{icons/\subjecticon}
                     };
                     % Subject text
-                    \node [opacity = 1] at ([xshift = 12.85 cm, yshift = -0.85 cm]current page.north west) {
+                    \node [opacity = 1] at ([xshift = 13 cm, yshift = -0.85 cm]current page.north west) {
                         \color{white}
-                        \huge
+                        \LARGE
                         \textsf{\FCtwo@subject}
                     };
                     % Theme
@@ -209,7 +209,7 @@ center
                             \setlength{\parskip}{0 cm}
                             \color{uniscielblue}
                             \RaggedLeft
-                            \LARGE
+                            \large
                             \textsf{\FCtwo@theme}
                         \end{varwidth}
                     };
@@ -220,7 +220,7 @@ center
                     % Complexity level
                     \node [opacity=1] at ([xshift = 12.5 cm, yshift = -7.05 cm]current page.north west) {
                         \color{uniscielpink}
-                        \textit{\FCtwo@complexityLevel}
+                        \textsf{\textit{\FCtwo@complexityLevel}}
                     };
                 \fi
                 %%%%%% FC THREE
@@ -238,9 +238,9 @@ center
                         \includesvg[height = 0.160\cardheight]{icons/\subjecticon}
                     };
                     % Subject text
-                    \node [opacity = 1] at ([xshift = 2.85 cm, yshift = -8.95 cm]current page.north west) {
+                    \node [opacity = 1] at ([xshift = 3 cm, yshift = -8.95 cm]current page.north west) {
                         \color{white}
-                        \huge
+                        \LARGE
                         \textsf{\FCthree@subject}
                     };
                     % Theme
@@ -249,7 +249,7 @@ center
                             \setlength{\parskip}{0 cm}
                             \color{uniscielblue}
                             \RaggedLeft
-                            \LARGE
+                            \large
                             \textsf{\FCthree@theme}
                         \end{varwidth}
                     };
@@ -260,7 +260,7 @@ center
                     % Complexity level
                     \node [opacity=1] at ([xshift = 2.5 cm, yshift = -15.15 cm]current page.north west) {
                         \color{uniscielpink}
-                        \textit{\FCthree@complexityLevel}
+                        \textsf{\textit{\FCthree@complexityLevel}}
                     };
                 \fi
                 %%%%%% FC FOUR
@@ -278,9 +278,9 @@ center
                         \includesvg[height = 0.160\cardheight]{icons/\subjecticon}
                     };
                     % Subject text
-                    \node [opacity = 1] at ([xshift = 12.85 cm, yshift = -8.95 cm]current page.north west) {
+                    \node [opacity = 1] at ([xshift = 13 cm, yshift = -8.95 cm]current page.north west) {
                         \color{white}
-                        \huge
+                        \LARGE
                         \textsf{\FCfour@subject}
                     };
                     % Theme
@@ -289,7 +289,7 @@ center
                             \setlength{\parskip}{0 cm}
                             \color{uniscielblue}
                             \RaggedLeft
-                            \LARGE
+                            \large
                             \textsf{\FCfour@theme}
                         \end{varwidth}
                     };
@@ -300,7 +300,7 @@ center
                     % Complexity level
                     \node [opacity=1] at ([xshift = 12.5 cm, yshift = -15.15 cm]current page.north west) {
                         \color{uniscielpink}
-                        \textit{\FCfour@complexityLevel}
+                        \textsf{\textit{\FCfour@complexityLevel}}
                     };
                 \fi
                 %%%%%% FC FIVE
@@ -318,9 +318,9 @@ center
                         \includesvg[height = 0.160\cardheight]{icons/\subjecticon}
                     };
                     % Subject text
-                    \node [opacity = 1] at ([xshift = 2.85 cm, yshift = -17.05 cm]current page.north west) {
+                    \node [opacity = 1] at ([xshift = 3 cm, yshift = -17.05 cm]current page.north west) {
                         \color{white}
-                        \huge
+                        \LARGE
                         \textsf{\FCfive@subject}
                     };
                     % Theme
@@ -329,7 +329,7 @@ center
                             \setlength{\parskip}{0 cm}
                             \color{uniscielblue}
                             \RaggedLeft
-                            \LARGE
+                            \large
                             \textsf{\FCfive@theme}
                         \end{varwidth}
                     };
@@ -340,7 +340,7 @@ center
                     % Complexity level
                     \node [opacity=1] at ([xshift = 2.5 cm, yshift = -23.25 cm]current page.north west) {
                         \color{uniscielpink}
-                        \textit{\FCfive@complexityLevel}
+                        \textsf{\textit{\FCfive@complexityLevel}}
                     };
                 \fi
                 %%%%%% FC SIX
@@ -358,9 +358,9 @@ center
                         \includesvg[height = 0.160\cardheight]{icons/\subjecticon}
                     };
                     % Subject text
-                    \node [opacity = 1] at ([xshift = 12.85 cm, yshift = -17.05 cm]current page.north west) {
+                    \node [opacity = 1] at ([xshift = 13 cm, yshift = -17.05 cm]current page.north west) {
                         \color{white}
-                        \huge
+                        \LARGE
                         \textsf{\FCsix@subject}
                     };
                     % Theme
@@ -369,7 +369,7 @@ center
                             \setlength{\parskip}{0 cm}
                             \color{uniscielblue}
                             \RaggedLeft
-                            \LARGE
+                            \large
                             \textsf{\FCsix@theme}
                         \end{varwidth}
                     };
@@ -380,7 +380,7 @@ center
                     % Complexity level
                     \node [opacity=1] at ([xshift = 12.5 cm, yshift = -23.25 cm]current page.north west) {
                         \color{uniscielpink}
-                        \textit{\FCsix@complexityLevel}
+                        \textsf{\textit{\FCsix@complexityLevel}}
                     };
                 \fi
                 \else
@@ -403,9 +403,9 @@ center
                         \includegraphics[width = 0.120\cardwidth, keepaspectratio]{\FCone@qrcode}
                     };
                     % Subject text
-                    \node [opacity = 1] at ([xshift = 12.85 cm, yshift = -0.85 cm]current page.north west) {
+                    \node [opacity = 1] at ([xshift = 13 cm, yshift = -0.85 cm]current page.north west) {
                         \color{physicsviolet}
-                        \huge
+                        \LARGE
                         \textsf{\FCone@subject}
                     };
                     % University back logo
@@ -432,9 +432,9 @@ center
                         \includegraphics[width = 0.120\cardwidth, keepaspectratio]{\FCtwo@qrcode}
                     };
                     % Subject text
-                    \node [opacity = 1] at ([xshift = 2.85 cm, yshift = -0.85 cm]current page.north west) {
+                    \node [opacity = 1] at ([xshift = 3 cm, yshift = -0.85 cm]current page.north west) {
                         \color{physicsviolet}
-                        \huge
+                        \LARGE
                         \textsf{\FCtwo@subject}
                     };
                     % University back logo
@@ -461,9 +461,9 @@ center
                         \includegraphics[width = 0.120\cardwidth, keepaspectratio]{\FCthree@qrcode}
                     };
                     % Subject text
-                    \node [opacity = 1] at ([xshift = 12.85 cm, yshift = -8.95 cm]current page.north west) {
+                    \node [opacity = 1] at ([xshift = 13 cm, yshift = -8.95 cm]current page.north west) {
                         \color{physicsviolet}
-                        \huge
+                        \LARGE
                         \textsf{\FCthree@subject}
                     };
                     % University back logo
@@ -490,9 +490,9 @@ center
                         \includegraphics[width = 0.120\cardwidth, keepaspectratio]{\FCfour@qrcode}
                     };
                     % Subject text
-                    \node [opacity = 1] at ([xshift = 2.85 cm, yshift = -8.95 cm]current page.north west) {
+                    \node [opacity = 1] at ([xshift = 3 cm, yshift = -8.95 cm]current page.north west) {
                         \color{physicsviolet}
-                        \huge
+                        \LARGE
                         \textsf{\FCfour@subject}
                     };
                     % University back logo
@@ -519,9 +519,9 @@ center
                         \includegraphics[width = 0.120\cardwidth, keepaspectratio]{\FCfive@qrcode}
                     };
                     % Subject text
-                    \node [opacity = 1] at ([xshift = 12.85 cm, yshift = -17.05 cm]current page.north west) {
+                    \node [opacity = 1] at ([xshift = 13 cm, yshift = -17.05 cm]current page.north west) {
                         \color{physicsviolet}
-                        \huge
+                        \LARGE
                         \textsf{\FCfive@subject}
                     };
                     % University back logo
@@ -548,9 +548,9 @@ center
                         \includegraphics[width = 0.120\cardwidth, keepaspectratio]{\FCsix@qrcode}
                     };
                     % Subject text
-                    \node [opacity = 1] at ([xshift = 2.85 cm, yshift = -17.05 cm]current page.north west) {
+                    \node [opacity = 1] at ([xshift = 3 cm, yshift = -17.05 cm]current page.north west) {
                         \color{physicsviolet}
-                        \huge
+                        \LARGE
                         \textsf{\FCsix@subject}
                     };
                     % University back logo

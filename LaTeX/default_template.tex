@@ -27,9 +27,9 @@
 % Violet : #463374
 
 %%% FONTS %%%%
-\usepackage{fontspec}
-%\setsansfont{Nautilus Pompilius}
-\setmainfont{DejaVu Sans}
+\usepackage[no-math]{fontspec}
+\setsansfont{Dancing Script}
+\setmainfont{Roboto Condensed}
 
 %%% GEOMETRY AND BLEED MARKS %%%
 \geometry{
@@ -114,7 +114,7 @@ center,
                     % Subject text
                     \node [opacity = 1] at ([xshift = -1.4 cm, yshift = -0.75 cm]current page.north) {
                         \color{white}
-                        \Large
+                        \LARGE
                         \textsf{#2}
                     };
                     % Theme
@@ -134,7 +134,7 @@ center,
                     % Complexity level
                     \node [opacity=1] at ([xshift = -2.75 cm, yshift = 1.175 cm]current page.south) {
                         \color{uniscielpink}
-                        \textit{#1}
+                        \textsf{\textit{#1}}
                     };
                 \else
                     % Back background
@@ -152,7 +152,7 @@ center,
                     % Subject text
                     \node [opacity = 1] at ([xshift = -1.4 cm, yshift = -0.75 cm]current page.north) {
                         \color{physicsviolet}
-                        \Large
+                        \LARGE
                         \textsf{#2}
                     };
                     % QR Code
