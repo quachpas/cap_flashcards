@@ -1036,7 +1036,7 @@ def write_rejected(flashcard, output, rejected, flashcard_list, current_index, a
     else:
         rejected[flashcard.subject.lower()] = 1
     
-    if (args.a4paper is True and current_index == next_rejected_index and len(flashcard_list) - rejected_kvp_last_index > 6 or rejected_kvp_last_index == -1):
+    if (args.a4paper is True and (current_index == next_rejected_index and len(flashcard_list) - rejected_kvp_last_index > 6 or rejected_kvp_last_index == -1)):
         rejected_kvp_last_index = current_index
         (kvp_settings_all, kvp_settings_by_subject, next_rejected_index) = write_kvp(flashcard_list, current_index, False, customqr_valid)
         print("WRITE R>", kvp_settings_all, "\nWRITE R>", kvp_settings_by_subject)
@@ -1061,8 +1061,7 @@ def write_accepted(flashcard, output, accepted, flashcard_list, current_index, a
     else:
         accepted[flashcard.subject.lower()] = 1
         
-    print(current_index, len(flashcard_list) - accepted_kvp_last_index, accepted_kvp_last_index)
-    if (args.a4paper is True and current_index == next_accepted_index and len(flashcard_list) - accepted_kvp_last_index > 6 or accepted_kvp_last_index == -1):
+    if (args.a4paper is True and (current_index == next_accepted_index and len(flashcard_list) - accepted_kvp_last_index > 6 or accepted_kvp_last_index == -1)):
         accepted_kvp_last_index = current_index
         (kvp_settings_all, kvp_settings_by_subject, next_accepted_index) = write_kvp(flashcard_list, current_index, True, customqr_valid)
         print("WRITE A>", kvp_settings_all, "\nWRITE A>", kvp_settings_by_subject)
