@@ -1475,7 +1475,7 @@ def write_empty_flashcards(accepted_lfile, accepted_last_file, rejected_lfile, r
         # Rejected
         if (rejected_lfile == previous_rejected_file):
             for fc in range(0, 6 - rejected_fc_nb):
-                write_outfile("\\begin{flashcard}{}\\color{white}empty\\end{flashcard}\n", "-rejected")
+                write_outfile("\\begin{flashcard}{}\\color{white}empty\\end{flashcard}\n", "rejected")
             rejected_fc_nb = -1
             rejected_lfile = ""
         previous_rejected_file = flashcard.file
