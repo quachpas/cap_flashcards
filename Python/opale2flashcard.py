@@ -1191,7 +1191,7 @@ def write_output(flashcard, question_count, customqr_valid):
 
     # Image is rectangular, 2x2 grid
     if (flashcard.image_rectangular is True):
-        if (len(flashcard.choices) % 2 == 0):
+        if (len(flashcard.choices) % 2 == 0 and flashcard.choices):
             minipage_length = str(0.90/(len(flashcard.choices)//2))
         else:
             minipage_length = str(0.90/(len(flashcard.choices)//2+1))
@@ -1444,12 +1444,12 @@ def write_kvp(flashcard_list, current_index, status, customqr_valid):
         if (status is False):
             flashcard_validity = not flashcard_validity
 
-        while(i < len(flashcard_list) and flashcard_validity is False):
+        while(i < len(flashcard_list)-1 and flashcard_validity is False):
             i += 1
             flashcard_validity = flashcard_list[i].err_flag is False and flashcard_list[i].overflow_flag is False and flashcard_list[i].relevant is True or args.force is True
             if (status is False):
                 flashcard_validity = not flashcard_validity
-            
+
     return (kvp_settings_all, i, last_file)
 
 def write_empty_flashcards(accepted_lfile, accepted_last_file, rejected_lfile, rejected_last_file, accepted_fc_nb, accepted_fc_number, rejected_fc_nb, rejected_fc_number, previous_accepted_file, previous_rejected_file, flashcard):
