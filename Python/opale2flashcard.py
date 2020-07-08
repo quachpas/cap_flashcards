@@ -1044,11 +1044,12 @@ def write_rejected(flashcard, output, rejected, flashcard_list, current_index, a
     else:
         output_subj = output
         output_all = output
-        
-    if (flashcard.subject.lower() == ''):
-        write_outfile(output_subj, 'unclassifiable-rejected')
-    else:
-        write_outfile(output_subj, flashcard.subject.lower() + '-rejected')
+    
+    if (args.a4paper is False):
+        if (flashcard.subject.lower() == ''):
+            write_outfile(output_subj, 'unclassifiable-rejected')
+        else:
+            write_outfile(output_subj, flashcard.subject.lower() + '-rejected')
         
     write_outfile(output_all, 'rejected')
     
@@ -1070,7 +1071,8 @@ def write_accepted(flashcard, output, accepted, flashcard_list, current_index, a
         output_subj = output
         output_all = output
 
-    write_outfile(output_subj, flashcard.subject.lower())
+    if (args.a4paper is False):
+        write_outfile(output_subj, flashcard.subject.lower())
     write_outfile(output_all, None)
     
     return (accepted, accepted_kvp_last_index, next_accepted_index)
@@ -1138,8 +1140,13 @@ def write_output(flashcard, question_count, customqr_valid):
         output.append('\\cardbackground\n{' + complexity_level + '}\n{' + subject + '}\n{' + licence_theme + '}\n{' + qrcode + '}\n')
 
     output.append('\\begin{flashcard}[]{\n\\color{black}\n')
-    output.append('\\vspace{' + str(vspace_question) + '\\textheight}\n\\RaggedRight\n')
-
+    output.append('\\vspace{' + str(vspace_question))
+    
+    if (args.a4paper is True):
+        output.append('\\cardheight}\n\\RaggedRight\n')
+    else:
+        output.append('\\textheight}\n\\RaggedRight\n')
+        
     # Question + Choices
     if (flashcard.image is not None):
         output.append('\\begin{minipage}[t]{0.55\\linewidth}\n')
@@ -1193,7 +1200,12 @@ def write_output(flashcard, question_count, customqr_valid):
     output.append('\\vspace*{\\stretch{1}}\n\\color{white}\n')
     # Answer/Solution
     output.append(write_solution(flashcard.question_type, flashcard.solution_list, flashcard.choice_number, question_count))
-    output.append('\\vspace{' + str(vspace_answer) + '\\textheight}\n\\RaggedRight\n\n')
+    output.append('\\vspace{' + str(vspace_answer))
+    
+    if (args.a4paper is True):
+        output.append('\\cardheight}\n\\RaggedRight\n')
+    else:
+        output.append('\\textheight}\n\\RaggedRight\n')
     
     output.append(flashcard.answer + '\n')
     output.append('\\vspace*{\\stretch{1}}\n\\end{flashcard}\n\n')
@@ -1208,10 +1220,12 @@ def write_background_parameter(flashcard):
         backgroundparam = ['\\backgroundparam\n{' + flashcard.subject.lower() + '}\n{' + flashcard.subject.lower() + '-precropped-front-header}\n{' + flashcard.subject.lower() + '-precropped-front-footer}\n{' + flashcard.subject.lower() + '-precropped-back-background}\n{' + flashcard.subject.lower() + '-precropped-back-header}\n{' + flashcard.subject.lower() + '-precropped-back-footer}\n{front-university-logo}\n{back-university-logo}\n']
 
     if (flashcard.err_flag is False and flashcard.overflow_flag is False and flashcard.relevant is True or args.force is True):
-        write_outfile(backgroundparam, flashcard.subject.lower())
+        if (args.a4paper is False):
+            write_outfile(backgroundparam, flashcard.subject.lower())
         write_outfile(backgroundparam, None)
     else:
-        write_outfile(backgroundparam, flashcard.subject.lower() + '-rejected')
+        if (args.a4paper is False):
+            write_outfile(backgroundparam, flashcard.subject.lower() + '-rejected')
         write_outfile(backgroundparam, 'rejected')
     
 def write_outfile(output, subject):
@@ -1230,17 +1244,19 @@ def write_outfile(output, subject):
 def write_outfile_header(subject_set, customqr_valid):
     # Get output directory
     output_dir = get_output_directory()
-    if ('' in subject_set):
+    if ('' in subject_set and args.a4paper is False):
         outfile_path = os.path.join(output_dir, 'out-unclassifiable.tex')
         write_header(output_dir, outfile_path, customqr_valid)
         outfile_path = os.path.join(output_dir, 'out-unclassifiable-rejected.tex')
         write_header(output_dir, outfile_path, customqr_valid)
         
-    for subject in subject_set:
-        outfile_path = os.path.join(output_dir, 'out-' + subject.lower() + '.tex')
-        write_header(output_dir, outfile_path, customqr_valid)
-        outfile_path = os.path.join(output_dir, 'out-' + subject.lower() + '-rejected.tex')
-        write_header(output_dir, outfile_path, customqr_valid)
+        
+    if (args.a4paper is False):
+        for subject in subject_set:
+            outfile_path = os.path.join(output_dir, 'out-' + subject.lower() + '.tex')
+            write_header(output_dir, outfile_path, customqr_valid)
+            outfile_path = os.path.join(output_dir, 'out-' + subject.lower() + '-rejected.tex')
+            write_header(output_dir, outfile_path, customqr_valid)
 
     outfile_path = os.path.join(output_dir, 'out.tex')
     write_header(output_dir, outfile_path, customqr_valid)
@@ -1313,18 +1329,19 @@ def write_header(output_dir, outfile_path, customqr_valid):
 def write_outfile_footer(subject_set):
     # Get output directory
     output_dir = get_output_directory()
-    if ('' in subject_set):
+    if ('' in subject_set and args.a4paper is False):
         outfile_path = os.path.join(output_dir, 'out-unclassifiable.tex')
         write_footer(output_dir, outfile_path)
         outfile_path = os.path.join(output_dir, 'out-unclassifiable-rejected.tex')
         write_footer(output_dir, outfile_path)
         subject_set.remove('')
         
-    for subject in subject_set:
-        outfile_path = os.path.join(output_dir, 'out-' + subject.lower() + '.tex')
-        write_footer(output_dir, outfile_path)
-        outfile_path = os.path.join(output_dir, 'out-' + subject.lower() + '-rejected.tex')
-        write_footer(output_dir, outfile_path)
+    if (args.a4paper is False):
+        for subject in subject_set:
+            outfile_path = os.path.join(output_dir, 'out-' + subject.lower() + '.tex')
+            write_footer(output_dir, outfile_path)
+            outfile_path = os.path.join(output_dir, 'out-' + subject.lower() + '-rejected.tex')
+            write_footer(output_dir, outfile_path)
 
     outfile_path = os.path.join(output_dir, 'out.tex')
     write_footer(output_dir, outfile_path)
@@ -1387,7 +1404,7 @@ def write_kvp(flashcard_list, current_index, status, customqr_valid):
 
         i += 1
     
-    
+    kvp_settings_all += ["\\cardbackground{" + str(len(kvp_settings_all)) + "}\n"]
     # Search next index
     if (i != len(flashcard_list)):
         flashcard_validity = flashcard_list[i].err_flag is False and flashcard_list[i].overflow_flag is False and flashcard_list[i].relevant is True or args.force is True
