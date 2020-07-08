@@ -1154,9 +1154,9 @@ def write_output(flashcard, question_count, customqr_valid):
     output.append('\\vspace{' + str(vspace_question))
     
     if (args.a4paper is True):
-        output.append('\\cardheight}\n\\RaggedRight\n')
+        output.append('\\cardheight}\n\\RaggedRight\n\n')
     else:
-        output.append('\\textheight}\n\\RaggedRight\n')
+        output.append('\\textheight}\n\\RaggedRight\n\n')
         
     # Question + Choices
     if (flashcard.image is not None):
@@ -1214,9 +1214,9 @@ def write_output(flashcard, question_count, customqr_valid):
     output.append('\\vspace{' + str(vspace_answer))
     
     if (args.a4paper is True):
-        output.append('\\cardheight}\n\\RaggedRight\n')
+        output.append('\\cardheight}\n\\RaggedRight\n\n')
     else:
-        output.append('\\textheight}\n\\RaggedRight\n')
+        output.append('\\textheight}\n\\RaggedRight\n\n')
     
     output.append(flashcard.answer + '\n')
     output.append('\\vspace*{\\stretch{1}}\n\\end{flashcard}\n\n')
