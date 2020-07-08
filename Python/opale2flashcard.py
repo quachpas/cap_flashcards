@@ -1030,14 +1030,16 @@ def process_error(flashcard):
             flashcard.err_message
         ) 
         
-def write_rejected(flashcard, output, rejected, flashcard_list, current_index, customqr_valid):
+def write_rejected(flashcard, output, rejected, flashcard_list, current_index, accepted_kvp_last_index, next_accepted_index, rejected_kvp_last_index, next_rejected_index, customqr_valid):
     if (flashcard.subject.lower() in rejected):
         rejected[flashcard.subject.lower()] += 1
     else:
         rejected[flashcard.subject.lower()] = 1
     
-    if (args.a4paper is True and current_index % 6 == 0):
-        (kvp_settings_all, kvp_settings_by_subject) = write_kvp(flashcard_list, current_index, False, customqr_valid)
+    if (args.a4paper is True and current_index == next_rejected_index and len(flashcard_list) - rejected_kvp_last_index > 6 or rejected_kvp_last_index == -1):
+        rejected_kvp_last_index = current_index
+        (kvp_settings_all, kvp_settings_by_subject, next_rejected_index) = write_kvp(flashcard_list, current_index, False, customqr_valid)
+        print("WRITE R>", kvp_settings_all, "\nWRITE R>", kvp_settings_by_subject)
         output_subj = kvp_settings_by_subject[flashcard.subject.lower()] + output
         output_all = kvp_settings_all + output
     else:
@@ -1051,17 +1053,20 @@ def write_rejected(flashcard, output, rejected, flashcard_list, current_index, c
         
     write_outfile(output_all, 'rejected')
     
-    return rejected    
+    return (rejected, rejected_kvp_last_index, next_rejected_index)
 
-def write_accepted(flashcard, output, accepted, flashcard_list, current_index, customqr_valid):
+def write_accepted(flashcard, output, accepted, flashcard_list, current_index, accepted_kvp_last_index, next_accepted_index, rejected_kvp_last_index, next_rejected_index, customqr_valid):
     if (flashcard.subject.lower() in accepted):
         accepted[flashcard.subject.lower()] += 1
     else:
         accepted[flashcard.subject.lower()] = 1
         
-    if (args.a4paper is True and current_index % 6 == 0):
-        (kvp_settings_all, kvp_settings_by_subject) = write_kvp(flashcard_list, current_index, True, customqr_valid)
-        output_subj = kvp_settings_by_subject[flashcard.subject.lower()] + output        
+    print(current_index, len(flashcard_list) - accepted_kvp_last_index, accepted_kvp_last_index)
+    if (args.a4paper is True and current_index == next_accepted_index and len(flashcard_list) - accepted_kvp_last_index > 6 or accepted_kvp_last_index == -1):
+        accepted_kvp_last_index = current_index
+        (kvp_settings_all, kvp_settings_by_subject, next_accepted_index) = write_kvp(flashcard_list, current_index, True, customqr_valid)
+        print("WRITE A>", kvp_settings_all, "\nWRITE A>", kvp_settings_by_subject)
+        output_subj = kvp_settings_by_subject[flashcard.subject.lower()] + output
         output_all = kvp_settings_all + output
     else:
         output_subj = output
@@ -1070,38 +1075,37 @@ def write_accepted(flashcard, output, accepted, flashcard_list, current_index, c
     write_outfile(output_subj, flashcard.subject.lower())
     write_outfile(output_all, None)
     
-    return accepted
+    return (accepted, accepted_kvp_last_index, next_accepted_index)
     
-def write_flashcard(flashcard, output, accepted, rejected, flashcard_list, current_index, customqr_valid):
+def write_flashcard(flashcard, output, accepted, rejected, flashcard_list, current_index, accepted_kvp_last_index, next_accepted_index, rejected_kvp_last_index, next_rejected_index, customqr_valid):
     if (flashcard.err_flag is False and flashcard.overflow_flag is False and flashcard.relevant is True or args.force == True):
-        accepted = write_accepted(flashcard, output, accepted, flashcard_list, current_index, customqr_valid)
-        
+        (accepted, accepted_kvp_last_index, next_accepted_index) = write_accepted(flashcard, output, accepted, flashcard_list, current_index, accepted_kvp_last_index, next_accepted_index, rejected_kvp_last_index, next_rejected_index, customqr_valid)
     else:
-        rejected = write_rejected(flashcard, output, rejected, flashcard_list, current_index, customqr_valid)
+        (rejected, rejected_kvp_last_index, next_rejected_index) = write_rejected(flashcard, output, rejected, flashcard_list, current_index, accepted_kvp_last_index, next_accepted_index, rejected_kvp_last_index, next_rejected_index, customqr_valid)
         
-    return (accepted, rejected)
+    return (accepted, rejected, accepted_kvp_last_index, next_accepted_index, rejected_kvp_last_index, next_rejected_index)
         
-def process_write_outfile(flashcard, output, accepted, rejected, flashcard_list, current_index, customqr_valid):
+def process_write_outfile(flashcard, output, accepted, rejected, flashcard_list, current_index, accepted_kvp_last_index, next_accepted_index, rejected_kvp_last_index, next_rejected_index, customqr_valid):
     # If any output options have been declared
     if (args.file_name is not None or args.image_only is True or args.overflow_only is True or args.non_relevant_only is True):
         # Treat each `option`
         if (args.file_name == flashcard.file and args.file_name is not None):
-            (accepted, rejected) = write_flashcard(flashcard, output, accepted, rejected, flashcard_list, current_index, customqr_valid)
+            (accepted, rejected, accepted_kvp_last_index, next_accepted_index, rejected_kvp_last_index, next_rejected_index) = write_flashcard(flashcard, output, accepted, rejected, flashcard_list, current_index, accepted_kvp_last_index, next_accepted_index, rejected_kvp_last_index, next_rejected_index, customqr_valid)
             
         elif (flashcard.image is not None and args.image_only is True):
-            (accepted, rejected) = write_flashcard(flashcard, output, accepted, rejected, flashcard_list, current_index, customqr_valid)
+            (accepted, rejected, accepted_kvp_last_index, next_accepted_index, rejected_kvp_last_index, next_rejected_index) = write_flashcard(flashcard, output, accepted, rejected, flashcard_list, current_index, accepted_kvp_last_index, next_accepted_index, rejected_kvp_last_index, next_rejected_index, customqr_valid)
             
         elif (flashcard.overflow_flag is True and args.overflow_only is True):
-            (accepted, rejected) = write_flashcard(flashcard, output, accepted, rejected, flashcard_list, current_index, customqr_valid)
+            (accepted, rejected, accepted_kvp_last_index, next_accepted_index, rejected_kvp_last_index, next_rejected_index) = write_flashcard(flashcard, output, accepted, rejected, flashcard_list, current_index, accepted_kvp_last_index, next_accepted_index, rejected_kvp_last_index, next_rejected_index, customqr_valid)
             
         elif (flashcard.relevant is False and args.non_relevant_only is True):
-            (accepted, rejected) = write_flashcard(flashcard, output, accepted, rejected, flashcard_list, current_index, customqr_valid)
+            (accepted, rejected, accepted_kvp_last_index, next_accepted_index, rejected_kvp_last_index, next_rejected_index) = write_flashcard(flashcard, output, accepted, rejected, flashcard_list, current_index, accepted_kvp_last_index, next_accepted_index, rejected_kvp_last_index, next_rejected_index, customqr_valid)
             
     # Else, just write the output if the flashcard is valid, or force option has been set
     else:
-        (accepted, rejected) = write_flashcard(flashcard, output, accepted, rejected, flashcard_list, current_index, customqr_valid)
+        (accepted, rejected, accepted_kvp_last_index, next_accepted_index, rejected_kvp_last_index, next_rejected_index) = write_flashcard(flashcard, output, accepted, rejected, flashcard_list, current_index, accepted_kvp_last_index, next_accepted_index, rejected_kvp_last_index, next_rejected_index, customqr_valid)
         
-    return (accepted, rejected)
+    return (accepted, rejected, accepted_kvp_last_index, next_accepted_index, rejected_kvp_last_index, next_rejected_index)
 
 def write_output(flashcard, question_count, customqr_valid):
     # Variables
@@ -1361,10 +1365,12 @@ def write_kvp(flashcard_list, current_index, status, customqr_valid):
     families = ["One", "Two", "Three", "Four", "Five", "Six"]
     families_indexes = {}
     i = current_index
-
-    while not kvp_full(kvp_settings_by_subject):
-        flashcard_validity = flashcard_list[current_index].err_flag is False and flashcard_list[current_index].overflow_flag is False and flashcard_list[current_index].relevant is True or args.force is True
-        flashcard_subject = flashcard_list[current_index].subject
+    
+    while not kvp_full(kvp_settings_by_subject) and i < len(flashcard_list):
+        
+        flashcard_validity = flashcard_list[i].err_flag is False and flashcard_list[i].overflow_flag is False and flashcard_list[i].relevant is True or args.force is True
+        flashcard_subject = flashcard_list[i].subject
+        print(i, '//', len(flashcard_list), ": ", flashcard_list[i].file, flashcard_validity)
         if (status is False):
             # Only accept rejected flashcards
             flashcard_validity = not flashcard_validity
@@ -1375,18 +1381,18 @@ def write_kvp(flashcard_list, current_index, status, customqr_valid):
             else:
                 families_indexes[flashcard_subject.lower()] = 0
 
-            if (args.add_complexity_level is True and flashcard_list[current_index].complexity_level is not None):
-                complexity_level = flashcard_list[current_index].complexity_level
+            if (args.add_complexity_level is True and flashcard_list[i].complexity_level is not None):
+                complexity_level = flashcard_list[i].complexity_level
             else:
                 complexity_level = ''
             
-            if (flashcard_list[current_index].subject is not None):
-                subject = flashcard_list[current_index].subject
+            if (flashcard_list[i].subject is not None):
+                subject = flashcard_list[i].subject
             else:
                 subject = ''
             
-            if (flashcard_list[current_index].licence_theme is not None):
-                licence_theme = flashcard_list[current_index].licence_theme
+            if (flashcard_list[i].licence_theme is not None):
+                licence_theme = flashcard_list[i].licence_theme
             else:
                 licence_theme = ''
             
@@ -1405,8 +1411,7 @@ def write_kvp(flashcard_list, current_index, status, customqr_valid):
 
         i += 1
         
-
-    return (kvp_settings_all, kvp_settings_by_subject)
+    return (kvp_settings_all, kvp_settings_by_subject, i)
 
 
 def write_flashcards(flashcard_list, customqr_valid):
@@ -1418,7 +1423,10 @@ def write_flashcards(flashcard_list, customqr_valid):
     previous_subject = ''
     question_count = len(flashcard_list)
     current_index = 0
-    
+    accepted_kvp_last_index = -1
+    next_accepted_index = -1
+    rejected_kvp_last_index = -1
+    next_rejected_index = -1
 
     for flashcard in flashcard_list:
         # Background parameters
@@ -1432,7 +1440,7 @@ def write_flashcards(flashcard_list, customqr_valid):
             output.append(out)
 
         # Separate output according to flashcard validity
-        (accepted, rejected) = process_write_outfile(flashcard, output, accepted, rejected, flashcard_list, current_index, customqr_valid)
+        (accepted, rejected, accepted_kvp_last_index, next_accepted_index, rejected_kvp_last_index, next_rejected_index) = process_write_outfile(flashcard, output, accepted, rejected, flashcard_list, current_index, accepted_kvp_last_index, next_accepted_index, rejected_kvp_last_index, next_rejected_index, customqr_valid)
         output = []
         current_index += 1
 
