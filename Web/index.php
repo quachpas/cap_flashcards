@@ -1,5 +1,5 @@
 <?php
-const FILES_EXTENSIONS = ['scar', 'zip', '7z'];
+const FILES_EXTENSIONS = ['scar'];
 function error($text)
 {
 	require_once("header.php");
