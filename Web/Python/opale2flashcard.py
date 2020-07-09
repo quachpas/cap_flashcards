@@ -1186,7 +1186,7 @@ def write_output(flashcard, question_count, customqr_valid):
 
     # Image is rectangular, 2x2 grid
     if (flashcard.image_rectangular is True):
-        output.append('\\begin{multicols}{2}')
+        output.append('\\begin{multicols}{2}\n\\begin{enumerate}\n')
         for choice in flashcard.choices:
             output.append(choice)
         output.append('\\end{enumerate}\n\\end{multicols}\n\\hfill\n')
