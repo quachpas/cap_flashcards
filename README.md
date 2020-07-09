@@ -94,7 +94,6 @@ apt install libcanberra-gtk-module libcanberra-gtk3-module
 add-apt-repository ppa:inkscape.dev/stable-0.92
 apt update
 apt install inkscape
-apt install latexmk
 apt install texlive-xetex
 ```
 
@@ -166,6 +165,7 @@ How to install :
 1. Move everything in the Web folder to your webserver root folder. 
 2. Give appropriate ownerhships/permissions recursively to the user.
 3. Don't forget to install the fonts (Dancing Script and Roboto Condensed), i.e. move all `.ttf` files in `/usr/share/fonts/truetype` for example.
+4. Adjust maximum script execution time, and max file upload size accordingly to your uses. The script can take quite a long time to compile large amounts of flashcards.
 
 ## TeX Live and Inkscape
 
