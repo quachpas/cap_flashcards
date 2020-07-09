@@ -47,7 +47,7 @@ The script will write in the './output/out.tex' file.
 The front is always output before the back of the flashcard. 
 There are two output formats : 
     - default, the page's dimensions are 10x8 cm. 
-    - a4paper, the output's format is an A4 page. NON USABLE
+    - a4paper, the output's format is an A4 page.
     Every page contains 6 flashcards (10x8 cm).
     A grid outlines the borders. 
     This is the preferred format for printing at home.
@@ -96,7 +96,7 @@ parser.add_argument('themefile', help = """
 Themes list file path - Path to an xml file containing all theme codes.
 """)
 parser.add_argument('--a4paper', action = 'store_true', help  ="""
-Output format - Currently unusable (defaults to printing 10x8cm flashcards)
+Output format - defaults to printing 10x8cm flashcards. If activated, will output flashcard on an a4paper.
 """)
 parser.add_argument('--noclean', action = 'store_true', help  ="""
 Clean output folder - Cleanse by default
@@ -644,7 +644,7 @@ def texfilter(text):
     # text = text.replace('~','\\textasciitilde')
     # text = text.replace('^','\\textasciicircum')
     # text = text.replace('&','\\&')
-    # text = text.replace('%','\\%')
+    text = text.replace('%','\\%')
     text = text.replace('ˉ', '$^{-}$')
     # text = text.replace('$','\\$')
     # text = text.replace('#','\\#')
@@ -1043,7 +1043,6 @@ def write_rejected(flashcard, output, rejected, flashcard_list, current_index, a
         (kvp_settings_all, next_rejected_index, rejected_last_file) = write_kvp(flashcard_list, current_index, False, customqr_valid)
         rejected_fc_number = len(kvp_settings_all)-1 # Minus cardbackground
         output_subj = output
-        # output_subj = kvp_settings_by_subject[flashcard.subject.lower()] + output
         output_all = kvp_settings_all + output
     else:
         output_subj = output
@@ -1072,7 +1071,6 @@ def write_accepted(flashcard, output, accepted, flashcard_list, current_index, a
         (kvp_settings_all, next_accepted_index, accepted_last_file) = write_kvp(flashcard_list, current_index, True, customqr_valid)
         accepted_fc_number = len(kvp_settings_all) - 1 # Minus cardbackground
         output_subj = output
-        # output_subj = kvp_settings_by_subject[flashcard.subject.lower()] + output
         output_all = kvp_settings_all + output
     else:
         output_subj = output
@@ -1235,11 +1233,18 @@ def write_background_parameter(flashcard):
 
     if (flashcard.err_flag is False and flashcard.overflow_flag is False and flashcard.relevant is True or args.force is True):
         if (args.a4paper is False):
-            write_outfile(backgroundparam, flashcard.subject.lower())
+            if (flashcard.subject == ''):
+                write_outfile(backgroundparam, 'unclassifiable')
+            else:
+                write_outfile(backgroundparam, flashcard.subject.lower())
+                
         write_outfile(backgroundparam, None)
     else:
         if (args.a4paper is False):
-            write_outfile(backgroundparam, flashcard.subject.lower() + '-rejected')
+            if (flashcard.subject == ''):
+                write_outfile(backgroundparam, 'unclassifiable-rejected')
+            else:
+                write_outfile(backgroundparam, flashcard.subject.lower() + '-rejected')
         write_outfile(backgroundparam, 'rejected')
     
 def write_outfile(output, subject):
@@ -1263,6 +1268,7 @@ def write_outfile_header(subject_set, customqr_valid):
         write_header(output_dir, outfile_path, customqr_valid)
         outfile_path = os.path.join(output_dir, 'out-unclassifiable-rejected.tex')
         write_header(output_dir, outfile_path, customqr_valid)
+        subject_set.remove('')
         
     if (args.a4paper is False):
         for subject in subject_set:
@@ -1442,6 +1448,7 @@ def write_kvp(flashcard_list, current_index, status, customqr_valid):
     
     # Card background
     kvp_settings_all += ["\\cardbackground{" + str(len(kvp_settings_all)) + "}\n"]
+    
     # Search next index
     if (i != len(flashcard_list)):
         flashcard_validity = flashcard_list[i].err_flag is False and flashcard_list[i].overflow_flag is False and flashcard_list[i].relevant is True or args.force is True
@@ -1509,7 +1516,6 @@ def write_flashcards(flashcard_list, customqr_valid):
     rejected_lfile = ""
     previous_accepted_file = flashcard_list[0].file
     previous_rejected_file = flashcard_list[0].file
-    
     for flashcard in flashcard_list:
         # Empty flashcards
         if (args.a4paper is True):
@@ -1529,13 +1535,9 @@ def write_flashcards(flashcard_list, customqr_valid):
         (accepted, rejected, accepted_kvp_last_index, next_accepted_index, rejected_kvp_last_index, next_rejected_index, accepted_fc_number, accepted_last_file, rejected_fc_number, rejected_last_file) = process_write_outfile(flashcard, output, accepted, rejected, flashcard_list, current_index, accepted_kvp_last_index, next_accepted_index, rejected_kvp_last_index, next_rejected_index, customqr_valid)
         output = []
         current_index += 1
-    
-    # # Write empty flashcards 
-    # if (args.a4paper is True):
-    #     (accepted_lfile, accepted_last_file, rejected_lfile, rejected_last_file, accepted_fc_nb, accepted_fc_number, rejected_fc_nb, rejected_fc_number, previous_accepted_file, previous_rejected_file) = write_empty_flashcards(accepted_lfile, accepted_last_file, rejected_lfile, rejected_last_file, accepted_fc_nb, accepted_fc_number, rejected_fc_nb, rejected_fc_number, previous_accepted_file, previous_rejected_file, flashcard_list[-1])
         
     return (accepted, rejected)
-
+    
 def sort_flashcards_by_subject(flashcard_list, subject_set):
     sorted_list = []
     subject = ''
@@ -1685,8 +1687,11 @@ def opale_to_tex(args):
     (flashcard_list, subject_list, question_count, err_count) = parse_files(args, question_count, err_count, parser, licence_theme, subject)
     
     sorted_list = sort_flashcards_by_subject(flashcard_list, set(subject_list))
+    
     write_outfile_header(set(subject_list), customqr_valid)
+    
     (accepted, rejected) = write_flashcards(sorted_list, customqr_valid)
+    
     write_outfile_footer(set(subject_list))
 
     # Check out.tex
