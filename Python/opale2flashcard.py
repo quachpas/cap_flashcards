@@ -644,7 +644,7 @@ def texfilter(text):
     # text = text.replace('~','\\textasciitilde')
     # text = text.replace('^','\\textasciicircum')
     # text = text.replace('&','\\&')
-    # text = text.replace('%','\\%')
+    text = text.replace('%','\\%')
     text = text.replace('ˉ', '$^{-}$')
     # text = text.replace('$','\\$')
     # text = text.replace('#','\\#')
@@ -1043,7 +1043,6 @@ def write_rejected(flashcard, output, rejected, flashcard_list, current_index, a
         (kvp_settings_all, next_rejected_index, rejected_last_file) = write_kvp(flashcard_list, current_index, False, customqr_valid)
         rejected_fc_number = len(kvp_settings_all)-1 # Minus cardbackground
         output_subj = output
-        # output_subj = kvp_settings_by_subject[flashcard.subject.lower()] + output
         output_all = kvp_settings_all + output
     else:
         output_subj = output
@@ -1055,7 +1054,7 @@ def write_rejected(flashcard, output, rejected, flashcard_list, current_index, a
         if (flashcard.subject.lower() == ''):
             write_outfile(output_subj, 'unclassifiable-rejected')
         else:
-            write_outfile(output_subj, flashcard.subject.lower() + 'rejected')
+            write_outfile(output_subj, flashcard.subject.lower() + '-rejected')
         
     write_outfile(output_all, 'rejected')
     
@@ -1072,7 +1071,6 @@ def write_accepted(flashcard, output, accepted, flashcard_list, current_index, a
         (kvp_settings_all, next_accepted_index, accepted_last_file) = write_kvp(flashcard_list, current_index, True, customqr_valid)
         accepted_fc_number = len(kvp_settings_all) - 1 # Minus cardbackground
         output_subj = output
-        # output_subj = kvp_settings_by_subject[flashcard.subject.lower()] + output
         output_all = kvp_settings_all + output
     else:
         output_subj = output
@@ -1235,11 +1233,18 @@ def write_background_parameter(flashcard):
 
     if (flashcard.err_flag is False and flashcard.overflow_flag is False and flashcard.relevant is True or args.force is True):
         if (args.a4paper is False):
-            write_outfile(backgroundparam, flashcard.subject.lower())
+            if (flashcard.subject == ''):
+                write_outfile(backgroundparam, 'unclassifiable')
+            else:
+                write_outfile(backgroundparam, flashcard.subject.lower())
+                
         write_outfile(backgroundparam, None)
     else:
         if (args.a4paper is False):
-            write_outfile(backgroundparam, flashcard.subject.lower() + 'rejected')
+            if (flashcard.subject == ''):
+                write_outfile(backgroundparam, 'unclassifiable-rejected')
+            else:
+                write_outfile(backgroundparam, flashcard.subject.lower() + '-rejected')
         write_outfile(backgroundparam, 'rejected')
     
 def write_outfile(output, subject):
@@ -1511,7 +1516,6 @@ def write_flashcards(flashcard_list, customqr_valid):
     rejected_lfile = ""
     previous_accepted_file = flashcard_list[0].file
     previous_rejected_file = flashcard_list[0].file
-    
     for flashcard in flashcard_list:
         # Empty flashcards
         if (args.a4paper is True):
@@ -1531,6 +1535,8 @@ def write_flashcards(flashcard_list, customqr_valid):
         (accepted, rejected, accepted_kvp_last_index, next_accepted_index, rejected_kvp_last_index, next_rejected_index, accepted_fc_number, accepted_last_file, rejected_fc_number, rejected_last_file) = process_write_outfile(flashcard, output, accepted, rejected, flashcard_list, current_index, accepted_kvp_last_index, next_accepted_index, rejected_kvp_last_index, next_rejected_index, customqr_valid)
         output = []
         current_index += 1
+        
+    return (accepted, rejected)
     
 def sort_flashcards_by_subject(flashcard_list, subject_set):
     sorted_list = []
@@ -1681,8 +1687,11 @@ def opale_to_tex(args):
     (flashcard_list, subject_list, question_count, err_count) = parse_files(args, question_count, err_count, parser, licence_theme, subject)
     
     sorted_list = sort_flashcards_by_subject(flashcard_list, set(subject_list))
+    
     write_outfile_header(set(subject_list), customqr_valid)
+    
     (accepted, rejected) = write_flashcards(sorted_list, customqr_valid)
+    
     write_outfile_footer(set(subject_list))
 
     # Check out.tex
