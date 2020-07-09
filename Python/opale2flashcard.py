@@ -278,7 +278,7 @@ def cleantheme(text):
 
 def calc_vspace_parameters(flashcard):
     if (flashcard.image is not None):
-        vspace_question = 0.12
+        vspace_question = 0.16
         vspace_answer = 0.09
     else:
         vspace_question = 0.15
@@ -358,15 +358,23 @@ def check_generator(file, generator, expression):
 
 def check_overflow(flashcard):
     if (flashcard.image is None):
+        math_choice = False
+        for choice in flashcard.choices:
+            if ("$" in choice):
+                math_choice = True
+                break
         if (
                 flashcard.question_length + flashcard.choices_length > 530
+                or (math_choice and flashcard.choices_length > 300)
                 or flashcard.answer_length > 615
         ):
             flashcard.overflow_flag = True
             flashcard.err_message += 'opale2flashcard.py(' + flashcard.file +  '): No image - Potentially overflowing content (Q, C, A): ' + str(flashcard.question_length) + ' ' + str(flashcard.choices_length) + ' ' + str(flashcard.answer_length) + " "
     else:
         if ((flashcard.image_square is True and flashcard.question_length + flashcard.choices_length > 240)
-             or (flashcard.image_rectangular is True and (flashcard.question_length + flashcard.choices_length > 375 or flashcard.choices_length > 60)) or flashcard.answer_length > 615):
+             or (flashcard.image_rectangular is True and (flashcard.question_length + flashcard.choices_length > 375 or flashcard.choices_length > 60)) 
+             or ("$" in flashcard.choices and flashcard.choices_length > 300)
+             or flashcard.answer_length > 615):
             flashcard.overflow_flag = True
             flashcard.err_message += 'opale2flashcard.py(' + flashcard.file +  '): Image - Potentially overflowing content (Q, C, A): ' + str(flashcard.question_length) + ' ' + str(flashcard.choices_length) + ' ' + str(flashcard.answer_length) + " "
         if (flashcard.image.count("includegraphics") >= 2):
@@ -701,6 +709,7 @@ def texfilter(text):
     text = text.replace('Ψ', '$\\Psi$')
     text = text.replace('ω', '$\\omega$')
     text = text.replace('Ω', '$\\Omega$')
+    text = text.replace('→', '$\\longrightarrow$')
     return text
 
 def markup_content(file, element):
@@ -1175,12 +1184,25 @@ def write_output(flashcard, question_count, customqr_valid):
     output.append(flashcard.question + '\n')
     
     # Image is square, 1x2 grid
-    if (flashcard.image_rectangular is False):
+    if (flashcard.image_rectangular is False and flashcard.image is not None):
         output.append('\\begin{multicols}{2}\n\\begin{enumerate}\n')
         for choice in flashcard.choices:
             output.append(choice)
         output.append('\\end{enumerate}\n\end{multicols}\n')
 
+    # No image
+    if (flashcard.image is None):
+        
+        if (flashcard.choices_length < 250 or flashcard.question_length > 150):
+            output.append('\\begin{multicols}{2}\n')
+        output.append('\\begin{enumerate}\n')
+        for choice in flashcard.choices:
+            output.append(choice)
+        output.append('\\end{enumerate}\n')
+        if (flashcard.choices_length < 250 or flashcard.question_length > 150):
+            output.appedn('\end{multicols}\n')
+    
+    # End image minipage
     if (flashcard.image is not None):
         output.append('\\end{minipage}\n')
         output.append(flashcard.image + '\n')
