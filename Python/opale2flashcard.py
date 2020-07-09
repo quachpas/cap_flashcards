@@ -1055,7 +1055,7 @@ def write_rejected(flashcard, output, rejected, flashcard_list, current_index, a
         if (flashcard.subject.lower() == ''):
             write_outfile(output_subj, 'unclassifiable-rejected')
         else:
-            write_outfile(output_subj, flashcard.subject.lower() + '-rejected')
+            write_outfile(output_subj, flashcard.subject.lower() + 'rejected')
         
     write_outfile(output_all, 'rejected')
     
@@ -1239,7 +1239,7 @@ def write_background_parameter(flashcard):
         write_outfile(backgroundparam, None)
     else:
         if (args.a4paper is False):
-            write_outfile(backgroundparam, flashcard.subject.lower() + '-rejected')
+            write_outfile(backgroundparam, flashcard.subject.lower() + 'rejected')
         write_outfile(backgroundparam, 'rejected')
     
 def write_outfile(output, subject):
@@ -1263,6 +1263,7 @@ def write_outfile_header(subject_set, customqr_valid):
         write_header(output_dir, outfile_path, customqr_valid)
         outfile_path = os.path.join(output_dir, 'out-unclassifiable-rejected.tex')
         write_header(output_dir, outfile_path, customqr_valid)
+        subject_set.remove('')
         
     if (args.a4paper is False):
         for subject in subject_set:
@@ -1442,6 +1443,7 @@ def write_kvp(flashcard_list, current_index, status, customqr_valid):
     
     # Card background
     kvp_settings_all += ["\\cardbackground{" + str(len(kvp_settings_all)) + "}\n"]
+    
     # Search next index
     if (i != len(flashcard_list)):
         flashcard_validity = flashcard_list[i].err_flag is False and flashcard_list[i].overflow_flag is False and flashcard_list[i].relevant is True or args.force is True
