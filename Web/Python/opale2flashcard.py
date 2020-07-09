@@ -833,7 +833,8 @@ def fetch_question(file, root):
                             for cell in row.iterfind(".//sc:cell", namespace):
                                 for content in cell.iter():
                                     if (content.text is not None and not str.isspace(content.text)):
-                                        output += markup_content(file, content) + '&'
+                                        output += markup_content(file, content)
+                                output += '&'
                             output = output[:-1] # Remove the additional &
                             output += '\\\\\n'
                         output += '\hline\n'
