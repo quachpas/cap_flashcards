@@ -1264,7 +1264,6 @@ def write_outfile_header(subject_set, customqr_valid):
         outfile_path = os.path.join(output_dir, 'out-unclassifiable-rejected.tex')
         write_header(output_dir, outfile_path, customqr_valid)
         
-        
     if (args.a4paper is False):
         for subject in subject_set:
             outfile_path = os.path.join(output_dir, 'out-' + subject.lower() + '.tex')
