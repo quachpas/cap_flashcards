@@ -165,7 +165,7 @@ pip3 install qrcode
 How to install :
 1. Move everything in the Web folder to your webserver root folder. 
 2. Give appropriate ownerhships/permissions recursively to the user.
-3. Don't forget to install the fonts (Dancing Script and Roboto Condensed).
+3. Don't forget to install the fonts (Dancing Script and Roboto Condensed), i.e. move all `.ttf` files in `/usr/share/fonts/truetype` for example.
 
 ## TeX Live and Inkscape
 

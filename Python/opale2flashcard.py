@@ -47,7 +47,7 @@ The script will write in the './output/out.tex' file.
 The front is always output before the back of the flashcard. 
 There are two output formats : 
     - default, the page's dimensions are 10x8 cm. 
-    - a4paper, the output's format is an A4 page. NON USABLE
+    - a4paper, the output's format is an A4 page.
     Every page contains 6 flashcards (10x8 cm).
     A grid outlines the borders. 
     This is the preferred format for printing at home.
@@ -96,7 +96,7 @@ parser.add_argument('themefile', help = """
 Themes list file path - Path to an xml file containing all theme codes.
 """)
 parser.add_argument('--a4paper', action = 'store_true', help  ="""
-Output format - Currently unusable (defaults to printing 10x8cm flashcards)
+Output format - defaults to printing 10x8cm flashcards. If activated, will output flashcard on an a4paper.
 """)
 parser.add_argument('--noclean', action = 'store_true', help  ="""
 Clean output folder - Cleanse by default
@@ -1530,12 +1530,6 @@ def write_flashcards(flashcard_list, customqr_valid):
         output = []
         current_index += 1
     
-    # # Write empty flashcards 
-    # if (args.a4paper is True):
-    #     (accepted_lfile, accepted_last_file, rejected_lfile, rejected_last_file, accepted_fc_nb, accepted_fc_number, rejected_fc_nb, rejected_fc_number, previous_accepted_file, previous_rejected_file) = write_empty_flashcards(accepted_lfile, accepted_last_file, rejected_lfile, rejected_last_file, accepted_fc_nb, accepted_fc_number, rejected_fc_nb, rejected_fc_number, previous_accepted_file, previous_rejected_file, flashcard_list[-1])
-        
-    return (accepted, rejected)
-
 def sort_flashcards_by_subject(flashcard_list, subject_set):
     sorted_list = []
     subject = ''
