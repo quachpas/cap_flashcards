@@ -833,7 +833,8 @@ def fetch_question(file, root):
                             for cell in row.iterfind(".//sc:cell", namespace):
                                 for content in cell.iter():
                                     if (content.text is not None and not str.isspace(content.text)):
-                                        output += markup_content(file, content) + '&'
+                                        output += markup_content(file, content)
+                                output += '&'
                             output = output[:-1] # Remove the additional &
                             output += '\\\\\n'
                         output += '\hline\n'
@@ -1317,32 +1318,32 @@ def write_header(output_dir, outfile_path, customqr_valid):
                 if (customqr_valid is True):
                     outfile.write('                        \includegraphics[width = 0.120\cardwidth, keepaspectratio]{\FCone@qrcode}\n')
                 else:
-                    outfile.write('                        \includesvg[height = 0.175\cardheight]{\FCone@qrcode}\n')
+                    outfile.write('                        \includesvg[height = 0.140\cardheight]{\FCone@qrcode}\n')
             elif('% QRCODE 2' in line):
                 if (customqr_valid is True):
                     outfile.write('                        \includegraphics[width = 0.120\cardwidth, keepaspectratio]{\FCtwo@qrcode}\n')
                 else:
-                    outfile.write('                        \includesvg[height = 0.175\cardheight]{\FCtwo@qrcode}\n')
+                    outfile.write('                        \includesvg[height = 0.140\cardheight]{\FCtwo@qrcode}\n')
             elif('% QRCODE 3' in line):
                 if (customqr_valid is True):
                     outfile.write('                        \includegraphics[width = 0.120\cardwidth, keepaspectratio]{\FCthree@qrcode}\n')
                 else:
-                    outfile.write('                        \includesvg[height = 0.175\cardheight]{\FCthree@qrcode}\n')
+                    outfile.write('                        \includesvg[height = 0.140\cardheight]{\FCthree@qrcode}\n')
             elif('% QRCODE 4' in line):
                 if (customqr_valid is True):
                     outfile.write('                        \includegraphics[width = 0.120\cardwidth, keepaspectratio]{\FCfour@qrcode}\n')
                 else:
-                    outfile.write('                        \includesvg[height = 0.175\cardheight]{\FCfour@qrcode}\n')
+                    outfile.write('                        \includesvg[height = 0.140\cardheight]{\FCfour@qrcode}\n')
             elif('% QRCODE 5' in line):
                 if (customqr_valid is True):
                     outfile.write('                        \includegraphics[width = 0.120\cardwidth, keepaspectratio]{\FCfive@qrcode}\n')
                 else:
-                    outfile.write('                        \includesvg[height = 0.175\cardheight]{\FCfive@qrcode}\n')
+                    outfile.write('                        \includesvg[height = 0.140\cardheight]{\FCfive@qrcode}\n')
             elif('% QRCODE 6' in line):
                 if (customqr_valid is True):
                     outfile.write('                        \includegraphics[width = 0.120\cardwidth, keepaspectratio]{\FCsix@qrcode}\n')
                 else:
-                    outfile.write('                        \includesvg[height = 0.175\cardheight]{\FCsix@qrcode}\n')
+                    outfile.write('                        \includesvg[height = 0.140\cardheight]{\FCsix@qrcode}\n')
     else:
         header = open(header_default_path,'r', encoding="utf-8")
         # Write header
@@ -1355,7 +1356,7 @@ def write_header(output_dir, outfile_path, customqr_valid):
                 if (customqr_valid is True):
                     outfile.write('                        \\includegraphics[width = 0.150\\textwidth, keepaspectratio]{#4}\n')
                 else:
-                    outfile.write('                        \\includesvg[height = 0.175\\textheight]{#4}\n')
+                    outfile.write('                        \\includesvg[height = 0.140\\textheight]{#4}\n')
                     # TODO : inverted logo ? #4 -> #4-inverted
             
     outfile.write('\n\n')
