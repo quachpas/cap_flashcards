@@ -75,9 +75,11 @@ There are three folders in this repository : Example files, LaTeX and Python.
 ### Prerequisites
 The script has only been tested on a linux system so far (Ubuntu 18.04.4 LTS). If all dependencies are installed, it should probably work seamlessly. You might need to tweak a few settings for `inkscape` to work properly.
 
-**TeX Live 2019 has been used to compile all documents**. Please check that you have all necessary latex packages installed. You can find an exhaustive list in the wiki.
+**TeX Live 2019 has been used to compile all documents**. Specifically, you need `xetex`. Please check that you have all necessary latex packages installed. You can find an exhaustive list in the wiki.
 
-The script calls that tool **twice** and it can take up to a few minutes to produce a complete pdf of a few hundreds flashcards.
+The script calls `xelatex` **twice** and it can take up to a few minutes to produce a complete pdf of a few hundreds flashcards.
+
+**More importantly, the flashcards produced make use of two fonts : Dancing Script and Roboto Condensed, which you can find on Google Fonts.**
 
 #### Linux systems
 Install `python3` if needed and `inkscape` 0.92 ([Installation guide](https://wiki.inkscape.org/wiki/index.php/Installing_Inkscape#Installing_on_Linux)), these are required packages.
@@ -163,6 +165,7 @@ pip3 install qrcode
 How to install :
 1. Move everything in the Web folder to your webserver root folder. 
 2. Give appropriate ownerhships/permissions recursively to the user.
+3. Don't forget to install the fonts (Dancing Script and Roboto Condensed).
 
 ## TeX Live and Inkscape
 
