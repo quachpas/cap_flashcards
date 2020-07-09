@@ -366,7 +366,7 @@ def check_overflow(flashcard):
             flashcard.err_message += 'opale2flashcard.py(' + flashcard.file +  '): No image - Potentially overflowing content (Q, C, A): ' + str(flashcard.question_length) + ' ' + str(flashcard.choices_length) + ' ' + str(flashcard.answer_length) + " "
     else:
         if ((flashcard.image_square is True and flashcard.question_length + flashcard.choices_length > 240)
-             or (flashcard.image_rectangular is True and flashcard.question_length + flashcard.choices_length > 375 and flashcard.choices_length > 59) or flashcard.answer_length > 615):
+             or (flashcard.image_rectangular is True and (flashcard.question_length + flashcard.choices_length > 375 or flashcard.choices_length > 60)) or flashcard.answer_length > 615):
             flashcard.overflow_flag = True
             flashcard.err_message += 'opale2flashcard.py(' + flashcard.file +  '): Image - Potentially overflowing content (Q, C, A): ' + str(flashcard.question_length) + ' ' + str(flashcard.choices_length) + ' ' + str(flashcard.answer_length) + " "
         if (flashcard.image.count("includegraphics") >= 2):
