@@ -644,8 +644,10 @@ def texfilter(text):
     # text = text.replace('~','\\textasciitilde')
     # text = text.replace('^','\\textasciicircum')
     # text = text.replace('&','\\&')
-    text = text.replace('%','\\%')
-    text = text.replace('ˉ', '$^{-}$')
+    if ('\%' not in text):
+        text = text.replace('%','\\%')
+    if ('$^{-}$' not in text):
+        text = text.replace('ˉ', '$^{-}$')
     # text = text.replace('$','\\$')
     # text = text.replace('#','\\#')
     # text = text.replace('_','\\_')
