@@ -747,11 +747,18 @@ def markup_content(file, element):
             output.append(element.text)
     if (role_markup is not None):
         output.append(role_markup[1])
+    # Case where environments like eqnarray, or align are used
+    for outtext in output:
+        if ("eqnarray*" in outtext or "eqnarray" in outtext or "align*" in outtext or "align" in outtext):
+            output = output[1]
+            output = output.replace("\\begin{eqnarray*}", "\\begin{align}")
+            output = output.replace("\\end{eqnarray*}", "\\end{align}")
+            output = [output]
+            break
     if text is not None:
         output.append(text)
     if (tag_markup is not None):
         output.append(tag_markup[1])
-    
     output = output_cleanup(output)
     return ''.join(output)
 
