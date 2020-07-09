@@ -846,7 +846,10 @@ def fetch_question(file, root):
                         if(name == section.attrib.values()[0].split("/")[-1]):
                             path_to_image = os.path.abspath(os.path.join(root, name))
                 if (not path_to_image.endswith('.gif')):
-                    image += "\\includegraphics[max size={\\textwidth}{0.4\\textheight}, center, keepaspectratio]{" + path_to_image + "}\n"
+                    if (args.a4paper is True):
+                        image += "\\includegraphics[max size={\\cardwidth}{0.4\\cardheight}, center, keepaspectratio]{" + path_to_image + "}\n"
+                    else:
+                        image += "\\includegraphics[max size={\\textwidth}{0.4\\textheight}, center, keepaspectratio]{" + path_to_image + "}\n"
                 else:
                     write_logs(
                         file + ' > Found a .gif ressource/image. Not supported',
@@ -1402,6 +1405,8 @@ def write_kvp(flashcard_list, current_index, status, customqr_valid):
     chosen_subject = flashcard_list[i].subject
     last_file = ""
     
+    # Find every accepted/rejected flashcards and their positions in flashcard_list
+    # Write metadata
     while len(kvp_settings_all) < 6 and i < len(flashcard_list) and flashcard_list[i].subject is chosen_subject:
         flashcard_validity = flashcard_list[i].err_flag is False and flashcard_list[i].overflow_flag is False and flashcard_list[i].relevant is True or args.force is True
         flashcard_subject = flashcard_list[i].subject

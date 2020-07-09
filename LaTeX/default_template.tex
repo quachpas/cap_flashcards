@@ -109,7 +109,7 @@ center,
                     };
                     % Subject icon
                     \node [opacity = 1] at ([xshift = 1.25 cm, yshift = -1 cm]current page.north west) {
-                        \includesvg[height = 0.175\textheight]{icons/\subjecticon}
+                        \includesvg[height = 0.140\textheight]{icons/\subjecticon}
                     };
                     % Subject text
                     \node [opacity = 1] at ([xshift = -1.4 cm, yshift = -0.75 cm]current page.north) {
@@ -233,9 +233,18 @@ center,
 \end{flashcard}
 %%%%%%%%%%%%%%% STANDARD TEMPLATE %%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%% STANDARD TEMPLATE WITH IMAGE %%%%%%%%%%%%%%%%
+\backgroundparam
+{mathématiques} % subject icon
+{physique-front-header}% Front header filename
+{physique-front-footer}% Front footer filename
+{physique-back-background}% Back background filename
+{physique-back-header}% Back header filename
+{physique-back-footer}% Back footer filename
+{front_university_logo}% Front university logo
+{back_university_logo}% Back university logo
 \cardbackground
 {Niveau de complexité}% Complexity level
-{Physique}% Subject
+{Mathématiques}% Subject
 {Lois de Kepler et Newton et leurs applications}% Theme
 {qrcode}% qrcode path
 
@@ -294,9 +303,18 @@ center,
 %%%%%%%%%%%%%%% STANDARD TEMPLATE WITH IMAGE %%%%%%%%%%%%%%%%
 
 % Test flashcard n°1
+\backgroundparam
+{biologie} % subject icon
+{physique-front-header}% Front header filename
+{physique-front-footer}% Front footer filename
+{physique-back-background}% Back background filename
+{physique-back-header}% Back header filename
+{physique-back-footer}% Back footer filename
+{front_university_logo}% Front university logo
+{back_university_logo}% Back university logo
 \cardbackground
 {Comprendre, appliquer}% Complexity level
-{Physique}% Subject
+{Biologie}% Subject
 {Lois de Newton et Kepler et leurs applications}% Theme
 {qrcode}% qrcode path
 
@@ -346,9 +364,180 @@ Dans cette question, il s'agit de faire la distinction entre mouvement uniforme 
 \end{flashcard}
 
 % Test flashcard n°2
+\backgroundparam
+{informatique} % subject icon
+{physique-front-header}% Front header filename
+{physique-front-footer}% Front footer filename
+{physique-back-background}% Back background filename
+{physique-back-header}% Back header filename
+{physique-back-footer}% Back footer filename
+{front_university_logo}% Front university logo
+{back_university_logo}% Back university logo
 \cardbackground
 {Changement de langage}% Complexity level
-{Physique}% Subject
+{Informatique}% Subject
+{Optique géométrique}% Theme
+{qrcode}% qrcode path
+
+\begin{flashcard}[]{
+%%% QUESTION %%% 
+\color{black}
+\vspace{0.12\textheight}
+\RaggedRight
+% Topic
+\begin{minipage}[t]{0.55\linewidth}
+\RaggedRight
+Étant donné le sens de propagation de la lumière choisi et indiqué sur le schéma, si $A$ est la position de l'objet, $A'$ celle de l'image et $O$ le centre de la lentille convergente, alors :
+\end{minipage}% 
+\hfill
+% Image
+\begin{minipage}[t]{0.4\linewidth}
+    \strut\vspace*{-\baselineskip}\newline
+    \includegraphics[max size={\textwidth}{0.75\textheight}, center, keepaspectratio]{QCM/Physique/UTC-002/lentille.jpg}
+\end{minipage}%
+\newline
+% Choices
+\begin{minipage}[l]{0.45\linewidth}
+    \begin{enumerate}
+        \item $\overline{OA}$ est positif et $\overline{OA'}$ est négatif.
+        \item $\overline{OA}$ est négatif et $\overline{OA'}$ est positif.
+    \end{enumerate}
+\end{minipage}
+\hfill
+\begin{minipage}[r]{0.45\linewidth}
+    \begin{enumerate}
+        \item $\overline{OA}$ est positif et $\overline{OA'}$ est négatif.
+        \item $\overline{OA}$ est négatif et $\overline{OA'}$ est positif.
+    \end{enumerate}    
+\end{minipage}
+
+}
+
+%%% QUESTION %%% 
+\vspace*{\stretch{1}}
+%%% ANSWER %%% 
+\color{white}
+
+% Correct answer boxes
+\begin{tikzpicture}[remember picture, overlay]
+    \node [align=left, opacity=1] at ([xshift = -0.25 cm, yshift = 2.25 cm]current page.center) {
+                \color{white}
+                \normalsize
+                \textsf{\textit{Réponses}}
+            };
+    \node [align=left, opacity=1] at ([xshift = 2.75 cm, yshift = 2.25 cm]current page.center) {
+                \color{white}
+                $1:\boxtimes\qquad2:\square\qquad3:\square\qquad4:\square\qquad$\\
+                \color{white}
+                $5:\square\qquad6:\square\qquad$
+            };
+\end{tikzpicture}
+
+% Explanations
+\vspace{0.09\textheight}
+\RaggedRight
+Principe d'inertie : Dans un référentiel galiléen, si un système assimilé à un point matériel n'est soumis à aucune force – système isolé – ou s'il est soumis à un ensemble de forces de résultante nulle ($\Sigma\vec{F}_{ext}=\vec{0}$) – système pseudo-isolé – alors il est immobile ou animé d'un mouvement rectiligne uniforme.
+
+Dans cette question, il s'agit de faire la distinction entre mouvement uniforme (la norme de la vitesse est constante, on ne sait rien de la trajectoire) et mouvement rectiligne uniforme ou mouvement circulaire uniforme (norme de la vitesse constante et trajectoire fixée).
+
+%%% ANSWER %%% 
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+% Test flashcard n°3
+\backgroundparam
+{géosciences} % subject icon
+{physique-front-header}% Front header filename
+{physique-front-footer}% Front footer filename
+{physique-back-background}% Back background filename
+{physique-back-header}% Back header filename
+{physique-back-footer}% Back footer filename
+{front_university_logo}% Front university logo
+{back_university_logo}% Back university logo
+\cardbackground
+{Changement de langage}% Complexity level
+{Géosciences}% Subject
+{Optique géométrique}% Theme
+{qrcode}% qrcode path
+
+\begin{flashcard}[]{
+%%% QUESTION %%% 
+\color{black}
+\vspace{0.12\textheight}
+\RaggedRight
+% Topic
+\begin{minipage}[t]{0.55\linewidth}
+\RaggedRight
+Étant donné le sens de propagation de la lumière choisi et indiqué sur le schéma, si $A$ est la position de l'objet, $A'$ celle de l'image et $O$ le centre de la lentille convergente, alors :
+\end{minipage}% 
+\hfill
+% Image
+\begin{minipage}[t]{0.4\linewidth}
+    \strut\vspace*{-\baselineskip}\newline
+    \includegraphics[max size={\textwidth}{0.75\textheight}, center, keepaspectratio]{QCM/Physique/UTC-002/lentille.jpg}
+\end{minipage}%
+\newline
+% Choices
+\begin{minipage}[l]{0.45\linewidth}
+    \begin{enumerate}
+        \item $\overline{OA}$ est positif et $\overline{OA'}$ est négatif.
+        \item $\overline{OA}$ est négatif et $\overline{OA'}$ est positif.
+    \end{enumerate}
+\end{minipage}
+\hfill
+\begin{minipage}[r]{0.45\linewidth}
+    \begin{enumerate}
+        \item $\overline{OA}$ est positif et $\overline{OA'}$ est négatif.
+        \item $\overline{OA}$ est négatif et $\overline{OA'}$ est positif.
+    \end{enumerate}    
+\end{minipage}
+
+}
+
+%%% QUESTION %%% 
+\vspace*{\stretch{1}}
+%%% ANSWER %%% 
+\color{white}
+
+% Correct answer boxes
+\begin{tikzpicture}[remember picture, overlay]
+    \node [align=left, opacity=1] at ([xshift = -0.25 cm, yshift = 2.25 cm]current page.center) {
+                \color{white}
+                \normalsize
+                \textsf{\textit{Réponses}}
+            };
+    \node [align=left, opacity=1] at ([xshift = 2.75 cm, yshift = 2.25 cm]current page.center) {
+                \color{white}
+                $1:\boxtimes\qquad2:\square\qquad3:\square\qquad4:\square\qquad$\\
+                \color{white}
+                $5:\square\qquad6:\square\qquad$
+            };
+\end{tikzpicture}
+
+% Explanations
+\vspace{0.09\textheight}
+\RaggedRight
+Principe d'inertie : Dans un référentiel galiléen, si un système assimilé à un point matériel n'est soumis à aucune force – système isolé – ou s'il est soumis à un ensemble de forces de résultante nulle ($\Sigma\vec{F}_{ext}=\vec{0}$) – système pseudo-isolé – alors il est immobile ou animé d'un mouvement rectiligne uniforme.
+
+Dans cette question, il s'agit de faire la distinction entre mouvement uniforme (la norme de la vitesse est constante, on ne sait rien de la trajectoire) et mouvement rectiligne uniforme ou mouvement circulaire uniforme (norme de la vitesse constante et trajectoire fixée).
+
+%%% ANSWER %%% 
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+% Test flashcard n°4
+\backgroundparam
+{chimie} % subject icon
+{physique-front-header}% Front header filename
+{physique-front-footer}% Front footer filename
+{physique-back-background}% Back background filename
+{physique-back-header}% Back header filename
+{physique-back-footer}% Back footer filename
+{front_university_logo}% Front university logo
+{back_university_logo}% Back university logo
+\cardbackground
+{Changement de langage}% Complexity level
+{Chimie}% Subject
 {Optique géométrique}% Theme
 {qrcode}% qrcode path
 
