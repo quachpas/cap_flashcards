@@ -833,8 +833,7 @@ def fetch_question(file, root):
                             for cell in row.iterfind(".//sc:cell", namespace):
                                 for content in cell.iter():
                                     if (content.text is not None and not str.isspace(content.text)):
-                                        output += markup_content(file, content)
-                                output += '&'
+                                        output += markup_content(file, content) + '&'
                             output = output[:-1] # Remove the additional &
                             output += '\\\\\n'
                         output += '\hline\n'
@@ -1167,25 +1166,10 @@ def write_output(flashcard, question_count, customqr_valid):
     
     # Image is square, 1x2 grid
     if (flashcard.image_rectangular is False):
-        if (len(flashcard.choices) >= 6):
-            if (len(flashcard.choices) % 2 == 0):
-                minipage_length = str(0.90/(len(flashcard.choices)//2))
-            else:
-                minipage_length = str(0.90/(len(flashcard.choices)//2+1))
-            output.append('\\begin{minipage}[l]{' + minipage_length + '\\linewidth}\n\\begin{enumerate}\n')
-            i = 0
-            for choice in flashcard.choices:
-                if (i % 2 == 0 and i != 0):
-                    output.append('\\end{enumerate}\n\\end{minipage}\n\\hfill\n')
-                    output.append('\\begin{minipage}[l]{' + minipage_length + '\\linewidth}\n\\begin{enumerate}\n')
-                output.append(choice)
-                i += 1
-            output.append('\\end{enumerate}\n\\end{minipage}\n\\hfill\n')
-        else:
-            output.append('\\begin{enumerate}\n')
-            for choice in flashcard.choices:
-                output.append(choice)
-            output.append('\\end{enumerate}\n')
+        output.append('\\begin{multicols}{2}\n\\begin{enumerate}\n')
+        for choice in flashcard.choices:
+            output.append(choice)
+        output.append('\\end{enumerate}\n\end{multicols}\n')
 
     if (flashcard.image is not None):
         output.append('\\end{minipage}\n')
@@ -1193,19 +1177,10 @@ def write_output(flashcard, question_count, customqr_valid):
 
     # Image is rectangular, 2x2 grid
     if (flashcard.image_rectangular is True):
-        if (len(flashcard.choices) % 2 == 0 and flashcard.choices):
-            minipage_length = str(0.90/(len(flashcard.choices)//2))
-        else:
-            minipage_length = str(0.90/(len(flashcard.choices)//2+1))
-        output.append('\\begin{minipage}[l]{' + minipage_length + '\\linewidth}\n\\begin{enumerate}\n')
-        i = 0
+        output.append('\\begin{multicols}{2}')
         for choice in flashcard.choices:
-            if (i % 2 == 0 and i != 0):
-                output.append('\\end{enumerate}\n\\end{minipage}\n\\hfill\n')
-                output.append('\\begin{minipage}[l]{' + minipage_length + '\\linewidth}\n\\begin{enumerate}\n')
             output.append(choice)
-            i += 1
-        output.append('\\end{enumerate}\n\\end{minipage}\n\\hfill\n')
+        output.append('\\end{enumerate}\n\\end{multicols}\n\\hfill\n')
 
     
     
