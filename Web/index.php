@@ -1,5 +1,5 @@
 <?php
-const FILES_EXTENSIONS = ['scar'];
+const FILES_EXTENSIONS = ['scar', 'zip', '7z'];
 function error($text)
 {
 	require_once("header.php");
@@ -42,7 +42,7 @@ if (!empty($_FILES)) {
 	$id = bin2hex(random_bytes(16));
 	$actualName = $_FILES['file']['tmp_name'];
 	$actualSize = $_FILES['file']['size'];
-	$extension = strtolower(pathinfo($_FILES["file"]["name"], PATHINFO_EXTENSION));
+	$extension = strtolower(pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION));
 
 	$pathroot = '/tmp/upload/' . $id . '/';
 	$pathin = $pathroot . 'in/';
