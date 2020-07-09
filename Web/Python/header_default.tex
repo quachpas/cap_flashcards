@@ -27,8 +27,9 @@
 % Violet : #463374
 
 %%% FONTS %%%%
-\usepackage{fontspec}
-%\setsansfont{Eufoniem One}
+\usepackage[no-math]{fontspec}
+\setsansfont{Dancing Script}
+\setmainfont{Roboto Condensed}
 
 %%% GEOMETRY AND BLEED MARKS %%%
 \geometry{
@@ -108,12 +109,12 @@ center,
                     };
                     % Subject icon
                     \node [opacity = 1] at ([xshift = 1.25 cm, yshift = -1 cm]current page.north west) {
-                        \includesvg[height = 0.175\textheight]{icons/\subjecticon}
+                        \includesvg[height = 0.140\textheight]{icons/\subjecticon}
                     };
                     % Subject text
                     \node [opacity = 1] at ([xshift = -1.4 cm, yshift = -0.75 cm]current page.north) {
                         \color{white}
-                        \huge
+                        \Large
                         \textsf{#2}
                     };
                     % Theme
@@ -122,7 +123,7 @@ center,
                             \setlength{\parskip}{0 cm}
                             \color{uniscielblue}
                             \RaggedLeft
-                            \LARGE
+                            \large
                             \textsf{#3}    
                         \end{varwidth}
                     };
@@ -133,7 +134,7 @@ center,
                     % Complexity level
                     \node [opacity=1] at ([xshift = -2.75 cm, yshift = 1.175 cm]current page.south) {
                         \color{uniscielpink}
-                        \textit{#1}
+                        \textsf{\textit{#1}}
                     };
                 \else
                     % Back background
@@ -151,7 +152,7 @@ center,
                     % Subject text
                     \node [opacity = 1] at ([xshift = -1.4 cm, yshift = -0.75 cm]current page.north) {
                         \color{physicsviolet}
-                        \huge
+                        \Large
                         \textsf{#2}
                     };
                     % QR Code
