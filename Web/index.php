@@ -119,7 +119,7 @@ if (!empty($_FILES)) {
 	}
 
 	if (file_exists('out.pdf')) {
-		echo "<h2>Prévisualisation</h2><p><br><iframe width=\"800\" height=\"900\" src=\"./Python/output/out.pdf\"><a href=\"./Python/output/out.pdf\">Lien de prévisualisation PDF</a></iframe></p>";
+		echo "<h2>Prévisualisation</h2><p><br><iframe width=\"800\" height=\"900\" src=\"./Python/output".$id."/out.pdf\"><a href=\"./Python/output".$id."/out.pdf\">Lien de prévisualisation PDF</a></iframe></p>";
 	} else {
 		error("Erreur interne : la prévisualisation a échoué ");
 	}
