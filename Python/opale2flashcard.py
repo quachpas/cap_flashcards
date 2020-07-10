@@ -303,20 +303,10 @@ def get_subject(subject_dict, subject_code):
         return ''
 
 def get_output_directory():
-    if (os.path.isdir(".git")):
-        if (args.output is not None):
-            if (not os.path.isdir(os.path.join("./Python/output", args.output))):
-                os.mkdir(os.path.join('./Python/output', args.output))
-            return os.path.join(os.getcwd(), 'Python/output', args.output)
-        else:
-            return os.path.join(os.getcwd(), 'Python/output')
-    elif (os.path.isdir("../.git")):
-        if (args.output is not None):
-            if (not os.path.isdir(os.path.join("./output", args.output))):
-                os.mkdir(os.path.join('./output', args.output))
-            return os.path.join(os.getcwd(), 'output', args.output)
-        else:
-            return os.path.join(os.getcwd(), 'output')
+    if (os.path.basename(os.getcwd()) == 'cap_flashcards'):
+        return os.path.join(os.getcwd(), 'Python/output')
+    elif (os.path.basename(os.getcwd()) == 'Python'):
+        return os.path.join(os.getcwd(), 'output')
     else:
         write_logs(
             "Current working directory is neither cap_flashcards nor Python",
@@ -1661,19 +1651,6 @@ def clean_tex(args):
         os.remove(filename)
 
 def opale_to_tex(args):
-    # Is this the correct repository ?
-    correct = False
-    if (os.path.isdir(".git")):
-        with open('.git/config') as f:
-            if 'https://gitlab.utc.fr/quachpas/cap_flashcards/' in f.read():
-                correct = True
-    elif (os.path.isdir("../.git")):
-        with open('../.git/config') as f:
-            if 'https://gitlab.utc.fr/quachpas/cap_flashcards/' in f.read():
-                correct = True
-    if (not correct):
-        sys.stderr.write('Error current directory is not the correct repository.\n')
-        sys.exit(1)
     # Path validity check
     if (not os.path.isdir(args.sourcedir)):
         sys.stderr.write('Error source directory: ' + args.sourcedir + ' is not a directory or does not exist.\n')
