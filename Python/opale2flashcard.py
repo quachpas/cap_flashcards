@@ -1579,7 +1579,7 @@ def parse_files(args, question_count, err_count, parser, licence_theme, subject)
     sourcedir = os.path.abspath(args.sourcedir)
     subject_list = []
     flashcard_list = []
-    for (root,dirs,files) in os.walk(sourcedir, topdown=True):
+    for (root_dir,dirs,files) in os.walk(sourcedir, topdown=True):
         for file in files:
             # Ignore all files which are not .quiz
             if (file.endswith(".quiz") is False):
@@ -1588,7 +1588,7 @@ def parse_files(args, question_count, err_count, parser, licence_theme, subject)
             if (args.file_name is not None and file != args.file_name):
                 continue
 
-            workpath = os.path.join(sourcedir, file)
+            workpath = os.path.join(os.path.relpath(root_dir), file)
             if os.path.isfile(workpath):
                 # XML Tree
                 tree = etree.parse(workpath, parser)
@@ -1712,6 +1712,9 @@ def opale_to_tex(args):
     
     (flashcard_list, subject_list, question_count, err_count) = parse_files(args, question_count, err_count, parser, licence_theme, subject)
     
+    if (len(flashcard_list) == 0):
+        sys.stderr.write('Error  : no flashcards in ' + args.sourcedir + '\n')
+        sys.exit(1)
     sorted_list = sort_flashcards_by_subject(flashcard_list, set(subject_list))
     
     write_outfile_header(set(subject_list), customqr_valid)
