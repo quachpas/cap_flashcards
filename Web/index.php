@@ -1,6 +1,6 @@
 <?php
 $path_to_script_folder = "/opt/cap_flashcards/";
-$path_to_theme_file = "/opt/cap_flashcards/themeLicence.xml";
+$path_to_theme_file = "/opt/cap_flashcards/Example-files/themeLicence.xml";
 $path_to_compile_script = "opt/cap_flashcards/compile.sh";
 
 const FILES_EXTENSIONS = ['scar'];
