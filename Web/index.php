@@ -92,8 +92,9 @@ if (!empty($_FILES)) {
 
 	echo "Fichier accepté... Traitement en cours...</br>";
 	chdir("./Python");
-	exec("python3 opale2flashcard.py $pathin themeLicence.xml 2>&1", $cmdout_python, $errcode);
-	if ($errcode === 0 && file_exists('output/out.tex')) {
+	mkdir("./output/".$id."/");
+	exec("python3 opale2flashcard.py $pathin themeLicence.xml --output ".$id."2>&1", $cmdout_python, $errcode);
+	if ($errcode === 0 && file_exists('output/'.$id.'/out.tex')) {
 		echo "<br><b>Conversion terminée !</b><br>";
 		printlogs($cmdout_python);
 	} else {
@@ -101,7 +102,9 @@ if (!empty($_FILES)) {
 		error("<br><b>Erreur lors de la conversion !</b><br>");
 	}
 	
-	chdir("./output");
+	chdir("./output/".$id."/");
+	exec("sh compile.sh 2>&1", $cmdout_compile, $errcode_compile);
+	printlogs($cmdout_compile);
 
 	exec("zip -r latex.zip . 2>&1", $cmdout_zip, $errcode);
 	if ($errcode === 0 && file_exists('latex.zip')) {
@@ -114,9 +117,6 @@ if (!empty($_FILES)) {
 		error("Erreur interne : la production du fichier zip des fichiers tex a échouée");
 		echo '</pre>';
 	}
-
-	exec("sh compile.sh 2>&1", $cmdout_compile, $errcode_compile);
-	printlogs($cmdout_compile);
 
 	if (file_exists('out.pdf')) {
 		echo "<h2>Prévisualisation</h2><p><br><iframe width=\"800\" height=\"900\" src=\"./Python/output/out.pdf\"><a href=\"./Python/output/out.pdf\">Lien de prévisualisation PDF</a></iframe></p>";
