@@ -281,7 +281,7 @@ def cleantheme(text):
 
 def calc_vspace_parameters(flashcard):
     if (flashcard.image is not None):
-        vspace_question = 0.16
+        vspace_question = 0.2
         vspace_answer = 0.09
     else:
         vspace_question = 0.15
@@ -371,13 +371,16 @@ def check_generator(file, generator, expression):
 def check_overflow(flashcard):
     if (flashcard.image is None):
         math_choice = False
+        long_choice = False
         for choice in flashcard.choices:
             if ("$" in choice):
                 math_choice = True
-                break
+            if (len(choice) > 65):
+                long_choice = True
         if (
-                flashcard.question_length + flashcard.choices_length > 530
-                or (math_choice and flashcard.choices_length > 300)
+                flashcard.question_length + flashcard.choices_length > 400
+                or (math_choice and (flashcard.choices_length > 300 or long_choice))
+                or (long_choice and flashcard.question_length > 200)
                 or flashcard.answer_length > 615
         ):
             flashcard.overflow_flag = True
@@ -838,7 +841,8 @@ def fetch_question(file, root):
     text_length = 0
     square = False
     rectangular = False
-    image = "\hfill\n\\begin{minipage}[t]{0.4\linewidth}\n\strut\\vspace*{-\\baselineskip}\\newline\n"
+    image_minipage = "\\hfill\n\\begin{minipage}[t]{0.35\linewidth}\n\\strut\\vspace*{-\\baselineskip}\\newline\n"
+    image = image_minipage
     path_to_image = ''
     # Questions can have rich content (images, etc.), so we examine every children
     check_generator(file , root.iterfind(".//sc:question/op:res", namespace), './/sc:question/op:res')
@@ -888,7 +892,7 @@ def fetch_question(file, root):
                     )
 
     # unchanged -> no image
-    if (image == "\\hfill\n\\begin{minipage}[t]{0.4\linewidth}\n\\strut\\vspace*{-\\baselineskip}\\newline\n"):
+    if (image == image_minipage):
         image = None
     elif (image is not None):
         image += '\n\\end{minipage}'
@@ -1204,14 +1208,14 @@ def write_output(flashcard, question_count, customqr_valid):
 
     # No image
     if (flashcard.image is None):
-        
-        if (flashcard.choices_length < 250 or flashcard.question_length > 150):
+        multicol = flashcard.choices_length < 250 or flashcard.question_length > 150 or len(flashcard.choices) > 6
+        if (multicol):
             output.append('\\begin{multicols}{2}\n')
         output.append('\\begin{enumerate}\n')
         for choice in flashcard.choices:
             output.append(choice)
         output.append('\\end{enumerate}\n')
-        if (flashcard.choices_length < 250 or flashcard.question_length > 150):
+        if (multicol):
             output.append('\end{multicols}\n')
     
     # End image minipage
@@ -1689,6 +1693,7 @@ def opale_to_tex(args):
     
     # Parser settings
     parser = etree.XMLParser(remove_blank_text=True, remove_comments=True)
+    
     # Theme tree
 
     # clean output directory
