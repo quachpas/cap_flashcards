@@ -1579,67 +1579,67 @@ def parse_files(args, question_count, err_count, parser, licence_theme, subject)
     sourcedir = os.path.abspath(args.sourcedir)
     subject_list = []
     flashcard_list = []
-
-    for file in os.listdir(sourcedir):
-        # Ignore all files which are not .quiz
-        if (file.endswith(".quiz") is False):
-            continue
-        # File name option
-        if (args.file_name is not None and file != args.file_name):
-            continue
-
-        workpath = os.path.join(sourcedir, file)
-        if os.path.isfile(workpath):
-            # XML Tree
-            tree = etree.parse(workpath, parser)
-            root = tree.getroot()
-            
-            # Create Flashcard instance
-            flashcard = fetch_content(file, root, licence_theme, subject)
-            
-            # Check overflow
-            check_overflow(flashcard)
-                        
-            # Check metadata
-            check_metadata(flashcard)
-
-            # Check non-pertinent content (URLs)
-            check_content(flashcard)
-            
-            # Process filters, ignore flashcards not concerned
-            if (args.image_only is True and flashcard.image is None):
+    for (root,dirs,files) in os.walk(sourcedir, topdown=True):
+        for file in files:
+            # Ignore all files which are not .quiz
+            if (file.endswith(".quiz") is False):
                 continue
-            if (args.overflow_only is True and flashcard.overflow_flag is False):
-                continue
-            if (args.non_relevant_only is True and flashcard.relevant is True):
+            # File name option
+            if (args.file_name is not None and file != args.file_name):
                 continue
 
-            # Append to subject list
-            subject_list.append(flashcard.subject)
-            
-            # If --force option has been declared, put in dummy text to avoid compilation errors
-            if (args.force == True):
-                if (flashcard.complexity_level is None and args.add_complexity_level is True):
-                    flashcard.complexity_level = "Missing Complexity Level"
-                if (flashcard.licence_theme is None):
-                    flashcard.licence_theme = "Missing Licence Theme"
-                if (flashcard.subject is None):
-                    flashcard.subject = "Missing Subject"        
-            
-            # Error procedure
-            if (flashcard.err_flag is True or flashcard.overflow_flag is True or flashcard.relevant is False):
-                err_count += 1
-                process_error(flashcard) 
-            
-            # If a flashcard has been forcibly output, and its error message is not null
-            elif (args.force == True and flashcard.err_message != ''):
-                err_count += 1
-                process_error(flashcard)
+            workpath = os.path.join(sourcedir, file)
+            if os.path.isfile(workpath):
+                # XML Tree
+                tree = etree.parse(workpath, parser)
+                root = tree.getroot()
+                
+                # Create Flashcard instance
+                flashcard = fetch_content(file, root, licence_theme, subject)
+                
+                # Check overflow
+                check_overflow(flashcard)
+                            
+                # Check metadata
+                check_metadata(flashcard)
 
-            # Make a list of every flashcard in sourcedir
-            flashcard_list.append(flashcard)
-        
-        question_count += 1
+                # Check non-pertinent content (URLs)
+                check_content(flashcard)
+                
+                # Process filters, ignore flashcards not concerned
+                if (args.image_only is True and flashcard.image is None):
+                    continue
+                if (args.overflow_only is True and flashcard.overflow_flag is False):
+                    continue
+                if (args.non_relevant_only is True and flashcard.relevant is True):
+                    continue
+
+                # Append to subject list
+                subject_list.append(flashcard.subject)
+                
+                # If --force option has been declared, put in dummy text to avoid compilation errors
+                if (args.force == True):
+                    if (flashcard.complexity_level is None and args.add_complexity_level is True):
+                        flashcard.complexity_level = "Missing Complexity Level"
+                    if (flashcard.licence_theme is None):
+                        flashcard.licence_theme = "Missing Licence Theme"
+                    if (flashcard.subject is None):
+                        flashcard.subject = "Missing Subject"        
+                
+                # Error procedure
+                if (flashcard.err_flag is True or flashcard.overflow_flag is True or flashcard.relevant is False):
+                    err_count += 1
+                    process_error(flashcard) 
+                
+                # If a flashcard has been forcibly output, and its error message is not null
+                elif (args.force == True and flashcard.err_message != ''):
+                    err_count += 1
+                    process_error(flashcard)
+
+                # Make a list of every flashcard in sourcedir
+                flashcard_list.append(flashcard)
+            
+            question_count += 1
 
     return (flashcard_list, subject_list, question_count, err_count)
 

@@ -144,7 +144,7 @@ Une fois imprimée et ajustée selon les repères de coupe, le produit final dev
 <h2> Pré-requis </h2>
 
 <ul>
-	<li>Exportez une archive .scar de vos contenus selon <a href="https://gitlab.utc.fr/quachpas/cap_flashcards/-/wikis/Rechercher-des-questions-sur-Sc%C3%A9nari">ce guide</a>. Faites attention à bien inclure le réseau descendant. La procédure d'export est importante, les fichiers .quiz doivent se trouver à la racine de l'archive, et non pas enfouis dans des dossiers. Il est possible de réorganiser une archive .scar par vos propres moyens en renommant le fichier en .zip.</li>
+	<li>Exportez une archive .scar de vos contenus selon <a href="https://gitlab.utc.fr/quachpas/cap_flashcards/-/wikis/Rechercher-des-questions-sur-Sc%C3%A9nari">ce guide</a>. Faites attention à bien inclure le réseau descendant.</li>
 	<li>Chargez l'archive .scar sur le site et cliquez sur envoyez. Attention, si le nombre de flashcards est important, le compilation peut prendre du temps !
 		<form action="?" method="post" enctype="multipart/form-data">
 			<label for="file">.scar Opale:</label>
