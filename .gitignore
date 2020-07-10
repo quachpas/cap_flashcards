@@ -10,7 +10,7 @@
 **.pdf_tex
 logs.txt
 /Notes
-/LaTeX/svg-inkscape
+//svg-inkscape
 out.tex
 out-*.tex
 .vscode

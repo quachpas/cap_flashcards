@@ -98,6 +98,9 @@ Themes list file path - Path to an xml file containing all theme codes.
 parser.add_argument('--a4paper', action = 'store_true', help  ="""
 Output format - defaults to printing 10x8cm flashcards. If activated, will output flashcard on an a4paper.
 """)
+parser.add_argument('--output', action = 'store', help = """
+Custom folder path - Outputs in subdirectory given as parameter. Pass only one name. Will create /cap_flashcards/Python/output/subdirectory
+""")
 parser.add_argument('--noclean', action = 'store_true', help  ="""
 Clean output folder - Cleanse by default
 """)
@@ -300,16 +303,25 @@ def get_subject(subject_dict, subject_code):
         return ''
 
 def get_output_directory():
-    if (os.path.basename(os.getcwd()) == 'cap_flashcards'):
-        return os.path.join(os.getcwd(), 'Python/output')
-    elif (os.path.basename(os.getcwd()) == 'Python'):
-        return os.path.join(os.getcwd(), 'output')
+    if (os.path.isdir(".git")):
+        if (args.output is not None):
+            if (not os.path.isdir(os.path.join("./Python/output", args.output))):
+                os.mkdir(os.path.join('./Python/output', args.output))
+            return os.path.join(os.getcwd(), 'Python/output', args.output)
+        else:
+            return os.path.join(os.getcwd(), 'Python/output')
+    elif (os.path.isdir("../.git")):
+        if (args.output is not None):
+            if (not os.path.isdir(os.path.join("./output", args.output))):
+                os.mkdir(os.path.join('./output', args.output))
+            return os.path.join(os.getcwd(), 'output', args.output)
+        else:
+            return os.path.join(os.getcwd(), 'output')
     else:
         write_logs(
             "Current working directory is neither cap_flashcards nor Python",
             "Current working directory is neither cap_flashcards nor Python"
         )
-        
 
 def get_headers_directory():
     if (os.path.basename(os.getcwd()) == 'cap_flashcards'):
@@ -1200,7 +1212,7 @@ def write_output(flashcard, question_count, customqr_valid):
             output.append(choice)
         output.append('\\end{enumerate}\n')
         if (flashcard.choices_length < 250 or flashcard.question_length > 150):
-            output.appedn('\end{multicols}\n')
+            output.append('\end{multicols}\n')
     
     # End image minipage
     if (flashcard.image is not None):
@@ -1320,7 +1332,10 @@ def write_header(output_dir, outfile_path, customqr_valid):
              and '% QRCODE 6' not in line):
                 outfile.write(line)
             elif('% Graphicspath' in line):
-                outfile.write('\graphicspath{{./images/}}\n')
+                if (args.output is not None):
+                    outfile.write('\graphicspath{{../images//}}\n')
+                else:
+                    outfile.write('\graphicspath{{./images/}}\n')
             elif('% QRCODE 1' in line):
                 if (customqr_valid is True):
                     outfile.write('                        \includegraphics[width = 0.120\cardwidth, keepaspectratio]{\FCone@qrcode}\n')
@@ -1358,7 +1373,10 @@ def write_header(output_dir, outfile_path, customqr_valid):
             if ('% Graphicspath' not in line and '% QRCODE' not in line):
                 outfile.write(line)
             elif('% Graphicspath' in line):
-                outfile.write('\graphicspath{{./images/}}\n')
+                if (args.output is not None):
+                    outfile.write('\graphicspath{{../images//}}\n')
+                else:
+                    outfile.write('\graphicspath{{./images/}}\n')
             elif('% QRCODE' in line):
                 if (customqr_valid is True):
                     outfile.write('                        \\includegraphics[width = 0.150\\textwidth, keepaspectratio]{#4}\n')
@@ -1643,6 +1661,19 @@ def clean_tex(args):
         os.remove(filename)
 
 def opale_to_tex(args):
+    # Is this the correct repository ?
+    correct = False
+    if (os.path.isdir(".git")):
+        with open('.git/config') as f:
+            if 'https://gitlab.utc.fr/quachpas/cap_flashcards/' in f.read():
+                correct = True
+    elif (os.path.isdir("../.git")):
+        with open('../.git/config') as f:
+            if 'https://gitlab.utc.fr/quachpas/cap_flashcards/' in f.read():
+                correct = True
+    if (not correct):
+        sys.stderr.write('Error current directory is not the correct repository.\n')
+        sys.exit(1)
     # Path validity check
     if (not os.path.isdir(args.sourcedir)):
         sys.stderr.write('Error source directory: ' + args.sourcedir + ' is not a directory or does not exist.\n')
