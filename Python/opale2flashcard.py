@@ -304,9 +304,19 @@ def get_subject(subject_dict, subject_code):
 
 def get_output_directory():
     if (os.path.basename(os.getcwd()) == 'cap_flashcards'):
-        return os.path.join(os.getcwd(), 'Python/output')
+        if (args.output is not None):
+            if (not os.path.isdir(os.path.join("./Python/output", args.output))):
+                os.mkdir(os.path.join('./Python/output', args.output))
+            return os.path.join(os.getcwd(), 'Python/output', args.output)
+        else:
+            return os.path.join(os.getcwd(), 'Python/output')
     elif (os.path.basename(os.getcwd()) == 'Python'):
-        return os.path.join(os.getcwd(), 'output')
+        if (args.output is not None):
+            if (not os.path.isdir(os.path.join("./output", args.output))):
+                os.mkdir(os.path.join('./output', args.output))
+            return os.path.join(os.getcwd(), 'output', args.output)
+        else:
+            return os.path.join(os.getcwd(), 'output')
     else:
         write_logs(
             "Current working directory is neither cap_flashcards nor Python",

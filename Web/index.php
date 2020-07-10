@@ -93,7 +93,7 @@ if (!empty($_FILES)) {
 	echo "Fichier accepté... Traitement en cours...</br>";
 	chdir("./Python");
 	mkdir("./output/".$id."/");
-	exec("python3 opale2flashcard.py $pathin ../../../themeLicence.xml --output ".$id." 2>&1", $cmdout_python, $errcode);
+	exec("python3 opale2flashcard.py $pathin ../themeLicence.xml --output ".$id." 2>&1", $cmdout_python, $errcode);
 	if ($errcode === 0 && file_exists('output/'.$id.'/out.tex')) {
 		echo "<br><b>Conversion terminée !</b><br>";
 		printlogs($cmdout_python);
