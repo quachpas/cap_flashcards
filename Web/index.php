@@ -103,7 +103,7 @@ if (!empty($_FILES)) {
 	}
 	
 	chdir("./output/".$id."/");
-	exec("sh compile.sh 2>&1", $cmdout_compile, $errcode_compile);
+	exec("sh ../../../compile.sh 2>&1", $cmdout_compile, $errcode_compile);
 	printlogs($cmdout_compile);
 
 	exec("zip -r latex.zip . 2>&1", $cmdout_zip, $errcode);
