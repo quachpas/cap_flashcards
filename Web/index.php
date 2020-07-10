@@ -1,4 +1,8 @@
 <?php
+$path_to_script_folder = "/opt/cap_flashcards/";
+$path_to_theme_file = "/opt/cap_flashcards/Example-files/themeLicence.xml";
+$path_to_compile_script = "/opt/cap_flashcards/compile.sh";
+
 const FILES_EXTENSIONS = ['scar'];
 function error($text)
 {
@@ -91,22 +95,24 @@ if (!empty($_FILES)) {
 	}
 
 	echo "Fichier accepté... Traitement en cours...</br>";
-	chdir("./Python");
-	mkdir("./output/".$id."/");
-	exec("python3 opale2flashcard.py $pathin ../themeLicence.xml --output ".$id." 2>&1", $cmdout_python, $errcode);
-	if ($errcode === 0 && file_exists('output/'.$id.'/out.tex')) {
+	chdir($path_to_script_folder . "Python/");
+	exec("python3 opale2flashcard.py $pathin $path_to_theme_file --output " . $id . " 2>&1", $cmdout_python, $errcode);
+	
+	if ($errcode === 0 && file_exists('output/' . $id . '/out.tex')) {
 		echo "<br><b>Conversion terminée !</b><br>";
 		printlogs($cmdout_python);
 	} else {
 		printlogs($cmdout_python);
 		error("<br><b>Erreur lors de la conversion !</b><br>");
 	}
-	
-	chdir("./output/".$id."/");
-	exec("sh ../../../compile.sh 2>&1", $cmdout_compile, $errcode_compile);
-	printlogs($cmdout_compile);
+
+	chdir("./output/" . $id . "/");
+	exec("sh $path_to_compile_script 2>&1", $cmdout_compile, $errcode_compile);
 
 	exec("zip -r latex.zip . 2>&1", $cmdout_zip, $errcode);
+
+	printlogs($cmdout_compile);
+
 	if ($errcode === 0 && file_exists('latex.zip')) {
 		rename('latex.zip', $pathfinal . 'latex.zip');
 		echo "<p><a href=\"./upload/$id/latex.zip\">Téléchargez vos fichiers LaTeX et le fichier pdf</a></p>";
@@ -118,8 +124,9 @@ if (!empty($_FILES)) {
 		echo '</pre>';
 	}
 
-	if (file_exists('out.pdf')) {
-		echo "<h2>Prévisualisation</h2><p><br><iframe width=\"800\" height=\"900\" src=\"./Python/output/".$id."/out.pdf\"><a href=\"./Python/output/".$id."/out.pdf\">Lien de prévisualisation PDF</a></iframe></p>";
+	if ($errcode_compile === 0 && file_exists('out.pdf')) {
+		rename('out.pdf', $pathfinal . 'out.pdf');
+		echo "<h2>Prévisualisation</h2><p><br><iframe width=\"800\" height=\"900\" src=\"./upload/$id/out.pdf\"><a href=\"./upload/$id/out.pdf\">Lien de prévisualisation PDF</a></iframe></p>";
 	} else {
 		error("Erreur interne : la prévisualisation a échoué ");
 	}

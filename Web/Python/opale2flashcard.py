@@ -1,1 +1,0 @@
-../../Python/opale2flashcard.py
