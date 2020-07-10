@@ -109,7 +109,7 @@ if (!empty($_FILES)) {
 	exec("zip -r latex.zip . 2>&1", $cmdout_zip, $errcode);
 	if ($errcode === 0 && file_exists('latex.zip')) {
 		rename('latex.zip', $pathfinal . 'latex.zip');
-		echo "<p><a href=\"./upload/$id/latex.zip\">Téléchargez vos fichiers LaTeX</a></p>";
+		echo "<p><a href=\"./upload/$id/latex.zip\">Téléchargez vos fichiers LaTeX et le fichier pdf</a></p>";
 		echo "<p><b>Attention, si le nombre de flashcards est important, la prévisualisation peut prendre du temps ... Jusqu'à 10~15 min pour 300+ flashcards.</b></p>";
 	} else {
 		echo '<pre>';
