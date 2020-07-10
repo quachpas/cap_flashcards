@@ -164,7 +164,7 @@ pip3 install qrcode
 How to install :
 1. Move everything in the Web folder to your webserver root folder.
 2. Modify parameters : `$path_to_script_folder`, `$path_to_theme_file`, `$path_to_compile_script` in `index.php`.
-3. Allow others to write in `cap_flashcards/Python/output`.
+3. Allow the webserver user to write in `cap_flashcards/Python/output`, and to execute `cap_flashcards/Python/compile.sh`.
 4. Don't forget to install the fonts (Dancing Script and Roboto Condensed), i.e. move all `.ttf` files in `/usr/share/fonts/truetype` for example.
 5. Adjust maximum script execution time, and max file upload size accordingly to your uses. The script can take quite a long time to compile large amounts of flashcards.
 
