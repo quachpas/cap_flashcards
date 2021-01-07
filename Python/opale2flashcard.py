@@ -471,7 +471,7 @@ def check_output(output, err_count):
             'opale2flashcard.py (--file_name) DANGER ! Specified option "--non_relevant_only" did not work as expected. The error_count does not coincide with the number of flashcards',
         )
 
-def write_logs(err_message, verb_err_message):
+def write_logs(err_message, verb_err_message = None):
     if (args.logs == False):
         if (args.verbose == True and verb_err_message is not None):
             print(verb_err_message)
@@ -487,13 +487,14 @@ def write_logs(err_message, verb_err_message):
         elif (err_message is not None):
             logs.write(time.strftime('opale2flashcard.py:' + "%m-%d-%Y @ %H:%M:%S - ", time.localtime()) + err_message + '\n')
 
-def write_solution(question_type, solution_list, choice_number, question_count):
+
+def write_solution(question_type, solution_list, choice_number, question_num):
     output = ''
     if (args.a4paper is True):
-        (x_shift_1, x_shift_2, y_shift_1, y_shift_2) = solution_positions_a4paper(question_count)
+        (x_shift_1, x_shift_2, y_shift_1, y_shift_2) = solution_positions_a4paper(question_num)
     else:
         (x_shift_1, x_shift_2, y_shift_1, y_shift_2) = ('-0.25cm', '2.75cm', '2.25cm', '2.25cm')
-    
+    question_num += 1
     choice_number += 1
 
     output += "\\begin{tikzpicture}[remember picture, overlay]\n"
@@ -505,7 +506,7 @@ def write_solution(question_type, solution_list, choice_number, question_count):
     output += "\\node [align=left, opacity=1] at ([xshift=" + x_shift_2 + ", yshift=" + y_shift_2 + "]current page.center) {\n"
 
     for choice in range(1, choice_number):
-        if (choice % 4 == 1):
+        if (choice % 3 == 1):
             output += "\color{white}\n$"
         
         output += str(choice) + ':'
@@ -513,45 +514,46 @@ def write_solution(question_type, solution_list, choice_number, question_count):
             output += '\\boxtimes'
         else:
             output += '\\square'
-        if (choice % 4 == 0):
+        if (choice % 3 == 0):
             output += "$"
-            if (choice_number -1 > 4):
+            if (choice_number -1 > 3):
                 output += "\\\\\n"
         else:
             output += "\\qquad"
         
-    if ( (choice_number - 1) % 4 != 0):
-        output += '$'      
+    if ( (choice_number - 1) % 3 != 0):
+        output += '$'
         
     output += "};\n\\end{tikzpicture}\n"
 
     return output
 
 def solution_positions_a4paper(question_count):
+    question_count=(question_count-1)%6+1
     #               1 2       2 1
     # QUESTIONS     3 4   =>  4 3      ANSWERS
     #               5 6       6 5
     # Positions are "reversed"
     if (question_count % 2 == 1):
         # Right side
-        x_shift_1 = '14.75cm'
-        x_shift_2 = '17.75cm'
+        x_shift_1 = '5.75cm'
+        x_shift_2 = '8cm'
     else :
         # Left side 
-        x_shift_1 = '4.75cm'
-        x_shift_2 = '7.75cm'
+        x_shift_1 = '-4.25cm'
+        x_shift_2 = '-2cm'
 
     if (question_count <= 2):
         # Upper
-        y_shift_1 = '-1.75cm'
+        y_shift_1 = '13.2cm'
         y_shift_2 = y_shift_1
     elif (question_count <= 4):
         # Middle
-        y_shift_1 = '-9.85cm'
+        y_shift_1 = '5cm'
         y_shift_2 = y_shift_1
     else:
         # Lower
-        y_shift_1 = '-17.95cm'
+        y_shift_1 = '-3.1cm'
         y_shift_2 = y_shift_1
     
     return (x_shift_1, x_shift_2, y_shift_1, y_shift_2)
@@ -1154,7 +1156,7 @@ def process_write_outfile(flashcard, output, accepted, rejected, flashcard_list,
         
     return (accepted, rejected, accepted_kvp_last_index, next_accepted_index, rejected_kvp_last_index, next_rejected_index, accepted_fc_number, accepted_last_file, rejected_fc_number, rejected_last_file)
 
-def write_output(flashcard, question_count, customqr_valid):
+def write_output(flashcard, question_num, customqr_valid):
     # Variables
     output = []
     (vspace_question, vspace_answer) = calc_vspace_parameters(flashcard)
@@ -1235,7 +1237,7 @@ def write_output(flashcard, question_count, customqr_valid):
     output.append('}\n')
     output.append('\\vspace*{\\stretch{1}}\n\\color{white}\n')
     # Answer/Solution
-    output.append(write_solution(flashcard.question_type, flashcard.solution_list, flashcard.choice_number, question_count))
+    output.append(write_solution(flashcard.question_type, flashcard.solution_list, flashcard.choice_number, question_num))
     output.append('\\vspace{' + str(vspace_answer))
     
     if (args.a4paper is True):
@@ -1523,14 +1525,18 @@ def write_empty_flashcards(accepted_lfile, accepted_last_file, rejected_lfile, r
         
     return (accepted_lfile, accepted_last_file, rejected_lfile, rejected_last_file, accepted_fc_nb, accepted_fc_number, rejected_fc_nb, rejected_fc_number, previous_accepted_file, previous_rejected_file)
 
+
+g_valid_num = 1
 def write_flashcards(flashcard_list, customqr_valid):
 # Write output string and write in outfile
 ## Default output format
+    global g_valid_num
     accepted = {}
     rejected = {}
     output = []
     previous_subject = ''
     question_count = len(flashcard_list)
+    question_num = 1
     current_index = 0
     accepted_kvp_last_index = -1
     next_accepted_index = -1
@@ -1546,6 +1552,7 @@ def write_flashcards(flashcard_list, customqr_valid):
     rejected_lfile = ""
     previous_accepted_file = flashcard_list[0].file
     previous_rejected_file = flashcard_list[0].file
+
     for flashcard in flashcard_list:
         # Empty flashcards
         if (args.a4paper is True):
@@ -1556,13 +1563,16 @@ def write_flashcards(flashcard_list, customqr_valid):
             if (flashcard.err_flag is False and flashcard.overflow_flag is False and flashcard.relevant is True or args.force is True):
                 previous_subject = flashcard.subject
             write_background_parameter(flashcard)
-        
+        output.append("\n% QUESTION NUM "+ str(question_num)+"\n")
         # Create a standard output
-        for out in write_output(flashcard, question_count, customqr_valid):
+        for out in write_output(flashcard, g_valid_num, customqr_valid):
             output.append(out)
+        question_num+=1
                 
         # Separate output according to flashcard validity
         (accepted, rejected, accepted_kvp_last_index, next_accepted_index, rejected_kvp_last_index, next_rejected_index, accepted_fc_number, accepted_last_file, rejected_fc_number, rejected_last_file) = process_write_outfile(flashcard, output, accepted, rejected, flashcard_list, current_index, accepted_kvp_last_index, next_accepted_index, rejected_kvp_last_index, next_rejected_index, customqr_valid)
+        if (flashcard.err_flag is False and flashcard.overflow_flag is False and flashcard.relevant is True or args.force == True):
+            g_valid_num += 1
         output = []
         current_index += 1
         

@@ -102,19 +102,19 @@ center,
                 \checkoddpage
                 \ifoddpage
                     % Subject front header
-                    \node at ([xshift = -0.85 cm, yshift = -0.85 cm]current page.north) {
+                    \node at ([xshift = -1 cm, yshift = -0.45 cm]current page.north) {
                         \includesvg[width = 1.0\textwidth]{\frontheader}
                     };
                     % Subject front footer
-                    \node at ([xshift = 0.75 cm, yshift = 0.5 cm]current page.south) {
-                        \includesvg[width = 1.0\textwidth]{\frontfooter}
+                    \node at ([xshift = 0.3 cm, yshift = 0.85 cm]current page.south) {
+                        \includesvg[width = 0.92\textwidth]{\frontfooter}
                     };
                     % Subject icon
-                    \node [opacity = 1] at ([xshift = 1.25 cm, yshift = -1 cm]current page.north west) {
-                        \includesvg[height = 0.140\textheight]{icons/\subjecticon}
+                    \node [opacity = 1] at ([xshift = 1.25 cm, yshift = -0.45 cm]current page.north west) {
+                        \includesvg[height = 0.120\textheight]{icons/\subjecticon}
                     };
                     % Subject text
-                    \node [opacity = 1] at ([xshift = -1.4 cm, yshift = -0.75 cm]current page.north) {
+                    \node [opacity = 1] at ([xshift = -1.4 cm, yshift = -0.25 cm]current page.north) {
                         \color{white}
                         \Large
                         \textsf{#2}
@@ -130,8 +130,8 @@ center,
                         \end{varwidth}
                     };
                     % University front logo
-                    \node [opacity=1] at ([xshift = -1.75 cm, yshift = 0.75 cm]current page.south east) {                    
-                        \includegraphics[max height = 0.135\textheight, center, keepaspectratio]{\frontuniversitylogo}
+                    \node [opacity=1] at ([xshift = -2 cm, yshift = 1.05 cm]current page.south east) {                    
+                        \includegraphics[max height = 0.115\textheight, center, keepaspectratio]{\frontuniversitylogo}
                     };
                     % Complexity level
                     \node [opacity=1] at ([xshift = -2.75 cm, yshift = 1.175 cm]current page.south) {
@@ -140,19 +140,19 @@ center,
                     };
                 \else
                     % Back background
-                    \node at (current page.center) {
+                    \node at ([xshift = -0.5 cm, yshift = 0.5 cm]current page.center) {
                         \includesvg[width = 1.1\textwidth]{\backbackground}
                     };
                     % Subject back header
-                    \node at ([xshift = -0.85 cm, yshift = -0.85 cm]current page.north) {
+                    \node at ([xshift = -1 cm, yshift = -0.5 cm]current page.north) {
                         \includesvg[width = 1.0\textwidth]{\backheader}
                     };
                     % Subject back footer
-                    \node at ([xshift = 0.75 cm, yshift = 0.5 cm]current page.south) {
+                    \node at ([xshift = 0.3 cm, yshift = 0.85 cm]current page.south) {
                         \includesvg[width = 1.0\textwidth]{\backfooter}
                     };
                     % Subject text
-                    \node [opacity = 1] at ([xshift = -1.4 cm, yshift = -0.75 cm]current page.north) {
+                    \node [opacity = 1] at ([xshift = -1.4 cm, yshift = -0.25 cm]current page.north) {
                         \color{physicsviolet}
                         \Large
                         \textsf{#2}
@@ -162,8 +162,8 @@ center,
 % QRCODE
                     };
                     % University back logo
-                    \node [opacity=1] at ([xshift = -1.75 cm, yshift = 0.75 cm]current page.south east) {                    
-                        \includesvg[height = 0.125\textheight]{\backuniversitylogo}
+                    \node [opacity=1] at ([xshift = -2 cm, yshift = 1.15 cm]current page.south east) {                    
+                        \includesvg[height = 0.105\textheight]{\backuniversitylogo}
                     };
                 \fi
             \end{tikzpicture}
